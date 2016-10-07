@@ -1,0 +1,11 @@
+import * as Class from "wat-classes";
+
+<div class={{Class.LAYOUT_ACCOUNT}}>
+
+    <div class={{Class.LAYOUT_ACCOUNT_CONTENT}}>
+
+      {{this.children}}
+
+    </div>
+
+</header>

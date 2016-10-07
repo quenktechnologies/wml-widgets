@@ -1,0 +1,12 @@
+import MenuButton from "../../menu-button/MenuButton";
+import * as Class from "wat-classes";
+
+<div class={{Class.LAYOUT_ACTION_AREA}}>
+
+  <MenuButton wat:onClick={{this.attributes.read('wat:onMenuButtonClicked', this.noop)}}/>
+
+  <div class={{Class.LAYOUT_ACTION_AREA_CONTENT}}>
+    {{this.children}}
+  </div>
+
+</div>

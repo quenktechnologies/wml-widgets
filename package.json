@@ -1,0 +1,26 @@
+{
+  "name": "wml-app-toolkit",
+  "version": "0.1.0",
+  "description": "Various wml widgets for creating web apps.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --opts mocha.opts test",
+    "build": "rm -R lib/*; mkdir -p lib; ./node_modules/.bin/babel -D src -s inline -d lib",
+    "layout-example": "./node_modules/.bin/browserify --debug -t ./node_modules/wmljs/lib/transform -t babelify examples/src/layout > examples/js/layout.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "wml-app-toolkit": "file:lib",
+    "wat-classes": "file:lib/lib/wat-classes",
+    "babel-cli": "^6.14.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-export-extensions": "^6.8.0",
+    "babel-preset-es2015": "^6.14.0",
+    "babel-register": "^6.14.0",
+    "less": "^2.7.1",
+    "mocha": "^2.3.4",
+    "must": "^0.13.1"
+  },
+  "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
+  "license": "Apache-2.0"
+}

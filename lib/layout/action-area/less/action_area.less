@@ -1,0 +1,112 @@
+
+.wat-layout-action-area {
+
+  width: ~"calc(100% -" @wat-layout-drawer-width ~")";
+  height: 56px;
+  display:block;
+  position:fixed;
+  background-color: @wat-layout-action-bar-background-color;
+  z-index: 200;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.07); 
+  .slidesition();
+
+}
+
+@media(max-width: @wat-breakpoint) {
+
+  .wat-layout-action-area {
+
+    width: 100%;
+
+  }
+
+}
+
+.wat-layout-action-area-content {
+
+  width: 100%;
+  display: inline;
+  display: flex;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-flex-wrap: wrap;
+  flex-wrap:  wrap; 
+  padding: 0 10px;
+  background: #fff;
+
+}
+
+.wat-layout-action-area-content .wat-layout-menu-button {
+
+  -webkit-flex: 0 0 auto;
+  -ms-flex: 0 0 auto;
+  flex: 0 0 auto; 
+  -webkit-order: 0;
+  -ms-flex-order: 0;
+  order: 0;
+
+}
+
+.wat-layout-action-area-content .main-content {
+
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  -webkit-order: 1;
+  -ms-flex-order: 1;
+  order: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap; 
+
+  & .breadcrumb {
+
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    background-color: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+  }
+
+}
+
+.wat-layout-action-area-content .secondary-content {
+
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  -webkit-order: 2;
+  -ms-flex-order: 2;
+  order: 2;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+
+  &>.btn {
+
+    -webkit-flex-grow: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+
+  }
+
+}
+
+

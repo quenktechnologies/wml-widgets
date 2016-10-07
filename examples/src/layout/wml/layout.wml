@@ -1,0 +1,70 @@
+import {Container, Drawer, Main, ActionArea, MenuButton, Banner} from '../../../../lib/layout';
+import {SideNavigation, SideNavigationItem, AccountArea} from '../../../../lib/layout';
+import {BreadCrumbMenu, BreadCrumb} from '../../../../lib/components';
+
+<Container>
+
+    <Drawer wml:id="drawer">
+
+        <Banner wat:image="img/logo.svg"/>
+
+        <SideNavigation>
+
+            <SideNavigationItem 
+            wat:href="#/dashboard"
+            wat:title="Dashboard"
+            wat:active={{window.location.hash== '#/dashboard'}}
+            wat:onClick={{i=>i.active()}}/>
+
+            <SideNavigationItem 
+            wat:href="#/messages"
+            wat:title="Messages"
+            wat:active={{window.location.hash == '#/messages'}}
+            wat:onClick={{i=>i.active()}}/>
+
+            <SideNavigationItem 
+            wat:href="#/invoices"
+            wat:title="Invoices"
+            wat:active={{window.location.hash == '#/invoices'}}
+            wat:onClick={{i=>i.active()}}/>
+
+            <SideNavigationItem 
+            wat:href="#/settings"
+            wat:title="Settings"
+            wat:active={{window.location.hash == '#/settings'}}
+            wat:onClick={{i=>i.active()}}/>
+
+        </SideNavigation>
+
+        <AccountArea wat:title="Jane Joe"></AccountArea>
+
+    </Drawer>
+    
+    <MenuButton wat:onClick={{this::menuButtonClicked}}/>
+
+    <ActionArea wat:onMenuButtonClicked={{this::menuButtonClicked}}>
+
+        <h3 class="main-content">
+
+            <BreadCrumbMenu>
+
+              <BreadCrumb wat:href="#">Home</Item>
+              <BreadCrumb wat:href="#" wat:active={{true}}>Example</Item>
+
+            </BreadCrumbMenu>
+
+        </h3>
+
+        <div class="secondary-content">
+            <button class="btn btn-default">Left</button>
+            <button class="btn btn-default">Right</button>
+            <button class="btn btn-primary">Save</button>
+        </div>
+    
+  </ActionArea>
+
+    <Main>
+
+    </Main>
+
+</Container>

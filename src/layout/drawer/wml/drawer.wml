@@ -1,0 +1,11 @@
+import * as Class from 'wat-classes';
+
+<div wml:id="drawer" class={{Class.LAYOUT_DRAWER}}>
+
+  <div class={{Class.LAYOUT_DRAWER_CONTENT}}>
+
+    {{this.children}}
+
+  </div>
+
+</div>

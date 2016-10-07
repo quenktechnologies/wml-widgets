@@ -1,0 +1,11 @@
+import * as Class from "wat-classes";
+
+<div class={{Class.LAYOUT_SIDE_FOOTER}}>
+
+    <div class={{Class.LAYOUT_SIDE_FOOTER_CONTENT}}>
+
+      {{this.children}}
+
+    </div>
+
+</header>

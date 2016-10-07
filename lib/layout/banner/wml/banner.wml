@@ -1,0 +1,22 @@
+import * as Class from "wat-classes";
+
+<header class={{Class.LAYOUT_BANNER}}>
+
+  {% if this.attributes.read('wat:image', false) %}
+
+      <h1>
+
+        <a href={{this.attributes.read('wat:href', '#')}}>
+
+          <img
+            class={{Class.LAYOUT_BANNER_IMAGE}}
+            src={{this.attributes.read('wat:image')}}
+            alt="banner"/>
+
+        </a>
+
+      </h1>
+
+  {% endif %}
+
+</header>

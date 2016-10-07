@@ -1,0 +1,15 @@
+import * as Class from "wat-classes";
+
+<div wml:id="root" class={{Class.LAYOUT_ACCOUNT_AREA}}>
+
+  <button onclick={{this::toggle}}>
+
+    <span class={{Class.LAYOUT_ACCOUNT_AREA_TITLE}}>
+      {{this.attributes.read('wat:title')}}
+    </span>
+
+  </button>
+
+  {{this.children}}
+
+</div>

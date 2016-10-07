@@ -1,0 +1,9 @@
+import * as Class from 'wat-classes';
+
+<div class={{Class.LAYOUT_CONTAINER}}>
+  {{this.children}}
+</div>
+        
+        
+
+

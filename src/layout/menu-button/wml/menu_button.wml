@@ -1,0 +1,9 @@
+import * as Class from 'wat-classes';
+
+<button class={{Class.LAYOUT_MENU_BUTTON}} onclick={{this::clicked}}>
+
+    <span class=""/>
+    <span class=""/>
+    <span class=""/>
+
+</button>

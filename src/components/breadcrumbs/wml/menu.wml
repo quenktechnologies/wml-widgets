@@ -1,0 +1,6 @@
+
+<ol class="breadcrumb">
+
+  {{this.children}}
+
+</ol>
