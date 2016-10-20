@@ -1,0 +1,10 @@
+<div class={{this.getClass()}}>
+    <label for={{this.id}} class="control-label">{{this.label}}</label>
+    <textarea 
+    id={{this.id}}
+    name={{this.name}} 
+    type={{this.type}} 
+    oninput={{this=>input}} 
+    class="form-control" />
+    <span wml:id="span" class="help-block">{{this.message}}</span>
+</div>

@@ -1,0 +1,11 @@
+<div class={{this.getClass()}}>
+    <label for={{this.id}} class="control-label">{{this.label}}</label>
+    <input
+    id={{this.id}}
+    name={{this.name}} 
+    type={{this.type}} 
+    oninput={{this=>input}} 
+    value={{this.value}}
+    class="form-control" />
+    <span wml:id="span" class="help-block">{{this.message}}</span>
+</div>

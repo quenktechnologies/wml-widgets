@@ -1,0 +1,18 @@
+import * as Class from 'wat-classes';
+
+<div class={{Class.WAT_KIT_AUTOCOMPLETE}}>
+
+          <input 
+          wml:id="input"
+          type="text" 
+          class={{this.attributes.read('wat:inputClass')}}
+          onkeydown={{this::handleKeyDown}}
+          onkeyup={{this::handleKeyUp}}
+          oninput={{this::handleInput}}
+          placeholder={{this.attributes.read('wat:placeholder', 'Type here to search')}}/>
+
+        <div 
+          wml:id="options" 
+          class={{Class.WAT_KIT_AUTOCOMPLETE_OPTIONS}}/>
+
+</div>

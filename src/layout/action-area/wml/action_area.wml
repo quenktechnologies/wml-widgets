@@ -5,7 +5,7 @@ import * as Class from "wat-classes";
 
   <MenuButton wat:onClick={{this.attributes.read('wat:onMenuButtonClicked', this.noop)}}/>
 
-  <div class={{Class.LAYOUT_ACTION_AREA_CONTENT}}>
+  <div wml:id="content" class={{Class.LAYOUT_ACTION_AREA_CONTENT}}>
     {{this.children}}
   </div>
 

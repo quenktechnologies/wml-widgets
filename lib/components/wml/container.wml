@@ -1,0 +1,3 @@
+<section class={{this.className}}>
+      {{this.children}}
+</section>

@@ -1,7 +1,0 @@
-import * as Class from "wat-classes";
-
-<nav class={{Class.LAYOUT_SIDENAV}}>
-
-  {{this.children}}
-
-</nav>

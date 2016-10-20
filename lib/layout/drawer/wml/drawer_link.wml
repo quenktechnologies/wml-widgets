@@ -1,0 +1,19 @@
+import * as Class from "wat-classes";
+
+<a 
+  wml:id="a"
+  class={{this.attributes.read('wat:active', false)? Class.ACTIVE : ''}}
+  href={{this.attributes.read('wat:href')}}
+  onclick={{this::clicked}}>
+
+    {% if this.attributes.read('wat:icon-class', false) %}
+
+        <i class={{Class.LAYOUT_DRAWER_LINK_ICON + this.attributes.read('wat:icon-class')}}></i>
+    
+    {% endif %}
+
+    {{this.attributes.read('wat:title')}}
+
+    {{this.children}}
+
+</a>

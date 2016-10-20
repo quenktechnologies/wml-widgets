@@ -1,0 +1,26 @@
+import {ModalHeader, ModalBody, ModalFooter, Button} from 'components';
+
+<fragment>
+
+    <ModalHeader>
+        Create a new user
+    </ModalHeader>
+     <ModalBody>
+         <p> :O</p>
+     </ModalBody>
+
+     <ModalFooter>
+
+        <Button
+          wat:variant="default"
+          wat:onClick={{this::cancel}}
+          wat:text="Cancel"/>
+
+        <Button
+          wat:variant="primary"
+          wat:onClick={{this::save}}
+          wat:text="Save"/>
+        
+     </ModalFooter>
+
+</fragment>

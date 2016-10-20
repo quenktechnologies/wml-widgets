@@ -1,4 +1,4 @@
-import {View, Widget} from 'wmljs/lib/runtime';
+import { View, Widget } from 'wmljs/lib/runtime';
 import main from './wml/main.wml';
 
 /**
@@ -6,12 +6,34 @@ import main from './wml/main.wml';
  */
 class Main extends Widget {
 
+    constructor(attrs, children) {
+
+        super(attrs, children);
+        this.view = new View(main, this);
+
+    }
+
+    /**
+     * setContent replaces the content of this Main view.
+     * @param {Renderable} r
+     */
+    setContent(r) {
+
+        var root = this.view.findById('root');
+
+        while (root.lastChild)
+            root.removeChild(root.lastChild);
+
+        root.appendChild(r.render());
+
+
+    }
+
     render() {
 
-        return View.render(main, this);
+        return this.view.render();
 
     }
 
 }
 export default Main
-

@@ -14,6 +14,21 @@ class ActionArea extends Widget {
 
     }
 
+    /**
+     * setContent replaces the content of this view.
+     * @param {Renderable} r
+     */
+    setContent(r) {
+
+        var content = this.view.findById('content');
+
+        while (content.lastChild)
+            content.removeChild(content.lastChild);
+
+        content.appendChild(r.render());
+
+    }
+
     noop() {
 
     }

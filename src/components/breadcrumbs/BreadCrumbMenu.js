@@ -1,4 +1,5 @@
 import { View, Widget } from 'wmljs/lib/runtime';
+import BreadCrumb from './BreadCrumb';
 import menu from './wml/menu.wml';
 
 /**
@@ -6,9 +7,17 @@ import menu from './wml/menu.wml';
  */
 class BreadCrumbMenu extends Widget {
 
+    constructor(attrs, children) {
+
+        super(attrs, children);
+
+        this.view = new View(menu, this);
+
+    }
+
     render() {
 
-        return View.render(menu, this);
+        return this.view.render();
 
     }
 }

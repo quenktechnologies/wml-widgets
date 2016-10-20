@@ -1,0 +1,4 @@
+
+<img
+src={{this.attributes.read('wat:src')}}
+alt={{this.attributes.read('wat:alt')}} />

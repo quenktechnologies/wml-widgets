@@ -1,0 +1,6 @@
+
+<div class="jumbotron">
+
+  {{this.children}}
+
+</div>
