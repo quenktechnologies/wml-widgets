@@ -6,6 +6,14 @@
   background-color: @wat-layout-main-background-color;
   .slidesition();
 
+  /* Ambitiousattempt to prevent siblings from being blocked by the action area when in Main*/
+
+  &>.wat-layout-action-area + * {
+
+    padding-top: @wat-layout-action-area-height;
+
+  }
+
 }
 
 .wat-layout-main-content {

@@ -1,5 +1,20 @@
 
-<button
-  name={{this.attributes.read('wat:name')}}
-  class={{this.getClass()}}
-  onclick={{this::clicked}}>{{this.attributes.read('wat:text')}}{{this.children}}</button>
+<fragment>
+
+      {% if this.attributes.read('wat:href') %}
+
+      <a
+      href={{this.attributes.read('wat:href')}}
+      onclick={{this::clicked}}>{{this.attributes.read('wat:text')}}{{this.children}}</a>
+
+      {% else %}
+
+            <button
+            name={{this.attributes.read('wat:name')}}
+            class={{this.getClass()}}
+            onclick={{this::clicked}}>{{this.attributes.read('wat:text')}}{{this.children}}</button>
+
+      {% endif %}
+
+</fragment>
+

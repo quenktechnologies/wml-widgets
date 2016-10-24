@@ -13,7 +13,7 @@ class Input extends Widget {
     constructor(attrs, children) {
 
         super(attrs, children);
-        this.view = new View(layout,  this);
+        this.view = new View(layout, this);
 
     }
 

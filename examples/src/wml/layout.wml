@@ -19,6 +19,7 @@ Container,
 Row,
 Column,
 Autocomplete,
+Select,
 Switch} from 'components';
 
 <LayoutContainer>
@@ -61,9 +62,13 @@ Switch} from 'components';
 
     </Drawer>
     
-    <ActionArea 
-    wml:id="actions"
-    wat:onMenuButtonClicked={{this::menuButtonClicked}}>
+    
+
+    <Main wml:id="content">
+
+        <ActionArea 
+        wml:id="actions"
+        wat:onMenuButtonClicked={{this::menuButtonClicked}}>
 
         <h3 class="main-content">
 
@@ -87,8 +92,6 @@ Switch} from 'components';
         </div>
     
   </ActionArea>
-
-    <Main wml:id="content">
 
       <Container>
 
@@ -127,6 +130,21 @@ Switch} from 'components';
           </Column>
 
         </Row>
+
+        <Row>
+
+          <Column>
+
+              <Select
+              wat:name="user"
+              wat:value="Richard"
+              wat:options={{[{value:1, label:'First'}, {value:2, label:'Second'}]}} />
+
+          </Column>
+
+        </Row>
+
+
 
       </Container>
 

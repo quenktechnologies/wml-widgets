@@ -2,10 +2,6 @@ import * as Class from 'wat-classes';
 
 <div class={{Class.LAYOUT_MAIN}}>
 
-  <div class={{Class.LAYOUT_MAIN_CONTENT}}>
-
     {{this.children}}
   
-  </div>
-
 </div>

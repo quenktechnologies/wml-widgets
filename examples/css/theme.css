@@ -6862,6 +6862,10 @@ body {
   -moz-transition: all .5s ease;
   -o-transition: all .5s ease;
   transition: all .5s ease;
+  /* Ambitiousattempt to prevent siblings from being blocked by the action area when in Main*/
+}
+.wat-layout-main > .wat-layout-action-area + * {
+  padding-top: 56px;
 }
 .wat-layout-main-content {
   padding: 20px;

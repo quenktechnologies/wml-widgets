@@ -1,0 +1,39 @@
+<div class={{this.getClass()}}>
+
+  <label 
+  for={{this.attributes.read('wat:id')}} 
+  class="control-label">
+  {{this.attributes.read('wat:label')}}
+  </label>
+
+  <select 
+    wml:id="input"
+    name={{this.attributes.read('wat:name')}} 
+    class="form-control"
+    onchange={{this.attributes.read('wat:onChange')}} 
+    value={{this.attributes.read('wat:value')}}
+    class="form-control">
+
+    {% for opt in this.attributes.read('wat:options', []) %}
+
+      {% if typeof(opt) == 'string' %}
+
+        <option>{{opt}}</option>
+
+      {% else %}
+
+        <option value={{opt.value}}>{{opt.label}}</option>
+
+      {% endif %}
+
+      {% endfor %}
+    
+    {{ this.children }}
+
+  </select>
+
+  <span 
+  wml:id="message" 
+  class="help-block">{{this.attributes.read('message', '')}}</span>
+
+</div>

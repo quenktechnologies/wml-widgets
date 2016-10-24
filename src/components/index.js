@@ -12,10 +12,11 @@ export Row from './Row';
 export Table from './Table';
 export Autocomplete from './autocomplete/Autocomplete';
 export Input from './input/Input';
+export Select from './select/Select';
 export Switch from './switch/Switch';
 export Jumbotron from './jumbotron/Jumbotron';
 export Well from './well/Well';
-export Card from'./card/Card';
+export Card from './card/Card';
 export CardImage from './card/CardImage';
 export CardBlock from './card/CardBlock';
 /* jshint ignore:end */

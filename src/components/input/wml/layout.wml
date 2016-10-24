@@ -13,7 +13,7 @@
     id={{this.attributes.read('wat:id')}}
     name={{this.attributes.read('wat:name')}} 
     type={{this.attributes.read('wat:type', 'text')}} 
-    oninput={{this::input}} 
+    oninput={{this.attributes.read('wat:input')}} 
     value={{this.attributes.read('wat:value')}}
     class="form-control" />
 
