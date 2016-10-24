@@ -33,7 +33,7 @@ class Button extends Widget {
      */
     disable() {
 
-        this.view.findById('root').setAttribute('disabled', 'disabled');
+        this.view.findById('button').setAttribute('disabled', 'disabled');
 
     }
 
@@ -42,14 +42,14 @@ class Button extends Widget {
      */
     enable() {
 
-        this.view.findById('root').removeAttribute('disabled');
+        this.view.findById('button').removeAttribute('disabled');
 
     }
 
     onRendered() {
 
-        if(this.attributes.read('wat:disabled'))
-            this.view.findById('root').setAttribute('disabled', 'disabled');
+        if (this.attributes.read('wat:disabled'))
+            this.view.findById('button').setAttribute('disabled', 'disabled');
 
     }
 

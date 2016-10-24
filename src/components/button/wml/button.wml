@@ -4,12 +4,15 @@
       {% if this.attributes.read('wat:href') %}
 
       <a
+      wml:id="button"
       href={{this.attributes.read('wat:href')}}
+      class={{this.getClass()}}
       onclick={{this::clicked}}>{{this.attributes.read('wat:text')}}{{this.children}}</a>
 
       {% else %}
 
             <button
+            wml:id="button"
             name={{this.attributes.read('wat:name')}}
             class={{this.getClass()}}
             onclick={{this::clicked}}>{{this.attributes.read('wat:text')}}{{this.children}}</button>

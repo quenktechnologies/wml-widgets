@@ -1,6 +1,2 @@
 
-<div class="card-block">
-
-  {{this.children}}
-
-</div>
+<div class="card-block">{{this.attributes.read('wat:children')}}{{this.children}}</div>

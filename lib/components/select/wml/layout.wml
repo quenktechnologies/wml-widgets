@@ -10,7 +10,7 @@
     wml:id="input"
     name={{this.attributes.read('wat:name')}} 
     class="form-control"
-    onchange={{this::input}} 
+    onchange={{this.attributes.read('wat:onChange')}} 
     value={{this.attributes.read('wat:value')}}
     class="form-control">
 
