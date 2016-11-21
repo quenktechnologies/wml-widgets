@@ -13,6 +13,7 @@
 
             <button
             wml:id="button"
+            type={{this.attributes.read('wat:type', 'button')}}
             name={{this.attributes.read('wat:name')}}
             class={{this.getClass()}}
             onclick={{this::clicked}}>{{this.attributes.read('wat:text')}}{{this.children}}</button>

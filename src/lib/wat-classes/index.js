@@ -19,6 +19,7 @@ export const LAYOUT_ACCOUNT_AREA = 'wat-layout-account-area';
 export const LAYOUT_ACCOUNT_AREA_TITLE = 'wat-layout-account-area-title';
 export const LAYOUT_ACCOUNT_AREA_TOGGLE = 'wat-layout-account-area-toggle';
 export const LAYOUT_NOTIFICATION = 'wat-layout-notification';
+export const LAYOUT_OVERLAY = 'way-layout-overlay';
 export const WAT_KIT_AUTOCOMPLETE = 'wat-kit-autocomplete';
 export const WAT_KIT_AUTOCOMPLETE_CONTAINER = 'wat-kit-autocomplete-container';
 export const WAT_KIT_AUTOCOMPLETE_INPUT_AREA = 'wat-kit-autocomplete-input-area';

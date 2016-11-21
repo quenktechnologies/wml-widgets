@@ -1,0 +1,30 @@
+import { View, Widget } from 'wmljs/lib/runtime';
+import search from './search.wml';
+
+/**
+ * Search
+ */
+class Search extends Widget {
+
+    constructor() {
+
+        super(...arguments);
+
+        this.delegate = this.attributes.read('wat:delegate', {
+
+            onInput() {},
+            onSearch() {}
+
+        });
+
+    }
+
+    render() {
+
+        return View.render(search, this);
+
+    }
+
+}
+
+export default Search

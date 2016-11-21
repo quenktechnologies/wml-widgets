@@ -11,27 +11,31 @@
     <input
     wml:id="input"
     id={{this.attributes.read('wat:id')}}
+    title={{this.attributes.read('wat:title')}}
     name={{this.attributes.read('wat:name')}} 
     type={{this.attributes.read('wat:type', 'text')}} 
-    oninput={{this.attributes.read('wat:input')}} 
-    value={{this.attributes.read('wat:value')}}
+    placeholder={{this.attributes.read('wat:placeholder')}}
+    oninput={{this.delegate::onInput}} 
+    value={{this.watValue()}}
     class="form-control" />
 
   {% else %}
 
     <textarea 
+    wml:id="input"
     id={{this.attributes.read('wat:id')}}
+    title={{this.attributes.read('wat:title')}}
     class="form-control"
+    placeholder={{this.attributes.read('wat:placeholder')}}
     name={{this.attributes.read('wat:name')}} 
     type={{this.attributes.read('wat:type', 'text')}} 
-    oninput={{this::input}} 
-    value={{this.attributes.read('wat:value')}}
-    rows={{this.attributes.read('wat:rows')}} />
+    oninput={{this.delegate::onInput}} 
+    rows={{this.attributes.read('wat:rows')}}>{{this.watValue()}}</textarea>
 
   {% endif %}
 
   <span 
   wml:id="message" 
-  class="help-block">{{this.attributes.read('message', '')}}</span>
+  class="help-block">{{this.attributes.read('wat:message', '')}}</span>
 
 </div>

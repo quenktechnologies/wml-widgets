@@ -10,8 +10,8 @@
     wml:id="input"
     name={{this.attributes.read('wat:name')}} 
     class="form-control"
-    onchange={{this.attributes.read('wat:onChange')}} 
-    value={{this.attributes.read('wat:value')}}
+    onchange={{this.delegate::onInput}} 
+    value={{this.watValue()}}
     class="form-control">
 
     {% for opt in this.attributes.read('wat:options', []) %}
@@ -34,6 +34,6 @@
 
   <span 
   wml:id="message" 
-  class="help-block">{{this.attributes.read('message', '')}}</span>
+  class="help-block">{{this.attributes.read('wat:message', '')}}</span>
 
 </div>

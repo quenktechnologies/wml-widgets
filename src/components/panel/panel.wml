@@ -1,0 +1,5 @@
+
+<div class={{'panel panel-'+this.attributes.read('wat:variant', 'default')}}> 
+    {{this.children}}
+</div>
+

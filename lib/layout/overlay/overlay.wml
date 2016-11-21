@@ -1,0 +1,5 @@
+import * as Class from 'wat-classes';
+
+<div class={{Class.LAYOUT_OVERLAY}}/>
+
+

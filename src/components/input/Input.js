@@ -1,9 +1,33 @@
 import { View, Widget } from 'wmljs/lib/runtime';
 import layout from './wml/layout.wml';
 
-const INPUT_SUCCESS = 'has-succes';
+const INPUT_SUCCESS = 'has-success';
 const INPUT_ERROR = 'has-error';
 const INPUT_WARNING = 'has-warning';
+
+class DefaultInputDelegate {
+
+    constructor(attributes) {
+
+        this.attributes = attributes;
+
+    }
+
+    onAttached(input) {
+
+    }
+
+    /**
+     * onInput is called when the underlying control fires an input event.
+     * @param {Event} e
+     */
+    onInput(e) {
+
+        this.attributes.read('wat:onInput', function() {})(e);
+
+    }
+
+}
 
 /**
  * Input
@@ -14,6 +38,27 @@ class Input extends Widget {
 
         super(attrs, children);
         this.view = new View(layout, this);
+        this.delegate = attrs.read('wat:delegate', new DefaultInputDelegate(attrs));
+
+    }
+
+    get value() {
+
+       return this.view.findById('input').value;
+
+    }
+
+    onRendered() {
+
+        this.delegate.onAttached(this);
+
+    }
+
+    watValue() {
+
+        var ret = this.attributes.read('wat:value');
+
+        return (typeof ret === 'function') ? ret(this.attributes.read('wat:name')) : ret;
 
     }
 
@@ -31,15 +76,6 @@ class Input extends Widget {
 
     }
 
-    input(e) {
-
-        var set = this.attributes.read('wat:set', function() {});
-
-        this.reset();
-        set(e.target.name, e.target.value, this);
-
-    }
-
     /**
      * setMessage sets the message for the message portion of
      * this input.
@@ -48,11 +84,11 @@ class Input extends Widget {
     setMessage(msg = '') {
 
         var message = this.view.findById('message');
-var node = document.createTextNode(msg);
+        var node = document.createTextNode(msg);
 
         if (message.firstChild) {
-            message.replaceChild(message.firstChild, node  );
-        }else{
+            message.replaceChild(node, message.firstChild);
+        } else {
             message.appendChild(node);
         }
 
@@ -97,9 +133,8 @@ var node = document.createTextNode(msg);
      */
     invalidate(message = '') {
 
-        if (message)
-            this.setMessage(message);
-
+        this.setMessage(message);
+        this.view.findById('root').classList.remove(INPUT_SUCCESS);
         this.view.findById('root').classList.remove(INPUT_ERROR);
         this.view.findById('root').classList.add(INPUT_ERROR);
 
@@ -112,9 +147,8 @@ var node = document.createTextNode(msg);
      */
     validate(message = '') {
 
-        if (message)
-            this.setMessage(message);
-
+        this.setMessage(message);
+        this.view.findById('root').classList.remove(INPUT_ERROR);
         this.view.findById('root').classList.remove(INPUT_SUCCESS);
         this.view.findById('root').classList.add(INPUT_SUCCESS);
 
@@ -152,6 +186,16 @@ var node = document.createTextNode(msg);
 
     }
 
+    /**
+     * getName returns the name of this Input
+     * @returns {string}
+     */
+    getName() {
+
+        return this.attributes.read('wat:name');
+
+    }
+
     render() {
 
         return this.view.render();
@@ -160,4 +204,5 @@ var node = document.createTextNode(msg);
 
 }
 
+export { DefaultInputDelegate }
 export default Input
