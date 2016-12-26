@@ -4,26 +4,50 @@ import layout from './wml/layout.wml';
 const INPUT_SUCCESS = 'has-success';
 const INPUT_ERROR = 'has-error';
 const INPUT_WARNING = 'has-warning';
+const noop = function(){};
 
-class DefaultInputDelegate {
-
-    constructor(attributes) {
-
-        this.attributes = attributes;
-
-    }
-
-    onAttached(input) {
-
-    }
+/**
+ * InputDelegate is an interface inputs can delegate all their events to.
+ * Currently only supports the 'oninput' event handler.
+ */
+export class InputDelegate {
 
     /**
      * onInput is called when the underlying control fires an input event.
      * @param {Event} e
+     * @param {Input} input
      */
+    onInput() {
+
+    }
+
+}
+
+/**
+ * @private
+ */
+class Adapter {
+
+    constructor(delegate, input) {
+
+        this._delegate = delegate;
+        this._input = input;
+
+    }
+
     onInput(e) {
 
-        this.attributes.read('wat:onInput', function() {})(e);
+        this._delegate.onInput(e, this.input);
+
+    }
+
+}
+
+class DefaultInputDelegate {
+
+    onInput(e) {
+
+        this.attributes.read('wat:onInput', noop)(e);
 
     }
 
@@ -37,20 +61,18 @@ class Input extends Widget {
     constructor(attrs, children) {
 
         super(attrs, children);
+
         this.view = new View(layout, this);
-        this.delegate = attrs.read('wat:delegate', new DefaultInputDelegate(attrs));
+
+        this.delegate = new Adapter(
+            attrs.read('wat:delegate',
+                new DefaultInputDelegate(attrs)), this);
 
     }
 
     get value() {
 
        return this.view.findById('input').value;
-
-    }
-
-    onRendered() {
-
-        this.delegate.onAttached(this);
 
     }
 
@@ -72,7 +94,7 @@ class Input extends Widget {
         if (!this.attributes.read('wat:message'))
             return c;
 
-        return `${c} has-error`;
+        return `${c} ${this.attributes.read('wat:variant', 'has-error')}`;
 
     }
 
