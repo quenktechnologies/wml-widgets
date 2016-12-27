@@ -4,7 +4,7 @@ import layout from './wml/layout.wml';
 const INPUT_SUCCESS = 'has-success';
 const INPUT_ERROR = 'has-error';
 const INPUT_WARNING = 'has-warning';
-const noop = function(){};
+const noop = function() {};
 
 /**
  * InputDelegate is an interface inputs can delegate all their events to.
@@ -26,7 +26,7 @@ export class InputDelegate {
 /**
  * @private
  */
-class Adapter {
+export class Adapter {
 
     constructor(delegate, input) {
 
@@ -37,7 +37,7 @@ class Adapter {
 
     onInput(e) {
 
-        this._delegate.onInput(e, this.input);
+        this._delegate.onInput(e, this._input);
 
     }
 
@@ -72,7 +72,7 @@ class Input extends Widget {
 
     get value() {
 
-       return this.view.findById('input').value;
+        return this.view.findById('input').value;
 
     }
 
