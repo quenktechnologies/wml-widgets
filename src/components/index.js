@@ -22,6 +22,7 @@ export PanelBody from './panel/Body';
 export PanelFooter from './panel/Footer';
 export Card from './card/Card';
 export CardImage from './card/CardImage';
+export CardTitle from './card/CardTitle';
 export CardBlock from './card/CardBlock';
 export Tab from './tabs/Tab';
 export Tabs from './tabs/Tabs';
