@@ -1,7 +1,8 @@
 <li wml:id="root" role="presentation" class={{this.attributes.read('wat:active', false)? 'active' : ''}}>
 
-    <a href="#" onclick={{this::clicked}}>
+    <a wml:id="link" href="#" onclick={{this::clicked}}>
       {{this.children}}
+      {{this.attributes.read('wat:text', '')}}
     </a> 
 
 </li>

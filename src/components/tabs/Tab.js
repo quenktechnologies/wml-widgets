@@ -14,6 +14,15 @@ class Tab extends Widget {
 
     }
 
+    /**
+     * click this Tab
+     */
+    click() {
+
+        this.view.findById('link').click();
+
+    }
+
     clicked(e) {
 
         e.preventDefault();
