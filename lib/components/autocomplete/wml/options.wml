@@ -13,7 +13,7 @@ import property from 'property-seek';
 
                     {% include 
                     this.autocomplete.attributes.read('wat:optionTemplate')
-                    [property(option, this.autocomplete.read('wat:valueField')), index, option] %}
+                    [property(option, this.autocomplete.attributes.read('wat:valueField')), index, option] %}
 
                 {% else %}
 

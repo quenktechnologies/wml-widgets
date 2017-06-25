@@ -36,6 +36,20 @@ class Modal extends Widget {
             show: true
         }));
 
+        this.modal.show();
+
+    }
+
+    /**
+     * off this modal
+     */
+    off() {
+
+        this.modal.hide();
+        this.modal.off();
+
+        document.body.classList.remove('modal-open');
+
     }
 
     render() {

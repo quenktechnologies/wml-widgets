@@ -17,6 +17,8 @@
     placeholder={{this.attributes.read('wat:placeholder')}}
     oninput={{this.delegate::onInput}} 
     value={{this.watValue()}}
+    disabled={{this.attributes.read('wat:disabled', null)}}
+    readonly={{this.attributes.read('wat:readonly', null)}}
     class="form-control" />
 
   {% else %}
@@ -30,6 +32,8 @@
     name={{this.attributes.read('wat:name')}} 
     type={{this.attributes.read('wat:type', 'text')}} 
     oninput={{this.delegate::onInput}} 
+    disabled={{this.attributes.read('wat:disabled', null)}}
+    readonly={{this.attributes.read('wat:readonly', null)}}
     rows={{this.attributes.read('wat:rows')}}>{{this.watValue()}}</textarea>
 
   {% endif %}

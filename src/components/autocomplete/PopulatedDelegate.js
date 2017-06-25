@@ -1,5 +1,6 @@
 import { View } from 'wmljs/lib/runtime';
 import * as Class from 'wat-classes';
+import property from 'property-seek';
 import AutocompleteDelegate from './AutocompleteDelegate';
 
 /**

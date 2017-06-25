@@ -12,6 +12,8 @@
     class="form-control"
     onchange={{this.delegate::onInput}} 
     value={{this.watValue()}}
+    disabled={{this.attributes.read('wat:disabled', null)}}
+    readonly={{this.attributes.read('wat:readonly', null)}}
     class="form-control">
 
     {% for opt in this.attributes.read('wat:options', []) %}

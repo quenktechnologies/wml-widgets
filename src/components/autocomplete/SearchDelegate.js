@@ -1,4 +1,5 @@
 import { View } from 'wmljs/lib/runtime';
+import property from 'property-seek';
 import beof from 'beof';
 import * as Class from 'wat-classes';
 import nop from 'nop';
@@ -16,6 +17,7 @@ class SearchDelegate extends AutocompleteDelegate {
 
         this.optionsView = new View(options, this);
         this.options = [];
+        this.picked = [];
 
     }
 
@@ -55,20 +57,27 @@ class SearchDelegate extends AutocompleteDelegate {
         var display = '';
 
         this.autocomplete.attributes.read('wat:set', function() {})(
+
+            this.autocomplete.attributes.read('wat:name'),
             (this.autocomplete.attributes.read('wat:valueField')) ?
             property(this.options[index], this.autocomplete.attributes.read('wat:valueField')) :
-            this.options[index], this.autocomplete.attributes.read('wat:name'));
+            this.options[index], this.autocomplete);
 
-        if (this.autocomplete.attributes.read('wat:labelField')) {
-            display = property(choice, this.autocomplete.attributes.read('wat:labelField'));
-        } else if (this.autocomplete.attributes.read('wat:valueField')) {
-            display = property(choice, this.autocomplete.attributes.read('wat:valueField'));
-        } else {
-            display = choice;
+        if (this.autocomplete.attributes.read('wat:updateText', true)) {
+
+            if (this.autocomplete.attributes.read('wat:labelField')) {
+                display = property(choice, this.autocomplete.attributes.read('wat:labelField'));
+            } else if (this.autocomplete.attributes.read('wat:valueField')) {
+                display = property(choice, this.autocomplete.attributes.read('wat:valueField'));
+            } else {
+                display = choice;
+            }
+
+            this.autocomplete.set(display);
+            this.autocomplete.choice = choice;
+
         }
 
-        this.autocomplete.set(display);
-        this.autocomplete.choice = choice;
         this.autocomplete.toSelection();
 
     }

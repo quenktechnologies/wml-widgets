@@ -34,7 +34,7 @@ class Tab extends Widget {
             us[i].classList.remove('active');
 
         this.view.root.classList.add('active');
-        this.attributes.read('wat:onClick', function() {})();
+        this.attributes.read('wat:onClick', function() {})(this.attributes.read('wat:name'));
 
     }
 

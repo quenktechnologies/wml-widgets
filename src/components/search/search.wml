@@ -1,23 +1,24 @@
-<form onsubmit={{e=>this.delegate.onSearch(e)}}>
-<div class="input-group">
+<form onsubmit={{this.delegate::onSubmit}}>
 
+<div class="input-group">
+       
     <input 
     type="text" 
     class="form-control"
     name={{this.attributes.read('wat:name', 'search')}}
-    value={{this.attributes.read('wat:value', '')}}
+    value={{this.attributes.read('wat:value')}}
     oninput={{(e)=>this.delegate.onInput(e)}} 
     placeholder={{this.attributes.read('wat:placeholder', 'Search') }}/>
-
+    
     <span class="input-group-btn">
-
+    
         <button 
         class={{'btn btn-'+this.attributes.read('wat:variant', 'default')}}
         type="button" 
         onclick={{e=>this.delegate.onSearch(e)}}>Search</button>
-
+    
     </span>
-
+    
 </div> 
 
 </form>

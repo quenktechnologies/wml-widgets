@@ -11,10 +11,9 @@ class Search extends Widget {
         super(...arguments);
 
         this.delegate = this.attributes.read('wat:delegate', {
-
             onInput() {},
-            onSearch() {}
-
+            onSubmit(){},
+            onSearch() {},
         });
 
     }
