@@ -1,4 +1,4 @@
-import { View, Widget } from 'wmljs/lib/runtime';
+import { View, Widget } from '@quenk/wml/lib/runtime';
 import account_area from './wml/account_area.wml';
 
 /**

@@ -1,4 +1,4 @@
-import { View } from 'wmljs/lib/runtime';
+import { View } from '@quenk/wml/lib/runtime';
 import * as Class from 'wat-classes';
 import property from 'property-seek';
 import AutocompleteDelegate from './AutocompleteDelegate';

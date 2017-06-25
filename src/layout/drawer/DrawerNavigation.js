@@ -1,4 +1,4 @@
-import { View, Widget } from 'wmljs/lib/runtime';
+import { View, Widget } from '@quenk/wml/lib/runtime';
 import drawer_navigation from './wml/drawer_navigation.wml';
 import * as Class from 'wat-classes';
 

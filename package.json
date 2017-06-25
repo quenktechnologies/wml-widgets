@@ -1,5 +1,5 @@
 {
-  "name": "wml-app-toolkit",
+  "name": "@quenk/wml-widgets",
   "version": "0.1.0",
   "description": "Various wml widgets for creating web apps.",
   "main": "index.js",
@@ -9,6 +9,7 @@
     "example": "NODE_PATH=src:src/lib ./node_modules/.bin/browserify --debug -t ./node_modules/wmljs/lib/transform -t babelify examples/src/Application.js > examples/js/app.js;./node_modules/.bin/lessc --include-path=less less/theme/default/theme.less > examples/css/theme.css"
   },
   "dependencies": {
+    "@quenk/wml": "^0.1.3",
     "beof": "^0.1.1",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
@@ -24,8 +25,7 @@
     "mocha": "^2.3.4",
     "must": "^0.13.1",
     "property-seek": "^0.1.0",
-    "wat-classes": "file:lib/lib/wat-classes",
-    "wml-app-toolkit": "file:lib"
+    "wat-classes": "file:lib/lib/wat-classes"
   },
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0"

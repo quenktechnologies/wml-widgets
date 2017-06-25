@@ -1,4 +1,4 @@
-import { View } from 'wmljs/lib/runtime';
+import { View } from '@quenk/wml/lib/runtime';
 import property from 'property-seek';
 import beof from 'beof';
 import * as Class from 'wat-classes';
