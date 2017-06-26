@@ -1,14 +1,16 @@
 import { View, Widget } from '@quenk/wml/lib/runtime';
-import layout from './wml/row.wml';
+import layout from './container';
 
 /**
- * Row
+ * Container
  */
-class Row extends Widget {
+class Container extends Widget {
 
     constructor(attrs, children) {
 
         super(attrs, children);
+
+        this.className = ('container-fluid '+attrs.read('wat:class', '')).trim();
 
     }
 
@@ -20,4 +22,4 @@ class Row extends Widget {
 
 }
 
-export default Row
+export default Container

@@ -9,5 +9,5 @@ export MenuButton from './menu-button/MenuButton';
 export LogoImage from './logoimage/LogoImage';
 export AccountArea from './account-area/AccountArea';
 export Notification from './notification/Notification';
-export Table from './Table';
+export Table from './table/Table';
 /* jshint ignore:end */
