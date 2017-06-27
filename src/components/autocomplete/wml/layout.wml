@@ -1,6 +1,6 @@
-import * as Class from 'wat-classes';
+import * as Class from "../Class";
 
-<div class={{Class.WAT_KIT_AUTOCOMPLETE}}>
+<div class={{Class.AUTOCOMPLETE}}>
 
           <input 
           wml:id="input"
@@ -13,6 +13,6 @@ import * as Class from 'wat-classes';
 
         <div 
           wml:id="options" 
-          class={{Class.WAT_KIT_AUTOCOMPLETE_OPTIONS}}/>
+          class={{Class.AUTOCOMPLETE_OPTIONS}}/>
 
 </div>

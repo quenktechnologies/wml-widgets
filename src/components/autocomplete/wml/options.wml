@@ -1,11 +1,11 @@
-import * as Class from 'wat-classes';
+import * as Class from "../Class";
 import property from 'property-seek';
 
 <ul>
 
     {% for option,index in this.options %}
 
-        <li class={{Class.WAT_KIT_AUTOCOMPLETE_ITEM_WRAPPER}} onclick={{this::selected(index)}}>
+        <li class={{Class.AUTOCOMPLETE_ITEM_WRAPPER}} onclick={{this::selected(index)}}>
 
             {% if this.autocomplete.attributes.read('wat:optionTemplate') %}
 
