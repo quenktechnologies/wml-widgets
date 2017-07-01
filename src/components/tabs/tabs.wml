@@ -1,6 +1,0 @@
-
-<ul class="nav nav-tabs">
-
-  {{this.children}}
-
-</ul>

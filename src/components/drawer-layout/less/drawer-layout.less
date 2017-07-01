@@ -1,0 +1,82 @@
+
+/* private functions */
+._drawer-bg-color               { background-color: @drawer-bg-color; }
+._drawer-width                  { width: @drawer-width;               }
+._drawer-coord-left             { left: @drawer-width;                }
+._drawer-main-view-margin-left  { margin-left: @drawer-width;         }
+
+.{{DRAWER_LAYOUT}} { 
+
+  .height-100; 
+  .no-margin; 
+  .no-padding; 
+  .app-bg-color; 
+
+}
+
+.{{DRAWER}} { 
+
+  ._drawer-width;
+  .height-100;
+  .fixed;
+  .no-top;
+  .no-left;
+  .no-bottom;
+  .z-1;
+  ._drawer-bg-color;
+  .ease-width-5s;
+
+  .screen-not-large({
+
+    & ~ .{{MAIN_VIEW}}     { .no-margin; }
+    & ~ .{{DRAWER_BUTTON}} { .no-left;   }
+
+  });
+
+  /* when next to a main view */
+  & ~ .{{MAIN_VIEW}} { ._drawer-main-view-margin-left; .height-100; }
+
+}
+
+.{{DRAWER_CONTENT}} {
+
+ ._drawer-width;
+ .absolute;
+ .no-top;
+ .no-left;
+ .no-bottom;
+ .overflow-x-hidden;
+ .overflow-y-auto;
+ .z-1;
+ .webkit-overflow-scrolling-touch; 
+
+}
+
+
+/*
+.wat-layout-drawer.wat-visible {
+
+  left: 0;
+
+  & ~ .wat-layout-main {
+
+    margin-left: @wat-layout-drawer-width;
+
+  }
+
+  & ~ .wat-layout-action-area {
+
+    left: @wat-layout-drawer-width;
+
+    & .wat-layout-menu-button {
+
+      left: @wat-layout-drawer-width;
+
+    }
+
+  }
+
+}
+*/
+
+

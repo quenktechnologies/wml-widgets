@@ -1,0 +1,3 @@
+
+
+export default function (make) { return make.node('fragment',{html:{}},[make.$if(this.attributes.read('wat:href'), function if0(){return [make.node('a',{html:{'href': this.attributes.read('wat:href'),'class': this.getClass(),'onclick': this.clicked.bind(this)},wml:{'id': "button"}},[this.attributes.read('wat:text'),make.resolve(this, 'children')])];}.bind(this),function else_clause4() { return [make.node('button',{html:{'type': this.attributes.read('wat:type','button'),'name': this.attributes.read('wat:name'),'class': this.getClass(),'onclick': this.clicked.bind(this)},wml:{'id': "button"}},[this.attributes.read('wat:text'),make.resolve(this, 'children')])];}.bind(this))]); }

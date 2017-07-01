@@ -5,8 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --opts mocha.opts test",
-    "build": "rm -R lib/*; mkdir -p lib; ./node_modules/.bin/babel -D src -s inline -d lib",
-    "example": "NODE_PATH=src:src/lib ./node_modules/.bin/browserify --debug -t ./node_modules/wmljs/lib/transform -t babelify examples/src/Application.js > examples/js/app.js;./node_modules/.bin/lessc --include-path=less less/theme/default/theme.less > examples/css/theme.css"
+    "test:preplib": "rm -R node_modules/@quenk/wml-widgets; mkdir -p node_modules/@quenk/wml-widgets/lib; npm run build && cp -R lib/* node_modules/@quenk/wml-widgets/lib && cp package.json node_modules/@quenk/wml-widgets/package.json && npm install common@file:lib/components/common",
+    "test:prepwml": "./node_modules/.bin/wml test/app",
+    "test:prepcss": "./node_modules/.bin/lessc --js-vars=\"lib/components/common/Styles.js\" --include-path=less:src test/app/style.less > test/app/public/style.css",
+    "test:prepbrowser": "./node_modules/.bin/browserify --debug -t babelify test/app/app.js > test/app/public/tests.js",
+    "build": "rm -R lib/*; mkdir -p lib; npm run -s build:wml && npm run build:js",
+    "build:js": "./node_modules/.bin/babel -D src -s inline -d lib",
+    "build:wml": "./node_modules/.bin/wml src",
+    "build:css": "./node_modules/.bin/lessc --js-vars=\"src/components/common/Styles.js\" --include-path=less:src/components less/theme/default/theme.less > public/css/wml-widgets.css",
+    "example": "NODE_PATH=src:src/lib ./node_modules/.bin/browserify --debug -t ./node_modules/wmljs/lib/transform -t babelify examples/src/Application.js > examples/js/app.js;./node_modules/.bin/lessc --include-path=less less/theme/default/theme.less > examples/css/theme.css",
+    "build:tests": "npm run test:preplib && npm run test:prepcss && npm run test:prepwml && npm run test:prepbrowser"
   },
   "dependencies": {
     "@quenk/wml": "^0.1.3",
@@ -16,17 +24,25 @@
     "nop": "^1.0.0"
   },
   "devDependencies": {
+    "@quenk/polate": "^1.0.0",
     "@quenk/wml-cli": "0.0.1",
     "babel-cli": "^6.14.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-export-extensions": "^6.8.0",
     "babel-preset-es2015": "^6.14.0",
     "babel-register": "^6.14.0",
+    "babelify": "^7.3.0",
+    "chokidar-cli": "^1.2.0",
+    "common": "file:lib/components/common",
+    "jsdom": "^11.0.0",
     "less": "^2.7.1",
-    "mocha": "^2.3.4",
-    "must": "^0.13.1",
+    "less-plugin-js-vars": "^1.0.0",
+    "less-plugin-variables-output": "^1.2.0",
+    "mocha": "^3.4.2",
+    "must": "^0.13.4",
     "property-seek": "^0.1.0",
-    "wat-classes": "file:lib/lib/wat-classes"
+    "tsc": "^1.20150623.0",
+    "web-console-reporter": "^1.0.0"
   },
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0"

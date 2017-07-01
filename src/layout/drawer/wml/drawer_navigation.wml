@@ -1,7 +1,0 @@
-import * as Class from "wat-classes";
-
-<nav wml:id="nav" class={{Class.LAYOUT_DRAWER_NAVIGATION}}>
-
-  {{this.children}}
-
-</nav>

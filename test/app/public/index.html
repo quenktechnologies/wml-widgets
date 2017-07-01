@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WML Widgets Test</title>
+    <link href="mocha.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <main id="main"></main>
+    <script src="mocha.js"></script>
+    <script src="node_modules/web-console-reporter/WebConsole.js"></script>
+    <script>
+        mocha.setup(
+        {
+            ui: 'bdd',
+            reporter: WebConsole
+        });
+    </script>
+    <script src="tests.js"></script>
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>

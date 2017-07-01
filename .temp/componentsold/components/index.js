@@ -32,6 +32,5 @@ export ListGroupItem from './list-group/ListGroupItem';
 export Search from './search/Search';
 */
 export Layout from './layout/Layout';
-export DrawerLayout from './drawer-layout/DrawerLayout';
 /* jshint ignore:end */
 

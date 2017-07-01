@@ -1,0 +1,21 @@
+import * as Styles from 'common/Styles';
+
+<div class={{Styles.DRAWER_LAYOUT}}>
+
+  <div wml:id="drawer" class={{Styles.DRAWER}}>
+
+    <div class={{Styles.DRAWER_CONTENT}}>
+
+      {{this.drawerContent()}}
+
+    </div>
+
+  </div>
+
+  <div class={{Styles.MAIN_VIEW}}>
+
+    {{this.mainViewContent()}}
+
+  </div>
+
+</div>

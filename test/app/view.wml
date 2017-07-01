@@ -1,0 +1,9 @@
+import {DrawerLayout} from '@quenk/wml-widgets/lib/components';
+
+<DrawerLayout>
+
+  <p>This is in the drawer</p>
+
+  <p> This is in main</p>
+    
+</DrawerLayout>

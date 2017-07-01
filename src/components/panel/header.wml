@@ -1,6 +1,0 @@
-
-<div class="panel-heading">
-
-  {{this.children}}
-
-</div>
