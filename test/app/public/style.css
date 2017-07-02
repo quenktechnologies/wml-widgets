@@ -316,10 +316,6 @@ body {
   overflow-y: auto;
   z-index: 1;
   -webkit-overflow-scrolling: touch;
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: width 0.5s ease;
 }
 /*
 .wat-layout-drawer.wat-visible {

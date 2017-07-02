@@ -2,7 +2,7 @@
 .PHONY: clean
 clean:
 	rm -R lib/*; rm -R public/*; rm -R node_modules/@quenk/wml-widgets; \
-	mkdir -p lib mkdir -p public/css
+	mkdir lib;  mkdir -p public/css
    
 .PHONY: wml
 wml:
