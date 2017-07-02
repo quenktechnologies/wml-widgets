@@ -79,11 +79,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .width-auto {
   width: auto;
 }
+.no-width {
+  width: 0px;
+}
 .height-100 {
   height: 100%;
 }
 .no-margin {
   margin: 0;
+}
+.no-margin-left {
+  margin-left: 0;
 }
 .no-padding {
   padding: 0;
@@ -184,11 +190,17 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .z-unset {
   z-index: unset;
 }
-.ease-width-5s {
+.ease-width-500ms {
   -webkit-transition: width 0.5s ease;
   -moz-transition: width 0.5s ease;
   -o-transition: width 0.5s ease;
   transition: width 0.5s ease;
+}
+.ease-margin-left-500ms {
+  -webkit-transition: margin-left 0.5s ease;
+  -moz-transition: margin-left 0.5s ease;
+  -o-transition: margin-left 0.5s ease;
+  transition: margin-left 0.5s ease;
 }
 /* Media Queries */
 .overflow-visible {
@@ -238,13 +250,6 @@ body {
 .app-bg-color {
   background-color: #ebeef0;
 }
-/* Important to allow the whole screen real estate to be available */
-.ww-layout {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #ebeef0;
-}
 /* private functions */
 ._drawer-bg-color {
   background-color: #31373D;
@@ -279,6 +284,12 @@ body {
   transition: width 0.5s ease;
   /* when next to a main view */
 }
+.ww-drawer.--ww-hidden {
+  width: 0px;
+}
+.ww-drawer.--ww-hidden ~ .ww-main-view {
+  margin-left: 0;
+}
 @media screen and (max-width: 60em) {
   .ww-drawer ~ .ww-main-view {
     margin: 0;
@@ -290,9 +301,13 @@ body {
 .ww-drawer ~ .ww-main-view {
   margin-left: 15em;
   height: 100%;
+  -webkit-transition: margin-left 0.5s ease;
+  -moz-transition: margin-left 0.5s ease;
+  -o-transition: margin-left 0.5s ease;
+  transition: margin-left 0.5s ease;
 }
 .ww-drawer__content {
-  width: 15em;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -301,6 +316,10 @@ body {
   overflow-y: auto;
   z-index: 1;
   -webkit-overflow-scrolling: touch;
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  transition: width 0.5s ease;
 }
 /*
 .wat-layout-drawer.wat-visible {

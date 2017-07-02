@@ -1,4 +1,4 @@
-export const HIDDEN = 'ww-hidden';
+export const HIDDEN = '--ww-hidden';
 
 export const DRAWER_LAYOUT = 'ww-drawer-layout';
 export const DRAWER = 'ww-drawer';

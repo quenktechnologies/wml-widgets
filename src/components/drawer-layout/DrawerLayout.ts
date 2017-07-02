@@ -1,14 +1,16 @@
-import { View, Widget } from '@quenk/wml/lib/runtime';
+import { AbstractWidget, WMLElement } from '@quenk/wml/lib/runtime';
 import * as Styles from 'common/Styles';
-import view from './wml/view';
+import { Main } from './wml/view';
 
 /**
  * DrawerLayout provides a top level layout consisting of a drawer and
  * a main content view.
  */
-export class DrawerLayout extends Widget {
+export class DrawerLayout extends AbstractWidget {
 
-    _getDrawerDOM() {
+    view = new Main(this);
+
+    _getDrawerDOM(): WMLElement {
 
         return this.view.findById('drawer');
 
@@ -38,7 +40,7 @@ export class DrawerLayout extends Widget {
      */
     drawerVisible() {
 
-        return !this._getDrawerDOM().classList.contains(Styles.HIDDEN);
+        return !(<Element>this._getDrawerDOM()).classList.contains(Styles.HIDDEN);
 
     }
 
@@ -48,7 +50,7 @@ export class DrawerLayout extends Widget {
     hideDrawer() {
 
         if (this.drawerVisible())
-            this._getDrawerDOM().classList.add(Styles.HIDDEN);
+            (<Element>this._getDrawerDOM()).classList.add(Styles.HIDDEN);
 
     }
 
@@ -58,7 +60,7 @@ export class DrawerLayout extends Widget {
     showDrawer() {
 
         if (!this.drawerVisible())
-            this._getDrawerDOM().classList.remove(Styles.HIDDEN);
+            (<Element>this._getDrawerDOM()).classList.remove(Styles.HIDDEN);
 
     }
 
@@ -67,11 +69,11 @@ export class DrawerLayout extends Widget {
      */
     toggle() {
 
-        this._getDrawerDOM().classList.toggle(Styles.HIDDEN);
+        (<Element>this._getDrawerDOM()).classList.toggle(Styles.HIDDEN);
 
     }
 
-    onRendered() {
+    rendered() {
 
         if (window.matchMedia('(max-width: 480px').matches)
             window.addEventListener('click', this);
@@ -85,9 +87,9 @@ export class DrawerLayout extends Widget {
             let drawer = this.view.findById('drawer');
             let target = e.target;
 
-            if ((target !== drawer) || (!drawer.contains(target)))
-                if (!window.document.contains(drawer))
-                    window.removeEventListener(this);
+            if ((target !== drawer) && (!(<Node>drawer).contains(<Node>target)))
+                if (!window.document.contains(<Node>drawer))
+                    window.removeEventListener('click', this);
                 else
                     this.hideDrawer();
 
@@ -100,7 +102,7 @@ export class DrawerLayout extends Widget {
         if (this.children.length !== 2)
             console.warn(`DrawerLayout: Expected 2 child widgets got ${this.children.length}!`);
 
-        return this.view = View.render(view, this);
+        return this.view.render();
 
     }
 

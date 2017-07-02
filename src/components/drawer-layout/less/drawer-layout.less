@@ -24,7 +24,14 @@
   .no-bottom;
   .z-1;
   ._drawer-bg-color;
-  .ease-width-5s;
+  .ease-width-500ms;
+
+  &.{{HIDDEN}} { 
+  
+    .no-width;
+    & ~ .{{MAIN_VIEW}} { .no-margin-left;};
+
+  }
 
   .screen-not-large({
 
@@ -34,13 +41,19 @@
   });
 
   /* when next to a main view */
-  & ~ .{{MAIN_VIEW}} { ._drawer-main-view-margin-left; .height-100; }
+  & ~ .{{MAIN_VIEW}} { 
+  
+    ._drawer-main-view-margin-left; 
+    .height-100; 
+    .ease-margin-left-500ms;
+  
+  }
 
 }
 
 .{{DRAWER_CONTENT}} {
 
- ._drawer-width;
+ .width-100;
  .absolute;
  .no-top;
  .no-left;

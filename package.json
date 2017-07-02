@@ -11,7 +11,7 @@
     "test:prepbrowser": "./node_modules/.bin/browserify --debug -t babelify test/app/app.js > test/app/public/tests.js",
     "build": "rm -R lib/*; mkdir -p lib; npm run -s build:wml && npm run build:js",
     "build:js": "./node_modules/.bin/babel -D src -s inline -d lib",
-    "build:wml": "./node_modules/.bin/wml src",
+    "build:wml": "./node_modules/.bin/wml --typescript --ext ts src",
     "build:css": "./node_modules/.bin/lessc --js-vars=\"src/components/common/Styles.js\" --include-path=less:src/components less/theme/default/theme.less > public/css/wml-widgets.css",
     "example": "NODE_PATH=src:src/lib ./node_modules/.bin/browserify --debug -t ./node_modules/wmljs/lib/transform -t babelify examples/src/Application.js > examples/js/app.js;./node_modules/.bin/lessc --include-path=less less/theme/default/theme.less > examples/css/theme.css",
     "build:tests": "npm run test:preplib && npm run test:prepcss && npm run test:prepwml && npm run test:prepbrowser"
@@ -26,6 +26,7 @@
   "devDependencies": {
     "@quenk/polate": "^1.0.0",
     "@quenk/wml-cli": "0.0.1",
+    "@types/mocha": "^2.2.41",
     "babel-cli": "^6.14.0",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-export-extensions": "^6.8.0",
@@ -42,6 +43,7 @@
     "must": "^0.13.4",
     "property-seek": "^0.1.0",
     "tsc": "^1.20150623.0",
+    "typescript": "^2.4.1",
     "web-console-reporter": "^1.0.0"
   },
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
