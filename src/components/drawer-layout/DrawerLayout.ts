@@ -1,6 +1,6 @@
 import { AbstractWidget, WMLElement } from '@quenk/wml/lib/runtime';
 import * as Styles from 'common/Styles';
-import { Main } from './wml/view';
+import { Main } from './wml/drawer-layout';
 
 /**
  * DrawerLayout provides a top level layout consisting of a drawer and
@@ -19,24 +19,6 @@ export class DrawerLayout extends AbstractWidget {
     _combine(classes: string[]) {
 
         return classes.join(' ');
-
-    }
-
-    /**
-     * drawerContent provides the content for this layout's Drawer.
-     */
-    drawerContent() {
-
-        return this.children[0];
-
-    }
-
-    /**
-     * mainViewContent provides the content for this layout's MainView.
-     */
-    mainViewContent() {
-
-        return this.children[1];
 
     }
 
@@ -100,15 +82,6 @@ export class DrawerLayout extends AbstractWidget {
                     this.hideDrawer();
 
         }
-
-    }
-
-    render() {
-
-        if (this.children.length !== 2)
-            console.warn(`DrawerLayout: Expected 2 child widgets got ${this.children.length}!`);
-
-        return this.view.render();
 
     }
 

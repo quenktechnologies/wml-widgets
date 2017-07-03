@@ -6,7 +6,11 @@ import * as Styles from 'common/Styles';
 
     <div class={{Styles.DRAWER_CONTENT}}>
 
-      {{this.drawerContent()}}
+      {% if this.attributes.read('ww:navigation') %}
+
+        {% include this.attributes.read('ww:navigation') %}
+
+      {% endif %}
 
     </div>
 
@@ -14,7 +18,7 @@ import * as Styles from 'common/Styles';
 
   <div class={{this._combine([Styles.MAIN_VIEW, Styles.DRAWER_PUSHABLE])}}>
 
-    {{this.mainViewContent()}}
+    {{this.children}}
 
   </div>
 
