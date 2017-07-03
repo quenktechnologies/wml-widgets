@@ -8,5 +8,12 @@
 
 }
 
-.ease-width-500ms            { .transition(width; .5s; ease);       }
-.ease-margin-left-500ms      { .transition(margin-left; .5s; ease); }
+.ease(@prop; @delay)         { .transition(@prop; @delay; ease);       }
+
+.ease-width(@delay)          { .ease(width; @delay);                   }
+.ease-margin-left(@delay)    { .ease(margin-left; @delay);             }
+.ease-left(@delay)           { .ease(left; @delay);                    }
+
+.ease-width-std              { .ease-width(@easing-duration);          }
+.ease-margin-left-std        { .ease-margin-left(@easing-duration);    }
+.ease-left-std               { .ease-left(@easing-duration);           }

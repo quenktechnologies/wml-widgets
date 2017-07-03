@@ -2,8 +2,8 @@
 /* private functions */
 ._drawer-bg-color               { background-color: @drawer-bg-color; }
 ._drawer-width                  { width: @drawer-width;               }
-._drawer-coord-left             { left: @drawer-width;                }
-._drawer-main-view-margin-left  { margin-left: @drawer-width;         }
+._drawer-pushable-margin-left   { margin-left: @drawer-width;         }
+._drawer-pushable-fixed-left    { left: @drawer-width;                }
 
 .{{DRAWER_LAYOUT}} { 
 
@@ -24,29 +24,29 @@
   .no-bottom;
   .z-1;
   ._drawer-bg-color;
-  .ease-width-500ms;
+  .ease-width-std;
 
   &.{{HIDDEN}} { 
   
     .no-width;
-    & ~ .{{MAIN_VIEW}} { .no-margin-left;};
+
+    & ~ .{{DRAWER_PUSHABLE}}       { .no-margin-left; }
+    & ~ .{{DRAWER_PUSHABLE_FIXED}} { .no-left;        }
 
   }
 
-  .screen-not-large({
+  & ~ .{{DRAWER_PUSHABLE}} { 
 
-    & ~ .{{MAIN_VIEW}}     { .no-margin; }
-    & ~ .{{DRAWER_BUTTON}} { .no-left;   }
-
-  });
-
-  /* when next to a main view */
-  & ~ .{{MAIN_VIEW}} { 
+    ._drawer-pushable-margin-left; 
+    .ease-margin-left-std; 
   
-    ._drawer-main-view-margin-left; 
-    .height-100; 
-    .ease-margin-left-500ms;
-  
+  }
+
+  & ~ .{{DRAWER_PUSHABLE_FIXED}} {
+
+    ._drawer-pushable-fixed-left;
+    .ease-left-std;
+
   }
 
 }
@@ -65,31 +65,4 @@
 
 }
 
-
-/*
-.wat-layout-drawer.wat-visible {
-
-  left: 0;
-
-  & ~ .wat-layout-main {
-
-    margin-left: @wat-layout-drawer-width;
-
-  }
-
-  & ~ .wat-layout-action-area {
-
-    left: @wat-layout-drawer-width;
-
-    & .wat-layout-menu-button {
-
-      left: @wat-layout-drawer-width;
-
-    }
-
-  }
-
-}
-*/
-
-
+.{{MAIN_VIEW}} { .height-100; }

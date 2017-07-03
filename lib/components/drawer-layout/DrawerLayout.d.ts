@@ -7,6 +7,7 @@ import { Main } from './wml/view';
 export declare class DrawerLayout extends AbstractWidget {
     view: Main;
     _getDrawerDOM(): WMLElement;
+    _combine(classes: string[]): string;
     /**
      * drawerContent provides the content for this layout's Drawer.
      */

@@ -12,7 +12,7 @@ import * as Styles from 'common/Styles';
 
   </div>
 
-  <div class={{Styles.MAIN_VIEW}}>
+  <div class={{this._combine([Styles.MAIN_VIEW, Styles.DRAWER_PUSHABLE])}}>
 
     {{this.mainViewContent()}}
 

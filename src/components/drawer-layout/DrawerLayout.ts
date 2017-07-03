@@ -16,6 +16,12 @@ export class DrawerLayout extends AbstractWidget {
 
     }
 
+    _combine(classes: string[]) {
+
+        return classes.join(' ');
+
+    }
+
     /**
      * drawerContent provides the content for this layout's Drawer.
      */

@@ -190,17 +190,23 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 .z-unset {
   z-index: unset;
 }
-.ease-width-500ms {
+.ease-width-std {
   -webkit-transition: width 0.5s ease;
   -moz-transition: width 0.5s ease;
   -o-transition: width 0.5s ease;
   transition: width 0.5s ease;
 }
-.ease-margin-left-500ms {
+.ease-margin-left-std {
   -webkit-transition: margin-left 0.5s ease;
   -moz-transition: margin-left 0.5s ease;
   -o-transition: margin-left 0.5s ease;
   transition: margin-left 0.5s ease;
+}
+.ease-left-std {
+  -webkit-transition: left 0.5s ease;
+  -moz-transition: left 0.5s ease;
+  -o-transition: left 0.5s ease;
+  transition: left 0.5s ease;
 }
 /* Media Queries */
 .overflow-visible {
@@ -257,11 +263,11 @@ body {
 ._drawer-width {
   width: 15em;
 }
-._drawer-coord-left {
-  left: 15em;
-}
-._drawer-main-view-margin-left {
+._drawer-pushable-margin-left {
   margin-left: 15em;
+}
+._drawer-pushable-fixed-left {
+  left: 15em;
 }
 .ww-drawer-layout {
   height: 100%;
@@ -282,29 +288,29 @@ body {
   -moz-transition: width 0.5s ease;
   -o-transition: width 0.5s ease;
   transition: width 0.5s ease;
-  /* when next to a main view */
 }
 .ww-drawer.--ww-hidden {
   width: 0px;
 }
-.ww-drawer.--ww-hidden ~ .ww-main-view {
+.ww-drawer.--ww-hidden ~ .--ww-drawer-pushable {
   margin-left: 0;
 }
-@media screen and (max-width: 60em) {
-  .ww-drawer ~ .ww-main-view {
-    margin: 0;
-  }
-  .ww-drawer ~ .ww-drawer__button {
-    left: 0;
-  }
+.ww-drawer.--ww-hidden ~ .--ww-drawer-pushable-fixed {
+  left: 0;
 }
-.ww-drawer ~ .ww-main-view {
+.ww-drawer ~ .--ww-drawer-pushable {
   margin-left: 15em;
-  height: 100%;
   -webkit-transition: margin-left 0.5s ease;
   -moz-transition: margin-left 0.5s ease;
   -o-transition: margin-left 0.5s ease;
   transition: margin-left 0.5s ease;
+}
+.ww-drawer ~ .--ww-drawer-pushable-fixed {
+  left: 15em;
+  -webkit-transition: left 0.5s ease;
+  -moz-transition: left 0.5s ease;
+  -o-transition: left 0.5s ease;
+  transition: left 0.5s ease;
 }
 .ww-drawer__content {
   width: 100%;
@@ -317,28 +323,6 @@ body {
   z-index: 1;
   -webkit-overflow-scrolling: touch;
 }
-/*
-.wat-layout-drawer.wat-visible {
-
-  left: 0;
-
-  & ~ .wat-layout-main {
-
-    margin-left: @wat-layout-drawer-width;
-
-  }
-
-  & ~ .wat-layout-action-area {
-
-    left: @wat-layout-drawer-width;
-
-    & .wat-layout-menu-button {
-
-      left: @wat-layout-drawer-width;
-
-    }
-
-  }
-
+.ww-main-view {
+  height: 100%;
 }
-*/

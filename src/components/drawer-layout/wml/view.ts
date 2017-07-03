@@ -280,7 +280,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
 
           this.tree = null;
           this.context = context;
-          this.template = function(){return $$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_LAYOUT')}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER')},wml:{'id': "drawer"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_CONTENT')}},[this.drawerContent()], view)], view),$$node('div',{html:{'class': $$resolve(Styles, 'MAIN_VIEW')}},[this.mainViewContent()], view)], view)};
+          this.template = function(){return $$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_LAYOUT')}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER')},wml:{'id': "drawer"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_CONTENT')}},[this.drawerContent()], view)], view),$$node('div',{html:{'class': this._combine([$$resolve(Styles, 'MAIN_VIEW'),$$resolve(Styles, 'DRAWER_PUSHABLE')])}},[this.mainViewContent()], view)], view)};
 
        }
 

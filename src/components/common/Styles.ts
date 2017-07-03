@@ -3,7 +3,9 @@ export const HIDDEN = '--ww-hidden';
 export const DRAWER_LAYOUT = 'ww-drawer-layout';
 export const DRAWER = 'ww-drawer';
 export const DRAWER_CONTENT = 'ww-drawer__content';
-export const DRAWER_BUTTON = 'ww-drawer__button';
+export const DRAWER_PUSHABLE = '--ww-drawer-pushable';
+export const DRAWER_PUSHABLE_FIXED = '--ww-drawer-pushable-fixed';
+
 export const MAIN_VIEW = 'ww-main-view';
 
 export const LAYOUT = 'ww-layout';
