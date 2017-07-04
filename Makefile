@@ -11,18 +11,18 @@ wml:
 
 .PHONY: common
 common:
-	./node_modules/.bin/tsc --project src/components/common &&\
-	  cp src/components/common/package.json lib/components/common
+	./node_modules/.bin/tsc --project src/components/wml-widgets-common &&\
+	  cp src/components/wml-widgets-common/package.json lib/components/wml-widgets-common
 	
 .PHONY: ts
 ts:
 	./node_modules/.bin/tsc --project src && \
-	  cp src/components/common/package.json \
-	  lib/components/common/package.json
+	  cp src/components/wml-widgets-common/package.json \
+	  lib/components/wml-widgets-common/package.json
 
 .PHONY: less
 less: 
-	./node_modules/.bin/lessc --js-vars="lib/components/common/Styles.js" \
+	./node_modules/.bin/lessc --js-vars="lib/components/wml-widgets-common/Styles.js" \
 	  --include-path=less:src/components less/theme/default/theme.less \
 	  > public/css/wml-widgets.css
 
@@ -37,7 +37,7 @@ install-lib:
 
 .PHONY: install-common
 install-common:
-	  ln -s $(shell pwd)/lib/components/common node_modules/wml-widgets-common
+	  ln -s $(shell pwd)/lib/components/wml-widgets-common node_modules/wml-widgets-common
 
 .PHONY: test-wml
 test-wml:
@@ -53,7 +53,7 @@ test-app:
 
 .PHONY: test-less
 test-less:
-	./node_modules/.bin/lessc --js-vars="lib/components/common/Styles.js" \
+	./node_modules/.bin/lessc --js-vars="lib/components/wml-widgets-common/Styles.js" \
 	  --include-path=less:src test/app/style.less > test/app/public/style.css
 
 .PHONY: test
