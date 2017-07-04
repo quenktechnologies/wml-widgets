@@ -1,5 +1,5 @@
 import { AbstractWidget, Renderable } from '@quenk/wml/lib/runtime';
-import { replaceContent } from 'common/util';
+import { replaceContent } from 'wml-widgets-common/util';
 import { Main } from './wml/main-view';
 
 /**

@@ -1,5 +1,5 @@
-import * as Style from 'common/Styles';
-import { noop } from 'common/util';
+import * as Style from 'wml-widgets-common/Styles';
+import { noop } from 'wml-widgets-common/util';
  
  
 function $$boundary_to_dot(value) {

@@ -2,7 +2,7 @@
 .PHONY: clean
 clean:
 	rm -R lib/*; rm -R public/*; rm -R node_modules/@quenk/wml-widgets; \
-	rm -R node_modules/common; mkdir lib; mkdir -p public/css
+	rm -R node_modules/wml-widgets-common; mkdir lib; mkdir -p public/css
    
 .PHONY: wml
 wml:
@@ -37,7 +37,7 @@ install-lib:
 
 .PHONY: install-common
 install-common:
-	  ln -s $(shell pwd)/lib/components/common node_modules/common
+	  ln -s $(shell pwd)/lib/components/common node_modules/wml-widgets-common
 
 .PHONY: test-wml
 test-wml:

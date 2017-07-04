@@ -1,5 +1,5 @@
-import * as Styles from 'common/Styles';
-import { replaceContent } from 'common/util';
+import * as Styles from 'wml-widgets-common/Styles';
+import { replaceContent } from 'wml-widgets-common/util';
 import { AbstractWidget, Renderable } from '@quenk/wml/lib/runtime';
 import { Main } from './wml/action_area';
 

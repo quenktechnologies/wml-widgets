@@ -1,5 +1,5 @@
-import * as Styles from 'common/Styles';
-import { combine } from 'common/util';
+import * as Styles from 'wml-widgets-common/Styles';
+import { combine } from 'wml-widgets-common/util';
  
  
 function $$boundary_to_dot(value) {

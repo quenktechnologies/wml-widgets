@@ -1,7 +1,7 @@
 import { AbstractWidget, WMLElement, Renderable } from '@quenk/wml/lib/runtime';
-import * as Styles from 'common/Styles';
+import * as Styles from 'wml-widgets-common/Styles';
 import { Main } from './wml/drawer-layout';
-import { replaceContent } from 'common/util';
+import { replaceContent } from 'wml-widgets-common/util';
 
 /**
  * DrawerLayout provides a top level layout consisting of a drawer and

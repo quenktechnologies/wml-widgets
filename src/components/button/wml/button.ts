@@ -1,5 +1,5 @@
-import * as Styles from "common/Styles";
-import { noop,combine } from "common/util";
+import * as Styles from "wml-widgets-common/Styles";
+import { noop,combine } from "wml-widgets-common/util";
  
  
 function $$boundary_to_dot(value) {
@@ -271,7 +271,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('fragment',{html:{}},[$$if(this.attributes.read('ww:href'), function if0(){return [$$node('a',{html:{'href': this.attributes.read('ww:href'),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT'))]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this),function else_clause0() { return [$$node('button',{html:{'type': this.attributes.read('ww:type','button'),'name': this.attributes.read('ww:name',''),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT'))]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this))], view)
+            return $$node('fragment',{html:{}},[$$if(this.attributes.read('ww:href'), function if0(){return [$$node('a',{html:{'href': this.attributes.read('ww:href'),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT'))]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this),function else_clause1() { return [$$node('button',{html:{'type': this.attributes.read('ww:type','button'),'name': this.attributes.read('ww:name',''),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT'))]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this))], view)
           }
 
        }

@@ -1,5 +1,5 @@
 import { AbstractWidget } from '@quenk/wml/lib/runtime';
-import * as Styles from 'common/Styles';
+import * as Styles from 'wml-widgets-common/Styles';
 import { Main } from './wml/button';
 
 /**
