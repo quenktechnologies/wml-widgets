@@ -5,7 +5,7 @@
         "module": "commonjs",
         "target": "es5",
         "rootDir": ".",
-        "outDir": "../../../lib/components/common",
+        "outDir": "../../../lib/components/wml-widgets-common",
         "moduleResolution": "node",
         "allowUnreachableCode": true,
         "noUnusedParameters": true,
