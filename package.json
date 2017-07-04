@@ -7,7 +7,7 @@
   "dependencies": {
     "@quenk/wml": "^0.4.0",
     "beof": "^0.1.1",
-    "@quenk/debugs": "file:debugs",
+    "debugs": "file:debugs",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1"
   },
