@@ -1,6 +1,6 @@
 {
 
-  "name": "wml-widgets-common",
+  "name": "common",
   "version": "1.0.0",
   "private": true,
   "description": "Common files for wml-widgets"

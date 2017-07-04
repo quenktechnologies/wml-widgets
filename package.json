@@ -7,14 +7,14 @@
   "dependencies": {
     "@quenk/wml": "^0.4.0",
     "beof": "^0.1.1",
-    "wml-widgets-common": "file:lib/components/common",
+    "wml-widgets-common": "file:./lib/components/common",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "nop": "^1.0.0"
   },
   "devDependencies": {
     "@quenk/polate": "^1.0.0",
-    "@quenk/wml-cli": "0.0.1",
+    "@quenk/wml-cli": "0.2.0",
     "@types/mocha": "^2.2.41",
     "babel-cli": "^6.14.0",
     "babel-plugin-add-module-exports": "^0.2.1",
