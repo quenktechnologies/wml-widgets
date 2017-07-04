@@ -1,0 +1,12 @@
+import * as Styles from 'common/Styles';
+import {combine} from 'common/util';
+
+<div class={{combine([Styles.ACTION_AREA, Styles.DRAWER_PUSHABLE_FIXED])}}>
+
+  <div wml:id="content" class={{Styles.ACTION_AREA_CONTENT}}>
+
+    {{this.children}}
+
+  </div>
+
+</div>

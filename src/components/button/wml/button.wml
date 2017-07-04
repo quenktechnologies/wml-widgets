@@ -1,0 +1,46 @@
+import * as Styles from "common/Styles";
+import {noop, combine} from "common/util";
+
+<fragment>
+  
+  {% if this.attributes.read('ww:href') %}
+   
+    <a
+    wml:id="button"
+    href={{this.attributes.read('ww:href')}}
+    class={{combine([
+    Styles.BUTTON,
+    this.attributes.read('ww:variant', ''), 
+    this.attributes.read('ww:size', ''),
+    this.attributes.read('ww:style', Styles.DEFAULT)
+    ])}} 
+    onclick={{this.attributes.read('ww:onClick', noop)}}>
+
+      {{this.attributes.read('ww:text')}}
+      {{this.children}}
+
+    </a>
+
+  {% else %}
+
+    <button
+    wml:id="button"
+    type={{this.attributes.read('ww:type', 'button')}}
+    name={{this.attributes.read('ww:name', '')}}
+    class={{combine([
+    Styles.BUTTON,
+    this.attributes.read('ww:variant', ''), 
+    this.attributes.read('ww:size', ''),
+    this.attributes.read('ww:style', Styles.DEFAULT)
+    ])}}
+    onclick={{this.attributes.read('ww:onClick', noop)}}>
+
+      {{this.attributes.read('ww:text')}}
+      {{this.children}}
+
+    </button>
+
+  {% endif %}
+
+</fragment>
+

@@ -17,8 +17,10 @@ export declare class Main implements View {
     context: object;
     template: () => HTMLElement;
     constructor(context: any);
-    static render(context: any): any;
+    static render(context: any): HTMLElement;
+    register(id: string, w: WMLElement): Main;
     findById(id: string): WMLElement;
-    render(): any;
+    invalidate(): void;
+    render(): HTMLElement;
 }
 export default Main;

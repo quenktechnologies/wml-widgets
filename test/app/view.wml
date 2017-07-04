@@ -1,9 +1,65 @@
-import {DrawerLayout} from '@quenk/wml-widgets/lib/components';
+import {DrawerLayout, ActionArea, MainView, MenuButton, Button} from '@quenk/wml-widgets/lib/components';
 
-<DrawerLayout>
+{% export navigation %}
 
   <p>This is in the drawer</p>
 
-  <p> This is in main</p>
-    
-</DrawerLayout>
+{% endexport %}
+
+{% export content %}
+
+  <fragment>
+
+    <ActionArea wml:id="actions">
+
+      <MenuButton ww:onClick={{this::toggleDrawer}}/>
+
+      <Button
+        wml:id="createButton"
+        ww:style="--ww-danger"
+        ww:text="Create"
+        ww:onClick={{this::create}}/>
+
+    </ActionArea>
+
+    <MainView wml:id="main">
+
+        <table class="table table-stripe table-bordered">
+
+          <thead>
+            <tr>
+              <th>Number</th>
+              <th>Name</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+
+            {% for record,number in this.records %}
+
+              <tr>
+              
+                <td>{{number}}</td>
+                <td>{{record.name}}</td>
+                <td>{{record.amount}}</td>
+
+              </tr>
+
+           {% endfor %}
+
+          </tbody>
+
+        </table>
+
+    </MainView>
+
+  </fragment>
+
+{% endexport %}
+
+<DrawerLayout 
+  wml:id="layout"
+  ww:navigation={{navigation}}
+  ww:content={{v=>content.call(this, v)}} />

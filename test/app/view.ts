@@ -1,5 +1,9 @@
 import {
-    DrawerLayout
+    DrawerLayout,
+    ActionArea,
+    MainView,
+    MenuButton,
+    Button
 } from '@quenk/wml-widgets/lib/components';
 
 
@@ -58,24 +62,7 @@ function $$adopt(child, e) {
     if (child)
         e.appendChild(
             (typeof child === 'object') ?
-            child : document.createTextNode(child || ''));
-
-}
-
-/**
- * $$register a Widget or Node by the specified wml:id
- * @param {string} id
- * @param {Widget|Node} target
- * @param {object} ids
- */
-function $$register(id, target, ids) {
-
-    if (ids.hasOwnProperty(id))
-        throw new Error('Duplicate id \'' + id + '\' detected!');
-
-    ids[id] = target;
-
-    return target;
+            child : document.createTextNode(child == null ? '' : child));
 
 }
 
@@ -85,7 +72,7 @@ function $$register(id, target, ids) {
  */
 function $$text(value) {
 
-    return document.createTextNode(value || '');
+    return document.createTextNode(value == null ? '' : value);
 
 }
 
@@ -128,7 +115,7 @@ function $$node(tag, attributes, children, view) {
 
     if (attributes.wml)
         if (attributes.wml.id)
-            $$register(attributes.wml.id, e, view.ids);
+            view.register(attributes.wml.id, e);
 
     return e;
 
@@ -144,6 +131,12 @@ class Attributes {
     constructor(public _attrs: any) {
 
         this._attrs = _attrs;
+
+    }
+
+    has(path: string): boolean {
+
+        return this.read(path) != null;
 
     }
 
@@ -182,7 +175,7 @@ function $$widget(Constructor, attributes, children, view) {
 
     if (attributes.wml)
         if (attributes.wml.id)
-            $$register(attributes.wml.id, w, view.ids);
+            view.register(attributes.wml.id, w);
 
     view.widgets.push(w);
     return w.render();
@@ -259,6 +252,67 @@ export interface Widget {
 export type WMLElement = HTMLElement | Node | EventTarget | Widget
 
 
+export function navigation(view) {
+    return $$node('p', {
+        html: {}
+    }, [$$text(`This is in the drawer`)], view);
+}
+export function content(view) {
+    return $$node('fragment', {
+        html: {}
+    }, [$$widget(ActionArea, {
+        html: {},
+        wml: {
+            'id': "actions"
+        }
+    }, [$$widget(MenuButton, {
+        html: {},
+        ww: {
+            'onClick': this.toggleDrawer.bind(this)
+        }
+    }, [], view), $$widget(Button, {
+        html: {},
+        wml: {
+            'id': "createButton"
+        },
+        ww: {
+            'style': "--ww-danger",
+            'text': "Create",
+            'onClick': this.create.bind(this)
+        }
+    }, [], view)], view), $$widget(MainView, {
+        html: {},
+        wml: {
+            'id': "main"
+        }
+    }, [$$node('table', {
+        html: {
+            'class': "table table-stripe table-bordered"
+        }
+    }, [$$node('thead', {
+        html: {}
+    }, [$$node('tr', {
+        html: {}
+    }, [$$node('th', {
+        html: {}
+    }, [$$text(`Number`)], view), $$node('th', {
+        html: {}
+    }, [$$text(`Name`)], view), $$node('th', {
+        html: {}
+    }, [$$text(`Amount`)], view)], view)], view), $$node('tbody', {
+        html: {}
+    }, [$$for($$resolve(this, 'records'), function for_1(record, number, array) {
+        return [$$node('tr', {
+            html: {}
+        }, [$$node('td', {
+            html: {}
+        }, [number], view), $$node('td', {
+            html: {}
+        }, [$$resolve(record, 'name')], view), $$node('td', {
+            html: {}
+        }, [$$resolve(record, 'amount')], view)], view)];
+    }.bind(this))], view)], view)], view)], view);
+}
 
 
 export class Main implements View {
@@ -286,13 +340,18 @@ export class Main implements View {
         this.context = context;
         this.template = function() {
             return $$widget(DrawerLayout, {
-                html: {}
-            }, [$$node('p', {
-                html: {}
-            }, [$$text(`This is in the drawer`)], view), $$node('p', {
-                html: {}
-            }, [$$text(` This is in main`)], view)], view)
-        };
+                html: {},
+                wml: {
+                    'id': "layout"
+                },
+                ww: {
+                    'navigation': navigation,
+                    'content': function function_literal_1(v) {
+                        return content.call(this, v);
+                    }.bind(this)
+                }
+            }, [], view)
+        }
 
     }
 
@@ -302,26 +361,60 @@ export class Main implements View {
 
     }
 
+    register(id: string, w: WMLElement): Main {
+
+
+        if (this.ids.hasOwnProperty(id))
+            throw new Error('Duplicate id \'' + id + '\' detected!');
+
+        this.ids[id] = w;
+        return this;
+
+    }
+
     findById(id: string): WMLElement {
 
         return (this.ids[id]) ? this.ids[id] : null;
 
     }
 
-    render() {
+    invalidate(): void {
 
-        var tree = null;
+        var childs;
+        var parent = this.tree.parentNode;
+        var realFirstChild;
+        var realFirstChildIndex;
+
+        if (this.tree == null)
+            throw new ReferenceError('Cannot invalidate a view that has not been rendered!');
+
+        if (this.tree.parentNode == null)
+            throw new ReferenceError('Attempt to invalidate a view that has not been inserted to DOM!');
+
+        childs = ( < Element > this.tree.parentNode).children;
+
+        //for some reason the reference stored does not have the correct parent node.
+        //we do this to get a 'live' version of the node.
+        for (let i = 0; i < childs.length; i++)
+            if (childs[i] === this.tree) {
+                realFirstChild = childs[i];
+                realFirstChildIndex = i;
+            }
+
+        parent.replaceChild(this.render(), realFirstChild);
+
+    }
+
+    render() {
 
         this.ids = {};
         this.widgets.forEach(w => w.removed());
         this.widgets = [];
-
-        tree = this.template.call(this.context);
-
-        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : tree;
+        this.tree = this.template.call(this.context);
+        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : this.tree;
         this.widgets.forEach(w => w.rendered());
 
-        return tree;
+        return this.tree;
 
     }
 

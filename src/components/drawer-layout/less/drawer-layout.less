@@ -1,9 +1,9 @@
 
 /* private functions */
-._drawer-bg-color               { background-color: @drawer-bg-color; }
-._drawer-width                  { width: @drawer-width;               }
-._drawer-pushable-margin-left   { margin-left: @drawer-width;         }
-._drawer-pushable-fixed-left    { left: @drawer-width;                }
+._drawer-bg-color()               { background-color: @drawer-bg-color; }
+._drawer-width()                  { width: @drawer-width;               }
+._drawer-pushable-margin-left()   { margin-left: @drawer-width;         }
+._drawer-pushable-fixed-left()    { left: @drawer-width;                }
 
 .{{DRAWER_LAYOUT}} { 
 
@@ -65,4 +65,3 @@
 
 }
 
-.{{MAIN_VIEW}} { .height-100; }

@@ -56,24 +56,7 @@ function $$adopt(child, e) {
     if (child)
       e.appendChild(
         (typeof child === 'object') ?
-        child : document.createTextNode(child || ''));
-
-}
-
-/**
- * $$register a Widget or Node by the specified wml:id
- * @param {string} id
- * @param {Widget|Node} target
- * @param {object} ids
- */
-function $$register(id, target, ids) {
-
-  if (ids.hasOwnProperty(id))
-    throw new Error('Duplicate id \'' +id+'\' detected!');
-
-  ids[id] = target;
-
-  return target;
+        child : document.createTextNode(child == null? '' : child));
 
 }
 
@@ -83,7 +66,7 @@ function $$register(id, target, ids) {
  */
 function $$text(value) {
 
-  return document.createTextNode(value || '');
+  return document.createTextNode(value == null ?  '' : value);
 
 }
 
@@ -126,7 +109,7 @@ function $$node(tag, attributes, children, view) {
 
   if (attributes.wml)
     if (attributes.wml.id)
-      $$register(attributes.wml.id, e, view.ids);
+      view.register(attributes.wml.id, e);
 
   return e;
 
@@ -142,6 +125,12 @@ class Attributes {
     constructor(public _attrs:any) {
 
         this._attrs = _attrs;
+
+    }
+
+    has(path:string): boolean{
+
+      return this.read(path) != null;
 
     }
 
@@ -180,7 +169,7 @@ function $$widget(Constructor, attributes, children, view) {
 
   if (attributes.wml)
     if (attributes.wml.id)
-      $$register(attributes.wml.id, w, view.ids);
+      view.register(attributes.wml.id, w);
 
   view.widgets.push(w);
   return w.render();
@@ -281,7 +270,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_LAYOUT')}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER')},wml:{'id': "drawer"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_CONTENT')}},[$$if(this.attributes.read('ww:navigation'), function if0(){return [this.attributes.read('ww:navigation').apply(this, [view].concat([]))];}.bind(this),function(){})], view)], view),$$node('div',{html:{'class': this._combine([$$resolve(Styles, 'MAIN_VIEW'),$$resolve(Styles, 'DRAWER_PUSHABLE')])}},[$$resolve(this, 'children')], view)], view)
+            return $$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_LAYOUT')},wml:{'id': "content"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER')},wml:{'id': "drawer"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_CONTENT')}},[$$if(this.attributes.read('ww:navigation'), function if0(){return [this.attributes.read('ww:navigation').apply(this, [view].concat([]))];}.bind(this),function(){})], view)], view),$$if(this.attributes.has('ww:content'), function if0(){return [this.attributes.read('ww:content').apply(this, [view].concat([]))];}.bind(this),function else_clause1() { return [$$resolve(this, 'children')];}.bind(this))], view)
           }
 
        }
@@ -292,26 +281,60 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
 
        }
 
+       register(id:string, w:WMLElement): Main{
+
+
+         if (this.ids.hasOwnProperty(id))
+           throw new Error('Duplicate id \'' +id+'\' detected!');
+
+         this.ids[id] = w;
+         return this;
+
+       }
+
        findById(id:string) : WMLElement {
 
         return (this.ids[id]) ? this.ids[id] : null;
 
        }
 
-       render() {
+       invalidate(): void {
 
-        var tree = null;
+        var childs;
+        var parent = this.tree.parentNode;
+        var realFirstChild;
+        var realFirstChildIndex;
+
+         if (this.tree == null)
+           throw new ReferenceError('Cannot invalidate a view that has not been rendered!');
+
+         if (this.tree.parentNode == null)
+           throw new ReferenceError('Attempt to invalidate a view that has not been inserted to DOM!');
+
+         childs = (<Element> this.tree.parentNode).children;
+
+         //for some reason the reference stored does not have the correct parent node.
+         //we do this to get a 'live' version of the node.
+         for (let i = 0; i < childs.length; i++)
+           if (childs[i] === this.tree) {
+             realFirstChild = childs[i];
+             realFirstChildIndex = i;
+           }
+
+         parent.replaceChild(this.render(), realFirstChild);
+
+       }
+
+       render() {
 
         this.ids = {};
         this.widgets.forEach(w => w.removed());
         this.widgets = [];
-
-        tree = this.template.call(this.context);
-
-        this.ids['root'] = (this.ids['root'])? this.ids['root']:tree;
+        this.tree = this.template.call(this.context);
+        this.ids['root'] = (this.ids['root'])? this.ids['root']:this.tree;
         this.widgets.forEach(w => w.rendered());
 
-        return tree;
+        return this.tree;
 
       }
 

@@ -1,6 +1,7 @@
-import { AbstractWidget, WMLElement } from '@quenk/wml/lib/runtime';
+import { AbstractWidget, WMLElement, Renderable } from '@quenk/wml/lib/runtime';
 import * as Styles from 'common/Styles';
 import { Main } from './wml/drawer-layout';
+import { replaceContent } from 'common/util';
 
 /**
  * DrawerLayout provides a top level layout consisting of a drawer and
@@ -55,9 +56,19 @@ export class DrawerLayout extends AbstractWidget {
     /**
      * toggle the visibility of this Drawer
      */
-    toggle() {
+    toggleDrawer() {
 
         (<Element>this._getDrawerDOM()).classList.toggle(Styles.HIDDEN);
+
+    }
+
+    /**
+     * setContent replaces the content of this view.
+     */
+    setContent(r: Renderable): DrawerLayout {
+
+        replaceContent(r, <Node>this.view.findById('content'));
+        return this;
 
     }
 

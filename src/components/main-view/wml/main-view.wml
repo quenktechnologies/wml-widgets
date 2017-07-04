@@ -1,0 +1,8 @@
+import * as Styles from 'common/Styles';
+import {combine} from 'common/util';
+
+<div class={{combine([Styles.MAIN_VIEW, Styles.DRAWER_PUSHABLE])}}>
+
+    {{this.children}}
+
+</div>

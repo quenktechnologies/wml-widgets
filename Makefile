@@ -2,12 +2,18 @@
 .PHONY: clean
 clean:
 	rm -R lib/*; rm -R public/*; rm -R node_modules/@quenk/wml-widgets; \
-	mkdir lib;  mkdir -p public/css
+	rm -R node_modules/common; mkdir lib; mkdir -p public/css
    
 .PHONY: wml
 wml:
 	./node_modules/.bin/wml --extension ts --typescript src
 
+
+.PHONY: common
+common:
+	./node_modules/.bin/tsc --project src/components/common &&\
+	  cp src/components/common/package.json lib/components/common
+	
 .PHONY: ts
 ts:
 	./node_modules/.bin/tsc --project src && \
@@ -27,8 +33,11 @@ build: clean wml ts less
 install-lib:
 	  mkdir -p node_modules/@quenk/wml-widgets/lib; \
 	   cp -R lib/* node_modules/@quenk/wml-widgets/lib && \
-	   cp package.json node_modules/@quenk/wml-widgets/package.json && \
-	  npm install common@file:lib/components/common
+	   cp package.json node_modules/@quenk/wml-widgets/package.json 
+
+.PHONY: install-common
+install-common:
+	  ln -s $(shell pwd)/lib/components/common node_modules/common
 
 .PHONY: test-wml
 test-wml:
@@ -48,6 +57,6 @@ test-less:
 	  --include-path=less:src test/app/style.less > test/app/public/style.css
 
 .PHONY: test
-test: 	clean wml ts install-lib test-wml test-ts test-app test-less
+test: 	clean common install-common wml ts install-lib test-wml test-ts test-app test-less
 
 

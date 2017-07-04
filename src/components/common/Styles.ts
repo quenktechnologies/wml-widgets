@@ -1,4 +1,16 @@
 export const HIDDEN = '--ww-hidden';
+export const DISABLED = '--ww-disabled';
+
+export const DEFAULT = '--ww-default';
+export const PRIMARY = '--ww-primary';
+export const SUCCESS = '--ww-success';
+export const INFO = '--ww-info';
+export const WARNING = '--ww-warning';
+export const DANGER = '--ww-danger';
+
+export const LARGE = '--ww-large';
+export const SMALL = '--ww-small';
+export const EXTRA_SMALL = '--ww-extra-small';
 
 export const DRAWER_LAYOUT = 'ww-drawer-layout';
 export const DRAWER = 'ww-drawer';
@@ -6,7 +18,14 @@ export const DRAWER_CONTENT = 'ww-drawer__content';
 export const DRAWER_PUSHABLE = '--ww-drawer-pushable';
 export const DRAWER_PUSHABLE_FIXED = '--ww-drawer-pushable-fixed';
 
+export const ACTION_AREA = 'ww-action-area';
+export const ACTION_AREA_CONTENT = 'ww-action-area__content';
+
 export const MAIN_VIEW = 'ww-main-view';
+
+export const MENU_BUTTON = 'ww-menu-button';
+
+export const BUTTON = 'ww-button';
 
 export const LAYOUT = 'ww-layout';
 
@@ -17,9 +36,7 @@ export const UP_ARROW = 'arrow-up';
 
 
 export const LAYOUT_MAIN_CONTENT = 'wat-layout-main-content';
-export const LAYOUT_ACTION_AREA = 'wat-layout-action-area';
 export const LAYOUT_ACTION_AREA_CONTENT = 'wat-layout-action-area-content';
-export const LAYOUT_MENU_BUTTON = 'wat-layout-menu-button';
 export const LAYOUT_BANNER = 'wat-layout-banner';
 export const LAYOUT_BANNER_IMAGE = 'wat-layout-banner-image';
 export const LAYOUT_DRAWER_NAVIGATION = 'wat-layout-drawer-navigation';

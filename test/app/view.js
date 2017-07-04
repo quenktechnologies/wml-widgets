@@ -47,26 +47,14 @@ function $$adopt(child, e) {
         return child.forEach(function (innerChild) { return $$adopt(innerChild, e); });
     if (child)
         e.appendChild((typeof child === 'object') ?
-            child : document.createTextNode(child || ''));
-}
-/**
- * $$register a Widget or Node by the specified wml:id
- * @param {string} id
- * @param {Widget|Node} target
- * @param {object} ids
- */
-function $$register(id, target, ids) {
-    if (ids.hasOwnProperty(id))
-        throw new Error('Duplicate id \'' + id + '\' detected!');
-    ids[id] = target;
-    return target;
+            child : document.createTextNode(child == null ? '' : child));
 }
 /**
  * $$text creates a DOMTextNode
  * @param {string} value
  */
 function $$text(value) {
-    return document.createTextNode(value || '');
+    return document.createTextNode(value == null ? '' : value);
 }
 /**
  * $$resolve property access expression to avoid
@@ -99,7 +87,7 @@ function $$node(tag, attributes, children, view) {
     children.forEach(function (c) { return $$adopt(c, e); });
     if (attributes.wml)
         if (attributes.wml.id)
-            $$register(attributes.wml.id, e, view.ids);
+            view.register(attributes.wml.id, e);
     return e;
 }
 /**
@@ -112,6 +100,9 @@ var Attributes = (function () {
         this._attrs = _attrs;
         this._attrs = _attrs;
     }
+    Attributes.prototype.has = function (path) {
+        return this.read(path) != null;
+    };
     /**
      * read a value form the internal list.
      * @param {string} path
@@ -139,7 +130,7 @@ function $$widget(Constructor, attributes, children, view) {
     w = new Constructor(new Attributes(attributes), childs);
     if (attributes.wml)
         if (attributes.wml.id)
-            $$register(attributes.wml.id, w, view.ids);
+            view.register(attributes.wml.id, w);
     view.widgets.push(w);
     return w.render();
 }
@@ -179,6 +170,69 @@ function $$switch(value, cases) {
     if (defaul)
         return defaul;
 }
+function navigation(view) {
+    return $$node('p', {
+        html: {}
+    }, [$$text("This is in the drawer")], view);
+}
+exports.navigation = navigation;
+function content(view) {
+    return $$node('fragment', {
+        html: {}
+    }, [$$widget(components_1.ActionArea, {
+            html: {},
+            wml: {
+                'id': "actions"
+            }
+        }, [$$widget(components_1.MenuButton, {
+                html: {},
+                ww: {
+                    'onClick': this.toggleDrawer.bind(this)
+                }
+            }, [], view), $$widget(components_1.Button, {
+                html: {},
+                wml: {
+                    'id': "createButton"
+                },
+                ww: {
+                    'style': "--ww-danger",
+                    'text': "Create",
+                    'onClick': this.create.bind(this)
+                }
+            }, [], view)], view), $$widget(components_1.MainView, {
+            html: {},
+            wml: {
+                'id': "main"
+            }
+        }, [$$node('table', {
+                html: {
+                    'class': "table table-stripe table-bordered"
+                }
+            }, [$$node('thead', {
+                    html: {}
+                }, [$$node('tr', {
+                        html: {}
+                    }, [$$node('th', {
+                            html: {}
+                        }, [$$text("Number")], view), $$node('th', {
+                            html: {}
+                        }, [$$text("Name")], view), $$node('th', {
+                            html: {}
+                        }, [$$text("Amount")], view)], view)], view), $$node('tbody', {
+                    html: {}
+                }, [$$for($$resolve(this, 'records'), function for_1(record, number, array) {
+                        return [$$node('tr', {
+                                html: {}
+                            }, [$$node('td', {
+                                    html: {}
+                                }, [number], view), $$node('td', {
+                                    html: {}
+                                }, [$$resolve(record, 'name')], view), $$node('td', {
+                                    html: {}
+                                }, [$$resolve(record, 'amount')], view)], view)];
+                    }.bind(this))], view)], view)], view)], view);
+}
+exports.content = content;
 var Main = (function () {
     function Main(context) {
         var view = this;
@@ -188,29 +242,58 @@ var Main = (function () {
         this.context = context;
         this.template = function () {
             return $$widget(components_1.DrawerLayout, {
-                html: {}
-            }, [$$node('p', {
-                    html: {}
-                }, [$$text("This is in the drawer")], view), $$node('p', {
-                    html: {}
-                }, [$$text(" This is in main")], view)], view);
+                html: {},
+                wml: {
+                    'id': "layout"
+                },
+                ww: {
+                    'navigation': navigation,
+                    'content': function function_literal_1(v) {
+                        return content.call(this, v);
+                    }.bind(this)
+                }
+            }, [], view);
         };
     }
     Main.render = function (context) {
         return (new Main(context)).render();
     };
+    Main.prototype.register = function (id, w) {
+        if (this.ids.hasOwnProperty(id))
+            throw new Error('Duplicate id \'' + id + '\' detected!');
+        this.ids[id] = w;
+        return this;
+    };
     Main.prototype.findById = function (id) {
         return (this.ids[id]) ? this.ids[id] : null;
     };
+    Main.prototype.invalidate = function () {
+        var childs;
+        var parent = this.tree.parentNode;
+        var realFirstChild;
+        var realFirstChildIndex;
+        if (this.tree == null)
+            throw new ReferenceError('Cannot invalidate a view that has not been rendered!');
+        if (this.tree.parentNode == null)
+            throw new ReferenceError('Attempt to invalidate a view that has not been inserted to DOM!');
+        childs = this.tree.parentNode.children;
+        //for some reason the reference stored does not have the correct parent node.
+        //we do this to get a 'live' version of the node.
+        for (var i = 0; i < childs.length; i++)
+            if (childs[i] === this.tree) {
+                realFirstChild = childs[i];
+                realFirstChildIndex = i;
+            }
+        parent.replaceChild(this.render(), realFirstChild);
+    };
     Main.prototype.render = function () {
-        var tree = null;
         this.ids = {};
         this.widgets.forEach(function (w) { return w.removed(); });
         this.widgets = [];
-        tree = this.template.call(this.context);
-        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : tree;
+        this.tree = this.template.call(this.context);
+        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : this.tree;
         this.widgets.forEach(function (w) { return w.rendered(); });
-        return tree;
+        return this.tree;
     };
     return Main;
 }());
