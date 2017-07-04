@@ -270,7 +270,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_LAYOUT')},wml:{'id': "content"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER')},wml:{'id': "drawer"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_CONTENT')}},[$$if(this.attributes.read('ww:navigation'), function if0(){return [this.attributes.read('ww:navigation').apply(this, [view].concat([]))];}.bind(this),function(){})], view)], view),$$if(this.attributes.has('ww:content'), function if0(){return [this.attributes.read('ww:content').apply(this, [view].concat([]))];}.bind(this),function else_clause0() { return [$$resolve(this, 'children')];}.bind(this))], view)
+            return $$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_LAYOUT')},wml:{'id': "content"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER')},wml:{'id': "drawer"}},[$$node('div',{html:{'class': $$resolve(Styles, 'DRAWER_CONTENT')}},[$$if(this.attributes.read('ww:navigation'), function if0(){return [this.attributes.read('ww:navigation').apply(this, [view].concat([]))];}.bind(this),function(){})], view)], view),$$if(this.attributes.has('ww:content'), function if0(){return [this.attributes.read('ww:content').apply(this, [view].concat([]))];}.bind(this),function else_clause1() { return [$$resolve(this, 'children')];}.bind(this))], view)
           }
 
        }
