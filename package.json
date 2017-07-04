@@ -17,7 +17,7 @@
     "build:tests": "npm run test:preplib && npm run test:prepcss && npm run test:prepwml && npm run test:prepbrowser"
   },
   "dependencies": {
-    "@quenk/wml": "^0.1.3",
+    "@quenk/wml": "^0.4.0",
     "beof": "^0.1.1",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
