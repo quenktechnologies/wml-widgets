@@ -6,14 +6,19 @@
 @large-breakpoint:  60em;   //840 by default   
 @easing-duration: .5s;
 
+/* padding */
+@padding-size: floor((@grid-gutter-width / 2));
+
 /* DrawerLayout */
 @drawer-width: 15em;
 @drawer-bg-color: #31373D;
 
 /* ActionArea */
-@action-area-height: 60px;
+@action-area-min-height: 60px;
 @action-area-width: 100%;
 @action-area-bg-color: #fff;
+@action-area-padding-vertical: ((@action-area-min-height - @line-height-computed) / 2);
+@action-area-padding-horizontal: @padding-size;
 
 //@wat-layout-drawer-background-color:#31373D; 
 //@wat-layout-drawer-width: 230px;
