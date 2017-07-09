@@ -81,17 +81,26 @@ export class DrawerLayout extends AbstractWidget {
 
     handleEvent(e) {
 
+        let drawer = this.view.findById('drawer');
+        let target = e.target;
+
+        //source of toggle errors
         if (e instanceof MouseEvent) {
 
-            let drawer = this.view.findById('drawer');
-            let target = e.target;
+            if (!window.document.contains(<Node>drawer)) {
+                window.removeEventListener('click', this);
+            } else {
 
-            if ((target !== drawer) && (!(<Node>drawer).contains(<Node>target)))
-                if (!window.document.contains(<Node>drawer))
-                    window.removeEventListener('click', this);
-                else
-                    this.hideDrawer();
+                if (!this.drawerVisible()) {
 
+                    if ((target !== drawer) && (!(<Node>drawer).contains(<Node>target))) {
+                        e.preventDefault();
+                        this.hideDrawer();
+
+                    }
+
+                }
+            }
         }
 
     }
