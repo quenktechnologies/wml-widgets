@@ -3,7 +3,8 @@ import { Renderable } from '@quenk/wml/lib/runtime';
 /**
  * combine the members of an array into one string.
  */
-export const combine = (str: string[], joiner: string = ' ') => str.join(joiner);
+export const combine = (str: string[], joiner: string = ' ') =>
+    str.filter(s => ((s != null) || s != '')).join(joiner);
 
 /**
  * noop 
