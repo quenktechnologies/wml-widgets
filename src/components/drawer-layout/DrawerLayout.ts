@@ -72,39 +72,6 @@ export class DrawerLayout extends AbstractWidget {
 
     }
 
-    rendered() {
-
-        if (window.matchMedia('(max-width: 480px').matches)
-            window.addEventListener('click', this);
-
-    }
-
-    handleEvent(e) {
-
-        let drawer = this.view.findById('drawer');
-        let target = e.target;
-
-        //source of toggle errors
-        if (e instanceof MouseEvent) {
-
-            if (!window.document.contains(<Node>drawer)) {
-                window.removeEventListener('click', this);
-            } else {
-
-                if (!this.drawerVisible()) {
-
-                    if ((target !== drawer) && (!(<Node>drawer).contains(<Node>target))) {
-                        e.preventDefault();
-                        this.hideDrawer();
-
-                    }
-
-                }
-            }
-        }
-
-    }
-
 }
 
 export default DrawerLayout
