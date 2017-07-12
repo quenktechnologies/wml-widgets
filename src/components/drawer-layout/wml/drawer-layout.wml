@@ -1,4 +1,4 @@
-import * as Styles from 'wml-widgets-common/Styles';
+import * as Styles from 'wml-widgets-common/Styles'
 
 <div wml:id="content" class={{Styles.DRAWER_LAYOUT}}>
 

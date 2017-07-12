@@ -1,5 +1,5 @@
-import * as Style from 'wml-widgets-common/Styles';
-import {noop} from 'wml-widgets-common/util';
+import * as Style from 'wml-widgets-common/Styles'
+import {noop} from 'wml-widgets-common/util'
 
 <button 
   class={{Style.MENU_BUTTON}} 

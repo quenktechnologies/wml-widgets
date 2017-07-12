@@ -1,7 +1,7 @@
-import * as Styles from 'wml-widgets-common/Styles';
-import {combine} from 'wml-widgets-common/util';
+import * as Styles from 'wml-widgets-common/Styles'
+import {combine} from 'wml-widgets-common/util'
 
-<div class={{combine([Styles.MAIN_VIEW, Styles.DRAWER_PUSHABLE])}}>
+<div class={{combine([Styles.MAIN_VIEW, Styles.DRAWER_PUSHABLE, this.attributes.read('ww:class')])}}>
 
     {{this.children}}
 

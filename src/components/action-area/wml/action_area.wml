@@ -1,5 +1,5 @@
-import * as Styles from 'wml-widgets-common/Styles';
-import {combine} from 'wml-widgets-common/util';
+import * as Styles from 'wml-widgets-common/Styles'
+import {combine} from 'wml-widgets-common/util'
 
 <div class={{combine([Styles.ACTION_AREA, Styles.DRAWER_PUSHABLE_FIXED])}}>
 
