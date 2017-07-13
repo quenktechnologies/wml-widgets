@@ -1,0 +1,92 @@
+/* 
+  Originally from bootstrap/mixins/panel.less
+  We needed to override the class names.
+ */
+._panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+
+  border-color: @border;
+
+  & > .{{PANEL_HEADER}} {
+    color: @heading-text-color;
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+
+    + .panel-collapse > .{{PANEL_BODY}} {
+      border-top-color: @border;
+    }
+    .badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }
+  }
+  & > .{{PANEL_FOOTER}} {
+    + .panel-collapse > .{{PANEL_BODY}} {
+      border-bottom-color: @border;
+    }
+  }
+}
+
+.{{PANEL}}                { .panel;            }
+
+.{{PANEL_HEADER}}         { .panel-heading;    }
+.{{PANEL_BODY}}           { .panel-body;       }
+.{{PANEL_FOOTER}}         { .panel-footer;     }
+
+.{{PANEL}}.{{DEFAULT}}    { 
+
+  .panel-default;    
+  ._panel-variant(@panel-default-border; 
+                 @panel-default-text;
+                 @panel-default-heading-bg;
+                 @panel-default-border);
+
+}
+
+.{{PANEL}}.{{PRIMARY}}    { 
+
+  .panel-primary;    
+  ._panel-variant(@panel-primary-border;
+                 @panel-primary-text; 
+                 @panel-primary-heading-bg; 
+                 @panel-primary-border);
+
+}
+
+.{{PANEL}}.{{SUCCESS}}    { 
+
+  .panel-success;    
+  ._panel-variant(@panel-success-border;
+                 @panel-success-text;
+                 @panel-success-heading-bg;
+                 @panel-success-border);
+}
+
+.{{PANEL}}.{{INFO}}       { 
+
+  .panel-info;       
+  ._panel-variant(@panel-info-border;
+                 @panel-info-text;
+                 @panel-info-heading-bg;
+                 @panel-info-border);
+
+}
+
+.{{PANEL}}.{{WARNING}}    { 
+
+  .panel-warning;    
+  ._panel-variant(@panel-warning-border;
+                 @panel-warning-text;
+                 @panel-warning-heading-bg; 
+                 @panel-warning-border);
+
+}
+
+.{{PANEL}}.{{DANGER}}     { 
+
+  .panel-danger;     
+  ._panel-variant(@panel-danger-border;
+                 @panel-danger-text; 
+                 @panel-danger-heading-bg;
+                 @panel-danger-border);
+
+}
