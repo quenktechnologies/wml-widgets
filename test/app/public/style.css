@@ -6380,7 +6380,6 @@ body {
   display: block;
   position: fixed;
   background-color: #fff;
-  z-index: 9999;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
 .ww-action-area .ww-action-area__content {
@@ -7342,6 +7341,7 @@ input[type="button"].ww-button .__BLOCK__ {
   z-index: 1050;
   -webkit-overflow-scrolling: touch;
   outline: 0;
+  display: block;
 }
 .ww-modal.fade .modal-dialog {
   -webkit-transform: translate(0, -25%);

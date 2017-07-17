@@ -6,7 +6,16 @@ import * as views from './wml/modal';
  */
 export class Modal extends AbstractWidget {
 
-    view = new views.Nothing(this);
+    view = new views.Modal(this);
+
+    place(e: HTMLElement) {
+
+        while (e.firstChild != null)
+            e.removeChild(e.firstChild);
+
+        e.appendChild(this.render());
+
+    }
 
 }
 

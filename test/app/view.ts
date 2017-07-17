@@ -266,11 +266,111 @@ export interface Widget {
 
 }
 export type WMLElement = HTMLElement | Node | EventTarget | Widget
-export function CreateDialog(view) {
-    return $$node('fragment', {
-        html: {}
-    }, [], view);
+export class CreateDialog implements View {
+
+
+    ids: {
+        [key: string]: WMLElement
+    };
+    widgets: Widget[];
+    tree: HTMLElement;
+    context: object;
+    template: () => HTMLElement;
+
+
+    constructor(context) {
+
+        let view = this;
+
+        this.ids = {};
+        this.widgets = [];
+
+        this.tree = null;
+        this.context = context;
+        this.template = function() {
+            return $$widget(Modal, {
+                html: {},
+                wml: {
+                    'id': "modal"
+                }
+            }, [$$widget(ModalHeader, {
+                html: {}
+            }, [$$text(`Create record`)], view), $$widget(ModalBody, {
+                html: {}
+            }, [$$text(`
+
+        Touch that body
+
+      `)], view)], view)
+        }
+
+    }
+
+    static render(context) {
+
+        return (new CreateDialog(context)).render();
+
+    }
+
+    register(id: string, w: WMLElement): CreateDialog {
+
+
+        if (this.ids.hasOwnProperty(id))
+            throw new Error('Duplicate id \'' + id + '\' detected!');
+
+        this.ids[id] = w;
+        return this;
+
+    }
+
+    findById(id: string): WMLElement {
+
+        return (this.ids[id]) ? this.ids[id] : null;
+
+    }
+
+    invalidate(): void {
+
+        var childs;
+        var parent = this.tree.parentNode;
+        var realFirstChild;
+        var realFirstChildIndex;
+
+        if (this.tree == null)
+            throw new ReferenceError('Cannot invalidate a view that has not been rendered!');
+
+        if (this.tree.parentNode == null)
+            throw new ReferenceError('Attempt to invalidate a view that has not been inserted to DOM!');
+
+        childs = ( < Element > this.tree.parentNode).children;
+
+        //for some reason the reference stored does not have the correct parent node.
+        //we do this to get a 'live' version of the node.
+        for (let i = 0; i < childs.length; i++)
+            if (childs[i] === this.tree) {
+                realFirstChild = childs[i];
+                realFirstChildIndex = i;
+            }
+
+        parent.replaceChild(this.render(), realFirstChild);
+
+    }
+
+    render() {
+
+        this.ids = {};
+        this.widgets.forEach(w => w.removed());
+        this.widgets = [];
+        this.tree = this.template.call(this.context);
+        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : this.tree;
+        this.widgets.forEach(w => w.rendered());
+
+        return this.tree;
+
+    }
+
 }
+
 export function navigation(view) {
     return $$node('p', {
         html: {}
@@ -279,16 +379,7 @@ export function navigation(view) {
 export function content(view) {
     return $$node('fragment', {
         html: {}
-    }, [$$widget(Modal, {
-        html: {},
-        wml: {
-            'id': "modal"
-        }
-    }, [$$widget(ModalHeader, {
-        html: {}
-    }, [$$text(`Create record`)], view), $$widget(ModalBody, {
-        html: {}
-    }, [], view)], view), $$widget(ActionArea, {
+    }, [$$widget(ActionArea, {
         html: {},
         wml: {
             'id': "actions"

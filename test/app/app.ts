@@ -35,8 +35,14 @@ class Application {
 
     create() {
 
-        //this.modal.put(new CreateDialog(this));
-        //      this.view.invalidate();
+        let target = document.getElementById('modal');
+
+        while (target.firstChild)
+            target.removeChild(target.firstChild);
+
+        target.appendChild((new CreateDialog(this)).render());
+
+        console.log('taer ', target);
 
     }
 

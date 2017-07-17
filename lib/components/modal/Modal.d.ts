@@ -4,7 +4,8 @@ import * as views from './wml/modal';
  * Modal
  */
 export declare class Modal extends AbstractWidget {
-    view: views.Nothing;
+    view: views.Modal;
+    place(e: HTMLElement): void;
 }
 /**
  * Header

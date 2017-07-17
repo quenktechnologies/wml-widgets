@@ -3,12 +3,21 @@ import {Container, Column, Row} from '@quenk/wml-widgets/lib/components'
 import {Panel, PanelHeader, PanelBody, PanelFooter} from '@quenk/wml-widgets/lib/components'
 import {Modal, ModalHeader, ModalBody, ModalFooter} from '@quenk/wml-widgets/lib/components'
 
-{% macro CreateDialog  %}
+{% view CreateDialog  %}
 
-<fragment/>
-  
+  <Modal wml:id="modal">
 
-{% endmacro %}
+    <ModalHeader>Create record</ModalHeader>
+      
+      <ModalBody>
+
+        Touch that body
+
+      </ModalBody>
+
+  </Modal>  
+
+{% endview %}
 
 {% macro navigation %}
 
@@ -19,17 +28,6 @@ import {Modal, ModalHeader, ModalBody, ModalFooter} from '@quenk/wml-widgets/lib
 {% macro content %}
 
   <fragment>
-
-    <Modal wml:id="modal">
-
-      <ModalHeader>Create record</ModalHeader>
-      
-      <ModalBody>
-
-      </ModalBody>
-
-
-    </Modal>
 
     <ActionArea wml:id="actions">
 
@@ -100,7 +98,7 @@ import {Modal, ModalHeader, ModalBody, ModalFooter} from '@quenk/wml-widgets/lib
 
   </MainView>
 
-  </fragment>
+ </fragment>
 
 {% endmacro %}
 

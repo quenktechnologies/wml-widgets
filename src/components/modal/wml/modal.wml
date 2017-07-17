@@ -43,9 +43,3 @@ import * as Styles from 'wml-widgets-common/Styles'
   </div>
 
 {% endview %}
-
-{% view Nothing %}
-
-  <fragment/>
-
-{% endview %}

@@ -14,8 +14,11 @@ var Application = (function () {
         this.view.findById('layout').toggleDrawer();
     };
     Application.prototype.create = function () {
-        //this.modal.put(new CreateDialog(this));
-        //      this.view.invalidate();
+        var target = document.getElementById('modal');
+        while (target.firstChild)
+            target.removeChild(target.firstChild);
+        target.appendChild((new view_1.CreateDialog(this)).render());
+        console.log('taer ', target);
     };
     Application.prototype.run = function () {
         window.app = this;

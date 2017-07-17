@@ -173,11 +173,68 @@ function $$switch(value, cases) {
     if (defaul)
         return defaul;
 }
-function CreateDialog(view) {
-    return $$node('fragment', {
-        html: {}
-    }, [], view);
-}
+var CreateDialog = (function () {
+    function CreateDialog(context) {
+        var view = this;
+        this.ids = {};
+        this.widgets = [];
+        this.tree = null;
+        this.context = context;
+        this.template = function () {
+            return $$widget(components_4.Modal, {
+                html: {},
+                wml: {
+                    'id': "modal"
+                }
+            }, [$$widget(components_4.ModalHeader, {
+                    html: {}
+                }, [$$text("Create record")], view), $$widget(components_4.ModalBody, {
+                    html: {}
+                }, [$$text("\n\n        Touch that body\n\n      ")], view)], view);
+        };
+    }
+    CreateDialog.render = function (context) {
+        return (new CreateDialog(context)).render();
+    };
+    CreateDialog.prototype.register = function (id, w) {
+        if (this.ids.hasOwnProperty(id))
+            throw new Error('Duplicate id \'' + id + '\' detected!');
+        this.ids[id] = w;
+        return this;
+    };
+    CreateDialog.prototype.findById = function (id) {
+        return (this.ids[id]) ? this.ids[id] : null;
+    };
+    CreateDialog.prototype.invalidate = function () {
+        var childs;
+        var parent = this.tree.parentNode;
+        var realFirstChild;
+        var realFirstChildIndex;
+        if (this.tree == null)
+            throw new ReferenceError('Cannot invalidate a view that has not been rendered!');
+        if (this.tree.parentNode == null)
+            throw new ReferenceError('Attempt to invalidate a view that has not been inserted to DOM!');
+        childs = this.tree.parentNode.children;
+        //for some reason the reference stored does not have the correct parent node.
+        //we do this to get a 'live' version of the node.
+        for (var i = 0; i < childs.length; i++)
+            if (childs[i] === this.tree) {
+                realFirstChild = childs[i];
+                realFirstChildIndex = i;
+            }
+        parent.replaceChild(this.render(), realFirstChild);
+    };
+    CreateDialog.prototype.render = function () {
+        this.ids = {};
+        this.widgets.forEach(function (w) { return w.removed(); });
+        this.widgets = [];
+        this.tree = this.template.call(this.context);
+        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : this.tree;
+        this.widgets.forEach(function (w) { return w.rendered(); });
+        return this.tree;
+    };
+    return CreateDialog;
+}());
 exports.CreateDialog = CreateDialog;
 function navigation(view) {
     return $$node('p', {
@@ -188,16 +245,7 @@ exports.navigation = navigation;
 function content(view) {
     return $$node('fragment', {
         html: {}
-    }, [$$widget(components_4.Modal, {
-            html: {},
-            wml: {
-                'id': "modal"
-            }
-        }, [$$widget(components_4.ModalHeader, {
-                html: {}
-            }, [$$text("Create record")], view), $$widget(components_4.ModalBody, {
-                html: {}
-            }, [], view)], view), $$widget(components_1.ActionArea, {
+    }, [$$widget(components_1.ActionArea, {
             html: {},
             wml: {
                 'id': "actions"

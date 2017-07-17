@@ -68,18 +68,3 @@ export declare class Footer implements View {
     invalidate(): void;
     render(): HTMLElement;
 }
-export declare class Nothing implements View {
-    ids: {
-        [key: string]: WMLElement;
-    };
-    widgets: Widget[];
-    tree: HTMLElement;
-    context: object;
-    template: () => HTMLElement;
-    constructor(context: any);
-    static render(context: any): HTMLElement;
-    register(id: string, w: WMLElement): Nothing;
-    findById(id: string): WMLElement;
-    invalidate(): void;
-    render(): HTMLElement;
-}
