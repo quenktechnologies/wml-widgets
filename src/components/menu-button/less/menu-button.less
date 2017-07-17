@@ -1,18 +1,20 @@
 
-.{{MENU_BUTTON}} {
+.__MENU_BUTTON__ {
 
-  padding: 9px 10px;
-  border: 1px solid #d3dbe2;
-  border-radius: 4px;
+  .padding-vh(9px; 10px);
+  .border(1px; solid; @menu-button-border-color);
+  .border-radius(4px);
+  .-middle-vertical-align;
+  .-transparent-background;
 
   & span {
 
-    background:blue;
-    .block;
-    width: 22px;
-    height: 2px;
-    margin: 3px 0 0;
-    opacity: .5;
+    .width(22px);
+    .height(2px);
+    .background-color(@menu-button-dash-color);
+    .-block-display;
+    .margin-top(3px);
+    .-50-opacity;
 
   }
 

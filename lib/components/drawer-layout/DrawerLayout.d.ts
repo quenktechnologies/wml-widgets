@@ -29,7 +29,5 @@ export declare class DrawerLayout extends AbstractWidget {
      * setContent replaces the content of this view.
      */
     setContent(r: Renderable): DrawerLayout;
-    rendered(): void;
-    handleEvent(e: any): void;
 }
 export default DrawerLayout;

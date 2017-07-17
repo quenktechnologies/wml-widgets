@@ -6,12 +6,12 @@
 
   border-color: @border;
 
-  & > .{{PANEL_HEADER}} {
+  & > .__PANEL_HEADER__ {
     color: @heading-text-color;
     background-color: @heading-bg-color;
     border-color: @heading-border;
 
-    + .panel-collapse > .{{PANEL_BODY}} {
+    + .panel-collapse > .__PANEL_BODY__ {
       border-top-color: @border;
     }
     .badge {
@@ -19,20 +19,20 @@
       background-color: @heading-text-color;
     }
   }
-  & > .{{PANEL_FOOTER}} {
-    + .panel-collapse > .{{PANEL_BODY}} {
+  & > .__PANEL_FOOTER__ {
+    + .panel-collapse > .__PANEL_BODY__ {
       border-bottom-color: @border;
     }
   }
 }
 
-.{{PANEL}}                { .panel;            }
+.__PANEL__                { .panel;            }
 
-.{{PANEL_HEADER}}         { .panel-heading;    }
-.{{PANEL_BODY}}           { .panel-body;       }
-.{{PANEL_FOOTER}}         { .panel-footer;     }
+.__PANEL_HEADER__         { .panel-heading;    }
+.__PANEL_BODY__           { .panel-body;       }
+.__PANEL_FOOTER__         { .panel-footer;     }
 
-.{{PANEL}}.{{DEFAULT}}    { 
+.__PANEL__.__DEFAULT__    { 
 
   .panel-default;    
   ._panel-variant(@panel-default-border; 
@@ -42,7 +42,7 @@
 
 }
 
-.{{PANEL}}.{{PRIMARY}}    { 
+.__PANEL__.__PRIMARY__    { 
 
   .panel-primary;    
   ._panel-variant(@panel-primary-border;
@@ -52,7 +52,7 @@
 
 }
 
-.{{PANEL}}.{{SUCCESS}}    { 
+.__PANEL__.__SUCCESS__    { 
 
   .panel-success;    
   ._panel-variant(@panel-success-border;
@@ -61,7 +61,7 @@
                  @panel-success-border);
 }
 
-.{{PANEL}}.{{INFO}}       { 
+.__PANEL__.__INFO__       { 
 
   .panel-info;       
   ._panel-variant(@panel-info-border;
@@ -71,7 +71,7 @@
 
 }
 
-.{{PANEL}}.{{WARNING}}    { 
+.__PANEL__.__WARNING__    { 
 
   .panel-warning;    
   ._panel-variant(@panel-warning-border;
@@ -81,7 +81,7 @@
 
 }
 
-.{{PANEL}}.{{DANGER}}     { 
+.__PANEL__.__DANGER__     { 
 
   .panel-danger;     
   ._panel-variant(@panel-danger-border;

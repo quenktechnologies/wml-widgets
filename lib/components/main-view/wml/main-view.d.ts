@@ -23,4 +23,3 @@ export declare class Main implements View {
     invalidate(): void;
     render(): HTMLElement;
 }
-export default Main;

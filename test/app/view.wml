@@ -1,14 +1,35 @@
-import {DrawerLayout, ActionArea, MainView, MenuButton, Button} from '@quenk/wml-widgets/lib/components';
+import {DrawerLayout, ActionArea, MainView, MenuButton, Button} from '@quenk/wml-widgets/lib/components'
+import {Container, Column, Row} from '@quenk/wml-widgets/lib/components'
+import {Panel, PanelHeader, PanelBody, PanelFooter} from '@quenk/wml-widgets/lib/components'
+import {Modal, ModalHeader, ModalBody, ModalFooter} from '@quenk/wml-widgets/lib/components'
 
-{% export navigation %}
+{% macro CreateDialog  %}
+
+<fragment/>
+  
+
+{% endmacro %}
+
+{% macro navigation %}
 
   <p>This is in the drawer</p>
 
-{% endexport %}
+{% endmacro %}
 
-{% export content %}
+{% macro content %}
 
   <fragment>
+
+    <Modal wml:id="modal">
+
+      <ModalHeader>Create record</ModalHeader>
+      
+      <ModalBody>
+
+      </ModalBody>
+
+
+    </Modal>
 
     <ActionArea wml:id="actions">
 
@@ -16,48 +37,72 @@ import {DrawerLayout, ActionArea, MainView, MenuButton, Button} from '@quenk/wml
 
       <Button
         wml:id="createButton"
-        ww:style="--ww-danger"
+        ww:style="-danger"
         ww:text="Create"
+        ww:class="-right"
         ww:onClick={{this::create}}/>
 
     </ActionArea>
 
     <MainView wml:id="main">
 
-        <table class="table table-stripe table-bordered">
+      <Container>
 
-          <thead>
-            <tr>
-              <th>Number</th>
-              <th>Name</th>
-              <th>Amount</th>
-            </tr>
-          </thead>
+        <Row>
 
-          <tbody>
+          <Column>
 
+            <Panel ww:style="-info">
 
-            {% for record,number in this.records %}
+              <PanelHeader>Details</PanelHeader>
 
-              <tr>
+              <PanelBody>Records:</PanelBody>
+
+                <table class="table table-stripe table-bordered">
+
+                <thead>
+                  <tr>
+                    <th>Number</th>
+                    <th>Name</th>
+                    <th>Amount</th>
+                  </tr>
+                </thead>
+
+              <tbody>
+
+                {% for record,number in this.records %}
+
+                 <tr>
               
-                <td>{{number}}</td>
-                <td>{{record.name}}</td>
-                <td>{{record.amount}}</td>
+                  <td>{{number}}</td>
+                  <td>{{record.name}}</td>
+                  <td>{{record.amount}}</td>
 
-              </tr>
+                  </tr>
 
-           {% endfor %}
+                {% endfor %}
 
-          </tbody>
+                </tbody>
 
-        </table>
+              </table>
 
-    </MainView>
+              <PanelFooter>
+                0
+              </PanelFooter>
+
+            </Panel>
+
+      </Column>
+
+    </Row>
+
+  </Container>
+
+  </MainView>
 
   </fragment>
 
-{% endexport %}
+{% endmacro %}
 
 <DrawerLayout 
   wml:id="layout"

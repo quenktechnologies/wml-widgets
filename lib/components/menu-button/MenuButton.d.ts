@@ -1,5 +1,5 @@
 import { AbstractWidget } from '@quenk/wml/lib/runtime';
-import Main from './wml/menu_button';
+import { Main } from './wml/menu_button';
 /**
  * MenuButton provides a 'hamburger' menu button.
  */

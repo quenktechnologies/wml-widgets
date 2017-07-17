@@ -16,7 +16,7 @@ common:
 	
 .PHONY: ts
 ts:
-	./node_modules/.bin/tsc --project src && \
+	./node_modules/.bin/tsc --sourceMap --project src && \
 	  cp src/components/wml-widgets-common/package.json \
 	  lib/components/wml-widgets-common/package.json
 
@@ -45,7 +45,7 @@ test-wml:
 
 .PHONY: test-ts
 test-ts:
-	./node_modules/.bin/tsc test/app/app.ts
+	./node_modules/.bin/tsc --sourceMap test/app/app.ts
 
 .PHONY: test-app
 test-app:
@@ -53,7 +53,8 @@ test-app:
 
 .PHONY: test-less
 test-less:
-	./node_modules/.bin/lessc --js-vars="lib/components/wml-widgets-common/Styles.js" \
+	./node_modules/.bin/lessc --source-map-less-inline \
+	  --js-vars="lib/components/wml-widgets-common/Styles.js" \
 	  --include-path=less:src test/app/style.less > test/app/public/style.css
 
 .PHONY: test

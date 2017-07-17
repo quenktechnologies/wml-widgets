@@ -17,7 +17,7 @@
     "@quenk/wml-cli": "0.2.0",
     "@types/mocha": "^2.2.41",
     "less": "^2.7.1",
-    "less-plugin-js-vars": "^1.0.0",
+    "less-plugin-js-vars": "^2.0.0",
     "less-plugin-variables-output": "^1.2.0",
     "mocha": "^3.4.2",
     "must": "^0.13.4",

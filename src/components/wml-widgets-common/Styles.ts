@@ -1,22 +1,24 @@
-export const HIDDEN = '--ww-hidden';
-export const DISABLED = '--ww-disabled';
+export const CSS_CLASS = 'ww-class';
 
-export const DEFAULT = '--ww-default';
-export const PRIMARY = '--ww-primary';
-export const SUCCESS = '--ww-success';
-export const INFO = '--ww-info';
-export const WARNING = '--ww-warning';
-export const DANGER = '--ww-danger';
+export const HIDDEN = '-hidden';
+export const DISABLED = '-disabled';
 
-export const LARGE = '--ww-large';
-export const SMALL = '--ww-small';
-export const EXTRA_SMALL = '--ww-extra-small';
+export const DEFAULT = '-default';
+export const PRIMARY = '-primary';
+export const SUCCESS = '-success';
+export const INFO = '-info';
+export const WARNING = '-warning';
+export const DANGER = '-danger';
+
+export const LARGE = '-large';
+export const SMALL = '-small';
+export const EXTRA_SMALL = '-extra-small';
 
 export const DRAWER_LAYOUT = 'ww-drawer-layout';
 export const DRAWER = 'ww-drawer';
 export const DRAWER_CONTENT = 'ww-drawer__content';
-export const DRAWER_PUSHABLE = '--ww-drawer-pushable';
-export const DRAWER_PUSHABLE_FIXED = '--ww-drawer-pushable-fixed';
+export const DRAWER_PUSHABLE = '-drawer-pushable';
+export const DRAWER_PUSHABLE_FIXED = '-drawer-pushable-fixed';
 
 export const ACTION_AREA = 'ww-action-area';
 export const ACTION_AREA_CONTENT = 'ww-action-area__content';
@@ -26,6 +28,23 @@ export const MAIN_VIEW = 'ww-main-view';
 export const MENU_BUTTON = 'ww-menu-button';
 
 export const BUTTON = 'ww-button';
+
+//@todo: refactor this to be inline with other class names
+export const GRID_CONTAINER = 'container-fluid';
+export const GRID_COLUMN = '';
+export const GRID_ROW = 'row';
+
+export const PANEL = 'ww-panel';
+export const PANEL_HEADER = 'ww-panel__header';
+export const PANEL_BODY = 'ww-panel__body';
+export const PANEL_FOOTER = 'ww-panel__footer';
+
+export const MODAL = 'ww-modal';
+export const MODAL_DIALOG = 'ww-modal__dialog';
+export const MODAL_CONTENT = 'ww-modal__content';
+export const MODAL_HEADER = 'ww-modal__header';
+export const MODAL_BODY = 'ww-modal__body';
+export const MODA_FOOTER = 'ww-moadl__footer';
 
 export const LAYOUT = 'ww-layout';
 

@@ -5,6 +5,24 @@ import {
     MenuButton,
     Button
 } from '@quenk/wml-widgets/lib/components';
+import {
+    Container,
+    Column,
+    Row
+} from '@quenk/wml-widgets/lib/components';
+import {
+    Panel,
+    PanelHeader,
+    PanelBody,
+    PanelFooter
+} from '@quenk/wml-widgets/lib/components';
+import {
+    Modal,
+    ModalHeader,
+    ModalBody,
+    ModalFooter
+} from '@quenk/wml-widgets/lib/components';
+
 
 
 function $$boundary_to_dot(value) {
@@ -240,7 +258,6 @@ export interface View {
 
 }
 
-
 export interface Widget {
 
     rendered(): void;
@@ -248,10 +265,12 @@ export interface Widget {
     render(): HTMLElement;
 
 }
-
 export type WMLElement = HTMLElement | Node | EventTarget | Widget
-
-
+export function CreateDialog(view) {
+    return $$node('fragment', {
+        html: {}
+    }, [], view);
+}
 export function navigation(view) {
     return $$node('p', {
         html: {}
@@ -260,7 +279,16 @@ export function navigation(view) {
 export function content(view) {
     return $$node('fragment', {
         html: {}
-    }, [$$widget(ActionArea, {
+    }, [$$widget(Modal, {
+        html: {},
+        wml: {
+            'id': "modal"
+        }
+    }, [$$widget(ModalHeader, {
+        html: {}
+    }, [$$text(`Create record`)], view), $$widget(ModalBody, {
+        html: {}
+    }, [], view)], view), $$widget(ActionArea, {
         html: {},
         wml: {
             'id': "actions"
@@ -276,8 +304,9 @@ export function content(view) {
             'id': "createButton"
         },
         ww: {
-            'style': "--ww-danger",
+            'style': "-danger",
             'text': "Create",
+            'class': "-right",
             'onClick': this.create.bind(this)
         }
     }, [], view)], view), $$widget(MainView, {
@@ -285,7 +314,22 @@ export function content(view) {
         wml: {
             'id': "main"
         }
-    }, [$$node('table', {
+    }, [$$widget(Container, {
+        html: {}
+    }, [$$widget(Row, {
+        html: {}
+    }, [$$widget(Column, {
+        html: {}
+    }, [$$widget(Panel, {
+        html: {},
+        ww: {
+            'style': "-info"
+        }
+    }, [$$widget(PanelHeader, {
+        html: {}
+    }, [$$text(`Details`)], view), $$widget(PanelBody, {
+        html: {}
+    }, [$$text(`Records:`)], view), $$node('table', {
         html: {
             'class': "table table-stripe table-bordered"
         }
@@ -311,12 +355,13 @@ export function content(view) {
         }, [$$resolve(record, 'name')], view), $$node('td', {
             html: {}
         }, [$$resolve(record, 'amount')], view)], view)];
-    }.bind(this))], view)], view)], view)], view);
+    }.bind(this))], view)], view), $$widget(PanelFooter, {
+        html: {}
+    }, [$$text(`
+                0
+              `)], view)], view)], view)], view)], view)], view)], view);
 }
-
-
 export class Main implements View {
-
 
 
     ids: {
@@ -326,7 +371,6 @@ export class Main implements View {
     tree: HTMLElement;
     context: object;
     template: () => HTMLElement;
-
 
 
     constructor(context) {
@@ -419,5 +463,3 @@ export class Main implements View {
     }
 
 }
-
-export default Main;

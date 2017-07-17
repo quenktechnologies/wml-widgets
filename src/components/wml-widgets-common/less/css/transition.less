@@ -1,0 +1,19 @@
+
+.transition(@property; @time; @function) {
+
+  -webkit-transition: @property @time @function;
+  -moz-transition: @property @time @function;
+  -o-transition: @property @time @function;
+  transition: @property @time @function;
+
+}
+
+.ease(@prop; @delay)         { .transition(@prop; @delay; ease);       }
+
+.ease-width(@delay)          { .ease(width; @delay);                   }
+.ease-margin-left(@delay)    { .ease(margin-left; @delay);             }
+.ease-left(@delay)           { .ease(left; @delay);                    }
+
+.-ease-width                { .ease-width(@easing-duration);          }
+.-ease-left-margin          { .ease-margin-left(@easing-duration);    }
+.-ease-left                 { .ease-left(@easing-duration);           }

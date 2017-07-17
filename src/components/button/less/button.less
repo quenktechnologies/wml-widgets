@@ -1,20 +1,20 @@
 
-.{{BUTTON}}                 { .btn;             }
-.{{BUTTON}}.{{DEFAULT}}     { .btn-default;     }
-.{{BUTTON}}.{{PRIMARY}}     { .btn-primary;     }
-.{{BUTTON}}.{{SUCCESS}}     { .btn-success      }
-.{{BUTTON}}.{{INFO}}        { .btn-info;        }
-.{{BUTTON}}.{{WARNING}}     { .btn-warning;     }
-.{{BUTTON}}.{{DANGER}}      { .btn-danger;      }
+.__BUTTON__                 { .btn;             }
+.__BUTTON__.__DEFAULT__     { .btn-default;     }
+.__BUTTON__.__PRIMARY__     { .btn-primary;     }
+.__BUTTON__.__SUCCESS__     { .btn-success      }
+.__BUTTON__.__INFO__        { .btn-info;        }
+.__BUTTON__.__WARNING__     { .btn-warning;     }
+.__BUTTON__.__DANGER__      { .btn-danger;      }
 
-.{{BUTTON}}.{{LARGE}}       { .btn-lg;          }
-.{{BUTTON}}.{{SMALL}}       { .btn-sm;          }
-.{{BUTTON}}.{{EXTRA_SMALL}} { .btn-xs;          } 
+.__BUTTON__.__LARGE__       { .btn-lg;          }
+.__BUTTON__.__SMALL__       { .btn-sm;          }
+.__BUTTON__.__EXTRA_SMALL__ { .btn-xs;          } 
 
-.{{BUTTON}}.{{BLOCK}}       { .btn-block;       }
+.__BUTTON__.__BLOCK__       { .btn-block;       }
 
-/* Copy some stuff from bootstrap/button.ess */
-.{{BUTTON}}.{{BLOCK}} + .{{BUTTON}}.{{BLOCK}} { 
+/* Copy some stuff from bootstrap/button.less */
+.__BUTTON__.__BLOCK__ + .__BUTTON__.__BLOCK__ { 
 
   margin-top: 5px;
 
@@ -24,7 +24,7 @@
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.{{BUTTON}} .{{BLOCK}} {
+  &.__BUTTON__ .__BLOCK__ {
     width: 100%;
   }
 }

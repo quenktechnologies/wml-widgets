@@ -2,6 +2,7 @@ import * as Style from 'wml-widgets-common/Styles';
 import { noop } from 'wml-widgets-common/util';
  
  
+
 function $$boundary_to_dot(value) {
   return value.split('][').join('.').split('[').join('.');
 }
@@ -235,7 +236,6 @@ export interface View {
 
 }
 
-
 export interface Widget {
 
   rendered(): void;
@@ -243,22 +243,15 @@ export interface Widget {
   render(): HTMLElement;
 
 }
-
-export type WMLElement = HTMLElement | Node | EventTarget | Widget
-
- 
- 
-
-    export class Main implements View{
+export type WMLElement = HTMLElement | Node | EventTarget | Widget 
+  export class Main implements View{
 
       
-
   ids: {[key:string]: WMLElement};
   widgets: Widget[];
   tree: HTMLElement;
   context: object;
   template: ()=>HTMLElement;
-
 
 
        constructor(context) {
@@ -340,7 +333,5 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
       }
 
      }
-
-     export default Main;
 
     

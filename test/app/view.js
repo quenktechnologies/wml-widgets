@@ -1,6 +1,9 @@
 "use strict";
 exports.__esModule = true;
 var components_1 = require("@quenk/wml-widgets/lib/components");
+var components_2 = require("@quenk/wml-widgets/lib/components");
+var components_3 = require("@quenk/wml-widgets/lib/components");
+var components_4 = require("@quenk/wml-widgets/lib/components");
 function $$boundary_to_dot(value) {
     return value.split('][').join('.').split('[').join('.');
 }
@@ -170,6 +173,12 @@ function $$switch(value, cases) {
     if (defaul)
         return defaul;
 }
+function CreateDialog(view) {
+    return $$node('fragment', {
+        html: {}
+    }, [], view);
+}
+exports.CreateDialog = CreateDialog;
 function navigation(view) {
     return $$node('p', {
         html: {}
@@ -179,7 +188,16 @@ exports.navigation = navigation;
 function content(view) {
     return $$node('fragment', {
         html: {}
-    }, [$$widget(components_1.ActionArea, {
+    }, [$$widget(components_4.Modal, {
+            html: {},
+            wml: {
+                'id': "modal"
+            }
+        }, [$$widget(components_4.ModalHeader, {
+                html: {}
+            }, [$$text("Create record")], view), $$widget(components_4.ModalBody, {
+                html: {}
+            }, [], view)], view), $$widget(components_1.ActionArea, {
             html: {},
             wml: {
                 'id': "actions"
@@ -195,8 +213,9 @@ function content(view) {
                     'id': "createButton"
                 },
                 ww: {
-                    'style': "--ww-danger",
+                    'style': "-danger",
                     'text': "Create",
+                    'class': "-right",
                     'onClick': this.create.bind(this)
                 }
             }, [], view)], view), $$widget(components_1.MainView, {
@@ -204,33 +223,50 @@ function content(view) {
             wml: {
                 'id': "main"
             }
-        }, [$$node('table', {
-                html: {
-                    'class': "table table-stripe table-bordered"
-                }
-            }, [$$node('thead', {
+        }, [$$widget(components_2.Container, {
+                html: {}
+            }, [$$widget(components_2.Row, {
                     html: {}
-                }, [$$node('tr', {
+                }, [$$widget(components_2.Column, {
                         html: {}
-                    }, [$$node('th', {
-                            html: {}
-                        }, [$$text("Number")], view), $$node('th', {
-                            html: {}
-                        }, [$$text("Name")], view), $$node('th', {
-                            html: {}
-                        }, [$$text("Amount")], view)], view)], view), $$node('tbody', {
-                    html: {}
-                }, [$$for($$resolve(this, 'records'), function for_1(record, number, array) {
-                        return [$$node('tr', {
+                    }, [$$widget(components_3.Panel, {
+                            html: {},
+                            ww: {
+                                'style': "-info"
+                            }
+                        }, [$$widget(components_3.PanelHeader, {
                                 html: {}
-                            }, [$$node('td', {
+                            }, [$$text("Details")], view), $$widget(components_3.PanelBody, {
+                                html: {}
+                            }, [$$text("Records:")], view), $$node('table', {
+                                html: {
+                                    'class': "table table-stripe table-bordered"
+                                }
+                            }, [$$node('thead', {
                                     html: {}
-                                }, [number], view), $$node('td', {
+                                }, [$$node('tr', {
+                                        html: {}
+                                    }, [$$node('th', {
+                                            html: {}
+                                        }, [$$text("Number")], view), $$node('th', {
+                                            html: {}
+                                        }, [$$text("Name")], view), $$node('th', {
+                                            html: {}
+                                        }, [$$text("Amount")], view)], view)], view), $$node('tbody', {
                                     html: {}
-                                }, [$$resolve(record, 'name')], view), $$node('td', {
-                                    html: {}
-                                }, [$$resolve(record, 'amount')], view)], view)];
-                    }.bind(this))], view)], view)], view)], view);
+                                }, [$$for($$resolve(this, 'records'), function for_1(record, number, array) {
+                                        return [$$node('tr', {
+                                                html: {}
+                                            }, [$$node('td', {
+                                                    html: {}
+                                                }, [number], view), $$node('td', {
+                                                    html: {}
+                                                }, [$$resolve(record, 'name')], view), $$node('td', {
+                                                    html: {}
+                                                }, [$$resolve(record, 'amount')], view)], view)];
+                                    }.bind(this))], view)], view), $$widget(components_3.PanelFooter, {
+                                html: {}
+                            }, [$$text("\n                0\n              ")], view)], view)], view)], view)], view)], view)], view);
 }
 exports.content = content;
 var Main = (function () {
@@ -298,4 +334,4 @@ var Main = (function () {
     return Main;
 }());
 exports.Main = Main;
-exports["default"] = Main;
+//# sourceMappingURL=view.js.map

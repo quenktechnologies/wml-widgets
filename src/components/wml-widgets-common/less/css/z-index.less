@@ -1,0 +1,18 @@
+
+.z-index(@n)    { z-index: @n;          }
+
+.-0-z            { .z-index(0);          }
+.-1-z            { .z-index(1);          }
+.-2-z            { .z-index(2);          }
+.-3-z            { .z-index(3);          }
+.-4-z            { .z-index(4);          }
+.-5-z            { .z-index(5);          }
+
+.-999-z          { .z-index(999);        }
+.-9999-z         { .z-index(9999);       }
+
+.-max-z          { .z-index(2147483647); }
+
+.-inherit-z { z-index: inherit; }
+.-initial-z { z-index: initial; }
+.-unset-z   { z-index: unset; }

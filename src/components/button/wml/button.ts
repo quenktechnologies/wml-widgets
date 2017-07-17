@@ -2,6 +2,7 @@ import * as Styles from "wml-widgets-common/Styles";
 import { noop,combine } from "wml-widgets-common/util";
  
  
+
 function $$boundary_to_dot(value) {
   return value.split('][').join('.').split('[').join('.');
 }
@@ -235,7 +236,6 @@ export interface View {
 
 }
 
-
 export interface Widget {
 
   rendered(): void;
@@ -243,22 +243,15 @@ export interface Widget {
   render(): HTMLElement;
 
 }
-
-export type WMLElement = HTMLElement | Node | EventTarget | Widget
-
- 
- 
-
-    export class Main implements View{
+export type WMLElement = HTMLElement | Node | EventTarget | Widget 
+  export class Main implements View{
 
       
-
   ids: {[key:string]: WMLElement};
   widgets: Widget[];
   tree: HTMLElement;
   context: object;
   template: ()=>HTMLElement;
-
 
 
        constructor(context) {
@@ -271,7 +264,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('fragment',{html:{}},[$$if(this.attributes.read('ww:href'), function if0(){return [$$node('a',{html:{'href': this.attributes.read('ww:href'),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT'))]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this),function else_clause0() { return [$$node('button',{html:{'type': this.attributes.read('ww:type','button'),'name': this.attributes.read('ww:name',''),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT'))]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this))], view)
+            return $$node('fragment',{html:{}},[$$if(this.attributes.read('ww:href'), function if0(){return [$$node('a',{html:{'href': this.attributes.read('ww:href'),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT')),this.attributes.read('ww:class')]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this),function else_clause0() { return [$$node('button',{html:{'type': this.attributes.read('ww:type','button'),'name': this.attributes.read('ww:name',''),'class': combine([$$resolve(Styles, 'BUTTON'),this.attributes.read('ww:variant',''),this.attributes.read('ww:size',''),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT')),this.attributes.read('ww:class')]),'onclick': this.attributes.read('ww:onClick',noop)},wml:{'id': "button"}},[this.attributes.read('ww:text'),$$resolve(this, 'children')], view)];}.bind(this))], view)
           }
 
        }
@@ -340,7 +333,5 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
       }
 
      }
-
-     export default Main;
 
     

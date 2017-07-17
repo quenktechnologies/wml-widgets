@@ -1,13 +1,19 @@
 
 /* private functions */
 
-._action-area-width()    { width: @action-area-width;                         }  
-._action-area-height()   { min-height: @action-area-min-height; .height-auto; }  
-._action-area-bg-color() { background-color: @action-area-bg-color;           }
+._action-area-width()    { .width(@action-area-width);                       } 
+._action-area-height()   { .min-height(@action-area-height); .-auto-height   }
+._action-area-bg-color() { .background-color(@action-area-bg-color);         }
 
-._action-area-padding()  { 
+._action-area-sibling-padding-top() { 
   
-  padding: @action-area-padding-vertical @action-area-padding-horizontal;
+  .padding-top(@action-area-height);
+
+} 
+
+._action-area-content-padding()  { 
+
+  .padding-vh(@action-area-padding-vertical; @action-area-padding-horizontal);
 
 }
 
@@ -17,20 +23,23 @@
 
 }
 
-.{{ACTION_AREA}} {
+.__ACTION_AREA__ {
 
   ._action-area-width;
   ._action-area-height;
-  ._action-area-padding;
-  .block;
-  .fixed;
+  .-block-display;
+  .-fixed-position;
   ._action-area-bg-color;
-  .z-999;
-  .shadow-1;
+  .-9999-z;
+  .-1x-shadow;
+
+  & .__ACTION_AREA_CONTENT__ { ._action-area-content-padding; }
+
+  & + * { ._action-area-sibling-padding-top; } 
 
 }
 
-.{{DRAWER}} ~ {{ACTION_AREA}} {
+.__DRAWER__ ~ .__ACTION_AREA__ {
 
  ._action-area-width-next2drawer;
 

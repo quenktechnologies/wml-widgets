@@ -1,9 +1,12 @@
 import * as must from 'must/register';
-import { Main } from './view';
+import * as Styles from 'wml-widgets-common/Styles';
+import { Main, CreateDialog } from './view';
 import { DrawerLayout } from '@quenk/wml-widgets/lib/components/drawer-layout/DrawerLayout';
+import { Modal } from '@quenk/wml-widgets/lib/components/modal/Modal';
 import { ActionArea } from '@quenk/wml-widgets/lib/components/action-area/ActionArea';
 import { MainView } from '@quenk/wml-widgets/lib/components/main-view/MainView';
 
+var count = 0;
 interface Record {
 
     name: string;
@@ -14,6 +17,7 @@ interface Record {
 class Application {
 
     drawer: DrawerLayout;
+    modal: Modal;
     view: Main;
     records: Record[] = [{ name: 'Jozain Huldum', amount: 32000 }];
 
@@ -31,12 +35,8 @@ class Application {
 
     create() {
 
-        this.records.push({
-            name: prompt('Enter the name'),
-            amount: parseFloat(prompt('Enter the amount.'))
-        });
-
-        this.view.invalidate();
+        //this.modal.put(new CreateDialog(this));
+        //      this.view.invalidate();
 
     }
 
@@ -51,18 +51,51 @@ class Application {
 
     static main() {
 
-        return (new this()).run();
+        return new this();
 
     }
 
 }
 
+let app: Application;
 
 describe('Application', function() {
 
-    it('should render', function() {
+    before('should render', function() {
 
-        Application.main();
+        app = Application.main();
+        app.run();
+
+    });
+
+    describe('DrawerLayout', function() {
+
+        describe('DrawerLayout#toggleDrawer()', function() {
+
+            it('should hide and show the drawer', function(done) {
+
+                let layout = (<DrawerLayout>app.view.findById('layout'));
+                let drawer = <HTMLElement>document.getElementsByClassName(Styles.DRAWER)[0];
+
+                must(drawer.clientWidth).not.be(0);
+                layout.toggleDrawer();
+
+                setTimeout(() => {
+
+                    must(drawer.clientWidth).be(0);
+                    layout.toggleDrawer();
+
+                    setTimeout(() => {
+
+                        must(drawer.clientWidth).not.be(0);
+                        done();
+
+                    }, 1000)
+                }, 1000)
+
+            });
+
+        });
 
     });
 
