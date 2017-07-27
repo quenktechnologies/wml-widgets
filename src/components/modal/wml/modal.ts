@@ -1,4 +1,5 @@
 import * as Styles from 'wml-widgets-common/Styles';
+import { noop } from 'wml-widgets-common/util';
  
  
 
@@ -78,6 +79,9 @@ function $$text(value) {
  * @param {string} path
  */
 function $$resolve(head, path) {
+
+    if((head == null) || head == '')
+        return '';
 
   var ret = $$property(path, head);
 
@@ -263,7 +267,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'MODAL'),'tabindex': "-1",'role': "dialog"}},[$$node('div',{html:{'class': $$resolve(Styles, 'MODAL_DIALOG'),'role': "document"}},[$$node('div',{html:{'class': $$resolve(Styles, 'MODAL_CONTENT')},wml:{'id': "content"}},[$$resolve(this, 'children')], view)], view)], view)
+            return $$node('div',{html:{'class': Styles.MODAL,'tabindex': "-1",'role': "dialog"},wml:{'id': "modal"}},[$$node('div',{html:{'class': Styles.MODAL_DIALOG,'role': "document"}},[$$node('div',{html:{'class': Styles.MODAL_CONTENT},wml:{'id': "content"}},[this.children], view)], view)], view)
           }
 
        }
@@ -353,7 +357,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'MODAL_HEADER')}},[$$node('button',{html:{'type': "button",'class': "close",'aria-label': "Close"}},[$$node('span',{html:{'aria-hidden': "true"}},[$$text(`×`)], view)], view),$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': Styles.MODAL_HEADER}},[$$node('button',{html:{'type': "button",'class': "close",'aria-label': "Close",'onclick': this.attributes.read('ww:onClose',noop)}},[$$node('span',{html:{'aria-hidden': "true"}},[$$text(`×`)], view)], view),this.children], view)
           }
 
        }
@@ -443,7 +447,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'MODAL_BODY')}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': Styles.MODAL_BODY}},[this.children], view)
           }
 
        }
@@ -533,7 +537,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'MODAL_FOOTER')}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': Styles.MODAL_FOOTER}},[this.children], view)
           }
 
        }

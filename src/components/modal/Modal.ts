@@ -8,6 +8,17 @@ export class Modal extends AbstractWidget {
 
     view = new views.Modal(this);
 
+    /**
+     * close the modal.
+     */
+    close(): void {
+
+        let m = <Node>this.view.findById('modal');
+
+        m.parentNode.removeChild(m);
+
+    }
+
     place(e: HTMLElement) {
 
         while (e.firstChild != null)
