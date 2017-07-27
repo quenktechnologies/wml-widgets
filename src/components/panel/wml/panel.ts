@@ -80,6 +80,9 @@ function $$text(value) {
  */
 function $$resolve(head, path) {
 
+    if((head == null) || head == '')
+        return '';
+
   var ret = $$property(path, head);
 
   return (ret == null) ? '' : ret;
@@ -264,7 +267,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': combine([$$resolve(Styles, 'PANEL'),this.attributes.read('ww:style',$$resolve(Styles, 'DEFAULT'))])}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': combine([Styles.PANEL,this.attributes.read('ww:style',Styles.DEFAULT)])}},[this.children], view)
           }
 
        }
@@ -354,7 +357,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'PANEL_HEADER')}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': Styles.PANEL_HEADER}},[this.children], view)
           }
 
        }
@@ -444,7 +447,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'PANEL_BODY')}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': Styles.PANEL_BODY}},[this.children], view)
           }
 
        }
@@ -534,7 +537,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': $$resolve(Styles, 'PANEL_FOOTER')}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': Styles.PANEL_FOOTER}},[this.children], view)
           }
 
        }

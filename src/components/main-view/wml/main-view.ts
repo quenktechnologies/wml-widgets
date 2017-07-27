@@ -80,6 +80,9 @@ function $$text(value) {
  */
 function $$resolve(head, path) {
 
+    if((head == null) || head == '')
+        return '';
+
   var ret = $$property(path, head);
 
   return (ret == null) ? '' : ret;
@@ -264,7 +267,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': combine([$$resolve(Styles, 'MAIN_VIEW'),$$resolve(Styles, 'DRAWER_PUSHABLE'),this.attributes.read('ww:class')])}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': combine([Styles.MAIN_VIEW,Styles.DRAWER_PUSHABLE,this.attributes.read('ww:class')])}},[this.children], view)
           }
 
        }

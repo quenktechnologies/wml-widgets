@@ -80,6 +80,9 @@ function $$text(value) {
  */
 function $$resolve(head, path) {
 
+    if((head == null) || head == '')
+        return '';
+
   var ret = $$property(path, head);
 
   return (ret == null) ? '' : ret;
@@ -264,7 +267,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('section',{html:{'class': combine([$$resolve(Styles, 'GRID_CONTAINER'),this.attributes.read($$resolve(Styles, 'CSS_CLASS'))])}},[$$resolve(this, 'children')], view)
+            return $$node('section',{html:{'class': combine([Styles.GRID_CONTAINER,this.attributes.read(Styles.CSS_CLASS)])}},[this.children], view)
           }
 
        }
@@ -354,7 +357,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': combine([$$resolve(Styles, 'GRID_ROW'),this.attributes.read($$resolve(Styles, 'CSS_CLASS'))])}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': combine([Styles.GRID_ROW,this.attributes.read(Styles.CSS_CLASS)])}},[this.children], view)
           }
 
        }
@@ -444,7 +447,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('div',{html:{'class': this._getClass()}},[$$resolve(this, 'children')], view)
+            return $$node('div',{html:{'class': this._getClass()}},[this.children], view)
           }
 
        }

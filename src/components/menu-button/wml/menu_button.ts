@@ -80,6 +80,9 @@ function $$text(value) {
  */
 function $$resolve(head, path) {
 
+    if((head == null) || head == '')
+        return '';
+
   var ret = $$property(path, head);
 
   return (ret == null) ? '' : ret;
@@ -264,7 +267,7 @@ export type WMLElement = HTMLElement | Node | EventTarget | Widget
           this.tree = null;
           this.context = context;
           this.template = function(){
-            return $$node('button',{html:{'class': $$resolve(Style, 'MENU_BUTTON'),'onclick': this.attributes.read('ww:onClick',noop)}},[$$node('span',{html:{'class': ""}},[], view),$$node('span',{html:{'class': ""}},[], view),$$node('span',{html:{'class': ""}},[], view)], view)
+            return $$node('button',{html:{'class': Style.MENU_BUTTON,'onclick': this.attributes.read('ww:onClick',noop)}},[$$node('span',{html:{'class': ""}},[], view),$$node('span',{html:{'class': ""}},[], view),$$node('span',{html:{'class': ""}},[], view)], view)
           }
 
        }
