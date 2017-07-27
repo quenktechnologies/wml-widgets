@@ -1,0 +1,108 @@
+import * as Styles from 'wml-widgets-common/Styles'
+
+{% macro label %}
+
+  <label 
+    for={{@.read('ww:id')}} 
+    class={{Styles.CONTROL_LABEL}}>
+    {{@.read('ww:label')}}
+  </label>
+  
+{% endmacro %}
+
+{% macro message %}
+
+  <span 
+    wml:id="message" 
+    class="help-block">{{@.read('ww:message', '')}}</span>
+
+{% endmacro %}
+
+{% view SelectView %}
+
+<div class={{[
+  Styles.FORM_GROUP, 
+  @.read('ww:variant', '')].join(',')}}>
+
+  {% include label %}
+
+  <select 
+    wml:id="input"
+    id={{@.read('ww:id', '')}}
+    title={{@.read('ww:title')}}
+    name={{@.read('ww:name', @.read('ww:id', ''))}} 
+    onchange={{this.delegate::onInput}} 
+    value={{this.initialValue()}}
+    disabled={{@.read('ww:disabled', null)}}
+    readonly={{@.read('ww:readonly', null)}}
+    class={{Styles.SELECT}}>
+
+    {% for opt in @.read('ww:options', []) %}
+
+      {% if (typeof(opt) == 'string') %}
+
+        <option>{{opt}}</option>
+
+      {% else %}
+
+        <option value={{opt.value}}>{{opt.label}}</option>
+
+      {% endif %}
+
+    {% else %}
+
+    <p/>
+    {% endfor %}
+
+  </select>
+
+  {% include message %}
+
+</div>
+{% endview %}
+
+<!-- @todo massage away from bootstrap -->
+{% view InputView %}
+
+<div class={{[
+  Styles.FORM_GROUP, 
+  @.read('ww:variant', '')].join(',')}}>
+
+  {% include label %}
+
+  {% if (@.read('ww:type', 'text') != 'textarea') %}
+
+    <input
+    wml:id="input"
+    id={{@.read('ww:id', '')}}
+    title={{@.read('ww:title')}}
+    name={{@.read('ww:name', @.read('ww:id', ''))}} 
+    type={{@.read('ww:type', 'text')}} 
+    placeholder={{@.read('ww:placeholder')}}
+    oninput={{this.delegate::onInput}} 
+    value={{this.initialValue()}}
+    disabled={{@.read('ww:disabled', null)}}
+    readonly={{@.read('ww:readonly', null)}}
+    class={{Styles.INPUT}} />
+
+  {% else %}
+
+    <textarea 
+    wml:id="input"
+    id={{@.read('ww:id', '')}}
+    title={{@.read('ww:title')}}
+    name={{@.read('ww:name', @.read('ww:id', ''))}} 
+    class={{Styles.TEXTAREA}}
+    placeholder={{@.read('ww:placeholder')}}
+    oninput={{this.delegate::onInput}} 
+    disabled={{@.read('ww:disabled', null)}}
+    readonly={{@.read('ww:readonly', null)}}
+    rows={{@.read('wat:rows')}}>{{this.initialValue()}}</textarea>
+
+  {% endif %}
+
+  {% include message %}
+
+</div>
+
+{% endview %}
