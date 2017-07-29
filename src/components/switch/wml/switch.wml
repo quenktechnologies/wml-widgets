@@ -1,0 +1,17 @@
+import * as Styles from 'wml-widgets-common/Styles'
+import {noop} from 'wml-widgets-common/util'
+
+<label class={{Styles.SWITCH}}>
+
+  <input 
+  type="checkbox"
+  name={{@.read('ww:name')}}
+  value={{@.read('ww:value')}}
+  onchange={{@.read('ww:onChange', noop)}}/>
+
+  <div class={{Styles.SWITCH_SLIDER}}></div>
+
+  {{this.children}}
+
+</label>
+
