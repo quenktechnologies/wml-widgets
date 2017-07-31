@@ -1,0 +1,134 @@
+import * as property from 'property-seek'
+import * as Styles from 'wml-widgets-common/Styles'
+import {HeadingClickedEvent, RowClickedEvent, RowSelectedEvent, CellClickedEvent} from '../Table'
+
+{% macro thead (fields) %}
+
+  <tr>
+
+    {% if @.read('ww:selectable') %}
+
+      <th>
+
+        <input 
+          type="checkbox"
+          onclick={{\_=>this.model.allRowsSelected()}}/>
+      
+      </th>
+
+    {% endif %}
+
+    {% for field in fields %}
+
+      {% if !field.hidden %}
+
+        {% if field.sortAs %}
+
+          <th 
+            class={{[@.read('ww:headingClass'), (this.sortedOn == field.name)? Styles.ACTIVE : ''].join(' ') }}
+            onclick={{\_=>this.model.headingClicked(new HeadingClickedEvent(field.name, field, this))}}>
+
+            {{field.heading}}
+
+              {% if (this.sortedOn == field.name)  %}
+
+                {{this.arrow}}
+
+              {% endif %}
+                  
+          </th>
+
+         {% else %}
+
+            <th 
+              class={{[@.read('ww:headingClass'), (this.sortedOn == field.name)? Styles.ACTIVE : ''].join(' ') }}
+              onclick={{\_=>this.model.headingClicked(new HeadingClickedEvent(field.name, field, this))}}>
+              {{field.heading}}
+
+              {% if (this.sortedOn == field.name)  %}
+
+                {{this.arrow}}
+
+              {% endif %}
+
+            </th>
+ 
+         {% endif %}
+
+        {% endif %}
+
+      {% endfor %}
+
+  </tr>
+
+{% endmacro %}
+
+{% macro tbody(data, fields) %}
+
+  <fragment>
+
+    {% for row,index in data %}
+
+      <tr 
+        class={{@.read('ww:rowClass')}}
+        onclick={{\_=>this.model.rowClicked(new RowClickedEvent(row,index,data,this))}}>
+
+        {% if @.read('ww:selectable') %}
+
+          <td>
+            
+            <input 
+              type="checkbox"
+              onclick={{\_=>this.model.rowSelected(new RowSelectedEvent(row,index,data,this))}}/>
+          
+          </td>
+
+        {% endif %}
+
+        {% for field in fields %}
+                
+          {% if !field.hidden %}
+
+            <td 
+              class={{@.read('ww:cellClass')}}
+              onclick={{\_=>this.model.cellClicked(new CellClickedEvent(property(field.name,row),field.name,index,row,this))}}>
+
+              {% if field.fragment %}
+
+                {% include field.fragment(property(field.name,row),field.name,row,field) %}
+
+              {% else %}
+
+                {{ property(field.name,row) }}
+
+              {% endif %}
+
+            </td>
+
+          {% endif %}
+
+        {% endfor %}
+
+      </tr>
+
+    {% endfor %}
+
+</fragment>
+
+{% endmacro %}
+
+{% view TableView %}
+
+    <table 
+      class={{[Styles.TABLE, @.read('ww:class', '')].join(' ')}}>
+
+      <thead 
+        wml:id="head">{% include thead(@.read('ww:fields')) %}</thead>
+        
+      <tbody 
+        wml:id="body"> {% include tbody(this.data, @.read('ww:fields')) %}</tbody>
+
+    </table>
+
+{% endview %}
+
