@@ -5,8 +5,8 @@
   "scripts": {
     "postinstall": "npm install --save lib/components/wml-widgets-common"
   },
-  "main": "lib",
-  "types": "lib/index.d.ts",
+  "main": "lib/components",
+  "types": "lib/components/index.d.ts",
   "peerDependencies": {
     "@quenk/wml-runtime": "^0.1.0",
     "@quenk/wml": "^0.7.0"
