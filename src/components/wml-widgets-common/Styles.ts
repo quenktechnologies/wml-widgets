@@ -1,7 +1,8 @@
-export const CSS_CLASS = 'ww-class';
 
 export const HIDDEN = '-hidden';
 export const DISABLED = '-disabled';
+export const ON = '-on';
+export const OFF = '-off';
 
 export const DEFAULT = '-default';
 export const PRIMARY = '-primary';
@@ -13,6 +14,8 @@ export const DANGER = '-danger';
 export const LARGE = '-large';
 export const SMALL = '-small';
 export const EXTRA_SMALL = '-extra-small';
+
+export const ACTIVE = 'active'; //@todo: refactor to flag syntax
 
 export const DRAWER_LAYOUT = 'ww-drawer-layout';
 export const DRAWER = 'ww-drawer';
@@ -46,18 +49,22 @@ export const MODAL_HEADER = 'ww-modal__header';
 export const MODAL_BODY = 'ww-modal__body';
 export const MODAL_FOOTER = 'ww-moadl__footer';
 
+export const FORM_GROUP = 'form-group';
+export const CONTROL_LABEL = 'control-label';
+
+export const INPUT = 'form-control';
+export const TEXTAREA = 'form-control';
+export const SELECT = 'form-control';
+
+export const TABS = 'nav nav-tabs'; //@todo un-bootstrap
+
+export const SWITCH = 'ww-switch';
+export const SWITCH_SLIDER = 'ww-switch__slider';
+
+export const TABLE = 'table'; //@todo un-bootstrap
+
 export const LAYOUT = 'ww-layout';
 
-export const VISIBLE = 'wat-visible';
-export const ACTIVE = 'wat-active';
-export const DOWN_ARROW = 'arrow-down';
-export const UP_ARROW = 'arrow-up';
-
-
-export const LAYOUT_MAIN_CONTENT = 'wat-layout-main-content';
-export const LAYOUT_ACTION_AREA_CONTENT = 'wat-layout-action-area-content';
-export const LAYOUT_BANNER = 'wat-layout-banner';
-export const LAYOUT_BANNER_IMAGE = 'wat-layout-banner-image';
 export const LAYOUT_DRAWER_NAVIGATION = 'wat-layout-drawer-navigation';
 export const LAYOUT_DRAWER_NAVIGATION_TITLE = 'wat-layout-drawer-navigation-title';
 export const LAYOUT_ACCOUNT_AREA = 'wat-layout-account-area';
@@ -72,5 +79,3 @@ export const AUTOCOMPLETE_INPUT_AREA = 'wat-kit-autocomplete-input-area';
 export const AUTOCOMPLETE_INPUT = 'wat-kit-autocomplete-input';
 export const AUTOCOMPLETE_OPTIONS = 'wat-kit-autocomplete-options';
 export const AUTOCOMPLETE_ITEM_WRAPPER = 'wat-kit-auto-complete-item-wrapper';
-export const SWITCH = 'wat-components-switch';
-export const SWITCH_SLIDER = 'wat-components-switch-slider';

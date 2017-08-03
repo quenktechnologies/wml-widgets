@@ -1,10 +1,22 @@
-import { AbstractWidget } from '@quenk/wml/lib/runtime';
+import { Component, Attrs } from '@quenk/wml-runtime';
 import { Main } from './wml/switch';
+
+export interface SwitchAttrs extends Attrs {
+
+    ww?: {
+
+        name?: string,
+        value?: string,
+        onChange?: (e: Event) => void
+
+    }
+
+}
 
 /**
  * Switch
  */
-export class Switch extends AbstractWidget {
+export class Switch extends Component<SwitchAttrs> {
 
     view = new Main(this);
 

@@ -3,7 +3,7 @@ import * as Styles from 'wml-widgets-common/Styles'
 
 {% view Container %}
 
-  <section class={{combine([Styles.GRID_CONTAINER, this.attributes.read(Styles.CSS_CLASS)])}}>
+  <section class={{combine([Styles.GRID_CONTAINER, @.read('ww:class', '')])}}>
     {{this.children}}
   </section>
 
@@ -11,7 +11,7 @@ import * as Styles from 'wml-widgets-common/Styles'
 
 {% view Row %}
 
-  <div class={{combine([Styles.GRID_ROW, this.attributes.read(Styles.CSS_CLASS)])}}>
+  <div class={{combine([Styles.GRID_ROW, @.read('ww:class', '')])}}>
     {{this.children}}
   </div>
 

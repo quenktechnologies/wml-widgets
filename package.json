@@ -2,15 +2,18 @@
   "name": "@quenk/wml-widgets",
   "version": "0.11.5",
   "description": "Various wml widgets for creating web apps.",
-  "main": "index.js",
+
   "scripts": {
     "postinstall": "npm install --save lib/components/wml-widgets-common"
   },
+  "main":"lib",
+  "types":"lib/index.d.ts",
+  "peerDependencies": {
+    "@quenk/wml-runtime": "^0.1.0",
+    "@quenk/wml": "^0.7.0"
+  },
   "dependencies": {
-    "@quenk/wml": "^0.4.0",
-    "beof": "^0.1.1",
-    "lodash.debounce": "^4.0.8",
-    "lodash.throttle": "^4.1.1"
+    "property-seek": "^3.0.13"
   },
   "devDependencies": {
     "@quenk/polate": "^1.0.0",

@@ -1,5 +1,5 @@
-import * as property from 'property-seek';
-import { AbstractWidget } from '@quenk/wml/lib/runtime';
+import property from 'property-seek';
+import { Component, Attrs } from '@quenk/wml-runtime';
 import { noop } from 'wml-widgets-common/util';
 import { TableView } from './wml/table';
 
@@ -67,7 +67,7 @@ export class HeadingClickedEvent<A> {
 
     constructor(
         public name: string,
-        public field: Field<A>,
+        public field: Field,
         public table: Table<A>) { }
 
 }
@@ -95,13 +95,18 @@ export class CellClickedEvent<V, A>{
 
 }
 
-export interface Field<A> {
+export type Comparable
+    = string
+    | number
+    | boolean;
+
+export interface Field {
 
     name: string;
     heading: string;
     hidden?: boolean;
     sortAs?: string;
-    strategy?: (a: A, b: A) => number;
+    strategy?: (a: Comparable, b: Comparable) => number;
 
 }
 
@@ -127,13 +132,28 @@ export class SortTableModel extends DefaultTableModel {
 
 }
 
-export class Table<D> extends AbstractWidget {
+export interface TableAttrs<D> extends Attrs {
+
+    ww?: {
+
+        selectable?: boolean,
+        headingClass?: string,
+        rowClass?: string,
+        cellClass?: string,
+        fields: Field[],
+        data: D[]
+
+    }
+
+}
+
+export class Table<D> extends Component<TableAttrs<D>> {
 
     originalData: D[];
     data: D[];
     sortedOn: string = '';
     arrow: string = '';
-    view: TableView = new TableView(this);
+    view = new TableView(this);
     model: TableModel;
 
     constructor(a, c) {

@@ -1,70 +1,13 @@
-export interface View {
-    render(): HTMLElement;
-    findById(id: string): WMLElement;
+import { AppView } from "@quenk/wml-runtime";
+export declare class Panel<C> extends AppView<C> {
+    constructor(context: C);
 }
-export interface Widget {
-    rendered(): void;
-    removed(): void;
-    render(): HTMLElement;
+export declare class Header<C> extends AppView<C> {
+    constructor(context: C);
 }
-export declare type WMLElement = HTMLElement | Node | EventTarget | Widget;
-export declare class Panel implements View {
-    ids: {
-        [key: string]: WMLElement;
-    };
-    widgets: Widget[];
-    tree: HTMLElement;
-    context: object;
-    template: () => HTMLElement;
-    constructor(context: any);
-    static render(context: any): HTMLElement;
-    register(id: string, w: WMLElement): Panel;
-    findById(id: string): WMLElement;
-    invalidate(): void;
-    render(): HTMLElement;
+export declare class Body<C> extends AppView<C> {
+    constructor(context: C);
 }
-export declare class Header implements View {
-    ids: {
-        [key: string]: WMLElement;
-    };
-    widgets: Widget[];
-    tree: HTMLElement;
-    context: object;
-    template: () => HTMLElement;
-    constructor(context: any);
-    static render(context: any): HTMLElement;
-    register(id: string, w: WMLElement): Header;
-    findById(id: string): WMLElement;
-    invalidate(): void;
-    render(): HTMLElement;
-}
-export declare class Body implements View {
-    ids: {
-        [key: string]: WMLElement;
-    };
-    widgets: Widget[];
-    tree: HTMLElement;
-    context: object;
-    template: () => HTMLElement;
-    constructor(context: any);
-    static render(context: any): HTMLElement;
-    register(id: string, w: WMLElement): Body;
-    findById(id: string): WMLElement;
-    invalidate(): void;
-    render(): HTMLElement;
-}
-export declare class Footer implements View {
-    ids: {
-        [key: string]: WMLElement;
-    };
-    widgets: Widget[];
-    tree: HTMLElement;
-    context: object;
-    template: () => HTMLElement;
-    constructor(context: any);
-    static render(context: any): HTMLElement;
-    register(id: string, w: WMLElement): Footer;
-    findById(id: string): WMLElement;
-    invalidate(): void;
-    render(): HTMLElement;
+export declare class Footer<C> extends AppView<C> {
+    constructor(context: C);
 }

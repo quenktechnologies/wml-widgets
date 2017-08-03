@@ -5,21 +5,46 @@ import { DrawerLayout } from '@quenk/wml-widgets/lib/components/drawer-layout/Dr
 import { Modal } from '@quenk/wml-widgets/lib/components/modal/Modal';
 import { ActionArea } from '@quenk/wml-widgets/lib/components/action-area/ActionArea';
 import { MainView } from '@quenk/wml-widgets/lib/components/main-view/MainView';
+import { Field, SortTableModel } from '@quenk/wml-widgets/lib/components/table/Table';
 
 var count = 0;
+
 interface Record {
 
     name: string;
     amount: number;
+    status: string;
+    watchers: number[];
 
 };
 
-class Application {
+class Next {
+
+    constructor(
+        public name: string = '',
+        public amount: number = 0,
+        public status: string = '',
+        public watchers = []) { }
+
+}
+
+const fields = [
+    { name: 'number', heading: 'Number' },
+    { name: 'name', heading: 'Name' },
+    { name: 'amount', heading: 'Amount' },
+    { name: 'status', heading: 'Status' },
+    { name: 'watching', heading: 'Watching' }
+];
+
+class Application<A> {
 
     drawer: DrawerLayout;
-    modal: Modal;
-    view: Main;
-    records: Record[] = [{ name: 'Jozain Huldum', amount: 32000 }];
+    dialog: CreateDialog<Application<A>>;
+    view: Main<Application<A>>;
+    fields: Field[] = fields;
+    tableModel = new SortTableModel();
+    next: any = new Next();
+    records: Record[] = [{ name: 'Jozain Huldum', amount: 32000, status: 'active', watchers: [] }];
 
     constructor() {
 
@@ -37,12 +62,22 @@ class Application {
 
         let target = document.getElementById('modal');
 
+        this.dialog = new CreateDialog(this);
+
         while (target.firstChild)
             target.removeChild(target.firstChild);
 
-        target.appendChild((new CreateDialog(this)).render());
+        target.appendChild(this.dialog.render());
 
-        console.log('taer ', target);
+    }
+
+    save() {
+
+        this.records.push(this.next);
+        this.next = new Next();
+
+        (<Modal>this.dialog.ids.modal).close();
+        this.view.invalidate();
 
     }
 
@@ -51,7 +86,6 @@ class Application {
         (<any>window).app = this;
         document.getElementById('main').appendChild(this.view.render());
         this.drawer = <DrawerLayout>this.view.findById('layout');
-
 
     }
 
@@ -63,7 +97,7 @@ class Application {
 
 }
 
-let app: Application;
+let app;
 
 describe('Application', function() {
 

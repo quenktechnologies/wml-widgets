@@ -1,6 +1,0 @@
-
-<div class="well">
-
-  {{this.children}}
-
-</div>

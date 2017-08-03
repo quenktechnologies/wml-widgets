@@ -253,10 +253,13 @@ th {
 /* shadows */
 /* heights */
 /* widths */
+/* constants */
 /* DrawerLayout */
 /* ActionArea */
 /* MainView */
 /* MenuButton */
+/* Modal */
+/* Switch */
 /* bootstrap core and components */
 * {
   -webkit-box-sizing: border-box;
@@ -5660,12 +5663,12 @@ button.close {
 .modal-header:after,
 .modal-footer:before,
 .modal-footer:after,
-.ww-panel__body:before,
-.ww-panel__body:after,
 .ww-modal__header:before,
 .ww-modal__header:after,
-.__MODAL_FOOTER__:before,
-.__MODAL_FOOTER__:after {
+.ww-moadl__footer:before,
+.ww-moadl__footer:after,
+.ww-panel__body:before,
+.ww-panel__body:after {
   content: " ";
   display: table;
 }
@@ -5685,9 +5688,9 @@ button.close {
 .panel-body:after,
 .modal-header:after,
 .modal-footer:after,
-.ww-panel__body:after,
 .ww-modal__header:after,
-.__MODAL_FOOTER__:after {
+.ww-moadl__footer:after,
+.ww-panel__body:after {
   clear: both;
 }
 .center-block {
@@ -6071,6 +6074,7 @@ body {
 .-no-padding {
   padding: 0;
 }
+/* @todo: expand border functions and classes */
 .-right {
   float: right !important;
 }
@@ -6106,19 +6110,19 @@ body {
   z-index: 0;
 }
 .-1-z {
-  z-index: 1;
+  z-index: 100;
 }
 .-2-z {
-  z-index: 2;
+  z-index: 200;
 }
 .-3-z {
-  z-index: 3;
+  z-index: 300;
 }
 .-4-z {
-  z-index: 4;
+  z-index: 400;
 }
 .-5-z {
-  z-index: 5;
+  z-index: 500;
 }
 .-999-z {
   z-index: 999;
@@ -6160,7 +6164,7 @@ body {
 .-visible-overflow {
   overflow: visible;
 }
-.-hidden-overflown {
+.-hidden-overflow {
   overflow: hidden;
 }
 .-scroll-overflow {
@@ -6315,64 +6319,12 @@ body {
 .-page-background {
   background-color: #ebeef0;
 }
-/* private functions */
-.ww-drawer-layout {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: #ebeef0;
+.-pointer-cursor {
+  cursor: pointer;
 }
-.ww-drawer {
-  width: 15em;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  display: block;
-  z-index: 1;
-  background-color: #31373D;
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
-  transition: width 0.5s ease;
+.-no-content {
+  content: "";
 }
-.ww-drawer.-hidden {
-  width: 0px;
-}
-.ww-drawer.-hidden ~ .-drawer-pushable {
-  margin-left: 0;
-}
-.ww-drawer.-hidden ~ .-drawer-pushable-fixed {
-  left: 0;
-  width: 100%;
-}
-.ww-drawer ~ .-drawer-pushable {
-  margin-left: 15em;
-  -webkit-transition: margin-left 0.5s ease;
-  -moz-transition: margin-left 0.5s ease;
-  -o-transition: margin-left 0.5s ease;
-  transition: margin-left 0.5s ease;
-}
-.ww-drawer ~ .-drawer-pushable-fixed {
-  left: 15em;
-  -webkit-transition: left 0.5s ease;
-  -moz-transition: left 0.5s ease;
-  -o-transition: left 0.5s ease;
-  transition: left 0.5s ease;
-}
-.ww-drawer__content {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  z-index: 1;
-  -webkit-overflow-scrolling: touch;
-}
-/* private functions */
 .ww-action-area {
   width: 100%;
   min-height: 4em;
@@ -6380,6 +6332,7 @@ body {
   display: block;
   position: fixed;
   background-color: #fff;
+  z-index: 200;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
 .ww-action-area .ww-action-area__content {
@@ -6487,26 +6440,6 @@ body {
 
 }
 */
-.ww-main-view {
-  height: 100%;
-  overflow-y: scroll;
-}
-.ww-menu-button {
-  padding: 9px 10px;
-  border: 1px solid silver;
-  border-radius: 4px;
-  vertical-align: middle;
-  background-color: transparent;
-}
-.ww-menu-button span {
-  width: 22px;
-  height: 2px;
-  background-color: blue;
-  display: block;
-  margin-top: 3px;
-  filter: alpha(opacity=50);
-  opacity: 0.5;
-}
 .ww-button {
   display: inline-block;
   margin-bottom: 0;
@@ -6935,6 +6868,152 @@ input[type="reset"].ww-button .__BLOCK__,
 input[type="button"].ww-button .__BLOCK__ {
   width: 100%;
 }
+/* private functions */
+.ww-drawer-layout {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #ebeef0;
+}
+.ww-drawer {
+  width: 15em;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  display: block;
+  z-index: 100;
+  background-color: #31373D;
+  -webkit-transition: width 0.5s ease;
+  -moz-transition: width 0.5s ease;
+  -o-transition: width 0.5s ease;
+  transition: width 0.5s ease;
+}
+.ww-drawer.-hidden {
+  width: 0px;
+}
+.ww-drawer.-hidden ~ .-drawer-pushable {
+  margin-left: 0;
+}
+.ww-drawer.-hidden ~ .-drawer-pushable-fixed {
+  left: 0;
+  width: 100%;
+}
+.ww-drawer ~ .-drawer-pushable {
+  margin-left: 15em;
+  -webkit-transition: margin-left 0.5s ease;
+  -moz-transition: margin-left 0.5s ease;
+  -o-transition: margin-left 0.5s ease;
+  transition: margin-left 0.5s ease;
+}
+.ww-drawer ~ .-drawer-pushable-fixed {
+  left: 15em;
+  -webkit-transition: left 0.5s ease;
+  -moz-transition: left 0.5s ease;
+  -o-transition: left 0.5s ease;
+  transition: left 0.5s ease;
+}
+.ww-drawer__content {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  z-index: 100;
+  -webkit-overflow-scrolling: touch;
+}
+.ww-main-view {
+  height: 100%;
+  overflow-y: scroll;
+}
+.ww-menu-button {
+  padding: 9px 10px;
+  border: 1px solid silver;
+  border-radius: 4px;
+  vertical-align: middle;
+  background-color: transparent;
+}
+.ww-menu-button span {
+  width: 22px;
+  height: 2px;
+  background-color: blue;
+  display: block;
+  margin-top: 3px;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+.ww-modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  display: block;
+  z-index: 600;
+}
+.ww-modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -25%);
+  -ms-transform: translate(0, -25%);
+  -o-transform: translate(0, -25%);
+  transform: translate(0, -25%);
+  -webkit-transition: -webkit-transform 0.3s ease-out;
+  -moz-transition: -moz-transform 0.3s ease-out;
+  -o-transition: -o-transform 0.3s ease-out;
+  transition: transform 0.3s ease-out;
+}
+.ww-modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+.ww-modal__dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
+}
+.ww-modal__content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+.ww-modal__header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.ww-modal__body {
+  position: relative;
+  padding: 15px;
+}
+.ww-moadl__footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
+}
+.ww-moadl__footer .btn + .btn {
+  margin-left: 5px;
+  margin-bottom: 0;
+}
+.ww-moadl__footer .btn-group .btn + .btn {
+  margin-left: -1px;
+}
+.ww-moadl__footer .btn-block + .btn-block {
+  margin-left: 0;
+}
 /* 
   Originally from bootstrap/mixins/panel.less
   We needed to override the class names.
@@ -7330,71 +7409,80 @@ input[type="button"].ww-button .__BLOCK__ {
 .ww-panel.-danger > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #ebccd1;
 }
-.ww-modal {
+.ww-switch {
+  width: 3em;
+  height: 2em;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* Hide default HTML checkbox */
+.ww-switch input {
   display: none;
-  overflow: hidden;
-  position: fixed;
+}
+.ww-switch__slider {
+  position: absolute;
+  cursor: pointer;
   top: 0;
+  left: 0;
   right: 0;
   bottom: 0;
-  left: 0;
-  z-index: 1050;
-  -webkit-overflow-scrolling: touch;
-  outline: 0;
-  display: block;
+  background-color: #eeeeee;
+  border: 1px solid #ccc;
 }
-.ww-modal.fade .modal-dialog {
-  -webkit-transform: translate(0, -25%);
-  -ms-transform: translate(0, -25%);
-  -o-transform: translate(0, -25%);
-  transform: translate(0, -25%);
-  -webkit-transition: -webkit-transform 0.3s ease-out;
-  -moz-transition: -moz-transform 0.3s ease-out;
-  -o-transition: -o-transform 0.3s ease-out;
-  transition: transform 0.3s ease-out;
-}
-.ww-modal.in .modal-dialog {
-  -webkit-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-.ww-modal__dialog {
-  position: relative;
-  width: auto;
-  margin: 10px;
-}
-.ww-modal__content {
-  position: relative;
+.ww-switch__slider:before {
+  width: 1.5em;
+  height: 100%;
+  position: absolute;
+  content: "";
   background-color: #fff;
-  border: 1px solid #999;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 6px;
-  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
-  background-clip: padding-box;
-  outline: 0;
 }
-.ww-modal__header {
-  padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
+input:checked + .ww-switch__slider {
+  background-color: #2196F3;
+  border: 1px solid #2196F3;
+  overflow: hidden;
 }
-.ww-modal__body {
+input:checked + .ww-switch__slider:before {
+  left: 1.5em;
+}
+/* @todo integrate with rest of library */
+.loading,
+.loading:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loading {
+  margin: 60px auto;
+  font-size: 10px;
   position: relative;
-  padding: 15px;
+  border-top: 1.1em solid rgba(0, 0, 125, 0.2);
+  border-right: 1.1em solid rgba(0, 0, 125, 0.2);
+  border-bottom: 1.1em solid rgba(0, 0, 125, 0.2);
+  border-left: 1.1em solid #66B1C4;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
 }
-.__MODAL_FOOTER__ {
-  padding: 15px;
-  text-align: right;
-  border-top: 1px solid #e5e5e5;
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
-.__MODAL_FOOTER__ .btn + .btn {
-  margin-left: 5px;
-  margin-bottom: 0;
-}
-.__MODAL_FOOTER__ .btn-group .btn + .btn {
-  margin-left: -1px;
-}
-.__MODAL_FOOTER__ .btn-block + .btn-block {
-  margin-left: 0;
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }

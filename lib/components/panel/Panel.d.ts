@@ -1,14 +1,25 @@
-import { AbstractWidget } from '@quenk/wml/lib/runtime';
+import { Component, Attrs } from '@quenk/wml-runtime';
 import * as views from './wml/panel';
-export declare class Panel extends AbstractWidget {
-    view: views.Panel;
+export interface PanelAttrs extends Attrs {
+    ww?: {
+        style?: string;
+    };
 }
-export declare class Header extends AbstractWidget {
-    view: views.Header;
+export interface HeaderAttrs extends Attrs {
 }
-export declare class Body extends AbstractWidget {
-    view: views.Body;
+export interface BodyAttrs extends Attrs {
 }
-export declare class Footer extends AbstractWidget {
-    view: views.Footer;
+export interface FooterAttrs extends Attrs {
+}
+export declare class Panel extends Component<PanelAttrs> {
+    view: views.Panel<this>;
+}
+export declare class Header extends Component<HeaderAttrs> {
+    view: views.Header<this>;
+}
+export declare class Body extends Component<BodyAttrs> {
+    view: views.Body<this>;
+}
+export declare class Footer extends Component<FooterAttrs> {
+    view: views.Footer<this>;
 }

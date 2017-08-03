@@ -1,10 +1,28 @@
-import { AbstractWidget } from '@quenk/wml/lib/runtime';
+import { Component, Attrs } from '@quenk/wml-runtime';
 import * as views from './wml/modal';
+
+export interface ModalAttrs extends Attrs {
+    ww?: {
+        onClick?: (e: Event) => void
+    }
+}
+
+export interface HeaderAttrs extends Attrs {
+
+    ww?: {
+
+        onClose?: () => void
+    }
+
+}
+
+export interface BodyAttrs extends Attrs { }
+export interface FooterAttrs extends Attrs { }
 
 /**
  * Modal
  */
-export class Modal extends AbstractWidget {
+export class Modal extends Component<ModalAttrs> {
 
     view = new views.Modal(this);
 
@@ -33,7 +51,7 @@ export class Modal extends AbstractWidget {
 /**
  * Header
  */
-export class Header extends AbstractWidget {
+export class Header extends Component<HeaderAttrs> {
 
     view = new views.Header(this);
 
@@ -42,7 +60,7 @@ export class Header extends AbstractWidget {
 /**
  * Body
  */
-export class Body extends AbstractWidget {
+export class Body extends Component<BodyAttrs> {
 
     view = new views.Body(this);
 
@@ -51,7 +69,7 @@ export class Body extends AbstractWidget {
 /**
  * Footer
  */
-export class Footer extends AbstractWidget {
+export class Footer extends Component<FooterAttrs> {
 
     view = new views.Footer(this);
 

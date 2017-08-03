@@ -1,13 +1,24 @@
-import { AbstractWidget, WMLElement, Renderable } from '@quenk/wml/lib/runtime';
+import { Component, WMLElement, Renderable, Content, Attrs, Macro } from '@quenk/wml-runtime';
 import * as Styles from 'wml-widgets-common/Styles';
 import { Main } from './wml/drawer-layout';
 import { replaceContent } from 'wml-widgets-common/util';
+
+export interface DrawerLayoutAttrs extends Attrs {
+
+    ww?: {
+
+        navigation?: Macro<void>
+        content?: () => Macro<void>
+
+    }
+
+};
 
 /**
  * DrawerLayout provides a top level layout consisting of a drawer and
  * a main content view.
  */
-export class DrawerLayout extends AbstractWidget {
+export class DrawerLayout extends Component<DrawerLayoutAttrs>{
 
     view = new Main(this);
 

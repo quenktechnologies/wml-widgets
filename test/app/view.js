@@ -1,261 +1,129 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 exports.__esModule = true;
+var wml_runtime_1 = require("@quenk/wml-runtime");
 var components_1 = require("@quenk/wml-widgets/lib/components");
 var components_2 = require("@quenk/wml-widgets/lib/components");
 var components_3 = require("@quenk/wml-widgets/lib/components");
 var components_4 = require("@quenk/wml-widgets/lib/components");
-function $$boundary_to_dot(value) {
-    return value.split('][').join('.').split('[').join('.');
-}
-function $$strip_braces(value) {
-    return value.split('[').join('.').split(']').join('');
-}
-function $$escape_dots(value) {
-    value = value.split('\'');
-    return (value.length < 3) ? value.join('\'') : value.map(function (seg) {
-        if (seg.length < 3)
-            return seg;
-        if ((seg[0] === '.') || (seg[seg.length - 1] === '.'))
-            return seg;
-        return seg.split('.').join('&&');
-    }).join('');
-}
-function $$unescape_dots(value) {
-    return value.split('&&').join('.');
-}
-function $$partify(value) {
-    if (!value)
-        return;
-    return $$escape_dots($$strip_braces($$boundary_to_dot('' + value))).split('.');
-}
-function $$property(path, o) {
-    var parts = $$partify(path);
-    var first;
-    if (typeof o !== 'object')
-        throw new TypeError('get(): expects an object got ' + typeof o);
-    if (parts.length === 1)
-        return o[$$unescape_dots(parts[0])];
-    if (parts.length === 0)
-        return;
-    first = o[parts.shift()];
-    return ((typeof o === 'object') && (o !== null)) ?
-        parts.reduce(function (target, prop) {
-            if (target == null)
-                return target;
-            return target[$$unescape_dots(prop)];
-        }, first) : null;
-}
-function $$adopt(child, e) {
-    if (Array.isArray(child))
-        return child.forEach(function (innerChild) { return $$adopt(innerChild, e); });
-    if (child)
-        e.appendChild((typeof child === 'object') ?
-            child : document.createTextNode(child == null ? '' : child));
-}
-/**
- * $$text creates a DOMTextNode
- * @param {string} value
- */
-function $$text(value) {
-    return document.createTextNode(value == null ? '' : value);
-}
-/**
- * $$resolve property access expression to avoid
- * thowing errors if it does not exist.
- * @param {object} head
- * @param {string} path
- */
-function $$resolve(head, path) {
-    var ret = $$property(path, head);
-    return (ret == null) ? '' : ret;
-}
-/**
- * $$node is called to create a regular DOM node
- * @param {string} tag
- * @param {object} attributes
- * @param {array<string|number|Widget>} children
- * @param {View} view
- */
-function $$node(tag, attributes, children, view) {
-    var e = (tag === 'fragment') ? document.createDocumentFragment() : document.createElement(tag);
-    if (typeof attributes.html === 'object')
-        Object.keys(attributes.html).forEach(function (key) {
-            if (typeof attributes.html[key] === 'function') {
-                e[key] = attributes.html[key];
-            }
-            else {
-                e.setAttribute(key, attributes.html[key]);
-            }
-        });
-    children.forEach(function (c) { return $$adopt(c, e); });
-    if (attributes.wml)
-        if (attributes.wml.id)
-            view.register(attributes.wml.id, e);
-    return e;
-}
-/**
- * Attributes provides an API for reading the
- * attributes supplied to an Element.
- * @param {object} attrs
- */
-var Attributes = (function () {
-    function Attributes(_attrs) {
-        this._attrs = _attrs;
-        this._attrs = _attrs;
-    }
-    Attributes.prototype.has = function (path) {
-        return this.read(path) != null;
-    };
-    /**
-     * read a value form the internal list.
-     * @param {string} path
-     * @param {*} defaultValue - This value is returned if the value is not set.
-     */
-    Attributes.prototype.read = function (path, defaultValue) {
-        var ret = $$property(path.split(':').join('.'), this._attrs);
-        return (ret != null) ? ret : (defaultValue != null) ? defaultValue : '';
-    };
-    return Attributes;
-}());
-/**
- * $$widget creates a wml widget.
- * @param {function} Construtor
- * @param {object} attributes
- * @param {array<string|number|Widget>} children
- * @param {View} view
- * @return {Widget}
- */
-function $$widget(Constructor, attributes, children, view) {
-    var childs = [];
-    var w;
-    children.forEach(function (child) { return Array.isArray(child) ?
-        childs.push.apply(childs, child) : childs.push(child); });
-    w = new Constructor(new Attributes(attributes), childs);
-    if (attributes.wml)
-        if (attributes.wml.id)
-            view.register(attributes.wml.id, w);
-    view.widgets.push(w);
-    return w.render();
-}
-/**
- * $$if is called to create an if conditional construct
- * @param {*} predicate
- * @param {function} positive
- * @param {function} negative
- */
-function $$if(predicate, positive, negative) {
-    return (predicate) ? positive() : negative();
-}
-/**
- * $$for is called to create a for loop construct
- * @param {Iterable} collection
- * @param {function} cb
- */
-function $$for(collection, cb) {
-    if (Array.isArray(collection)) {
-        return collection.map(cb);
-    }
-    else if (typeof collection === 'object') {
-        return Object.keys(collection).map(function (key, _, all) { return cb(collection[key], key, all); });
-    }
-    return [];
-}
-/**
- * $$switch simulates a switch statement
- * @param {string|number|boolean} value
- * @param {object} cases
- */
-function $$switch(value, cases) {
-    var result = cases[value];
-    var defaul = cases["default"];
-    if (result)
-        return result;
-    if (defaul)
-        return defaul;
-}
-var CreateDialog = (function () {
+var components_5 = require("@quenk/wml-widgets/lib/components");
+var components_6 = require("@quenk/wml-widgets/lib/components");
+var CreateDialog = (function (_super) {
+    __extends(CreateDialog, _super);
     function CreateDialog(context) {
-        var view = this;
-        this.ids = {};
-        this.widgets = [];
-        this.tree = null;
-        this.context = context;
-        this.template = function () {
-            return $$widget(components_4.Modal, {
+        var _this = _super.call(this, context) || this;
+        var view = _this;
+        _this.template = function () {
+            return wml_runtime_1.widget(components_5.Modal, {
                 html: {},
                 wml: {
                     'id': "modal"
                 }
-            }, [$$widget(components_4.ModalHeader, {
+            }, [wml_runtime_1.widget(components_5.ModalHeader, {
+                    html: {},
+                    ww: {
+                        'onClose': function function_literal_1(_) {
+                            return this.dialog.ids.modal.close();
+                        }.bind(this)
+                    }
+                }, [wml_runtime_1.text("\n      Create record\n    ")], view), wml_runtime_1.widget(components_5.ModalBody, {
                     html: {}
-                }, [$$text("Create record")], view), $$widget(components_4.ModalBody, {
+                }, [wml_runtime_1.widget(components_6.Input, {
+                        html: {},
+                        ww: {
+                            'id': "name",
+                            'label': "Name",
+                            'onInput': function function_literal_2(e) {
+                                return this.next.name = e.target.value;
+                            }.bind(this)
+                        }
+                    }, [], view), wml_runtime_1.widget(components_6.Input, {
+                        html: {},
+                        ww: {
+                            'id': "amount",
+                            'label': "Amount",
+                            'type': "number",
+                            'onInput': function function_literal_3(e) {
+                                return this.next.amount = Number(e.target.value);
+                            }.bind(this)
+                        }
+                    }, [], view), wml_runtime_1.widget(components_6.Select, {
+                        html: {},
+                        ww: {
+                            'id': "status",
+                            'label': "Status",
+                            'options': ['paid', 'overdue', 'history'],
+                            'onInput': function function_literal_4(e) {
+                                return this.next.status = e.target.value;
+                            }.bind(this)
+                        }
+                    }, [], view), wml_runtime_1.node('span', {
+                        html: {}
+                    }, [wml_runtime_1.text(" Receive Notifications? ")], view), wml_runtime_1.widget(components_6.Switch, {
+                        html: {},
+                        ww: {
+                            'onChange': function function_literal_5(e) {
+                                return (e.target.value) ? this.next.watchers.push(1) : null;
+                            }.bind(this)
+                        }
+                    }, [], view)], view), wml_runtime_1.widget(components_5.ModalFooter, {
                     html: {}
-                }, [$$text("\n\n        Touch that body\n\n      ")], view)], view);
+                }, [wml_runtime_1.widget(components_1.Button, {
+                        html: {},
+                        wml: {
+                            'id': "cancelButton"
+                        },
+                        ww: {
+                            'text': "Cancel",
+                            'onClick': function function_literal_6(e) {
+                                return this.dialog.ids.modal.close();
+                            }.bind(this)
+                        }
+                    }, [], view), wml_runtime_1.widget(components_1.Button, {
+                        html: {},
+                        wml: {
+                            'id': "saveButton"
+                        },
+                        ww: {
+                            'style': "-danger",
+                            'text': "Save",
+                            'class': "-right",
+                            'onClick': this.save.bind(this)
+                        }
+                    }, [], view)], view)], view);
         };
+        return _this;
     }
-    CreateDialog.render = function (context) {
-        return (new CreateDialog(context)).render();
-    };
-    CreateDialog.prototype.register = function (id, w) {
-        if (this.ids.hasOwnProperty(id))
-            throw new Error('Duplicate id \'' + id + '\' detected!');
-        this.ids[id] = w;
-        return this;
-    };
-    CreateDialog.prototype.findById = function (id) {
-        return (this.ids[id]) ? this.ids[id] : null;
-    };
-    CreateDialog.prototype.invalidate = function () {
-        var childs;
-        var parent = this.tree.parentNode;
-        var realFirstChild;
-        var realFirstChildIndex;
-        if (this.tree == null)
-            throw new ReferenceError('Cannot invalidate a view that has not been rendered!');
-        if (this.tree.parentNode == null)
-            throw new ReferenceError('Attempt to invalidate a view that has not been inserted to DOM!');
-        childs = this.tree.parentNode.children;
-        //for some reason the reference stored does not have the correct parent node.
-        //we do this to get a 'live' version of the node.
-        for (var i = 0; i < childs.length; i++)
-            if (childs[i] === this.tree) {
-                realFirstChild = childs[i];
-                realFirstChildIndex = i;
-            }
-        parent.replaceChild(this.render(), realFirstChild);
-    };
-    CreateDialog.prototype.render = function () {
-        this.ids = {};
-        this.widgets.forEach(function (w) { return w.removed(); });
-        this.widgets = [];
-        this.tree = this.template.call(this.context);
-        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : this.tree;
-        this.widgets.forEach(function (w) { return w.rendered(); });
-        return this.tree;
-    };
     return CreateDialog;
-}());
+}(wml_runtime_1.AppView));
 exports.CreateDialog = CreateDialog;
 function navigation(view) {
-    return $$node('p', {
-        html: {}
-    }, [$$text("This is in the drawer")], view);
+    return wml_runtime_1.box([wml_runtime_1.node('p', {
+            html: {}
+        }, [wml_runtime_1.text("This is in the drawer")], view)]);
 }
 exports.navigation = navigation;
 function content(view) {
-    return $$node('fragment', {
-        html: {}
-    }, [$$widget(components_1.ActionArea, {
+    return wml_runtime_1.box([wml_runtime_1.widget(components_1.ActionArea, {
             html: {},
             wml: {
                 'id': "actions"
             }
-        }, [$$widget(components_1.MenuButton, {
+        }, [wml_runtime_1.widget(components_1.MenuButton, {
                 html: {},
                 ww: {
                     'onClick': this.toggleDrawer.bind(this)
                 }
-            }, [], view), $$widget(components_1.Button, {
+            }, [], view), wml_runtime_1.widget(components_1.Button, {
                 html: {},
                 wml: {
                     'id': "createButton"
@@ -266,120 +134,62 @@ function content(view) {
                     'class': "-right",
                     'onClick': this.create.bind(this)
                 }
-            }, [], view)], view), $$widget(components_1.MainView, {
+            }, [], view)], view), wml_runtime_1.widget(components_1.MainView, {
             html: {},
             wml: {
                 'id': "main"
             }
-        }, [$$widget(components_2.Container, {
+        }, [wml_runtime_1.widget(components_2.Container, {
                 html: {}
-            }, [$$widget(components_2.Row, {
+            }, [wml_runtime_1.widget(components_2.Row, {
                     html: {}
-                }, [$$widget(components_2.Column, {
+                }, [wml_runtime_1.widget(components_2.Column, {
                         html: {}
-                    }, [$$widget(components_3.Panel, {
+                    }, [wml_runtime_1.widget(components_4.Panel, {
                             html: {},
                             ww: {
                                 'style': "-info"
                             }
-                        }, [$$widget(components_3.PanelHeader, {
+                        }, [wml_runtime_1.widget(components_4.PanelHeader, {
                                 html: {}
-                            }, [$$text("Details")], view), $$widget(components_3.PanelBody, {
+                            }, [wml_runtime_1.text("Details")], view), wml_runtime_1.widget(components_4.PanelBody, {
                                 html: {}
-                            }, [$$text("Records:")], view), $$node('table', {
-                                html: {
-                                    'class': "table table-stripe table-bordered"
+                            }, [wml_runtime_1.text("Records:")], view), wml_runtime_1.widget(components_3.Table, {
+                                html: {},
+                                ww: {
+                                    'fields': this.fields,
+                                    'data': this.records,
+                                    'model': this.tableModel
                                 }
-                            }, [$$node('thead', {
-                                    html: {}
-                                }, [$$node('tr', {
-                                        html: {}
-                                    }, [$$node('th', {
-                                            html: {}
-                                        }, [$$text("Number")], view), $$node('th', {
-                                            html: {}
-                                        }, [$$text("Name")], view), $$node('th', {
-                                            html: {}
-                                        }, [$$text("Amount")], view)], view)], view), $$node('tbody', {
-                                    html: {}
-                                }, [$$for($$resolve(this, 'records'), function for_1(record, number, array) {
-                                        return [$$node('tr', {
-                                                html: {}
-                                            }, [$$node('td', {
-                                                    html: {}
-                                                }, [number], view), $$node('td', {
-                                                    html: {}
-                                                }, [$$resolve(record, 'name')], view), $$node('td', {
-                                                    html: {}
-                                                }, [$$resolve(record, 'amount')], view)], view)];
-                                    }.bind(this))], view)], view), $$widget(components_3.PanelFooter, {
+                            }, [], view), wml_runtime_1.widget(components_4.PanelFooter, {
                                 html: {}
-                            }, [$$text("\n                0\n              ")], view)], view)], view)], view)], view)], view)], view);
+                            }, [this.records.reduce(function function_literal_7(p, c) {
+                                    return p + c.amount;
+                                }.bind(this), 0)], view)], view)], view)], view)], view)], view)]);
 }
 exports.content = content;
-var Main = (function () {
+var Main = (function (_super) {
+    __extends(Main, _super);
     function Main(context) {
-        var view = this;
-        this.ids = {};
-        this.widgets = [];
-        this.tree = null;
-        this.context = context;
-        this.template = function () {
-            return $$widget(components_1.DrawerLayout, {
+        var _this = _super.call(this, context) || this;
+        var view = _this;
+        _this.template = function () {
+            return wml_runtime_1.widget(components_1.DrawerLayout, {
                 html: {},
                 wml: {
                     'id': "layout"
                 },
                 ww: {
                     'navigation': navigation,
-                    'content': function function_literal_1(v) {
+                    'content': function function_literal_8(v) {
                         return content.call(this, v);
                     }.bind(this)
                 }
             }, [], view);
         };
+        return _this;
     }
-    Main.render = function (context) {
-        return (new Main(context)).render();
-    };
-    Main.prototype.register = function (id, w) {
-        if (this.ids.hasOwnProperty(id))
-            throw new Error('Duplicate id \'' + id + '\' detected!');
-        this.ids[id] = w;
-        return this;
-    };
-    Main.prototype.findById = function (id) {
-        return (this.ids[id]) ? this.ids[id] : null;
-    };
-    Main.prototype.invalidate = function () {
-        var childs;
-        var parent = this.tree.parentNode;
-        var realFirstChild;
-        var realFirstChildIndex;
-        if (this.tree == null)
-            throw new ReferenceError('Cannot invalidate a view that has not been rendered!');
-        if (this.tree.parentNode == null)
-            throw new ReferenceError('Attempt to invalidate a view that has not been inserted to DOM!');
-        childs = this.tree.parentNode.children;
-        //for some reason the reference stored does not have the correct parent node.
-        //we do this to get a 'live' version of the node.
-        for (var i = 0; i < childs.length; i++)
-            if (childs[i] === this.tree) {
-                realFirstChild = childs[i];
-                realFirstChildIndex = i;
-            }
-        parent.replaceChild(this.render(), realFirstChild);
-    };
-    Main.prototype.render = function () {
-        this.ids = {};
-        this.widgets.forEach(function (w) { return w.removed(); });
-        this.widgets = [];
-        this.tree = this.template.call(this.context);
-        this.ids['root'] = (this.ids['root']) ? this.ids['root'] : this.tree;
-        this.widgets.forEach(function (w) { return w.rendered(); });
-        return this.tree;
-    };
     return Main;
-}());
+}(wml_runtime_1.AppView));
 exports.Main = Main;
 //# sourceMappingURL=view.js.map

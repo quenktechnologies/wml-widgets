@@ -1,6 +1,7 @@
-import * as property from 'property-seek'
+import {get as property} from 'property-seek'
 import * as Styles from 'wml-widgets-common/Styles'
 import {HeadingClickedEvent, RowClickedEvent, RowSelectedEvent, CellClickedEvent} from '../Table'
+import {Fragment} from '../../'
 
 {% macro thead (fields) %}
 
@@ -65,7 +66,7 @@ import {HeadingClickedEvent, RowClickedEvent, RowSelectedEvent, CellClickedEvent
 
 {% macro tbody(data, fields) %}
 
-  <fragment>
+  <Fragment>
 
     {% for row,index in data %}
 
@@ -113,7 +114,7 @@ import {HeadingClickedEvent, RowClickedEvent, RowSelectedEvent, CellClickedEvent
 
     {% endfor %}
 
-</fragment>
+</Fragment>
 
 {% endmacro %}
 

@@ -1,8 +1,9 @@
 import * as Styles from "wml-widgets-common/Styles"
 import {noop, combine} from "wml-widgets-common/util"
+import {Fragment} from '../../'
 
-<fragment>
-  
+<Fragment>
+
   {% if this.attributes.read('ww:href') %}
    
     <a
@@ -44,5 +45,4 @@ import {noop, combine} from "wml-widgets-common/util"
 
   {% endif %}
 
-</fragment>
-
+</Fragment>

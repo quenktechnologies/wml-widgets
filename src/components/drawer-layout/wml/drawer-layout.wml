@@ -6,9 +6,9 @@ import * as Styles from 'wml-widgets-common/Styles'
 
     <div class={{Styles.DRAWER_CONTENT}}>
 
-      {% if this.attributes.read('ww:navigation') %}
+      {% if (this.attributes.read('ww:navigation')) %}
 
-        {% include this.attributes.read('ww:navigation') %}
+        {% include (this.attributes.read('ww:navigation')) %}
 
       {% endif %}
 
@@ -18,7 +18,7 @@ import * as Styles from 'wml-widgets-common/Styles'
 
   {% if this.attributes.has('ww:content') %}
 
-    {% include this.attributes.read('ww:content') %}
+    {% include (this.attributes.read('ww:content')) %}
 
   {% else %}
 

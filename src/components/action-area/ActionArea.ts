@@ -1,12 +1,13 @@
 import * as Styles from 'wml-widgets-common/Styles';
 import { replaceContent } from 'wml-widgets-common/util';
-import { AbstractWidget, Renderable } from '@quenk/wml/lib/runtime';
+import { Component, Renderable, Attrs } from '@quenk/wml-runtime';
 import { Main } from './wml/action_area';
 
+export interface ActionAreaAttrs extends Attrs { }
 /**
  * ActionArea
  */
-export class ActionArea extends AbstractWidget {
+export class ActionArea extends Component<ActionAreaAttrs> {
 
     view = new Main(this);
 

@@ -1,4 +1,4 @@
-import { AbstractWidget } from '@quenk/wml/lib/runtime';
+import { Component, Attrs } from '@quenk/wml-runtime';
 import { noop } from 'wml-widgets-common/util';
 import { InputView, SelectView } from './wml/input';
 import * as Styles from 'wml-widgets-common/Styles';
@@ -6,6 +6,28 @@ import * as Styles from 'wml-widgets-common/Styles';
 const INPUT_SUCCESS = 'has-success';
 const INPUT_ERROR = 'has-error';
 const INPUT_WARNING = 'has-warning';
+
+export type Opt = string | { label: string, value: string | number }
+
+export interface InputAttrs extends Attrs {
+
+    ww?: {
+        id?: string,
+        label?: string,
+        message?: string,
+        variant?: string
+        title?: string,
+        name?: string,
+        type?: string,
+        disabled?: boolean,
+        readonly?: boolean,
+        placeholder?: string,
+        options?: Opt[],
+        rows?: number,
+        onInput: (e: Event) => void
+    }
+
+}
 
 /**
  * InputDelegate is an interface inputs can delegate all their events to.
@@ -20,7 +42,7 @@ export class DefaultInputDelegate {
 
     constructor(public input: Input) { }
 
-    onInput(e) {
+    onInput(e: Event) {
 
         (<Function>this.input.attributes.read('ww:onInput', noop))(e);
 
@@ -31,18 +53,18 @@ export class DefaultInputDelegate {
 /**
  * Input
  */
-export class Input extends AbstractWidget {
+export class Input extends Component<InputAttrs> {
 
     view = new InputView(this);
     delegate = this.attributes.read('ww:delegate', new DefaultInputDelegate(this));
 
-    get name() {
+    get name(): string {
 
         return (<Input>this.view.ids.input).name;
 
     }
 
-    get value() {
+    get value(): string {
 
         return (<Input>this.view.ids.input).value;
 
