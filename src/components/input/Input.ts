@@ -56,7 +56,15 @@ export class DefaultInputDelegate {
 export class Input extends Component<InputAttrs> {
 
     view = new InputView(this);
-    delegate = this.attributes.read('ww:delegate', new DefaultInputDelegate(this));
+    delegate: InputDelegate;
+
+    constructor(attrs, children) {
+
+        super(attrs, children);
+
+        this.delegate = this.attributes.read('ww:delegate', new DefaultInputDelegate(this));
+
+    }
 
     get name(): string {
 
