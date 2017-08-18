@@ -32,7 +32,7 @@ export class Tab extends Component<TabAttrs> {
 
     }
 
-    clicked(e) {
+    clicked(e: Event) {
 
         e.preventDefault();
 

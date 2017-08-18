@@ -1,4 +1,3 @@
-import * as must from 'must/register';
 import * as Styles from 'wml-widgets-common/Styles';
 import { Main, CreateDialog } from './view';
 import { DrawerLayout } from '@quenk/wml-widgets/lib/components/drawer-layout/DrawerLayout';
@@ -18,17 +17,17 @@ interface Record {
 
 };
 
-class Next {
+export class Next {
 
     constructor(
         public name: string = '',
         public amount: number = 0,
         public status: string = '',
-        public watchers = []) { }
+        public watchers: number[] = []) { }
 
 }
 
-const fields = [
+const fields: Field<Next>[] = [
     { name: 'number', heading: 'Number' },
     { name: 'name', heading: 'Name' },
     { name: 'amount', heading: 'Amount' },
@@ -36,14 +35,14 @@ const fields = [
     { name: 'watching', heading: 'Watching' }
 ];
 
-class Application<A> {
+class Application {
 
     drawer: DrawerLayout;
-    dialog: CreateDialog<Application<A>>;
-    view: Main<Application<A>>;
-    fields: Field[] = fields;
+    dialog: CreateDialog<Application>;
+    view: Main<Application>;
+    fields: Field<Next>[] = fields;
     tableModel = new SortTableModel();
-    next: any = new Next();
+    next: Next = new Next();
     records: Record[] = [{ name: 'Jozain Huldum', amount: 32000, status: 'active', watchers: [] }];
 
     constructor() {
@@ -97,46 +96,12 @@ class Application<A> {
 
 }
 
-let app;
+let app: Application;
+app = Application.main();
+app.run();
 
-describe('Application', function() {
+let layout = (<DrawerLayout>app.view.findById('layout'));
+let drawer = <HTMLElement>document.getElementsByClassName(Styles.DRAWER)[0];
 
-    before('should render', function() {
+layout.toggleDrawer();
 
-        app = Application.main();
-        app.run();
-
-    });
-
-    describe('DrawerLayout', function() {
-
-        describe('DrawerLayout#toggleDrawer()', function() {
-
-            it('should hide and show the drawer', function(done) {
-
-                let layout = (<DrawerLayout>app.view.findById('layout'));
-                let drawer = <HTMLElement>document.getElementsByClassName(Styles.DRAWER)[0];
-
-                must(drawer.clientWidth).not.be(0);
-                layout.toggleDrawer();
-
-                setTimeout(() => {
-
-                    must(drawer.clientWidth).be(0);
-                    layout.toggleDrawer();
-
-                    setTimeout(() => {
-
-                        must(drawer.clientWidth).not.be(0);
-                        done();
-
-                    }, 1000)
-                }, 1000)
-
-            });
-
-        });
-
-    });
-
-});

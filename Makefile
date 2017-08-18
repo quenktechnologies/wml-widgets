@@ -45,7 +45,7 @@ test-wml:
 
 .PHONY: test-ts
 test-ts:
-	./node_modules/.bin/tsc --sourceMap test/app/app.ts
+	./node_modules/.bin/tsc --sourceMap --project test/app
 
 .PHONY: test-app
 test-app:

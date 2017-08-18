@@ -9,7 +9,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var wml_runtime_1 = require("@quenk/wml-runtime");
 var components_1 = require("@quenk/wml-widgets/lib/components");
 var components_2 = require("@quenk/wml-widgets/lib/components");
@@ -30,15 +30,18 @@ var CreateDialog = (function (_super) {
                 }
             }, [wml_runtime_1.widget(components_5.ModalHeader, {
                     html: {},
+                    wml: {},
                     ww: {
-                        'onClose': function function_literal_1(_) {
+                        'onClose': function function_literal_1() {
                             return this.dialog.ids.modal.close();
                         }.bind(this)
                     }
                 }, [wml_runtime_1.text("\n      Create record\n    ")], view), wml_runtime_1.widget(components_5.ModalBody, {
-                    html: {}
+                    html: {},
+                    wml: {}
                 }, [wml_runtime_1.widget(components_6.Input, {
                         html: {},
+                        wml: {},
                         ww: {
                             'id': "name",
                             'label': "Name",
@@ -48,6 +51,7 @@ var CreateDialog = (function (_super) {
                         }
                     }, [], view), wml_runtime_1.widget(components_6.Input, {
                         html: {},
+                        wml: {},
                         ww: {
                             'id': "amount",
                             'label': "Amount",
@@ -58,6 +62,7 @@ var CreateDialog = (function (_super) {
                         }
                     }, [], view), wml_runtime_1.widget(components_6.Select, {
                         html: {},
+                        wml: {},
                         ww: {
                             'id': "status",
                             'label': "Status",
@@ -67,16 +72,19 @@ var CreateDialog = (function (_super) {
                             }.bind(this)
                         }
                     }, [], view), wml_runtime_1.node('span', {
-                        html: {}
+                        html: {},
+                        wml: {}
                     }, [wml_runtime_1.text(" Receive Notifications? ")], view), wml_runtime_1.widget(components_6.Switch, {
                         html: {},
+                        wml: {},
                         ww: {
                             'onChange': function function_literal_5(e) {
                                 return (e.target.value) ? this.next.watchers.push(1) : null;
                             }.bind(this)
                         }
                     }, [], view)], view), wml_runtime_1.widget(components_5.ModalFooter, {
-                    html: {}
+                    html: {},
+                    wml: {}
                 }, [wml_runtime_1.widget(components_1.Button, {
                         html: {},
                         wml: {
@@ -84,7 +92,7 @@ var CreateDialog = (function (_super) {
                         },
                         ww: {
                             'text': "Cancel",
-                            'onClick': function function_literal_6(e) {
+                            'onClick': function function_literal_6() {
                                 return this.dialog.ids.modal.close();
                             }.bind(this)
                         }
@@ -107,65 +115,75 @@ var CreateDialog = (function (_super) {
 }(wml_runtime_1.AppView));
 exports.CreateDialog = CreateDialog;
 function navigation(view) {
-    return wml_runtime_1.box([wml_runtime_1.node('p', {
-            html: {}
-        }, [wml_runtime_1.text("This is in the drawer")], view)]);
+    return wml_runtime_1.node('p', {
+        html: {},
+        wml: {}
+    }, [wml_runtime_1.text("This is in the drawer")], view);
 }
 exports.navigation = navigation;
 function content(view) {
-    return wml_runtime_1.box([wml_runtime_1.widget(components_1.ActionArea, {
+    return wml_runtime_1.box(wml_runtime_1.widget(components_1.ActionArea, {
+        html: {},
+        wml: {
+            'id': "actions"
+        }
+    }, [wml_runtime_1.widget(components_1.MenuButton, {
+            html: {},
+            wml: {},
+            ww: {
+                'onClick': this.toggleDrawer.bind(this)
+            }
+        }, [], view), wml_runtime_1.widget(components_1.Button, {
             html: {},
             wml: {
-                'id': "actions"
+                'id': "createButton"
+            },
+            ww: {
+                'style': "-danger",
+                'text': "Create",
+                'class': "-right",
+                'onClick': this.create.bind(this)
             }
-        }, [wml_runtime_1.widget(components_1.MenuButton, {
-                html: {},
-                ww: {
-                    'onClick': this.toggleDrawer.bind(this)
-                }
-            }, [], view), wml_runtime_1.widget(components_1.Button, {
-                html: {},
-                wml: {
-                    'id': "createButton"
-                },
-                ww: {
-                    'style': "-danger",
-                    'text': "Create",
-                    'class': "-right",
-                    'onClick': this.create.bind(this)
-                }
-            }, [], view)], view), wml_runtime_1.widget(components_1.MainView, {
+        }, [], view)], view), wml_runtime_1.widget(components_1.MainView, {
+        html: {},
+        wml: {
+            'id': "main"
+        }
+    }, [wml_runtime_1.widget(components_2.Container, {
             html: {},
-            wml: {
-                'id': "main"
-            }
-        }, [wml_runtime_1.widget(components_2.Container, {
-                html: {}
-            }, [wml_runtime_1.widget(components_2.Row, {
-                    html: {}
-                }, [wml_runtime_1.widget(components_2.Column, {
-                        html: {}
-                    }, [wml_runtime_1.widget(components_4.Panel, {
+            wml: {}
+        }, [wml_runtime_1.widget(components_2.Row, {
+                html: {},
+                wml: {}
+            }, [wml_runtime_1.widget(components_2.Column, {
+                    html: {},
+                    wml: {}
+                }, [wml_runtime_1.widget(components_4.Panel, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'style': "-info"
+                        }
+                    }, [wml_runtime_1.widget(components_4.PanelHeader, {
                             html: {},
+                            wml: {}
+                        }, [wml_runtime_1.text("Details")], view), wml_runtime_1.widget(components_4.PanelBody, {
+                            html: {},
+                            wml: {}
+                        }, [wml_runtime_1.text("Records:")], view), wml_runtime_1.widget(components_3.Table, {
+                            html: {},
+                            wml: {},
                             ww: {
-                                'style': "-info"
+                                'fields': this.fields,
+                                'data': this.records,
+                                'model': this.tableModel
                             }
-                        }, [wml_runtime_1.widget(components_4.PanelHeader, {
-                                html: {}
-                            }, [wml_runtime_1.text("Details")], view), wml_runtime_1.widget(components_4.PanelBody, {
-                                html: {}
-                            }, [wml_runtime_1.text("Records:")], view), wml_runtime_1.widget(components_3.Table, {
-                                html: {},
-                                ww: {
-                                    'fields': this.fields,
-                                    'data': this.records,
-                                    'model': this.tableModel
-                                }
-                            }, [], view), wml_runtime_1.widget(components_4.PanelFooter, {
-                                html: {}
-                            }, [this.records.reduce(function function_literal_7(p, c) {
-                                    return p + c.amount;
-                                }.bind(this), 0)], view)], view)], view)], view)], view)], view)]);
+                        }, [], view), wml_runtime_1.widget(components_4.PanelFooter, {
+                            html: {},
+                            wml: {}
+                        }, [wml_runtime_1.domify(this.records.reduce(function function_literal_7(p, c) {
+                                return p + c.amount;
+                            }.bind(this), 0))], view)], view)], view)], view)], view)], view));
 }
 exports.content = content;
 var Main = (function (_super) {
@@ -181,9 +199,7 @@ var Main = (function (_super) {
                 },
                 ww: {
                     'navigation': navigation,
-                    'content': function function_literal_8(v) {
-                        return content.call(this, v);
-                    }.bind(this)
+                    'content': content.bind(this)
                 }
             }, [], view);
         };

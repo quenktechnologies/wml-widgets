@@ -37,7 +37,7 @@ export declare class DefaultInputDelegate {
  */
 export declare class Input extends Component<InputAttrs> {
     view: InputView<this>;
-    delegate: DefaultInputDelegate;
+    delegate: InputDelegate;
     readonly name: string;
     readonly value: string;
     initialValue(): any;

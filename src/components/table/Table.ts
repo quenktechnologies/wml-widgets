@@ -1,30 +1,27 @@
 import property from 'property-seek';
-import { Component, Attrs } from '@quenk/wml-runtime';
+import { Component, Attrs, Content, View } from '@quenk/wml-runtime';
 import { noop } from 'wml-widgets-common/util';
 import { TableView } from './wml/table';
 
 const ASC_ARROW = '\u21e7';
 const DESC_ARROW = '\u21e9';
 
-export const dateSort = (a, b) => {
-    a = new Date(a).getTime();
-    b = new Date(b).getTime();
-    return a > b ? -1 : a < b ? 1 : 0;
+export const dateSort = (a: string, b: string) => {
+    let na = new Date(a).getTime();
+    let nb = new Date(b).getTime();
+    return na > nb ? -1 : na < nb ? 1 : 0;
 };
 
-export const stringSort = (a, b) => {
+export const stringSort = (a: string, b: string) => {
 
-    if (typeof a === 'string')
-        a = a.replace(/\s+/, '').toLowerCase();
+    let la = a.replace(/\s+/, '').toLowerCase();
+    let lb = b.replace(/\s+/, '').toLowerCase();
 
-    if (typeof b === 'string')
-        b = b.replace(/\s+/, '').toLowerCase();
-
-    return (a > b) ? -1 : (a < b) ? 1 : 0;
+    return (la > lb) ? -1 : (la < lb) ? 1 : 0;
 
 };
 
-export const naturalSort = (a, b) => {
+export const naturalSort = (a: any, b: any) => {
 
     //Source: http://stackoverflow.com/questions/4340227/sort-mixed-alpha-numeric-array
     var reA = /[^a-zA-Z]/g;
@@ -51,47 +48,47 @@ export const naturalSort = (a, b) => {
     }
 };
 
-export const numberSort = (a, b) => {
+export const numberSort = (a: any, b: any) => {
 
-    a = parseFloat(a);
-    b = parseFloat(b);
+    let na = parseFloat(a);
+    let nb = parseFloat(b);
 
-    a = (isNaN(a)) ? -Infinity : a;
-    b = (isNaN(b)) ? -Infinity : b;
+    na = (isNaN(a)) ? -Infinity : a;
+    nb = (isNaN(b)) ? -Infinity : b;
 
-    return (a > b) ? -1 : (a < b) ? 1 : 0;
+    return (na > nb) ? -1 : (na < nb) ? 1 : 0;
 
 };
 
-export class HeadingClickedEvent<A> {
+export class HeadingClickedEvent<D> {
 
     constructor(
         public name: string,
-        public field: Field,
-        public table: Table<A>) { }
+        public field: Field<D>,
+        public table: Table<D>) { }
 
 }
 
-export class RowClickedEvent<A> {
+export class RowClickedEvent<D> {
 
     constructor(
-        public value: A,
-        public index: number,
-        public data: A[],
-        public table: Table<A>) { }
+        public value: D,
+        public index: number | string,
+        public data: D[],
+        public table: Table<D>) { }
 
 }
 
-export class RowSelectedEvent<A> extends RowClickedEvent<A> { }
+export class RowSelectedEvent<D> extends RowClickedEvent<D> { }
 
-export class CellClickedEvent<V, A>{
+export class CellClickedEvent<D>{
 
     constructor(
-        public value: V,
+        public value: CellContent,
         public name: string,
-        public index: number,
-        public object: A,
-        public table: Table<A>) { }
+        public index: number | string,
+        public row: D,
+        public table: Table<D>) { }
 
 }
 
@@ -100,48 +97,65 @@ export type Comparable
     | number
     | boolean;
 
-export interface Field {
+export interface SortingStrategy {
 
+    (a: Comparable, b: Comparable): number;
+
+}
+
+export interface Field<D> {
     name: string;
     heading: string;
     hidden?: boolean;
     sortAs?: string;
-    strategy?: (a: Comparable, b: Comparable) => number;
-
+    fragment?: CellFragment<D>
+    strategy?: SortingStrategy;
 }
+
+export interface CellFragment<D> {
+
+    (view: View, datum: CellContent, name: string, row: D, field: Field<D>): Content
+}
+
+export type CellContent
+    = boolean
+    | number
+    | string
+    ;
 
 export interface TableModel {
 
     allSelected(): void;
-    headingClicked<A>(e: HeadingClickedEvent<A>): void;
-    rowClicked<A>(e: RowClickedEvent<A>): void;
-    rowSelected<A>(e: RowSelectedEvent<A>): void;
+    headingClicked<D>(e: HeadingClickedEvent<D>): void;
+    rowClicked<D>(e: RowClickedEvent<D>): void;
+    rowSelected<D>(e: RowSelectedEvent<D>): void;
 
 }
 
 export class DefaultTableModel implements TableModel {
     allSelected(): void { }
-    headingClicked<A>(_e: HeadingClickedEvent<A>): void { }
-    rowClicked<A>(_e: RowClickedEvent<A>): void { }
-    rowSelected<A>(_e: RowSelectedEvent<A>): void { }
+    headingClicked<D>(_e: HeadingClickedEvent<D>): void { }
+    rowClicked<D>(_e: RowClickedEvent<D>): void { }
+    rowSelected<D>(_e: RowSelectedEvent<D>): void { }
 }
 
 export class SortTableModel extends DefaultTableModel {
 
-    headingClicked<A>(e: HeadingClickedEvent<A>) { e.table.sort(e.name); }
+    headingClicked<D>(e: HeadingClickedEvent<D>) { e.table.sort(e.name); }
 
 }
 
 export interface TableAttrs<D> extends Attrs {
 
-    ww?: {
+    ww: {
 
         selectable?: boolean,
         headingClass?: string,
         rowClass?: string,
         cellClass?: string,
-        fields: Field[],
-        data: D[]
+        fields: Field<D>[],
+        data: D[],
+        model?: TableModel
 
     }
 
@@ -149,31 +163,21 @@ export interface TableAttrs<D> extends Attrs {
 
 export class Table<D> extends Component<TableAttrs<D>> {
 
-    originalData: D[];
-    data: D[];
+    originalData: D[] = this.attributes.read('ww:data', []);
+    data: D[] = this.originalData.slice();
     sortedOn: string = '';
     arrow: string = '';
     view = new TableView(this);
-    model: TableModel;
+    model: TableModel = this.attributes.read('ww:model', new DefaultTableModel());
 
-    constructor(a, c) {
-
-        super(a, c);
-
-        this.originalData = a.read('ww:data', []);
-        this.data = this.originalData.slice();
-        this.model = a.read('ww:model', new DefaultTableModel());
-
-    }
-
-    sort(name) {
+    sort(name: string): void {
 
         var data;
         var body = this.view.findById('body');
         var head = this.view.findById('head');
         var field = this.attributes.read('ww:fields', []).reduce((p, c) => p ? p : (c.name === name ? c : null));
-        var sortOn;
-        var strategy;
+        var sortOn: string;
+        var strategy: SortingStrategy;
 
         if (!field)
             throw new Error(`Table#sort: unknown field '${name}'`);
@@ -192,7 +196,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
             this.data = this
                 .originalData
                 .slice()
-                .sort((a, b) => strategy(property(sortOn, a), property(sortOn, b)));
+                .sort((a, b) => strategy(<Comparable>property(sortOn, a), <Comparable>property(sortOn, b)));
 
         }
 

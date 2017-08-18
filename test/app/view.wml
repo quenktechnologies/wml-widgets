@@ -4,12 +4,13 @@ import {Table} from '@quenk/wml-widgets/lib/components'
 import {Panel, PanelHeader, PanelBody, PanelFooter} from '@quenk/wml-widgets/lib/components'
 import {Modal, ModalHeader, ModalBody, ModalFooter} from '@quenk/wml-widgets/lib/components'
 import {Input, Select, Switch} from '@quenk/wml-widgets/lib/components'
+import {Next} from './app'
 
 {% view CreateDialog  %}
 
   <Modal wml:id="modal">
 
-    <ModalHeader ww:onClose={{\_=>this.dialog.ids.modal.close()}}>
+    <ModalHeader ww:onClose={{=>this.dialog.ids.modal.close()}}>
       Create record
     </ModalHeader>
       
@@ -18,24 +19,24 @@ import {Input, Select, Switch} from '@quenk/wml-widgets/lib/components'
       <Input 
       ww:id="name" 
       ww:label="Name"
-      ww:onInput={{\e=>(this.next.name = e.target.value)}} />
+      ww:onInput={{\e:Event=>(this.next.name = (e.target as HTMLInputElement).value)}} />
 
       <Input 
       ww:id="amount"
       ww:label="Amount"
       ww:type="number"
-      ww:onInput={{\e=>(this.next.amount = Number(e.target.value))}} />
+      ww:onInput={{\e:Event=>(this.next.amount = Number((e.target as HTMLInputElement).value))}} />
 
       <Select
         ww:id="status"
         ww:label="Status"
         ww:options={{['paid', 'overdue', 'history']}}
-        ww:onInput={{\e=>(this.next.status = e.target.value)}} />
+        ww:onInput={{\e:Event=>(this.next.status = (e.target as HTMLInputElement).value)}} />
 
       <span> Receive Notifications? </span>
         
       <Switch
-        ww:onChange={{\e=>e.target.value?this.next.watchers.push(1):null}}/>
+        ww:onChange={{\e:Event=>(e.target as HTMLInputElement).value?this.next.watchers.push(1):null}}/>
 
     </ModalBody>
 
@@ -44,7 +45,7 @@ import {Input, Select, Switch} from '@quenk/wml-widgets/lib/components'
       <Button
         wml:id="cancelButton"
         ww:text="Cancel"
-        ww:onClick={{\e=>this.dialog.ids.modal.close()}}/>
+        ww:onClick={{=>this.dialog.ids.modal.close()}}/>
 
       <Button
         wml:id="saveButton"
@@ -100,7 +101,7 @@ import {Input, Select, Switch} from '@quenk/wml-widgets/lib/components'
                 ww:model={{this.tableModel}}/>
 
               <PanelFooter>
-                {{this.records.reduce(\p,c=>(p + c.amount), 0)}}
+                {{this.records.reduce(\p:number,c:Next=>(p + c.amount), 0)}}
               </PanelFooter>
 
             </Panel>
@@ -118,4 +119,4 @@ import {Input, Select, Switch} from '@quenk/wml-widgets/lib/components'
 <DrawerLayout 
   wml:id="layout"
   ww:navigation={{navigation}}
-  ww:content={{\v=>content.call(this, v)}} />
+  ww:content={{content.bind(this)}} />

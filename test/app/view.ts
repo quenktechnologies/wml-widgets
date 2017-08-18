@@ -8,6 +8,7 @@ import {
     ifE as $$if,
     forE as $$for,
     switchE as $$switch,
+    domify as $$domify,
     AppView
 } from "@quenk/wml-runtime";
 
@@ -43,6 +44,9 @@ import {
     Select,
     Switch
 } from '@quenk/wml-widgets/lib/components';
+import {
+    Next
+} from './app';
 
 
 
@@ -62,55 +66,63 @@ export class CreateDialog < C > extends AppView < C > {
                 }
             }, [$$widget(ModalHeader, {
                 html: {},
+                wml: {},
                 ww: {
-                    'onClose': function function_literal_1(_) {
+                    'onClose': function function_literal_1() {
                         return this.dialog.ids.modal.close();
                     }.bind(this)
                 }
             }, [$$text(`
       Create record
     `)], view), $$widget(ModalBody, {
-                html: {}
+                html: {},
+                wml: {}
             }, [$$widget(Input, {
                 html: {},
+                wml: {},
                 ww: {
                     'id': "name",
                     'label': "Name",
-                    'onInput': function function_literal_2(e) {
-                        return this.next.name = e.target.value;
+                    'onInput': function function_literal_2(e: Event) {
+                        return this.next.name = ( < HTMLInputElement > e.target).value;
                     }.bind(this)
                 }
             }, [], view), $$widget(Input, {
                 html: {},
+                wml: {},
                 ww: {
                     'id': "amount",
                     'label': "Amount",
                     'type': "number",
-                    'onInput': function function_literal_3(e) {
-                        return this.next.amount = Number(e.target.value);
+                    'onInput': function function_literal_3(e: Event) {
+                        return this.next.amount = Number(( < HTMLInputElement > e.target).value);
                     }.bind(this)
                 }
             }, [], view), $$widget(Select, {
                 html: {},
+                wml: {},
                 ww: {
                     'id': "status",
                     'label': "Status",
                     'options': ['paid', 'overdue', 'history'],
-                    'onInput': function function_literal_4(e) {
-                        return this.next.status = e.target.value;
+                    'onInput': function function_literal_4(e: Event) {
+                        return this.next.status = ( < HTMLInputElement > e.target).value;
                     }.bind(this)
                 }
             }, [], view), $$node('span', {
-                html: {}
+                html: {},
+                wml: {}
             }, [$$text(` Receive Notifications? `)], view), $$widget(Switch, {
                 html: {},
+                wml: {},
                 ww: {
-                    'onChange': function function_literal_5(e) {
-                        return (e.target.value) ? this.next.watchers.push(1) : null;
+                    'onChange': function function_literal_5(e: Event) {
+                        return (( < HTMLInputElement > e.target).value) ? this.next.watchers.push(1) : null;
                     }.bind(this)
                 }
             }, [], view)], view), $$widget(ModalFooter, {
-                html: {}
+                html: {},
+                wml: {}
             }, [$$widget(Button, {
                 html: {},
                 wml: {
@@ -118,7 +130,7 @@ export class CreateDialog < C > extends AppView < C > {
                 },
                 ww: {
                     'text': "Cancel",
-                    'onClick': function function_literal_6(e) {
+                    'onClick': function function_literal_6() {
                         return this.dialog.ids.modal.close();
                     }.bind(this)
                 }
@@ -140,21 +152,21 @@ export class CreateDialog < C > extends AppView < C > {
 
 }
 
-
 export function navigation < Z > (view: AppView < Z > ) {
-    return $$box([$$node('p', {
-        html: {}
-    }, [$$text(`This is in the drawer`)], view)]);
+    return $$node('p', {
+        html: {},
+        wml: {}
+    }, [$$text(`This is in the drawer`)], view);
 }
-
 export function content < Z > (view: AppView < Z > ) {
-    return $$box([$$widget(ActionArea, {
+    return $$box($$widget(ActionArea, {
         html: {},
         wml: {
             'id': "actions"
         }
     }, [$$widget(MenuButton, {
         html: {},
+        wml: {},
         ww: {
             'onClick': this.toggleDrawer.bind(this)
         }
@@ -175,34 +187,41 @@ export function content < Z > (view: AppView < Z > ) {
             'id': "main"
         }
     }, [$$widget(Container, {
-        html: {}
+        html: {},
+        wml: {}
     }, [$$widget(Row, {
-        html: {}
+        html: {},
+        wml: {}
     }, [$$widget(Column, {
-        html: {}
+        html: {},
+        wml: {}
     }, [$$widget(Panel, {
         html: {},
+        wml: {},
         ww: {
             'style': "-info"
         }
     }, [$$widget(PanelHeader, {
-        html: {}
+        html: {},
+        wml: {}
     }, [$$text(`Details`)], view), $$widget(PanelBody, {
-        html: {}
+        html: {},
+        wml: {}
     }, [$$text(`Records:`)], view), $$widget(Table, {
         html: {},
+        wml: {},
         ww: {
             'fields': this.fields,
             'data': this.records,
             'model': this.tableModel
         }
     }, [], view), $$widget(PanelFooter, {
-        html: {}
-    }, [this.records.reduce(function function_literal_7(p, c) {
+        html: {},
+        wml: {}
+    }, [$$domify(this.records.reduce(function function_literal_7(p: number, c: Next) {
         return p + c.amount;
-    }.bind(this), 0)], view)], view)], view)], view)], view)], view)]);
+    }.bind(this), 0))], view)], view)], view)], view)], view)], view));
 }
-
 
 export class Main < C > extends AppView < C > {
 
@@ -220,9 +239,7 @@ export class Main < C > extends AppView < C > {
                 },
                 ww: {
                     'navigation': navigation,
-                    'content': function function_literal_8(v) {
-                        return content.call(this, v);
-                    }.bind(this)
+                    'content': content.bind(this)
                 }
             }, [], view)
         }

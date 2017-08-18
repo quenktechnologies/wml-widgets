@@ -11,20 +11,7 @@
 <body>
     <div id="modal"></div>
     <main id="main"></main>
-    <script src="mocha.js"></script>
-    <script src="node_modules/web-console-reporter/WebConsole.js"></script>
-    <script>
-        mocha.setup(
-        {
-            ui: 'bdd',
-            reporter: WebConsole,
-            timeout: 10000
-        });
-    </script>
     <script src="tests.js"></script>
-    <script>
-        mocha.run();
-    </script>
 </body>
 
 </html>

@@ -9,6 +9,7 @@ import {
     ifE as $$if,
     forE as $$for,
     switchE as $$switch,
+    domify as $$domify,
     AppView} from "@quenk/wml-runtime";
  
  import * as Style from 'wml-widgets-common/Styles';
@@ -25,7 +26,7 @@ export class Main<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('button',{html:{'class': Style.MENU_BUTTON,'onclick': this.attributes.read('ww:onClick',noop)}},[$$node('span',{html:{'class': ""}},[], view),$$node('span',{html:{'class': ""}},[], view),$$node('span',{html:{'class': ""}},[], view)], view)
+            return $$node('button',{html:{'class': Style.MENU_BUTTON,'onclick': this.attributes.read('ww:onClick',noop)},wml:{}},[$$node('span',{html:{'class': ""},wml:{}},[], view),$$node('span',{html:{'class': ""},wml:{}},[], view),$$node('span',{html:{'class': ""},wml:{}},[], view)], view)
         }
 
        }

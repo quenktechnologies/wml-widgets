@@ -63,15 +63,9 @@ export const SWITCH_SLIDER = 'ww-switch__slider';
 
 export const TABLE = 'table'; //@todo un-bootstrap
 
-export const LAYOUT = 'ww-layout';
-
-export const LAYOUT_DRAWER_NAVIGATION = 'wat-layout-drawer-navigation';
-export const LAYOUT_DRAWER_NAVIGATION_TITLE = 'wat-layout-drawer-navigation-title';
-export const LAYOUT_ACCOUNT_AREA = 'wat-layout-account-area';
-export const LAYOUT_ACCOUNT_AREA_TITLE = 'wat-layout-account-area-title';
-export const LAYOUT_ACCOUNT_AREA_TOGGLE = 'wat-layout-account-area-toggle';
-export const LAYOUT_NOTIFICATION = 'wat-layout-notification';
-export const LAYOUT_OVERLAY = 'way-layout-overlay';
+export const TREE_NAV = 'tree-nav';
+export const TREE_NAV_LIST = 'tree-nav__list';
+export const TREE_NAV_LIST_ITEM = 'tree-nav__item';
 
 export const AUTOCOMPLETE = 'wat-kit-autocomplete';
 export const AUTOCOMPLETE_CONTAINER = 'wat-kit-autocomplete-container';

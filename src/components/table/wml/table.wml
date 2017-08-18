@@ -2,8 +2,9 @@ import {get as property} from 'property-seek'
 import * as Styles from 'wml-widgets-common/Styles'
 import {HeadingClickedEvent, RowClickedEvent, RowSelectedEvent, CellClickedEvent} from '../Table'
 import {Fragment} from '../../'
+import {Field} from '../Table'
 
-{% macro thead (fields) %}
+{% macro thead [D](fields:Field[D][]) %}
 
   <tr>
 
@@ -13,13 +14,13 @@ import {Fragment} from '../../'
 
         <input 
           type="checkbox"
-          onclick={{\_=>this.model.allRowsSelected()}}/>
+          onclick={{=>this.model.allRowsSelected()}}/>
       
       </th>
 
     {% endif %}
 
-    {% for field in fields %}
+    {% for field:Field[D] in fields %}
 
       {% if !field.hidden %}
 
@@ -27,7 +28,7 @@ import {Fragment} from '../../'
 
           <th 
             class={{[@.read('ww:headingClass'), (this.sortedOn == field.name)? Styles.ACTIVE : ''].join(' ') }}
-            onclick={{\_=>this.model.headingClicked(new HeadingClickedEvent(field.name, field, this))}}>
+            onclick={{=>this.model.headingClicked(new HeadingClickedEvent(field.name, field, this))}}>
 
             {{field.heading}}
 
@@ -43,7 +44,7 @@ import {Fragment} from '../../'
 
             <th 
               class={{[@.read('ww:headingClass'), (this.sortedOn == field.name)? Styles.ACTIVE : ''].join(' ') }}
-              onclick={{\_=>this.model.headingClicked(new HeadingClickedEvent(field.name, field, this))}}>
+              onclick={{=>this.model.headingClicked(new HeadingClickedEvent(field.name, field, this))}}>
               {{field.heading}}
 
               {% if (this.sortedOn == field.name)  %}
@@ -64,15 +65,15 @@ import {Fragment} from '../../'
 
 {% endmacro %}
 
-{% macro tbody(data, fields) %}
+{% macro tbody[D](data:D[], fields:Field[D][]) %}
 
   <Fragment>
 
-    {% for row,index in data %}
+    {% for row:D,index:string in data %}
 
       <tr 
         class={{@.read('ww:rowClass')}}
-        onclick={{\_=>this.model.rowClicked(new RowClickedEvent(row,index,data,this))}}>
+        onclick={{=>this.model.rowClicked(new RowClickedEvent(row,index,data,this))}}>
 
         {% if @.read('ww:selectable') %}
 
@@ -80,23 +81,23 @@ import {Fragment} from '../../'
             
             <input 
               type="checkbox"
-              onclick={{\_=>this.model.rowSelected(new RowSelectedEvent(row,index,data,this))}}/>
+              onclick={{=>this.model.rowSelected(new RowSelectedEvent(row,index,data,this))}}/>
           
           </td>
 
         {% endif %}
 
-        {% for field in fields %}
+        {% for field:Field[D] in fields %}
                 
           {% if !field.hidden %}
 
             <td 
               class={{@.read('ww:cellClass')}}
-              onclick={{\_=>this.model.cellClicked(new CellClickedEvent(property(field.name,row),field.name,index,row,this))}}>
+              onclick={{=>this.model.cellClicked(new CellClickedEvent(property(field.name,row),field.name,index,row,this))}}>
 
               {% if field.fragment %}
 
-                {% include field.fragment(property(field.name,row),field.name,row,field) %}
+                {% call field.fragment (property(field.name,row),field.name,row,field) %}
 
               {% else %}
 
@@ -124,10 +125,10 @@ import {Fragment} from '../../'
       class={{[Styles.TABLE, @.read('ww:class', '')].join(' ')}}>
 
       <thead 
-        wml:id="head">{% include thead(@.read('ww:fields')) %}</thead>
+        wml:id="head">{% call thead(@.read('ww:fields')) %}</thead>
         
       <tbody 
-        wml:id="body"> {% include tbody(this.data, @.read('ww:fields')) %}</tbody>
+        wml:id="body"> {% call tbody(this.data, @.read('ww:fields')) %}</tbody>
 
     </table>
 

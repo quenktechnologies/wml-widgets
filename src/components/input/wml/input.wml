@@ -1,4 +1,5 @@
-import * as Styles from 'wml-widgets-common/Styles'
+import * as Styles from "wml-widgets-common/Styles"
+import {Opt} from "../Input"
 
 {% macro label %}
 
@@ -24,7 +25,7 @@ import * as Styles from 'wml-widgets-common/Styles'
   Styles.FORM_GROUP, 
   @.read('ww:variant', '')].join(',')}}>
 
-  {% include label %}
+  {% call label %}
 
   <select 
     wml:id="input"
@@ -37,17 +38,23 @@ import * as Styles from 'wml-widgets-common/Styles'
     readonly={{@.read('ww:readonly', null)}}
     class={{Styles.SELECT}}>
 
-    {% for opt in @.read('ww:options', []) %}
+    {% for opt:Opt in @.read('ww:options', []) %}
 
-      {% if (typeof(opt) == 'string') %}
+      {% match opt %}
 
-        <option>{{opt}}</option>
+        {% case typeof 'string' %}
+
+          <option>{{opt}}</option>
+          <option>{{opt}}</option>
+          <option>{{opt}}</option>
+
+        {% endcase %}
 
       {% else %}
 
-        <option value={{opt.value}}>{{opt.label}}</option>
+          <option value={{opt.value}}>{{opt.label}}</option>
 
-      {% endif %}
+      {% endmatch %}
 
     {% else %}
 
@@ -56,7 +63,7 @@ import * as Styles from 'wml-widgets-common/Styles'
 
   </select>
 
-  {% include message %}
+  {% call message %}
 
 </div>
 {% endview %}
@@ -68,7 +75,7 @@ import * as Styles from 'wml-widgets-common/Styles'
   Styles.FORM_GROUP, 
   @.read('ww:variant', '')].join(',')}}>
 
-  {% include label %}
+  {% call label %}
 
   {% if (@.read('ww:type', 'text') != 'textarea') %}
 
@@ -101,7 +108,7 @@ import * as Styles from 'wml-widgets-common/Styles'
 
   {% endif %}
 
-  {% include message %}
+  {% call message %}
 
 </div>
 

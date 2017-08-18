@@ -9,6 +9,7 @@ import {
     ifE as $$if,
     forE as $$for,
     switchE as $$switch,
+    domify as $$domify,
     AppView} from "@quenk/wml-runtime";
  
  import { combine } from 'wml-widgets-common/util';
@@ -25,7 +26,7 @@ export class Container<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('section',{html:{'class': combine([Styles.GRID_CONTAINER,this.attributes.read('ww:class','')])}},[this.children], view)
+            return $$node('section',{html:{'class': combine([Styles.GRID_CONTAINER,this.attributes.read('ww:class','')])},wml:{}},[$$domify(this.children)], view)
         }
 
        }
@@ -43,7 +44,7 @@ export class Row<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('div',{html:{'class': combine([Styles.GRID_ROW,this.attributes.read('ww:class','')])}},[this.children], view)
+            return $$node('div',{html:{'class': combine([Styles.GRID_ROW,this.attributes.read('ww:class','')])},wml:{}},[$$domify(this.children)], view)
         }
 
        }
@@ -61,7 +62,7 @@ export class Column<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('div',{html:{'class': this._getClass()}},[this.children], view)
+            return $$node('div',{html:{'class': this._getClass()},wml:{}},[$$domify(this.children)], view)
         }
 
        }

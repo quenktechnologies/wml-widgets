@@ -1,63 +1,72 @@
-import { Component, Attrs } from '@quenk/wml-runtime';
+import { Component, Attrs, Content, View } from '@quenk/wml-runtime';
 import { TableView } from './wml/table';
-export declare const dateSort: (a: any, b: any) => 0 | 1 | -1;
-export declare const stringSort: (a: any, b: any) => 0 | 1 | -1;
+export declare const dateSort: (a: string, b: string) => 0 | 1 | -1;
+export declare const stringSort: (a: string, b: string) => 0 | 1 | -1;
 export declare const naturalSort: (a: any, b: any) => 0 | 1 | -1;
 export declare const numberSort: (a: any, b: any) => 0 | 1 | -1;
-export declare class HeadingClickedEvent<A> {
+export declare class HeadingClickedEvent<D> {
     name: string;
-    field: Field;
-    table: Table<A>;
-    constructor(name: string, field: Field, table: Table<A>);
+    field: Field<D>;
+    table: Table<D>;
+    constructor(name: string, field: Field<D>, table: Table<D>);
 }
-export declare class RowClickedEvent<A> {
-    value: A;
-    index: number;
-    data: A[];
-    table: Table<A>;
-    constructor(value: A, index: number, data: A[], table: Table<A>);
+export declare class RowClickedEvent<D> {
+    value: D;
+    index: number | string;
+    data: D[];
+    table: Table<D>;
+    constructor(value: D, index: number | string, data: D[], table: Table<D>);
 }
-export declare class RowSelectedEvent<A> extends RowClickedEvent<A> {
+export declare class RowSelectedEvent<D> extends RowClickedEvent<D> {
 }
-export declare class CellClickedEvent<V, A> {
-    value: V;
+export declare class CellClickedEvent<D> {
+    value: CellContent;
     name: string;
-    index: number;
-    object: A;
-    table: Table<A>;
-    constructor(value: V, name: string, index: number, object: A, table: Table<A>);
+    index: number | string;
+    row: D;
+    table: Table<D>;
+    constructor(value: CellContent, name: string, index: number | string, row: D, table: Table<D>);
 }
 export declare type Comparable = string | number | boolean;
-export interface Field {
+export interface SortingStrategy {
+    (a: Comparable, b: Comparable): number;
+}
+export interface Field<D> {
     name: string;
     heading: string;
     hidden?: boolean;
     sortAs?: string;
-    strategy?: (a: Comparable, b: Comparable) => number;
+    fragment?: CellFragment<D>;
+    strategy?: SortingStrategy;
 }
+export interface CellFragment<D> {
+    (view: View, datum: CellContent, name: string, row: D, field: Field<D>): Content;
+}
+export declare type CellContent = boolean | number | string;
 export interface TableModel {
     allSelected(): void;
-    headingClicked<A>(e: HeadingClickedEvent<A>): void;
-    rowClicked<A>(e: RowClickedEvent<A>): void;
-    rowSelected<A>(e: RowSelectedEvent<A>): void;
+    headingClicked<D>(e: HeadingClickedEvent<D>): void;
+    rowClicked<D>(e: RowClickedEvent<D>): void;
+    rowSelected<D>(e: RowSelectedEvent<D>): void;
 }
 export declare class DefaultTableModel implements TableModel {
     allSelected(): void;
-    headingClicked<A>(_e: HeadingClickedEvent<A>): void;
-    rowClicked<A>(_e: RowClickedEvent<A>): void;
-    rowSelected<A>(_e: RowSelectedEvent<A>): void;
+    headingClicked<D>(_e: HeadingClickedEvent<D>): void;
+    rowClicked<D>(_e: RowClickedEvent<D>): void;
+    rowSelected<D>(_e: RowSelectedEvent<D>): void;
 }
 export declare class SortTableModel extends DefaultTableModel {
-    headingClicked<A>(e: HeadingClickedEvent<A>): void;
+    headingClicked<D>(e: HeadingClickedEvent<D>): void;
 }
 export interface TableAttrs<D> extends Attrs {
-    ww?: {
+    ww: {
         selectable?: boolean;
         headingClass?: string;
         rowClass?: string;
         cellClass?: string;
-        fields: Field[];
+        fields: Field<D>[];
         data: D[];
+        model?: TableModel;
     };
 }
 export declare class Table<D> extends Component<TableAttrs<D>> {
@@ -67,6 +76,5 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
     arrow: string;
     view: TableView<this>;
     model: TableModel;
-    constructor(a: any, c: any);
-    sort(name: any): void;
+    sort(name: string): void;
 }

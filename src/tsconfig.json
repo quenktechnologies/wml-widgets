@@ -9,6 +9,7 @@
         "moduleResolution": "node",
         "allowUnreachableCode": true,
         "noUnusedParameters": true,
+        "noImplicitAny": true,
         "sourceMap": true,
         "declaration": true,
         "typeRoots": ["node_modules/@types"]

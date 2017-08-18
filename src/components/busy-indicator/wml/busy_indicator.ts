@@ -9,6 +9,7 @@ import {
     ifE as $$if,
     forE as $$for,
     switchE as $$switch,
+    domify as $$domify,
     AppView} from "@quenk/wml-runtime";
  
   
@@ -23,7 +24,7 @@ export class Main<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('div',{html:{'class': "loading"}},[], view)
+            return $$node('div',{html:{'class': "loading"},wml:{}},[], view)
         }
 
        }

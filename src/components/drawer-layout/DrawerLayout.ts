@@ -8,7 +8,7 @@ export interface DrawerLayoutAttrs extends Attrs {
     ww?: {
 
         navigation?: Macro<void>
-        content?: () => Macro<void>
+        content?: Macro<void>
 
     }
 

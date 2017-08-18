@@ -17,7 +17,7 @@ export declare class Tab extends Component<TabAttrs> {
      * click this Tab
      */
     click(): void;
-    clicked(e: any): void;
+    clicked(e: Event): void;
 }
 /**
  * Tabs
