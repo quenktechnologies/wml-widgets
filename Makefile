@@ -26,9 +26,6 @@ less:
 	  --include-path=less:src/components less/theme/default/theme.less \
 	  > public/css/wml-widgets.css
 
-.PHONY: build
-build: clean wml ts less
-
 .PHONY: install-lib
 install-lib:
 	  mkdir -p node_modules/@quenk/wml-widgets/lib; \
@@ -56,6 +53,9 @@ test-less:
 	./node_modules/.bin/lessc --source-map-less-inline \
 	  --js-vars="lib/components/wml-widgets-common/Styles.js" \
 	  --include-path=less:src test/app/style.less > test/app/public/style.css
+
+.PHONY: build
+build:  clean common install-common wml ts
 
 .PHONY: test
 test: 	clean common install-common wml ts install-lib test-wml test-ts test-app test-less
