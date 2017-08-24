@@ -12,13 +12,15 @@ export interface InputAttrs extends Attrs {
         variant?: string;
         title?: string;
         name?: string;
+        require?: boolean;
         type?: string;
         disabled?: boolean;
         readonly?: boolean;
         placeholder?: string;
         options?: Opt[];
         rows?: number;
-        onInput: (e: Event) => void;
+        delegate?: InputDelegate;
+        onInput?: (e: Event) => void;
     };
 }
 /**
