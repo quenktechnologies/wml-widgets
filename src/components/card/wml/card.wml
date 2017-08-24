@@ -1,0 +1,14 @@
+
+{% view Card %}
+
+  <div 
+    class={{["card",@.read('ww:class')].filter(\x=>x).join(' ')>{{this.children}}</div>
+
+{% endview %}
+
+{% view CardBody %}
+
+  <div 
+    class={{["card-body",@.read('ww:class')].filter(\x=>x).join(' ')>{{this.children}}</div>
+
+{% endview %}
