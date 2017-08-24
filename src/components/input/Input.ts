@@ -18,6 +18,7 @@ export interface InputAttrs extends Attrs {
         variant?: string
         title?: string,
         name?: string,
+        value?: string | number,
         require?: boolean,
         type?: string,
         disabled?: boolean,
@@ -74,9 +75,9 @@ export class Input extends Component<InputAttrs> {
 
     initialValue() {
 
-        var ret = this.attributes.read('wat:value');
+        var ret = this.attributes.read('ww:value');
 
-        return (typeof ret === 'function') ? ret(this.attributes.read('wat:name')) : ret;
+        return (typeof ret === 'function') ? ret(this.attributes.read('ww:name')) : ret;
 
     }
 
@@ -85,12 +86,12 @@ export class Input extends Component<InputAttrs> {
      */
     getClass() {
 
-        var c = `form-group ${this.attributes.read('wat:class')}`;
+        var c = `form-group ${this.attributes.read('ww:class')}`;
 
-        if (!this.attributes.read('wat:message'))
+        if (!this.attributes.read('ww:message'))
             return c;
 
-        return `${c} ${this.attributes.read('wat:variant', 'has-error')}`;
+        return `${c} ${this.attributes.read('ww:variant', 'has-error')}`;
 
     }
 
