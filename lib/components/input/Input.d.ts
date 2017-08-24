@@ -13,7 +13,7 @@ export interface InputAttrs extends Attrs {
         title?: string;
         name?: string;
         value?: string | number;
-        require?: boolean;
+        required?: boolean;
         type?: string;
         disabled?: boolean;
         readonly?: boolean;

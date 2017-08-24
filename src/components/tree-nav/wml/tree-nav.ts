@@ -26,7 +26,7 @@ export class TreeNavItemView<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('li',{html:{'class': Styles.TREE_NAV_LIST_ITEM},wml:{}},[$$node('a',{html:{'class': (this.attributes.read('ww:active',false))? Styles.ACTIVE : '','href': this.attributes.read('ww:href','#'),'onclick': function function_literal_1(){ return this.activate() || this.attributes.read('ww:onClick',noop)(this.attributes.read('ww:name')); }.bind(this)},wml:{'id': "link"}},[$$domify(this.children)], view)], view)
+            return $$node('li',{html:{'class': Styles.TREE_NAV_LIST_ITEM},wml:{}},[$$node('a',{html:{'class': (this.attributes.read('ww:active',false))? Styles.ACTIVE : '','href': this.attributes.read('ww:href','#'),'onclick': function function_literal_7(){ return this.activate() || this.attributes.read('ww:onClick',noop)(this.attributes.read('ww:name')); }.bind(this)},wml:{'id': "link"}},[$$domify(this.children)], view)], view)
         }
 
        }
