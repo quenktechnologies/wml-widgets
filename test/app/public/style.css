@@ -7529,7 +7529,7 @@ input:checked + .ww-switch__slider:before {
     transform: rotate(360deg);
   }
 }
-.tree-nav__list__item {
+.tree-nav__list {
   list-style: none;
   padding-left: 0;
   padding-top: 10px;

@@ -20,7 +20,7 @@ export class MainView extends Component<MainViewAttrs> {
      */
     setContent(r: Renderable): MainView {
 
-        replaceContent(r, <Node>this.view.findById('content'));
+        replaceContent(r, <Node>this.view.ids.root);
         return this;
 
     }
