@@ -28,5 +28,6 @@ export { Table } from './table/Table';
 export { Tab, Tabs } from './tabs/Tabs';
 export { BusyIndicator } from './busy-indicator/BusyIndicator';
 export { TreeNav, TreeNavItem } from './tree-nav/TreeNav';
+export { Card, CardBody } from './card/Card';
 /* jshint ignore:end */
 
