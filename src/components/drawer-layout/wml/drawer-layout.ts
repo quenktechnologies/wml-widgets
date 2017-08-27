@@ -26,7 +26,7 @@ export class Main<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('div',{html:{'class': Styles.DRAWER_LAYOUT},wml:{'id': "content"}},[$$widget(Drawer,{html:{},wml:{'id': "drawer"},ww:{'content': this.attributes.read("ww:drawer")}},[], view),$$if(this.content, function if1(){ return $$domify(this.content) }.bind(this),function elseif0(){ return $$if(this.attributes.read("ww:content"),function if0() { return this.attributes.read("ww.content").call(this,view,); }.bind(this), function else_clause1(){ return $$domify(this.children) }.bind(this));}.bind(this))], view)
+            return $$node('div',{html:{'class': Styles.DRAWER_LAYOUT},wml:{'id': "content"}},[$$widget(Drawer,{html:{},wml:{'id': "drawer"},ww:{'content': this.attributes.read("ww:drawer")}},[], view),$$if(this.content, function if2(){ return $$domify(this.content) }.bind(this),function elseif0(){ return $$if(this.attributes.read("ww:content"),function if0() { return this.attributes.read("ww.content").call(this,view,); }.bind(this), function else_clause2(){ return $$domify(this.children) }.bind(this));}.bind(this))], view)
         }
 
        }
