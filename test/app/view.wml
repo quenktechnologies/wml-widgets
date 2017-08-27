@@ -118,5 +118,5 @@ import {Next} from './app'
 
 <DrawerLayout 
   wml:id="layout"
-  ww:navigation={{navigation}}
+  ww:drawer={{navigation}}
   ww:content={{content.bind(this)}} />

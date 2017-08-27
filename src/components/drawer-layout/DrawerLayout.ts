@@ -1,13 +1,14 @@
 import { Component, WMLElement, Renderable, Content, Attrs, Macro } from '@quenk/wml-runtime';
 import * as Styles from 'wml-widgets-common/Styles';
 import { Main } from './wml/drawer-layout';
+import {Drawer} from '../drawer/Drawer';
 import { replaceContent } from 'wml-widgets-common/util';
 
 export interface DrawerLayoutAttrs extends Attrs {
 
     ww?: {
 
-        navigation?: Macro<void>
+        drawer?: Macro<void>
         content?: Macro<void>
 
     }
@@ -22,9 +23,9 @@ export class DrawerLayout extends Component<DrawerLayoutAttrs>{
 
     view = new Main(this);
 
-    _getDrawerDOM(): WMLElement {
+    _getDrawer(): Drawer {
 
-        return this.view.findById('drawer');
+        return <Drawer>this.view.findById('drawer');
 
     }
 
@@ -36,21 +37,19 @@ export class DrawerLayout extends Component<DrawerLayoutAttrs>{
 
     /**
      * drawerVisible queries whether the Drawer is visible or not.
-     * @returns {Boolean}
      */
-    drawerVisible() {
+    drawerVisible():boolean {
 
-        return !(<Element>this._getDrawerDOM()).classList.contains(Styles.HIDDEN);
+        return this._getDrawer().visible();
 
     }
 
     /**
      * hideDrawer hides the drawer.
      */
-    hideDrawer() {
+    hideDrawer() : void {
 
-        if (this.drawerVisible())
-            (<Element>this._getDrawerDOM()).classList.add(Styles.HIDDEN);
+      return this._getDrawer().hide();
 
     }
 
@@ -59,17 +58,16 @@ export class DrawerLayout extends Component<DrawerLayoutAttrs>{
      */
     showDrawer() {
 
-        if (!this.drawerVisible())
-            (<Element>this._getDrawerDOM()).classList.remove(Styles.HIDDEN);
+      return this._getDrawer().show();
 
     }
 
     /**
      * toggle the visibility of this Drawer
      */
-    toggleDrawer() {
+    toggleDrawer() : void{
 
-        (<Element>this._getDrawerDOM()).classList.toggle(Styles.HIDDEN);
+      return this._getDrawer().toggle();
 
     }
 
@@ -84,5 +82,3 @@ export class DrawerLayout extends Component<DrawerLayoutAttrs>{
     }
 
 }
-
-export default DrawerLayout

@@ -1,0 +1,22 @@
+import * as Styles from 'wml-widgets-common/Styles'
+
+<div
+  wml:id="drawer"
+  class={{Styles.DRAWER}}>
+
+  <div class={{Styles.DRAWER_CONTENT}}>
+
+      {% if @.read('ww:content') %}
+
+        {% call (@.read('ww:content')) %}
+
+      {% else %}
+
+        {{this.children}}
+
+      {% endif %}
+
+  </div>
+
+</div>
+

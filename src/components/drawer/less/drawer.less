@@ -1,0 +1,57 @@
+
+/* private functions */
+._drawer-pushable-margin-left()   { .margin-left(@drawer-width);         }
+._drawer-pushable-fixed-left()    { .left(@drawer-width);                }
+
+.__DRAWER__ { 
+
+  .width(@drawer-width); 
+  .-100-height;
+  .-fixed-position;
+  .-no-top;
+  .-no-left;
+  .-no-bottom;
+  .-block-display;
+  .-1-z;
+  .background-color(@drawer-background-color); 
+  .-ease-width;
+
+  &.__HIDDEN__ { 
+  
+    .-no-width;
+
+    & ~ .__DRAWER_PUSHABLE__       { .-no-left-margin;         }
+    & ~ .__DRAWER_PUSHABLE_FIXED__ { .-no-left; .-100-width;   }
+
+  }
+
+  & ~ .__DRAWER_PUSHABLE__ { 
+
+    ._drawer-pushable-margin-left; 
+    .-ease-left-margin; 
+  
+  }
+
+  & ~ .__DRAWER_PUSHABLE_FIXED__ {
+
+    ._drawer-pushable-fixed-left;
+    .-ease-left;
+
+  }
+
+}
+
+.__DRAWER_CONTENT__ {
+
+ .-100-width;
+ .-absolute-position;
+ .-no-top;
+ .-no-left;
+ .-no-bottom;
+ .-hidden-overflow-x;
+ .-auto-overflow-y;
+ .-1-z;
+ .-webkit-overflow-scrolling-touch; 
+ .color(@drawer-content-color);
+
+}

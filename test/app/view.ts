@@ -238,7 +238,7 @@ export class Main < C > extends AppView < C > {
                     'id': "layout"
                 },
                 ww: {
-                    'navigation': navigation,
+                    'drawer': navigation,
                     'content': content.bind(this)
                 }
             }, [], view)

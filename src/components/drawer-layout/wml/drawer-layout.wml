@@ -1,24 +1,17 @@
-import * as Styles from 'wml-widgets-common/Styles'
+import * as Styles from "wml-widgets-common/Styles"
+import {Drawer} from "../../drawer/Drawer"
 
-<div wml:id="content" class={{Styles.DRAWER_LAYOUT}}>
+<div 
+  wml:id="content"
+  class={{Styles.DRAWER_LAYOUT}}>
 
-  <div wml:id="drawer" class={{Styles.DRAWER}}>
+  <Drawer 
+    wml:id="drawer"
+    ww:content={{@.read("ww:drawer")}}/>
 
-    <div class={{Styles.DRAWER_CONTENT}}>
+  {% if @.read("ww:content") %}
 
-      {% if @.read('ww:navigation') %}
-
-        {% call (@.read('ww:navigation')) %}
-
-      {% endif %}
-
-    </div>
-
-  </div>
-
-  {% if @.read('ww:content') %}
-
-    {% call (@.read('ww.content')) %}
+    {% call (@.read("ww.content")) %}
 
   {% else %}
 

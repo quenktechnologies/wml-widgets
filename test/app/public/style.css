@@ -255,6 +255,7 @@ th {
 /* widths */
 /* constants */
 /* DrawerLayout */
+/* Drawer */
 /* ActionArea */
 /* MainView */
 /* MenuButton */
@@ -6910,14 +6911,14 @@ input[type="reset"].ww-button .__BLOCK__,
 input[type="button"].ww-button .__BLOCK__ {
   width: 100%;
 }
-/* private functions */
 .ww-drawer-layout {
   height: 100%;
   margin: 0;
   padding: 0 0 0 0;
   background-color: #ebeef0;
-  color: #fff;
+  color: #333333;
 }
+/* private functions */
 .ww-drawer {
   width: 15em;
   height: 100%;
@@ -6967,6 +6968,7 @@ input[type="button"].ww-button .__BLOCK__ {
   overflow-y: auto;
   z-index: 100;
   -webkit-overflow-scrolling: touch;
+  color: #fff;
 }
 .ww-main-view {
   height: 100%;

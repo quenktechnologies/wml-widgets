@@ -15,6 +15,7 @@ export Search from './search/Search';
 */
 export { Fragment } from './fragment/Fragment';
 export { DrawerLayout } from './drawer-layout/DrawerLayout';
+export {Drawer} from './drawer/Drawer';
 export { ActionArea } from './action-area/ActionArea';
 export { MainView } from './main-view/MainView';
 export { MenuButton } from './menu-button/MenuButton';

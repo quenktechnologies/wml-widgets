@@ -1,8 +1,9 @@
-import { Component, WMLElement, Renderable, Attrs, Macro } from '@quenk/wml-runtime';
+import { Component, Renderable, Attrs, Macro } from '@quenk/wml-runtime';
 import { Main } from './wml/drawer-layout';
+import { Drawer } from '../drawer/Drawer';
 export interface DrawerLayoutAttrs extends Attrs {
     ww?: {
-        navigation?: Macro<void>;
+        drawer?: Macro<void>;
         content?: Macro<void>;
     };
 }
@@ -12,11 +13,10 @@ export interface DrawerLayoutAttrs extends Attrs {
  */
 export declare class DrawerLayout extends Component<DrawerLayoutAttrs> {
     view: Main<this>;
-    _getDrawerDOM(): WMLElement;
+    _getDrawer(): Drawer;
     _combine(classes: string[]): string;
     /**
      * drawerVisible queries whether the Drawer is visible or not.
-     * @returns {Boolean}
      */
     drawerVisible(): boolean;
     /**
@@ -36,4 +36,3 @@ export declare class DrawerLayout extends Component<DrawerLayoutAttrs> {
      */
     setContent(r: Renderable): DrawerLayout;
 }
-export default DrawerLayout;

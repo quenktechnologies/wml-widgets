@@ -198,7 +198,7 @@ var Main = (function (_super) {
                     'id': "layout"
                 },
                 ww: {
-                    'navigation': navigation,
+                    'drawer': navigation,
                     'content': content.bind(this)
                 }
             }, [], view);

@@ -18,6 +18,7 @@ export const EXTRA_SMALL = '-extra-small';
 export const ACTIVE = 'active'; //@todo: refactor to flag syntax
 
 export const DRAWER_LAYOUT = 'ww-drawer-layout';
+
 export const DRAWER = 'ww-drawer';
 export const DRAWER_CONTENT = 'ww-drawer__content';
 export const DRAWER_PUSHABLE = '-drawer-pushable';

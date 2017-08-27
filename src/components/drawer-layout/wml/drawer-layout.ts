@@ -12,7 +12,8 @@ import {
     domify as $$domify,
     AppView} from "@quenk/wml-runtime";
  
- import * as Styles from 'wml-widgets-common/Styles';
+ import * as Styles from "wml-widgets-common/Styles";
+import { Drawer } from "../../drawer/Drawer";
  
   
 
@@ -25,7 +26,7 @@ export class Main<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('div',{html:{'class': Styles.DRAWER_LAYOUT},wml:{'id': "content"}},[$$node('div',{html:{'class': Styles.DRAWER},wml:{'id': "drawer"}},[$$node('div',{html:{'class': Styles.DRAWER_CONTENT},wml:{}},[$$if(this.attributes.read('ww:navigation'), function if1(){ return this.attributes.read('ww:navigation').call(this,view,) }.bind(this),$$empty)], view)], view),$$if(this.attributes.read('ww:content'), function if2(){ return this.attributes.read('ww.content').call(this,view,) }.bind(this),function else_clause1(){ return $$domify(this.children) }.bind(this))], view)
+            return $$node('div',{html:{'class': Styles.DRAWER_LAYOUT},wml:{'id': "content"}},[$$widget(Drawer,{html:{},wml:{'id': "drawer"},ww:{'content': this.attributes.read("ww:drawer")}},[], view),$$if(this.attributes.read("ww:content"), function if2(){ return this.attributes.read("ww.content").call(this,view,) }.bind(this),function else_clause2(){ return $$domify(this.children) }.bind(this))], view)
         }
 
        }
