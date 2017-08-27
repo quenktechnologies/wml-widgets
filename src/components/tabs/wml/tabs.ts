@@ -25,7 +25,7 @@ export class TabView<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('li',{html:{'role': "presentation",'class': (this.attributes.read('ww:active'))? Styles.ACTIVE : null},wml:{'id': "root"}},[$$node('a',{html:{'href': "#",'onclick': this.clicked.bind(this)},wml:{'id': "link"}},[$$if(this.attributes.read('ww:text'), function if11(){ return $$domify(this.attributes.read('ww:text')) }.bind(this),function else_clause5(){ return $$domify(this.children) }.bind(this))], view)], view)
+            return $$node('li',{html:{'role': "presentation",'class': (this.attributes.read('ww:active'))? Styles.ACTIVE : null},wml:{'id': "root"}},[$$node('a',{html:{'href': "#",'onclick': this.clicked.bind(this)},wml:{'id': "link"}},[$$if(this.attributes.read('ww:text'), function if4(){ return $$domify(this.attributes.read('ww:text')) }.bind(this),function else_clause4(){ return $$domify(this.children) }.bind(this))], view)], view)
         }
 
        }

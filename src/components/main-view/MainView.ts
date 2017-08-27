@@ -1,5 +1,5 @@
-import { Component, Attrs, Renderable } from '@quenk/wml-runtime';
-import { replaceContent } from 'wml-widgets-common/util';
+import * as common from 'wml-widgets-common';
+import { Attrs } from '@quenk/wml-runtime';
 import { Main } from './wml/main-view';
 
 export interface MainViewAttrs extends Attrs {
@@ -11,19 +11,9 @@ export interface MainViewAttrs extends Attrs {
 /**
  * MainView provides a container for the main content of an application.
  */
-export class MainView extends Component<MainViewAttrs> {
+export class MainView extends common.Container<MainViewAttrs> {
 
     view = new Main(this);
-
-    /**
-     * setContent replaces the content of this view.
-     */
-    setContent(r: Renderable): MainView {
-
-        replaceContent(r, <Node>this.view.ids.root);
-        return this;
-
-    }
 
 }
 

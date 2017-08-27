@@ -1,5 +1,5 @@
-import { WMLElement, Renderable, Content, Attrs, Macro } from '@quenk/wml-runtime';
-import {Styles,Container} from 'wml-widgets-common';
+import * as common from 'wml-widgets-common';
+import { Attrs, Macro } from '@quenk/wml-runtime';
 import { Main } from './wml/drawer-layout';
 import {Drawer} from '../drawer/Drawer';
  
@@ -18,7 +18,7 @@ export interface DrawerLayoutAttrs extends Attrs {
  * DrawerLayout provides a top level layout consisting of a drawer and
  * a main content view.
  */
-export class DrawerLayout extends Container<DrawerLayoutAttrs>{
+export class DrawerLayout extends common.Container<DrawerLayoutAttrs>{
 
     view = new Main(this);
 

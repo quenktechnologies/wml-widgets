@@ -1,5 +1,5 @@
+import * as common from 'wml-widgets-common';
 import { Attrs, Macro } from '@quenk/wml-runtime';
-import { Container } from 'wml-widgets-common';
 import { Main } from './wml/drawer-layout';
 import { Drawer } from '../drawer/Drawer';
 export interface DrawerLayoutAttrs extends Attrs {
@@ -12,7 +12,7 @@ export interface DrawerLayoutAttrs extends Attrs {
  * DrawerLayout provides a top level layout consisting of a drawer and
  * a main content view.
  */
-export declare class DrawerLayout extends Container<DrawerLayoutAttrs> {
+export declare class DrawerLayout extends common.Container<DrawerLayoutAttrs> {
     view: Main<this>;
     _getDrawer(): Drawer;
     _combine(classes: string[]): string;
