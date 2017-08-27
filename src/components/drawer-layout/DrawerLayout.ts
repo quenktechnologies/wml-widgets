@@ -1,9 +1,8 @@
-import { Component, WMLElement, Renderable, Content, Attrs, Macro } from '@quenk/wml-runtime';
-import * as Styles from 'wml-widgets-common/Styles';
+import { WMLElement, Renderable, Content, Attrs, Macro } from '@quenk/wml-runtime';
+import {Styles,Container} from 'wml-widgets-common';
 import { Main } from './wml/drawer-layout';
 import {Drawer} from '../drawer/Drawer';
-import { replaceContent } from 'wml-widgets-common/util';
-
+ 
 export interface DrawerLayoutAttrs extends Attrs {
 
     ww?: {
@@ -19,7 +18,7 @@ export interface DrawerLayoutAttrs extends Attrs {
  * DrawerLayout provides a top level layout consisting of a drawer and
  * a main content view.
  */
-export class DrawerLayout extends Component<DrawerLayoutAttrs>{
+export class DrawerLayout extends Container<DrawerLayoutAttrs>{
 
     view = new Main(this);
 
@@ -68,16 +67,6 @@ export class DrawerLayout extends Component<DrawerLayoutAttrs>{
     toggleDrawer() : void{
 
       return this._getDrawer().toggle();
-
-    }
-
-    /**
-     * setContent replaces the content of this view.
-     */
-    setContent(r: Renderable): DrawerLayout {
-
-        replaceContent(r, <Node>this.view.findById('content'));
-        return this;
 
     }
 

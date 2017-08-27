@@ -9,7 +9,11 @@ import {Drawer} from "../../drawer/Drawer"
     wml:id="drawer"
     ww:content={{@.read("ww:drawer")}}/>
 
-  {% if @.read("ww:content") %}
+  {% if this.content %}
+
+    {{this.content}}
+    
+  {% else if @.read("ww:content") %}
 
     {% call (@.read("ww.content")) %}
 

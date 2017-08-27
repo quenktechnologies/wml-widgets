@@ -1,4 +1,5 @@
-import { Component, Renderable, Attrs, Macro } from '@quenk/wml-runtime';
+import { Attrs, Macro } from '@quenk/wml-runtime';
+import { Container } from 'wml-widgets-common';
 import { Main } from './wml/drawer-layout';
 import { Drawer } from '../drawer/Drawer';
 export interface DrawerLayoutAttrs extends Attrs {
@@ -11,7 +12,7 @@ export interface DrawerLayoutAttrs extends Attrs {
  * DrawerLayout provides a top level layout consisting of a drawer and
  * a main content view.
  */
-export declare class DrawerLayout extends Component<DrawerLayoutAttrs> {
+export declare class DrawerLayout extends Container<DrawerLayoutAttrs> {
     view: Main<this>;
     _getDrawer(): Drawer;
     _combine(classes: string[]): string;
@@ -31,8 +32,4 @@ export declare class DrawerLayout extends Component<DrawerLayoutAttrs> {
      * toggle the visibility of this Drawer
      */
     toggleDrawer(): void;
-    /**
-     * setContent replaces the content of this view.
-     */
-    setContent(r: Renderable): DrawerLayout;
 }
