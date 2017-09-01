@@ -1,6 +1,7 @@
-import { Component, Attrs } from '@quenk/wml-runtime';
+import * as wml from '@quenk/wml-runtime';
+import * as common from 'wml-widgets-common';
 import { Main } from './wml/button';
-export interface ButtonAttrs extends Attrs {
+export interface ButtonAttrs extends wml.Attrs {
     ww?: {
         id?: string;
         href?: string;
@@ -17,7 +18,7 @@ export interface ButtonAttrs extends Attrs {
 /**
  * Button is an improvement over HTMLButtionElement
  */
-export declare class Button extends Component<ButtonAttrs> {
+export declare class Button extends common.Container<ButtonAttrs> {
     view: Main<this>;
     /**
      * disable this button.

@@ -1,8 +1,8 @@
-import { Component, Attrs } from '@quenk/wml-runtime';
-import * as Styles from 'wml-widgets-common/Styles';
+import * as wml from '@quenk/wml-runtime';
+import * as common from 'wml-widgets-common';
 import { Main } from './wml/button';
 
-export interface ButtonAttrs extends Attrs {
+export interface ButtonAttrs extends wml.Attrs {
 
     ww?: {
         id?: string,
@@ -22,7 +22,7 @@ export interface ButtonAttrs extends Attrs {
 /**
  * Button is an improvement over HTMLButtionElement
  */
-export class Button extends Component<ButtonAttrs> {
+export class Button extends common.Container<ButtonAttrs> {
 
     view = new Main(this);
 
