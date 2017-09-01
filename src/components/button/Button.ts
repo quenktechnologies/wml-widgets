@@ -11,6 +11,7 @@ export interface ButtonAttrs extends wml.Attrs {
         size?: string,
         style?: string,
         class?: string,
+        disabled?: boolean,
         onClick?: (e: Event) => void,
         text?: string
         type?: string,

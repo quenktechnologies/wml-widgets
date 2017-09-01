@@ -181,6 +181,17 @@ export function content < Z > (view: AppView < Z > ) {
             'class': "-right",
             'onClick': this.create.bind(this)
         }
+    }, [], view), $$widget(Button, {
+        html: {},
+        wml: {
+            'id': "disabledButton"
+        },
+        ww: {
+            'style': "-default",
+            'text': "Disabled",
+            'class': "-right",
+            'disabled': true
+        }
     }, [], view)], view), $$widget(MainView, {
         html: {},
         wml: {

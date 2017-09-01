@@ -79,6 +79,15 @@ import {Next} from './app'
         ww:class="-right"
         ww:onClick={{this::create}}/>
 
+      <Button
+        wml:id="disabledButton"
+        ww:style="-default"
+        ww:text="Disabled"
+        ww:class="-right"
+        ww:disabled={{true}}/>
+
+
+
     </ActionArea>
 
     <MainView wml:id="main">

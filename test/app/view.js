@@ -144,6 +144,17 @@ function content(view) {
                 'class': "-right",
                 'onClick': this.create.bind(this)
             }
+        }, [], view), wml_runtime_1.widget(components_1.Button, {
+            html: {},
+            wml: {
+                'id': "disabledButton"
+            },
+            ww: {
+                'style': "-default",
+                'text': "Disabled",
+                'class': "-right",
+                'disabled': true
+            }
         }, [], view)], view), wml_runtime_1.widget(components_1.MainView, {
         html: {},
         wml: {

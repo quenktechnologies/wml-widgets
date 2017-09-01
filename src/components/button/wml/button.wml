@@ -29,6 +29,7 @@ import {Fragment} from '../../'
     wml:id="button"
     type={{this.attributes.read('ww:type', 'button')}}
     name={{this.attributes.read('ww:name', '')}}
+    disabled={{@.read('ww:disabled') ? "true" : null}}
     class={{combine([
     Styles.BUTTON,
     this.attributes.read('ww:variant', ''), 
