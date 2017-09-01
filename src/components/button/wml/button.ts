@@ -16,9 +16,27 @@ import {
 import { noop,combine } from "wml-widgets-common/util";
 import { Fragment } from '../../';
  
-  
+ 
 
-export class Main<C> extends AppView<C>{
+export class Group<C> extends AppView<C>{
+
+    constructor(context:C) {
+
+        super(context);
+
+        let view = this;
+
+        this.template = function() {
+            return $$node('div',{html:{'class': combine([Styles.BUTTON_GROUP,this.attributes.read('ww:class')]),'role': "group"},wml:{}},[$$domify(this.children)], view)
+        }
+
+       }
+
+     }
+
+
+
+export class Button<C> extends AppView<C>{
 
     constructor(context:C) {
 
@@ -34,3 +52,4 @@ export class Main<C> extends AppView<C>{
 
      }
 
+ 

@@ -134,29 +134,33 @@ function content(view) {
             ww: {
                 'onClick': this.toggleDrawer.bind(this)
             }
-        }, [], view), wml_runtime_1.widget(components_1.Button, {
+        }, [], view), wml_runtime_1.widget(components_1.ButtonGroup, {
             html: {},
-            wml: {
-                'id': "createButton"
-            },
+            wml: {},
             ww: {
-                'style': "-danger",
-                'text': "Create",
-                'class': "-right",
-                'onClick': this.create.bind(this)
+                'class': "-right"
             }
-        }, [], view), wml_runtime_1.widget(components_1.Button, {
-            html: {},
-            wml: {
-                'id': "disabledButton"
-            },
-            ww: {
-                'style': "-default",
-                'text': "Disabled",
-                'class': "-right",
-                'disabled': true
-            }
-        }, [], view)], view), wml_runtime_1.widget(components_1.MainView, {
+        }, [wml_runtime_1.widget(components_1.Button, {
+                html: {},
+                wml: {
+                    'id': "disabledButton"
+                },
+                ww: {
+                    'style': "-default",
+                    'text': "Disabled",
+                    'disabled': true
+                }
+            }, [], view), wml_runtime_1.widget(components_1.Button, {
+                html: {},
+                wml: {
+                    'id': "createButton"
+                },
+                ww: {
+                    'style': "-danger",
+                    'text': "Create",
+                    'onClick': this.create.bind(this)
+                }
+            }, [], view)], view)], view), wml_runtime_1.widget(components_1.MainView, {
         html: {},
         wml: {
             'id': "main"

@@ -17,7 +17,8 @@ import {
     ActionArea,
     MainView,
     MenuButton,
-    Button
+    Button,
+    ButtonGroup
 } from '@quenk/wml-widgets/lib/components';
 import {
     Container,
@@ -171,6 +172,22 @@ export function content < Z > (view: AppView < Z > ) {
         ww: {
             'onClick': this.toggleDrawer.bind(this)
         }
+    }, [], view), $$widget(ButtonGroup, {
+        html: {},
+        wml: {},
+        ww: {
+            'class': "-right"
+        }
+    }, [$$widget(Button, {
+        html: {},
+        wml: {
+            'id': "disabledButton"
+        },
+        ww: {
+            'style': "-default",
+            'text': "Disabled",
+            'disabled': true
+        }
     }, [], view), $$widget(Button, {
         html: {},
         wml: {
@@ -179,21 +196,9 @@ export function content < Z > (view: AppView < Z > ) {
         ww: {
             'style': "-danger",
             'text': "Create",
-            'class': "-right",
             'onClick': this.create.bind(this)
         }
-    }, [], view), $$widget(Button, {
-        html: {},
-        wml: {
-            'id': "disabledButton"
-        },
-        ww: {
-            'style': "-default",
-            'text': "Disabled",
-            'class': "-right",
-            'disabled': true
-        }
-    }, [], view)], view), $$widget(MainView, {
+    }, [], view)], view)], view), $$widget(MainView, {
         html: {},
         wml: {
             'id': "main"

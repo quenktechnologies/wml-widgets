@@ -1,4 +1,4 @@
-import {DrawerLayout, ActionArea, MainView, MenuButton, Button} from '@quenk/wml-widgets/lib/components'
+import {DrawerLayout, ActionArea, MainView, MenuButton, Button, ButtonGroup} from '@quenk/wml-widgets/lib/components'
 import {Container, Column, Row} from '@quenk/wml-widgets/lib/components'
 import {Table} from '@quenk/wml-widgets/lib/components'
 import {Panel, PanelHeader, PanelBody, PanelFooter} from '@quenk/wml-widgets/lib/components'
@@ -73,21 +73,21 @@ import {Next} from './app'
 
       <MenuButton ww:onClick={{this::toggleDrawer}}/>
 
-      <Button
-        wml:id="createButton"
-        ww:style="-danger"
-        ww:text="Create"
-        ww:class="-right"
-        ww:onClick={{this::create}}/>
+        <ButtonGroup ww:class="-right">
 
-      <Button
-        wml:id="disabledButton"
-        ww:style="-default"
-        ww:text="Disabled"
-        ww:class="-right"
-        ww:disabled={{true}}/>
+          <Button
+            wml:id="disabledButton"
+            ww:style="-default"
+            ww:text="Disabled"
+            ww:disabled={{true}}/>
 
+          <Button
+            wml:id="createButton"
+            ww:style="-danger"
+            ww:text="Create"
+            ww:onClick={{this::create}}/>
 
+        </ButtonGroup>
 
     </ActionArea>
 

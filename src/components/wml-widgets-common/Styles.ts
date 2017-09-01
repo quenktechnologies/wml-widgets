@@ -32,6 +32,7 @@ export const MAIN_VIEW = 'ww-main-view';
 export const MENU_BUTTON = 'ww-menu-button';
 
 export const BUTTON = 'ww-button';
+export const BUTTON_GROUP = 'ww-button-group';
 
 //@todo: refactor this to be inline with other class names
 export const GRID_CONTAINER = 'container-fluid';

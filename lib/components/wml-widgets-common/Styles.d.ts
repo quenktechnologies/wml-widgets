@@ -22,6 +22,7 @@ export declare const ACTION_AREA_CONTENT = "ww-action-area__content";
 export declare const MAIN_VIEW = "ww-main-view";
 export declare const MENU_BUTTON = "ww-menu-button";
 export declare const BUTTON = "ww-button";
+export declare const BUTTON_GROUP = "ww-button-group";
 export declare const GRID_CONTAINER = "container-fluid";
 export declare const GRID_COLUMN = "";
 export declare const GRID_ROW = "row";
