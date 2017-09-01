@@ -9,6 +9,9 @@ export interface InputAttrs extends Attrs {
         id?: string;
         label?: string;
         message?: string;
+        validate?: string;
+        invalidate?: string;
+        warn?: string;
         variant?: string;
         title?: string;
         name?: string;
@@ -94,6 +97,10 @@ export declare class Input extends Component<InputAttrs> {
      * @return {Input}
      */
     reset(): void;
+    /**
+     * rendered checks if the input should have a validation state set
+     */
+    rendered(): void;
 }
 export declare class Select extends Input {
     view: SelectView<this>;

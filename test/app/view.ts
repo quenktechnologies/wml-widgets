@@ -93,6 +93,7 @@ export class CreateDialog < C > extends AppView < C > {
                 ww: {
                     'id': "amount",
                     'label': "Amount",
+                    'warn': "Don't over do it!",
                     'type': "number",
                     'onInput': function function_literal_3(e: Event) {
                         return this.next.amount = Number(( < HTMLInputElement > e.target).value);

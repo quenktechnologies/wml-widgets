@@ -15,6 +15,9 @@ export interface InputAttrs extends Attrs {
         id?: string,
         label?: string,
         message?: string,
+        validate?: string,
+        invalidate?: string,
+        warn?: string,
         variant?: string
         title?: string,
         name?: string,
@@ -205,6 +208,25 @@ export class Input extends Component<InputAttrs> {
 
         while (m.firstChild)
             m.removeChild(m.firstChild);
+
+    }
+
+    /**
+     * rendered checks if the input should have a validation state set
+     */
+    rendered() {
+
+        let validate = this.attributes.read<string>('ww:validate');
+        let invalidate = this.attributes.read<string>('ww:invalidate');
+        let warn = this.attributes.read<string>('ww:warn');
+
+        validate ?
+            this.validate(validate) :
+            warn ?
+                this.warn(warn) :
+                invalidate ?
+                    this.invalidate(invalidate) :
+                    null;
 
     }
 

@@ -55,6 +55,7 @@ var CreateDialog = (function (_super) {
                         ww: {
                             'id': "amount",
                             'label': "Amount",
+                            'warn': "Don't over do it!",
                             'type': "number",
                             'onInput': function function_literal_3(e) {
                                 return this.next.amount = Number(e.target.value);

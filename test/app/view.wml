@@ -24,6 +24,7 @@ import {Next} from './app'
       <Input 
       ww:id="amount"
       ww:label="Amount"
+      ww:warn="Don't over do it!"
       ww:type="number"
       ww:onInput={{\e:Event=>(this.next.amount = Number((e.target as HTMLInputElement).value))}} />
 
