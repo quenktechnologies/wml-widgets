@@ -69,6 +69,9 @@ export const TREE_NAV = 'tree-nav';
 export const TREE_NAV_LIST = 'tree-nav__list';
 export const TREE_NAV_LIST_ITEM = 'tree-nav__item';
 
+export const BREAD_CRUMBS = 'breadcrumb'; //@todo un-bootstrap
+export const BREAD_CRUMBS_CRUMB = `${BREAD_CRUMBS}__crumb`;
+
 export const AUTOCOMPLETE = 'wat-kit-autocomplete';
 export const AUTOCOMPLETE_CONTAINER = 'wat-kit-autocomplete-container';
 export const AUTOCOMPLETE_INPUT_AREA = 'wat-kit-autocomplete-input-area';

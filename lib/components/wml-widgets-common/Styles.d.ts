@@ -48,6 +48,8 @@ export declare const TABLE = "table";
 export declare const TREE_NAV = "tree-nav";
 export declare const TREE_NAV_LIST = "tree-nav__list";
 export declare const TREE_NAV_LIST_ITEM = "tree-nav__item";
+export declare const BREAD_CRUMBS = "breadcrumb";
+export declare const BREAD_CRUMBS_CRUMB: string;
 export declare const AUTOCOMPLETE = "wat-kit-autocomplete";
 export declare const AUTOCOMPLETE_CONTAINER = "wat-kit-autocomplete-container";
 export declare const AUTOCOMPLETE_INPUT_AREA = "wat-kit-autocomplete-input-area";

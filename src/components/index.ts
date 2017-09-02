@@ -9,9 +9,10 @@ export ListGroup from './list-group/ListGroup';
 export ListGroupItem from './list-group/ListGroupItem';
 export Search from './search/Search';
 */
+export { BreadCrumbs, Crumb } from './breadcrumbs';
 export { Fragment } from './fragment/Fragment';
 export { DrawerLayout } from './drawer-layout/DrawerLayout';
-export {Drawer} from './drawer/Drawer';
+export { Drawer } from './drawer/Drawer';
 export { ActionArea } from './action-area/ActionArea';
 export { MainView } from './main-view/MainView';
 export { MenuButton } from './menu-button/MenuButton';

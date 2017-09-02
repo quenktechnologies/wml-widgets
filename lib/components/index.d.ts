@@ -1,3 +1,4 @@
+export { BreadCrumbs, Crumb } from './breadcrumbs';
 export { Fragment } from './fragment/Fragment';
 export { DrawerLayout } from './drawer-layout/DrawerLayout';
 export { Drawer } from './drawer/Drawer';
