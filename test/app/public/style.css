@@ -6090,6 +6090,41 @@ body {
   padding-left: 0;
 }
 /* @todo: expand border functions and classes */
+/* border widths */
+.-no-border {
+  border-width: 0;
+  @style @color;
+}
+.-1x-border-width {
+  border-width: 0.125rem;
+  @style @color;
+}
+.-2x-border-width {
+  border-width: 0.25rem;
+  @style @color;
+}
+.-3x-border-width {
+  border-width: 0.5rem;
+  @style @color;
+}
+.-4x-border-width {
+  border-width: 1rem;
+  @style @color;
+}
+.-5x-border-width {
+  border-width: 2rem;
+  @style @color;
+}
+/* border styles */
+.-dotted-border {
+  border-style: dotted;
+}
+.-solid-border {
+  border-style: solid;
+}
+.-dashed-border {
+  border-style: dashed;
+}
 .-right {
   float: right !important;
 }

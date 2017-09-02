@@ -1,6 +1,23 @@
 /* @todo: expand border functions and classes */
 
-.border(@width; @style; @color) { border: @width @style @color; }
+.border(@width; @style; @color)         { border: @width @style @color;        }
+.border-top(@width; @style, @color)     { border-top: @width @style @color;    }
+.border-right(@width; @style, @color)   { border-right: @width @style @color;  }
+.border-bottom(@width; @style, @color)  { border-bottom: @width @style @color; }
+.border-left(@width; @style, @color)    { border-left: @width @style @color;   }
+.border-radius(@value)                  { border-radius: @value;               }
+.border-width(@value)                   { border-width: @value; @style @color; }
+.border-style(@value)                   { border-style:@value;                 }
 
-.border-radius(@value)          { border-radius: @value;        }
+/* border widths */
+.-no-border                     { .border-width(0);             }
+.-1x-border-width               { .border-width(.125rem);       }
+.-2x-border-width               { .border-width(.25rem);        }
+.-3x-border-width               { .border-width(.5rem);         }
+.-4x-border-width               { .border-width(1rem);          }
+.-5x-border-width               { .border-width(2rem);          }
  
+/* border styles */
+.-dotted-border                 { .border-style(dotted);        }
+.-solid-border                  { .border-style(solid);         }
+.-dashed-border                 { .border-style(dashed);        }
