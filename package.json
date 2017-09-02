@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "Various wml widgets for creating web apps.",
   "scripts": {
     "postinstall": "npm install --save lib/components/wml-widgets-common"

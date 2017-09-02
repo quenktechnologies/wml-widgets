@@ -6090,11 +6090,33 @@ body {
   padding-left: 0;
 }
 /* @todo: expand border functions and classes */
-/* border widths */
+/* borders */
 .-no-border {
   border-width: 0;
   @style @color;
+  border-style: none;
 }
+.-top-border {
+  border-style: solid;
+  border-width: 1px;
+  @style @color;
+}
+.-right-border {
+  border-style: solid;
+  border-width: 1px;
+  @style @color;
+}
+.-bottom-border {
+  border-style: solid;
+  border-width: 1px;
+  @style @color;
+}
+.-left-border {
+  border-style: solid;
+  border-width: 1px;
+  @style @color;
+}
+/* border widths */
 .-1x-border-width {
   border-width: 0.125rem;
   @style @color;
