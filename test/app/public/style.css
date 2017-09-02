@@ -247,9 +247,12 @@ th {
     border: 1px solid #ddd !important;
   }
 }
+/* colors */
+/* Styles from https://raw.githubusercontent.com/tachyons-css/tachyons/master/src/_colors.css */
 /* global */
 /* breakpoints */
 /* padding */
+/* borders */
 /* shadows */
 /* heights */
 /* widths */
@@ -1740,7 +1743,7 @@ output {
   padding-top: 7px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555555;
+  color: #777;
 }
 .form-control {
   display: block;
@@ -1749,7 +1752,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555555;
+  color: #777;
   background-color: #fff;
   background-image: none;
   border: 1px solid #ccc;
@@ -3101,7 +3104,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   font-size: 14px;
   font-weight: normal;
   line-height: 1;
-  color: #555555;
+  color: #777;
   text-align: center;
   background-color: #eeeeee;
   border: 1px solid #ccc;
@@ -3237,7 +3240,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555555;
+  color: #777;
   background-color: #fff;
   border: 1px solid #ddd;
   border-bottom-color: transparent;
@@ -6126,6 +6129,7 @@ body {
   border-width: 1px;
   @style @color;
   border-style: solid;
+  border-color: rgba(0, 0, 0, 0.3);
 }
 /* all widths */
 .-no-border {
@@ -6166,6 +6170,7 @@ body {
   border-top-width: 1px;
   @style @color;
   border-top-style: solid;
+  border-top-color: rgba(0, 0, 0, 0.3);
 }
 /* top widths */
 .-no-top-border {
@@ -6206,6 +6211,7 @@ body {
   border-right-width: 1px;
   @style @color;
   border-right-style: solid;
+  border-right-color: rgba(0, 0, 0, 0.3);
 }
 /* right widths */
 .-no-right-border {
@@ -6246,6 +6252,7 @@ body {
   border-bottom-width: 1px;
   @style @color;
   border-bottom-style: solid;
+  border-bottom-color: rgba(0, 0, 0, 0.3);
 }
 /* bottom widths */
 .-no-bottom-border {
@@ -6286,6 +6293,7 @@ body {
   border-left-width: 1px;
   @style @color;
   border-left-style: solid;
+  border-left-color: rgba(0, 0, 0, 0.3);
 }
 /* left widths */
 .-no-left-border {

@@ -5,30 +5,38 @@
 .border-radius(@value)                  { border-radius: @value;               }
 .border-width(@value)                   { border-width: @value; @style @color; }
 .border-style(@value)                   { border-style:@value;                 }
+.border-color(@value)                   { border-color:@value;                 } 
 
 .border-top(@width; @style, @color)     { border-top: @width @style @color;    }
-.border-top-radius(@value)              { border-top-radius: @value;               }
-.border-top-width(@value)               { border-top-width: @value; @style @color; }
-.border-top-style(@value)               { border-top-style:@value;                 }
+.border-top-radius(@value)              { border-top-radius: @value;           }
+.border-top-width(@value)               { border-top-width: @value; @style @color;}
+.border-top-style(@value)               { border-top-style:@value;             }
+.border-top-color(@value)               { border-top-color:@value;             } 
 
-.border-right(@width; @style, @color)   { border-right: @width @style @color;         }
-.border-right-radius(@value)            { border-right-radius: @value;                }
-.border-right-width(@value)             { border-right-width: @value; @style @color;  }
-.border-right-style(@value)             { border-right-style:@value;                  }
+.border-right(@width; @style, @color)   { border-right: @width @style @color;  }
+.border-right-radius(@value)            { border-right-radius: @value;         }
+.border-right-width(@value)             { border-right-width: @value; @style @color;}
+.border-right-style(@value)             { border-right-style:@value;           }
+.border-right-color(@value)             { border-right-color:@value;           } 
 
-.border-bottom(@width; @style, @color)  { border-bottom: @width @style @color;        }
-.border-bottom-radius(@value)           { border-bottom-radius: @value;               }
-.border-bottom-width(@value)            { border-bottom-width: @value; @style @color; }
-.border-bottom-style(@value)            { border-bottom-style:@value;                 }
+.border-bottom(@width; @style, @color)  { border-bottom: @width @style @color; }
+.border-bottom-radius(@value)           { border-bottom-radius: @value;        }
+.border-bottom-width(@value)            { border-bottom-width: @value; @style @color;}
+.border-bottom-style(@value)            { border-bottom-style:@value;          }
+.border-bottom-color(@value)            { border-bottom-color:@value;          } 
 
-.border-left(@width; @style, @color)     { border-left: @width @style @color;        }
-.border-left-radius(@value)              { border-left-radius: @value;               }
-.border-left-width(@value)               { border-left-width: @value; @style @color; }
-.border-left-style(@value)               { border-left-style:@value;                 }
+.border-left(@width; @style, @color)    { border-left: @width @style @color;   }
+.border-left-radius(@value)             { border-left-radius: @value;          }
+.border-left-width(@value)              { border-left-width: @value; @style @color;}
+.border-left-style(@value)              { border-left-style:@value;            }
+.border-left-color(@value)              { border-left-color:@value;            } 
 
 /* all defaults */
-.-border                                { .border-width(1px);  
-                                          .-solid-border-style;                }
+.-border                                { 
+                                           .border-width(1px);                        
+                                           .-solid-border-style;
+                                           .border-color(@border-color);
+                                        }
 
 /* all widths */
 .-no-border                             {  border: none;                       }
@@ -45,7 +53,9 @@
 
 /* top defaults */
 .-top-border                            { .border-top-width(1px); 
-                                          .-solid-border-top-style;            }
+                                          .-solid-border-top-style;       
+                                          .border-top-color(@border-color);
+                                        }
 /* top widths */
 .-no-top-border                         {  border-top: none;                   }
 .-1x-border-top-width                   { .border-top-width(.125rem);          }
@@ -60,67 +70,55 @@
 .-dashed-border-top-style               { .border-top-style(dashed);           }
 
 /* right defaults */
-.-right-border                            { .border-right-width(1px); 
-                                            .-solid-border-right-style;        }
+.-right-border                          { .border-right-width(1px); 
+                                          .-solid-border-right-style;       
+                                          .border-right-color(@border-color);
+                                        }
 /* right widths */
-.-no-right-border                         {  border-right: none;               }
-.-1x-border-right-width                   { .border-right-width(.125rem);      }
-.-2x-border-right-width                   { .border-right-width(.25rem);       }
-.-3x-border-right-width                   { .border-right-width(.5rem);        }
-.-4x-border-right-width                   { .border-right-width(1rem);         }
-.-5x-border-right-width                   { .border-right-width(2rem);         }
+.-no-right-border                       {  border-right: none;               }
+.-1x-border-right-width                 { .border-right-width(.125rem);      }
+.-2x-border-right-width                 { .border-right-width(.25rem);       }
+.-3x-border-right-width                 { .border-right-width(.5rem);        }
+.-4x-border-right-width                 { .border-right-width(1rem);         }
+.-5x-border-right-width                 { .border-right-width(2rem);         }
 
 /* right styles */ 
-.-dotted-border-right-style               { .border-right-style(dotted);        }
-.-solid-border-right-style                { .border-right-style(solid);         }
-.-dashed-border-right-style               { .border-right-style(dashed);        }
+.-dotted-border-right-style             { .border-right-style(dotted);        }
+.-solid-border-right-style              { .border-right-style(solid);         }
+.-dashed-border-right-style             { .border-right-style(dashed);        }
 
 /* bottom defaults */
-.-bottom-border                            { .border-bottom-width(1px); 
-                                          .-solid-border-bottom-style;         }
+.-bottom-border                         { .border-bottom-width(1px); 
+                                          .-solid-border-bottom-style;
+                                          .border-bottom-color(@border-color);
+                                        }
 /* bottom widths */
-.-no-bottom-border                         {  border-bottom: none;             }
-.-1x-border-bottom-width                   { .border-bottom-width(.125rem);    }
-.-2x-border-bottom-width                   { .border-bottom-width(.25rem);     }
-.-3x-border-bottom-width                   { .border-bottom-width(.5rem);      }
-.-4x-border-bottom-width                   { .border-bottom-width(1rem);       }
-.-5x-border-bottom-width                   { .border-bottom-width(2rem);       }
+.-no-bottom-border                      {  border-bottom: none;             }
+.-1x-border-bottom-width                { .border-bottom-width(.125rem);    }
+.-2x-border-bottom-width                { .border-bottom-width(.25rem);     }
+.-3x-border-bottom-width                { .border-bottom-width(.5rem);      }
+.-4x-border-bottom-width                { .border-bottom-width(1rem);       }
+.-5x-border-bottom-width                { .border-bottom-width(2rem);       }
 
 /* bottom styles */ 
-.-dotted-border-bottom-style               { .border-bottom-style(dotted);     }
-.-solid-border-bottom-style                { .border-bottom-style(solid);      }
-.-dashed-border-bottom-style               { .border-bottom-style(dashed);     }
+.-dotted-border-bottom-style            { .border-bottom-style(dotted);     }
+.-solid-border-bottom-style             { .border-bottom-style(solid);      }
+.-dashed-border-bottom-style            { .border-bottom-style(dashed);     }
 
 /* left defaults */
-.-left-border                            { .border-left-width(1px); 
-                                          .-solid-border-left-style;           }
+.-left-border                           { .border-left-width(1px); 
+                                          .-solid-border-left-style;           
+                                          .border-left-color(@border-color);
+                                        }
 /* left widths */
-.-no-left-border                         {  border-left: none;                 }
-.-1x-border-left-width                   { .border-left-width(.125rem);        }
-.-2x-border-left-width                   { .border-left-width(.25rem);         }
-.-3x-border-left-width                   { .border-left-width(.5rem);          }
-.-4x-border-left-width                   { .border-left-width(1rem);           }
-.-5x-border-left-width                   { .border-left-width(2rem);           }
+.-no-left-border                        {  border-left: none;                 }
+.-1x-border-left-width                  { .border-left-width(.125rem);        }
+.-2x-border-left-width                  { .border-left-width(.25rem);         }
+.-3x-border-left-width                  { .border-left-width(.5rem);          }
+.-4x-border-left-width                  { .border-left-width(1rem);           }
+.-5x-border-left-width                  { .border-left-width(2rem);           }
 
 /* left styles */ 
-.-dotted-border-left-style               { .border-left-style(dotted);         }
-.-solid-border-left-style                { .border-left-style(solid);          }
-.-dashed-border-left-style               { .border-left-style(dashed);         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.-dotted-border-left-style              { .border-left-style(dotted);         }
+.-solid-border-left-style               { .border-left-style(solid);          }
+.-dashed-border-left-style              { .border-left-style(dashed);         }
