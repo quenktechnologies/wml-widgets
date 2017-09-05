@@ -40,7 +40,7 @@ export interface Field<D> {
     strategy?: SortingStrategy;
 }
 export interface CellFragment<D> {
-    <A>(view: View, datum?: A, name?: string, row?: D, field?: Field<D>): Content;
+    (view: View, datum?: any, name?: string, row?: D, field?: Field<D>): Content;
 }
 export interface TableModel<D> {
     allSelected(): void;
