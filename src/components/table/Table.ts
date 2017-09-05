@@ -121,7 +121,7 @@ export interface CellFragment<D> {
 export interface TableModel<D> {
 
     allSelected(): void;
-    cellClickedEvent<A>(e: CellClickedEvent<D, A>): void;
+    cellClicked<A>(e: CellClickedEvent<D, A>): void;
     headingClicked(e: HeadingClickedEvent<D>): void;
     rowClicked(e: RowClickedEvent<D>): void;
     rowSelected(e: RowSelectedEvent<D>): void;
@@ -130,7 +130,7 @@ export interface TableModel<D> {
 
 export class DefaultTableModel implements TableModel<any> {
     allSelected(): void { }
-    cellClickedEvent(_e: CellClickedEvent<any,any>): void { }
+    cellClicked(_e: CellClickedEvent<any, any>): void { }
     headingClicked(_e: HeadingClickedEvent<any>): void { }
     rowClicked(_e: RowClickedEvent<any>): void { }
     rowSelected(_e: RowSelectedEvent<any>): void { }
