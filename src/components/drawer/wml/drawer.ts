@@ -25,7 +25,7 @@ export class Main<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('div',{html:{'class': Styles.DRAWER},wml:{'id': "drawer"}},[$$node('div',{html:{'class': Styles.DRAWER_CONTENT},wml:{}},[$$if(this.attributes.read('ww:content'), function if1(){ return this.attributes.read('ww:content').call(this,view,) }.bind(this),function else_clause1(){ return $$domify(this.children) }.bind(this))], view)], view)
+            return $$node('div',{html:{'class': Styles.DRAWER},wml:{'id': "drawer"}},[$$node('div',{html:{'class': Styles.DRAWER_CONTENT},wml:{}},[$$if(this.attributes.read('ww:content'), function if12(){ return this.attributes.read('ww:content').call(this,view,) }.bind(this),function else_clause6(){ return $$domify(this.children) }.bind(this))], view)], view)
         }
 
        }

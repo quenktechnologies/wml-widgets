@@ -1,3 +1,6 @@
+import * as table from './table/Table';
+
+export { table };
 /* jshint ignore:start */
 /*
 export BreadCrumbMenu from './breadcrumbs/BreadCrumbMenu';
