@@ -81,10 +81,10 @@ export class RowClickedEvent<D> {
 
 export class RowSelectedEvent<D> extends RowClickedEvent<D> { }
 
-export class CellClickedEvent<D>{
+export class CellClickedEvent<D, A>{
 
     constructor(
-        public value: CellContent,
+        public value: A,
         public name: string,
         public index: number | string,
         public row: D,
@@ -114,34 +114,29 @@ export interface Field<D> {
 
 export interface CellFragment<D> {
 
-    (view: View, datum: CellContent, name: string, row: D, field: Field<D>): Content
+    <A>(view: View, datum?: A, name?: string, row?: D, field?: Field<D>): Content
+
 }
 
-export type CellContent
-    = boolean
-    | number
-    | string
-    ;
-
-export interface TableModel {
+export interface TableModel<D> {
 
     allSelected(): void;
-    cellClickedEvent<D>(e: CellClickedEvent<D>): void;
-    headingClicked<D>(e: HeadingClickedEvent<D>): void;
-    rowClicked<D>(e: RowClickedEvent<D>): void;
-    rowSelected<D>(e: RowSelectedEvent<D>): void;
+    cellClickedEvent<A>(e: CellClickedEvent<D, A>): void;
+    headingClicked(e: HeadingClickedEvent<D>): void;
+    rowClicked(e: RowClickedEvent<D>): void;
+    rowSelected(e: RowSelectedEvent<D>): void;
 
 }
 
-export class DefaultTableModel implements TableModel {
+export class DefaultTableModel implements TableModel<any> {
     allSelected(): void { }
-    cellClickedEvent<D>(_e: CellClickedEvent<D>): void { }
-    headingClicked<D>(_e: HeadingClickedEvent<D>): void { }
-    rowClicked<D>(_e: RowClickedEvent<D>): void { }
-    rowSelected<D>(_e: RowSelectedEvent<D>): void { }
+    cellClickedEvent(_e: CellClickedEvent<any,any>): void { }
+    headingClicked(_e: HeadingClickedEvent<any>): void { }
+    rowClicked(_e: RowClickedEvent<any>): void { }
+    rowSelected(_e: RowSelectedEvent<any>): void { }
 }
 
-export class SortTableModel extends DefaultTableModel {
+export class SortTableModel<D> extends DefaultTableModel {
 
     headingClicked<D>(e: HeadingClickedEvent<D>) { e.table.sort(e.name); }
 
@@ -157,7 +152,7 @@ export interface TableAttrs<D> extends Attrs {
         cellClass?: string,
         fields: Field<D>[],
         data: D[],
-        model?: TableModel
+        model?: TableModel<D>
 
     }
 
@@ -170,7 +165,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
     sortedOn: string = '';
     arrow: string = '';
     view = new TableView(this);
-    model: TableModel = this.attributes.read('ww:model', new DefaultTableModel());
+    model: TableModel<D> = this.attributes.read('ww:model', new DefaultTableModel());
 
     sort(name: string): void {
 

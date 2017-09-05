@@ -19,13 +19,13 @@ export declare class RowClickedEvent<D> {
 }
 export declare class RowSelectedEvent<D> extends RowClickedEvent<D> {
 }
-export declare class CellClickedEvent<D> {
-    value: CellContent;
+export declare class CellClickedEvent<D, A> {
+    value: A;
     name: string;
     index: number | string;
     row: D;
     table: Table<D>;
-    constructor(value: CellContent, name: string, index: number | string, row: D, table: Table<D>);
+    constructor(value: A, name: string, index: number | string, row: D, table: Table<D>);
 }
 export declare type Comparable = string | number | boolean;
 export interface SortingStrategy {
@@ -40,24 +40,23 @@ export interface Field<D> {
     strategy?: SortingStrategy;
 }
 export interface CellFragment<D> {
-    (view: View, datum: CellContent, name: string, row: D, field: Field<D>): Content;
+    <A>(view: View, datum?: A, name?: string, row?: D, field?: Field<D>): Content;
 }
-export declare type CellContent = boolean | number | string;
-export interface TableModel {
+export interface TableModel<D> {
     allSelected(): void;
-    cellClickedEvent<D>(e: CellClickedEvent<D>): void;
-    headingClicked<D>(e: HeadingClickedEvent<D>): void;
-    rowClicked<D>(e: RowClickedEvent<D>): void;
-    rowSelected<D>(e: RowSelectedEvent<D>): void;
+    cellClickedEvent<A>(e: CellClickedEvent<D, A>): void;
+    headingClicked(e: HeadingClickedEvent<D>): void;
+    rowClicked(e: RowClickedEvent<D>): void;
+    rowSelected(e: RowSelectedEvent<D>): void;
 }
-export declare class DefaultTableModel implements TableModel {
+export declare class DefaultTableModel implements TableModel<any> {
     allSelected(): void;
-    cellClickedEvent<D>(_e: CellClickedEvent<D>): void;
-    headingClicked<D>(_e: HeadingClickedEvent<D>): void;
-    rowClicked<D>(_e: RowClickedEvent<D>): void;
-    rowSelected<D>(_e: RowSelectedEvent<D>): void;
+    cellClickedEvent(_e: CellClickedEvent<any, any>): void;
+    headingClicked(_e: HeadingClickedEvent<any>): void;
+    rowClicked(_e: RowClickedEvent<any>): void;
+    rowSelected(_e: RowSelectedEvent<any>): void;
 }
-export declare class SortTableModel extends DefaultTableModel {
+export declare class SortTableModel<D> extends DefaultTableModel {
     headingClicked<D>(e: HeadingClickedEvent<D>): void;
 }
 export interface TableAttrs<D> extends Attrs {
@@ -68,7 +67,7 @@ export interface TableAttrs<D> extends Attrs {
         cellClass?: string;
         fields: Field<D>[];
         data: D[];
-        model?: TableModel;
+        model?: TableModel<D>;
     };
 }
 export declare class Table<D> extends Component<TableAttrs<D>> {
@@ -77,7 +76,7 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
     sortedOn: string;
     arrow: string;
     view: TableView<this>;
-    model: TableModel;
+    model: TableModel<D>;
     sort(name: string): void;
     /**
      * update the data the table displays
