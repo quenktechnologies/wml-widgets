@@ -44,7 +44,7 @@ export class Crumb<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('li',{html:{'class': combine([Styles.BREAD_CRUMBS_CRUMB,this.attributes.read('ww:class')])},wml:{}},[$$node('a',{html:{'class': this.attributes.read('ww:anchorClass',null),'href': this.attributes.read('ww:href')},wml:{}},[$$domify(this.children)], view)], view)
+            return $$node('li',{html:{'class': combine([Styles.BREAD_CRUMBS_CRUMB,this.attributes.read('ww:class')])},wml:{}},[$$node('a',{html:{'class': this.attributes.read('ww:anchorClass',null),'onClick': this.attributes.read('ww:onClick',null),'href': this.attributes.read('ww:href')},wml:{}},[$$domify(this.children)], view)], view)
         }
 
        }

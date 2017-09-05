@@ -256,6 +256,7 @@ th {
 /* shadows */
 /* heights */
 /* widths */
+/* spacing */
 /* constants */
 /* DrawerLayout */
 /* Drawer */
@@ -5979,65 +5980,68 @@ body {
   height: 100%;
   margin: 0;
 }
-.-10-width {
+.full {
+  width: 100%;
+}
+.-p10-width {
   width: 10%;
 }
-.-20-width {
+.-p20-width {
   width: 20%;
 }
-.-25-width {
+.-p25-width {
   width: 25%;
 }
-.-30-width {
+.-p30-width {
   width: 30%;
 }
-.-33-width {
+.-p33-width {
   width: 33%;
 }
-.-34-width {
+.-p34-width {
   width: 34%;
 }
-.-40-width {
+.-p40-width {
   width: 40%;
 }
-.-50-width {
+.-p50-width {
   width: 50%;
 }
-.-60-width {
+.-p60-width {
   width: 60%;
 }
-.-66-width {
+.-p66-width {
   width: 66%;
 }
-.-70-width {
+.-p70-width {
   width: 70%;
 }
-.-75-width {
+.-p75-width {
   width: 75%;
 }
-.-80-width {
+.-p80-width {
   width: 80%;
 }
-.-90-width {
+.-p90-width {
   width: 90%;
 }
-.-100-width {
+.-p100-width {
   width: 100%;
 }
 /* Width Scale */
-.-1x-width {
+.-x1-width {
   width: 1rem;
 }
-.-2x-width {
+.-x2-width {
   width: 2rem;
 }
-.-3x-width {
+.-x3-width {
   width: 4rem;
 }
-.-4x-width {
+.-x4-width {
   width: 8rem;
 }
-.-5x-width {
+.-x5-width {
   width: 16rem;
 }
 /* Constant widths */
@@ -6110,6 +6114,27 @@ body {
 }
 .-no-padding {
   padding: 0 0 0 0;
+}
+.-xs-padding {
+  padding: 0.25rem 0.25rem 0.25rem 0.25rem;
+}
+.-s-padding {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+.-m-padding {
+  padding: 1rem 1rem 1rem 1rem;
+}
+.-l-padding {
+  padding: 2rem 2rem 2rem 2rem;
+}
+.-xl-padding {
+  padding: 4rem 4rem 4rem 4rem;
+}
+.-xxl-padding {
+  padding: 8rem 8rem 8rem 8rem;
+}
+.-xxxl-padding {
+  padding: 16rem 16rem 16rem 16rem;
 }
 .-no-top-padding {
   padding-top: 0;

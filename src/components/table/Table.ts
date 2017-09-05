@@ -207,4 +207,16 @@ export class Table<D> extends Component<TableAttrs<D>> {
 
     }
 
+    /**
+     * update the data the table displays
+     */
+    update(data: D[]): void {
+
+        this.originalData = data.slice();
+        this.data = data.slice();
+
+        (this.sortedOn === '') ? this.view.invalidate() : this.sort(this.sortedOn);
+
+    }
+
 }

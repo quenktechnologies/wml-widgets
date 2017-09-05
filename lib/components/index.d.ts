@@ -11,7 +11,7 @@ export { Panel, Header as PanelHeader, Body as PanelBody, Footer as PanelFooter 
 export { Modal, Header as ModalHeader, Body as ModalBody, Footer as ModalFooter } from './modal/Modal';
 export { Input, Select, InputDelegate } from './input/Input';
 export { Switch } from './switch/Switch';
-export { Table } from './table/Table';
+export { Table, TableModel, SortTableModel } from './table/Table';
 export { Tab, Tabs } from './tabs/Tabs';
 export { BusyIndicator } from './busy-indicator/BusyIndicator';
 export { TreeNav, TreeNavItem } from './tree-nav/TreeNav';

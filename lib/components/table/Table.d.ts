@@ -45,12 +45,14 @@ export interface CellFragment<D> {
 export declare type CellContent = boolean | number | string;
 export interface TableModel {
     allSelected(): void;
+    cellClickedEvent<D>(e: CellClickedEvent<D>): void;
     headingClicked<D>(e: HeadingClickedEvent<D>): void;
     rowClicked<D>(e: RowClickedEvent<D>): void;
     rowSelected<D>(e: RowSelectedEvent<D>): void;
 }
 export declare class DefaultTableModel implements TableModel {
     allSelected(): void;
+    cellClickedEvent<D>(_e: CellClickedEvent<D>): void;
     headingClicked<D>(_e: HeadingClickedEvent<D>): void;
     rowClicked<D>(_e: RowClickedEvent<D>): void;
     rowSelected<D>(_e: RowSelectedEvent<D>): void;
@@ -77,4 +79,8 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
     view: TableView<this>;
     model: TableModel;
     sort(name: string): void;
+    /**
+     * update the data the table displays
+     */
+    update(data: D[]): void;
 }

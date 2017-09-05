@@ -26,7 +26,8 @@ export interface CrumbAttrs extends Attrs {
 
         class?: string,
         href: string,
-        anchorClass: string
+        anchorClass: string,
+        onClick: (e:Event) => void
 
     }
 
