@@ -1,9 +1,9 @@
-import { Component, Attrs, Content, View } from '@quenk/wml-runtime';
+import { Component, Attrs, Content, View, Macro } from '@quenk/wml-runtime';
 import { TableView } from './wml/table';
-export declare const dateSort: (a: string, b: string) => 1 | -1 | 0;
-export declare const stringSort: (a: string, b: string) => 1 | -1 | 0;
-export declare const naturalSort: (a: any, b: any) => 1 | -1 | 0;
-export declare const numberSort: (a: any, b: any) => 1 | -1 | 0;
+export declare const dateSort: (a: string, b: string) => 0 | 1 | -1;
+export declare const stringSort: (a: string, b: string) => 0 | 1 | -1;
+export declare const naturalSort: (a: any, b: any) => 0 | 1 | -1;
+export declare const numberSort: (a: any, b: any) => 0 | 1 | -1;
 export declare class HeadingClickedEvent<D> {
     name: string;
     field: Field<D>;
@@ -68,6 +68,7 @@ export interface TableAttrs<D> extends Attrs {
         fields: Field<D>[];
         data: D[];
         model?: TableModel<D>;
+        emptyMacro?: Macro<any>;
     };
 }
 export declare class Table<D> extends Component<TableAttrs<D>> {

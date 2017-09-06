@@ -1,5 +1,5 @@
 import property from 'property-seek';
-import { Component, Attrs, Content, View } from '@quenk/wml-runtime';
+import { Component, Attrs, Content, View, Macro } from '@quenk/wml-runtime';
 import { noop } from 'wml-widgets-common/util';
 import { TableView } from './wml/table';
 
@@ -152,7 +152,8 @@ export interface TableAttrs<D> extends Attrs {
         cellClass?: string,
         fields: Field<D>[],
         data: D[],
-        model?: TableModel<D>
+        model?: TableModel<D>,
+        emptyMacro?: Macro<any>
 
     }
 

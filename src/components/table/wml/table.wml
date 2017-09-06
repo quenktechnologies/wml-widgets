@@ -119,7 +119,7 @@ import {Field} from '../Table'
 
 {% endmacro %}
 
-{% view TableView %}
+{% macro table %}
 
     <table 
       class={{[Styles.TABLE, @.read('ww:class', '')].join(' ')}}>
@@ -131,6 +131,32 @@ import {Field} from '../Table'
         wml:id="body"> {% call tbody(this.data, @.read('ww:fields')) %}</tbody>
 
     </table>
+
+{% endmacro %}
+
+{% view TableView %}
+
+  <Fragment>
+
+    {% if (this.data.length == 0) %}
+
+      {% if (@.read('emptyMacro')) %}
+
+        {% call @.read('emptyMacro') %}
+
+      {% else %}
+
+        {% call table %}
+
+      {% endif %}
+
+    {% else %}
+
+        {% call table %}
+
+    {% endif %}
+
+  </Fragment>
 
 {% endview %}
 
