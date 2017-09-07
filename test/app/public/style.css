@@ -6604,31 +6604,31 @@ body {
 .-no-content {
   content: "";
 }
-.-1-font-weight {
+.-x1-font-weight {
   font-weight: 100;
 }
-.-2-font-weight {
+.-x2-font-weight {
   font-weight: 200;
 }
-.-3-font-weight {
+.-x3-font-weight {
   font-weight: 300;
 }
-.-4-font-weight {
+.-x4-font-weight {
   font-weight: 400;
 }
-.-5-font-weight {
+.-x5-font-weight {
   font-weight: 500;
 }
-.-6-font-weight {
+.-x6-font-weight {
   font-weight: 600;
 }
-.-7-font-weight {
+.-x7-font-weight {
   font-weight: 700;
 }
-.-8-font-weight {
+.-x8-font-weight {
   font-weight: 800;
 }
-.-9-font-weight {
+.-x9-font-weight {
   font-weight: 900;
 }
 .-unstyled-link,

@@ -122,6 +122,7 @@ import {Field} from '../Table'
 {% macro table %}
 
     <table 
+      wml:id="root"
       class={{[Styles.TABLE, @.read('ww:class', '')].join(' ')}}>
 
       <thead 

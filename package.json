@@ -8,10 +8,11 @@
   "main": "lib/components",
   "types": "lib/components/index.d.ts",
   "peerDependencies": {
-    "@quenk/wml-runtime": "^0.3.1",
+    "@quenk/wml-runtime": "^0.3.3",
     "@quenk/wml": "^0.11.2"
   },
   "dependencies": {
+    "@quenk/wml-runtime": "^0.3.3",
     "property-seek": "^3.1.0"
   },
   "devDependencies": {
