@@ -1,19 +1,19 @@
 
 .__MENU_BUTTON__ {
 
-  .padding-vh(9px; 10px);
+  .padding-vh(@menu-button-padding-vertical; @menu-button-padding-horizontal);
   .border(1px; solid; @menu-button-border-color);
-  .border-radius(4px);
+  .border-radius(@menu-button-border-radius);
   .-middle-vertical-align;
   .-transparent-background;
 
   & span {
 
-    .width(22px);
-    .height(2px);
-    .background-color(@menu-button-dash-color);
+    .width(@menu-button-dash-width);
+    .height(@menu-button-dash-height);
+    .background-color(@menu-button-dash-background-color);
     .-block-display;
-    .margin-top(3px);
+    .margin-top(@menu-button-dash-margin-top);
     .-50-opacity;
 
   }

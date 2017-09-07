@@ -259,6 +259,7 @@ th {
 /* spacing */
 /* font-size */
 /* constants */
+/* bootstrap compat with the css variables */
 /* DrawerLayout */
 /* Drawer */
 /* ActionArea */
@@ -6680,16 +6681,15 @@ body {
 }
 .ww-action-area {
   width: 100%;
-  min-height: 4em;
   height: auto;
   display: block;
   position: fixed;
-  background-color: #fff;
   z-index: 200;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 }
 .ww-action-area .ww-action-area__content {
-  padding: 7.5px 15px;
+  padding: 1rem 1rem;
 }
 .ww-action-area + * {
   padding-top: 4em;
@@ -7267,6 +7267,8 @@ input[type="button"].ww-button .__BLOCK__ {
   left: 0;
   bottom: 0;
   display: block;
+  border-right: 1px solid #485159;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
   z-index: 900;
   background-color: #31373D;
   -webkit-transition: width 0.5s ease;

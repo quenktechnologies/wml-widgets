@@ -2,11 +2,9 @@
 .__ACTION_AREA__ {
 
   .width(@action-area-width);
-  .min-height(@action-area-height); 
   .-auto-height;
   .-block-display;
   .-fixed-position;
-  .background-color(@action-area-background-color);
   .z-index(@action-area-z-index);
 
   .box-shadow(@action-area-box-shadow-offset-x,
@@ -14,6 +12,8 @@
               @action-area-box-shadow-blur-radius,
               @action-area-box-shadow-spread-radius,
               @action-area-box-shadow-color);
+
+  .background-color(@action-area-background-color);
 
   & .__ACTION_AREA_CONTENT__ {
   
