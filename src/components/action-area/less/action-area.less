@@ -6,9 +6,14 @@
   .-auto-height;
   .-block-display;
   .-fixed-position;
-  .background-color(@action-area-bg-color);
+  .background-color(@action-area-background-color);
   .z-index(@action-area-z-index);
-  .-x1-shadow;
+
+  .box-shadow(@action-area-box-shadow-offset-x,
+              @action-area-box-shadow-offset-y,
+              @action-area-box-shadow-blur-radius,
+              @action-area-box-shadow-spread-radius,
+              @action-area-box-shadow-color);
 
   & .__ACTION_AREA_CONTENT__ {
   
@@ -26,7 +31,7 @@
 
 .__DRAWER__ ~ .__ACTION_AREA__ {
 
-   .width(~"calc(100% -" @drawer-width ~")");          
+   .width(~"calc(100% - "@drawer-width ~")");          
 
 }
 
