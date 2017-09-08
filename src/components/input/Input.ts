@@ -121,7 +121,7 @@ export class Input extends Component<InputAttrs> {
     isFilled(): boolean {
 
         let input = (<HTMLInputElement>this.view.ids.input);
-        return ((input.value == null) || (input.value === ''))
+        return ((input.value != null) || (input.value !== ''))
 
     }
 
