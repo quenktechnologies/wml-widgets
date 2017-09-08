@@ -6099,20 +6099,140 @@ body {
 .-inherit-height {
   height: inherit;
 }
+.-auto-margin {
+  margin: auto;
+}
 .-no-margin {
   margin: 0;
 }
-.-no-top-margin {
-  margin-top: 0;
+.-xs-margin {
+  margin: 0.25rem;
 }
-.-no-left-margin {
-  margin-left: 0;
+.-s-margin {
+  margin: 0.5rem;
+}
+.-m-margin {
+  margin: 1rem;
+}
+.-l-margin {
+  margin: 2rem;
+}
+.-xl-margin {
+  margin: 4rem;
+}
+.-xxl-margin {
+  margin: 8rem;
+}
+.-xxxl-margin {
+  margin: 16rem;
+}
+.-auto-top-margin {
+  margin: auto;
+}
+.-no-top-margin {
+  margin: 0;
+}
+.-xs-margin-top {
+  margin-top: 0.25rem;
+}
+.-s-margin-top {
+  margin-top: 0.5rem;
+}
+.-m-margin-top {
+  margin-top: 1rem;
+}
+.-l-margin-top {
+  margin-top: 2rem;
+}
+.-xl-margin-top {
+  margin-top: 4rem;
+}
+.-xxl-margin-top {
+  margin-top: 8rem;
+}
+.-xxxl-margin-top {
+  margin-top: 16rem;
+}
+.-auto-margin-right {
+  margin-right: auto;
 }
 .-no-right-margin {
   margin-right: 0;
 }
+.-xs-margin-right {
+  margin-right: 0.25rem;
+}
+.-s-margin-right {
+  margin-right: 0.5rem;
+}
+.-m-margin-right {
+  margin-right: 1rem;
+}
+.-l-margin-right {
+  margin-right: 2rem;
+}
+.-xl-margin-right {
+  margin-right: 4rem;
+}
+.-xxl-margin-right {
+  margin-right: 8rem;
+}
+.-xxxl-margin-right {
+  margin-right: 16rem;
+}
+.-auto-margin-bottom {
+  margin-bottom: auto;
+}
 .-no-bottom-margin {
   margin-bottom: 0;
+}
+.-xs-margin-bottom {
+  margin-bottom: 0.25rem;
+}
+.-s-margin-bottom {
+  margin-bottom: 0.5rem;
+}
+.-m-margin-bottom {
+  margin-bottom: 1rem;
+}
+.-l-margin-bottom {
+  margin-bottom: 2rem;
+}
+.-xl-margin-bottom {
+  margin-bottom: 4rem;
+}
+.-xxl-margin-bottom {
+  margin-bottom: 8rem;
+}
+.-xxxl-margin-bottom {
+  margin-bottom: 16rem;
+}
+.-auto-margin-left {
+  margin-left: auto;
+}
+.-no-left-margin {
+  margin-left: 0;
+}
+.-xs-margin-left {
+  margin-left: 0.25rem;
+}
+.-s-margin-left {
+  margin-left: 0.5rem;
+}
+.-m-margin-left {
+  margin-left: 1rem;
+}
+.-l-margin-left {
+  margin-left: 2rem;
+}
+.-xl-margin-left {
+  margin-left: 4rem;
+}
+.-xxl-margin-left {
+  margin-left: 8rem;
+}
+.-xxxl-margin-left {
+  margin-left: 16rem;
 }
 .-no-padding {
   padding: 0 0 0 0;
@@ -6141,14 +6261,98 @@ body {
 .-no-top-padding {
   padding-top: 0;
 }
+.-xs-padding-top {
+  padding-top: 0.25rem;
+}
+.-s-padding-top {
+  padding-top: 0.5rem;
+}
+.-m-padding-top {
+  padding-top: 1rem;
+}
+.-l-padding-top {
+  padding-top: 2rem;
+}
+.-xl-padding-top {
+  padding-top: 4rem;
+}
+.-xxl-padding-top {
+  padding-top: 8rem;
+}
+.-xxxl-padding-top {
+  padding-top: 16rem;
+}
 .-no-right-padding {
   padding-right: 0;
+}
+.-xs-padding-right {
+  padding-right: 0.25rem;
+}
+.-s-padding-right {
+  padding-right: 0.5rem;
+}
+.-m-padding-right {
+  padding-right: 1rem;
+}
+.-l-padding-right {
+  padding-right: 2rem;
+}
+.-xl-padding-right {
+  padding-right: 4rem;
+}
+.-xxl-padding-right {
+  padding-right: 8rem;
+}
+.-xxxl-padding-right {
+  padding-right: 16rem;
 }
 .-no-bottom-padding {
   padding-bottom: 0;
 }
+.-xs-padding-bottom {
+  padding-bottom: 0.25rem;
+}
+.-s-padding-bottom {
+  padding-bottom: 0.5rem;
+}
+.-m-padding-bottom {
+  padding-bottom: 1rem;
+}
+.-l-padding-bottom {
+  padding-bottom: 2rem;
+}
+.-xl-padding-bottom {
+  padding-bottom: 4rem;
+}
+.-xxl-padding-bottom {
+  padding-bottom: 8rem;
+}
+.-xxxl-padding-bottom {
+  padding-bottom: 16rem;
+}
 .-no-left-padding {
   padding-left: 0;
+}
+.-xs-padding-left {
+  padding-left: 0.25rem;
+}
+.-s-padding-left {
+  padding-left: 0.5rem;
+}
+.-m-padding-left {
+  padding-left: 1rem;
+}
+.-l-padding-left {
+  padding-left: 2rem;
+}
+.-xl-padding-left {
+  padding-left: 4rem;
+}
+.-xxl-padding-left {
+  padding-left: 8rem;
+}
+.-xxxl-padding-left {
+  padding-left: 16rem;
 }
 /* @todo: expand border functions and classes */
 /* all defaults */
@@ -6856,10 +7060,10 @@ body {
 .ww-button-group .btn-group + .btn-group {
   margin-left: -1px;
 }
-.ww-button-group .ww-button {
-  margin-right: 0.5em;
+.ww-button-group.-spaced .ww-button {
+  margin-right: 0;
 }
-.ww-button-group .ww-button:last-child {
+.ww-button-group.-spaced .ww-button:last-child {
   margin-right: 0;
 }
 .ww-button {

@@ -4,6 +4,8 @@ export const DISABLED = '-disabled';
 export const ON = '-on';
 export const OFF = '-off';
 
+export const SPACED = '-spaced';
+
 export const DEFAULT = '-default';
 export const PRIMARY = '-primary';
 export const SUCCESS = '-success';

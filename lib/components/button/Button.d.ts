@@ -7,6 +7,7 @@ import * as views from './wml/button';
 export interface GroupAttrs extends wml.Attrs {
     ww?: {
         class?: string;
+        spaced?: boolean;
     };
 }
 /**
@@ -14,6 +15,7 @@ export interface GroupAttrs extends wml.Attrs {
  */
 export declare class Group extends common.Container<GroupAttrs> {
     view: views.Group<this>;
+    getClass(): string;
 }
 /**
  * ButtonAttrs are the allowed attributes for <Button/>

@@ -5,7 +5,7 @@ import {Fragment} from '../../'
 {% view Group %}
 
   <div 
-   class={{combine([Styles.BUTTON_GROUP,@.read('ww:class')])}}
+   class={{this.getClass()}}
    role="group">{{this.children}}</div>
 
 {% endview %}

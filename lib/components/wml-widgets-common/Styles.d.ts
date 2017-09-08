@@ -2,6 +2,7 @@ export declare const HIDDEN = "-hidden";
 export declare const DISABLED = "-disabled";
 export declare const ON = "-on";
 export declare const OFF = "-off";
+export declare const SPACED = "-spaced";
 export declare const DEFAULT = "-default";
 export declare const PRIMARY = "-primary";
 export declare const SUCCESS = "-success";

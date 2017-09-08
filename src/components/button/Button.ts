@@ -1,6 +1,7 @@
 import * as wml from '@quenk/wml-runtime';
 import * as common from 'wml-widgets-common';
 import * as views from './wml/button';
+import * as Styles from 'wml-widgets-common/Styles';
 
 /**
  * GroupAttrs are the allowed attributes for <Group/>
@@ -9,6 +10,7 @@ export interface GroupAttrs extends wml.Attrs {
 
     ww?: {
         class?: string,
+      spaced?: boolean
     }
 
 }
@@ -19,6 +21,20 @@ export interface GroupAttrs extends wml.Attrs {
 export class Group extends common.Container<GroupAttrs> {
 
     view = new views.Group(this);
+
+    getClass(): string {
+
+        let list = [Styles.BUTTON_GROUP];
+
+        if (this.attributes.read('ww:class'))
+            list.push(this.attributes.read('ww:class'));
+
+        if (this.attributes.read('ww:spaced'))
+            list.push(Styles.SPACED);
+
+        return list.join(' ');
+
+    }
 
 }
 

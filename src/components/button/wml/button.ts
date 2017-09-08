@@ -27,7 +27,7 @@ export class Group<C> extends AppView<C>{
         let view = this;
 
         this.template = function() {
-            return $$node('div',{html:{'class': combine([Styles.BUTTON_GROUP,this.attributes.read('ww:class')]),'role': "group"},wml:{}},[$$domify(this.children)], view)
+            return $$node('div',{html:{'class': this.getClass(),'role': "group"},wml:{}},[$$domify(this.children)], view)
         }
 
        }
