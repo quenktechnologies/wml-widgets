@@ -6514,6 +6514,33 @@ body {
 .-table-column-group-display {
   display: table-column-group;
 }
+.-flex-display {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+.start-justify-content {
+  justify-content: flex-start;
+}
+.end-justify-content {
+  justify-content: flex-end;
+}
+.center-justify-content {
+  justify-content: center;
+}
+.between-justify-content {
+  justify-content: space-between;
+}
+.around-justify-content {
+  justify-content: space-around;
+}
 .-x1-box-shadow {
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
@@ -6689,6 +6716,18 @@ body {
   background-color: #fff;
 }
 .ww-action-area .ww-action-area__content {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box;
+  /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Chrome */
+  display: flex;
+  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+  flex-direction: row;
+  justify-content: flex-start;
   padding: 1rem 1rem;
 }
 .ww-action-area + * {
