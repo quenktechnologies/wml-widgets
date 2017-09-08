@@ -7061,7 +7061,7 @@ body {
   margin-left: -1px;
 }
 .ww-button-group.-spaced .ww-button {
-  margin-right: 0;
+  margin-right: 0.25rem;
 }
 .ww-button-group.-spaced .ww-button:last-child {
   margin-right: 0;
