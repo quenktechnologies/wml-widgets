@@ -9,10 +9,11 @@
     "@quenk/wml-runtime": "^0.3.3"
   },
   "dependencies": {
-    "wml-widgets-common": "file:./lib/components/wml-widgets-common",
+    "@quenk/polate": "^1.0.0",
     "@quenk/wml-runtime": "^0.3.3",
+    "browserify": "^14.4.0",
     "property-seek": "^3.1.0",
-    "@quenk/polate": "^1.0.0"
+    "wml-widgets-common": "file:./lib/components/wml-widgets-common"
   },
   "devDependencies": {
     "@quenk/wml-cli": "0.2.9",
@@ -28,6 +29,6 @@
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=4.8.4"
+    "node": ">=6.11.3"
   }
 }

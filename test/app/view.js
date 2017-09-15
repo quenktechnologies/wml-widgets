@@ -17,7 +17,7 @@ var components_3 = require("@quenk/wml-widgets/lib/components");
 var components_4 = require("@quenk/wml-widgets/lib/components");
 var components_5 = require("@quenk/wml-widgets/lib/components");
 var components_6 = require("@quenk/wml-widgets/lib/components");
-var CreateDialog = (function (_super) {
+var CreateDialog = /** @class */ (function (_super) {
     __extends(CreateDialog, _super);
     function CreateDialog(context) {
         var _this = _super.call(this, context) || this;
@@ -202,7 +202,7 @@ function content(view) {
                             }.bind(this), 0))], view)], view)], view)], view)], view)], view));
 }
 exports.content = content;
-var Main = (function (_super) {
+var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(context) {
         var _this = _super.call(this, context) || this;

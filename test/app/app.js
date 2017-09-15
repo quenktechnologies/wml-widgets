@@ -5,7 +5,7 @@ var view_1 = require("./view");
 var Table_1 = require("@quenk/wml-widgets/lib/components/table/Table");
 var count = 0;
 ;
-var Next = (function () {
+var Next = /** @class */ (function () {
     function Next(name, amount, status, watchers) {
         if (name === void 0) { name = ''; }
         if (amount === void 0) { amount = 0; }
@@ -26,7 +26,7 @@ var fields = [
     { name: 'status', heading: 'Status' },
     { name: 'watching', heading: 'Watching' }
 ];
-var Application = (function () {
+var Application = /** @class */ (function () {
     function Application() {
         this.fields = fields;
         this.tableModel = new Table_1.SortTableModel();
