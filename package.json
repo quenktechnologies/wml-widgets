@@ -8,11 +8,13 @@
   "peerDependencies": {
     "@quenk/wml-runtime": "^0.3.3"
   },
-  "devDependencies": {
+  "dependencies": {
     "wml-widgets-common": "file:./lib/components/wml-widgets/common",
     "@quenk/wml-runtime": "^0.3.3",
     "property-seek": "^3.1.0",
-    "@quenk/polate": "^1.0.0",
+    "@quenk/polate": "^1.0.0"
+  },
+  "devDependencies": {
     "@quenk/wml-cli": "0.2.9",
     "@types/mocha": "^2.2.41",
     "less": "^2.7.1",
