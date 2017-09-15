@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "0.15.4",
+  "version": "0.15.5",
   "description": "Various wml widgets for creating web apps.",
   "scripts": {},
   "main": "lib/components",
@@ -27,5 +27,7 @@
   },
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0",
-  "engines": {"node": ">=4.8.4"}
+  "engines": {
+    "node": ">=4.8.4"
+  }
 }
