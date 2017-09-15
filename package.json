@@ -1,9 +1,8 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "0.14.4",
+  "version": "0.15.0",
   "description": "Various wml widgets for creating web apps.",
-  "scripts": {
-  },
+  "scripts": {},
   "main": "lib/components",
   "types": "lib/components/index.d.ts",
   "peerDependencies": {
