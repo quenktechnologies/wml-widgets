@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "0.15.1",
+  "version": "0.15.2",
   "description": "Various wml widgets for creating web apps.",
   "scripts": {},
   "main": "lib/components",
@@ -12,8 +12,7 @@
     "wml-widgets-common": "file:./lib/components/wml-widgets-common",
     "@quenk/wml-runtime": "^0.3.3",
     "property-seek": "^3.1.0",
-    "@quenk/polate": "^1.0.0",
-    "@quenk/wml-runtime": "^0.3.3"
+    "@quenk/polate": "^1.0.0"
   },
   "devDependencies": {
     "@quenk/wml-cli": "0.2.9",
