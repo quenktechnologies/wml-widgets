@@ -22,7 +22,7 @@ ts:
 
 .PHONY: less
 less: 
-	./node_modules/.bin/lessc --js-vars="lib/components/wml-widgets-common/Styles.js" \
+	./node_modules/.bin/lessc --js-vars="./lib/components/wml-widgets-common/Styles.js" \
 	  --include-path=less:src/components less/theme/default/theme.less \
 	  > public/css/wml-widgets.css
 
@@ -51,7 +51,7 @@ test-app:
 .PHONY: test-less
 test-less:
 	./node_modules/.bin/lessc --source-map-less-inline \
-	  --js-vars="lib/components/wml-widgets-common/Styles.js" \
+	  --js-vars="./lib/components/wml-widgets-common/Styles.js" \
 	  --include-path=less:src test/app/style.less > test/app/public/style.css
 
 .PHONY: build
