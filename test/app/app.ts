@@ -1,10 +1,10 @@
 import * as Styles from 'wml-widgets-common/Styles';
 import { Main, CreateDialog } from './view';
-import { DrawerLayout } from '@quenk/wml-widgets/lib/components/drawer-layout/DrawerLayout';
-import { Modal } from '@quenk/wml-widgets/lib/components/modal/Modal';
-import { ActionArea } from '@quenk/wml-widgets/lib/components/action-area/ActionArea';
-import { MainView } from '@quenk/wml-widgets/lib/components/main-view/MainView';
-import { Field, SortTableModel } from '@quenk/wml-widgets/lib/components/table/Table';
+import { DrawerLayout } from '../../lib/components/drawer-layout/DrawerLayout';
+import { Modal } from '../../lib/components/modal/Modal';
+import { ActionArea } from '../../lib/components/action-area/ActionArea';
+import { MainView } from '../../lib/components/main-view/MainView';
+import { Field, SortTableModel } from '../../lib/components/table/Table';
 
 var count = 0;
 

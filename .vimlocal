@@ -1,0 +1,4 @@
+autocmd BufWritePost,FileWritePost *.ts,*.wml :VimuxRunCommand "make build"
+autocmd BufWritePost,FileWritePost *.less :VimuxRunCommand "make less"
+
+

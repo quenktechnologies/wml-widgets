@@ -1,63 +1,107 @@
+# Current directory
+HERE=$(shell pwd)
+
+PUBLIC_DIR?=public
+PUBLIC_CSS_DIR=$(PUBLIC_DIR)/css
+
+# Destination for the css file.
+CSS_DEST?=$(PUBLIC_CSS_DIR)/wml-widgets.css
+
+# WML compiler
+WMLC?=node_modules/.bin/wml 
+ 
+# Typescript compiler
+TSC?=./node_modules/.bin/tsc
+
+# Browserify bundler
+BROWSERIFY?=./node_modules/.bin/browserify
+
+# Less compiler
+LESSC?=./node_modules/.bin/lessc
+
+# Common src directory
+COMMON_SRC_DIR=src/components/wml-widgets-common
+
+# Common lib directory
+COMMON_DEST_DIR=lib/components/wml-widgets-common
+
+# Path to folder with all the sources, we copy this to a temporary folder.
+SRC_DIR?=src
+
+# Paths to the objects we use for interpolation when building less files.
+JS_VARS_OBJECTS="./lib/components/wml-widgets-common/Styles.js"
+
+# Include paths for the less compiler.
+LESS_INCLUDE_PATHS=less
+LESS_INCLUDE_PATHS+=:src 
+
+# Entry point for the less compiler.
+LESS_ENTRY_POINT=less/theme/default/theme.less
+
+TEST_APP_DIR=test/app 
+TEST_APP_ENTRY_JS=$(TEST_APP_DIR)/app.js
+TEST_APP_ENTRY_LESS=$(TEST_APP_DIR)/style.less 
+TEST_APP_DEST_DIR=test/app/public
+TEST_APP_DEST_JS=$(TEST_APP_DEST_DIR)/test.js
+TEST_APP_DEST_CSS=$(TEST_APP_DEST_DIR)/style.css
 
 .PHONY: clean
 clean:
-	rm -R lib/*; rm -R public/*; rm -R node_modules/@quenk/wml-widgets; \
-	rm -R node_modules/wml-widgets-common; mkdir lib; mkdir -p public/css
+	rm -R lib/*; rm -R $(PUBLIC_DIR)/*; \
+	mkdir lib; mkdir -p $(PUBLIC_CSS_DIR)
    
-.PHONY: wml
-wml:
-	./node_modules/.bin/wml --extension ts --typescript src
-
-
 .PHONY: common
 common:
-	./node_modules/.bin/tsc --project src/components/wml-widgets-common &&\
-	  cp src/components/wml-widgets-common/package.json lib/components/wml-widgets-common
-	
-.PHONY: ts
-ts:
-	./node_modules/.bin/tsc --sourceMap --project src && \
-	  cp src/components/wml-widgets-common/package.json \
-	  lib/components/wml-widgets-common/package.json
+	$(TSC) --project $(COMMON_SRC_DIR) && \
+	cp $(COMMON_SRC_DIR)/package.json $(COMMON_DEST_DIR)	
+
 
 .PHONY: less
 less: 
-	./node_modules/.bin/lessc --js-vars="./lib/components/wml-widgets-common/Styles.js" \
-	  --include-path=less:src/components less/theme/default/theme.less \
-	  > public/css/wml-widgets.css
+	$(LESSC) --js-vars="$(JS_VARS_OBJECTS)" \
+	--include-path=$(LESS_INCLUDE_PATHS) $(LESS_ENTRY_POINT) \
+	> $(CSS_DEST)
 
-.PHONY: install-lib
-install-lib:
-	  mkdir -p node_modules/@quenk/wml-widgets/lib; \
-	   cp -R lib/* node_modules/@quenk/wml-widgets/lib && \
-	   cp package.json node_modules/@quenk/wml-widgets/package.json 
 
 .PHONY: install-common
 install-common:
-	  ln -s $(shell pwd)/lib/components/wml-widgets-common node_modules/wml-widgets-common
+	  npm install $(COMMON_DEST_DIR)
+
+.PHONY: wml
+wml:
+	$(WMLC) --extension ts --typescript $(SRC_DIR)
+
+.PHONY: ts
+ts:
+	$(TSC) --sourceMap --project $(SRC_DIR) && \
+	cp $(COMMON_SRC_DIR)/package.json \
+	$(COMMON_DEST_DIR)/package.json
+
+.PHONY: install-lib
+install-lib:
+	npm link
 
 .PHONY: test-wml
 test-wml:
-	./node_modules/.bin/wml --typescript --extension ts --pretty test/app
+	$(WMLC) --typescript --extension ts --pretty $(TEST_APP_DIR)
 
 .PHONY: test-ts
 test-ts:
-	./node_modules/.bin/tsc --sourceMap --project test/app
+	$(TSC) --sourceMap --project $(TEST_APP_DIR)
 
 .PHONY: test-app
 test-app:
-	./node_modules/.bin/browserify --debug test/app/app.js > test/app/public/tests.js
+	$(BROWSERIFY) --debug $(TEST_APP_ENTRY_JS) > $(TEST_APP_DEST_JS)
 
 .PHONY: test-less
 test-less:
-	./node_modules/.bin/lessc --source-map-less-inline \
-	  --js-vars="./lib/components/wml-widgets-common/Styles.js" \
-	  --include-path=less:src test/app/style.less > test/app/public/style.css
+	$(LESSC) --source-map-less-inline \
+	  --js-vars=$(JS_VARS_OBJECTS) \
+	  --include-path=$(LESS_INCLUDE_PATHS) $(TEST_APP_ENTRY_LESS) \
+	  > $(TEST_APP_DEST_CSS)
 
 .PHONY: build
 build:  clean common install-common wml ts
 
 .PHONY: test
 test: 	clean common install-common wml ts install-lib test-wml test-ts test-app test-less
-
-

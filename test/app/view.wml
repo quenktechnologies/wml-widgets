@@ -1,9 +1,9 @@
-import {DrawerLayout, ActionArea, MainView, MenuButton, Button, ButtonGroup} from '@quenk/wml-widgets/lib/components'
-import {Container, Column, Row} from '@quenk/wml-widgets/lib/components'
-import {Table} from '@quenk/wml-widgets/lib/components'
-import {Panel, PanelHeader, PanelBody, PanelFooter} from '@quenk/wml-widgets/lib/components'
-import {Modal, ModalHeader, ModalBody, ModalFooter} from '@quenk/wml-widgets/lib/components'
-import {Input, Select, Switch} from '@quenk/wml-widgets/lib/components'
+import {DrawerLayout, ActionArea, MainView, MenuButton, Button, ButtonGroup} from '../../lib/components'
+import {Container, Column, Row} from '../../lib/components'
+import {Table} from '../../lib/components'
+import {Panel, PanelHeader, PanelBody, PanelFooter} from '../../lib/components'
+import {Modal, ModalHeader, ModalBody, ModalFooter} from '../../lib/components'
+import {Input, Select, Switch} from '../../lib/components'
 import {Next} from './app'
 
 {% view CreateDialog  %}

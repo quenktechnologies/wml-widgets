@@ -25,7 +25,8 @@
     "mocha": "^3.4.2",
     "must": "^0.13.4",
     "typescript": "^2.4.1",
-    "web-console-reporter": "^1.0.0"
+    "web-console-reporter": "^1.0.0",
+    "wml-widgets-common": "file:lib/components/wml-widgets-common"
   },
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0",
