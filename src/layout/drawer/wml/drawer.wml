@@ -1,0 +1,29 @@
+import {Aside} from "@package/self/layout/aside/Aside"
+import {Drawer} from "../Drawer"
+import {Renderable} from "@quenk/wml-runtime"
+
+using Drawer
+
+<div 
+  wml:id={{@values.id.root}}
+  class={{@values.class.root}}>
+
+  <Aside
+    wml:id={{@values.id.drawer}}
+    ww:content={{@attrs['ww:drawer' as Renderable]}}/>
+
+  {% if @content %}
+
+    {{@content}}
+    
+  {% else if @attrs['ww:content' as Renderable] %}
+
+    {{ @attrs.ww.content.render() }}
+
+  {% else %}
+
+    {{@children}}
+
+  {% endif %}
+
+</div>

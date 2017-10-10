@@ -39,16 +39,17 @@ DEST_DIR=lib
 JS_VARS_OBJECTS="@package/self/common/names.js"
 
 # Entry point for the less compiler.
-LESS_ENTRY_POINT=src/less/build.less
+LESS_ENTRY_POINT=$(HERE)/src/less/build.less
+LESS_INCLUDE_PATHS=$(HERE)/src/less:src
 
 # Destination for the css file.
 CSS_DEST?=$(PUBLIC_CSS_DIR)/widgets.css
 
-TEST_APP_DIR=example/app
-TEST_BUILD_DIR=example/build
+TEST_APP_DIR=$(HERE)/example/app
+TEST_BUILD_DIR=$(HERE)/example/build
 TEST_JS_ENTRY=$(TEST_BUILD_DIR)/app.js
 TEST_LESS_ENTRY=$(TEST_BUILD_DIR)/less/app.less 
-TEST_DEST_DIR=example/public
+TEST_DEST_DIR=$(HERE)/example/public
 TEST_JS_DEST=$(TEST_DEST_DIR)/app.js
 TEST_CSS_DEST=$(TEST_DEST_DIR)/app.css
 
@@ -76,8 +77,9 @@ ts:
 .PHONY: less
 less: 
 	$(LESSC) --source-map-less-inline \
-	  --js-vars="$(JS_VARS_OBJECTS)" \
-	  --npm-import $(LESS_ENTRY_POINT) \
+	 --js-vars="$(JS_VARS_OBJECTS)" \
+	--include-path=$(LESS_INCLUDE_PATHS) \
+	--npm-import $(LESS_ENTRY_POINT) \
 	> $(CSS_DEST)
 
 .PHONY: test-clean
@@ -104,6 +106,7 @@ test-app:
 test-less:
 	$(LESSC) --source-map-less-inline \
 	--js-vars=$(JS_VARS_OBJECTS) \
+	--include-path=$(LESS_INCLUDE_PATHS) \
 	--npm-import \
 	$(TEST_LESS_ENTRY) >\
 	$(TEST_CSS_DEST)

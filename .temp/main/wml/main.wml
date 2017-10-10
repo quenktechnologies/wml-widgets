@@ -1,7 +1,0 @@
-import * as Styles from 'common/Styles';
-
-<div class={{Class.LAYOUT_MAIN}}>
-
-    {{this.children}}
-  
-</div>

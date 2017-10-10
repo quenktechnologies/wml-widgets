@@ -3,30 +3,33 @@
   "version": "0.16.3",
   "description": "Various wml widgets for creating web apps.",
   "scripts": {
-    "postinstall": "npm install ./lib/components/wml-widgets-common"
+    "postinstall": "npm install ./lib"
   },
-  "main": "lib/components",
-  "types": "lib/components/index.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "peerDependencies": {
-    "@quenk/wml-runtime": "^0.3.3"
+    "less-plugin-js-vars": "^2.2.4",
+    "less-plugin-npm-import": "^2.1.0"
   },
   "dependencies": {
+    "@package/self": "file:lib",
     "@quenk/polate": "^1.0.0",
-    "@quenk/wml-runtime": "^0.3.3",
+    "@quenk/wml": "^0.14.15",
+    "@quenk/wml-runtime": "^0.4.5",
     "browserify": "^14.4.0",
     "property-seek": "^3.1.0"
   },
   "devDependencies": {
-    "@quenk/wml-cli": "0.2.9",
+    "@quenk/wml-cli": "^0.4.0",
     "@types/mocha": "^2.2.41",
     "less": "^2.7.1",
-    "less-plugin-js-vars": "^2.0.0",
+    "less-plugin-js-vars": "^2.2.4",
+    "less-plugin-npm-import": "^2.1.0",
     "less-plugin-variables-output": "^1.2.0",
     "mocha": "^3.4.2",
     "must": "^0.13.4",
     "typescript": "^2.4.1",
-    "web-console-reporter": "^1.0.0",
-    "wml-widgets-common": "file:lib/components/wml-widgets-common"
+    "web-console-reporter": "^1.0.0"
   },
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0",

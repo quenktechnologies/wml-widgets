@@ -1,0 +1,24 @@
+import {Aside} from "../Aside"
+import {Renderable} from "@quenk/wml-runtime"
+
+using Aside
+
+<div
+  wml:id={{@values.id.root}}
+  class={{@values.class.root}}>
+
+  <div class={{@values.class.content}}>
+
+      {% if @attrs['ww:content' as Renderable] %}
+
+        {{ (@attrs['ww:content' as Renderable]).render() }}
+
+      {% else %}
+
+        {{this.children}}
+
+      {% endif %}
+
+  </div>
+
+</div>

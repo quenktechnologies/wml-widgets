@@ -1,3 +1,0 @@
-
-
-export default function (make) { return make.node('form',{html:{'onsubmit': this.delegate.onSubmit.bind(this.delegate)}},[make.node('div',{html:{'class': "input-group"}},[make.node('input',{html:{'type': "text",'class': "form-control",'name': this.attributes.read('wat:name','search'),'value': this.attributes.read('wat:value'),'oninput': function function_literal_1(e){ return this.delegate.onInput(e); }.bind(this),'placeholder': this.attributes.read('wat:placeholder','Search')}},[]),make.node('span',{html:{'class': "input-group-btn"}},[make.node('button',{html:{'class': 'btn btn-' + this.attributes.read('wat:variant','default'),'type': "button",'onclick': function function_literal_2(e){ return this.delegate.onSearch(e); }.bind(this)}},[make.text(`Search`)])])])]); }

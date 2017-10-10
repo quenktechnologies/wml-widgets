@@ -1,2 +1,0 @@
-
-<div class="card-title">{{this.attributes.read('wat:children')}}{{this.children}}</div>

@@ -1,3 +1,0 @@
-<li class={{'list-group list-group-item '+this.attributes.read('wat:variant', 'default')}}>
-{{this.children}}
-</li>

@@ -1,0 +1,18 @@
+import {Drawer} from "@package/self/layout/drawer/Drawer"
+import {ActionBar} from "@package/self/app/action-bar/ActionBar"
+import {App} from "../app"
+import {MenuButton} from "@package/self/app/menu-button/MenuButton"
+
+using App
+
+<Drawer
+  wml:id={{@values.id.layout}}>
+
+  <ActionBar>
+
+    <MenuButton ww:onClick={{
+      =>@view.findById[Drawer](@values.id.layout).map(\d=>d.toggleDrawer())}}/>
+
+  </ActionBar>
+
+</Drawer>

@@ -1,5 +1,0 @@
-import * as Class from 'wat-classes';
-
-<div wml:id="message" class={{Class.LAYOUT_NOTIFICATION}}/>
-
-
