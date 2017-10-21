@@ -14,7 +14,8 @@
     "@quenk/polate": "^1.0.0",
     "@quenk/wml-runtime": "^0.3.3",
     "browserify": "^14.4.0",
-    "property-seek": "^3.1.0"
+    "property-seek": "^3.1.0",
+    "wml-widgets-common": "file:lib/components/wml-widgets-common"
   },
   "devDependencies": {
     "@quenk/wml-cli": "0.2.9",
