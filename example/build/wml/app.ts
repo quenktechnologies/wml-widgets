@@ -1,60 +1,62 @@
-import {
-    empty as $$empty,
-    box as $$box,
-    text as $$text,
-    node as $$node,
-    read as $$read,
-    widget as $$widget,
-    ifE as $$if,
-    forE as $$for,
-    switchE as $$switch,
-    domify as $$domify,
-    AppView
-} from "@quenk/wml-runtime";
-
+import * as $wml from '@quenk/wml';
 import {
     Drawer
-} from "@package/self/layout/drawer/Drawer";
+} from '@package/self/layout/drawer/Drawer';;
 import {
     ActionBar
-} from "@package/self/app/action-bar/ActionBar";
+} from '@package/self/app/action-bar/ActionBar';;
 import {
     App
-} from "../app";
+} from '../app';;
 import {
-    MenuButton
-} from "@package/self/app/menu-button/MenuButton";
+    IconButton
+} from '@package/self/control/icon-button/IconButton';;
+import {
+    Dash
+} from '@package/self/control/dash/Dash';;
+import {
+    Main as MainLayout
+} from '@package/self/layout/main/Main';
 
 
-export class Main extends AppView < App > {
+
+export class Main extends $wml.AppView < App > {
 
     constructor(context: App) {
 
         super(context);
 
-        let view = this;
-
-        this.template = function($$view: AppView < App > , $$ctx: App) {
-            return $$widget(Drawer, {
+        this.template = (___context: App, ___view: $wml.AppView < App > ) =>
+            $wml.widget(Drawer, {
                 html: {},
                 wml: {
-                    'id': $$ctx.values.id.layout
+                    id: ___context.values.id.layout
+                },
+                ww: {
+                    drawer: ___context.navigation
                 }
-            }, [$$widget(ActionBar, {
+            }, [$wml.widget(ActionBar, {
                 html: {},
                 wml: {}
-            }, [$$widget(MenuButton, {
+            }, [$wml.widget(IconButton, {
                 html: {},
                 wml: {},
                 ww: {
-                    'onClick': function function_literal_1() {
-                        return $$ctx.view.findById < Drawer > ($$ctx.values.id.layout).map(function function_literal_2(d) {
-                            return d.toggleDrawer();
-                        });
-                    }
+                    onClick: ___context.toggleDrawer
                 }
-            }, [], $$view)], $$view)], $$view)
-        }
+            }, [$wml.widget(Dash, {
+                html: {},
+                wml: {}
+            }, [], ___view), $wml.widget(Dash, {
+                html: {},
+                wml: {}
+            }, [], ___view), $wml.widget(Dash, {
+                html: {},
+                wml: {}
+            }, [], ___view)], ___view)], ___view), $wml.widget(MainLayout, {
+                html: {},
+                wml: {}
+            }, [$wml.domify(___context.content.render())], ___view)], ___view);
 
     }
 

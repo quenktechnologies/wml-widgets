@@ -1,8 +1,8 @@
-import * as content from '@package/self/content';
+import {Group,GroupAttrs} from '@package/self/content/Group';
 import * as names from '@package/self/common/names';
 import { Main } from './wml/aside';
 
-export interface AsideAttrs extends content.GroupAttrs { }
+export interface AsideAttrs extends GroupAttrs { }
 
 /**
  * Aside provides a widget for displaying navigation and other sidebar content.
@@ -13,7 +13,7 @@ export interface AsideAttrs extends content.GroupAttrs { }
  * This widget's style intentionally gives it a high z-index so that it appears in-front
  * of other content. Adjust the respective style variables to change.
  */
-export class Aside extends content.Group<AsideAttrs>{
+export class Aside extends Group<AsideAttrs>{
 
     /**
      * values is a hash of values used in the template

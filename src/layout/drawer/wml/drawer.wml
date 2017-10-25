@@ -2,7 +2,7 @@ import {Aside} from "@package/self/layout/aside/Aside"
 import {Drawer} from "../Drawer"
 import {Renderable} from "@quenk/wml-runtime"
 
-using Drawer
+{% main (Drawer) %}
 
 <div 
   wml:id={{@values.id.root}}

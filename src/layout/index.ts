@@ -1,5 +1,5 @@
 import {Attrs} from '@quenk/wml-runtime';
-import { Group } from '../content';
+import { Group } from '../content/Group';
 
 /**
  * Layout is the parent class of all layout widgets.

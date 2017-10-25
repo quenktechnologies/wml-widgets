@@ -1,6 +1,6 @@
 import {ActionBar} from "../ActionBar"
 
-using ActionBar
+{% main (ActionBar) %}
 
 <div class={{@values.class.root}}>
 

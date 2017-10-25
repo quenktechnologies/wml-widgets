@@ -1,7 +1,7 @@
 import {Aside} from "../Aside"
 import {Renderable} from "@quenk/wml-runtime"
 
-using Aside
+{% main (Aside) %}
 
 <div
   wml:id={{@values.id.root}}
@@ -15,7 +15,7 @@ using Aside
 
       {% else %}
 
-        {{this.children}}
+        {{@children}}
 
       {% endif %}
 

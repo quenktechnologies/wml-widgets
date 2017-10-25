@@ -9,6 +9,7 @@
         "moduleResolution": "node",
         "allowUnreachableCode": true,
         "noUnusedParameters": true,
+        "noUnusedLocals":true,
         "noImplicitAny": true,
         "sourceMap": true,
         "declaration": true,

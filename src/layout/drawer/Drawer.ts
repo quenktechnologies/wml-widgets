@@ -1,10 +1,10 @@
-import * as content from '@package/self/content';
+import {Group, GroupAttrs} from '@package/self/content/Group';
 import * as names from '@package/self/common/names';
-import { Attrs, View } from '@quenk/wml-runtime';
+import {  View } from '@quenk/wml-runtime';
 import { Main } from './wml/drawer';
 import { Aside } from '@package/self/layout/aside/Aside';
 
-export interface DrawerAttrs extends Attrs {
+export interface DrawerAttrs extends GroupAttrs {
 
     ww?: {
 
@@ -35,7 +35,7 @@ export interface DrawerAttrs extends Attrs {
  *
  * ```
  */
-export class Drawer extends content.Group<DrawerAttrs>{
+export class Drawer extends Group<DrawerAttrs>{
 
     view: View = new Main(this);
 

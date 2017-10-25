@@ -2,7 +2,7 @@
 HERE=$(shell pwd)
 
 # WML compiler
-WMLC?=node_modules/.bin/wml 
+WMLC?=node_modules/.bin/wmlc
  
 # Typescript compiler
 TSC?=./node_modules/.bin/tsc
@@ -68,7 +68,7 @@ install-self:
    
 .PHONY: wml
 wml:
-	$(WMLC) --extension ts --typescript $(DEST_DIR)
+	$(WMLC) --pretty --extension ts $(DEST_DIR)
 
 .PHONY: ts
 ts:
@@ -92,7 +92,7 @@ test-copy:
 
 .PHONY: test-wml
 test-wml:
-	$(WMLC) --typescript --extension ts --pretty $(TEST_BUILD_DIR)
+	$(WMLC) --extension ts --pretty $(TEST_BUILD_DIR)
 
 .PHONY: test-ts
 test-ts:

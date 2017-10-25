@@ -1,18 +1,30 @@
 import {Drawer} from "@package/self/layout/drawer/Drawer"
 import {ActionBar} from "@package/self/app/action-bar/ActionBar"
 import {App} from "../app"
-import {MenuButton} from "@package/self/app/menu-button/MenuButton"
+import {IconButton} from "@package/self/control/icon-button/IconButton"
+import {Dash} from "@package/self/control/dash/Dash"
+import {Main as MainLayout} from "@package/self/layout/main/Main"
 
-using App
+{% main (App) %}
 
 <Drawer
-  wml:id={{@values.id.layout}}>
+  wml:id={{@values.id.layout}}
+  ww:drawer={{@navigation}}>
 
   <ActionBar>
 
-    <MenuButton ww:onClick={{
-      =>@view.findById[Drawer](@values.id.layout).map(\d=>d.toggleDrawer())}}/>
+    <IconButton ww:onClick={{@toggleDrawer}}>
+
+      <Dash/>
+      <Dash/>
+      <Dash/>
+
+    </IconButton>
 
   </ActionBar>
+
+  <MainLayout>
+    {{@content.render()}}
+  </MainLayout>
 
 </Drawer>

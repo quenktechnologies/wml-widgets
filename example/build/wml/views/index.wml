@@ -1,0 +1,7 @@
+import {App} from "../../app"
+
+{% view PanelScreen (App) %}
+
+ <b>Panel</b>
+
+{% endview %}

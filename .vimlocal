@@ -1,1 +1,1 @@
-autocmd BufWritePost,FileWritePost *.ts,*.wml :VimuxRunCommand "make test"
+autocmd BufWritePost,FileWritePost *.ts,*.wml :VimuxRunCommand "sleep 1; make test"

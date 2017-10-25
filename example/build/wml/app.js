@@ -10,39 +10,56 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var wml_runtime_1 = require("@quenk/wml-runtime");
+var $wml = require("@quenk/wml");
 var Drawer_1 = require("@package/self/layout/drawer/Drawer");
+;
 var ActionBar_1 = require("@package/self/app/action-bar/ActionBar");
-var MenuButton_1 = require("@package/self/app/menu-button/MenuButton");
+;
+;
+var IconButton_1 = require("@package/self/control/icon-button/IconButton");
+;
+var Dash_1 = require("@package/self/control/dash/Dash");
+;
+var Main_1 = require("@package/self/layout/main/Main");
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(context) {
         var _this = _super.call(this, context) || this;
-        var view = _this;
-        _this.template = function ($$view, $$ctx) {
-            return wml_runtime_1.widget(Drawer_1.Drawer, {
+        _this.template = function (___context, ___view) {
+            return $wml.widget(Drawer_1.Drawer, {
                 html: {},
                 wml: {
-                    'id': $$ctx.values.id.layout
+                    id: ___context.values.id.layout
+                },
+                ww: {
+                    drawer: ___context.navigation
                 }
-            }, [wml_runtime_1.widget(ActionBar_1.ActionBar, {
+            }, [$wml.widget(ActionBar_1.ActionBar, {
                     html: {},
                     wml: {}
-                }, [wml_runtime_1.widget(MenuButton_1.MenuButton, {
+                }, [$wml.widget(IconButton_1.IconButton, {
                         html: {},
                         wml: {},
                         ww: {
-                            'onClick': function function_literal_1() {
-                                return $$ctx.view.findById($$ctx.values.id.layout).map(function function_literal_2(d) {
-                                    return d.toggleDrawer();
-                                });
-                            }
+                            onClick: ___context.toggleDrawer
                         }
-                    }, [], $$view)], $$view)], $$view);
+                    }, [$wml.widget(Dash_1.Dash, {
+                            html: {},
+                            wml: {}
+                        }, [], ___view), $wml.widget(Dash_1.Dash, {
+                            html: {},
+                            wml: {}
+                        }, [], ___view), $wml.widget(Dash_1.Dash, {
+                            html: {},
+                            wml: {}
+                        }, [], ___view)], ___view)], ___view), $wml.widget(Main_1.Main, {
+                    html: {},
+                    wml: {}
+                }, [$wml.domify(___context.content.render())], ___view)], ___view);
         };
         return _this;
     }
     return Main;
-}(wml_runtime_1.AppView));
+}($wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=app.js.map

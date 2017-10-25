@@ -1,0 +1,54 @@
+import {App} from "../app"
+import {List} from "@package/self/nav/list/List"
+import {Item} from "@package/self/nav/list/Item"
+import {Link} from "@package/self/nav/link/Link"
+import {Text} from "@package/self/nav/list/Text"
+
+{% main Navigation (App) %}
+
+<List>
+
+  <Item>
+
+    <Link 
+      wml:group="links"
+      ww:active={{@page == 'home'}}
+      ww:name="home"
+      ww:onClick={{@navigate}}
+      ww:text="Home" />
+    
+  </Item>
+
+  <Item>
+
+    <Text ww:text="Layout" />
+
+    <List>
+
+      <Item>
+               
+        <Link 
+          wml:group="links"
+          ww:name="panels"
+          ww:onClick={{@navigate}}
+          ww:active={{@page == 'panels'}}
+          ww:text="Panels" />
+
+      </Item>
+
+    </List>
+
+  </Item>
+
+  <Item>
+
+    <Link
+      wml:group="links"
+      ww:name="tables"
+      ww:onClick={{@navigate}}
+      ww:active={{@page == 'tables'}}
+      ww:text="Tables" />
+
+  </Item>
+
+</List>

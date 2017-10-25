@@ -1,8 +1,33 @@
+import * as landing from './wml/landing';
+import * as views from './wml/views';
+import { View } from '@quenk/wml';
+import { LinkClickedEvent } from '@package/self/nav/link/LinkClickedEvent';
+import { Link } from '@package/self/nav/link/Link';
 import { Maybe } from '@quenk/wml-runtime';
 import { Drawer } from '@package/self/layout/drawer/Drawer';
 import { Main } from './wml/app';
+import { Navigation } from "./wml/navigation"
 
 export class App {
+
+    /**
+     * page currently displayed.
+     */
+    page: string = '';
+
+    /**
+     * views to show the user.
+     */
+    views: { [key: string]: View } = {
+
+        panels: new views.PanelScreen(this)
+
+    };
+
+    /**
+     * navigation view
+     */
+    navigation = new Navigation(this);
 
     /**
      * values used within the template.
@@ -15,7 +40,7 @@ export class App {
 
         }
 
-    }
+    };
 
     /**
      * layout is the current application layout in use.
@@ -25,7 +50,33 @@ export class App {
     /**
      * view is the current application view.
      */
-    view = new Main(this);
+    view: View = new Main(this);
+
+    content: View = new landing.Main(this);
+
+    /**
+     * toggleDrawer
+     */
+    toggleDrawer = (): void => {
+
+        this
+            .view
+            .findById(this.values.id.layout)
+            .map((d: Drawer) => d.toggleDrawer());
+
+    }
+
+    navigate = ({ name }: LinkClickedEvent): void => {
+
+        this.page = name;
+
+        if (this.views.hasOwnProperty(name))
+            this.content = this.views[name];
+
+        this.view.invalidate();
+        this.navigation.invalidate();
+
+    }
 
     /**
      * run the application.
