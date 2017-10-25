@@ -1,0 +1,7 @@
+import * as I from "../Item"
+
+{% main (I.Item) %}
+  
+<li class={{@values.class.root}}>
+    {{@children}}
+</li>

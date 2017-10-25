@@ -1,0 +1,6 @@
+import * as L from '../List';
+
+{% main (L.List) %}
+
+<ul class={{@values.class.root}}>{{@children}}</ul>
+
