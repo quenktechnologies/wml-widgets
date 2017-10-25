@@ -1,0 +1,33 @@
+import * as P from "../Panel"
+
+{% view Panel (P.Panel) %}
+  
+  <div class={{@values.class.root}}>
+    {{@children}}
+  </div>
+
+{% endview %}
+
+{% view Header (P.Header) %}
+
+  <div class={{@values.class.root}}> 
+    {{@children}}
+  </div>
+
+{% endview %}
+
+{% view Body (P.Body) %}
+
+  <div class={{@values.class.root}}>
+    {{@children}}
+  </div>
+
+{% endview %}
+
+{% view Footer (P.Footer)%}
+
+  <div class={{@values.class.root}}>
+    {{@children}}
+  </div>
+
+{% endview %}
