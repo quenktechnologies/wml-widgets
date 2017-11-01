@@ -3,5 +3,9 @@ import * as I from "../Item"
 {% main (I.Item) %}
   
 <li class={{@values.class.root}}>
+  {% if @values.text %}
+    {{@values.text}}
+  {% else %}
     {{@children}}
+  {% endif %}
 </li>

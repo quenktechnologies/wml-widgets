@@ -1,33 +1,67 @@
-import * as landing from './wml/landing';
-import * as views from './wml/views';
 import { View } from '@quenk/wml';
 import { LinkClickedEvent } from '@package/self/nav/link/LinkClickedEvent';
 import { Link } from '@package/self/nav/link/Link';
-import { Maybe } from '@quenk/wml-runtime';
+import { Maybe } from '@quenk/wml';
 import { Drawer } from '@package/self/layout/drawer/Drawer';
 import { Main } from './wml/app';
-import { Navigation } from "./wml/navigation"
+import { Navigation } from './wml/navigation';
+import { Page } from './pages/Page';
+import { HomePage } from './pages/home';
+import { PanelPage } from './pages/panel';
+import { TablePage } from './pages/table';
+import { TextFieldPage } from './pages/text-field';
+import { DatePage } from './pages/date';
+import { SelectPage } from './pages/select';
+import { SearchPage } from './pages/search';
+import { TextAreaPage } from './pages/text-area';
+import { ButtonSelectPage } from './pages/button-select';
+import { CheckboxPage } from './pages/checkbox';
+import { SwitchPage } from './pages/switch';
+import { TabsPage } from './pages/tabs';
+import { StackPage } from './pages/stack';
+import {SearchStackPage} from './pages/search-stack';
+import { BreadCrumbsPage } from './pages/breadcrumbs';
+import { BusyIndicatorPage } from './pages/busy-indicator';
+import { MenuPage } from './pages/menu';
+import {ButtonMenuPage} from './pages/button-menu';
 
 export class App {
 
     /**
      * page currently displayed.
      */
-    page: string = '';
+    page: string = 'home';
 
     /**
-     * views to show the user.
+     * pages to show the user.
      */
-    views: { [key: string]: View } = {
+    pages: { [key: string]: Page } = {
 
-        panels: new views.PanelScreen(this)
+        home: new HomePage(this),
+        panel: new PanelPage(this),
+        table: new TablePage(this),
+        'text-field': new TextFieldPage(this),
+        date: new DatePage(this),
+        select: new SelectPage(this),
+        search: new SearchPage(this),
+        'button-select': new ButtonSelectPage(this),
+        tabs: new TabsPage(this),
+        stack: new StackPage(this),
+        checkbox: new CheckboxPage(this),
+        'switch': new SwitchPage(this),
+        'text-area': new TextAreaPage(this),
+        'busy-indicator': new BusyIndicatorPage(this),
+      'search-stack': new SearchStackPage(this),
+        breadcrumbs: new BreadCrumbsPage(this),
+        menu: new MenuPage(this),
+      'button-menu': new ButtonMenuPage(this)
 
     };
 
     /**
      * navigation view
      */
-    navigation = new Navigation(this);
+    navigation: Navigation = new Navigation(this);
 
     /**
      * values used within the template.
@@ -52,7 +86,10 @@ export class App {
      */
     view: View = new Main(this);
 
-    content: View = new landing.Main(this);
+    /**
+     * content displayed as the main content.
+     */
+    content: View = this.pages.home.view;
 
     /**
      * toggleDrawer
@@ -66,12 +103,24 @@ export class App {
 
     }
 
-    navigate = ({ name }: LinkClickedEvent): void => {
+    /**
+     * navigate is called when the user clicks on a 
+     * navigation link.
+     */
+    navigate = ({ name }: LinkClickedEvent): void => this.route(name);
+
+    /**
+     * route the main content based on the passed string.
+     */
+    route(name: string): void {
+
+        console.info('name-> ', name);
+        console.info(this.pages.hasOwnProperty(name));
 
         this.page = name;
 
-        if (this.views.hasOwnProperty(name))
-            this.content = this.views[name];
+        if (this.pages.hasOwnProperty(name))
+            this.content = this.pages[name].view;
 
         this.view.invalidate();
         this.navigation.invalidate();
@@ -91,6 +140,10 @@ export class App {
         root.appendChild(this.view.render());
 
         this.layout = this.view.findById<Drawer>(this.values.id.layout);
+
+        let path = window.location.hash.split('#')[1];
+        path = path ? path.split('/').join('') : '';
+        this.route(path);
 
     }
 

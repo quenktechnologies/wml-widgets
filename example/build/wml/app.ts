@@ -13,7 +13,7 @@ import {
 } from '@package/self/control/icon-button/IconButton';;
 import {
     Dash
-} from '@package/self/control/dash/Dash';;
+} from '@package/self/app/dash';;
 import {
     Main as MainLayout
 } from '@package/self/layout/main/Main';
@@ -30,10 +30,10 @@ export class Main extends $wml.AppView < App > {
             $wml.widget(Drawer, {
                 html: {},
                 wml: {
-                    id: ___context.values.id.layout
+                    'id': ___context.values.id.layout
                 },
                 ww: {
-                    drawer: ___context.navigation
+                    'drawer': ___context.navigation
                 }
             }, [$wml.widget(ActionBar, {
                 html: {},
@@ -42,7 +42,7 @@ export class Main extends $wml.AppView < App > {
                 html: {},
                 wml: {},
                 ww: {
-                    onClick: ___context.toggleDrawer
+                    'onClick': ___context.toggleDrawer
                 }
             }, [$wml.widget(Dash, {
                 html: {},

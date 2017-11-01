@@ -10,6 +10,7 @@ export interface Attrs extends wml.Attrs {
 
         name?: string,
         active?: boolean,
+      text?: string,
         onClick?: (e: ItemClickedEvent) => void,
 
     }
@@ -37,7 +38,9 @@ export class Item extends wml.Component<Attrs> {
             root: concat(names.NAV_LIST_ITEM,
                 (this.attrs.ww && this.attrs.ww.active) ? names.ACTIVE : null)
 
-        }
+        },
+      text: (this.attrs.ww && this.attrs.ww.text) ?
+      this.attrs.ww.text : null
 
     }
 

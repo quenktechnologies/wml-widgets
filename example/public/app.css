@@ -193,11 +193,11 @@ th {
 /* widths */
 /* spacing */
 /* font-size */
+/* Switch */
 /* Grid */
 /* MainView */
 /* Button */
 /* Modal */
-/* Switch */
 /**
   This file imports the definitions for each
   component this module provides.
@@ -818,6 +818,15 @@ th {
 }
 .-left {
   float: left !important;
+}
+.-left-clear {
+  clear: left;
+}
+.-right-clear {
+  clear: right;
+}
+.-both-clear {
+  clear: both;
 }
 .-static-position {
   position: static;
@@ -2413,6 +2422,10 @@ th {
 .ww-panel.-danger > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #ebccd1;
 }
+.ww-header {
+  padding: 1em 1em;
+  background-color: #262626;
+}
 .start-justify-content {
   justify-content: flex-start;
 }
@@ -2463,6 +2476,56 @@ th {
 }
 .ww-action-bar :empty {
   padding: 0 0 0 0;
+}
+/* @todo integrate with rest of library */
+.loading,
+.loading:after {
+  border-radius: 50%;
+  width: 10em;
+  height: 10em;
+}
+.loading {
+  margin: 60px auto;
+  font-size: 10px;
+  position: relative;
+  border-top: 1.1em solid rgba(0, 0, 125, 0.2);
+  border-right: 1.1em solid rgba(0, 0, 125, 0.2);
+  border-bottom: 1.1em solid rgba(0, 0, 125, 0.2);
+  border-left: 1.1em solid #66B1C4;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.ww-dash {
+  width: 1.5em;
+  height: 0.25em;
+  background-color: #fff;
+  display: block;
+  margin-top: 0.25em;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
 }
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -9237,6 +9300,19 @@ button.close {
 .ww-button-group .btn-group + .btn-group {
   margin-left: -1px;
 }
+.ww-button-group > .ww-button:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.ww-button-group > .ww-button:first-child {
+  margin-left: 0;
+}
+.ww-button-group > .ww-button,
+.ww-button-group .btn-group-vertical > .ww-button {
+  position: relative;
+  float: left;
+}
 .ww-button-group.-spaced .ww-button {
   margin-right: 0.25rem;
 }
@@ -9742,17 +9818,70 @@ input[type="button"].ww-button .__BLOCK__ {
   vertical-align: middle;
   background-color: transparent;
 }
-.ww-dash {
-  width: 1.5em;
-  height: 0.25em;
+.ww-switch {
+  width: 4em;
+  height: 2em;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* Hide default HTML checkbox */
+.ww-switch input {
+  display: none;
+}
+.ww-switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border: 1 solid #ccc;
+  border-radius: 1em;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.ww-switch__slider:before {
+  width: 40%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  position: absolute;
+  content: "";
   background-color: #fff;
-  display: block;
-  margin-top: 0.25em;
-  filter: alpha(opacity=50);
-  opacity: 0.5;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  border: 1 solid #1a1a1a;
+  border-radius: 50%;
+}
+input:checked + .ww-switch__slider {
+  background-color: #2196F3;
+}
+input:checked + .ww-switch__slider:before {
+  left: 50%;
 }
 .-no-list-style {
   list-style: none;
+}
+.ww-stack {
+  width: auto;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  border: #2a2a2a solid 1px;
+  list-style: none;
+  background-color: transparent;
+}
+.ww-stack:empty {
+  border: none;
+}
+.ww-stack > li {
+  clear: both;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+.ww-stack > li > .ww-stack__close {
+  float: right !important;
 }
 .-uppercase {
   text-transform: uppercase;
@@ -9794,4 +9923,117 @@ input[type="button"].ww-button .__BLOCK__ {
 .ww-nav-list__item > a.-no-hover:hover,
 .ww-nav-list__item > a.-no-hover.active {
   background-color: inherit;
+}
+.ww-menu {
+  min-width: 5em;
+  margin: 0;
+  margin: 2px 0 0;
+  position: relative;
+  top: 100%;
+  left: 0;
+  z-index: 100000;
+  display: block;
+  padding: 5px 0;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+.ww-menu.-hidden {
+  display: none;
+}
+.ww-menu > .ww-menu__divider {
+  height: 1px;
+  margin: 9px 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.ww-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333333;
+  white-space: nowrap;
+}
+.ww-menu > li > a:hover,
+.ww-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.ww-menu > .active > a,
+.ww-menu > .active > a:hover,
+.ww-menu > .active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #337ab7;
+}
+.ww-menu > .disabled > a,
+.ww-menu > .disabled > a:hover,
+.ww-menu > .disabled > a:focus {
+  color: #777777;
+}
+.ww-menu > .disabled > a:hover,
+.ww-menu > .disabled > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  cursor: not-allowed;
+}
+.open > .ww-menu {
+  display: block;
+}
+.open > a {
+  outline: 0;
+}
+.ww-menu-right {
+  left: auto;
+  right: 0;
+}
+.ww-menu-left {
+  left: 0;
+  right: auto;
+}
+.dropdown-header {
+  display: block;
+  padding: 3px 20px;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #777777;
+  white-space: nowrap;
+}
+.dropdown-backdrop {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 990;
+}
+.pull-right > .ww-menu {
+  right: 0;
+  left: auto;
+}
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret {
+  border-top: 0;
+  border-bottom: 4px dashed;
+  border-bottom: 4px solid \9;
+  content: "";
+}
+.dropup .ww-menu,
+.navbar-fixed-bottom .dropdown .ww-menu {
+  top: auto;
+  bottom: 100%;
+  margin-bottom: 2px;
 }

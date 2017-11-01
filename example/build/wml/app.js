@@ -18,7 +18,7 @@ var ActionBar_1 = require("@package/self/app/action-bar/ActionBar");
 ;
 var IconButton_1 = require("@package/self/control/icon-button/IconButton");
 ;
-var Dash_1 = require("@package/self/control/dash/Dash");
+var dash_1 = require("@package/self/app/dash");
 ;
 var Main_1 = require("@package/self/layout/main/Main");
 var Main = /** @class */ (function (_super) {
@@ -29,10 +29,10 @@ var Main = /** @class */ (function (_super) {
             return $wml.widget(Drawer_1.Drawer, {
                 html: {},
                 wml: {
-                    id: ___context.values.id.layout
+                    'id': ___context.values.id.layout
                 },
                 ww: {
-                    drawer: ___context.navigation
+                    'drawer': ___context.navigation
                 }
             }, [$wml.widget(ActionBar_1.ActionBar, {
                     html: {},
@@ -41,15 +41,15 @@ var Main = /** @class */ (function (_super) {
                         html: {},
                         wml: {},
                         ww: {
-                            onClick: ___context.toggleDrawer
+                            'onClick': ___context.toggleDrawer
                         }
-                    }, [$wml.widget(Dash_1.Dash, {
+                    }, [$wml.widget(dash_1.Dash, {
                             html: {},
                             wml: {}
-                        }, [], ___view), $wml.widget(Dash_1.Dash, {
+                        }, [], ___view), $wml.widget(dash_1.Dash, {
                             html: {},
                             wml: {}
-                        }, [], ___view), $wml.widget(Dash_1.Dash, {
+                        }, [], ___view), $wml.widget(dash_1.Dash, {
                             html: {},
                             wml: {}
                         }, [], ___view)], ___view)], ___view), $wml.widget(Main_1.Main, {

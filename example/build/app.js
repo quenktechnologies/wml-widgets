@@ -1,21 +1,54 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var landing = require("./wml/landing");
-var views = require("./wml/views");
 var app_1 = require("./wml/app");
 var navigation_1 = require("./wml/navigation");
+var home_1 = require("./pages/home");
+var panel_1 = require("./pages/panel");
+var table_1 = require("./pages/table");
+var text_field_1 = require("./pages/text-field");
+var date_1 = require("./pages/date");
+var select_1 = require("./pages/select");
+var search_1 = require("./pages/search");
+var text_area_1 = require("./pages/text-area");
+var button_select_1 = require("./pages/button-select");
+var checkbox_1 = require("./pages/checkbox");
+var switch_1 = require("./pages/switch");
+var tabs_1 = require("./pages/tabs");
+var stack_1 = require("./pages/stack");
+var search_stack_1 = require("./pages/search-stack");
+var breadcrumbs_1 = require("./pages/breadcrumbs");
+var busy_indicator_1 = require("./pages/busy-indicator");
+var menu_1 = require("./pages/menu");
+var button_menu_1 = require("./pages/button-menu");
 var App = /** @class */ (function () {
     function App() {
         var _this = this;
         /**
          * page currently displayed.
          */
-        this.page = '';
+        this.page = 'home';
         /**
-         * views to show the user.
+         * pages to show the user.
          */
-        this.views = {
-            panels: new views.PanelScreen(this)
+        this.pages = {
+            home: new home_1.HomePage(this),
+            panel: new panel_1.PanelPage(this),
+            table: new table_1.TablePage(this),
+            'text-field': new text_field_1.TextFieldPage(this),
+            date: new date_1.DatePage(this),
+            select: new select_1.SelectPage(this),
+            search: new search_1.SearchPage(this),
+            'button-select': new button_select_1.ButtonSelectPage(this),
+            tabs: new tabs_1.TabsPage(this),
+            stack: new stack_1.StackPage(this),
+            checkbox: new checkbox_1.CheckboxPage(this),
+            'switch': new switch_1.SwitchPage(this),
+            'text-area': new text_area_1.TextAreaPage(this),
+            'busy-indicator': new busy_indicator_1.BusyIndicatorPage(this),
+            'search-stack': new search_stack_1.SearchStackPage(this),
+            breadcrumbs: new breadcrumbs_1.BreadCrumbsPage(this),
+            menu: new menu_1.MenuPage(this),
+            'button-menu': new button_menu_1.ButtonMenuPage(this)
         };
         /**
          * navigation view
@@ -33,7 +66,10 @@ var App = /** @class */ (function () {
          * view is the current application view.
          */
         this.view = new app_1.Main(this);
-        this.content = new landing.Main(this);
+        /**
+         * content displayed as the main content.
+         */
+        this.content = this.pages.home.view;
         /**
          * toggleDrawer
          */
@@ -43,15 +79,27 @@ var App = /** @class */ (function () {
                 .findById(_this.values.id.layout)
                 .map(function (d) { return d.toggleDrawer(); });
         };
+        /**
+         * navigate is called when the user clicks on a
+         * navigation link.
+         */
         this.navigate = function (_a) {
             var name = _a.name;
-            _this.page = name;
-            if (_this.views.hasOwnProperty(name))
-                _this.content = _this.views[name];
-            _this.view.invalidate();
-            _this.navigation.invalidate();
+            return _this.route(name);
         };
     }
+    /**
+     * route the main content based on the passed string.
+     */
+    App.prototype.route = function (name) {
+        console.info('name-> ', name);
+        console.info(this.pages.hasOwnProperty(name));
+        this.page = name;
+        if (this.pages.hasOwnProperty(name))
+            this.content = this.pages[name].view;
+        this.view.invalidate();
+        this.navigation.invalidate();
+    };
     /**
      * run the application.
      */
@@ -61,6 +109,9 @@ var App = /** @class */ (function () {
             root.removeChild(root.lastChild);
         root.appendChild(this.view.render());
         this.layout = this.view.findById(this.values.id.layout);
+        var path = window.location.hash.split('#')[1];
+        path = path ? path.split('/').join('') : '';
+        this.route(path);
     };
     App.main = function () {
         return new App();

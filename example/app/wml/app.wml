@@ -2,7 +2,7 @@ import {Drawer} from "@package/self/layout/drawer/Drawer"
 import {ActionBar} from "@package/self/app/action-bar/ActionBar"
 import {App} from "../app"
 import {IconButton} from "@package/self/control/icon-button/IconButton"
-import {Dash} from "@package/self/control/dash/Dash"
+import {Dash} from "@package/self/app/dash"
 import {Main as MainLayout} from "@package/self/layout/main/Main"
 
 {% main (App) %}
