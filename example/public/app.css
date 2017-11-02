@@ -9868,6 +9868,8 @@ input:checked + .ww-switch__slider:before {
   width: auto;
   padding-left: 0.5em;
   padding-right: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   border: #2a2a2a solid 1px;
   list-style: none;
   background-color: transparent;
