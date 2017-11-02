@@ -15,15 +15,14 @@
     "@package/self": "file:lib",
     "@quenk/polate": "^1.0.0",
     "@quenk/wml": "^0.15.26",
-    "@quenk/wml-runtime": "^0.4.5",
     "afpl": "^0.10.0",
-    "browserify": "^14.4.0",
     "moment": "^2.19.1",
     "property-seek": "^3.1.0"
   },
   "devDependencies": {
     "@quenk/wml-cli": "^0.4.0",
     "@types/mocha": "^2.2.41",
+    "browserify": "^14.4.0",
     "less": "^2.7.1",
     "less-plugin-js-vars": "^2.2.4",
     "less-plugin-npm-import": "^2.1.0",
