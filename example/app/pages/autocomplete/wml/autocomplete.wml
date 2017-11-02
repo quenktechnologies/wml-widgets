@@ -1,0 +1,28 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {Autocomplete} from "@package/self/control/autocomplete"
+import {AutocompletePage, Result} from "../"
+
+{% main (AutocompletePage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column ww:size=6>
+
+      <p>You selected: <b wml:id="selected">(nothing)</b>.</p>
+
+      <p>
+        <Autocomplete 
+          wml:id={{@values.id}}
+          ww:name={{@values.name}}
+          ww:stringifier={{\r:Result => r.value }}
+          ww:onSearch={{@onSearch}}
+          ww:onSelect={{@onSelect}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </Grid>

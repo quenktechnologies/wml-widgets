@@ -24,4 +24,21 @@ import {TextFieldPage} from "../"
 
    </Row>
 
+    <Column>
+
+      <p>The one uses rows to render a text area:</p>
+
+      <p>
+        <TextField 
+          ww:name="text"
+          ww:rows=3
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ 
+
  </Grid>
