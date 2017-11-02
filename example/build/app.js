@@ -8,8 +8,7 @@ var table_1 = require("./pages/table");
 var text_field_1 = require("./pages/text-field");
 var date_1 = require("./pages/date");
 var select_1 = require("./pages/select");
-var search_1 = require("./pages/search");
-var text_area_1 = require("./pages/text-area");
+var autocomplete_1 = require("./pages/autocomplete");
 var button_select_1 = require("./pages/button-select");
 var checkbox_1 = require("./pages/checkbox");
 var switch_1 = require("./pages/switch");
@@ -37,13 +36,12 @@ var App = /** @class */ (function () {
             'text-field': new text_field_1.TextFieldPage(this),
             date: new date_1.DatePage(this),
             select: new select_1.SelectPage(this),
-            search: new search_1.SearchPage(this),
+            autocomplete: new autocomplete_1.AutocompletePage(this),
             'button-select': new button_select_1.ButtonSelectPage(this),
             tabs: new tabs_1.TabsPage(this),
             stack: new stack_1.StackPage(this),
             checkbox: new checkbox_1.CheckboxPage(this),
             'switch': new switch_1.SwitchPage(this),
-            'text-area': new text_area_1.TextAreaPage(this),
             'busy-indicator': new busy_indicator_1.BusyIndicatorPage(this),
             'search-stack': new search_stack_1.SearchStackPage(this),
             breadcrumbs: new breadcrumbs_1.BreadCrumbsPage(this),

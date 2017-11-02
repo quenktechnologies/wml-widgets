@@ -12,18 +12,17 @@ import { TablePage } from './pages/table';
 import { TextFieldPage } from './pages/text-field';
 import { DatePage } from './pages/date';
 import { SelectPage } from './pages/select';
-import { SearchPage } from './pages/search';
-import { TextAreaPage } from './pages/text-area';
+import { AutocompletePage } from './pages/autocomplete';
 import { ButtonSelectPage } from './pages/button-select';
 import { CheckboxPage } from './pages/checkbox';
 import { SwitchPage } from './pages/switch';
 import { TabsPage } from './pages/tabs';
 import { StackPage } from './pages/stack';
-import {SearchStackPage} from './pages/search-stack';
+import { SearchStackPage } from './pages/search-stack';
 import { BreadCrumbsPage } from './pages/breadcrumbs';
 import { BusyIndicatorPage } from './pages/busy-indicator';
 import { MenuPage } from './pages/menu';
-import {ButtonMenuPage} from './pages/button-menu';
+import { ButtonMenuPage } from './pages/button-menu';
 
 export class App {
 
@@ -43,18 +42,17 @@ export class App {
         'text-field': new TextFieldPage(this),
         date: new DatePage(this),
         select: new SelectPage(this),
-        search: new SearchPage(this),
+        autocomplete: new AutocompletePage(this),
         'button-select': new ButtonSelectPage(this),
         tabs: new TabsPage(this),
         stack: new StackPage(this),
         checkbox: new CheckboxPage(this),
         'switch': new SwitchPage(this),
-        'text-area': new TextAreaPage(this),
         'busy-indicator': new BusyIndicatorPage(this),
-      'search-stack': new SearchStackPage(this),
+        'search-stack': new SearchStackPage(this),
         breadcrumbs: new BreadCrumbsPage(this),
         menu: new MenuPage(this),
-      'button-menu': new ButtonMenuPage(this)
+        'button-menu': new ButtonMenuPage(this)
 
     };
 
