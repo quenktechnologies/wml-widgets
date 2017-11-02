@@ -1,0 +1,25 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {Switch} from "@package/self/control/switch/Switch"
+import {SwitchPage} from "../"
+
+{% main (SwitchPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <p>The switch is <b wml:id="content">untouched</b>.</p>
+
+      <p>
+        <Switch 
+          ww:name="switch"
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </Grid>

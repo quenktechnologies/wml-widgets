@@ -1,0 +1,25 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {Checkbox} from "@package/self/control/checkbox/Checkbox"
+import {CheckboxPage} from "../"
+
+{% main (CheckboxPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <p>The checkbox is <b wml:id="content">untouched</b>.</p>
+
+      <p>
+        <Checkbox
+          ww:name="checkbox"
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </Grid>

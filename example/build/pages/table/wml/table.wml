@@ -1,0 +1,22 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {Table} from "@package/self/table/table/Table"
+import {TablePage} from "../"
+
+{% main (TablePage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <Table
+        ww:selectable=true
+        ww:data={{@values.users}}
+        ww:fields={{@values.fields}} />
+
+    </Column>
+
+   </Row>
+
+ </Grid>

@@ -1,0 +1,50 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {Panel,Header,Body,Footer} from "@package/self/layout/panel/Panel"
+import {Fragment} from "@package/self/layout/fragment/Fragment"
+import {PanelPage} from "../"
+
+{% main (PanelPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column ww:size=4>
+
+      <Panel>
+
+        <Body>Body only.</Body>
+
+      </Panel>
+
+    </Column>
+
+    <Column ww:size=4>
+
+      <Panel>
+
+        <Header>With Header</Header>
+
+        <Body>Lorem impsum dilium net set.</Body>
+
+      </Panel>
+
+    </Column>
+
+    <Column ww:size=4>
+
+      <Panel>
+
+        <Header>With Footer</Header>
+
+        <Body>Lorem impsum dilium net set.</Body>
+
+        <Footer>Meh foot.</Footer>
+
+      </Panel>
+
+    </Column>
+
+   </Row>
+
+ </Grid>
