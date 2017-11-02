@@ -1,0 +1,19 @@
+import {BusyIndicator} from "@package/self/app/busy-indicator/BusyIndicator"
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {BusyIndicatorPage} from "../"
+
+{% main (BusyIndicatorPage) %}
+
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <BusyIndicator/>
+
+    </Column>
+
+  </Row>
+
+</Grid>
