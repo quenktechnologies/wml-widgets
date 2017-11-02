@@ -1,6 +1,9 @@
+import * as views from './wml/views';
 import { Component, Attrs } from '@quenk/wml';
 
 export class Fragment extends Component<Attrs> {
+
+    view = new views.Main(null);
 
     render() {
 

@@ -11,7 +11,7 @@ export interface Values {
  * Collapsable is an abstract api for creating widgets that show or hide
  * content when the user interacts with them.
  */
-export declare class Collapsable<A extends Attrs> extends Component<A> {
+export declare abstract class Collapsable<A extends Attrs> extends Component<A> {
     values: Values;
     /**
      * open this Widget.
