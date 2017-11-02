@@ -1,0 +1,35 @@
+import {Select} from "../Select"
+import {label,message} from "@package/self/control/wml"
+
+{% main (Select) %}
+
+<div class={{@values.root.class}}>
+
+  {{<label(@attrs['ww:id' as String], @attrs['ww:label' as String])>}}
+
+  <select 
+    wml:id={{@values.select.id}}
+    name={{@values.select.name}}
+    onchange={{@values.select.onChange}} 
+    value={{@values.select.value}}
+    disabled={{@values.select.disabled}}
+    readonly={{@values.select.readOnly}}
+    class={{@values.select.class}}>
+
+    <option value="" disabeld>{{@values.select.placeholder}}</option>
+
+    {% for opt in @values.select.options %}
+
+      <option 
+        value={{@values.select.optValue(opt)}}
+        selected={{@values.select.isSelected(@values.select.optValue(opt))}}>
+        {{@values.select.optLabel(opt)}}
+      </option>
+
+    {% endfor %}
+
+  </select>
+
+   {{<message(@values.help.id, @values.help)>}}
+
+</div>
