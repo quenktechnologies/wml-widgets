@@ -24,6 +24,8 @@ import {TextFieldPage} from "../"
 
    </Row>
 
+   <Row>
+
     <Column>
 
       <p>The one uses rows to render a text area:</p>
@@ -38,7 +40,5 @@ import {TextFieldPage} from "../"
     </Column>
 
    </Row>
-
- 
 
  </Grid>

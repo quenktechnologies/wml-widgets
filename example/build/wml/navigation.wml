@@ -134,18 +134,6 @@ import {Text} from "@package/self/nav/list/Text"
 
         <Link
           wml:group="links"
-          ww:name="text-area"
-          ww:href="#/text-area"
-          ww:onClick={{@navigate}}
-          ww:active={{@page == 'text-area'}}
-          ww:text="TextArea" />
-
-      </Item>
-
-      <Item>
-
-        <Link
-          wml:group="links"
           ww:name="checkbox"
           ww:href="#/checkbox"
           ww:onClick={{@navigate}}

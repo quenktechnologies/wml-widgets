@@ -192,21 +192,6 @@ export class Navigation extends $wml.AppView < App > {
                     'group': `links`
                 },
                 ww: {
-                    'name': `text-area`,
-                    'href': `#/text-area`,
-                    'onClick': ___context.navigate,
-                    'active': (___context.page === `text-area`),
-                    'text': `TextArea`
-                }
-            }, [], ___view)], ___view), $wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [$wml.widget(Link, {
-                html: {},
-                wml: {
-                    'group': `links`
-                },
-                ww: {
                     'name': `checkbox`,
                     'href': `#/checkbox`,
                     'onClick': ___context.navigate,
