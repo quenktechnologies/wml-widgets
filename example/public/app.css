@@ -9883,6 +9883,17 @@ input:checked + .ww-switch__slider:before {
 .ww-stack > li > .ww-stack__close {
   float: right !important;
 }
+.ww-date_month select {
+  width: 6em;
+  margin-right: .5em;
+}
+.__DATE_DAY input {
+  width: 6em;
+  margin-right: .5em;
+}
+.ww-date__year input {
+  width: 6em;
+}
 .-uppercase {
   text-transform: uppercase;
 }
@@ -9922,6 +9933,9 @@ input:checked + .ww-switch__slider:before {
 }
 .ww-nav-list__item > a.-no-hover:hover,
 .ww-nav-list__item > a.-no-hover.active {
+  background-color: inherit;
+}
+.breadcrumb {
   background-color: inherit;
 }
 .ww-menu {

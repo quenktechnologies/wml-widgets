@@ -1,0 +1,42 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {BreadCrumbs} from "@package/self/nav/breadcrumbs/BreadCrumbs"
+import {Item} from "@package/self/nav/breadcrumbs/Item"
+import {Link} from "@package/self/nav/link/Link"
+import {BreadCrumbsPage} from "../"
+
+{% main (BreadCrumbsPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <BreadCrumbs>
+
+        <Item>
+
+          <Link
+            ww:text="One"/>
+
+        </Item>
+        <Item>
+
+          <Link
+            ww:text="Two"/>
+
+        </Item>
+        <Item>
+
+          <Link
+            ww:text="Three"/>
+
+        </Item>
+
+      </BreadCrumbs>
+
+    </Column>
+
+   </Row>
+
+ </Grid>

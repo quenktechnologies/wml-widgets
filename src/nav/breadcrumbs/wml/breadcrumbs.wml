@@ -1,0 +1,17 @@
+import {Item as ItemContext} from "../Item"
+import {BreadCrumbs as BreadCrumbsContext} from "../BreadCrumbs"
+
+{% view BreadCrumbs (BreadCrumbsContext) %}
+
+  <ol class={{@values.class.root}}>
+    {{ @children }}
+  </ol>
+
+{% endview %}
+
+{% view Item (ItemContext) %}
+
+  <li class={{@values.class.root}}>{{ @children }}</li>
+
+{% endview %}
+
