@@ -1,0 +1,47 @@
+import {label,message} from "@package/self/control/wml"
+import {Select} from "@package/self/control/select"
+import {TextField} from "@package/self/control/text-field"
+import {Date} from "../Date"
+
+{% main (Date) %}
+
+<div class={{@values.root.class}}>
+
+  {{<label(@attrs['ww:id' as String], @attrs['ww:label' as String])>}}
+
+  <Select
+    wml:id={{@values.month.id}}
+    ww:name={{@values.month.id}}
+    ww:onChange={{@values.month.onInput}} 
+    ww:disabled={{@values.month.disabled}}
+    ww:readOnly={{@values.month.readOnly}}
+    ww:class={{@values.month.class}} 
+    ww:options={{@values.date.months}}>
+
+    <option selected=true value="" disabled>Month</option>
+
+  </Select>
+
+  <TextField 
+    wml:id={{@values.day.id}}
+    ww:name={{@values.day.id}}
+    ww:onChange={{@values.day.onInput}} 
+    ww:value={{@values.day.value}}
+    ww:disabled={{@values.day.disabled}}
+    ww:readOnly={{@values.day.readOnly}}
+    ww:class={{@values.day.class}}
+    ww:placeholder="DD" />
+
+  <TextField 
+    wml:id={{@values.year.id}}
+    ww:name={{@values.year.id}}
+    ww:onChange={{@values.year.onInput}} 
+    ww:value={{@values.year.value}}
+    ww:disabled={{@values.year.disabled}}
+    ww:readOnly={{@values.year.readOnly}}
+    ww:class={{@values.year.class}}
+    ww:placeholder="YYYY" />
+
+   {{<message(@values.help.id, @values.help)>}}
+
+</div>

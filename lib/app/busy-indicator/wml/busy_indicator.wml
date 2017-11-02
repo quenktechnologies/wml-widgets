@@ -1,0 +1,5 @@
+import {BusyIndicator} from "../BusyIndicator"
+
+{% main (BusyIndicator) %}
+
+<div class={{@values.class}}/>

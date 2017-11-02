@@ -1,0 +1,11 @@
+import {IconButton} from "../IconButton"
+
+{% main (IconButton) %}
+
+<button
+  class={{@values.class.root}}
+  onclick={{@attrs['ww:onClick' as Function]}}>
+
+  {{@children}}
+
+</button>

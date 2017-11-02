@@ -1,0 +1,22 @@
+import {Menu} from "@package/self/menu/Menu"
+import {ButtonMenu} from "../ButtonMenu"
+
+{% fun button (ButtonMenu) %}
+
+  <button class={{@values.button.class}} type="button" onclick={{@values.button.onClick}} >
+    {{@values.button.text}}
+  </button>
+
+{% endfun %}
+
+{% main (ButtonMenu) %}
+
+<div class={{@values.root.class}}>
+
+  {{<(@values.button.template)(@)()>}}
+
+  <Menu 
+    wml:id={{@values.menu.id}}
+    ww:hidden=true>{{@values.menu.content}}</Menu>
+
+</div>

@@ -1,0 +1,41 @@
+import * as T from "../TextField"
+import {label,message} from "@package/self/control/wml"
+
+{% main (T.TextField) %}
+
+<!-- @todo support other input events -->
+
+<div class={{@values.root.class}}>
+
+  {{<label(@attrs['ww:id' as String], @attrs['ww:label' as String])>}}
+
+    {% if @values.input.rows == 1 %}
+
+      <input
+      wml:id="input"
+      name={{@values.input.name}}
+      type={{@values.input.type}}
+      placeholder={{@values.input.placeholder}}
+      oninput={{@values.input.onInput}} 
+      value={{@values.input.value}}
+      disabled={{@values.input.disabled}}
+      readonly={{@values.input.readOnly}}
+      class={{@values.input.class}} />
+
+    {% else %}
+
+      <textarea
+       wml:id="input"
+      name={{@values.input.name}}
+      placeholder={{@values.input.placeholder}}
+      oninput={{@values.input.onInput}} 
+      disabled={{@values.input.disabled}}
+      readonly={{@values.input.readOnly}}
+      rows={{@values.input.rows}}
+      class={{@values.input.class}}>{{@values.input.value}}</textarea>
+
+    {% endif %}
+
+   {{<message(@values.help.id, @values.help)>}}
+
+</div>

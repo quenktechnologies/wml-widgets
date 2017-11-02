@@ -1,0 +1,11 @@
+import {Header} from "../Header"
+
+{% main (Header) %}
+
+<li class={{@values.class.root}}>
+ {% if @values.text %}
+  {{@values.text}}
+ {% else %}
+  {{@children}}
+ {% endif %}
+</li>

@@ -1,0 +1,7 @@
+{
+
+  "name": "@package/self",
+  "version": "0.0.1",
+  "description": "Virtual package to avoid relative imports"
+
+}

@@ -1,0 +1,21 @@
+import {Link} from "../Link"
+
+{% main (Link) %}
+
+<a 
+  class={{@values.class.root}}
+  href={{@values.a.href}}
+  name={{@values.a.name}}
+  title={{@values.a.title}}
+  onclick={{@clicked}}>
+
+  {% if @attrs['ww:text' as String] %}
+
+    {{ @attrs['ww:text' as String] }}
+
+  {% else %}
+  
+    {{@children}}
+
+  {% endif %}
+</a>

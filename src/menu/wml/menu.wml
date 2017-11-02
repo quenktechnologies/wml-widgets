@@ -1,0 +1,9 @@
+import {Menu} from "../Menu"
+
+{% main (Menu) %}
+
+<ul class={{@values.class.root}}>
+
+  {{@values.content}}
+
+</ul>

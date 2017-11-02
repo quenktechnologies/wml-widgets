@@ -1,0 +1,11 @@
+import {MenuItem} from "../MenuItem"
+
+{% main (MenuItem) %}
+  
+<li class={{@values.class.root}} onclick={{@values.clicked}}>
+  {% if @values.text %}
+    {{@values.text}}
+  {% else %}
+    {{@children}}
+  {% endif %}
+</li>

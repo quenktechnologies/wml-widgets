@@ -1,0 +1,26 @@
+import * as B from '../Button';
+
+{% view Group (B.Group) %}
+
+  <div 
+   class={{@getClass}}
+   role="group">{{@children}}</div>
+
+{% endview %}
+
+{% view Button (B.Button) %}
+  
+      <button
+        wml:id="button"
+        type={{@attrs['ww:type' as String ? 'button']}}
+        name={{@attrs['ww:name' as String ? '']}}
+        disabled={{if @attrs['ww:disabled' as Boolean] then 'true' else null}}
+        class={{@values.class.button}}
+        onclick={{@attrs['ww:onClick' as Function]}}>
+  
+        {{@attrs['ww:text' as String ? '']}}
+        {{@children}}
+  
+      </button>
+  
+{% endview %}

@@ -1,0 +1,16 @@
+import {Header} from '../Header';
+
+{% main (Header) %}
+
+<header class={{@values.class.root}}>
+  {% if @values.text %}
+
+    {{@values.text}}
+
+  {% else %}
+
+    {{@children}}
+
+  {% endif %}
+
+</header>

@@ -1,0 +1,52 @@
+import {Menu} from "@package/self/menu/Menu"
+import {MenuItem} from "@package/self/menu/MenuItem"
+import {Fragment} from "@package/self/layout/fragment/Fragment"
+import {Search} from "../Search"
+import {Result} from "../Result"
+
+{% fun populated [A:Result](Search[A])(option:A, _index:Number, _options:A[]) = {{ @values.item.decorator(option) }}  %}
+
+{% fun empty [A:Result](Search[A]) = {{'No results to display.'}} %}
+
+{% view Results [A:Result](Search[A]) %}
+
+  <Fragment>
+
+    {% for option,index:Number in @values.search.results %}
+
+      <MenuItem 
+        ww:name={{''+index}}
+        ww:onClick={{@values.item.clicked}}>
+
+        {{ <(@values.item.template.populated)(@)(option, index, @values.search.results)> }}
+
+      </MenuItem>
+
+    {% else %}
+
+      {{<(@values.item.template.empty)(@)()>}}
+
+    {% endfor %}
+
+  </Fragment>
+
+{% endview %}
+
+{% main [A:Result](Search[A]) %}
+
+<div class={{@values.class.root}}>
+
+  <input 
+    wml:id={{@values.id.input}}
+    type="text" 
+    class={{@values.class.input}}
+    onkeydown={{@values.input.onKeyDown}}
+    onkeyup={{@values.input.onKeyUp}}
+    oninput={{@values.input.onInput}}
+    placeholder={{@values.input.placeholder}} />
+
+  <Menu 
+    wml:id={{@values.id.menu}}
+    ww:hidden=true />
+
+</div>

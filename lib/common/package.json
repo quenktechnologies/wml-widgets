@@ -1,0 +1,10 @@
+{
+
+  "name": "@quenk/wml-widgets-common",
+  "version": "1.0.0",
+  "private":true,
+  "description": "Common files for wml-widgets",
+  "main":"index.js",
+  "types":"index.d.ts"
+
+}

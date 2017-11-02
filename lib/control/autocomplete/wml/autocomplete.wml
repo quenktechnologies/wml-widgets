@@ -1,0 +1,51 @@
+import {Menu} from "@package/self/menu/Menu"
+import {MenuItem} from "@package/self/menu/MenuItem"
+import {Fragment} from "@package/self/layout/fragment/Fragment"
+import {Autocomplete} from "../Autocomplete"
+
+{% fun populated [V](Autocomplete[V])(option:V, _index:Number, _options:V[]) = {{ @values.item.stringify(option) }}  %}
+
+{% fun empty [V](Autocomplete[V]) = {{'No results to display.'}} %}
+
+{% view Results [V](Autocomplete[V]) %}
+
+  <Fragment>
+
+    {% for option,index:Number in @values.search.results %}
+
+      <MenuItem 
+        ww:name={{''+index}}
+        ww:onClick={{=>@values.item.click(index)}}>
+
+        {{ <(@values.item.template.populated)(@)(option, index, @values.search.results)> }}
+
+      </MenuItem>
+
+    {% else %}
+
+      {{<(@values.item.template.empty)(@)()>}}
+
+    {% endfor %}
+
+  </Fragment>
+
+{% endview %}
+
+{% main [V](Autocomplete[V]) %}
+
+<div class={{@values.root.class}}>
+
+  <input 
+    wml:id={{@values.input.id}}
+    type="text" 
+    class={{@values.input.class}}
+    onkeydown={{@values.input.onKeyDown}}
+    onkeyup={{@values.input.onKeyUp}}
+    oninput={{@values.input.onInput}}
+    placeholder={{@values.input.placeholder}} />
+
+  <Menu 
+    wml:id={{@values.menu.id}}
+    ww:hidden=true />
+
+</div>
