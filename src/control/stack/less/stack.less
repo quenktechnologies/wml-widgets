@@ -1,0 +1,34 @@
+@import "css/list";
+@import "css/padding";
+@import "css/border";
+@import "css/background";
+
+.__STACK__ {
+
+  .-auto-width;
+  .padding-horizontal(@stack-padding);
+  .padding-vertical(@stack-padding);
+  .border(@stack-border-color, @stack-border-style, @stack-border-width);
+  .-no-list-style;
+  .background-color(@stack-background-color);
+
+  &:empty {
+
+    .-no-border;
+
+  }
+
+  & > li {
+
+    .-both-clear;
+    .padding-vertical(@stack-padding);
+    
+    & > .__STACK_CLOSE__ {
+
+      .float(@stack-close-float);
+
+    }
+
+  }
+
+}
