@@ -1,5 +1,6 @@
-import {Group,GroupAttrs} from '@package/self/content/Group';
+import * as wml from '@quenk/wml';
 import * as names from '@package/self/common/names';
+import { Group, GroupAttrs } from '@package/self/content/Group';
 import { Main } from './wml/aside';
 
 export interface AsideAttrs extends GroupAttrs { }
@@ -31,14 +32,17 @@ export class Aside extends Group<AsideAttrs>{
 
             content: 'ww:content'
 
-        }
+        },
+        content: <wml.Renderable>(this.attrs.ww && this.attrs.ww.content) ? this.attrs.ww.content : null
+
+
     };
 
-    view = new Main(this);
+  view: wml.View = new Main(this);
 
-    _getDrawerDOM<R>(f: (e: Element) => R): R|null {
+    _getDrawerDOM<R>(f: (e: Element) => R): R | null {
 
-        return this.view.findById<Element>(this.values.id.root).cata(() =>null, f);
+        return this.view.findById<Element>(this.values.id.root).cata(() => null, f);
 
     }
 

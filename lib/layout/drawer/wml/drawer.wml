@@ -16,9 +16,9 @@ import {Renderable} from "@quenk/wml"
 
     {{@content}}
     
-  {% else if @attrs['ww:content' as Renderable] %}
+  {% else if @values.content %}
 
-    {{ @attrs.ww.content.render() }}
+    {{ @values.content.render() }}
 
   {% else %}
 

@@ -36,8 +36,8 @@ export class Main extends $wml.AppView < Drawer > {
             }, [], ___view), $wml.ifthen(___context.content, function then() {
                 return $wml.domify(___context.content)
             }, function elseif() {
-                return $wml.ifthen($wml.read < Renderable > (`ww:content`, ___context.attrs), function then() {
-                    return $wml.domify(___context.attrs.ww.content.render());
+                return $wml.ifthen(___context.values.content, function then() {
+                    return $wml.domify(___context.values.content.render());
                 }, function else_clause() {
                     return $wml.domify(___context.children)
                 });

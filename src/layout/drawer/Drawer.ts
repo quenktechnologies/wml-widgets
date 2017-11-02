@@ -56,7 +56,8 @@ export class Drawer extends Group<DrawerAttrs>{
             DRAWER: 'ww:drawer',
             CONTENT: 'ww:content'
 
-        }
+        },
+      content: (this.attrs.ww && this.attrs.ww.content) ? this.attrs.ww.content: null
 
     }
 

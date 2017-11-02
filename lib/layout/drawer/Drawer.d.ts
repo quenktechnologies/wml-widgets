@@ -39,6 +39,7 @@ export declare class Drawer extends Group<DrawerAttrs> {
             DRAWER: string;
             CONTENT: string;
         };
+        content: View;
     };
     _getAside<R>(f: (a: Aside) => R): R | null;
     _combine(classes: string[]): string;

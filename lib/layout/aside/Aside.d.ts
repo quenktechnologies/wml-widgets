@@ -1,5 +1,5 @@
+import * as wml from '@quenk/wml';
 import { Group, GroupAttrs } from '@package/self/content/Group';
-import { Main } from './wml/aside';
 export interface AsideAttrs extends GroupAttrs {
 }
 /**
@@ -26,8 +26,9 @@ export declare class Aside extends Group<AsideAttrs> {
         attrs: {
             content: string;
         };
+        content: wml.Renderable;
     };
-    view: Main;
+    view: wml.View;
     _getDrawerDOM<R>(f: (e: Element) => R): R | null;
     /**
      * visible queries whether the Drawer is visible or not.
