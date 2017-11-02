@@ -13,7 +13,7 @@ export interface GridAttrs extends Attrs {
 
 }
 
-export interface ColAttrs extends Attrs {
+export interface ColumnAttrs extends Attrs {
 
     ww?: {
 
@@ -59,7 +59,7 @@ export class Row extends Component<GridAttrs> {
 
 }
 
-export class Column extends Component<ColAttrs> {
+export class Column extends Component<ColumnAttrs> {
 
     view = new views.Column(this);
 

@@ -5,7 +5,7 @@ export interface GridAttrs extends Attrs {
         class?: string;
     };
 }
-export interface ColAttrs extends Attrs {
+export interface ColumnAttrs extends Attrs {
     ww?: {
         size?: number;
         class?: string;
@@ -30,7 +30,7 @@ export declare class Row extends Component<GridAttrs> {
         };
     };
 }
-export declare class Column extends Component<ColAttrs> {
+export declare class Column extends Component<ColumnAttrs> {
     view: views.Column;
     values: {
         class: {
