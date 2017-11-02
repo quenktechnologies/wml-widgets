@@ -1,0 +1,26 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {Date} from "@package/self/control/date/Date"
+import {DatePage} from "../"
+
+{% main (DatePage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <p>The date is : <b wml:id="selected">(None selected)</b>.</p>
+
+      <p>
+        <Date 
+          wml:id="date"
+          ww:name="date"
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </Grid>
