@@ -63,7 +63,7 @@ export class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<V>> {
 
             id: 'input',
 
-            class: this.attrs.ww.inputClass,
+            class: concat('form-control', this.attrs.ww.inputClass),
 
             placeholder: this.attrs.ww.placeholder ?
                 this.attrs.ww.placeholder : null,
