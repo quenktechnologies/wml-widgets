@@ -162,11 +162,11 @@ export class Navigation extends $wml.AppView < App > {
                     'group': `links`
                 },
                 ww: {
-                    'name': `search`,
-                    'href': `#/search`,
+                    'name': `autocomplete`,
+                    'href': `#/autocomplete`,
                     'onClick': ___context.navigate,
-                    'active': (___context.page === `search`),
-                    'text': `Search`
+                    'active': (___context.page === `autocomplete`),
+                    'text': `Autocomplete`
                 }
             }, [], ___view)], ___view), $wml.widget(Item, {
                 html: {},

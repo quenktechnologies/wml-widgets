@@ -110,11 +110,11 @@ import {Text} from "@package/self/nav/list/Text"
 
         <Link
           wml:group="links"
-          ww:name="search"
-          ww:href="#/search"
+          ww:name="autocomplete"
+          ww:href="#/autocomplete"
           ww:onClick={{@navigate}}
-          ww:active={{@page == 'search'}}
-          ww:text="Search" />
+          ww:active={{@page == 'autocomplete'}}
+          ww:text="Autocomplete" />
 
       </Item>
 
