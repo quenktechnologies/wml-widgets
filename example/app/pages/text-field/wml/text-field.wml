@@ -1,0 +1,27 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {TextField} from "@package/self/control/text-field/TextField"
+import {TextFieldPage} from "../"
+
+{% main (TextFieldPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <p>The value of the input is:</p>
+      <p wml:id="content">{{'(Nothing)'}}</p>
+
+      <p>
+        <TextField 
+          wml:id="text"
+          ww:name="text"
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </Grid>
