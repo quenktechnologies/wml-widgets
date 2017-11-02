@@ -1,0 +1,24 @@
+import {Autocomplete} from "@package/self/control/autocomplete"
+import {Stack} from "@package/self/control/stack"
+import {SearchStack} from "../SearchStack"
+
+{% main [V](SearchStack[V]) %}
+
+<div class={{@values.root.class}}>
+
+  <Stack
+    wml:id={{@values.stack.id}}
+    ww:name={{@values.stack.name}}
+    ww:value={{@values.stack.value}}
+    ww:decorator={{@values.stack.decorator}}
+    ww:onChange={{@values.stack.onChange}} />
+
+  <Autocomplete
+    wml:id={{@values.search.id}}
+    ww:name={{@values.search.name}}
+    ww:value={{@values.search.value}}
+    ww:stringifier={{@values.stack.decorator}}
+    ww:onSearch={{@values.search.onSearch}}
+    ww:onSelect={{@values.search.onSelect}} />
+
+</div>

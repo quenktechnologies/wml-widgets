@@ -1,0 +1,39 @@
+import {Message} from "./Message"
+
+{% fun label(id:String, text:String) %}
+
+  <label 
+    for={{id}} 
+    class="control-label">
+    {{text}}
+  </label>
+  
+{% endfun %}
+
+{% fun message(id:String, m:Message) %}
+
+  {% if m.success %}
+
+    <span
+      wml:id={{id}}
+      class="help-text">{{m.success}}</span>
+
+  {% else if m.error %}
+
+    <span
+      wml:id={{id}}
+      class="help-text">{{m.error}}</span>
+
+  {% else if m.warning %}
+
+    <span
+      wml:id={{id}}
+      class="help-text">{{m.warning}}</span>
+
+  {% else %}
+
+    {{''}}
+
+  {% endif %}
+
+{% endfun %}
