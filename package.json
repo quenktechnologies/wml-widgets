@@ -3,7 +3,8 @@
   "version": "1.0.9-0",
   "description": "Various wml widgets for creating web apps.",
   "scripts": {
-    "postinstall": "npm install ./lib"
+    "postinstall": "npm install ./lib",
+    "docs": "cd src; ../node_modules/.bin/typedoc --mode modules --theme minimal --out ../docs ."
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -18,8 +19,7 @@
     "@quenk/wml": "^0.15.27",
     "afpl": "^0.10.0",
     "moment": "^2.19.1",
-    "property-seek": "^3.1.0",
-    "typedoc": "^0.9.0"
+    "property-seek": "^3.1.0"
   },
   "devDependencies": {
     "@quenk/wml-cli": "^0.4.0",
@@ -31,6 +31,7 @@
     "less-plugin-variables-output": "^1.2.0",
     "mocha": "^3.4.2",
     "must": "^0.13.4",
+    "typedoc": "^0.9.0",
     "typescript": "^2.4.1",
     "web-console-reporter": "^1.0.0"
   },
