@@ -1,6 +1,6 @@
 import * as G from '@package/self/content/Group';
 import * as views from './wml/button';
-import { Renderable } from '@quenk/wml-runtime';
+import { Renderable } from '@quenk/wml';
 /**
  * GroupAttrs are the allowed attributes for <Group/>
  */

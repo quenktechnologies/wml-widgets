@@ -23,7 +23,7 @@ export declare class ButtonMenu extends wml.Component<ButtonMenuAttrs> {
         };
         menu: {
             id: string;
-            content: (Element | Node | HTMLElement)[];
+            content: wml.Content[];
         };
     };
     /**

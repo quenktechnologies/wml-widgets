@@ -32,7 +32,7 @@ export declare class Menu extends wml.Component<MenuAttrs> {
         class: {
             root: string;
         };
-        content: (Element | Node | HTMLElement)[];
+        content: wml.Content[];
         click: {
             hideOnClick: boolean;
             hideOnExternalClick: boolean;

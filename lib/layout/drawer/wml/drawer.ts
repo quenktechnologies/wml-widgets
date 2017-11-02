@@ -7,7 +7,7 @@ import {
 } from '../Drawer';;
 import {
     Renderable
-} from '@quenk/wml-runtime';
+} from '@quenk/wml';
 
 
 

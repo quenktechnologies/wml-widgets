@@ -1,4 +1,4 @@
-import { Attrs, Component } from '@quenk/wml-runtime';
+import { Attrs, Component } from '@quenk/wml';
 import * as names from '@package/self/common/names';
 
 export interface Values {

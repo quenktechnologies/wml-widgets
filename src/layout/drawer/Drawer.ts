@@ -1,6 +1,6 @@
 import {Group, GroupAttrs} from '@package/self/content/Group';
 import * as names from '@package/self/common/names';
-import {  View } from '@quenk/wml-runtime';
+import {  View } from '@quenk/wml';
 import { Main } from './wml/drawer';
 import { Aside } from '@package/self/layout/aside/Aside';
 

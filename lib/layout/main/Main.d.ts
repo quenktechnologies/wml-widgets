@@ -1,5 +1,5 @@
 import * as views from './wml/main';
-import { Renderable } from '@quenk/wml-runtime';
+import { Renderable } from '@quenk/wml';
 import { GroupAttrs, Group } from '@package/self/content/Group';
 export interface MainAttrs extends GroupAttrs {
     ww?: {

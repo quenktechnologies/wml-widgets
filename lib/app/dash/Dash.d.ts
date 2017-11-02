@@ -1,4 +1,4 @@
-import { Attrs, Component } from '@quenk/wml-runtime';
+import { Attrs, Component } from '@quenk/wml';
 import { Main } from './wml/dash';
 /**
  * Dash are literal horizontal dashes.

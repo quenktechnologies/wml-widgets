@@ -1,4 +1,4 @@
-import { Component, Renderable, Content, Attrs } from '@quenk/wml-runtime';
+import { Component, Renderable, Content, Attrs } from '@quenk/wml';
 
 /**
  * GroupAttrs

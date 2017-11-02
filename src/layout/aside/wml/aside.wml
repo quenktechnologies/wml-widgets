@@ -1,5 +1,5 @@
 import {Aside} from "../Aside"
-import {Renderable} from "@quenk/wml-runtime"
+import {Renderable} from "@quenk/wml"
 
 {% main (Aside) %}
 

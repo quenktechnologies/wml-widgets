@@ -1,4 +1,4 @@
-import { Renderable } from '@quenk/wml-runtime';
+import { Renderable } from '@quenk/wml';
 /**
  * combine the members of an array into one string.
  */

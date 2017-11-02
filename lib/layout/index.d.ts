@@ -1,4 +1,4 @@
-import { Attrs } from '@quenk/wml-runtime';
+import { Attrs } from '@quenk/wml';
 import { Group } from '../content/Group';
 /**
  * Layout is the parent class of all layout widgets.

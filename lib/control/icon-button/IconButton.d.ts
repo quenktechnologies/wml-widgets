@@ -1,4 +1,4 @@
-import { Component, Attrs } from '@quenk/wml-runtime';
+import { Component, Attrs } from '@quenk/wml';
 import { Main } from './wml/icon-button';
 export interface IconButtonAttrs extends Attrs {
     ww?: {

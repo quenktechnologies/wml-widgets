@@ -2,7 +2,7 @@ import * as G from '@package/self/content/Group';
 import * as names from '@package/self/common/names';
 import * as views from './wml/button';
 import { concat } from '@package/self/common/util';
-import { Renderable } from '@quenk/wml-runtime';
+import { Renderable } from '@quenk/wml';
 
 /**
  * GroupAttrs are the allowed attributes for <Group/>

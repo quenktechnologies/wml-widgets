@@ -4,7 +4,7 @@ import {
 } from '../Aside';;
 import {
     Renderable
-} from '@quenk/wml-runtime';
+} from '@quenk/wml';
 
 
 
