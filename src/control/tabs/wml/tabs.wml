@@ -1,0 +1,39 @@
+import {Tabs as TabsContext} from "../Tabs"
+import {Tab as TabContext} from "../Tab"
+
+{% view Tab (TabContext) %}
+
+<li 
+  wml:id={{@values.id.root}}
+  class={{@values.class.li}}>
+
+    <a 
+      wml:id={{@values.id.a}}
+      href="#"
+      onclick={{@clicked}}>
+
+        {% if @attrs['ww:text' as String] %}
+
+          {{@attrs.ww.text}}
+
+        {% else %}
+
+          {{@children}}
+
+        {% endif %}
+
+    </a> 
+
+</li>
+
+{% endview %}
+
+{% view Tabs (TabsContext) %}
+
+<ul class={{@values.class.root}}>
+
+  {{@children}}
+
+</ul>
+
+{% endview %}
