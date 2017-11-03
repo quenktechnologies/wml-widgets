@@ -17,6 +17,10 @@ export declare class Select extends FormControl<string, SelectAttrs> {
             id: string;
             class: string;
         };
+        label: {
+            id: string;
+            text: string;
+        };
         select: {
             id: string;
             name: string;

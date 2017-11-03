@@ -21,8 +21,8 @@ export class Main extends $wml.AppView < Link > {
                     'onclick': ___context.clicked
                 },
                 wml: {}
-            }, [$wml.ifthen($wml.read < string > (`ww:text`, ___context.attrs), function then() {
-                return $wml.domify($wml.read < string > (`ww:text`, ___context.attrs))
+            }, [$wml.ifthen(___context.values.a.text, function then() {
+                return $wml.domify(___context.values.a.text)
             }, function else_clause() {
                 return $wml.domify(___context.children)
             })], ___view);

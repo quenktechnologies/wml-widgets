@@ -28,16 +28,16 @@ export class Button extends $wml.AppView < B.Button > {
         this.template = (___context: B.Button, ___view: $wml.AppView < B.Button > ) =>
             $wml.node('button', {
                 html: {
-                    'type': $wml.read < string > (`ww:type`, ___context.attrs, `button`),
-                    'name': $wml.read < string > (`ww:name`, ___context.attrs, ``),
-                    'disabled': ($wml.read < boolean > (`ww:disabled`, ___context.attrs)) ? `true` : null,
-                    'class': ___context.values.class.button,
-                    'onclick': $wml.read < Function > (`ww:onClick`, ___context.attrs)
+                    'type': ___context.values.button.type,
+                    'name': ___context.values.button.name,
+                    'disabled': ___context.values.button.disabled,
+                    'class': ___context.values.button.class,
+                    'onclick': ___context.values.button.onclick
                 },
                 wml: {
                     'id': `button`
                 }
-            }, [$wml.domify($wml.read < string > (`ww:text`, ___context.attrs, ``)), $wml.domify(___context.children)], ___view);
+            }, [$wml.domify(___context.values.button.text), $wml.domify(___context.children)], ___view);
 
     }
 

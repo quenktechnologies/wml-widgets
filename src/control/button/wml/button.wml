@@ -12,13 +12,13 @@ import * as B from '../Button';
   
       <button
         wml:id="button"
-        type={{@attrs['ww:type' as String ? 'button']}}
-        name={{@attrs['ww:name' as String ? '']}}
-        disabled={{if @attrs['ww:disabled' as Boolean] then 'true' else null}}
-        class={{@values.class.button}}
-        onclick={{@attrs['ww:onClick' as Function]}}>
+        type={{@values.button.type}}
+        name={{@values.button.name}}
+        disabled={{@values.button.disabled}}
+        class={{@values.button.class}}
+        onclick={{@values.button.onclick}}>
   
-        {{@attrs['ww:text' as String ? '']}}
+        {{@values.button.text}}
         {{@children}}
   
       </button>

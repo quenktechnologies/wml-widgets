@@ -9,9 +9,9 @@ import {Link} from "../Link"
   title={{@values.a.title}}
   onclick={{@clicked}}>
 
-  {% if @attrs['ww:text' as String] %}
+  {% if @values.a.text %}
 
-    {{ @attrs['ww:text' as String] }}
+    {{ @values.a.text }}
 
   {% else %}
   

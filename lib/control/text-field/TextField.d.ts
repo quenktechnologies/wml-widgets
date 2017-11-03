@@ -17,6 +17,10 @@ export declare class TextField extends FormControl<string, TextFieldAttrs> {
             error: string;
             warning: string;
         };
+        label: {
+            id: string;
+            text: string;
+        };
         input: {
             id: string;
             class: string;

@@ -15,7 +15,7 @@ export class Main extends $wml.AppView < IconButton > {
             $wml.node('button', {
                 html: {
                     'class': ___context.values.class.root,
-                    'onclick': $wml.read < Function > (`ww:onClick`, ___context.attrs)
+                    'onclick': ___context.values.button.onClick
                 },
                 wml: {}
             }, [$wml.domify(___context.children)], ___view);

@@ -27,6 +27,12 @@ export class TextField extends FormControl<string, TextFieldAttrs> {
             warning: this.attrs.ww.warning
 
         },
+        label: {
+
+            id: this.attrs.ww.name,
+            text: this.attrs.ww.label || ''
+
+        },
         input: {
             id: 'input',
             class: 'form-control',

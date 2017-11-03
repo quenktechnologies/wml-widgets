@@ -1,6 +1,5 @@
 import {Aside} from "@package/self/layout/aside/Aside"
 import {Drawer} from "../Drawer"
-import {Renderable} from "@quenk/wml"
 
 {% main (Drawer) %}
 
@@ -10,7 +9,7 @@ import {Renderable} from "@quenk/wml"
 
   <Aside
     wml:id={{@values.id.drawer}}
-    ww:content={{@attrs['ww:drawer' as Renderable]}}/>
+    ww:content={{@values.aside.content}}/>
 
   {% if @content %}
 

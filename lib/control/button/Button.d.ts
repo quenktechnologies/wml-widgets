@@ -47,8 +47,13 @@ export declare class Button extends G.Group<ButtonAttrs> {
         id: {
             button: string;
         };
-        class: {
-            button: string;
+        button: {
+            class: string;
+            type: string;
+            name: string;
+            disabled: boolean;
+            onclick: (e: Event) => void;
+            text: string;
         };
     };
     /**

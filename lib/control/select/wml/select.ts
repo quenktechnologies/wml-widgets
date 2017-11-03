@@ -21,7 +21,7 @@ export class Main extends $wml.AppView < Select > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.domify(label($wml.read < string > (`ww:id`, ___context.attrs), $wml.read < string > (`ww:label`, ___context.attrs))(___view)), $wml.node('select', {
+            }, [$wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), $wml.node('select', {
                 html: {
                     'name': ___context.values.select.name,
                     'onchange': ___context.values.select.onChange,

@@ -4,7 +4,7 @@ import {IconButton} from "../IconButton"
 
 <button
   class={{@values.class.root}}
-  onclick={{@attrs['ww:onClick' as Function]}}>
+  onclick={{@values.button.onClick}}>
 
   {{@children}}
 

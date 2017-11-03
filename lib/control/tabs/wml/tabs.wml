@@ -12,9 +12,9 @@ import {Tab as TabContext} from "../Tab"
       href="#"
       onclick={{@clicked}}>
 
-        {% if @attrs['ww:text' as String] %}
+        {% if @values.tab.text %}
 
-          {{@attrs.ww.text}}
+          {{@values.tab.text}}
 
         {% else %}
 

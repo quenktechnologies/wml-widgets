@@ -1,5 +1,5 @@
 import * as names from '@package/self/common/names';
-import { Component, Attrs } from '@quenk/wml';
+import { Component, Attrs,View } from '@quenk/wml';
 import { Main } from './wml/icon-button';
 
 export interface IconButtonAttrs extends Attrs {
@@ -20,13 +20,18 @@ export interface IconButtonAttrs extends Attrs {
  */
 export class IconButton extends Component<IconButtonAttrs> {
 
-    view = new Main(this);
+  view:View = new Main(this);
 
     values = {
 
         class: {
 
             root: names.ICON_BUTTON
+
+        },
+        button: {
+
+            onClick: (this.attrs.ww && this.attrs.ww.onClick) ? this.attrs.ww.onClick : () => { }
 
         }
 

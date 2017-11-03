@@ -1,6 +1,5 @@
 import * as $wml from '@quenk/wml';
 import {
-    label,
     message
 } from '@package/self/control/wml';;
 import {
@@ -27,7 +26,7 @@ export class Main extends $wml.AppView < Date > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.domify(label($wml.read < string > (`ww:id`, ___context.attrs), $wml.read < string > (`ww:label`, ___context.attrs))(___view)), $wml.widget(Select, {
+            }, [$wml.widget(Select, {
                 html: {},
                 wml: {
                     'id': ___context.values.month.id

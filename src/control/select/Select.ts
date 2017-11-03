@@ -27,6 +27,13 @@ export class Select extends FormControl<string, SelectAttrs> {
             class: concat('form-group', this.attrs.ww.class, this.state())
         },
 
+        label: {
+
+            id: this.attrs.ww.name,
+            text: this.attrs.ww.label || ''
+
+        },
+
         select: {
             id: 'select',
             name: this.attrs.ww.name,

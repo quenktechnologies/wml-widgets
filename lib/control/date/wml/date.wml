@@ -1,4 +1,4 @@
-import {label,message} from "@package/self/control/wml"
+import {message} from "@package/self/control/wml"
 import {Select} from "@package/self/control/select"
 import {TextField} from "@package/self/control/text-field"
 import {Date} from "../Date"
@@ -6,8 +6,6 @@ import {Date} from "../Date"
 {% main (Date) %}
 
 <div class={{@values.root.class}}>
-
-  {{<label(@attrs['ww:id' as String], @attrs['ww:label' as String])>}}
 
   <Select
     wml:id={{@values.month.id}}

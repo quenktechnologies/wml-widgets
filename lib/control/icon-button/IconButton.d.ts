@@ -1,5 +1,4 @@
-import { Component, Attrs } from '@quenk/wml';
-import { Main } from './wml/icon-button';
+import { Component, Attrs, View } from '@quenk/wml';
 export interface IconButtonAttrs extends Attrs {
     ww?: {
         /**
@@ -12,10 +11,13 @@ export interface IconButtonAttrs extends Attrs {
  * IconButton provides a 'hamburger' menu button.
  */
 export declare class IconButton extends Component<IconButtonAttrs> {
-    view: Main;
+    view: View;
     values: {
         class: {
             root: string;
+        };
+        button: {
+            onClick: (e: Event) => void;
         };
     };
 }

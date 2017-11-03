@@ -19,7 +19,7 @@ export class Main extends $wml.AppView < T.TextField > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.domify(label($wml.read < string > (`ww:id`, ___context.attrs), $wml.read < string > (`ww:label`, ___context.attrs))(___view)), $wml.ifthen((___context.values.input.rows === 1), function then() {
+            }, [$wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), $wml.ifthen((___context.values.input.rows === 1), function then() {
                 return $wml.node('input', {
                     html: {
                         'name': ___context.values.input.name,

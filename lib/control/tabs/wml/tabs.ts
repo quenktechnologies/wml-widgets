@@ -28,8 +28,8 @@ export class Tab extends $wml.AppView < TabContext > {
                 wml: {
                     'id': ___context.values.id.a
                 }
-            }, [$wml.ifthen($wml.read < string > (`ww:text`, ___context.attrs), function then() {
-                return $wml.domify(___context.attrs.ww.text)
+            }, [$wml.ifthen(___context.values.tab.text, function then() {
+                return $wml.domify(___context.values.tab.text)
             }, function else_clause() {
                 return $wml.domify(___context.children)
             })], ___view)], ___view);

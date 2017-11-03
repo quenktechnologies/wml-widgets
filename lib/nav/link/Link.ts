@@ -99,7 +99,10 @@ export class Link extends wml.Component<LinkAttrs> {
                 this.attrs.ww.href : '#',
 
             active: (this.attrs.ww && this.attrs.ww.active) ?
-                this.attrs.ww.active : false
+                this.attrs.ww.active : false,
+
+          text: (this.attrs.ww && this.attrs.ww.text) ?
+                this.attrs.ww.text : ''
 
         }
 

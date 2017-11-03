@@ -4,10 +4,7 @@ import {
 } from '@package/self/layout/aside/Aside';;
 import {
     Drawer
-} from '../Drawer';;
-import {
-    Renderable
-} from '@quenk/wml';
+} from '../Drawer';
 
 
 
@@ -31,7 +28,7 @@ export class Main extends $wml.AppView < Drawer > {
                     'id': ___context.values.id.drawer
                 },
                 ww: {
-                    'content': $wml.read < Renderable > (`ww:drawer`, ___context.attrs)
+                    'content': ___context.values.aside.content
                 }
             }, [], ___view), $wml.ifthen(___context.content, function then() {
                 return $wml.domify(___context.content)

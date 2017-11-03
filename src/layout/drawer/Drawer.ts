@@ -57,6 +57,11 @@ export class Drawer extends Group<DrawerAttrs>{
             CONTENT: 'ww:content'
 
         },
+      aside: {
+
+        content: (this.attrs.ww && this.attrs.ww.drawer) ? this.attrs.ww.drawer : null
+
+      },
         content: <Renderable>(this.attrs.ww && this.attrs.ww.content) ? this.attrs.ww.content : null
 
     }

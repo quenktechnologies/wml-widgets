@@ -85,16 +85,21 @@ export class Button extends G.Group<ButtonAttrs> {
             button: 'button'
 
         },
-        class: {
-
-            button: this.attrs.ww ?
+        button: {
+            class: this.attrs.ww ?
                 concat(names.BUTTON,
                     this.attrs.ww.variant || names.DEFAULT,
                     this.attrs.ww.style,
                     this.attrs.ww.active ?
                         names.ACTIVE : '',
                     this.attrs.ww.class) :
-                names.BUTTON
+                names.BUTTON,
+
+            type: (this.attrs.ww && this.attrs.ww.type) ? this.attrs.ww.type : 'button',
+            name: (this.attrs.ww && this.attrs.ww.name) ? this.attrs.ww.name : '',
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? this.attrs.ww.disabled : null,
+            onclick: (this.attrs.ww && this.attrs.ww.onClick) ? this.attrs.ww.onClick : () => { },
+            text: (this.attrs.ww && this.attrs.ww.text) ? this.attrs.ww.text : ''
 
         }
 
@@ -105,8 +110,8 @@ export class Button extends G.Group<ButtonAttrs> {
      */
     disable(): void {
 
-        this.view.findById<HTMLButtonElement>(this.values.id.button)
-            .map(b => b.setAttribute('disabled', 'disabled'));
+        this.view.findById(this.values.id.button)
+            .map((b: HTMLButtonElement) => b.setAttribute('disabled', 'disabled'));
 
     }
 
@@ -115,8 +120,8 @@ export class Button extends G.Group<ButtonAttrs> {
      */
     enable(): void {
 
-        this.view.findById<HTMLButtonElement>(this.values.id.button)
-            .map(b => b.removeAttribute('disabled'));
+        this.view.findById(this.values.id.button)
+            .map((b: HTMLButtonElement) => b.removeAttribute('disabled'));
 
     }
 
@@ -124,8 +129,8 @@ export class Button extends G.Group<ButtonAttrs> {
 
         if (this.attrs.ww)
             if (this.attrs.ww.disabled)
-                this.view.findById<HTMLButtonElement>(this.values.id.button)
-                    .map(b => b.setAttribute('disabled', 'disabled'));
+                this.view.findById(this.values.id.button)
+                    .map((b: HTMLButtonElement) => b.setAttribute('disabled', 'disabled'));
 
     }
 

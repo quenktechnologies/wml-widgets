@@ -61,6 +61,7 @@ export declare class Link extends wml.Component<LinkAttrs> {
             name: string;
             href: string;
             active: boolean;
+            text: string;
         };
     };
     clicked: (e: Event) => void;

@@ -44,7 +44,13 @@ export class Tab extends Component<TabAttrs> {
         },
         class: {
             li: this.attrs.ww.active ? names.ACTIVE : ''
-        }
+        },
+      tab: {
+
+        text : this.attrs.ww.text
+
+      }
+
     };
 
     clicked = (e: Event): void => {

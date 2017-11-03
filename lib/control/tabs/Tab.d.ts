@@ -29,6 +29,9 @@ export declare class Tab extends Component<TabAttrs> {
         class: {
             li: string;
         };
+        tab: {
+            text: string;
+        };
     };
     clicked: (e: Event) => void;
     /**
