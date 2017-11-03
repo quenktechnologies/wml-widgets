@@ -9896,7 +9896,7 @@ input[type="button"].ww-button .__BLOCK__ {
   filter: alpha(opacity=0);
   opacity: 0;
 }
-.ww-menu-button {
+.ww-icon-button {
   padding: 1px 1px;
   border: 1px solid transparent;
   border-radius: 4px;

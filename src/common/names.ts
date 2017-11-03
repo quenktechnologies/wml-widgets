@@ -94,9 +94,9 @@ export const ACTION_BAR = 'ww-action-bar';
 export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 
 /**
- * ICON_BUTTON clasess for the MenuButton.
+ * ICON_BUTTON clasess for IconButtons.
  */
-export const ICON_BUTTON = 'ww-menu-button';
+export const ICON_BUTTON = 'ww-icon-button';
 
 /**
  * BUTTON_MENU classes
