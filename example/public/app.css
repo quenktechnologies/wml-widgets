@@ -2022,11 +2022,12 @@ body {
   color: #333333;
 }
 .ww-drawer-layout > .ww-drawer {
-  background-color: #212121;
+  background-color: #1a1a1a;
 }
 .ww-main-view {
   height: 100%;
   overflow-y: scroll;
+  background-color: #212121;
 }
 /* 
   Originally from bootstrap/mixins/panel.less
