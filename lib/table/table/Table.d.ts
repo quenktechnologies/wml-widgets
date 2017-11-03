@@ -1,4 +1,4 @@
-import { Component, Attrs, View, ContentProvider } from '@quenk/wml';
+import { Component, Attrs, View, ContentProvider, Renderable } from '@quenk/wml';
 import { CellClickedEvent } from './CellClickedEvent';
 import { RowClickedEvent } from './RowClickedEvent';
 import { RowSelectedEvent } from './RowSelectedEvent';
@@ -51,7 +51,7 @@ export interface TableAttrs<D> extends Attrs {
         fields: Field<D>[];
         data: D[];
         model?: TableModel<D>;
-        empty?: () => ContentProvider;
+        empty?: Renderable;
     };
 }
 /**
@@ -72,7 +72,7 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
             heading: string;
         };
         fragment: {
-            empty: () => ContentProvider;
+            empty: Renderable;
         };
         options: {
             selectable: boolean;

@@ -182,7 +182,7 @@ import {Field} from "../Table"
 
       {% if @values.fragment.empty %}
 
-        {{ <(@values.fragment.empty)()> }}
+        {{ @values.fragment.empty.render() }}
 
       {% else %}
 

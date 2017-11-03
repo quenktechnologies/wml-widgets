@@ -1,7 +1,7 @@
 import * as names from '@package/self/common/names';
 import * as view from './wml/table';
 import { concat } from '@package/self/common/util';
-import { Component, Attrs, View, ContentProvider } from '@quenk/wml';
+import { Component, Attrs, View, ContentProvider, Renderable } from '@quenk/wml';
 import { get } from 'property-seek';
 import { CellClickedEvent } from './CellClickedEvent';
 import { RowClickedEvent } from './RowClickedEvent';
@@ -131,7 +131,7 @@ export interface TableAttrs<D> extends Attrs {
         fields: Field<D>[],
         data: D[],
         model?: TableModel<D>,
-        empty?: () => ContentProvider
+        empty?: Renderable
 
     }
 

@@ -143,7 +143,7 @@ export class Table < D > extends $wml.AppView < T.Table < D > > {
                 wml: {}
             }, [$wml.ifthen((___context.values.data.length === 0), function then() {
                 return $wml.ifthen(___context.values.fragment.empty, function then() {
-                    return $wml.domify(___context.values.fragment.empty()(___view))
+                    return $wml.domify(___context.values.fragment.empty.render())
                 }, function else_clause() {
                     return $wml.domify(table()(___context)(___view))
                 })
