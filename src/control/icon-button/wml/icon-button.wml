@@ -3,7 +3,7 @@ import {IconButton} from "../IconButton"
 {% main (IconButton) %}
 
 <button
-  class={{@values.class.root}}
+  class={{@values.button.class}}
   onclick={{@values.button.onClick}}>
 
   {{@children}}

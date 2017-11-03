@@ -14,7 +14,7 @@ export class Main extends $wml.AppView < IconButton > {
         this.template = (___context: IconButton, ___view: $wml.AppView < IconButton > ) =>
             $wml.node('button', {
                 html: {
-                    'class': ___context.values.class.root,
+                    'class': ___context.values.button.class,
                     'onclick': ___context.values.button.onClick
                 },
                 wml: {}
