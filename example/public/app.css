@@ -176,6 +176,11 @@ td,
 th {
   padding: 0;
 }
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
 /**
   This file imports all the global variables needed to style
   the widgets. 
