@@ -1,6 +1,6 @@
-import {Group, GroupAttrs} from '@package/self/content/Group';
+import { View, Renderable } from '@quenk/wml';
+import { Group, GroupAttrs } from '@package/self/content/Group';
 import * as names from '@package/self/common/names';
-import {  View } from '@quenk/wml';
 import { Main } from './wml/drawer';
 import { Aside } from '@package/self/layout/aside/Aside';
 
@@ -57,7 +57,7 @@ export class Drawer extends Group<DrawerAttrs>{
             CONTENT: 'ww:content'
 
         },
-      content: (this.attrs.ww && this.attrs.ww.content) ? this.attrs.ww.content: null
+        content: <Renderable>(this.attrs.ww && this.attrs.ww.content) ? this.attrs.ww.content : null
 
     }
 

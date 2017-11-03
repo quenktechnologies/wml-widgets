@@ -1,5 +1,4 @@
 import {Aside} from "../Aside"
-import {Renderable} from "@quenk/wml"
 
 {% main (Aside) %}
 
@@ -9,9 +8,9 @@ import {Renderable} from "@quenk/wml"
 
   <div class={{@values.class.content}}>
 
-      {% if @attrs['ww:content' as Renderable] %}
+      {% if @values.content %}
 
-        {{ (@attrs['ww:content' as Renderable]).render() }}
+        {{ @values.content.render() }}
 
       {% else %}
 

@@ -38,7 +38,7 @@ export class Aside extends Group<AsideAttrs>{
 
     };
 
-  view: wml.View = new Main(this);
+    view: wml.View = new Main(this);
 
     _getDrawerDOM<R>(f: (e: Element) => R): R | null {
 

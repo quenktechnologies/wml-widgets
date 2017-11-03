@@ -1,10 +1,7 @@
 import * as $wml from '@quenk/wml';
 import {
     Aside
-} from '../Aside';;
-import {
-    Renderable
-} from '@quenk/wml';
+} from '../Aside';
 
 
 
@@ -27,8 +24,8 @@ export class Main extends $wml.AppView < Aside > {
                     'class': ___context.values.class.content
                 },
                 wml: {}
-            }, [$wml.ifthen($wml.read < Renderable > (`ww:content`, ___context.attrs), function then() {
-                return $wml.domify($wml.read < Renderable > (`ww:content`, ___context.attrs).render())
+            }, [$wml.ifthen(___context.values.content, function then() {
+                return $wml.domify(___context.values.content.render())
             }, function else_clause() {
                 return $wml.domify(___context.children)
             })], ___view)], ___view);
