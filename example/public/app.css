@@ -2485,9 +2485,6 @@ body {
   justify-content: flex-start;
   padding: 1rem 1rem;
 }
-.ww-action-bar + * {
-  padding-top: 4em;
-}
 .ww-action-bar :empty {
   padding: 0 0 0 0;
 }
