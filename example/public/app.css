@@ -2021,6 +2021,9 @@ body {
   background-color: #212121;
   color: #333333;
 }
+.ww-drawer-layout > .ww-drawer {
+  background-color: #212121;
+}
 .ww-main-view {
   height: 100%;
   overflow-y: scroll;
@@ -2449,6 +2452,7 @@ body {
 .ww-action-bar {
   width: 100%;
   height: auto;
+  min-height: 4em;
   display: block;
   position: fixed;
   top: 0;

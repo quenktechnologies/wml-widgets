@@ -11,6 +11,7 @@
 
   .width(@action-bar-width);
   .-auto-height;
+  .min-height(@action-bar-min-height);
   .-block-display;
   .-fixed-position;
   .-no-top;
@@ -35,7 +36,7 @@
 
   & + * { 
   
-    .padding-top(@action-bar-height); 
+    .padding-top(@action-bar-min-height); 
 
   } 
 
