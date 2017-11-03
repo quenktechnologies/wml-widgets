@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -14,34 +14,34 @@ import {
 
 
 
-export class Main extends $wml.AppView < ButtonSelectPage > {
+export class Main extends ___wml.AppView < ButtonSelectPage > {
 
     constructor(context: ButtonSelectPage) {
 
         super(context);
 
-        this.template = (___context: ButtonSelectPage, ___view: $wml.AppView < ButtonSelectPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: ButtonSelectPage, ___view: ___wml.AppView < ButtonSelectPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`You selected: `), $wml.node('b', {
+            }, [___wml.text(`You selected: `), ___wml.node('b', {
                 html: {},
                 wml: {
                     'id': `select-content`
                 }
-            }, [$wml.text(`(None)`)], ___view), $wml.text(`.`)], ___view), $wml.node('p', {
+            }, [___wml.text(`(None)`)], ___view), ___wml.text(`.`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(ButtonSelect, {
+            }, [___wml.widget(ButtonSelect, {
                 html: {},
                 wml: {
                     'id': `select`
@@ -52,24 +52,24 @@ export class Main extends $wml.AppView < ButtonSelectPage > {
                     'options': ___context.values.options,
                     'onChange': ___context.onChange
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Row, {
+            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`You can also use MultiButtonSelect instead: `), $wml.node('b', {
+            }, [___wml.text(`You can also use MultiButtonSelect instead: `), ___wml.node('b', {
                 html: {},
                 wml: {
                     'id': `multi-content`
                 }
-            }, [$wml.text(`(None)`)], ___view), $wml.text(`.`)], ___view), $wml.node('p', {
+            }, [___wml.text(`(None)`)], ___view), ___wml.text(`.`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(MultiButtonSelect, {
+            }, [___wml.widget(MultiButtonSelect, {
                 html: {},
                 wml: {
                     'id': `multi`

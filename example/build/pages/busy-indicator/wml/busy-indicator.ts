@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     BusyIndicator
 } from '@package/self/app/busy-indicator/BusyIndicator';;
@@ -13,23 +13,23 @@ import {
 
 
 
-export class Main extends $wml.AppView < BusyIndicatorPage > {
+export class Main extends ___wml.AppView < BusyIndicatorPage > {
 
     constructor(context: BusyIndicatorPage) {
 
         super(context);
 
-        this.template = (___context: BusyIndicatorPage, ___view: $wml.AppView < BusyIndicatorPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: BusyIndicatorPage, ___view: ___wml.AppView < BusyIndicatorPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(BusyIndicator, {
+            }, [___wml.widget(BusyIndicator, {
                 html: {},
                 wml: {}
             }, [], ___view)], ___view)], ___view)], ___view);

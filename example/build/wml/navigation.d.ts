@@ -1,5 +1,5 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import { App } from '../app';
-export declare class Navigation extends $wml.AppView<App> {
+export declare class Navigation extends ___wml.AppView<App> {
     constructor(context: App);
 }

@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -13,34 +13,34 @@ import {
 
 
 
-export class Main extends $wml.AppView < DatePage > {
+export class Main extends ___wml.AppView < DatePage > {
 
     constructor(context: DatePage) {
 
         super(context);
 
-        this.template = (___context: DatePage, ___view: $wml.AppView < DatePage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: DatePage, ___view: ___wml.AppView < DatePage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`The date is : `), $wml.node('b', {
+            }, [___wml.text(`The date is : `), ___wml.node('b', {
                 html: {},
                 wml: {
                     'id': `selected`
                 }
-            }, [$wml.text(`(None selected)`)], ___view), $wml.text(`.`)], ___view), $wml.node('p', {
+            }, [___wml.text(`(None selected)`)], ___view), ___wml.text(`.`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Date, {
+            }, [___wml.widget(Date, {
                 html: {},
                 wml: {
                     'id': `date`

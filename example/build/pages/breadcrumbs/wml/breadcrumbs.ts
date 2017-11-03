@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -19,47 +19,47 @@ import {
 
 
 
-export class Main extends $wml.AppView < BreadCrumbsPage > {
+export class Main extends ___wml.AppView < BreadCrumbsPage > {
 
     constructor(context: BreadCrumbsPage) {
 
         super(context);
 
-        this.template = (___context: BreadCrumbsPage, ___view: $wml.AppView < BreadCrumbsPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: BreadCrumbsPage, ___view: ___wml.AppView < BreadCrumbsPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(BreadCrumbs, {
+            }, [___wml.widget(BreadCrumbs, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `One`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Two`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {},
                 ww: {

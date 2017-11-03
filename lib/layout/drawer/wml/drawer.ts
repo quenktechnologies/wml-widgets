@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Aside
 } from '@package/self/layout/aside/Aside';;
@@ -8,21 +8,21 @@ import {
 
 
 
-export class Main extends $wml.AppView < Drawer > {
+export class Main extends ___wml.AppView < Drawer > {
 
     constructor(context: Drawer) {
 
         super(context);
 
-        this.template = (___context: Drawer, ___view: $wml.AppView < Drawer > ) =>
-            $wml.node('div', {
+        this.template = (___context: Drawer, ___view: ___wml.AppView < Drawer > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root
                 },
                 wml: {
                     'id': ___context.values.id.root
                 }
-            }, [$wml.widget(Aside, {
+            }, [___wml.widget(Aside, {
                 html: {},
                 wml: {
                     'id': ___context.values.id.drawer
@@ -30,13 +30,13 @@ export class Main extends $wml.AppView < Drawer > {
                 ww: {
                     'content': ___context.values.aside.content
                 }
-            }, [], ___view), $wml.ifthen(___context.content, function then() {
-                return $wml.domify(___context.content)
+            }, [], ___view), ___wml.ifthen(___context.content, function then() {
+                return ___wml.domify(___context.content)
             }, function elseif() {
-                return $wml.ifthen(___context.values.content, function then() {
-                    return $wml.domify(___context.values.content.render());
+                return ___wml.ifthen(___context.values.content, function then() {
+                    return ___wml.domify(___context.values.content.render());
                 }, function else_clause() {
-                    return $wml.domify(___context.children)
+                    return ___wml.domify(___context.children)
                 });
             })], ___view);
 

@@ -1,26 +1,26 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Header
 } from '../Header';
 
 
 
-export class Main extends $wml.AppView < Header > {
+export class Main extends ___wml.AppView < Header > {
 
     constructor(context: Header) {
 
         super(context);
 
-        this.template = (___context: Header, ___view: $wml.AppView < Header > ) =>
-            $wml.node('li', {
+        this.template = (___context: Header, ___view: ___wml.AppView < Header > ) =>
+            ___wml.node('li', {
                 html: {
                     'class': ___context.values.class.root
                 },
                 wml: {}
-            }, [$wml.ifthen(___context.values.text, function then() {
-                return $wml.domify(___context.values.text)
+            }, [___wml.ifthen(___context.values.text, function then() {
+                return ___wml.domify(___context.values.text)
             }, function else_clause() {
-                return $wml.domify(___context.children)
+                return ___wml.domify(___context.children)
             })], ___view);
 
     }

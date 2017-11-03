@@ -1,9 +1,9 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import { Tabs as TabsContext } from '../Tabs';
 import { Tab as TabContext } from '../Tab';
-export declare class Tab extends $wml.AppView<TabContext> {
+export declare class Tab extends ___wml.AppView<TabContext> {
     constructor(context: TabContext);
 }
-export declare class Tabs extends $wml.AppView<TabsContext> {
+export declare class Tabs extends ___wml.AppView<TabsContext> {
     constructor(context: TabsContext);
 }

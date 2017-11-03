@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
 var menu_1 = require("@package/self/menu");
@@ -20,53 +20,53 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(menu_1.Menu, {
+                    }, [___wml.widget(menu_1.Menu, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(menu_1.Header, {
+                        }, [___wml.widget(menu_1.Header, {
                                 html: {},
                                 wml: {},
                                 ww: {
                                     'text': "Heading"
                                 }
-                            }, [], ___view), $wml.widget(menu_1.MenuItem, {
+                            }, [], ___view), ___wml.widget(menu_1.MenuItem, {
                                 html: {},
                                 wml: {},
                                 ww: {
                                     'disabled': true,
                                     'text': "Back"
                                 }
-                            }, [], ___view), $wml.widget(menu_1.MenuItem, {
+                            }, [], ___view), ___wml.widget(menu_1.MenuItem, {
                                 html: {},
                                 wml: {},
                                 ww: {
                                     'text': "Refresh"
                                 }
-                            }, [], ___view), $wml.widget(menu_1.Divider, {
+                            }, [], ___view), ___wml.widget(menu_1.Divider, {
                                 html: {},
                                 wml: {}
-                            }, [], ___view), $wml.widget(menu_1.MenuItem, {
+                            }, [], ___view), ___wml.widget(menu_1.MenuItem, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.node('a', {
+                            }, [___wml.node('a', {
                                     html: {
                                         'href': "#/menu"
                                     },
                                     wml: {}
-                                }, [$wml.text("Quit")], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
+                                }, [___wml.text("Quit")], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
         };
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=menu.js.map

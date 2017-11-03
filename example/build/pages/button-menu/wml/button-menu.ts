@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -16,62 +16,62 @@ import {
 
 
 
-export class Main extends $wml.AppView < ButtonMenuPage > {
+export class Main extends ___wml.AppView < ButtonMenuPage > {
 
     constructor(context: ButtonMenuPage) {
 
         super(context);
 
-        this.template = (___context: ButtonMenuPage, ___view: $wml.AppView < ButtonMenuPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: ButtonMenuPage, ___view: ___wml.AppView < ButtonMenuPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {},
                 ww: {
                     'size': 6
                 }
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(ButtonMenu, {
+            }, [___wml.widget(ButtonMenu, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Click Me`
                 }
-            }, [$wml.widget(MenuItem, {
+            }, [___wml.widget(MenuItem, {
                 html: {},
                 wml: {}
-            }, [$wml.node('a', {
+            }, [___wml.node('a', {
                 html: {
                     'href': `#`,
                     'onclick': ___context.onClick(`You clicked one`)
                 },
                 wml: {}
-            }, [$wml.text(`One`)], ___view)], ___view), $wml.widget(MenuItem, {
+            }, [___wml.text(`One`)], ___view)], ___view), ___wml.widget(MenuItem, {
                 html: {},
                 wml: {}
-            }, [$wml.node('a', {
+            }, [___wml.node('a', {
                 html: {
                     'href': `#`,
                     'onclick': ___context.onClick(`You clicked two`)
                 },
                 wml: {}
-            }, [$wml.text(`Two`)], ___view)], ___view), $wml.widget(MenuItem, {
+            }, [___wml.text(`Two`)], ___view)], ___view), ___wml.widget(MenuItem, {
                 html: {},
                 wml: {}
-            }, [$wml.node('a', {
+            }, [___wml.node('a', {
                 html: {
                     'href': `#`,
                     'onclick': ___context.onClick(`You clicked three`)
                 },
                 wml: {}
-            }, [$wml.text(`Three`)], ___view)], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [___wml.text(`Three`)], ___view)], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
 
     }
 

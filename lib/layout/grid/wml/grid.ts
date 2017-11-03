@@ -1,53 +1,53 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import * as G from '../Grid';
 
-export class Grid extends $wml.AppView < G.Grid > {
+export class Grid extends ___wml.AppView < G.Grid > {
 
     constructor(context: G.Grid) {
 
         super(context);
 
-        this.template = (___context: G.Grid, ___view: $wml.AppView < G.Grid > ) =>
-            $wml.node('section', {
+        this.template = (___context: G.Grid, ___view: ___wml.AppView < G.Grid > ) =>
+            ___wml.node('section', {
                 html: {
                     'class': ___context.values.class.root
                 },
                 wml: {}
-            }, [$wml.domify(___context.children)], ___view);
+            }, [___wml.domify(___context.children)], ___view);
 
     }
 
 };
-export class Row extends $wml.AppView < G.Row > {
+export class Row extends ___wml.AppView < G.Row > {
 
     constructor(context: G.Row) {
 
         super(context);
 
-        this.template = (___context: G.Row, ___view: $wml.AppView < G.Row > ) =>
-            $wml.node('div', {
+        this.template = (___context: G.Row, ___view: ___wml.AppView < G.Row > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root
                 },
                 wml: {}
-            }, [$wml.domify(___context.children)], ___view);
+            }, [___wml.domify(___context.children)], ___view);
 
     }
 
 };
-export class Column extends $wml.AppView < G.Column > {
+export class Column extends ___wml.AppView < G.Column > {
 
     constructor(context: G.Column) {
 
         super(context);
 
-        this.template = (___context: G.Column, ___view: $wml.AppView < G.Column > ) =>
-            $wml.node('div', {
+        this.template = (___context: G.Column, ___view: ___wml.AppView < G.Column > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root
                 },
                 wml: {}
-            }, [$wml.domify(___context.children)], ___view);
+            }, [___wml.domify(___context.children)], ___view);
 
     }
 

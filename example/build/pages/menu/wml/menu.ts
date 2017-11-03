@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -16,56 +16,56 @@ import {
 
 
 
-export class Main extends $wml.AppView < MenuPage > {
+export class Main extends ___wml.AppView < MenuPage > {
 
     constructor(context: MenuPage) {
 
         super(context);
 
-        this.template = (___context: MenuPage, ___view: $wml.AppView < MenuPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: MenuPage, ___view: ___wml.AppView < MenuPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Menu, {
+            }, [___wml.widget(Menu, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Header, {
+            }, [___wml.widget(Header, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Heading`
                 }
-            }, [], ___view), $wml.widget(MenuItem, {
+            }, [], ___view), ___wml.widget(MenuItem, {
                 html: {},
                 wml: {},
                 ww: {
                     'disabled': true,
                     'text': `Back`
                 }
-            }, [], ___view), $wml.widget(MenuItem, {
+            }, [], ___view), ___wml.widget(MenuItem, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Refresh`
                 }
-            }, [], ___view), $wml.widget(Divider, {
+            }, [], ___view), ___wml.widget(Divider, {
                 html: {},
                 wml: {}
-            }, [], ___view), $wml.widget(MenuItem, {
+            }, [], ___view), ___wml.widget(MenuItem, {
                 html: {},
                 wml: {}
-            }, [$wml.node('a', {
+            }, [___wml.node('a', {
                 html: {
                     'href': `#/menu`
                 },
                 wml: {}
-            }, [$wml.text(`Quit`)], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [___wml.text(`Quit`)], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
 
     }
 

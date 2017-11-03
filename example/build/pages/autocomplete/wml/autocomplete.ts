@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -14,37 +14,37 @@ import {
 
 
 
-export class Main extends $wml.AppView < AutocompletePage > {
+export class Main extends ___wml.AppView < AutocompletePage > {
 
     constructor(context: AutocompletePage) {
 
         super(context);
 
-        this.template = (___context: AutocompletePage, ___view: $wml.AppView < AutocompletePage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: AutocompletePage, ___view: ___wml.AppView < AutocompletePage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {},
                 ww: {
                     'size': 6
                 }
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`You selected: `), $wml.node('b', {
+            }, [___wml.text(`You selected: `), ___wml.node('b', {
                 html: {},
                 wml: {
                     'id': `selected`
                 }
-            }, [$wml.text(`(nothing)`)], ___view), $wml.text(`.`)], ___view), $wml.node('p', {
+            }, [___wml.text(`(nothing)`)], ___view), ___wml.text(`.`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Autocomplete, {
+            }, [___wml.widget(Autocomplete, {
                 html: {},
                 wml: {
                     'id': ___context.values.id

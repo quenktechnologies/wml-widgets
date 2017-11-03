@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -13,34 +13,34 @@ import {
 
 
 
-export class Main extends $wml.AppView < TextFieldPage > {
+export class Main extends ___wml.AppView < TextFieldPage > {
 
     constructor(context: TextFieldPage) {
 
         super(context);
 
-        this.template = (___context: TextFieldPage, ___view: $wml.AppView < TextFieldPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: TextFieldPage, ___view: ___wml.AppView < TextFieldPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`The value of the input is:`)], ___view), $wml.node('p', {
+            }, [___wml.text(`The value of the input is:`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {
                     'id': `content`
                 }
-            }, [$wml.domify(`(Nothing)`)], ___view), $wml.node('p', {
+            }, [___wml.domify(`(Nothing)`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(TextField, {
+            }, [___wml.widget(TextField, {
                 html: {},
                 wml: {
                     'id': `text`
@@ -49,19 +49,19 @@ export class Main extends $wml.AppView < TextFieldPage > {
                     'name': `text`,
                     'onChange': ___context.onChange
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Row, {
+            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`The one uses rows to render a text area:`)], ___view), $wml.node('p', {
+            }, [___wml.text(`The one uses rows to render a text area:`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(TextField, {
+            }, [___wml.widget(TextField, {
                 html: {},
                 wml: {},
                 ww: {

@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -13,37 +13,37 @@ import {
 
 
 
-export class Main extends $wml.AppView < StackPage > {
+export class Main extends ___wml.AppView < StackPage > {
 
     constructor(context: StackPage) {
 
         super(context);
 
-        this.template = (___context: StackPage, ___view: $wml.AppView < StackPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: StackPage, ___view: ___wml.AppView < StackPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {},
                 ww: {
                     'size': 4
                 }
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`Members: `), $wml.node('b', {
+            }, [___wml.text(`Members: `), ___wml.node('b', {
                 html: {},
                 wml: {
                     'id': `selected`
                 }
-            }, [$wml.domify(___context.values.text)], ___view), $wml.text(`.`)], ___view), $wml.node('p', {
+            }, [___wml.domify(___context.values.text)], ___view), ___wml.text(`.`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Stack, {
+            }, [___wml.widget(Stack, {
                 html: {},
                 wml: {},
                 ww: {

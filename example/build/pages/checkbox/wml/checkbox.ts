@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -13,34 +13,34 @@ import {
 
 
 
-export class Main extends $wml.AppView < CheckboxPage > {
+export class Main extends ___wml.AppView < CheckboxPage > {
 
     constructor(context: CheckboxPage) {
 
         super(context);
 
-        this.template = (___context: CheckboxPage, ___view: $wml.AppView < CheckboxPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: CheckboxPage, ___view: ___wml.AppView < CheckboxPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.node('p', {
+            }, [___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`The checkbox is `), $wml.node('b', {
+            }, [___wml.text(`The checkbox is `), ___wml.node('b', {
                 html: {},
                 wml: {
                     'id': `content`
                 }
-            }, [$wml.text(`untouched`)], ___view), $wml.text(`.`)], ___view), $wml.node('p', {
+            }, [___wml.text(`untouched`)], ___view), ___wml.text(`.`)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Checkbox, {
+            }, [___wml.widget(Checkbox, {
                 html: {},
                 wml: {},
                 ww: {

@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -13,23 +13,23 @@ import {
 
 
 
-export class Main extends $wml.AppView < TablePage > {
+export class Main extends ___wml.AppView < TablePage > {
 
     constructor(context: TablePage) {
 
         super(context);
 
-        this.template = (___context: TablePage, ___view: $wml.AppView < TablePage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: TablePage, ___view: ___wml.AppView < TablePage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Table, {
+            }, [___wml.widget(Table, {
                 html: {},
                 wml: {},
                 ww: {

@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Button
 } from '@package/self/control/button/Button';;
@@ -11,20 +11,20 @@ import {
 
 
 
-export class Main < V, OV, A extends ButtonSelectGroupAttrs < V, OV > > extends $wml.AppView < ButtonSelectGroup < V, OV, A > > {
+export class Main < V, OV, A extends ButtonSelectGroupAttrs < V, OV > > extends ___wml.AppView < ButtonSelectGroup < V, OV, A > > {
 
     constructor(context: ButtonSelectGroup < V, OV, A > ) {
 
         super(context);
 
-        this.template = (___context: ButtonSelectGroup < V, OV, A > , ___view: $wml.AppView < ButtonSelectGroup < V, OV, A > > ) =>
-            $wml.node('div', {
+        this.template = (___context: ButtonSelectGroup < V, OV, A > , ___view: ___wml.AppView < ButtonSelectGroup < V, OV, A > > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.map(___context.values.select.options, function _map(opt) {
-                return $wml.widget(Button, {
+            }, [___wml.map(___context.values.select.options, function _map(opt) {
+                return ___wml.widget(Button, {
                     html: {},
                     wml: {},
                     ww: {

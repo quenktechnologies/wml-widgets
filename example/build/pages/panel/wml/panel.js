@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
 var Panel_1 = require("@package/self/layout/panel/Panel");
@@ -21,62 +21,62 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {},
                         ww: {
                             'size': 4
                         }
-                    }, [$wml.widget(Panel_1.Panel, {
+                    }, [___wml.widget(Panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Panel_1.Body, {
+                        }, [___wml.widget(Panel_1.Body, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.text("Body only.")], ___view)], ___view)], ___view), $wml.widget(Grid_1.Column, {
+                            }, [___wml.text("Body only.")], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {},
                         ww: {
                             'size': 4
                         }
-                    }, [$wml.widget(Panel_1.Panel, {
+                    }, [___wml.widget(Panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Panel_1.Header, {
+                        }, [___wml.widget(Panel_1.Header, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.text("With Header")], ___view), $wml.widget(Panel_1.Body, {
+                            }, [___wml.text("With Header")], ___view), ___wml.widget(Panel_1.Body, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.text("Lorem impsum dilium net set.")], ___view)], ___view)], ___view), $wml.widget(Grid_1.Column, {
+                            }, [___wml.text("Lorem impsum dilium net set.")], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {},
                         ww: {
                             'size': 4
                         }
-                    }, [$wml.widget(Panel_1.Panel, {
+                    }, [___wml.widget(Panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Panel_1.Header, {
+                        }, [___wml.widget(Panel_1.Header, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.text("With Footer")], ___view), $wml.widget(Panel_1.Body, {
+                            }, [___wml.text("With Footer")], ___view), ___wml.widget(Panel_1.Body, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.text("Lorem impsum dilium net set.")], ___view), $wml.widget(Panel_1.Footer, {
+                            }, [___wml.text("Lorem impsum dilium net set.")], ___view), ___wml.widget(Panel_1.Footer, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.text("Meh foot.")], ___view)], ___view)], ___view)], ___view)], ___view);
+                            }, [___wml.text("Meh foot.")], ___view)], ___view)], ___view)], ___view)], ___view);
         };
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=panel.js.map

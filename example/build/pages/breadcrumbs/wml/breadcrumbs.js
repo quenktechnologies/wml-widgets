@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
 var BreadCrumbs_1 = require("@package/self/nav/breadcrumbs/BreadCrumbs");
@@ -24,40 +24,40 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(BreadCrumbs_1.BreadCrumbs, {
+                    }, [___wml.widget(BreadCrumbs_1.BreadCrumbs, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Item_1.Item, {
+                        }, [___wml.widget(Item_1.Item, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.widget(Link_1.Link, {
+                            }, [___wml.widget(Link_1.Link, {
                                     html: {},
                                     wml: {},
                                     ww: {
                                         'text': "One"
                                     }
-                                }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                                }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.widget(Link_1.Link, {
+                            }, [___wml.widget(Link_1.Link, {
                                     html: {},
                                     wml: {},
                                     ww: {
                                         'text': "Two"
                                     }
-                                }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                                }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                                 html: {},
                                 wml: {}
-                            }, [$wml.widget(Link_1.Link, {
+                            }, [___wml.widget(Link_1.Link, {
                                     html: {},
                                     wml: {},
                                     ww: {
@@ -68,6 +68,6 @@ var Main = /** @class */ (function (_super) {
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=breadcrumbs.js.map

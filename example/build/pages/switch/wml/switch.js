@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
 var Switch_1 = require("@package/self/control/switch/Switch");
@@ -20,27 +20,27 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.node('p', {
+                    }, [___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.text("The switch is "), $wml.node('b', {
+                        }, [___wml.text("The switch is "), ___wml.node('b', {
                                 html: {},
                                 wml: {
                                     'id': "content"
                                 }
-                            }, [$wml.text("untouched")], ___view), $wml.text(".")], ___view), $wml.node('p', {
+                            }, [___wml.text("untouched")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Switch_1.Switch, {
+                        }, [___wml.widget(Switch_1.Switch, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -52,6 +52,6 @@ var Main = /** @class */ (function (_super) {
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=switch.js.map

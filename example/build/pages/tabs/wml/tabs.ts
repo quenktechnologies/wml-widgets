@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Grid,
     Row,
@@ -16,26 +16,26 @@ import {
 
 
 
-export class Main extends $wml.AppView < TabsPage > {
+export class Main extends ___wml.AppView < TabsPage > {
 
     constructor(context: TabsPage) {
 
         super(context);
 
-        this.template = (___context: TabsPage, ___view: $wml.AppView < TabsPage > ) =>
-            $wml.widget(Grid, {
+        this.template = (___context: TabsPage, ___view: ___wml.AppView < TabsPage > ) =>
+            ___wml.widget(Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Row, {
+            }, [___wml.widget(Row, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Column, {
+            }, [___wml.widget(Column, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Tabs, {
+            }, [___wml.widget(Tabs, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Tab, {
+            }, [___wml.widget(Tab, {
                 html: {},
                 wml: {},
                 ww: {
@@ -44,7 +44,7 @@ export class Main extends $wml.AppView < TabsPage > {
                     'name': `First`,
                     'onClick': ___context.clicked
                 }
-            }, [], ___view), $wml.widget(Tab, {
+            }, [], ___view), ___wml.widget(Tab, {
                 html: {},
                 wml: {},
                 ww: {
@@ -53,7 +53,7 @@ export class Main extends $wml.AppView < TabsPage > {
                     'name': `Second`,
                     'onClick': ___context.clicked
                 }
-            }, [], ___view), $wml.widget(Tab, {
+            }, [], ___view), ___wml.widget(Tab, {
                 html: {},
                 wml: {},
                 ww: {
@@ -62,12 +62,12 @@ export class Main extends $wml.AppView < TabsPage > {
                     'name': `Third`,
                     'onClick': ___context.clicked
                 }
-            }, [], ___view)], ___view), $wml.node('p', {
+            }, [], ___view)], ___view), ___wml.node('p', {
                 html: {},
                 wml: {
                     'id': `content`
                 }
-            }, [$wml.domify(___context.content)], ___view)], ___view)], ___view)], ___view);
+            }, [___wml.domify(___context.content)], ___view)], ___view)], ___view)], ___view);
 
     }
 

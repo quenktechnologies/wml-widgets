@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     message
 } from '@package/self/control/wml';;
@@ -14,19 +14,19 @@ import {
 
 
 
-export class Main extends $wml.AppView < Date > {
+export class Main extends ___wml.AppView < Date > {
 
     constructor(context: Date) {
 
         super(context);
 
-        this.template = (___context: Date, ___view: $wml.AppView < Date > ) =>
-            $wml.node('div', {
+        this.template = (___context: Date, ___view: ___wml.AppView < Date > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.widget(Select, {
+            }, [___wml.widget(Select, {
                 html: {},
                 wml: {
                     'id': ___context.values.month.id
@@ -39,14 +39,14 @@ export class Main extends $wml.AppView < Date > {
                     'class': ___context.values.month.class,
                     'options': ___context.values.date.months
                 }
-            }, [$wml.node('option', {
+            }, [___wml.node('option', {
                 html: {
                     'selected': true,
                     'value': ``,
                     'disabled': true
                 },
                 wml: {}
-            }, [$wml.text(`Month`)], ___view)], ___view), $wml.widget(TextField, {
+            }, [___wml.text(`Month`)], ___view)], ___view), ___wml.widget(TextField, {
                 html: {},
                 wml: {
                     'id': ___context.values.day.id
@@ -60,7 +60,7 @@ export class Main extends $wml.AppView < Date > {
                     'class': ___context.values.day.class,
                     'placeholder': `DD`
                 }
-            }, [], ___view), $wml.widget(TextField, {
+            }, [], ___view), ___wml.widget(TextField, {
                 html: {},
                 wml: {
                     'id': ___context.values.year.id
@@ -74,7 +74,7 @@ export class Main extends $wml.AppView < Date > {
                     'class': ___context.values.year.class,
                     'placeholder': `YYYY`
                 }
-            }, [], ___view), $wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
 
     }
 

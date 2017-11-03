@@ -10,20 +10,20 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.node('b', {
+            return ___wml.node('b', {
                 html: {},
                 wml: {}
-            }, [$wml.text("Index")], ___view);
+            }, [___wml.text("Index")], ___view);
         };
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=home.js.map

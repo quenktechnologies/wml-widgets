@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 ;
 var List_1 = require("@package/self/nav/list/List");
 ;
@@ -24,13 +24,13 @@ var Navigation = /** @class */ (function (_super) {
     function Navigation(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(List_1.List, {
+            return ___wml.widget(List_1.List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item_1.Item, {
+            }, [___wml.widget(Item_1.Item, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Link_1.Link, {
+                }, [___wml.widget(Link_1.Link, {
                         html: {},
                         wml: {
                             'group': "links"
@@ -42,22 +42,22 @@ var Navigation = /** @class */ (function (_super) {
                             'onClick': ___context.navigate,
                             'text': "Home"
                         }
-                    }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                    }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Text_1.Text, {
+                }, [___wml.widget(Text_1.Text, {
                         html: {},
                         wml: {},
                         ww: {
                             'text': "Layout"
                         }
-                    }, [], ___view), $wml.widget(List_1.List, {
+                    }, [], ___view), ___wml.widget(List_1.List, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(Item_1.Item, {
+                    }, [___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -69,22 +69,22 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "panel"),
                                     'text': "Panels"
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item_1.Item, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Text_1.Text, {
+                }, [___wml.widget(Text_1.Text, {
                         html: {},
                         wml: {},
                         ww: {
                             'text': "Table"
                         }
-                    }, [], ___view), $wml.widget(List_1.List, {
+                    }, [], ___view), ___wml.widget(List_1.List, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(Item_1.Item, {
+                    }, [___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -96,22 +96,22 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "table"),
                                     'text': "Table"
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item_1.Item, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Text_1.Text, {
+                }, [___wml.widget(Text_1.Text, {
                         html: {},
                         wml: {},
                         ww: {
                             'text': "Control"
                         }
-                    }, [], ___view), $wml.widget(List_1.List, {
+                    }, [], ___view), ___wml.widget(List_1.List, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(Item_1.Item, {
+                    }, [___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -123,10 +123,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "text-field"),
                                     'text': "Text Field"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -138,10 +138,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "date"),
                                     'text': "Date"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -153,10 +153,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "select"),
                                     'text': "Select"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -168,10 +168,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "autocomplete"),
                                     'text': "Autocomplete"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -183,10 +183,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "button-select"),
                                     'text': "Button Select"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -198,10 +198,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "checkbox"),
                                     'text': "Checkbox"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -213,10 +213,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "switch"),
                                     'text': "Switch"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -228,10 +228,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "tabs"),
                                     'text': "Tabs"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -243,10 +243,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "stack"),
                                     'text': "Stack"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -258,22 +258,22 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "search-stack"),
                                     'text': "Search Stack"
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item_1.Item, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Text_1.Text, {
+                }, [___wml.widget(Text_1.Text, {
                         html: {},
                         wml: {},
                         ww: {
                             'text': "App"
                         }
-                    }, [], ___view), $wml.widget(List_1.List, {
+                    }, [], ___view), ___wml.widget(List_1.List, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(Item_1.Item, {
+                    }, [___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -285,22 +285,22 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "busy-indicator"),
                                     'text': "Busy Indicator"
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item_1.Item, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Text_1.Text, {
+                }, [___wml.widget(Text_1.Text, {
                         html: {},
                         wml: {},
                         ww: {
                             'text': "Nav"
                         }
-                    }, [], ___view), $wml.widget(List_1.List, {
+                    }, [], ___view), ___wml.widget(List_1.List, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(Item_1.Item, {
+                    }, [___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -312,22 +312,22 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "breadcrumbs"),
                                     'text': "BreadCrumbs"
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item_1.Item, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Text_1.Text, {
+                }, [___wml.widget(Text_1.Text, {
                         html: {},
                         wml: {},
                         ww: {
                             'text': "Menu"
                         }
-                    }, [], ___view), $wml.widget(List_1.List, {
+                    }, [], ___view), ___wml.widget(List_1.List, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(Item_1.Item, {
+                    }, [___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -339,10 +339,10 @@ var Navigation = /** @class */ (function (_super) {
                                     'active': (___context.page === "menu"),
                                     'text': "Menu"
                                 }
-                            }, [], ___view)], ___view), $wml.widget(Item_1.Item, {
+                            }, [], ___view)], ___view), ___wml.widget(Item_1.Item, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Link_1.Link, {
+                        }, [___wml.widget(Link_1.Link, {
                                 html: {},
                                 wml: {
                                     'group': "links"
@@ -359,6 +359,6 @@ var Navigation = /** @class */ (function (_super) {
         return _this;
     }
     return Navigation;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Navigation = Navigation;
 //# sourceMappingURL=navigation.js.map

@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Select
 } from '../Select';;
@@ -9,19 +9,19 @@ import {
 
 
 
-export class Main extends $wml.AppView < Select > {
+export class Main extends ___wml.AppView < Select > {
 
     constructor(context: Select) {
 
         super(context);
 
-        this.template = (___context: Select, ___view: $wml.AppView < Select > ) =>
-            $wml.node('div', {
+        this.template = (___context: Select, ___view: ___wml.AppView < Select > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), $wml.node('select', {
+            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ___wml.node('select', {
                 html: {
                     'name': ___context.values.select.name,
                     'onchange': ___context.values.select.onChange,
@@ -33,23 +33,23 @@ export class Main extends $wml.AppView < Select > {
                 wml: {
                     'id': ___context.values.select.id
                 }
-            }, [$wml.node('option', {
+            }, [___wml.node('option', {
                 html: {
                     'value': ``,
                     'disabeld': true
                 },
                 wml: {}
-            }, [$wml.domify(___context.values.select.placeholder)], ___view), $wml.map(___context.values.select.options, function _map(opt) {
-                return $wml.node('option', {
+            }, [___wml.domify(___context.values.select.placeholder)], ___view), ___wml.map(___context.values.select.options, function _map(opt) {
+                return ___wml.node('option', {
                     html: {
                         'value': ___context.values.select.optValue(opt),
                         'selected': ___context.values.select.isSelected(___context.values.select.optValue(opt))
                     },
                     wml: {}
-                }, [$wml.domify(___context.values.select.optLabel(opt))], ___view)
+                }, [___wml.domify(___context.values.select.optLabel(opt))], ___view)
             }, function otherwise() {
                 return document.createDocumentFragment();
-            })], ___view), $wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+            })], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
 
     }
 

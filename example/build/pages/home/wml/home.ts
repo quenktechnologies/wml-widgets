@@ -1,21 +1,21 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     HomePage
 } from '../';
 
 
 
-export class Main extends $wml.AppView < HomePage > {
+export class Main extends ___wml.AppView < HomePage > {
 
     constructor(context: HomePage) {
 
         super(context);
 
-        this.template = (___context: HomePage, ___view: $wml.AppView < HomePage > ) =>
-            $wml.node('b', {
+        this.template = (___context: HomePage, ___view: ___wml.AppView < HomePage > ) =>
+            ___wml.node('b', {
                 html: {},
                 wml: {}
-            }, [$wml.text(`Index`)], ___view);
+            }, [___wml.text(`Index`)], ___view);
 
     }
 

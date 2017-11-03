@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Autocomplete
 } from '@package/self/control/autocomplete';;
@@ -11,19 +11,19 @@ import {
 
 
 
-export class Main < V > extends $wml.AppView < SearchStack < V > > {
+export class Main < V > extends ___wml.AppView < SearchStack < V > > {
 
     constructor(context: SearchStack < V > ) {
 
         super(context);
 
-        this.template = (___context: SearchStack < V > , ___view: $wml.AppView < SearchStack < V > > ) =>
-            $wml.node('div', {
+        this.template = (___context: SearchStack < V > , ___view: ___wml.AppView < SearchStack < V > > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.widget(Stack, {
+            }, [___wml.widget(Stack, {
                 html: {},
                 wml: {
                     'id': ___context.values.stack.id
@@ -34,7 +34,7 @@ export class Main < V > extends $wml.AppView < SearchStack < V > > {
                     'decorator': ___context.values.stack.decorator,
                     'onChange': ___context.values.stack.onChange
                 }
-            }, [], ___view), $wml.widget(Autocomplete, {
+            }, [], ___view), ___wml.widget(Autocomplete, {
                 html: {},
                 wml: {
                     'id': ___context.values.search.id

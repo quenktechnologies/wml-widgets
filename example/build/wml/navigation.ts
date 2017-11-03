@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     App
 } from '../app';;
@@ -17,20 +17,20 @@ import {
 
 
 
-export class Navigation extends $wml.AppView < App > {
+export class Navigation extends ___wml.AppView < App > {
 
     constructor(context: App) {
 
         super(context);
 
-        this.template = (___context: App, ___view: $wml.AppView < App > ) =>
-            $wml.widget(List, {
+        this.template = (___context: App, ___view: ___wml.AppView < App > ) =>
+            ___wml.widget(List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -42,22 +42,22 @@ export class Navigation extends $wml.AppView < App > {
                     'onClick': ___context.navigate,
                     'text': `Home`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Text, {
+            }, [___wml.widget(Text, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Layout`
                 }
-            }, [], ___view), $wml.widget(List, {
+            }, [], ___view), ___wml.widget(List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -69,22 +69,22 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `panel`),
                     'text': `Panels`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Text, {
+            }, [___wml.widget(Text, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Table`
                 }
-            }, [], ___view), $wml.widget(List, {
+            }, [], ___view), ___wml.widget(List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -96,22 +96,22 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `table`),
                     'text': `Table`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Text, {
+            }, [___wml.widget(Text, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Control`
                 }
-            }, [], ___view), $wml.widget(List, {
+            }, [], ___view), ___wml.widget(List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -123,10 +123,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `text-field`),
                     'text': `Text Field`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -138,10 +138,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `date`),
                     'text': `Date`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -153,10 +153,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `select`),
                     'text': `Select`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -168,10 +168,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `autocomplete`),
                     'text': `Autocomplete`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -183,10 +183,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `button-select`),
                     'text': `Button Select`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -198,10 +198,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `checkbox`),
                     'text': `Checkbox`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -213,10 +213,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `switch`),
                     'text': `Switch`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -228,10 +228,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `tabs`),
                     'text': `Tabs`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -243,10 +243,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `stack`),
                     'text': `Stack`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -258,22 +258,22 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `search-stack`),
                     'text': `Search Stack`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Text, {
+            }, [___wml.widget(Text, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `App`
                 }
-            }, [], ___view), $wml.widget(List, {
+            }, [], ___view), ___wml.widget(List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -285,22 +285,22 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `busy-indicator`),
                     'text': `Busy Indicator`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Text, {
+            }, [___wml.widget(Text, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Nav`
                 }
-            }, [], ___view), $wml.widget(List, {
+            }, [], ___view), ___wml.widget(List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -312,22 +312,22 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `breadcrumbs`),
                     'text': `BreadCrumbs`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Text, {
+            }, [___wml.widget(Text, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Menu`
                 }
-            }, [], ___view), $wml.widget(List, {
+            }, [], ___view), ___wml.widget(List, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Item, {
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -339,10 +339,10 @@ export class Navigation extends $wml.AppView < App > {
                     'active': (___context.page === `menu`),
                     'text': `Menu`
                 }
-            }, [], ___view)], ___view), $wml.widget(Item, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Link, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`

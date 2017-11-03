@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import * as T from '../TextField';;
 import {
     label,
@@ -7,20 +7,20 @@ import {
 
 
 
-export class Main extends $wml.AppView < T.TextField > {
+export class Main extends ___wml.AppView < T.TextField > {
 
     constructor(context: T.TextField) {
 
         super(context);
 
-        this.template = (___context: T.TextField, ___view: $wml.AppView < T.TextField > ) =>
-            $wml.node('div', {
+        this.template = (___context: T.TextField, ___view: ___wml.AppView < T.TextField > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [$wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), $wml.ifthen((___context.values.input.rows === 1), function then() {
-                return $wml.node('input', {
+            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ___wml.ifthen((___context.values.input.rows === 1), function then() {
+                return ___wml.node('input', {
                     html: {
                         'name': ___context.values.input.name,
                         'type': ___context.values.input.type,
@@ -36,7 +36,7 @@ export class Main extends $wml.AppView < T.TextField > {
                     }
                 }, [], ___view)
             }, function else_clause() {
-                return $wml.node('textarea', {
+                return ___wml.node('textarea', {
                     html: {
                         'name': ___context.values.input.name,
                         'placeholder': ___context.values.input.placeholder,
@@ -49,8 +49,8 @@ export class Main extends $wml.AppView < T.TextField > {
                     wml: {
                         'id': `input`
                     }
-                }, [$wml.domify(___context.values.input.value)], ___view)
-            }), $wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+                }, [___wml.domify(___context.values.input.value)], ___view)
+            }), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
 
     }
 

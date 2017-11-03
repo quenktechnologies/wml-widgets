@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
 var Tabs_1 = require("@package/self/control/tabs/Tabs");
@@ -22,19 +22,19 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(Tabs_1.Tabs, {
+                    }, [___wml.widget(Tabs_1.Tabs, {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Tab_1.Tab, {
+                        }, [___wml.widget(Tab_1.Tab, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -43,7 +43,7 @@ var Main = /** @class */ (function (_super) {
                                     'name': "First",
                                     'onClick': ___context.clicked
                                 }
-                            }, [], ___view), $wml.widget(Tab_1.Tab, {
+                            }, [], ___view), ___wml.widget(Tab_1.Tab, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -52,7 +52,7 @@ var Main = /** @class */ (function (_super) {
                                     'name': "Second",
                                     'onClick': ___context.clicked
                                 }
-                            }, [], ___view), $wml.widget(Tab_1.Tab, {
+                            }, [], ___view), ___wml.widget(Tab_1.Tab, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -61,16 +61,16 @@ var Main = /** @class */ (function (_super) {
                                     'name': "Third",
                                     'onClick': ___context.clicked
                                 }
-                            }, [], ___view)], ___view), $wml.node('p', {
+                            }, [], ___view)], ___view), ___wml.node('p', {
                             html: {},
                             wml: {
                                 'id': "content"
                             }
-                        }, [$wml.domify(___context.content)], ___view)], ___view)], ___view)], ___view);
+                        }, [___wml.domify(___context.content)], ___view)], ___view)], ___view)], ___view);
         };
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=tabs.js.map

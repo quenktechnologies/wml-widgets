@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Drawer_1 = require("@package/self/layout/drawer/Drawer");
 ;
 var ActionBar_1 = require("@package/self/app/action-bar/ActionBar");
@@ -26,7 +26,7 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Drawer_1.Drawer, {
+            return ___wml.widget(Drawer_1.Drawer, {
                 html: {},
                 wml: {
                     'id': ___context.values.id.layout
@@ -34,32 +34,32 @@ var Main = /** @class */ (function (_super) {
                 ww: {
                     'drawer': ___context.navigation
                 }
-            }, [$wml.widget(ActionBar_1.ActionBar, {
+            }, [___wml.widget(ActionBar_1.ActionBar, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(IconButton_1.IconButton, {
+                }, [___wml.widget(IconButton_1.IconButton, {
                         html: {},
                         wml: {},
                         ww: {
                             'onClick': ___context.toggleDrawer
                         }
-                    }, [$wml.widget(dash_1.Dash, {
+                    }, [___wml.widget(dash_1.Dash, {
                             html: {},
                             wml: {}
-                        }, [], ___view), $wml.widget(dash_1.Dash, {
+                        }, [], ___view), ___wml.widget(dash_1.Dash, {
                             html: {},
                             wml: {}
-                        }, [], ___view), $wml.widget(dash_1.Dash, {
+                        }, [], ___view), ___wml.widget(dash_1.Dash, {
                             html: {},
                             wml: {}
-                        }, [], ___view)], ___view)], ___view), $wml.widget(Main_1.Main, {
+                        }, [], ___view)], ___view)], ___view), ___wml.widget(Main_1.Main, {
                     html: {},
                     wml: {}
-                }, [$wml.domify(___context.content.render())], ___view)], ___view);
+                }, [___wml.domify(___context.content.render())], ___view)], ___view);
         };
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=app.js.map

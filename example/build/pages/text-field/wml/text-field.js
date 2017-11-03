@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
 var TextField_1 = require("@package/self/control/text-field/TextField");
@@ -20,27 +20,27 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.node('p', {
+                    }, [___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.text("The value of the input is:")], ___view), $wml.node('p', {
+                        }, [___wml.text("The value of the input is:")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {
                                 'id': "content"
                             }
-                        }, [$wml.domify("(Nothing)")], ___view), $wml.node('p', {
+                        }, [___wml.domify("(Nothing)")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(TextField_1.TextField, {
+                        }, [___wml.widget(TextField_1.TextField, {
                                 html: {},
                                 wml: {
                                     'id': "text"
@@ -49,19 +49,19 @@ var Main = /** @class */ (function (_super) {
                                     'name': "text",
                                     'onChange': ___context.onChange
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), $wml.widget(Grid_1.Row, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.node('p', {
+                    }, [___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.text("The one uses rows to render a text area:")], ___view), $wml.node('p', {
+                        }, [___wml.text("The one uses rows to render a text area:")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(TextField_1.TextField, {
+                        }, [___wml.widget(TextField_1.TextField, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -74,6 +74,6 @@ var Main = /** @class */ (function (_super) {
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=text-field.js.map

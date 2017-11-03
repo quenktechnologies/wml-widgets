@@ -1,23 +1,23 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Menu
 } from '../Menu';
 
 
 
-export class Main extends $wml.AppView < Menu > {
+export class Main extends ___wml.AppView < Menu > {
 
     constructor(context: Menu) {
 
         super(context);
 
-        this.template = (___context: Menu, ___view: $wml.AppView < Menu > ) =>
-            $wml.node('ul', {
+        this.template = (___context: Menu, ___view: ___wml.AppView < Menu > ) =>
+            ___wml.node('ul', {
                 html: {
                     'class': ___context.values.class.root
                 },
                 wml: {}
-            }, [$wml.domify(___context.values.content)], ___view);
+            }, [___wml.domify(___context.values.content)], ___view);
 
     }
 

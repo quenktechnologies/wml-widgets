@@ -1,5 +1,5 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import { SelectPage } from '../';
-export declare class Main extends $wml.AppView<SelectPage> {
+export declare class Main extends ___wml.AppView<SelectPage> {
     constructor(context: SelectPage);
 }

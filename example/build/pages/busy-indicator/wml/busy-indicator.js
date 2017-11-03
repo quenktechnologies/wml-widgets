@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var BusyIndicator_1 = require("@package/self/app/busy-indicator/BusyIndicator");
 ;
 var Grid_1 = require("@package/self/layout/grid/Grid");
@@ -20,16 +20,16 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.widget(BusyIndicator_1.BusyIndicator, {
+                    }, [___wml.widget(BusyIndicator_1.BusyIndicator, {
                             html: {},
                             wml: {}
                         }, [], ___view)], ___view)], ___view)], ___view);
@@ -37,6 +37,6 @@ var Main = /** @class */ (function (_super) {
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=busy-indicator.js.map

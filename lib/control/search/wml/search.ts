@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Menu
 } from '@package/self/menu/Menu';;
@@ -15,29 +15,29 @@ import {
     Result
 } from '../Result';
 
-export const populated = < A extends Result > (option: A, _index: number, _options: A[]) => (___context: Search < A > ) => (___view: $wml.View) => $wml.domify(___context.values.item.decorator(option));;
-export const empty = < A extends Result > () => (___context: Search < A > ) => (___view: $wml.View) => $wml.domify(`No results to display.`);;
-export class Results < A extends Result > extends $wml.AppView < Search < A > > {
+export const populated = < A extends Result > (option: A, _index: number, _options: A[]) => (___context: Search < A > ) => (___view: ___wml.View) => ___wml.domify(___context.values.item.decorator(option));;
+export const empty = < A extends Result > () => (___context: Search < A > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
+export class Results < A extends Result > extends ___wml.AppView < Search < A > > {
 
     constructor(context: Search < A > ) {
 
         super(context);
 
-        this.template = (___context: Search < A > , ___view: $wml.AppView < Search < A > > ) =>
-            $wml.widget(Fragment, {
+        this.template = (___context: Search < A > , ___view: ___wml.AppView < Search < A > > ) =>
+            ___wml.widget(Fragment, {
                 html: {},
                 wml: {}
-            }, [$wml.map(___context.values.search.results, function _map(option, index: number) {
-                return $wml.widget(MenuItem, {
+            }, [___wml.map(___context.values.search.results, function _map(option, index: number) {
+                return ___wml.widget(MenuItem, {
                     html: {},
                     wml: {},
                     ww: {
                         'name': (`` + index),
                         'onClick': ___context.values.item.clicked
                     }
-                }, [$wml.domify(___context.values.item.template.populated(option, index, ___context.values.search.results)(___context)(___view))], ___view)
+                }, [___wml.domify(___context.values.item.template.populated(option, index, ___context.values.search.results)(___context)(___view))], ___view)
             }, function otherwise() {
-                return $wml.domify(___context.values.item.template.empty()(___context)(___view))
+                return ___wml.domify(___context.values.item.template.empty()(___context)(___view))
             })], ___view);
 
     }
@@ -45,19 +45,19 @@ export class Results < A extends Result > extends $wml.AppView < Search < A > > 
 }
 
 
-export class Main < A extends Result > extends $wml.AppView < Search < A > > {
+export class Main < A extends Result > extends ___wml.AppView < Search < A > > {
 
     constructor(context: Search < A > ) {
 
         super(context);
 
-        this.template = (___context: Search < A > , ___view: $wml.AppView < Search < A > > ) =>
-            $wml.node('div', {
+        this.template = (___context: Search < A > , ___view: ___wml.AppView < Search < A > > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root
                 },
                 wml: {}
-            }, [$wml.node('input', {
+            }, [___wml.node('input', {
                 html: {
                     'type': `text`,
                     'class': ___context.values.class.input,
@@ -69,7 +69,7 @@ export class Main < A extends Result > extends $wml.AppView < Search < A > > {
                 wml: {
                     'id': ___context.values.id.input
                 }
-            }, [], ___view), $wml.widget(Menu, {
+            }, [], ___view), ___wml.widget(Menu, {
                 html: {},
                 wml: {
                     'id': ___context.values.id.menu

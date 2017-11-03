@@ -1,32 +1,32 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import * as B from '../Button';
 
-export class Group extends $wml.AppView < B.Group > {
+export class Group extends ___wml.AppView < B.Group > {
 
     constructor(context: B.Group) {
 
         super(context);
 
-        this.template = (___context: B.Group, ___view: $wml.AppView < B.Group > ) =>
-            $wml.node('div', {
+        this.template = (___context: B.Group, ___view: ___wml.AppView < B.Group > ) =>
+            ___wml.node('div', {
                 html: {
                     'class': ___context.getClass,
                     'role': `group`
                 },
                 wml: {}
-            }, [$wml.domify(___context.children)], ___view);
+            }, [___wml.domify(___context.children)], ___view);
 
     }
 
 };
-export class Button extends $wml.AppView < B.Button > {
+export class Button extends ___wml.AppView < B.Button > {
 
     constructor(context: B.Button) {
 
         super(context);
 
-        this.template = (___context: B.Button, ___view: $wml.AppView < B.Button > ) =>
-            $wml.node('button', {
+        this.template = (___context: B.Button, ___view: ___wml.AppView < B.Button > ) =>
+            ___wml.node('button', {
                 html: {
                     'type': ___context.values.button.type,
                     'name': ___context.values.button.name,
@@ -37,7 +37,7 @@ export class Button extends $wml.AppView < B.Button > {
                 wml: {
                     'id': `button`
                 }
-            }, [$wml.domify(___context.values.button.text), $wml.domify(___context.children)], ___view);
+            }, [___wml.domify(___context.values.button.text), ___wml.domify(___context.children)], ___view);
 
     }
 

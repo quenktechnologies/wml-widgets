@@ -1,23 +1,23 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Switch
 } from '../Switch';
 
 
 
-export class Main extends $wml.AppView < Switch > {
+export class Main extends ___wml.AppView < Switch > {
 
     constructor(context: Switch) {
 
         super(context);
 
-        this.template = (___context: Switch, ___view: $wml.AppView < Switch > ) =>
-            $wml.node('label', {
+        this.template = (___context: Switch, ___view: ___wml.AppView < Switch > ) =>
+            ___wml.node('label', {
                 html: {
                     'class': ___context.values.class.label
                 },
                 wml: {}
-            }, [$wml.node('input', {
+            }, [___wml.node('input', {
                 html: {
                     'type': `checkbox`,
                     'name': ___context.values.input.name,
@@ -26,7 +26,7 @@ export class Main extends $wml.AppView < Switch > {
                     'onchange': ___context.values.input.onChange
                 },
                 wml: {}
-            }, [], ___view), $wml.node('div', {
+            }, [], ___view), ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.slider
                 },

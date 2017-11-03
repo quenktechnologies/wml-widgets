@@ -1,4 +1,4 @@
-import * as $wml from '@quenk/wml';
+import * as ___wml from '@quenk/wml';
 import {
     Drawer
 } from '@package/self/layout/drawer/Drawer';;
@@ -20,14 +20,14 @@ import {
 
 
 
-export class Main extends $wml.AppView < App > {
+export class Main extends ___wml.AppView < App > {
 
     constructor(context: App) {
 
         super(context);
 
-        this.template = (___context: App, ___view: $wml.AppView < App > ) =>
-            $wml.widget(Drawer, {
+        this.template = (___context: App, ___view: ___wml.AppView < App > ) =>
+            ___wml.widget(Drawer, {
                 html: {},
                 wml: {
                     'id': ___context.values.id.layout
@@ -35,28 +35,28 @@ export class Main extends $wml.AppView < App > {
                 ww: {
                     'drawer': ___context.navigation
                 }
-            }, [$wml.widget(ActionBar, {
+            }, [___wml.widget(ActionBar, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(IconButton, {
+            }, [___wml.widget(IconButton, {
                 html: {},
                 wml: {},
                 ww: {
                     'onClick': ___context.toggleDrawer
                 }
-            }, [$wml.widget(Dash, {
+            }, [___wml.widget(Dash, {
                 html: {},
                 wml: {}
-            }, [], ___view), $wml.widget(Dash, {
+            }, [], ___view), ___wml.widget(Dash, {
                 html: {},
                 wml: {}
-            }, [], ___view), $wml.widget(Dash, {
+            }, [], ___view), ___wml.widget(Dash, {
                 html: {},
                 wml: {}
-            }, [], ___view)], ___view)], ___view), $wml.widget(MainLayout, {
+            }, [], ___view)], ___view)], ___view), ___wml.widget(MainLayout, {
                 html: {},
                 wml: {}
-            }, [$wml.domify(___context.content.render())], ___view)], ___view);
+            }, [___wml.domify(___context.content.render())], ___view)], ___view);
 
     }
 

@@ -10,7 +10,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var $wml = require("@quenk/wml");
+var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
 var Checkbox_1 = require("@package/self/control/checkbox/Checkbox");
@@ -20,27 +20,27 @@ var Main = /** @class */ (function (_super) {
     function Main(context) {
         var _this = _super.call(this, context) || this;
         _this.template = function (___context, ___view) {
-            return $wml.widget(Grid_1.Grid, {
+            return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}
-            }, [$wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Grid_1.Row, {
                     html: {},
                     wml: {}
-                }, [$wml.widget(Grid_1.Column, {
+                }, [___wml.widget(Grid_1.Column, {
                         html: {},
                         wml: {}
-                    }, [$wml.node('p', {
+                    }, [___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.text("The checkbox is "), $wml.node('b', {
+                        }, [___wml.text("The checkbox is "), ___wml.node('b', {
                                 html: {},
                                 wml: {
                                     'id': "content"
                                 }
-                            }, [$wml.text("untouched")], ___view), $wml.text(".")], ___view), $wml.node('p', {
+                            }, [___wml.text("untouched")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [$wml.widget(Checkbox_1.Checkbox, {
+                        }, [___wml.widget(Checkbox_1.Checkbox, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -52,6 +52,6 @@ var Main = /** @class */ (function (_super) {
         return _this;
     }
     return Main;
-}($wml.AppView));
+}(___wml.AppView));
 exports.Main = Main;
 //# sourceMappingURL=checkbox.js.map
