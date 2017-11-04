@@ -1,3 +1,4 @@
+import * as wml from '@quenk/wml';
 import * as names from '@package/self/common/names';
 import * as views from './wml/grid';
 import { Component, Attrs } from '@quenk/wml';
@@ -29,13 +30,14 @@ export interface ColumnAttrs extends Attrs {
  */
 export class Grid extends Component<GridAttrs> {
 
-    view = new views.Grid(this);
+  view: wml.View = new views.Grid(this);
 
     values = {
 
         class: {
 
-            root: names.GRID
+            root: concat(names.GRID, (this.attrs.ww && this.attrs.ww.class) ?
+                this.attrs.ww.class : '')
 
         }
 
@@ -45,13 +47,14 @@ export class Grid extends Component<GridAttrs> {
 
 export class Row extends Component<GridAttrs> {
 
-    view = new views.Row(this);
+  view : wml.View = new views.Row(this);
 
     values = {
 
         class: {
 
-            root: names.GRID_ROW
+            root: concat(names.GRID_ROW, (this.attrs.ww && this.attrs.ww.class) ?
+                this.attrs.ww.class : '')
 
         }
 
@@ -61,15 +64,15 @@ export class Row extends Component<GridAttrs> {
 
 export class Column extends Component<ColumnAttrs> {
 
-    view = new views.Column(this);
+  view : wml.View = new views.Column(this);
 
     values = {
 
         class: {
 
-            root: this.attrs.ww ?  concat(this.attrs.ww.size ? 
-              `col-md-${this.attrs.ww.size}` : 'col-md-12',
-            this.attrs.ww.class) : 'col-md-12'
+            root: this.attrs.ww ? concat(this.attrs.ww.size ?
+                `col-md-${this.attrs.ww.size}` : 'col-md-12',
+                this.attrs.ww.class) : 'col-md-12'
 
         }
 

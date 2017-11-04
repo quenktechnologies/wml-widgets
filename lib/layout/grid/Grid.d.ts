@@ -1,4 +1,4 @@
-import * as views from './wml/grid';
+import * as wml from '@quenk/wml';
 import { Component, Attrs } from '@quenk/wml';
 export interface GridAttrs extends Attrs {
     ww?: {
@@ -15,7 +15,7 @@ export interface ColumnAttrs extends Attrs {
  * Grid
  */
 export declare class Grid extends Component<GridAttrs> {
-    view: views.Grid;
+    view: wml.View;
     values: {
         class: {
             root: string;
@@ -23,7 +23,7 @@ export declare class Grid extends Component<GridAttrs> {
     };
 }
 export declare class Row extends Component<GridAttrs> {
-    view: views.Row;
+    view: wml.View;
     values: {
         class: {
             root: string;
@@ -31,7 +31,7 @@ export declare class Row extends Component<GridAttrs> {
     };
 }
 export declare class Column extends Component<ColumnAttrs> {
-    view: views.Column;
+    view: wml.View;
     values: {
         class: {
             root: string;
