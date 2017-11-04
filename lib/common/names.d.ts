@@ -136,9 +136,9 @@ export declare const NAV_LIST_ITEM = "ww-nav-list__item";
 export declare const NAV_LIST_ITEM_TEXT = "ww-nav-list__item__text";
 export declare const BUTTON = "ww-button";
 export declare const BUTTON_GROUP = "ww-button-group";
-export declare const GRID = "container-fluid";
-export declare const GRID_COL = "";
-export declare const GRID_ROW = "row";
+export declare const GRID = "ww-grid container-fluid";
+export declare const GRID_COLUMN = "ww-grid-column";
+export declare const GRID_ROW = "ww-grid-row row";
 /**
  * PANEL wrapper class.
  */

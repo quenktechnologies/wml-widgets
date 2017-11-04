@@ -176,9 +176,9 @@ export const BUTTON = 'ww-button';
 export const BUTTON_GROUP = 'ww-button-group';
 
 //@todo: refactor this to be inline with other class names
-export const GRID = 'container-fluid';
-export const GRID_COL = '';
-export const GRID_ROW = 'row';
+export const GRID = 'ww-grid container-fluid';
+export const GRID_COLUMN = 'ww-grid-column';
+export const GRID_ROW = 'ww-grid-row row';
 
 /**
  * PANEL wrapper class.
