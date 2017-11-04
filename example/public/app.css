@@ -2026,9 +2026,10 @@ body {
 }
 .ww-main-view {
   height: 100%;
-  overflow-y: scroll;
+  overflow-x: auto;
+  overflow-y: auto;
   background-color: #212121;
-  padding-top: 0px;
+  padding-top: 4em;
   padding-left: 0px;
   padding-right: 0px;
   padding-bottom: 0px;
@@ -2457,7 +2458,7 @@ body {
 .ww-action-bar {
   width: 100%;
   height: auto;
-  min-height: 4em;
+  min-height: 0px;
   display: block;
   position: fixed;
   top: 0;
@@ -10139,3 +10140,6 @@ input:checked + .ww-switch__slider:before {
   bottom: 100%;
   margin-bottom: 2px;
 }
+/**
+ * place customisations here. 
+ */
