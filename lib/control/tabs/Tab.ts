@@ -14,7 +14,7 @@ const _unknown = (id: string) =>
 export interface TabAttrs extends Attrs {
 
     ww: {
-        name?: string,
+        name: string,
         class?: string,
         active?: boolean,
         text?: string
