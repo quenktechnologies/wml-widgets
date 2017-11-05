@@ -65,11 +65,11 @@ export declare const ASIDE_CONTENT = "ww-drawer__content";
 export declare const ASIDE_PUSHABLE = "-drawer-pushable";
 export declare const ASIDE_PUSHABLE_FIXED = "-drawer-pushable-fixed";
 /**
- * ACTION_BAR classes for the ActionBar root.
+ * ACTION_BAR class name. for the ActionBar root.
  */
 export declare const ACTION_BAR = "ww-action-bar";
 /**
- * ACTION_BAR_CONTENT classes
+ * ACTION_BAR_CONTENT class name.
  */
 export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
 /**
@@ -77,15 +77,15 @@ export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
  */
 export declare const ICON_BUTTON = "ww-icon-button";
 /**
- * BUTTON_MENU classes
+ * BUTTON_MENU class name.
  */
 export declare const BUTTON_MENU = "ww-button-menu btn-group";
 /**
- * BUTTON_MENU_BUTTON classes
+ * BUTTON_MENU_BUTTON class name.
  */
 export declare const BUTTON_MENU_BUTTON: string;
 /**
- * BUTTON_MENU_MENU classes
+ * BUTTON_MENU_MENU class name.
  */
 export declare const BUTTON_MENU_MENU: string;
 /**
@@ -95,68 +95,68 @@ export declare const BUTTON_SELECT = "btn-group";
 export declare const BUTTON_SELECT_OPTION: string;
 export declare const MAIN_VIEW = "ww-main-view";
 /**
- * MENU classes.
+ * MENU class name..
  */
 export declare const MENU = "ww-menu";
 /**
- * MENU_ITEM classes.
+ * MENU_ITEM class name..
  */
 export declare const MENU_ITEM: string;
 /**
- * MENU_HEADER classes.
+ * MENU_HEADER class name..
  */
 export declare const MENU_HEADER: string;
 /**
- * MENU_DIVIDER classes.
+ * MENU_DIVIDER class name..
  */
 export declare const MENU_DIVIDER: string;
 /**
- * DASH classes
+ * DASH class name.
  */
 export declare const DASH = "ww-dash";
 /**
- * NAV classes
+ * NAV class name.
  */
 export declare const NAV = "ww-nav";
 /**
- * NAV_LINK classes
+ * NAV_LINK class name.
  */
 export declare const NAV_LINK = "ww-nav-link";
 /**
- * NAV_LIST classes
+ * NAV_LIST class name.
  */
 export declare const NAV_LIST = "ww-nav-list";
 /**
- * NAV_LIST_ITEM classes
+ * NAV_LIST_ITEM class name.
  */
 export declare const NAV_LIST_ITEM = "ww-nav-list__item";
 /**
- * NAV_LIST_ITEM_TEXT classes
+ * NAV_LIST_ITEM_TEXT class name.
  */
 export declare const NAV_LIST_ITEM_TEXT = "ww-nav-list__item__text";
 export declare const BUTTON = "ww-button";
 export declare const BUTTON_GROUP = "ww-button-group";
-export declare const GRID = "ww-grid container-fluid";
+export declare const GRID = "container-fluid";
 export declare const GRID_COLUMN = "ww-grid-column";
-export declare const GRID_ROW = "ww-grid-row row";
+export declare const GRID_ROW = "row";
 /**
  * PANEL wrapper class.
  */
 export declare const PANEL = "ww-panel";
 /**
- * PANEL_HEADER classes.
+ * PANEL_HEADER class name..
  */
 export declare const PANEL_HEADER = "ww-panel__header";
 /**
- * PANEL_BODY classes.
+ * PANEL_BODY class name..
  */
 export declare const PANEL_BODY = "ww-panel__body";
 /**
- * PANEL_FOOTER classes.
+ * PANEL_FOOTER class name..
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
 /**
- * HEADER classes.
+ * HEADER class name..
  */
 export declare const HEADER = "ww-header";
 export declare const MODAL = "ww-modal";
@@ -171,19 +171,19 @@ export declare const INPUT = "form-control";
 export declare const TEXTAREA = "form-control";
 export declare const SELECT = "form-control";
 /**
- * Tabs classes.
+ * Tabs class name..
  */
 export declare const TABS = "nav nav-tabs";
 /**
- * SWITCH classes.
+ * SWITCH class name..
  */
 export declare const SWITCH = "ww-switch";
 /**
- * SWITCH_SLIDER classes.
+ * SWITCH_SLIDER class name..
  */
 export declare const SWITCH_SLIDER = "ww-switch__slider";
 /**
- * CHECKBOX classes.
+ * CHECKBOX class name..
  */
 export declare const CHECKBOX = "checkbox";
 export declare const TABLE = "table";
@@ -192,48 +192,48 @@ export declare const TABLE = "table";
  */
 export declare const BREAD_CRUMBS = "breadcrumb";
 /**
- * BREAD_CRUMBS_ITEM classes
+ * BREAD_CRUMBS_ITEM class name.
  */
 export declare const BREAD_CRUMBS_ITEM: string;
 export declare const LIST = "ww-list";
 export declare const LIST_ITEM = "ww-list__item";
 /**
- * SEARCH classes.
+ * SEARCH class name..
  */
 export declare const SEARCH = "ww-search";
 /**
- * SEARCH_INPUT classes
+ * SEARCH_INPUT class name.
  */
 export declare const SEARCH_INPUT = "ww-search__input";
 /**
- * DATE classes
+ * DATE class name.
  */
 export declare const DATE = "ww-date";
 /**
- * DATE_DAY classes.
+ * DATE_DAY class name..
  */
 export declare const DATE_DAY: string;
 /**
- * DATE_MONTH classes.
+ * DATE_MONTH class name..
  */
 export declare const DATE_MONTH: string;
 /**
- * DATE_YEAR classes.
+ * DATE_YEAR class name..
  */
 export declare const DATE_YEAR: string;
 /**
- * STACK classes
+ * STACK class name.
  */
 export declare const STACK = "ww-stack";
 /**
- * STACK_CLOSE classes
+ * STACK_CLOSE class name.
  */
 export declare const STACK_CLOSE: string;
 /**
- * STACK_MEMBER classes
+ * STACK_MEMBER class name.
  */
 export declare const STACK_MEMBER: string;
 /**
- * SEARCH_STACK classes
+ * SEARCH_STACK class name.
  */
 export declare const SEARCH_STACK = "ww-search-stack";
