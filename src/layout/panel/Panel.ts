@@ -24,14 +24,15 @@ export interface FooterAttrs extends StylableAttrs { }
 
 export class Panel extends Component<PanelAttrs> {
 
-  view: wml.View = new views.Panel(this);
+    view: wml.View = new views.Panel(this);
 
     values = {
 
         class: {
 
             root: concat(names.PANEL, this.attrs.ww ?
-                this.attrs.ww.style : names.DEFAULT, this.attrs.ww ? this.attrs.ww.class : '')
+              this.attrs.ww.style : names.DEFAULT, this.attrs.ww ?
+              this.attrs.ww.class : '')
 
         }
 
@@ -41,7 +42,7 @@ export class Panel extends Component<PanelAttrs> {
 
 export class Header extends Component<HeaderAttrs> {
 
-  view: wml.View = new views.Header(this);
+    view: wml.View = new views.Header(this);
 
     values = {
 
@@ -59,7 +60,7 @@ export class Header extends Component<HeaderAttrs> {
 
 export class Body extends Component<BodyAttrs> {
 
-  view : wml.View = new views.Body(this);
+    view: wml.View = new views.Body(this);
 
     values = {
 
@@ -77,7 +78,7 @@ export class Body extends Component<BodyAttrs> {
 
 export class Footer extends Component<FooterAttrs> {
 
-  view : wml.View = new views.Footer(this);
+    view: wml.View = new views.Footer(this);
 
     values = {
 
