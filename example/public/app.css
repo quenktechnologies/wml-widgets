@@ -2440,6 +2440,42 @@ body {
   padding: 1em 1em;
   background-color: #262626;
 }
+/**
+ * adjustable-padding allows padding to be adjusted on a box.
+ */
+/**
+ * adjustable-margin allows the marins to be adjusted on a box.
+ */
+.ww-grid container-fluid {
+  padding-top: 0px;
+  padding-right: 15px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
+.ww-grid-row row {
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  margin-top: 0px;
+  margin-right: 15px;
+  margin-bottom: 0px;
+  margin-left: 15px;
+}
+.ww-grid-column {
+  padding-top: 0px;
+  padding-right: 15px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+}
 .start-justify-content {
   justify-content: flex-start;
 }
