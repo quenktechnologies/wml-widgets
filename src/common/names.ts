@@ -123,22 +123,22 @@ export const BUTTON_SELECT_OPTION = `${BUTTON_SELECT}__option btn`;
 export const MAIN_VIEW = 'ww-main-view';
 
 /**
- * MENU class name..
+ * MENU class name.
  */
 export const MENU = 'ww-menu';
 
 /**
- * MENU_ITEM class name..
+ * MENU_ITEM class name.
  */
 export const MENU_ITEM = `${MENU}__item`;
 
 /**
- * MENU_HEADER class name..
+ * MENU_HEADER class name.
  */
 export const MENU_HEADER = `${MENU}__header`;
 
 /**
- * MENU_DIVIDER class name..
+ * MENU_DIVIDER class name.
  */
 export const MENU_DIVIDER = `${MENU}__divider`;
 
@@ -186,22 +186,22 @@ export const GRID_ROW = 'row';
 export const PANEL = 'ww-panel';
 
 /**
- * PANEL_HEADER class name..
+ * PANEL_HEADER class name.
  */
 export const PANEL_HEADER = 'ww-panel__header';
 
 /**
- * PANEL_BODY class name..
+ * PANEL_BODY class name.
  */
 export const PANEL_BODY = 'ww-panel__body';
 
 /**
- * PANEL_FOOTER class name..
+ * PANEL_FOOTER class name.
  */
 export const PANEL_FOOTER = 'ww-panel__footer';
 
 /**
- * HEADER class name..
+ * HEADER class name.
  */
 export const HEADER = 'ww-header';
 
@@ -220,22 +220,27 @@ export const TEXTAREA = 'form-control';
 export const SELECT = 'form-control';
 
 /**
- * Tabs class name..
+ * TABS class name.
  */
-export const TABS = 'nav nav-tabs'; //@todo un-bootstrap
+export const TABS = 'ww-tabs'; 
 
 /**
- * SWITCH class name..
+ * TABS_TAB class name.
+ */
+export const TABS_TAB = 'ww-tabs__tab';
+
+/**
+ * SWITCH class name.
  */
 export const SWITCH = 'ww-switch';
 
 /**
- * SWITCH_SLIDER class name..
+ * SWITCH_SLIDER class name.
  */
 export const SWITCH_SLIDER = 'ww-switch__slider';
 
 /**
- * CHECKBOX class name..
+ * CHECKBOX class name.
  */
 export const CHECKBOX = 'checkbox';
 
@@ -255,7 +260,7 @@ export const LIST = 'ww-list';
 export const LIST_ITEM = 'ww-list__item';
 
 /**
- * SEARCH class name..
+ * SEARCH class name.
  */
 export const SEARCH = 'ww-search';
 
@@ -270,17 +275,17 @@ export const SEARCH_INPUT = 'ww-search__input';
 export const DATE = 'ww-date';
 
 /**
- * DATE_DAY class name..
+ * DATE_DAY class name.
  */
 export const DATE_DAY = `${DATE}__day`;
 
 /**
- * DATE_MONTH class name..
+ * DATE_MONTH class name.
  */
 export const DATE_MONTH = `${DATE}_month`;
 
 /**
- * DATE_YEAR class name..
+ * DATE_YEAR class name.
  */
 export const DATE_YEAR = `${DATE}__year`;
 

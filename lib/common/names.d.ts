@@ -95,19 +95,19 @@ export declare const BUTTON_SELECT = "btn-group";
 export declare const BUTTON_SELECT_OPTION: string;
 export declare const MAIN_VIEW = "ww-main-view";
 /**
- * MENU class name..
+ * MENU class name.
  */
 export declare const MENU = "ww-menu";
 /**
- * MENU_ITEM class name..
+ * MENU_ITEM class name.
  */
 export declare const MENU_ITEM: string;
 /**
- * MENU_HEADER class name..
+ * MENU_HEADER class name.
  */
 export declare const MENU_HEADER: string;
 /**
- * MENU_DIVIDER class name..
+ * MENU_DIVIDER class name.
  */
 export declare const MENU_DIVIDER: string;
 /**
@@ -144,19 +144,19 @@ export declare const GRID_ROW = "row";
  */
 export declare const PANEL = "ww-panel";
 /**
- * PANEL_HEADER class name..
+ * PANEL_HEADER class name.
  */
 export declare const PANEL_HEADER = "ww-panel__header";
 /**
- * PANEL_BODY class name..
+ * PANEL_BODY class name.
  */
 export declare const PANEL_BODY = "ww-panel__body";
 /**
- * PANEL_FOOTER class name..
+ * PANEL_FOOTER class name.
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
 /**
- * HEADER class name..
+ * HEADER class name.
  */
 export declare const HEADER = "ww-header";
 export declare const MODAL = "ww-modal";
@@ -171,19 +171,23 @@ export declare const INPUT = "form-control";
 export declare const TEXTAREA = "form-control";
 export declare const SELECT = "form-control";
 /**
- * Tabs class name..
+ * TABS class name.
  */
-export declare const TABS = "nav nav-tabs";
+export declare const TABS = "ww-tabs";
 /**
- * SWITCH class name..
+ * TABS_TAB class name.
+ */
+export declare const TABS_TAB = "ww-tabs__tab";
+/**
+ * SWITCH class name.
  */
 export declare const SWITCH = "ww-switch";
 /**
- * SWITCH_SLIDER class name..
+ * SWITCH_SLIDER class name.
  */
 export declare const SWITCH_SLIDER = "ww-switch__slider";
 /**
- * CHECKBOX class name..
+ * CHECKBOX class name.
  */
 export declare const CHECKBOX = "checkbox";
 export declare const TABLE = "table";
@@ -198,7 +202,7 @@ export declare const BREAD_CRUMBS_ITEM: string;
 export declare const LIST = "ww-list";
 export declare const LIST_ITEM = "ww-list__item";
 /**
- * SEARCH class name..
+ * SEARCH class name.
  */
 export declare const SEARCH = "ww-search";
 /**
@@ -210,15 +214,15 @@ export declare const SEARCH_INPUT = "ww-search__input";
  */
 export declare const DATE = "ww-date";
 /**
- * DATE_DAY class name..
+ * DATE_DAY class name.
  */
 export declare const DATE_DAY: string;
 /**
- * DATE_MONTH class name..
+ * DATE_MONTH class name.
  */
 export declare const DATE_MONTH: string;
 /**
- * DATE_YEAR class name..
+ * DATE_YEAR class name.
  */
 export declare const DATE_YEAR: string;
 /**

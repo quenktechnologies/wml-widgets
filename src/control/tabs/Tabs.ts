@@ -1,8 +1,18 @@
 import * as names from '@package/self/common/names';
 import * as view from './wml/tabs';
+import { concat } from '@package/self/common/util';
 import { Component, Attrs, View } from '@quenk/wml';
 
-export interface TabsAttrs extends Attrs{}
+export interface TabsAttrs extends Attrs {
+
+    ww?: {
+
+        class?: string
+
+    }
+
+}
+
 /**
  * Tabs acts as a parent container for a group of Tab.
  *
@@ -11,11 +21,15 @@ export interface TabsAttrs extends Attrs{}
  */
 export class Tabs extends Component<TabsAttrs> {
 
-  view : View= new view.Tabs(this);
+    view: View = new view.Tabs(this);
 
     values = {
 
-        class: { root: names.TABS }
+        root: {
+          
+          class: concat(names.TABS, 'nav nav-tabs', this.attrs.ww ? this.attrs.ww.class : '')
+
+        }
 
     }
 

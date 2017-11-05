@@ -46,7 +46,7 @@ export class Tabs extends ___wml.AppView < TabsContext > {
         this.template = (___context: TabsContext, ___view: ___wml.AppView < TabsContext > ) =>
             ___wml.node('ul', {
                 html: {
-                    'class': ___context.values.class.root
+                    'class': ___context.values.root.class
                 },
                 wml: {}
             }, [___wml.domify(___context.children)], ___view);

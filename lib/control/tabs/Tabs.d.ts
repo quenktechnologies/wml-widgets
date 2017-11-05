@@ -1,5 +1,8 @@
 import { Component, Attrs, View } from '@quenk/wml';
 export interface TabsAttrs extends Attrs {
+    ww?: {
+        class?: string;
+    };
 }
 /**
  * Tabs acts as a parent container for a group of Tab.
@@ -10,8 +13,8 @@ export interface TabsAttrs extends Attrs {
 export declare class Tabs extends Component<TabsAttrs> {
     view: View;
     values: {
-        class: {
-            root: string;
+        root: {
+            class: string;
         };
     };
 }

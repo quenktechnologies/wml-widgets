@@ -30,7 +30,7 @@ import {Tab as TabContext} from "../Tab"
 
 {% view Tabs (TabsContext) %}
 
-<ul class={{@values.class.root}}>
+<ul class={{@values.root.class}}>
 
   {{@children}}
 

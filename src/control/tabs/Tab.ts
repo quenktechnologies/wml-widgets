@@ -1,6 +1,7 @@
 import * as names from '@package/self/common/names';
 import * as view from './wml/tabs';
 import * as afpl from 'afpl';
+import { concat } from '@package/self/common/util';
 import { TabClickedEvent } from './TabClickedEvent';
 import { TabClickedEventHandler } from './TabClickedEventHandler';
 import { Component, Attrs, View } from '@quenk/wml';
@@ -43,13 +44,13 @@ export class Tab extends Component<TabAttrs> {
 
         },
         class: {
-            li: this.attrs.ww.active ? names.ACTIVE : ''
+            li: concat(names.TABS_TAB, this.attrs.ww.active ? names.ACTIVE : '')
         },
-      tab: {
+        tab: {
 
-        text : this.attrs.ww.text
+            text: this.attrs.ww.text
 
-      }
+        }
 
     };
 
@@ -57,26 +58,26 @@ export class Tab extends Component<TabAttrs> {
 
         e.preventDefault();
 
-      this
-        .view
-        .findById(this.values.id.root)
-        .chain((root:HTMLElement)=> {
-           
-           let parent = <HTMLElement>root.parentNode;
-        let us = parent.children;
-
-        for (var i = 0; i < us.length; i++)
-            us[i].classList.remove(names.ACTIVE);
-
-        return this
+        this
             .view
             .findById(this.values.id.root)
-            .map((el: HTMLElement) => el.classList.add(names.ACTIVE))
-            .orJust(() => _unknown(this.values.id.root))
-            .chain(() => afpl.Maybe.fromAny(this.attrs.ww.onClick))
-            .map((f: TabClickedEventHandler) =>
-                f(new TabClickedEvent(this.attrs.ww.name)));
-        });
+            .chain((root: HTMLElement) => {
+
+                let parent = <HTMLElement>root.parentNode;
+                let us = parent.children;
+
+                for (var i = 0; i < us.length; i++)
+                    us[i].classList.remove(names.ACTIVE);
+
+                return this
+                    .view
+                    .findById(this.values.id.root)
+                    .map((el: HTMLElement) => el.classList.add(names.ACTIVE))
+                    .orJust(() => _unknown(this.values.id.root))
+                    .chain(() => afpl.Maybe.fromAny(this.attrs.ww.onClick))
+                    .map((f: TabClickedEventHandler) =>
+                        f(new TabClickedEvent(this.attrs.ww.name)));
+            });
 
     }
 
