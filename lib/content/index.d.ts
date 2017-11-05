@@ -1,0 +1,1 @@
+export { StylableAttrs } from './StylableAttrs';

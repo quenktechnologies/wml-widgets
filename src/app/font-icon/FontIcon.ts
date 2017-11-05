@@ -1,25 +1,16 @@
 import * as wml from '@quenk/wml';
+import { concat } from '@package/self/common/util';
+import { StylableAttrs } from '@package/self/content';
 import { Main } from './wml/icon';
 
-export type Size = 'lg' | '2x' | '3x' | '4x' | '5x';
-
-export enum Sizes {
-
-    LG = 'lg',
-    TWO = '2x',
-    THREE = '3x',
-    FOUR = '4x',
-    FIVE = '5x'
-};
-
-export interface IconAttrs extends wml.Attrs {
+export interface IconAttrs extends StylableAttrs {
 
     ww: {
 
-      /**
-       * classes for this font icon.
-       */
-      class: string
+        /**
+         * classes for this font icon.
+         */
+        class: string
 
     }
 
@@ -30,11 +21,11 @@ export interface IconAttrs extends wml.Attrs {
  */
 export class FontIcon extends wml.Component<IconAttrs>{
 
-    view = new Main(this);
+    view: wml.View = new Main(this);
 
-     values = {
-       
-       class : this.attrs.ww.class
+    values = {
+
+        class: concat('loading', this.attrs.ww ? this.attrs.ww.class : '')
 
     }
 

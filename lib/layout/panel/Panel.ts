@@ -1,5 +1,7 @@
+import * as wml from '@quenk/wml';
 import * as names from '@package/self/common/names';
 import * as views from './wml/panel';
+import { StylableAttrs } from '@package/self/content';
 import { Component, Attrs } from '@quenk/wml';
 import { concat } from '@package/self/common/util';
 
@@ -7,26 +9,29 @@ export interface PanelAttrs extends Attrs {
 
     ww?: {
 
-        style?: string
+        style?: string,
+        class?: string
 
     }
 
 }
 
-export interface HeaderAttrs extends Attrs { }
-export interface BodyAttrs extends Attrs { }
-export interface FooterAttrs extends Attrs { }
+export interface HeaderAttrs extends StylableAttrs { }
+
+export interface BodyAttrs extends StylableAttrs { }
+
+export interface FooterAttrs extends StylableAttrs { }
 
 export class Panel extends Component<PanelAttrs> {
 
-    view = new views.Panel(this);
+  view: wml.View = new views.Panel(this);
 
     values = {
 
         class: {
 
             root: concat(names.PANEL, this.attrs.ww ?
-              this.attrs.ww.style : names.DEFAULT)
+                this.attrs.ww.style : names.DEFAULT, this.attrs.ww ? this.attrs.ww.class : '')
 
         }
 
@@ -36,13 +41,15 @@ export class Panel extends Component<PanelAttrs> {
 
 export class Header extends Component<HeaderAttrs> {
 
-    view = new views.Header(this);
+  view: wml.View = new views.Header(this);
 
     values = {
 
         class: {
 
-            root: names.PANEL_HEADER
+            root: concat(names.PANEL_HEADER,
+                this.attrs.ww ? this.attrs.ww.class : '')
+
 
         }
 
@@ -52,13 +59,15 @@ export class Header extends Component<HeaderAttrs> {
 
 export class Body extends Component<BodyAttrs> {
 
-    view = new views.Body(this);
+  view : wml.View = new views.Body(this);
 
     values = {
 
         class: {
 
-            root: names.PANEL_BODY
+            root: concat(names.PANEL_BODY,
+                this.attrs.ww ? this.attrs.ww.class : '')
+
 
         }
 
@@ -68,13 +77,15 @@ export class Body extends Component<BodyAttrs> {
 
 export class Footer extends Component<FooterAttrs> {
 
-    view = new views.Footer(this);
+  view : wml.View = new views.Footer(this);
 
     values = {
 
         class: {
 
-            root: names.PANEL_FOOTER
+            root: concat(names.PANEL_FOOTER,
+                this.attrs.ww ? this.attrs.ww.class : '')
+
 
         }
 
