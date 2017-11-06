@@ -1,6 +1,5 @@
 import * as wml from '@quenk/wml';
-import { StylableAttrs } from '@package/self/content';
-export interface IconAttrs extends StylableAttrs {
+export interface IconAttrs extends wml.Attrs {
     ww: {
         /**
          * classes for this font icon.
@@ -14,6 +13,8 @@ export interface IconAttrs extends StylableAttrs {
 export declare class FontIcon extends wml.Component<IconAttrs> {
     view: wml.View;
     values: {
-        class: string;
+        root: {
+            class: string;
+        };
     };
 }

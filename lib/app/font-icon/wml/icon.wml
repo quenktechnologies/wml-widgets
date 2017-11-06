@@ -1,4 +1,4 @@
 import {FontIcon} from "../FontIcon"
 
 {% main (FontIcon) %}
-<span class={{@values.class}}/>
+<span class={{@values.root.class}}/>

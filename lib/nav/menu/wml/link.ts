@@ -36,7 +36,7 @@ export class Main extends ___wml.AppView < LinkContext > {
                     'active': ___context.values.a.active,
                     'onClick': ___context.values.a.onClick
                 }
-            }, [], ___view)], ___view);
+            }, [___wml.domify(___context.children)], ___view)], ___view);
 
     }
 
