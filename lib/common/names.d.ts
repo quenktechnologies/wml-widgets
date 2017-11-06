@@ -123,17 +123,25 @@ export declare const NAV = "ww-nav";
  */
 export declare const NAV_LINK = "ww-nav-link";
 /**
- * NAV_LIST class name.
+ * NAV_MENU class name.
  */
-export declare const NAV_LIST = "ww-nav-list";
+export declare const NAV_MENU = "ww-nav-menu";
 /**
- * NAV_LIST_ITEM class name.
+ * NAV_MENU_ITEM class name.
  */
-export declare const NAV_LIST_ITEM = "ww-nav-list__item";
+export declare const NAV_MENU_ITEM = "ww-nav-menu__item";
 /**
- * NAV_LIST_ITEM_TEXT class name.
+ * NAV_MENU_HEADER class name.
  */
-export declare const NAV_LIST_ITEM_TEXT = "ww-nav-list__item__text";
+export declare const NAV_MENU_HEADER = "ww-nav-menu__header";
+/**
+ * NAV_MENU_LINK class name.
+ */
+export declare const NAV_MENU_LINK = "ww-nav-menu__link";
+/**
+ * NAV_MENU_SUBMENU class name.
+ */
+export declare const NAV_MENU_SUBMENU = "ww-nav-menu__submenu";
 export declare const BUTTON = "ww-button";
 export declare const BUTTON_GROUP = "ww-button-group";
 export declare const GRID = "container-fluid";

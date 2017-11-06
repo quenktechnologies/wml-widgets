@@ -2,5 +2,5 @@ import {Dash} from "../Dash"
 
 {% main (Dash) %}
 
-<div class={{@values.class.root}} />
+<span class={{@values.class.root}} />
  

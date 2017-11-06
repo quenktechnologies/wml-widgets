@@ -12,7 +12,7 @@ export class Main extends ___wml.AppView < Dash > {
         super(context);
 
         this.template = (___context: Dash, ___view: ___wml.AppView < Dash > ) =>
-            ___wml.node('div', {
+            ___wml.node('span', {
                 html: {
                     'class': ___context.values.class.root
                 },

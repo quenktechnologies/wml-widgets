@@ -1,0 +1,9 @@
+import {SubMenu} from "../SubMenu"
+import {Item} from "../Item"
+
+{% main (SubMenu) %}
+
+<Item>
+  <ul class={{@values.class.root}}>{{@children}}</ul>
+</Item>
+

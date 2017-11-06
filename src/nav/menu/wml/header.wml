@@ -1,0 +1,22 @@
+import {Item} from "../Item"
+import {Header} from "../Header"
+
+{% main (Header) %}
+
+<Item ww:class={{@values.item.class}}>
+
+  <span class={{@values.span.class}}>
+
+    {% if @values.text %}
+
+      {{@values.text}}
+
+    {% else %}
+
+      {{@children}}
+
+    {% endif %}
+
+  </span>
+
+</Item>

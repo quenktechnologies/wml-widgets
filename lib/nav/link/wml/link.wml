@@ -5,7 +5,6 @@ import {Link} from "../Link"
 <a 
   class={{@values.class.root}}
   href={{@values.a.href}}
-  name={{@values.a.name}}
   title={{@values.a.title}}
   onclick={{@clicked}}>
 

@@ -3,17 +3,11 @@ import {
     App
 } from '../app';;
 import {
-    List
-} from '@package/self/nav/list/List';;
-import {
-    Item
-} from '@package/self/nav/list/Item';;
-import {
-    Link
-} from '@package/self/nav/link/Link';;
-import {
-    Text
-} from '@package/self/nav/list/Text';
+    Menu,
+    Link,
+    Header,
+    SubMenu
+} from '@package/self/nav/menu';
 
 
 
@@ -24,10 +18,7 @@ export class Navigation extends ___wml.AppView < App > {
         super(context);
 
         this.template = (___context: App, ___view: ___wml.AppView < App > ) =>
-            ___wml.widget(List, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Item, {
+            ___wml.widget(Menu, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -42,19 +33,13 @@ export class Navigation extends ___wml.AppView < App > {
                     'onClick': ___context.navigate,
                     'text': `Home`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Text, {
+            }, [], ___view), ___wml.widget(Header, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Layout`
                 }
-            }, [], ___view), ___wml.widget(List, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Item, {
+            }, [], ___view), ___wml.widget(SubMenu, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -69,19 +54,13 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `panel`),
                     'text': `Panels`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Text, {
+            }, [], ___view)], ___view), ___wml.widget(Header, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Table`
                 }
-            }, [], ___view), ___wml.widget(List, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Item, {
+            }, [], ___view), ___wml.widget(SubMenu, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -96,19 +75,13 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `table`),
                     'text': `Table`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Text, {
+            }, [], ___view)], ___view), ___wml.widget(Header, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Control`
                 }
-            }, [], ___view), ___wml.widget(List, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Item, {
+            }, [], ___view), ___wml.widget(SubMenu, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -121,12 +94,9 @@ export class Navigation extends ___wml.AppView < App > {
                     'href': `#/text-field`,
                     'onClick': ___context.navigate,
                     'active': (___context.page === `text-field`),
-                    'text': `Text Field`
+                    'text': `Header Field`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -138,10 +108,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `date`),
                     'text': `Date`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -153,10 +120,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `select`),
                     'text': `Select`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -168,10 +132,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `autocomplete`),
                     'text': `Autocomplete`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -183,10 +144,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `button-select`),
                     'text': `Button Select`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -198,10 +156,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `checkbox`),
                     'text': `Checkbox`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -213,10 +168,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `switch`),
                     'text': `Switch`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -228,10 +180,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `tabs`),
                     'text': `Tabs`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -243,10 +192,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `stack`),
                     'text': `Stack`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -258,19 +204,13 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `search-stack`),
                     'text': `Search Stack`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Text, {
+            }, [], ___view)], ___view), ___wml.widget(Header, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `App`
                 }
-            }, [], ___view), ___wml.widget(List, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Item, {
+            }, [], ___view), ___wml.widget(SubMenu, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -285,19 +225,13 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `busy-indicator`),
                     'text': `Busy Indicator`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Text, {
+            }, [], ___view)], ___view), ___wml.widget(Header, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Nav`
                 }
-            }, [], ___view), ___wml.widget(List, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Item, {
+            }, [], ___view), ___wml.widget(SubMenu, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -312,19 +246,13 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `breadcrumbs`),
                     'text': `BreadCrumbs`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Text, {
+            }, [], ___view)], ___view), ___wml.widget(Header, {
                 html: {},
                 wml: {},
                 ww: {
                     'text': `Menu`
                 }
-            }, [], ___view), ___wml.widget(List, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Item, {
+            }, [], ___view), ___wml.widget(SubMenu, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -339,10 +267,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `menu`),
                     'text': `Menu`
                 }
-            }, [], ___view)], ___view), ___wml.widget(Item, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Link, {
+            }, [], ___view), ___wml.widget(Link, {
                 html: {},
                 wml: {
                     'group': `links`
@@ -354,7 +279,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `button-menu`),
                     'text': `Button Menu`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [], ___view)], ___view)], ___view);
 
     }
 

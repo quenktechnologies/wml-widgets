@@ -1,0 +1,70 @@
+@import "css/list";
+@import "css/padding";
+@import "css/display";
+@import "css/background";
+@import "css/text-transform";
+@import "css/letter-spacing";
+
+.__NAV_MENU__ {
+
+  .-no-list-style;
+  .padding-left(@nav-list-padding-left);
+  .padding-right(@nav-list-padding-right);
+
+}
+
+.__NAV_MENU_ITEM__ {
+
+  .margin-top(@nav-list-item-margin-top);
+  .margin-bottom(@nav-list-item-margin-bottom);
+
+  & > .__NAV_MENU__ {
+
+    .margin-left(@nav-list-nested-margin-left);
+
+  }
+
+  & > .__NAV_MENU_HEADER__ {
+
+    .padding-vh(@nav-list-item-vertical-padding, @nav-list-item-horizontal-padding);
+    .color(@nav-list-item-text-color);
+    .font-weight(@nav-list-item-link-font-weight);
+    .letter-spacing(@nav-list-item-link-letter-spacing);
+    .-uppercase;
+
+  }
+
+  & > a {
+
+  .padding-vh(@nav-list-item-vertical-padding, @nav-list-item-horizontal-padding);
+  .-block-display;
+  .-unstyled-link;
+  .-uppercase;
+  .font-weight(@nav-list-item-link-font-weight);
+  .letter-spacing(@nav-list-item-link-letter-spacing);
+
+    &:hover {
+
+      .background-color(@nav-list-item-hover-background-color);
+
+    }
+
+    &.__ACTIVE__ {
+
+      .background-color(@nav-list-item-active-background-color);
+
+    }
+
+    &.__NO_HOVER__ {
+    
+      &:hover, &.__ACTIVE__ {
+
+        .background-color(@nav-list-item-background-color);
+
+      }
+
+    }
+
+  }
+
+}

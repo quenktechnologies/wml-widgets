@@ -158,19 +158,29 @@ export const NAV = 'ww-nav';
 export const NAV_LINK = 'ww-nav-link';
 
 /**
- * NAV_LIST class name.
+ * NAV_MENU class name.
  */
-export const NAV_LIST = 'ww-nav-list';
+export const NAV_MENU = 'ww-nav-menu';
 
 /**
- * NAV_LIST_ITEM class name.
+ * NAV_MENU_ITEM class name.
  */
-export const NAV_LIST_ITEM = 'ww-nav-list__item';
+export const NAV_MENU_ITEM = 'ww-nav-menu__item';
 
 /**
- * NAV_LIST_ITEM_TEXT class name.
+ * NAV_MENU_HEADER class name.
  */
-export const NAV_LIST_ITEM_TEXT = 'ww-nav-list__item__text';
+export const NAV_MENU_HEADER = 'ww-nav-menu__header';
+
+/**
+ * NAV_MENU_LINK class name.
+ */
+export const NAV_MENU_LINK = 'ww-nav-menu__link';
+
+/**
+ * NAV_MENU_SUBMENU class name.
+ */
+export const NAV_MENU_SUBMENU = 'ww-nav-menu__submenu';
 
 export const BUTTON = 'ww-button';
 export const BUTTON_GROUP = 'ww-button-group';
@@ -222,7 +232,7 @@ export const SELECT = 'form-control';
 /**
  * TABS class name.
  */
-export const TABS = 'ww-tabs'; 
+export const TABS = 'ww-tabs';
 
 /**
  * TABS_TAB class name.

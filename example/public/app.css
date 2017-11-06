@@ -10022,26 +10022,26 @@ input:checked + .ww-switch__slider:before {
 .-uppercase {
   text-transform: uppercase;
 }
-.ww-nav-list {
+.ww-nav-menu {
   list-style: none;
   padding-left: 1em;
   padding-right: 1em;
 }
-.ww-nav-list__item {
+.ww-nav-menu__item {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.ww-nav-list__item > .ww-nav-list {
+.ww-nav-menu__item > .ww-nav-menu {
   margin-left: 0;
 }
-.ww-nav-list__item > .ww-nav-list__item__text {
+.ww-nav-menu__item > .ww-nav-menu__header {
   padding: 0.7em 1em;
   color: grey;
   font-weight: bolder;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.ww-nav-list__item > a {
+.ww-nav-menu__item > a {
   padding: 0.7em 1em;
   display: block;
   color: inherit;
@@ -10050,14 +10050,14 @@ input:checked + .ww-switch__slider:before {
   font-weight: bolder;
   letter-spacing: 0.2em;
 }
-.ww-nav-list__item > a:hover {
+.ww-nav-menu__item > a:hover {
   background-color: #31708f;
 }
-.ww-nav-list__item > a.active {
+.ww-nav-menu__item > a.active {
   background-color: #31708f;
 }
-.ww-nav-list__item > a.-no-hover:hover,
-.ww-nav-list__item > a.-no-hover.active {
+.ww-nav-menu__item > a.-no-hover:hover,
+.ww-nav-menu__item > a.-no-hover.active {
   background-color: inherit;
 }
 .breadcrumb {
@@ -10179,3 +10179,6 @@ input:checked + .ww-switch__slider:before {
 /**
  * place customisations here. 
  */
+body {
+  min-height: 1024px;
+}
