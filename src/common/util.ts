@@ -42,10 +42,10 @@ export const debounce = <A>(f: (a: A) => void, delay: number) => {
     return delay === 0 ? f : (a: A) => {
 
         if (!timer) {
-            timer = setTimeout(() => f(a), delay);
+            timer = window.setTimeout(() => f(a), delay);
         } else {
             clearTimeout(timer);
-            timer = setTimeout(() => f(a), delay);
+            timer = window.setTimeout(() => f(a), delay);
         }
     }
 
