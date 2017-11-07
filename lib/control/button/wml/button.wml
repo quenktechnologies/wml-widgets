@@ -2,8 +2,7 @@ import * as B from '../Button';
 
 {% view Group (B.Group) %}
 
-  <div 
-   class={{@getClass}}>{{@children}}</div>
+  <div class={{@values.root.class}}>{{@children}}</div>
 
 {% endview %}
 

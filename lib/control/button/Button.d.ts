@@ -1,3 +1,4 @@
+import * as wml from '@quenk/wml';
 import * as G from '@package/self/content/Group';
 import * as views from './wml/button';
 import { Renderable } from '@quenk/wml';
@@ -7,7 +8,6 @@ import { Renderable } from '@quenk/wml';
 export interface GroupAttrs extends G.GroupAttrs {
     ww?: {
         class?: string;
-        spaced?: boolean;
         content?: Renderable;
     };
 }
@@ -15,8 +15,12 @@ export interface GroupAttrs extends G.GroupAttrs {
  * Group multiple buttons into one element.
  */
 export declare class Group extends G.Group<GroupAttrs> {
-    view: views.Group;
-    getClass(): string;
+    view: wml.View;
+    values: {
+        root: {
+            class: string;
+        };
+    };
 }
 /**
  * ButtonAttrs are the allowed attributes for <Button/>

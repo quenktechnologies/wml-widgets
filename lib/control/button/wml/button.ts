@@ -10,7 +10,7 @@ export class Group extends ___wml.AppView < B.Group > {
         this.template = (___context: B.Group, ___view: ___wml.AppView < B.Group > ) =>
             ___wml.node('div', {
                 html: {
-                    'class': ___context.getClass
+                    'class': ___context.values.root.class
                 },
                 wml: {}
             }, [___wml.domify(___context.children)], ___view);

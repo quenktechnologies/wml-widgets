@@ -1,3 +1,4 @@
+import * as wml from '@quenk/wml';
 import * as G from '@package/self/content/Group';
 import * as names from '@package/self/common/names';
 import * as views from './wml/button';
@@ -11,7 +12,6 @@ export interface GroupAttrs extends G.GroupAttrs {
 
     ww?: {
         class?: string,
-        spaced?: boolean,
         content?: Renderable
     }
 
@@ -22,25 +22,13 @@ export interface GroupAttrs extends G.GroupAttrs {
  */
 export class Group extends G.Group<GroupAttrs> {
 
-    view = new views.Group(this);
+    view: wml.View = new views.Group(this);
 
-    getClass(): string {
+    values = {
 
-        let list = ['btn-group'];
+        root: {
 
-        if (this.attrs.ww) {
-
-            if (this.attrs.ww.class)
-                list.push(this.attrs.ww.class);
-
-            if (this.attrs.ww.spaced)
-                list.push(names.SPACED);
-
-            return list.join(' ');
-
-        } else {
-
-            return '';
+            class: concat('btn-group', (this.attrs.ww) ? this.attrs.ww.class : '')
 
         }
 
