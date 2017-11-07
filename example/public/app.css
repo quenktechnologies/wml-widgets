@@ -2022,6 +2022,7 @@ body {
   color: #333333;
 }
 .ww-drawer-layout > .ww-drawer {
+  width: 15em;
   background-color: #1a1a1a;
 }
 .ww-main-view {
