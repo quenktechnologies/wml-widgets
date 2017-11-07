@@ -26,7 +26,7 @@ export class Group extends G.Group<GroupAttrs> {
 
     getClass(): string {
 
-        let list = [names.BUTTON_GROUP];
+        let list = ['btn-group'];
 
         if (this.attrs.ww) {
 
