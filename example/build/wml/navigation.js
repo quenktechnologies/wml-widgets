@@ -94,7 +94,7 @@ var Navigation = /** @class */ (function (_super) {
                             'href': "#/text-field",
                             'onClick': ___context.navigate,
                             'active': (___context.page === "text-field"),
-                            'text': "Header Field"
+                            'text': "Text Field"
                         }
                     }, [], ___view), ___wml.widget(menu_1.Link, {
                         html: {},

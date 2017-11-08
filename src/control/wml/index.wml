@@ -32,7 +32,9 @@ import {Message} from "./Message"
 
   {% else %}
 
-    {{''}}
+    <span
+      wml:id={{id}}
+      class="help-text"/>
 
   {% endif %}
 

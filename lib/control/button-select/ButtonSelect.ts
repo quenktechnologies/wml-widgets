@@ -8,11 +8,11 @@ import { Maybe } from 'afpl/lib/monad/Maybe';
  */
 export class ButtonSelect<V> extends ButtonSelectGroup<V, V, ButtonSelectGroupAttrs<V, V>> {
 
-  initialize(value?:V) : Maybe<V> {
+    initialize(value?:V) : Maybe<V> {
 
-    return Maybe.fromAny(value);
+      return Maybe.fromAny(value);
 
-  }
+    }
 
     click(value: V): void {
 

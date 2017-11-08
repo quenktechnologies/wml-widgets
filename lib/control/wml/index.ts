@@ -40,7 +40,14 @@ export const message = (id: string, m: Message) => (___view: ___wml.View) => ___
                 }
             }, [___wml.domify(m.warning)], ___view);
         }, function else_clause() {
-            return ___wml.domify(``)
+            return ___wml.node('span', {
+                html: {
+                    'class': `help-text`
+                },
+                wml: {
+                    'id': id
+                }
+            }, [], ___view)
         });
     });
 });

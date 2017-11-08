@@ -22,7 +22,6 @@ export abstract class ButtonSelectGroup<V, OV, A extends ButtonSelectGroupAttrs<
             class: names.BUTTON_SELECT
 
         },
-
         help: {
 
             id: 'help',
@@ -43,8 +42,6 @@ export abstract class ButtonSelectGroup<V, OV, A extends ButtonSelectGroupAttrs<
             concat(names.BUTTON_SELECT_OPTION, className,
                 (this.attrs.ww.variant) ? this.attrs.ww.variant : names.DEFAULT,
                 this.values.select.isSelected(value) ? names.ACTIVE : ''),
-
-
 
     };
 

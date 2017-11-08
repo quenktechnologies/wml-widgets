@@ -51,7 +51,7 @@ import {Menu,Link,Header,SubMenu} from "@package/self/nav/menu"
         ww:href="#/text-field"
         ww:onClick={{@navigate}}
         ww:active={{@page == 'text-field'}}
-        ww:text="Header Field" />
+        ww:text="Text Field" />
 
       <Link
         wml:group="links"

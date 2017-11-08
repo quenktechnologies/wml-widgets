@@ -94,7 +94,7 @@ export class Navigation extends ___wml.AppView < App > {
                     'href': `#/text-field`,
                     'onClick': ___context.navigate,
                     'active': (___context.page === `text-field`),
-                    'text': `Header Field`
+                    'text': `Text Field`
                 }
             }, [], ___view), ___wml.widget(Link, {
                 html: {},
