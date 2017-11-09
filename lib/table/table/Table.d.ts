@@ -20,7 +20,7 @@ export interface Field<D> {
     strategy?: SortingStrategy;
 }
 export interface CellFragment<D> {
-    (datum: any, name: string, row: D, field: Field<D>): ContentProvider;
+    (datum: any, name: string, row: D): ContentProvider;
 }
 export interface TableModel<D> {
     allSelected(): void;

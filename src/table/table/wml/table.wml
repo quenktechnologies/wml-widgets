@@ -119,7 +119,7 @@ import {Field} from "../Table"
 
       {% if field.fragment %}
 
-        {{ <field.fragment(get(field.name,row),field.name,row,field)> }}
+        {{ <field.fragment(get(field.name,row),field.name,row)> }}
 
       {% else %}
 

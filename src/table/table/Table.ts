@@ -88,7 +88,7 @@ export interface Field<D> {
 
 export interface CellFragment<D> {
 
-    (datum: any, name: string, row: D, field: Field<D>): ContentProvider
+    (datum: any, name: string, row: D): ContentProvider
 
 }
 

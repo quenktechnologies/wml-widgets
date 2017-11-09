@@ -74,7 +74,7 @@ export const rows = < D > (row: D, index: string, fields: T.Field < D > []) => (
             'onclick': () => ___context.model.cellClicked(new CellClickedEvent(get(field.name, row), field.name, index, row))
         },
         wml: {}
-    }, [(field.fragment) ? ___wml.domify(field.fragment(get(field.name, row), field.name, row, field)(___view)) : ___wml.domify(get(field.name, row))], ___view)
+    }, [(field.fragment) ? ___wml.domify(field.fragment(get(field.name, row), field.name, row)(___view)) : ___wml.domify(get(field.name, row))], ___view)
 }, function otherwise() {
     return document.createDocumentFragment();
 });;
