@@ -2021,7 +2021,7 @@ body {
   background-color: #212121;
   color: #333333;
 }
-.ww-drawer-layout > .ww-drawer {
+.ww-drawer-layout > .ww-drawer:not(.-hidden) {
   width: 15em;
   background-color: #1a1a1a;
 }
