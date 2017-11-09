@@ -28,11 +28,7 @@ export class Tab extends ___wml.AppView < TabContext > {
                 wml: {
                     'id': ___context.values.id.a
                 }
-            }, [___wml.ifthen(___context.values.tab.text, function then() {
-                return ___wml.domify(___context.values.tab.text)
-            }, function else_clause() {
-                return ___wml.domify(___context.children)
-            })], ___view)], ___view);
+            }, [(___context.values.tab.text) ? ___wml.domify(___context.values.tab.text) : ___wml.domify(___context.children)], ___view)], ___view);
 
     }
 

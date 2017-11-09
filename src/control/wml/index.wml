@@ -12,6 +12,8 @@ import {Message} from "./Message"
 
 {% fun message(id:String, m:Message) %}
 
+{{console.error(m)}}
+
   {% if m.success %}
 
     <span

@@ -18,11 +18,7 @@ export class Main extends ___wml.AppView < MenuItem > {
                     'onclick': ___context.values.clicked
                 },
                 wml: {}
-            }, [___wml.ifthen(___context.values.text, function then() {
-                return ___wml.domify(___context.values.text)
-            }, function else_clause() {
-                return ___wml.domify(___context.children)
-            })], ___view);
+            }, [(___context.values.text) ? ___wml.domify(___context.values.text) : ___wml.domify(___context.children)], ___view);
 
     }
 

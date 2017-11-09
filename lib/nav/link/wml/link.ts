@@ -20,11 +20,7 @@ export class Main extends ___wml.AppView < Link > {
                     'onclick': ___context.clicked
                 },
                 wml: {}
-            }, [___wml.ifthen(___context.values.a.text, function then() {
-                return ___wml.domify(___context.values.a.text)
-            }, function else_clause() {
-                return ___wml.domify(___context.children)
-            })], ___view);
+            }, [(___context.values.a.text) ? ___wml.domify(___context.values.a.text) : ___wml.domify(___context.children)], ___view);
 
     }
 

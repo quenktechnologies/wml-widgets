@@ -37,52 +37,36 @@ export const allSelectedCheckbox = < D > () => (___context: T.Table < D > ) => (
     wml: {}
 }, [], ___view)], ___view);;
 export const headings = < D > (fields: Field < D > []) => (___context: T.Table < D > ) => (___view: ___wml.View) => ___wml.map(fields, function _map(field: Field < D > ) {
-    return ___wml.ifthen(field.sortAs, function then() {
-        return ___wml.node('th', {
-            html: {
-                'class': concat(___context.values.class.heading, ((___context.values.sortedOn === field.name)) ? names.ACTIVE : ``),
-                'onclick': () => ___context.model.headingClicked(new HeadingClickedEvent(field.name, field))
-            },
-            wml: {}
-        }, [___wml.domify(field.heading), ___wml.ifthen((___context.values.sortedOn === field.name), function then() {
-            return ___wml.domify(___context.values.arrow)
-        }, function else_clause() {
-            return ___wml.domify(``)
-        })], ___view)
-    }, function else_clause() {
-        return ___wml.node('th', {
-            html: {
-                'class': concat(___context.values.class.heading, ((___context.values.sortedOn === field.name)) ? names.ACTIVE : ``),
-                'onclick': () => ___context.model.headingClicked(new HeadingClickedEvent(field.name, field))
-            },
-            wml: {}
-        }, [___wml.domify(field.heading), ___wml.domify(((___context.values.sortedOn === field.name)) ? ___context.values.arrow : ``)], ___view)
-    })
+    return (field.sortAs) ? ___wml.node('th', {
+        html: {
+            'class': concat(___context.values.class.heading, ((___context.values.sortedOn === field.name)) ? names.ACTIVE : ``),
+            'onclick': () => ___context.model.headingClicked(new HeadingClickedEvent(field.name, field))
+        },
+        wml: {}
+    }, [___wml.domify(field.heading), ((___context.values.sortedOn === field.name)) ? ___wml.domify(___context.values.arrow) : ___wml.domify(``)], ___view) : ___wml.node('th', {
+        html: {
+            'class': concat(___context.values.class.heading, ((___context.values.sortedOn === field.name)) ? names.ACTIVE : ``),
+            'onclick': () => ___context.model.headingClicked(new HeadingClickedEvent(field.name, field))
+        },
+        wml: {}
+    }, [___wml.domify(field.heading), ___wml.domify(((___context.values.sortedOn === field.name)) ? ___context.values.arrow : ``)], ___view)
 }, function otherwise() {
     return document.createDocumentFragment();
 });;
 export const thead = < D > (fields: Field < D > []) => (___context: T.Table < D > ) => (___view: ___wml.View) => ___wml.node('tr', {
     html: {},
     wml: {}
-}, [___wml.ifthen(___context.values.options.selectable, function then() {
-    return ___wml.box(___wml.domify(allSelectedCheckbox()(___context)(___view)), ___wml.domify(headings(fields)(___context)(___view)))
-}, function else_clause() {
-    return ___wml.domify(headings(fields)(___context)(___view))
-})], ___view);;
-export const rowSelectCheckbox = < D > (row: D, index: string, data: D[]) => (___context: T.Table < D > ) => (___view: ___wml.View) => ___wml.ifthen(___context.values.options.selectable, function then() {
-    return ___wml.node('td', {
-        html: {},
-        wml: {}
-    }, [___wml.node('input', {
-        html: {
-            'type': `checkbox`,
-            'onclick': () => ___context.model.rowSelected(new RowSelectedEvent(row, index, data))
-        },
-        wml: {}
-    }, [], ___view)], ___view)
-}, function else_clause() {
-    return ___wml.domify(null)
-});;
+}, [(___context.values.options.selectable) ? ___wml.box(___wml.domify(allSelectedCheckbox()(___context)(___view)), ___wml.domify(headings(fields)(___context)(___view))) : ___wml.domify(headings(fields)(___context)(___view))], ___view);;
+export const rowSelectCheckbox = < D > (row: D, index: string, data: D[]) => (___context: T.Table < D > ) => (___view: ___wml.View) => (___context.values.options.selectable) ? ___wml.node('td', {
+    html: {},
+    wml: {}
+}, [___wml.node('input', {
+    html: {
+        'type': `checkbox`,
+        'onclick': () => ___context.model.rowSelected(new RowSelectedEvent(row, index, data))
+    },
+    wml: {}
+}, [], ___view)], ___view) : ___wml.domify(null);;
 export const rows = < D > (row: D, index: string, fields: T.Field < D > []) => (___context: T.Table < D > ) => (___view: ___wml.View) => ___wml.map(fields, function _map(field: T.Field < D > ) {
     return ___wml.node('td', {
         html: {
@@ -90,11 +74,7 @@ export const rows = < D > (row: D, index: string, fields: T.Field < D > []) => (
             'onclick': () => ___context.model.cellClicked(new CellClickedEvent(get(field.name, row), field.name, index, row))
         },
         wml: {}
-    }, [___wml.ifthen(field.fragment, function then() {
-        return ___wml.domify(field.fragment(get(field.name, row), field.name, row, field)(___view))
-    }, function else_clause() {
-        return ___wml.domify(get(field.name, row))
-    })], ___view)
+    }, [(field.fragment) ? ___wml.domify(field.fragment(get(field.name, row), field.name, row, field)(___view)) : ___wml.domify(get(field.name, row))], ___view)
 }, function otherwise() {
     return document.createDocumentFragment();
 });;
@@ -105,11 +85,7 @@ export const tbody = < D > (data: D[], fields: T.Field < D > []) => (___context:
             'onclick': () => ___context.model.rowClicked(new RowClickedEvent(row, index, data))
         },
         wml: {}
-    }, [___wml.ifthen(___context.values.options.selectable, function then() {
-        return ___wml.box(___wml.domify(rowSelectCheckbox(row, index, data)(___context)(___view)), ___wml.domify(rows(row, index, fields)(___context)(___view)))
-    }, function else_clause() {
-        return ___wml.domify(rows(row, index, fields)(___context)(___view))
-    })], ___view)
+    }, [(___context.values.options.selectable) ? ___wml.box(___wml.domify(rowSelectCheckbox(row, index, data)(___context)(___view)), ___wml.domify(rows(row, index, fields)(___context)(___view))) : ___wml.domify(rows(row, index, fields)(___context)(___view))], ___view)
 }, function otherwise() {
     return document.createDocumentFragment();
 });;
@@ -141,15 +117,7 @@ export class Table < D > extends ___wml.AppView < T.Table < D > > {
             ___wml.widget(Fragment, {
                 html: {},
                 wml: {}
-            }, [___wml.ifthen((___context.values.data.length === 0), function then() {
-                return ___wml.ifthen(___context.values.fragment.empty, function then() {
-                    return ___wml.domify(___context.values.fragment.empty.render())
-                }, function else_clause() {
-                    return ___wml.domify(table()(___context)(___view))
-                })
-            }, function else_clause() {
-                return ___wml.domify(table()(___context)(___view))
-            })], ___view);
+            }, [((___context.values.data.length === 0)) ? (___context.values.fragment.empty) ? ___wml.domify(___context.values.fragment.empty.render()) : ___wml.domify(table()(___context)(___view)) : ___wml.domify(table()(___context)(___view))], ___view);
 
     }
 

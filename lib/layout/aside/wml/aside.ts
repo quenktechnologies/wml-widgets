@@ -24,11 +24,7 @@ export class Main extends ___wml.AppView < Aside > {
                     'class': ___context.values.class.content
                 },
                 wml: {}
-            }, [___wml.ifthen(___context.values.content, function then() {
-                return ___wml.domify(___context.values.content.render())
-            }, function else_clause() {
-                return ___wml.domify(___context.children)
-            })], ___view)], ___view);
+            }, [(___context.values.content) ? ___wml.domify(___context.values.content.render()) : ___wml.domify(___context.children)], ___view)], ___view);
 
     }
 
