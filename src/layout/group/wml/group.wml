@@ -1,0 +1,5 @@
+import {Group} from "../Group"
+
+{% main (Group) %}
+
+<div id={{@values.root.id}}>{{@values.root.content}}</div>
