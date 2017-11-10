@@ -54,6 +54,18 @@ export class Navigation extends ___wml.AppView < App > {
                     'active': (___context.page === `panel`),
                     'text': `Panels`
                 }
+            }, [], ___view), ___wml.widget(Link, {
+                html: {},
+                wml: {
+                    'group': `links`
+                },
+                ww: {
+                    'name': `list-group`,
+                    'href': `#/list-group`,
+                    'onClick': ___context.navigate,
+                    'active': (___context.page === `list-group`),
+                    'text': `List Group`
+                }
             }, [], ___view)], ___view), ___wml.widget(Header, {
                 html: {},
                 wml: {},

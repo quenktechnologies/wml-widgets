@@ -1,0 +1,41 @@
+import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
+import {ListGroup, ListGroupItem} from "@package/self/layout/list-group"
+import {ListGroupPage} from "../"
+
+{% main (ListGroupPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <ListGroup>
+
+        <ListGroupItem>
+
+          <p>This is the first item.</p>
+
+        </ListGroupItem>
+
+        <ListGroupItem>
+
+          <b>This is the second item.</b>
+
+        </ListGroupItem>
+
+        <ListGroupItem>
+
+          <h3>Whoa!</h3>
+
+          <p>This is a third item!</p>
+
+        </ListGroupItem>
+
+      </ListGroup>
+
+    </Column>
+
+   </Row>
+
+ </Grid>

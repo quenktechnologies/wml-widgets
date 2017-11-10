@@ -54,6 +54,18 @@ var Navigation = /** @class */ (function (_super) {
                             'active': (___context.page === "panel"),
                             'text': "Panels"
                         }
+                    }, [], ___view), ___wml.widget(menu_1.Link, {
+                        html: {},
+                        wml: {
+                            'group': "links"
+                        },
+                        ww: {
+                            'name': "list-group",
+                            'href': "#/list-group",
+                            'onClick': ___context.navigate,
+                            'active': (___context.page === "list-group"),
+                            'text': "List Group"
+                        }
                     }, [], ___view)], ___view), ___wml.widget(menu_1.Header, {
                     html: {},
                     wml: {},

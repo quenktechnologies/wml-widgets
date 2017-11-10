@@ -4,6 +4,7 @@ var app_1 = require("./wml/app");
 var navigation_1 = require("./wml/navigation");
 var home_1 = require("./pages/home");
 var panel_1 = require("./pages/panel");
+var list_group_1 = require("./pages/list-group");
 var table_1 = require("./pages/table");
 var text_field_1 = require("./pages/text-field");
 var date_1 = require("./pages/date");
@@ -32,6 +33,7 @@ var App = /** @class */ (function () {
         this.pages = {
             home: new home_1.HomePage(this),
             panel: new panel_1.PanelPage(this),
+            'list-group': new list_group_1.ListGroupPage(this),
             table: new table_1.TablePage(this),
             'text-field': new text_field_1.TextFieldPage(this),
             date: new date_1.DatePage(this),

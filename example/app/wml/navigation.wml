@@ -25,6 +25,14 @@ import {Menu,Link,Header,SubMenu} from "@package/self/nav/menu"
         ww:active={{@page == 'panel'}}
         ww:text="Panels" />
 
+      <Link
+        wml:group="links"
+        ww:name="list-group"
+        ww:href="#/list-group"
+        ww:onClick={{@navigate}}
+        ww:active={{@page == 'list-group'}}
+        ww:text="List Group" />
+
     </SubMenu>
 
     <Header ww:text="Table" />

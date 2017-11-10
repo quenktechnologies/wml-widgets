@@ -8,6 +8,7 @@ import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
 import { HomePage } from './pages/home';
 import { PanelPage } from './pages/panel';
+import { ListGroupPage } from './pages/list-group';
 import { TablePage } from './pages/table';
 import { TextFieldPage } from './pages/text-field';
 import { DatePage } from './pages/date';
@@ -38,6 +39,7 @@ export class App {
 
         home: new HomePage(this),
         panel: new PanelPage(this),
+        'list-group': new ListGroupPage(this),
         table: new TablePage(this),
         'text-field': new TextFieldPage(this),
         date: new DatePage(this),
