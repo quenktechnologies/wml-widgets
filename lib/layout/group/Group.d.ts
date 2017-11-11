@@ -5,6 +5,10 @@ import * as wml from '@quenk/wml';
 export interface GroupAttrs extends wml.Attrs {
     ww?: {
         /**
+         * class name to apply to the rendered DOM.
+         */
+        class?: string;
+        /**
          * content allows the content of a Group to passed
          * via attributes.
          */
@@ -25,6 +29,7 @@ export declare class Group extends wml.Component<GroupAttrs> {
     values: {
         root: {
             id: string;
+            class: string;
             content: wml.Renderable | wml.Content[];
         };
     };

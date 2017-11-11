@@ -1,5 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/group';
+import { concat } from '@package/self/common/util';
 
 /**
  * GroupAttrs
@@ -7,6 +8,11 @@ import * as views from './wml/group';
 export interface GroupAttrs extends wml.Attrs {
 
     ww?: {
+
+        /**
+         * class name to apply to the rendered DOM.
+         */
+        class?: string,
 
         /**
          * content allows the content of a Group to passed
@@ -23,7 +29,7 @@ export interface GroupAttrs extends wml.Attrs {
  */
 export class Group extends wml.Component<GroupAttrs> {
 
-  view: wml.View = new views.Main(this);
+    view: wml.View = new views.Main(this);
 
     /**
      * content is dynamic content that can be changed 
@@ -36,7 +42,9 @@ export class Group extends wml.Component<GroupAttrs> {
 
         root: {
 
-            id: 'div',
+          id: 'group',
+
+            class: concat(this.attrs.ww && this.attrs.ww.class) ? this.attrs.ww.class : '',
 
             content: (this.attrs.ww && this.attrs.ww.content) ? this.attrs.ww.content : this.children
 
