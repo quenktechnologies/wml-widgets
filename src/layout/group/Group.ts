@@ -21,9 +21,9 @@ export interface GroupAttrs extends wml.Attrs {
 /**
  * Group is a generic container for child content.
  */
-export abstract class Group extends wml.Component<GroupAttrs> {
+export class Group extends wml.Component<GroupAttrs> {
 
-    view = new views.Main(this);
+  view: wml.View = new views.Main(this);
 
     /**
      * content is dynamic content that can be changed 
