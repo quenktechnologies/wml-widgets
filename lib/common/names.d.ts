@@ -30,7 +30,6 @@ export declare const FIXED_PUSHABLE = "-fixed-pushable";
  * NO_HOVER indicates hover effects should be disabled.
  */
 export declare const NO_HOVER = "-no-hover";
-export declare const SPACED = "-spaced";
 /**
  * DEFAULT style modifier.
  */

@@ -38,8 +38,6 @@ export const FIXED_PUSHABLE = '-fixed-pushable';
  */
 export const NO_HOVER = '-no-hover';
 
-export const SPACED = '-spaced';
-
 /**
  * DEFAULT style modifier.
  */

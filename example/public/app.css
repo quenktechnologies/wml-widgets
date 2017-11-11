@@ -9455,6 +9455,9 @@ button.close {
     display: none !important;
   }
 }
+.ww-button + .ww-button {
+  margin-right: 0.5em;
+}
 .ww-button-group {
   position: relative;
   display: inline-block;
@@ -9489,10 +9492,10 @@ button.close {
   position: relative;
   float: left;
 }
-.ww-button-group.-spaced .ww-button {
+.ww-button-group.__SPACED__ .ww-button {
   margin-right: 0.25rem;
 }
-.ww-button-group.-spaced .ww-button:last-child {
+.ww-button-group.__SPACED__ .ww-button:last-child {
   margin-right: 0;
 }
 .ww-button {
