@@ -1,8 +1,5 @@
 import * as ___wml from '@quenk/wml';
 import {
-    message
-} from '@package/self/control/wml';;
-import {
     Select
 } from '@package/self/control/select';;
 import {
@@ -10,7 +7,11 @@ import {
 } from '@package/self/control/text-field';;
 import {
     Date
-} from '../Date';
+} from '../Date';;
+import {
+    label,
+    message
+} from '@package/self/control/wml';
 
 
 
@@ -24,6 +25,11 @@ export class Main extends ___wml.AppView < Date > {
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class
+                },
+                wml: {}
+            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ___wml.node('div', {
+                html: {
+                    'class': ___context.values.inline.class
                 },
                 wml: {}
             }, [___wml.widget(Select, {
@@ -74,7 +80,7 @@ export class Main extends ___wml.AppView < Date > {
                     'class': ___context.values.year.class,
                     'placeholder': `YYYY`
                 }
-            }, [], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view)], ___view);
 
     }
 

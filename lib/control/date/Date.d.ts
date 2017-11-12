@@ -21,6 +21,9 @@ export interface DateValues {
         id: string;
         class: string;
     };
+    inline: {
+        class: string;
+    };
     /**
      * delegate that will receive events.
      */
@@ -56,6 +59,13 @@ export interface DateValues {
         success?: string;
         error?: string;
         warning?: string;
+    };
+    /**
+     * label
+     */
+    label: {
+        id: string;
+        text: string;
     };
 }
 /**

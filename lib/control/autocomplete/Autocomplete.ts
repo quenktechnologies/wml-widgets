@@ -49,16 +49,26 @@ export class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<V>> {
             class: concat(names.SEARCH, this.attrs.ww.class)
 
         },
-        help: {
+              help: {
 
-            id: 'help'
+            id: 'message',
+            success: this.attrs.ww.success,
+            error: this.attrs.ww.error,
+            warning: this.attrs.ww.warning
 
         },
-        menu: {
+         menu: {
 
             id: 'menu'
 
         },
+        label: {
+
+            id: this.attrs.ww.name,
+            text: this.attrs.ww.label || ''
+
+        },
+
         input: {
 
             id: 'input',

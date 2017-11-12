@@ -10,7 +10,7 @@ export const label = (id: string, text: string) => (___view: ___wml.View) => ___
     },
     wml: {}
 }, [___wml.domify(text)], ___view);;
-export const message = (id: string, m: Message) => (___view: ___wml.View) => ___wml.box(___wml.domify(console.error(m)), (m.success) ? ___wml.node('span', {
+export const message = (id: string, m: Message) => (___view: ___wml.View) => (m.success) ? ___wml.node('span', {
     html: {
         'class': `help-text`
     },
@@ -38,4 +38,4 @@ export const message = (id: string, m: Message) => (___view: ___wml.View) => ___
     wml: {
         'id': id
     }
-}, [], ___view));
+}, [], ___view);

@@ -30,9 +30,16 @@ export declare class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<
         };
         help: {
             id: string;
+            success: string;
+            error: string;
+            warning: string;
         };
         menu: {
             id: string;
+        };
+        label: {
+            id: string;
+            text: string;
         };
         input: {
             id: string;

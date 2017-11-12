@@ -10,7 +10,11 @@ import {
 } from '@package/self/layout/fragment/Fragment';;
 import {
     Autocomplete
-} from '../Autocomplete';
+} from '../Autocomplete';;
+import {
+    label,
+    message
+} from '@package/self/control/wml';
 
 export const populated = < V > (option: V, _index: number, _options: V[]) => (___context: Autocomplete < V > ) => (___view: ___wml.View) => ___wml.domify(___context.values.item.stringify(option));;
 export const empty = < V > () => (___context: Autocomplete < V > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
@@ -54,7 +58,7 @@ export class Main < V > extends ___wml.AppView < Autocomplete < V > > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.node('input', {
+            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ___wml.node('input', {
                 html: {
                     'type': `text`,
                     'class': ___context.values.input.class,
@@ -74,7 +78,7 @@ export class Main < V > extends ___wml.AppView < Autocomplete < V > > {
                 ww: {
                     'hidden': true
                 }
-            }, [], ___view)], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
 
     }
 

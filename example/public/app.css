@@ -9456,7 +9456,7 @@ button.close {
   }
 }
 .ww-button + .ww-button {
-  margin-right: 0.5em;
+  margin-left: 0.5em;
 }
 .ww-button-group {
   position: relative;

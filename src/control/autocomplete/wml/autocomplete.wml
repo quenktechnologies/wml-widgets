@@ -2,6 +2,7 @@ import {Menu} from "@package/self/menu/Menu"
 import {MenuItem} from "@package/self/menu/MenuItem"
 import {Fragment} from "@package/self/layout/fragment/Fragment"
 import {Autocomplete} from "../Autocomplete"
+import {label,message} from "@package/self/control/wml"
 
 {% fun populated [V](Autocomplete[V])(option:V, _index:Number, _options:V[]) = {{ @values.item.stringify(option) }}  %}
 
@@ -35,6 +36,8 @@ import {Autocomplete} from "../Autocomplete"
 
 <div class={{@values.root.class}}>
 
+  {{<label(@values.label.id, @values.label.text)>}}
+
   <input 
     wml:id={{@values.input.id}}
     type="text" 
@@ -47,5 +50,7 @@ import {Autocomplete} from "../Autocomplete"
   <Menu 
     wml:id={{@values.menu.id}}
     ww:hidden=true />
+
+   {{<message(@values.help.id, @values.help)>}}
 
 </div>

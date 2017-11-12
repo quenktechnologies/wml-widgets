@@ -33,6 +33,12 @@ export interface DateValues {
 
     },
 
+    inline :{
+
+      class: string
+
+    },
+
     /**
      * delegate that will receive events.
      */
@@ -77,6 +83,16 @@ export interface DateValues {
         success?: string,
         error?: string,
         warning?: string
+
+    },
+
+    /**
+     * label 
+     */
+    label: {
+
+        id: string,
+        text: string
 
     }
 
@@ -171,9 +187,13 @@ export class Date extends FormControl<string, DateAttrs> {
         root: {
 
             id: 'root',
-            class: concat(names.DATE, 'form-inline', this.attrs.ww.class, this.state()),
+            class: concat(names.DATE, 'form-group', this.attrs.ww.class, this.state()),
 
         },
+      inline: {
+
+            class: 'form-inline'
+      },
         date: {
 
             months: MONTHS.map((label, value) => ({ label, value: _prefix(value + 1) })),
@@ -197,12 +217,19 @@ export class Date extends FormControl<string, DateAttrs> {
 
         help: {
 
-            id: 'help',
+            id: 'helps',
             success: this.attrs.ww.success,
             error: this.attrs.ww.error,
             warning: this.attrs.ww.warning
 
+        },
+        label: {
+
+            id: this.attrs.ww.name,
+            text: this.attrs.ww.label || ''
+
         }
+
     };
 
     /**
