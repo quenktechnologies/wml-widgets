@@ -104,7 +104,7 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun rows[D](TableContext[D])(rowData:D, rowNumber:Number, columns:Column[D][]) %}
+{% fun cells[D](TableContext[D])(rowData:D, rowNumber:Number, columns:Column[D][]) %}
 
   {% if @values.options.selectable %}
 
@@ -139,7 +139,7 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun tbody[D](TableContext[D])(data:D[],columns:Column[D][]) %}
+{% fun rows[D](TableContext[D])(data:D[],columns:Column[D][]) %}
 
     {% for rowData:D,index:Number in data %}
 
@@ -147,7 +147,7 @@ import {Column, Table as TableContext} from ".."
         class={{@values.table.tbody.tr.class}}
         onclick={{@values.table.tbody.tr.onclick(rowData,index,data)}}>
 
-        {{ <rows(@)(rowData,index,columns)> }}
+        {{ <cells(@)(rowData,index,columns)> }}
 
       </tr>
 
@@ -165,7 +165,7 @@ import {Column, Table as TableContext} from ".."
         wml:id="head">{{ <thead(@)(@values.columns)> }}</thead>
         
       <tbody 
-        wml:id="body"> {{ <tbody(@)(@values.data,@values.columns)> }}</tbody>
+        wml:id="body"> {{ <rows(@)(@values.data,@values.columns)> }}</tbody>
 
     </table>
 

@@ -101,7 +101,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
                                 .delegate
                                 .onCellClicked(
                                 new CellClickedEvent(
-                                  value, column, rowData, rowNumber, new Cell(<HTMLElement>e.target)))
+                                    value, column, rowData, rowNumber, new Cell(<HTMLElement>e.target)))
 
                 }
 
@@ -115,7 +115,18 @@ export class Table<D> extends Component<TableAttrs<D>> {
 
     }
 
-    sort(name: string): void {
+    /**
+     * modifyBody allows a function to modify the contents 
+     * of the <tbody>
+     */
+    modifyBody(f: (e: HTMLElement) => void): Table<D> {
+
+        this.view.findById('body').map(f);
+        return this;
+
+    }
+
+    sort(name: string): Table<D> {
 
         let columns = this.attrs.ww ? this.attrs.ww.columns ? this.attrs.ww.columns : [] : [];
         let field = columns.reduce((p, c) => p ? p : (c.name === name ? c : null));
@@ -145,17 +156,19 @@ export class Table<D> extends Component<TableAttrs<D>> {
 
         this.values.sortedOn = name;
         this.view.invalidate();
+        return this;
 
     }
 
     /**
      * update the data the table displays
      */
-    update(data: D[]): void {
+    update(data: D[]): Table<D> {
 
         this.originalData = data.slice();
         this.values.data = data.slice();
         (this.values.sortedOn === '') ? this.view.invalidate() : this.sort(this.values.sortedOn);
+        return this;
 
     }
 
@@ -170,5 +183,95 @@ export class Table<D> extends Component<TableAttrs<D>> {
             .map((e: HTMLElement) => new Cell(e));
 
     }
+
+    /**
+     * prepend adds one or more new data rows to the begining of the table.
+     */
+    prepend(data: D | D[]): Table<D> {
+
+        let d: D[] = Array.isArray(data) ? data : [data];
+
+        this.modifyBody((e: HTMLElement) => {
+
+            let dom = view.rows(d, this.values.columns)(this)(this.view);
+
+            if (e.children.length === 0)
+                e.appendChild(dom)
+            else
+                e.replaceChild(dom, e.firstChild);
+
+        });
+
+        return this;
+
+    }
+
+    /**
+     * append adds one or more new data rows to the end of the table.
+     */
+    append(data: D | D[]): Table<D> {
+
+        let d: D[] = Array.isArray(data) ? data : [data];
+
+        this.modifyBody((e: HTMLElement) =>
+            e.appendChild(view.rows(d, this.values.columns)(this)(this.view)));
+
+        return this;
+
+    }
+
+    /**
+     * prependRow prepends customisable DOM content to the 
+     * begining of the table body. 
+     *
+     * NOTE: This DOM content of must be between <tr> elements.
+     */
+    prependRow(renderer: Renderable): Table<D> {
+
+        this.modifyBody((e: HTMLElement) => {
+
+            if (e.firstChild == null)
+                e.appendChild(renderer.render())
+            else
+                e.replaceChild(renderer.render(), e.firstChild);
+
+        });
+
+        return this;
+
+    }
+
+    /**
+     * appendRow appends customisable DOM content to the 
+     * begining of the table body. 
+     *
+     * NOTE: This DOM content of must be between <tr> elements.
+     */
+    appendRow(renderer: Renderable): Table<D> {
+
+        this.modifyBody((e: HTMLElement) => {
+            e.appendChild(renderer.render())
+        });
+
+        return this;
+
+    }
+
+  /**
+   * removeRow will remove an entire row from the table given its index.
+   */
+  removeRow(index:number) : Table<D>{
+
+    this.modifyBody((e: HTMLTableSectionElement)=> { 
+    
+      for(let i=0; i<= e.rows.length; i++)
+        if(i === index)
+          e.rows[i].parentNode.removeChild(e.rows[i])
+    
+    })
+
+    return this;
+  
+  }
 
 }

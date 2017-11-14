@@ -46,13 +46,13 @@ export class Select extends FormControl<string, SelectAttrs> {
             optValue: (o: Option) => typeof o === 'string' ? o : o.value,
             optLabel: (o: Option) => typeof o === 'string' ? o : o.label,
             isSelected: (s: string) => this.values.select.value === s,
-            onChange: (e:Event) => {
+            onChange: (e: Event) => {
 
-              let target = (<HTMLInputElement>e.target);
+                let target = (<HTMLInputElement>e.target);
 
                 this
                     .delegate
-                    .onChange(new SelectChangedEvent(this.attrs.ww.name,target.value));
+                    .onChange(new SelectChangedEvent(this.attrs.ww.name, target.value));
 
             }
         },

@@ -51,13 +51,44 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
         columns: Column<D>[];
         arrow: string;
     };
-    sort(name: string): void;
+    /**
+     * modifyBody allows a function to modify the contents
+     * of the <tbody>
+     */
+    modifyBody(f: (e: HTMLElement) => void): Table<D>;
+    sort(name: string): Table<D>;
     /**
      * update the data the table displays
      */
-    update(data: D[]): void;
+    update(data: D[]): Table<D>;
     /**
      * cellAt produces a Cell instance for the coordinates passed (if found).
      */
     cellAt(column: string, row: number): Maybe<Cell>;
+    /**
+     * prepend adds one or more new data rows to the begining of the table.
+     */
+    prepend(data: D | D[]): Table<D>;
+    /**
+     * append adds one or more new data rows to the end of the table.
+     */
+    append(data: D | D[]): Table<D>;
+    /**
+     * prependRow prepends customisable DOM content to the
+     * begining of the table body.
+     *
+     * NOTE: This DOM content of must be between <tr> elements.
+     */
+    prependRow(renderer: Renderable): Table<D>;
+    /**
+     * appendRow appends customisable DOM content to the
+     * begining of the table body.
+     *
+     * NOTE: This DOM content of must be between <tr> elements.
+     */
+    appendRow(renderer: Renderable): Table<D>;
+    /**
+     * removeRow will remove an entire row from the table given its index.
+     */
+    removeRow(index: number): Table<D>;
 }
