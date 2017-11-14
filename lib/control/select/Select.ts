@@ -41,7 +41,7 @@ export class Select extends FormControl<string, SelectAttrs> {
             value: this.attrs.ww.value || '',
             disabled: (this.attrs.ww.disabled === true) ? true : null,
             readOnly: (this.attrs.ww.readOnly === true) ? true : null,
-            options: this.attrs.ww.options,
+            options: this.attrs.ww.options || [],
             placeholder: this.attrs.ww.placeholder || 'Select one.',
             optValue: (o: Option) => typeof o === 'string' ? o : o.value,
             optLabel: (o: Option) => typeof o === 'string' ? o : o.label,

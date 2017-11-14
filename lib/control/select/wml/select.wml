@@ -28,6 +28,8 @@ import {label,message} from "@package/self/control/wml"
 
     {% endfor %}
 
+    {{@children}}
+
   </select>
 
    {{<message(@values.help.id, @values.help)>}}

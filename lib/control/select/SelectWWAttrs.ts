@@ -6,6 +6,6 @@ import {Option} from './Option';
  */
 export interface SelectWWAttrs extends FormControlWWAttrs<string> {
 
-    options: Option[]
+    options?: Option[]
 
 }

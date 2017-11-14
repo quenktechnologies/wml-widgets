@@ -49,7 +49,7 @@ export class Main extends ___wml.AppView < Select > {
                 }, [___wml.domify(___context.values.select.optLabel(opt))], ___view)
             }, function otherwise() {
                 return document.createDocumentFragment();
-            })], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+            }), ___wml.domify(___context.children)], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
 
     }
 
