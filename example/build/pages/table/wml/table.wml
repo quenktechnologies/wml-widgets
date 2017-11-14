@@ -1,5 +1,5 @@
 import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
-import {Table} from "@package/self/table/table/Table"
+import {Table} from "@package/self/table/Table"
 import {TablePage} from "../"
 
 {% main (TablePage) %}
@@ -13,7 +13,8 @@ import {TablePage} from "../"
       <Table
         ww:selectable=true
         ww:data={{@values.users}}
-        ww:fields={{@values.fields}} />
+        ww:columns={{@values.columns}}
+        ww:onCellClicked={{@values.onCellClicked}}/>
 
     </Column>
 

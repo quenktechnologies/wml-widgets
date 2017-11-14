@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
-var Table_1 = require("@package/self/table/table/Table");
+var Table_1 = require("@package/self/table/Table");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
@@ -35,7 +35,8 @@ var Main = /** @class */ (function (_super) {
                             ww: {
                                 'selectable': true,
                                 'data': ___context.values.users,
-                                'fields': ___context.values.fields
+                                'columns': ___context.values.columns,
+                                'onCellClicked': ___context.values.onCellClicked
                             }
                         }, [], ___view)], ___view)], ___view)], ___view);
         };

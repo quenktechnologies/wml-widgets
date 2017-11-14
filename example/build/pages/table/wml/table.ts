@@ -6,7 +6,7 @@ import {
 } from '@package/self/layout/grid/Grid';;
 import {
     Table
-} from '@package/self/table/table/Table';;
+} from '@package/self/table/Table';;
 import {
     TablePage
 } from '../';
@@ -35,7 +35,8 @@ export class Main extends ___wml.AppView < TablePage > {
                 ww: {
                     'selectable': true,
                     'data': ___context.values.users,
-                    'fields': ___context.values.fields
+                    'columns': ___context.values.columns,
+                    'onCellClicked': ___context.values.onCellClicked
                 }
             }, [], ___view)], ___view)], ___view)], ___view);
 

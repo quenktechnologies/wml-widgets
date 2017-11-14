@@ -1,5 +1,11 @@
 import * as wml from '@quenk/wml';
 import { Page } from '../Page';
+import { CellClickedEvent } from '@package/self/table';
+export interface User {
+    index: number;
+    name: string;
+    balance: string;
+}
 export declare class TablePage extends Page {
     view: wml.View;
     values: {
@@ -30,9 +36,10 @@ export declare class TablePage extends Page {
             "greeting": string;
             "favoriteFruit": string;
         }[];
-        fields: {
+        columns: {
             name: string;
             heading: string;
         }[];
+        onCellClicked: <A>(e: CellClickedEvent<A, User>) => void;
     };
 }
