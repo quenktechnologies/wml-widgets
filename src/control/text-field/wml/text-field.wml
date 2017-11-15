@@ -7,7 +7,7 @@ import {label,message} from "@package/self/control/wml"
 
 <div class={{@values.root.class}}>
 
-  {{<label(@values.label.id, @values.label.text)>}}
+  {{<label(@values.label.id)(@values.label.text)>}}
 
     {% if @values.input.rows == 1 %}
 
@@ -15,6 +15,7 @@ import {label,message} from "@package/self/control/wml"
       wml:id="input"
       name={{@values.input.name}}
       type={{@values.input.type}}
+      focus={{@values.input.focus}}
       placeholder={{@values.input.placeholder}}
       oninput={{@values.input.onInput}} 
       value={{@values.input.value}}
@@ -36,6 +37,6 @@ import {label,message} from "@package/self/control/wml"
 
     {% endif %}
 
-   {{<message(@values.help.id, @values.help)>}}
+   {{<message(@values.help.id)(@values.help)>}}
 
 </div>

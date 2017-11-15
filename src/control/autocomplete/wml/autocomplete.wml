@@ -18,13 +18,13 @@ import {label,message} from "@package/self/control/wml"
         ww:name={{''+index}}
         ww:onClick={{=>@values.item.click(index)}}>
 
-        {{ <(@values.item.template.populated)(@)(option, index, @values.search.results)> }}
+        {{ <(@values.item.template.populated)(@)(option)(index)(@values.search.results)> }}
 
       </MenuItem>
 
     {% else %}
 
-      {{<(@values.item.template.empty)(@)()>}}
+      {{<(@values.item.template.empty)(@)>}}
 
     {% endfor %}
 
@@ -36,7 +36,7 @@ import {label,message} from "@package/self/control/wml"
 
 <div class={{@values.root.class}}>
 
-  {{<label(@values.label.id, @values.label.text)>}}
+  {{<label(@values.label.id)(@values.label.text)>}}
 
   <input 
     wml:id={{@values.input.id}}
@@ -51,6 +51,6 @@ import {label,message} from "@package/self/control/wml"
     wml:id={{@values.menu.id}}
     ww:hidden=true />
 
-   {{<message(@values.help.id, @values.help)>}}
+   {{<message(@values.help.id)(@values.help)>}}
 
 </div>

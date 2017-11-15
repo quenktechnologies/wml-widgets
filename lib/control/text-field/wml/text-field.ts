@@ -19,10 +19,11 @@ export class Main extends ___wml.AppView < T.TextField > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ((___context.values.input.rows === 1)) ? ___wml.node('input', {
+            }, [___wml.domify(label(___context.values.label.id)(___context.values.label.text)(___view)), ((___context.values.input.rows === 1)) ? ___wml.node('input', {
                 html: {
                     'name': ___context.values.input.name,
                     'type': ___context.values.input.type,
+                    'focus': ___context.values.input.focus,
                     'placeholder': ___context.values.input.placeholder,
                     'oninput': ___context.values.input.onInput,
                     'value': ___context.values.input.value,
@@ -46,7 +47,7 @@ export class Main extends ___wml.AppView < T.TextField > {
                 wml: {
                     'id': `input`
                 }
-            }, [___wml.domify(___context.values.input.value)], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+            }, [___wml.domify(___context.values.input.value)], ___view), ___wml.domify(message(___context.values.help.id)(___context.values.help)(___view))], ___view);
 
     }
 

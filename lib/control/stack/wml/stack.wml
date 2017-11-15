@@ -1,7 +1,7 @@
 import {Stack} from "../Stack"
 import {Member} from "../Member"
 
-{% fun content [M](Stack[M]) (m:Member[M]) %}
+{% fun content [M](Stack[M]) (m:Member[M], _:Number, __:Member[M][])%}
 
   <span class={{@values.class.member}}>{{@values.item.decorator(m)}}</span>
 
@@ -11,10 +11,10 @@ import {Member} from "../Member"
 
 <ul class={{@values.class.root}}>
 
-  {% for m,index in @values.value %}
+  {% for m,index:Number in @values.value %}
 
     <li>
-      {{<(@values.item.template)(@)(m, index, @values.value)>}}
+      {{<(@values.item.template)(@)(m)(index)(@values.value)>}}
       <button 
         class={{@values.class.close}}
         onclick={{@values.item.close(index)}}>×</button>

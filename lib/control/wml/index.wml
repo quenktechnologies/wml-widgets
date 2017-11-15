@@ -1,6 +1,6 @@
 import {Message} from "./Message"
 
-{% fun label(id:String, text:String) %}
+{% fun label id:String -> text:String %}
 
   <label 
     for={{id}} 
@@ -10,7 +10,7 @@ import {Message} from "./Message"
   
 {% endfun %}
 
-{% fun message(id:String, m:Message) %}
+{% fun message id:String -> m:Message %}
 
   {% if m.success %}
 

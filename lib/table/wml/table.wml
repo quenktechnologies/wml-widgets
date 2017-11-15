@@ -70,7 +70,7 @@ import {Column, Table as TableContext} from ".."
 
     {% if @values.options.selectable %}
 
-      {{ <allSelectedCheckbox(@)()> }}
+      {{ <allSelectedCheckbox(@)> }}
 
       {{ <headings(@)(columns)> }}
 
@@ -108,7 +108,7 @@ import {Column, Table as TableContext} from ".."
 
   {% if @values.options.selectable %}
 
-    {{<rowSelectCheckbox(@)(rowData, rowNumber)>}}
+    {{<rowSelectCheckbox(@)(rowData)(rowNumber)>}}
 
   {% else %}
 
@@ -125,7 +125,7 @@ import {Column, Table as TableContext} from ".."
 
       {% if field.fragment %}
 
-        {{ <field.fragment(get(field.name,rowData),field.name,rowData)> }}
+        {{ <field.fragment(get(field.name,rowData))(field.name)(rowData)> }}
 
       {% else %}
 
@@ -147,7 +147,7 @@ import {Column, Table as TableContext} from ".."
         class={{@values.table.tbody.tr.class}}
         onclick={{@values.table.tbody.tr.onclick(rowData,index,data)}}>
 
-        {{ <cells(@)(rowData,index,columns)> }}
+        {{ <cells(@)(rowData)(index)(columns)> }}
 
       </tr>
 
@@ -165,7 +165,7 @@ import {Column, Table as TableContext} from ".."
         wml:id="head">{{ <thead(@)(@values.columns)> }}</thead>
         
       <tbody 
-        wml:id="body"> {{ <rows(@)(@values.data,@values.columns)> }}</tbody>
+        wml:id="body"> {{ <rows(@)(@values.data)(@values.columns)> }}</tbody>
 
     </table>
 
@@ -183,13 +183,13 @@ import {Column, Table as TableContext} from ".."
 
       {% else %}
 
-        {{ <table(@)()> }}
+        {{ <table(@)> }}
 
       {% endif %}
 
     {% else %}
 
-        {{ <table(@)()> }}
+        {{ <table(@)> }}
 
     {% endif %}
 

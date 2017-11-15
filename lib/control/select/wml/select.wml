@@ -5,7 +5,7 @@ import {label,message} from "@package/self/control/wml"
 
 <div class={{@values.root.class}}>
 
-  {{<label(@values.label.id, @values.label.text)>}}
+  {{<label(@values.label.id)(@values.label.text)>}}
 
   <select 
     wml:id={{@values.select.id}}
@@ -16,7 +16,7 @@ import {label,message} from "@package/self/control/wml"
     readonly={{@values.select.readOnly}}
     class={{@values.select.class}}>
 
-    <option value="" disabeld>{{@values.select.placeholder}}</option>
+    <option value="" disabled>{{@values.select.placeholder}}</option>
 
     {% for opt in @values.select.options %}
 
@@ -32,6 +32,6 @@ import {label,message} from "@package/self/control/wml"
 
   </select>
 
-   {{<message(@values.help.id, @values.help)>}}
+   {{<message(@values.help.id)(@values.help)>}}
 
 </div>

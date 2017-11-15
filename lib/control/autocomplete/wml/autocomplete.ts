@@ -16,8 +16,8 @@ import {
     message
 } from '@package/self/control/wml';
 
-export const populated = < V > (option: V, _index: number, _options: V[]) => (___context: Autocomplete < V > ) => (___view: ___wml.View) => ___wml.domify(___context.values.item.stringify(option));;
-export const empty = < V > () => (___context: Autocomplete < V > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
+export const populated = < V > (___context: Autocomplete < V > ) => (option: V) => (_index: number) => (_options: V[]) => (___view: ___wml.View) => ___wml.domify(___context.values.item.stringify(option));;
+export const empty = < V > (___context: Autocomplete < V > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
 export class Results < V > extends ___wml.AppView < Autocomplete < V > > {
 
     constructor(context: Autocomplete < V > ) {
@@ -36,9 +36,9 @@ export class Results < V > extends ___wml.AppView < Autocomplete < V > > {
                         'name': (`` + index),
                         'onClick': () => ___context.values.item.click(index)
                     }
-                }, [___wml.domify(___context.values.item.template.populated(option, index, ___context.values.search.results)(___context)(___view))], ___view)
+                }, [___wml.domify(___context.values.item.template.populated(___context)(option)(index)(___context.values.search.results)(___view))], ___view)
             }, function otherwise() {
-                return ___wml.domify(___context.values.item.template.empty()(___context)(___view))
+                return ___wml.domify(___context.values.item.template.empty(___context)(___view))
             })], ___view);
 
     }
@@ -58,7 +58,7 @@ export class Main < V > extends ___wml.AppView < Autocomplete < V > > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ___wml.node('input', {
+            }, [___wml.domify(label(___context.values.label.id)(___context.values.label.text)(___view)), ___wml.node('input', {
                 html: {
                     'type': `text`,
                     'class': ___context.values.input.class,
@@ -78,7 +78,7 @@ export class Main < V > extends ___wml.AppView < Autocomplete < V > > {
                 ww: {
                     'hidden': true
                 }
-            }, [], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.help.id)(___context.values.help)(___view))], ___view);
 
     }
 

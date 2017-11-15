@@ -27,7 +27,7 @@ export class Main extends ___wml.AppView < Date > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ___wml.node('div', {
+            }, [___wml.domify(label(___context.values.label.id)(___context.values.label.text)(___view)), ___wml.node('div', {
                 html: {
                     'class': ___context.values.inline.class
                 },
@@ -80,7 +80,7 @@ export class Main extends ___wml.AppView < Date > {
                     'class': ___context.values.year.class,
                     'placeholder': `YYYY`
                 }
-            }, [], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view)], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.help.id)(___context.values.help)(___view))], ___view)], ___view);
 
     }
 

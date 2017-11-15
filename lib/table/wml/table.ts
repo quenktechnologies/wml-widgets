@@ -14,7 +14,7 @@ import {
     Table as TableContext
 } from '..';
 
-export const allSelectedCheckbox = < D > () => (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.node('th', {
+export const allSelectedCheckbox = < D > (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.node('th', {
     html: {},
     wml: {}
 }, [___wml.node('input', {
@@ -24,7 +24,7 @@ export const allSelectedCheckbox = < D > () => (___context: TableContext < D > )
     },
     wml: {}
 }, [], ___view)], ___view);;
-export const headings = < D > (columns: Column < D > []) => (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.map(columns, function _map(field: Column < D > ) {
+export const headings = < D > (___context: TableContext < D > ) => (columns: Column < D > []) => (___view: ___wml.View) => ___wml.map(columns, function _map(field: Column < D > ) {
     return (field.sortAs) ? ___wml.node('th', {
         html: {
             'class': concat(___context.values.class.heading, ((___context.values.sortedOn === field.name)) ? names.ACTIVE : ``),
@@ -41,11 +41,11 @@ export const headings = < D > (columns: Column < D > []) => (___context: TableCo
 }, function otherwise() {
     return document.createDocumentFragment();
 });;
-export const thead = < D > (columns: Column < D > []) => (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.node('tr', {
+export const thead = < D > (___context: TableContext < D > ) => (columns: Column < D > []) => (___view: ___wml.View) => ___wml.node('tr', {
     html: {},
     wml: {}
-}, [(___context.values.options.selectable) ? ___wml.box(___wml.domify(allSelectedCheckbox()(___context)(___view)), ___wml.domify(headings(columns)(___context)(___view))) : ___wml.domify(headings(columns)(___context)(___view))], ___view);;
-export const rowSelectCheckbox = < D > (row: D, index: number) => (___context: TableContext < D > ) => (___view: ___wml.View) => (___context.values.options.selectable) ? ___wml.node('td', {
+}, [(___context.values.options.selectable) ? ___wml.box(___wml.domify(allSelectedCheckbox(___context)(___view)), ___wml.domify(headings(___context)(columns)(___view))) : ___wml.domify(headings(___context)(columns)(___view))], ___view);;
+export const rowSelectCheckbox = < D > (___context: TableContext < D > ) => (row: D) => (index: number) => (___view: ___wml.View) => (___context.values.options.selectable) ? ___wml.node('td', {
     html: {},
     wml: {}
 }, [___wml.node('input', {
@@ -55,7 +55,7 @@ export const rowSelectCheckbox = < D > (row: D, index: number) => (___context: T
     },
     wml: {}
 }, [], ___view)], ___view) : ___wml.domify(``);;
-export const cells = < D > (rowData: D, rowNumber: number, columns: Column < D > []) => (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.box((___context.values.options.selectable) ? ___wml.domify(rowSelectCheckbox(rowData, rowNumber)(___context)(___view)) : ___wml.domify(``), ___wml.map(columns, function _map(field: Column < D > ) {
+export const cells = < D > (___context: TableContext < D > ) => (rowData: D) => (rowNumber: number) => (columns: Column < D > []) => (___view: ___wml.View) => ___wml.box((___context.values.options.selectable) ? ___wml.domify(rowSelectCheckbox(___context)(rowData)(rowNumber)(___view)) : ___wml.domify(``), ___wml.map(columns, function _map(field: Column < D > ) {
     return ___wml.node('td', {
         html: {
             'class': ___context.values.table.tbody.td.class,
@@ -64,22 +64,22 @@ export const cells = < D > (rowData: D, rowNumber: number, columns: Column < D >
         wml: {
             'id': ___context.values.table.tbody.td.id(field.name, rowNumber)
         }
-    }, [(field.fragment) ? ___wml.domify(field.fragment(get(field.name, rowData), field.name, rowData)(___view)) : ___wml.domify(get(field.name, rowData))], ___view)
+    }, [(field.fragment) ? ___wml.domify(field.fragment(get(field.name, rowData))(field.name)(rowData)(___view)) : ___wml.domify(get(field.name, rowData))], ___view)
 }, function otherwise() {
     return document.createDocumentFragment();
 }));;
-export const rows = < D > (data: D[], columns: Column < D > []) => (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.map(data, function _map(rowData: D, index: number) {
+export const rows = < D > (___context: TableContext < D > ) => (data: D[]) => (columns: Column < D > []) => (___view: ___wml.View) => ___wml.map(data, function _map(rowData: D, index: number) {
     return ___wml.node('tr', {
         html: {
             'class': ___context.values.table.tbody.tr.class,
             'onclick': ___context.values.table.tbody.tr.onclick(rowData, index, data)
         },
         wml: {}
-    }, [___wml.domify(cells(rowData, index, columns)(___context)(___view))], ___view)
+    }, [___wml.domify(cells(___context)(rowData)(index)(columns)(___view))], ___view)
 }, function otherwise() {
     return document.createDocumentFragment();
 });;
-export const table = < D > () => (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.node('table', {
+export const table = < D > (___context: TableContext < D > ) => (___view: ___wml.View) => ___wml.node('table', {
     html: {
         'class': ___context.values.class.root
     },
@@ -91,12 +91,12 @@ export const table = < D > () => (___context: TableContext < D > ) => (___view: 
     wml: {
         'id': `head`
     }
-}, [___wml.domify(thead(___context.values.columns)(___context)(___view))], ___view), ___wml.node('tbody', {
+}, [___wml.domify(thead(___context)(___context.values.columns)(___view))], ___view), ___wml.node('tbody', {
     html: {},
     wml: {
         'id': `body`
     }
-}, [___wml.domify(rows(___context.values.data, ___context.values.columns)(___context)(___view))], ___view)], ___view);;
+}, [___wml.domify(rows(___context)(___context.values.data)(___context.values.columns)(___view))], ___view)], ___view);;
 export class Table < D > extends ___wml.AppView < TableContext < D > > {
 
     constructor(context: TableContext < D > ) {
@@ -107,7 +107,7 @@ export class Table < D > extends ___wml.AppView < TableContext < D > > {
             ___wml.widget(Fragment, {
                 html: {},
                 wml: {}
-            }, [((___context.values.data.length === 0)) ? (___context.values.fragment.empty) ? ___wml.domify(___context.values.fragment.empty.render()) : ___wml.domify(table()(___context)(___view)) : ___wml.domify(table()(___context)(___view))], ___view);
+            }, [((___context.values.data.length === 0)) ? (___context.values.fragment.empty) ? ___wml.domify(___context.values.fragment.empty.render()) : ___wml.domify(table(___context)(___view)) : ___wml.domify(table(___context)(___view))], ___view);
 
     }
 

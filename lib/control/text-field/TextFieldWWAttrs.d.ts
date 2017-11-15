@@ -12,4 +12,8 @@ export interface TextFieldWWAttrs extends FormControlWWAttrs<string> {
      * rows more than 1 will use a textarea instead of an input.
      */
     rows?: number;
+    /**
+     * focus indicates this input should steal focus when rendered.
+     */
+    focus?: boolean;
 }

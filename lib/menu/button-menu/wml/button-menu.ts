@@ -6,7 +6,7 @@ import {
     ButtonMenu
 } from '../ButtonMenu';
 
-export const button = () => (___context: ButtonMenu) => (___view: ___wml.View) => ___wml.node('button', {
+export const button = (___context: ButtonMenu) => (___view: ___wml.View) => ___wml.node('button', {
     html: {
         'class': ___context.values.button.class,
         'type': `button`,
@@ -27,7 +27,7 @@ export class Main extends ___wml.AppView < ButtonMenu > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.domify(___context.values.button.template()(___context)(___view)), ___wml.widget(Menu, {
+            }, [___wml.domify(___context.values.button.template(___context)(___view)), ___wml.widget(Menu, {
                 html: {},
                 wml: {
                     'id': ___context.values.menu.id

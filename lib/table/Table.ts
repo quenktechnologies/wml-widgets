@@ -193,7 +193,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
 
         this.modifyBody((e: HTMLElement) => {
 
-            let dom = view.rows(d, this.values.columns)(this)(this.view);
+            let dom = view.rows(this)(d)(this.values.columns)(this.view);
 
             if (e.children.length === 0)
                 e.appendChild(dom)
@@ -214,7 +214,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
         let d: D[] = Array.isArray(data) ? data : [data];
 
         this.modifyBody((e: HTMLElement) =>
-            e.appendChild(view.rows(d, this.values.columns)(this)(this.view)));
+            e.appendChild(view.rows(this)(d)(this.values.columns)(this.view)));
 
         return this;
 
@@ -257,21 +257,21 @@ export class Table<D> extends Component<TableAttrs<D>> {
 
     }
 
-  /**
-   * removeRow will remove an entire row from the table given its index.
-   */
-  removeRow(index:number) : Table<D>{
+    /**
+     * removeRow will remove an entire row from the table given its index.
+     */
+    removeRow(index: number): Table<D> {
 
-    this.modifyBody((e: HTMLTableSectionElement)=> { 
-    
-      for(let i=0; i<= e.rows.length; i++)
-        if(i === index)
-          e.rows[i].parentNode.removeChild(e.rows[i])
-    
-    })
+        this.modifyBody((e: HTMLTableSectionElement) => {
 
-    return this;
-  
-  }
+            for (let i = 0; i <= e.rows.length; i++)
+                if (i === index)
+                    e.rows[i].parentNode.removeChild(e.rows[i])
+
+        })
+
+        return this;
+
+    }
 
 }

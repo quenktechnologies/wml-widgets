@@ -6,7 +6,7 @@ import {
     Member
 } from '../Member';
 
-export const content = < M > (m: Member < M > ) => (___context: Stack < M > ) => (___view: ___wml.View) => ___wml.node('span', {
+export const content = < M > (___context: Stack < M > ) => (m: Member < M > ) => (_: number) => (__: Member < M > []) => (___view: ___wml.View) => ___wml.node('span', {
     html: {
         'class': ___context.values.class.member
     },
@@ -25,11 +25,11 @@ export class Main < M > extends ___wml.AppView < Stack < M > > {
                     'class': ___context.values.class.root
                 },
                 wml: {}
-            }, [___wml.map(___context.values.value, function _map(m, index) {
+            }, [___wml.map(___context.values.value, function _map(m, index: number) {
                 return ___wml.node('li', {
                     html: {},
                     wml: {}
-                }, [___wml.domify(___context.values.item.template(m, index, ___context.values.value)(___context)(___view)), ___wml.node('button', {
+                }, [___wml.domify(___context.values.item.template(___context)(m)(index)(___context.values.value)(___view)), ___wml.node('button', {
                     html: {
                         'class': ___context.values.class.close,
                         'onclick': ___context.values.item.close(index)

@@ -26,6 +26,7 @@ export declare class TextField extends FormControl<string, TextFieldAttrs> {
             class: string;
             name: string;
             type: string;
+            focus: boolean;
             placeholder: string;
             value: string;
             disabled: boolean;

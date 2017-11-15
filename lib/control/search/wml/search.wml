@@ -18,13 +18,13 @@ import {Result} from "../Result"
         ww:name={{''+index}}
         ww:onClick={{@values.item.clicked}}>
 
-        {{ <(@values.item.template.populated)(@)(option, index, @values.search.results)> }}
+        {{ <(@values.item.template.populated)(@)(option)(index)(@values.search.results)> }}
 
       </MenuItem>
 
     {% else %}
 
-      {{<(@values.item.template.empty)(@)()>}}
+      {{<(@values.item.template.empty)(@)>}}
 
     {% endfor %}
 

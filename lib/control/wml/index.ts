@@ -3,14 +3,14 @@ import {
     Message
 } from './Message';
 
-export const label = (id: string, text: string) => (___view: ___wml.View) => ___wml.node('label', {
+export const label = (id: string) => (text: string) => (___view: ___wml.View) => ___wml.node('label', {
     html: {
         'for': id,
         'class': `control-label`
     },
     wml: {}
 }, [___wml.domify(text)], ___view);;
-export const message = (id: string, m: Message) => (___view: ___wml.View) => (m.success) ? ___wml.node('span', {
+export const message = (id: string) => (m: Message) => (___view: ___wml.View) => (m.success) ? ___wml.node('span', {
     html: {
         'class': `help-text`
     },

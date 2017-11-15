@@ -13,7 +13,7 @@ import {ButtonMenu} from "../ButtonMenu"
 
 <div class={{@values.root.class}}>
 
-  {{<(@values.button.template)(@)()>}}
+  {{<(@values.button.template)(@)>}}
 
   <Menu 
     wml:id={{@values.menu.id}}

@@ -15,8 +15,8 @@ import {
     Result
 } from '../Result';
 
-export const populated = < A extends Result > (option: A, _index: number, _options: A[]) => (___context: Search < A > ) => (___view: ___wml.View) => ___wml.domify(___context.values.item.decorator(option));;
-export const empty = < A extends Result > () => (___context: Search < A > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
+export const populated = < A extends Result > (___context: Search < A > ) => (option: A) => (_index: number) => (_options: A[]) => (___view: ___wml.View) => ___wml.domify(___context.values.item.decorator(option));;
+export const empty = < A extends Result > (___context: Search < A > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
 export class Results < A extends Result > extends ___wml.AppView < Search < A > > {
 
     constructor(context: Search < A > ) {
@@ -35,9 +35,9 @@ export class Results < A extends Result > extends ___wml.AppView < Search < A > 
                         'name': (`` + index),
                         'onClick': ___context.values.item.clicked
                     }
-                }, [___wml.domify(___context.values.item.template.populated(option, index, ___context.values.search.results)(___context)(___view))], ___view)
+                }, [___wml.domify(___context.values.item.template.populated(___context)(option)(index)(___context.values.search.results)(___view))], ___view)
             }, function otherwise() {
-                return ___wml.domify(___context.values.item.template.empty()(___context)(___view))
+                return ___wml.domify(___context.values.item.template.empty(___context)(___view))
             })], ___view);
 
     }

@@ -38,6 +38,7 @@ export class TextField extends FormControl<string, TextFieldAttrs> {
             class: 'form-control',
             name: this.attrs.ww.name,
             type: this.attrs.ww.type || 'text',
+          focus: this.attrs.ww.focus,
             placeholder: this.attrs.ww.placeholder || '',
             value: this.attrs.ww.value || '',
             disabled: (this.attrs.ww.disabled === true) ? true : null,

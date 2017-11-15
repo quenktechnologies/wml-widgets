@@ -21,7 +21,7 @@ export class Main extends ___wml.AppView < Select > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.domify(label(___context.values.label.id, ___context.values.label.text)(___view)), ___wml.node('select', {
+            }, [___wml.domify(label(___context.values.label.id)(___context.values.label.text)(___view)), ___wml.node('select', {
                 html: {
                     'name': ___context.values.select.name,
                     'onchange': ___context.values.select.onChange,
@@ -36,7 +36,7 @@ export class Main extends ___wml.AppView < Select > {
             }, [___wml.node('option', {
                 html: {
                     'value': ``,
-                    'disabeld': true
+                    'disabled': true
                 },
                 wml: {}
             }, [___wml.domify(___context.values.select.placeholder)], ___view), ___wml.map(___context.values.select.options, function _map(opt) {
@@ -49,7 +49,7 @@ export class Main extends ___wml.AppView < Select > {
                 }, [___wml.domify(___context.values.select.optLabel(opt))], ___view)
             }, function otherwise() {
                 return document.createDocumentFragment();
-            }), ___wml.domify(___context.children)], ___view), ___wml.domify(message(___context.values.help.id, ___context.values.help)(___view))], ___view);
+            }), ___wml.domify(___context.children)], ___view), ___wml.domify(message(___context.values.help.id)(___context.values.help)(___view))], ___view);
 
     }
 

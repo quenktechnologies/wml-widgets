@@ -44,7 +44,7 @@ export interface Column<D> {
 /**
  * CellFragment is a wml function that renders the DOM for a table cell.
  */
-export type CellFragment<D> = (datum: any, name: string, row: D) => ContentProvider;
+export type CellFragment<D> = <A>(datum: A)=>(name: string)=>( row: D) => ContentProvider;
 
 /**
  * Delegate is the interface that receives Table events.

@@ -4,4 +4,4 @@ import { SearchAttrs } from './SearchAttrs';
 /**
  * PopulatedFun for rending a single search result.
  */
-export declare type PopulatedFun = <V>(option: V, index: number, options: V[]) => (s: SearchControl<V, SearchAttrs<V>>) => (view: wml.View) => wml.Content;
+export declare type PopulatedFun = <V>(s: SearchControl<V, SearchAttrs<V>>) => (option: V) => (index: number) => (options: V[]) => (view: wml.View) => wml.Content;
