@@ -16,7 +16,7 @@ import {Message} from "./Message"
 
     <span
       wml:id={{id}}
-      class="help-text">{{m.success}}</span>
+      class="help-block">{{m.success}}</span>
 
   {% else if m.error %}
 
