@@ -26,13 +26,13 @@ import {
  *
  * @todo split sort and select api into own table widgets.
  */
-export class Table<D> extends Component<TableAttrs<D>> {
+export class Table<C, R> extends Component<TableAttrs<C, R>> {
 
-    originalData: D[] = this.attrs.ww.data;
+    originalData: R[] = this.attrs.ww.data;
 
     view: View = new view.Table(this);
 
-    delegate: Delegate<D> = this.attrs.ww.delegate ?
+    delegate: Delegate<C, R> = this.attrs.ww.delegate ?
         this.attrs.ww.delegate : new SortDelegate(this);
 
     values = {
@@ -82,10 +82,10 @@ export class Table<D> extends Component<TableAttrs<D>> {
 
                     class: this.attrs.ww.rowClass,
 
-                    onclick: (row: D, index: number, data: D[]) => () =>
+                    onclick: (row: R, index: number, data: R[]) => () =>
                         this.delegate.onRowClicked(new RowClickedEvent(row, index, data)),
 
-                    onSelect: (row: D, index: number, data: D[]) => () =>
+                    onSelect: (row: R, index: number, data: R[]) => () =>
                         this.delegate.onRowSelected(new RowSelectedEvent(row, index, data))
 
                 },
@@ -95,7 +95,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
 
                     class: this.attrs.ww.cellClass,
 
-                    onclick: <V>(value: V, column: string, rowData: D, rowNumber: number) =>
+                    onclick: (value: C, column: string, rowData: R, rowNumber: number) =>
                         (e: Event) =>
                             this
                                 .delegate
@@ -110,7 +110,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
         },
         sortedOn: '',
         data: this.originalData.slice(),
-        columns: <Column<D>[]>this.attrs.ww.columns,
+        columns: <Column<C, R>[]>this.attrs.ww.columns,
         arrow: ''
 
     }
@@ -119,14 +119,14 @@ export class Table<D> extends Component<TableAttrs<D>> {
      * modifyBody allows a function to modify the contents 
      * of the <tbody>
      */
-    modifyBody(f: (e: HTMLElement) => void): Table<D> {
+    modifyBody(f: (e: HTMLElement) => void): Table<C, R> {
 
         this.view.findById('body').map(f);
         return this;
 
     }
 
-    sort(name: string): Table<D> {
+    sort(name: string): Table<C, R> {
 
         let columns = this.attrs.ww ? this.attrs.ww.columns ? this.attrs.ww.columns : [] : [];
         let field = columns.reduce((p, c) => p ? p : (c.name === name ? c : null));
@@ -163,7 +163,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
     /**
      * update the data the table displays
      */
-    update(data: D[]): Table<D> {
+    update(data: R[]): Table<C, R> {
 
         this.originalData = data.slice();
         this.values.data = data.slice();
@@ -187,9 +187,9 @@ export class Table<D> extends Component<TableAttrs<D>> {
     /**
      * prepend adds one or more new data rows to the begining of the table.
      */
-    prepend(data: D | D[]): Table<D> {
+    prepend(data: R | R[]): Table<C, R> {
 
-        let d: D[] = Array.isArray(data) ? data : [data];
+        let d: R[] = Array.isArray(data) ? data : [data];
 
         this.modifyBody((e: HTMLElement) => {
 
@@ -209,9 +209,9 @@ export class Table<D> extends Component<TableAttrs<D>> {
     /**
      * append adds one or more new data rows to the end of the table.
      */
-    append(data: D | D[]): Table<D> {
+    append(data: R | R[]): Table<C, R> {
 
-        let d: D[] = Array.isArray(data) ? data : [data];
+        let d: R[] = Array.isArray(data) ? data : [data];
 
         this.modifyBody((e: HTMLElement) =>
             e.appendChild(view.rows(this)(d)(this.values.columns)(this.view)));
@@ -226,7 +226,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
      *
      * NOTE: This DOM content of must be between <tr> elements.
      */
-    prependRow(renderer: Renderable): Table<D> {
+    prependRow(renderer: Renderable): Table<C, R> {
 
         this.modifyBody((e: HTMLElement) => {
 
@@ -247,7 +247,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
      *
      * NOTE: This DOM content of must be between <tr> elements.
      */
-    appendRow(renderer: Renderable): Table<D> {
+    appendRow(renderer: Renderable): Table<C, R> {
 
         this.modifyBody((e: HTMLElement) => {
             e.appendChild(renderer.render())
@@ -260,7 +260,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
     /**
      * removeRow will remove an entire row from the table given its index.
      */
-    removeRow(index: number): Table<D> {
+    removeRow(index: number): Table<C, R> {
 
         this.modifyBody((e: HTMLTableSectionElement) => {
 

@@ -6,10 +6,10 @@ import { TableAttrs, Delegate, Column } from '.';
  *
  * @todo split sort and select api into own table widgets.
  */
-export declare class Table<D> extends Component<TableAttrs<D>> {
-    originalData: D[];
+export declare class Table<C, R> extends Component<TableAttrs<C, R>> {
+    originalData: R[];
     view: View;
-    delegate: Delegate<D>;
+    delegate: Delegate<C, R>;
     values: {
         id: {
             root: string;
@@ -36,31 +36,31 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
             tbody: {
                 tr: {
                     class: string;
-                    onclick: (row: D, index: number, data: D[]) => () => void;
-                    onSelect: (row: D, index: number, data: D[]) => () => void;
+                    onclick: (row: R, index: number, data: R[]) => () => void;
+                    onSelect: (row: R, index: number, data: R[]) => () => void;
                 };
                 td: {
                     id: (column: string, colNumber: number, rowNumber: number) => string;
                     class: string;
-                    onclick: <V>(value: V, column: string, rowData: D, rowNumber: number) => (e: Event) => void;
+                    onclick: (value: C, column: string, rowData: R, rowNumber: number) => (e: Event) => void;
                 };
             };
         };
         sortedOn: string;
-        data: D[];
-        columns: Column<D>[];
+        data: R[];
+        columns: Column<C, R>[];
         arrow: string;
     };
     /**
      * modifyBody allows a function to modify the contents
      * of the <tbody>
      */
-    modifyBody(f: (e: HTMLElement) => void): Table<D>;
-    sort(name: string): Table<D>;
+    modifyBody(f: (e: HTMLElement) => void): Table<C, R>;
+    sort(name: string): Table<C, R>;
     /**
      * update the data the table displays
      */
-    update(data: D[]): Table<D>;
+    update(data: R[]): Table<C, R>;
     /**
      * cellAt produces a Cell instance for the coordinates passed (if found).
      */
@@ -68,27 +68,27 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
     /**
      * prepend adds one or more new data rows to the begining of the table.
      */
-    prepend(data: D | D[]): Table<D>;
+    prepend(data: R | R[]): Table<C, R>;
     /**
      * append adds one or more new data rows to the end of the table.
      */
-    append(data: D | D[]): Table<D>;
+    append(data: R | R[]): Table<C, R>;
     /**
      * prependRow prepends customisable DOM content to the
      * begining of the table body.
      *
      * NOTE: This DOM content of must be between <tr> elements.
      */
-    prependRow(renderer: Renderable): Table<D>;
+    prependRow(renderer: Renderable): Table<C, R>;
     /**
      * appendRow appends customisable DOM content to the
      * begining of the table body.
      *
      * NOTE: This DOM content of must be between <tr> elements.
      */
-    appendRow(renderer: Renderable): Table<D>;
+    appendRow(renderer: Renderable): Table<C, R>;
     /**
      * removeRow will remove an entire row from the table given its index.
      */
-    removeRow(index: number): Table<D>;
+    removeRow(index: number): Table<C, R>;
 }

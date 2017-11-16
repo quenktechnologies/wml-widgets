@@ -1,14 +1,14 @@
 import { HeadingClickedEvent } from './HeadingClickedEvent';
 import { DefaultDelegate } from './DefaultDelegate';
 
-export class SortDelegate<D> extends DefaultDelegate<D> {
+export class SortDelegate<C, R> extends DefaultDelegate<C, R> {
 
-    onHeadingClicked(e: HeadingClickedEvent) { 
-      
-      this.table.sort(e.field); 
+    onHeadingClicked(e: HeadingClickedEvent) {
 
-      super.onHeadingClicked(e);
-    
+        this.table.sort(e.field);
+
+        super.onHeadingClicked(e);
+
     }
 
 }

@@ -12,18 +12,18 @@ import { Table } from './Table';
  *
  * It passes it's events onto registered callbacks.
  */
-export class DefaultDelegate<D> implements Delegate<D> {
+export class DefaultDelegate<C, R> implements Delegate<C, R> {
 
-    constructor(public table: Table<D>) { }
+    constructor(public table: Table<C, R>) { }
 
-    onAllSelected(e: AllSelectedEvent<D>): void {
+    onAllSelected(e: AllSelectedEvent<R>): void {
 
         if (this.table.attrs.ww.onAllSelected)
             this.table.attrs.ww.onAllSelected(e);
 
     }
 
-    onCellClicked<A>(e: CellClickedEvent<A,D>): void {
+    onCellClicked(e: CellClickedEvent<C, R>): void {
 
         if (this.table.attrs.ww.onCellClicked)
             this.table.attrs.ww.onCellClicked(e);
@@ -37,14 +37,14 @@ export class DefaultDelegate<D> implements Delegate<D> {
 
     }
 
-    onRowClicked(e: RowClickedEvent<D>): void {
+    onRowClicked(e: RowClickedEvent<R>): void {
 
         if (this.table.attrs.ww.onRowClicked)
             this.table.attrs.ww.onRowClicked(e);
 
     }
 
-    onRowSelected(e: RowSelectedEvent<D>): void {
+    onRowSelected(e: RowSelectedEvent<R>): void {
 
         if (this.table.attrs.ww.onRowSelected)
             this.table.attrs.ww.onRowSelected(e);

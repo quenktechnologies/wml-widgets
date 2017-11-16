@@ -22,44 +22,44 @@ export declare type SortingStrategy = (a: Comparable, b: Comparable) => number;
  * Column (old name for Column)
  * @deprecated
  */
-export interface Column<D> {
+export interface Column<C, R> {
     name: string;
     heading: string;
     hidden?: boolean;
     sortAs?: string;
-    fragment?: CellFragment<D>;
+    fragment?: CellFragment<C, R>;
     strategy?: SortingStrategy;
 }
 /**
  * CellFragment is a wml function that renders the DOM for a table cell.
  */
-export declare type CellFragment<D> = <A>(datum: A) => (name: string) => (row: D) => ContentProvider;
+export declare type CellFragment<C, R> = (datum: C) => (name: string) => (row: R) => ContentProvider;
 /**
  * Delegate is the interface that receives Table events.
  */
-export interface Delegate<D> {
-    onAllSelected(e: AllSelectedEvent<D>): void;
-    onCellClicked<A>(e: CellClickedEvent<A, D>): void;
+export interface Delegate<C, R> {
+    onAllSelected(e: AllSelectedEvent<R>): void;
+    onCellClicked(e: CellClickedEvent<C, R>): void;
     onHeadingClicked(e: HeadingClickedEvent): void;
-    onRowClicked(e: RowClickedEvent<D>): void;
-    onRowSelected(e: RowSelectedEvent<D>): void;
+    onRowClicked(e: RowClickedEvent<R>): void;
+    onRowSelected(e: RowSelectedEvent<R>): void;
 }
-export interface TableAttrs<D> extends Attrs {
+export interface TableAttrs<C, R> extends Attrs {
     ww: {
         class?: string;
         selectable?: boolean;
         headingClass?: string;
         rowClass?: string;
         cellClass?: string;
-        columns: Column<D>[];
-        data: D[];
-        delegate?: Delegate<D>;
+        columns: Column<C, R>[];
+        data: R[];
+        delegate?: Delegate<C, R>;
         empty?: Renderable;
-        onAllSelected?: (e: AllSelectedEvent<D>) => void;
-        onCellClicked?: <A>(e: CellClickedEvent<A, D>) => void;
+        onAllSelected?: (e: AllSelectedEvent<R>) => void;
+        onCellClicked?: (e: CellClickedEvent<C, R>) => void;
         onHeadingClicked?: (e: HeadingClickedEvent) => void;
-        onRowClicked?: (e: RowClickedEvent<D>) => void;
-        onRowSelected?: (e: RowSelectedEvent<D>) => void;
+        onRowClicked?: (e: RowClickedEvent<R>) => void;
+        onRowSelected?: (e: RowSelectedEvent<R>) => void;
     };
 }
 export declare const dateSort: (a: string, b: string) => 0 | 1 | -1;

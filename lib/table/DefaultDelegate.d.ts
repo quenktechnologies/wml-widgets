@@ -11,12 +11,12 @@ import { Table } from './Table';
  *
  * It passes it's events onto registered callbacks.
  */
-export declare class DefaultDelegate<D> implements Delegate<D> {
-    table: Table<D>;
-    constructor(table: Table<D>);
-    onAllSelected(e: AllSelectedEvent<D>): void;
-    onCellClicked<A>(e: CellClickedEvent<A, D>): void;
+export declare class DefaultDelegate<C, R> implements Delegate<C, R> {
+    table: Table<C, R>;
+    constructor(table: Table<C, R>);
+    onAllSelected(e: AllSelectedEvent<R>): void;
+    onCellClicked(e: CellClickedEvent<C, R>): void;
     onHeadingClicked(e: HeadingClickedEvent): void;
-    onRowClicked(e: RowClickedEvent<D>): void;
-    onRowSelected(e: RowSelectedEvent<D>): void;
+    onRowClicked(e: RowClickedEvent<R>): void;
+    onRowSelected(e: RowSelectedEvent<R>): void;
 }

@@ -4,7 +4,7 @@ import {get} from "property-seek"
 import {Fragment} from "@package/self/layout/fragment/Fragment"
 import {Column, Table as TableContext} from ".."
 
-{% fun allSelectedCheckbox[D] (TableContext[D]) %}
+{% fun allSelectedCheckbox[C,R] (TableContext[C,R]) %}
 
       <th>
 
@@ -16,9 +16,9 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun headings[D](TableContext[D])(columns:Column[D][]) %}
+{% fun headings[C,R](TableContext[C,R])(columns:Column[C,R][]) %}
 
-  {% for field:Column[D] in columns %}
+  {% for field:Column[C,R] in columns %}
 
     {% if field.sortAs %}
 
@@ -64,7 +64,7 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun thead[D](TableContext[D])(columns:Column[D][]) %}
+{% fun thead[C,R](TableContext[C,R])(columns:Column[C,R][]) %}
 
   <tr>
 
@@ -84,7 +84,7 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun rowSelectCheckbox[D] (TableContext[D]) (row:D,index:Number) %}
+{% fun rowSelectCheckbox[C,R] (TableContext[C,R]) (row:R,index:Number) %}
 
     {% if @values.options.selectable %}
 
@@ -104,7 +104,7 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun cells[D](TableContext[D])(rowData:D, rowNumber:Number, columns:Column[D][]) %}
+{% fun cells[C,R](TableContext[C,R])(rowData:R, rowNumber:Number, columns:Column[C,R][]) %}
 
   {% if @values.options.selectable %}
 
@@ -116,7 +116,7 @@ import {Column, Table as TableContext} from ".."
           
   {% endif %}
 
-  {% for field:Column[D],index:Number in columns %}
+  {% for field:Column[C,R],index:Number in columns %}
         
     <td 
       wml:id={{@values.table.tbody.td.id(field.name, index, rowNumber)}}
@@ -139,9 +139,9 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun rows[D](TableContext[D])(data:D[],columns:Column[D][]) %}
+{% fun rows[C,R](TableContext[C,R])(data:R[],columns:Column[C,R][]) %}
 
-    {% for rowData:D,index:Number in data %}
+    {% for rowData:R,index:Number in data %}
 
       <tr 
         class={{@values.table.tbody.tr.class}}
@@ -155,7 +155,7 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun table [D](TableContext[D]) %}
+{% fun table [C,R](TableContext[C,R]) %}
 
     <table 
       wml:id={{@values.id.root}}
@@ -171,7 +171,7 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% view Table [D](TableContext[D]) %}
+{% view Table [C,R](TableContext[C,R]) %}
 
   <Fragment>
 
