@@ -3,11 +3,11 @@ import * as G from '../Grid';
 
 export class Grid extends ___wml.AppView < G.Grid > {
 
-    constructor(context: G.Grid) {
+    constructor(___context: G.Grid) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: G.Grid, ___view: ___wml.AppView < G.Grid > ) =>
+        this.template = (___view: ___wml.AppView < G.Grid > ) =>
             ___wml.node('section', {
                 html: {
                     'class': ___context.values.class.root
@@ -20,11 +20,11 @@ export class Grid extends ___wml.AppView < G.Grid > {
 };
 export class Row extends ___wml.AppView < G.Row > {
 
-    constructor(context: G.Row) {
+    constructor(___context: G.Row) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: G.Row, ___view: ___wml.AppView < G.Row > ) =>
+        this.template = (___view: ___wml.AppView < G.Row > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root
@@ -37,11 +37,11 @@ export class Row extends ___wml.AppView < G.Row > {
 };
 export class Column extends ___wml.AppView < G.Column > {
 
-    constructor(context: G.Column) {
+    constructor(___context: G.Column) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: G.Column, ___view: ___wml.AppView < G.Column > ) =>
+        this.template = (___view: ___wml.AppView < G.Column > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root

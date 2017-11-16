@@ -23,9 +23,9 @@ var dash_1 = require("@package/self/app/dash");
 var Main_1 = require("@package/self/layout/main/Main");
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
-    function Main(context) {
-        var _this = _super.call(this, context) || this;
-        _this.template = function (___context, ___view) {
+    function Main(___context) {
+        var _this = _super.call(this, ___context) || this;
+        _this.template = function (___view) {
             return ___wml.widget(Drawer_1.Drawer, {
                 html: {},
                 wml: {

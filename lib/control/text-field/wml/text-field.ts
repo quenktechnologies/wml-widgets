@@ -9,11 +9,11 @@ import {
 
 export class Main extends ___wml.AppView < T.TextField > {
 
-    constructor(context: T.TextField) {
+    constructor(___context: T.TextField) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: T.TextField, ___view: ___wml.AppView < T.TextField > ) =>
+        this.template = (___view: ___wml.AppView < T.TextField > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class

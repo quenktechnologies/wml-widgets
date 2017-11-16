@@ -15,11 +15,11 @@ import {
 
 export class Main extends ___wml.AppView < SelectPage > {
 
-    constructor(context: SelectPage) {
+    constructor(___context: SelectPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: SelectPage, ___view: ___wml.AppView < SelectPage > ) =>
+        this.template = (___view: ___wml.AppView < SelectPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

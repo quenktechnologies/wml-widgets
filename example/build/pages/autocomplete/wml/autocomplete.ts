@@ -16,11 +16,11 @@ import {
 
 export class Main extends ___wml.AppView < AutocompletePage > {
 
-    constructor(context: AutocompletePage) {
+    constructor(___context: AutocompletePage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: AutocompletePage, ___view: ___wml.AppView < AutocompletePage > ) =>
+        this.template = (___view: ___wml.AppView < AutocompletePage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

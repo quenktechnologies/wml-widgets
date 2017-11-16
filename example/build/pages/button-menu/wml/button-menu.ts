@@ -18,11 +18,11 @@ import {
 
 export class Main extends ___wml.AppView < ButtonMenuPage > {
 
-    constructor(context: ButtonMenuPage) {
+    constructor(___context: ButtonMenuPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: ButtonMenuPage, ___view: ___wml.AppView < ButtonMenuPage > ) =>
+        this.template = (___view: ___wml.AppView < ButtonMenuPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

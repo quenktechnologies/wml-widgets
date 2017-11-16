@@ -15,9 +15,9 @@ var ___wml = require("@quenk/wml");
 var menu_1 = require("@package/self/nav/menu");
 var Navigation = /** @class */ (function (_super) {
     __extends(Navigation, _super);
-    function Navigation(context) {
-        var _this = _super.call(this, context) || this;
-        _this.template = function (___context, ___view) {
+    function Navigation(___context) {
+        var _this = _super.call(this, ___context) || this;
+        _this.template = function (___view) {
             return ___wml.widget(menu_1.Menu, {
                 html: {},
                 wml: {}

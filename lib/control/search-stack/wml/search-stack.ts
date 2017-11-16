@@ -13,11 +13,11 @@ import {
 
 export class Main < V > extends ___wml.AppView < SearchStack < V > > {
 
-    constructor(context: SearchStack < V > ) {
+    constructor(___context: SearchStack < V > ) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: SearchStack < V > , ___view: ___wml.AppView < SearchStack < V > > ) =>
+        this.template = (___view: ___wml.AppView < SearchStack < V > > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class

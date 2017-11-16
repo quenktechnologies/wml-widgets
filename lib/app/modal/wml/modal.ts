@@ -3,11 +3,11 @@ import * as M from '../';
 
 export class Modal extends ___wml.AppView < M.Modal > {
 
-    constructor(context: M.Modal) {
+    constructor(___context: M.Modal) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: M.Modal, ___view: ___wml.AppView < M.Modal > ) =>
+        this.template = (___view: ___wml.AppView < M.Modal > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root,
@@ -37,11 +37,11 @@ export class Modal extends ___wml.AppView < M.Modal > {
 };
 export class Header extends ___wml.AppView < M.Header > {
 
-    constructor(context: M.Header) {
+    constructor(___context: M.Header) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: M.Header, ___view: ___wml.AppView < M.Header > ) =>
+        this.template = (___view: ___wml.AppView < M.Header > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root
@@ -66,11 +66,11 @@ export class Header extends ___wml.AppView < M.Header > {
 };
 export class Body extends ___wml.AppView < M.Body > {
 
-    constructor(context: M.Body) {
+    constructor(___context: M.Body) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: M.Body, ___view: ___wml.AppView < M.Body > ) =>
+        this.template = (___view: ___wml.AppView < M.Body > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root
@@ -83,11 +83,11 @@ export class Body extends ___wml.AppView < M.Body > {
 };
 export class Footer extends ___wml.AppView < M.Footer > {
 
-    constructor(context: M.Footer) {
+    constructor(___context: M.Footer) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: M.Footer, ___view: ___wml.AppView < M.Footer > ) =>
+        this.template = (___view: ___wml.AppView < M.Footer > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root

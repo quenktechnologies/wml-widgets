@@ -17,11 +17,11 @@ export const button = (___context: ButtonMenu) => (___view: ___wml.View) => ___w
 
 export class Main extends ___wml.AppView < ButtonMenu > {
 
-    constructor(context: ButtonMenu) {
+    constructor(___context: ButtonMenu) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: ButtonMenu, ___view: ___wml.AppView < ButtonMenu > ) =>
+        this.template = (___view: ___wml.AppView < ButtonMenu > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class

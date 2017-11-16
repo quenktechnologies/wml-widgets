@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < ListGroupItem > {
 
-    constructor(context: ListGroupItem) {
+    constructor(___context: ListGroupItem) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: ListGroupItem, ___view: ___wml.AppView < ListGroupItem > ) =>
+        this.template = (___view: ___wml.AppView < ListGroupItem > ) =>
             ___wml.node('li', {
                 html: {
                     'class': ___context.values.root.class

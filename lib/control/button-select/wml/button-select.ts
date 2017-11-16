@@ -13,11 +13,11 @@ import {
 
 export class Main < V, OV, A extends ButtonSelectGroupAttrs < V, OV > > extends ___wml.AppView < ButtonSelectGroup < V, OV, A > > {
 
-    constructor(context: ButtonSelectGroup < V, OV, A > ) {
+    constructor(___context: ButtonSelectGroup < V, OV, A > ) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: ButtonSelectGroup < V, OV, A > , ___view: ___wml.AppView < ButtonSelectGroup < V, OV, A > > ) =>
+        this.template = (___view: ___wml.AppView < ButtonSelectGroup < V, OV, A > > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class

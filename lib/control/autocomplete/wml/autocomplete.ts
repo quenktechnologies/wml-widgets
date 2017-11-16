@@ -20,11 +20,11 @@ export const populated = < V > (___context: Autocomplete < V > ) => (option: V) 
 export const empty = < V > (___context: Autocomplete < V > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
 export class Results < V > extends ___wml.AppView < Autocomplete < V > > {
 
-    constructor(context: Autocomplete < V > ) {
+    constructor(___context: Autocomplete < V > ) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Autocomplete < V > , ___view: ___wml.AppView < Autocomplete < V > > ) =>
+        this.template = (___view: ___wml.AppView < Autocomplete < V > > ) =>
             ___wml.widget(Fragment, {
                 html: {},
                 wml: {}
@@ -48,11 +48,11 @@ export class Results < V > extends ___wml.AppView < Autocomplete < V > > {
 
 export class Main < V > extends ___wml.AppView < Autocomplete < V > > {
 
-    constructor(context: Autocomplete < V > ) {
+    constructor(___context: Autocomplete < V > ) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Autocomplete < V > , ___view: ___wml.AppView < Autocomplete < V > > ) =>
+        this.template = (___view: ___wml.AppView < Autocomplete < V > > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class

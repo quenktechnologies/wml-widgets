@@ -8,11 +8,11 @@ import {
 
 export class BreadCrumbs extends ___wml.AppView < BreadCrumbsContext > {
 
-    constructor(context: BreadCrumbsContext) {
+    constructor(___context: BreadCrumbsContext) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: BreadCrumbsContext, ___view: ___wml.AppView < BreadCrumbsContext > ) =>
+        this.template = (___view: ___wml.AppView < BreadCrumbsContext > ) =>
             ___wml.node('ol', {
                 html: {
                     'class': ___context.values.class.root
@@ -25,11 +25,11 @@ export class BreadCrumbs extends ___wml.AppView < BreadCrumbsContext > {
 };
 export class Item extends ___wml.AppView < ItemContext > {
 
-    constructor(context: ItemContext) {
+    constructor(___context: ItemContext) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: ItemContext, ___view: ___wml.AppView < ItemContext > ) =>
+        this.template = (___view: ___wml.AppView < ItemContext > ) =>
             ___wml.node('li', {
                 html: {
                     'class': ___context.values.class.root

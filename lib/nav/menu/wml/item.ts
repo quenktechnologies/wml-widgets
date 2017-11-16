@@ -5,11 +5,11 @@ import * as I from '../Item';
 
 export class Main extends ___wml.AppView < I.Item > {
 
-    constructor(context: I.Item) {
+    constructor(___context: I.Item) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: I.Item, ___view: ___wml.AppView < I.Item > ) =>
+        this.template = (___view: ___wml.AppView < I.Item > ) =>
             ___wml.node('li', {
                 html: {
                     'class': ___context.values.class.root

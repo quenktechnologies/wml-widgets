@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < BusyIndicator > {
 
-    constructor(context: BusyIndicator) {
+    constructor(___context: BusyIndicator) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: BusyIndicator, ___view: ___wml.AppView < BusyIndicator > ) =>
+        this.template = (___view: ___wml.AppView < BusyIndicator > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class

@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < IconButton > {
 
-    constructor(context: IconButton) {
+    constructor(___context: IconButton) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: IconButton, ___view: ___wml.AppView < IconButton > ) =>
+        this.template = (___view: ___wml.AppView < IconButton > ) =>
             ___wml.node('button', {
                 html: {
                     'class': ___context.values.button.class,

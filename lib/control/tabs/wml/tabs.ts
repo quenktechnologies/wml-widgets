@@ -8,11 +8,11 @@ import {
 
 export class Tab extends ___wml.AppView < TabContext > {
 
-    constructor(context: TabContext) {
+    constructor(___context: TabContext) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: TabContext, ___view: ___wml.AppView < TabContext > ) =>
+        this.template = (___view: ___wml.AppView < TabContext > ) =>
             ___wml.node('li', {
                 html: {
                     'class': ___context.values.class.li
@@ -35,11 +35,11 @@ export class Tab extends ___wml.AppView < TabContext > {
 };
 export class Tabs extends ___wml.AppView < TabsContext > {
 
-    constructor(context: TabsContext) {
+    constructor(___context: TabsContext) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: TabsContext, ___view: ___wml.AppView < TabsContext > ) =>
+        this.template = (___view: ___wml.AppView < TabsContext > ) =>
             ___wml.node('ul', {
                 html: {
                     'class': ___context.values.root.class

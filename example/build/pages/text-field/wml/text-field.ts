@@ -15,11 +15,11 @@ import {
 
 export class Main extends ___wml.AppView < TextFieldPage > {
 
-    constructor(context: TextFieldPage) {
+    constructor(___context: TextFieldPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: TextFieldPage, ___view: ___wml.AppView < TextFieldPage > ) =>
+        this.template = (___view: ___wml.AppView < TextFieldPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

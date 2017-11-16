@@ -15,11 +15,11 @@ import {
 
 export class Main extends ___wml.AppView < DatePage > {
 
-    constructor(context: DatePage) {
+    constructor(___context: DatePage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: DatePage, ___view: ___wml.AppView < DatePage > ) =>
+        this.template = (___view: ___wml.AppView < DatePage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

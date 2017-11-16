@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < ActionBar > {
 
-    constructor(context: ActionBar) {
+    constructor(___context: ActionBar) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: ActionBar, ___view: ___wml.AppView < ActionBar > ) =>
+        this.template = (___view: ___wml.AppView < ActionBar > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root

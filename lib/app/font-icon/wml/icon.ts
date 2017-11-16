@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < FontIcon > {
 
-    constructor(context: FontIcon) {
+    constructor(___context: FontIcon) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: FontIcon, ___view: ___wml.AppView < FontIcon > ) =>
+        this.template = (___view: ___wml.AppView < FontIcon > ) =>
             ___wml.node('span', {
                 html: {
                     'class': ___context.values.root.class

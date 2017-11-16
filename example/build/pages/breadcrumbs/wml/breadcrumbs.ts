@@ -21,11 +21,11 @@ import {
 
 export class Main extends ___wml.AppView < BreadCrumbsPage > {
 
-    constructor(context: BreadCrumbsPage) {
+    constructor(___context: BreadCrumbsPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: BreadCrumbsPage, ___view: ___wml.AppView < BreadCrumbsPage > ) =>
+        this.template = (___view: ___wml.AppView < BreadCrumbsPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

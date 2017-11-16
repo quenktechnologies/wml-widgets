@@ -2,28 +2,54 @@ import * as names from "@package/self/common/names"
 import {concat} from "@package/self/common/util"
 import {get} from "property-seek"
 import {Fragment} from "@package/self/layout/fragment/Fragment"
-import {Column, Table as TableContext} from ".."
+import {Column, Table as Table} from ".."
 
-{% fun allSelectedCheckbox[C,R] (TableContext[C,R]) %}
+{% fun thead[C,R] (Table[C,R]) (columns:Column[C,R][]) %}
 
-      <th>
-
-        <input 
-          type="checkbox"
-          onclick={{@values.table.thead.th.onSelect}}/>
-      
-      </th>
+  <thead wml:id={{@values.table.thead.id}}>{{<heads(@)(columns)>}}</thead>
 
 {% endfun %}
 
-{% fun headings[C,R](TableContext[C,R])(columns:Column[C,R][]) %}
+{% fun heads[C,R](Table[C,R])(columns:Column[C,R][]) %}
+
+  <tr>
+
+    {% if @values.options.selectable %}
+
+      {{ <allSelectedCheckbox(@)> }}
+
+      {{ <headings(@)(columns)> }}
+
+    {% else %}
+
+      {{ <headings(@)(columns)> }}
+
+    {% endif %}
+
+  </tr>
+
+{% endfun %}
+
+{% fun allSelectedCheckbox[C,R] (Table[C,R]) %}
+
+  <th>
+ 
+    <input 
+      type="checkbox"
+      onclick={{@values.table.thead.onCheck}}/>
+ 
+   </th>
+
+{% endfun %}
+
+{% fun headings[C,R](Table[C,R])(columns:Column[C,R][]) %}
 
   {% for field:Column[C,R] in columns %}
 
     {% if field.sortAs %}
 
       <th 
-       class={{concat(@values.class.heading, 
+       class={{concat(@values.table.thead.th.class, 
          if(@values.sortedOn == field.name) then 
            names.ACTIVE 
          else '')}}
@@ -46,7 +72,7 @@ import {Column, Table as TableContext} from ".."
        {% else %}
 
           <th 
-            class={{concat(@values.class.heading,
+            class={{concat(@values.table.thead.th.class,
               if(@values.sortedOn == field.name) then 
                 names.ACTIVE 
               else '')}}
@@ -64,47 +90,31 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun thead[C,R](TableContext[C,R])(columns:Column[C,R][]) %}
+{% fun tbody[C,R] (Table[C,R]) (data:R[], columns:Column[C,R][]) %}
 
-  <tr>
-
-    {% if @values.options.selectable %}
-
-      {{ <allSelectedCheckbox(@)> }}
-
-      {{ <headings(@)(columns)> }}
-
-    {% else %}
-
-      {{ <headings(@)(columns)> }}
-
-    {% endif %}
-
-  </tr>
+  <tbody wml:id={{@values.table.tbody.id}}>
+    {{<rows(@)(data)(columns)> }}
+  </tbody>
 
 {% endfun %}
 
-{% fun rowSelectCheckbox[C,R] (TableContext[C,R]) (row:R,index:Number) %}
+{% fun rows[C,R](Table[C,R])(data:R[],columns:Column[C,R][]) %}
 
-    {% if @values.options.selectable %}
+    {% for rowData:R,index:Number in data %}
 
-      <td>
-            
-        <input 
-          type="checkbox"
-          onclick={{@values.table.tbody.tr.onSelect(row, index, @values.data)}}/>
-          
-      </td>
+      <tr 
+        class={{@values.table.tbody.tr.class}}
+        onclick={{@values.table.tbody.tr.onclick(rowData,index,data)}}>
 
-    {% else %}
+        {{ <cells(@)(rowData)(index)(columns)> }}
 
-      {{''}}
+      </tr>
 
-    {% endif %}
+    {% endfor %}
 
 {% endfun %}
 
-{% fun cells[C,R](TableContext[C,R])(rowData:R, rowNumber:Number, columns:Column[C,R][]) %}
+{% fun cells[C,R](Table[C,R])(rowData:R, rowNumber:Number, columns:Column[C,R][]) %}
 
   {% if @values.options.selectable %}
 
@@ -139,47 +149,49 @@ import {Column, Table as TableContext} from ".."
 
 {% endfun %}
 
-{% fun rows[C,R](TableContext[C,R])(data:R[],columns:Column[C,R][]) %}
+{% fun rowSelectCheckbox[C,R] (Table[C,R]) (row:R,index:Number) %}
 
-    {% for rowData:R,index:Number in data %}
+    {% if @values.options.selectable %}
 
-      <tr 
-        class={{@values.table.tbody.tr.class}}
-        onclick={{@values.table.tbody.tr.onclick(rowData,index,data)}}>
+      <td>
+            
+        <input 
+          type="checkbox"
+          onclick={{@values.table.tbody.tr.onCheck(row, index, @values.data)}}/>
+          
+      </td>
 
-        {{ <cells(@)(rowData)(index)(columns)> }}
+    {% else %}
 
-      </tr>
+      {{''}}
 
-    {% endfor %}
+    {% endif %}
 
 {% endfun %}
 
-{% fun table [C,R](TableContext[C,R]) %}
+{% fun table [C,R](Table[C,R]) %}
 
-    <table 
-      wml:id={{@values.id.root}}
-      class={{@values.class.root}}>
+  <table 
+    wml:id={{@values.table.id}}
+    class={{@values.table.class}}>
 
-      <thead 
-        wml:id="head">{{ <thead(@)(@values.columns)> }}</thead>
+    {{ <(@values.table.thead.template)(@)(@values.columns)> }}
         
-      <tbody 
-        wml:id="body"> {{ <rows(@)(@values.data)(@values.columns)> }}</tbody>
+    {{ <(@values.table.tbody.template)(@)(@values.data)(@values.columns)> }}
 
-    </table>
+  </table>
 
 {% endfun %}
 
-{% view Table [C,R](TableContext[C,R]) %}
+{% main [C,R](Table[C,R]) %}
 
   <Fragment>
 
     {% if (@values.data.length == 0) %}
 
-      {% if @values.fragment.empty %}
+      {% if @values.empty %}
 
-        {{ @values.fragment.empty.render() }}
+        {{ <(@values.empty)> }}
 
       {% else %}
 
@@ -194,6 +206,3 @@ import {Column, Table as TableContext} from ".."
     {% endif %}
 
   </Fragment>
-
-{% endview %}
-

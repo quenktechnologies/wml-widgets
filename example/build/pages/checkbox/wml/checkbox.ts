@@ -15,11 +15,11 @@ import {
 
 export class Main extends ___wml.AppView < CheckboxPage > {
 
-    constructor(context: CheckboxPage) {
+    constructor(___context: CheckboxPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: CheckboxPage, ___view: ___wml.AppView < CheckboxPage > ) =>
+        this.template = (___view: ___wml.AppView < CheckboxPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

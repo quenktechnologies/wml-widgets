@@ -16,11 +16,11 @@ import {
 
 export class Main extends ___wml.AppView < SearchPage > {
 
-    constructor(context: SearchPage) {
+    constructor(___context: SearchPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: SearchPage, ___view: ___wml.AppView < SearchPage > ) =>
+        this.template = (___view: ___wml.AppView < SearchPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

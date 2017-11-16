@@ -10,11 +10,11 @@ import {
 
 export class Main extends ___wml.AppView < SubMenu > {
 
-    constructor(context: SubMenu) {
+    constructor(___context: SubMenu) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: SubMenu, ___view: ___wml.AppView < SubMenu > ) =>
+        this.template = (___view: ___wml.AppView < SubMenu > ) =>
             ___wml.widget(Item, {
                 html: {},
                 wml: {}

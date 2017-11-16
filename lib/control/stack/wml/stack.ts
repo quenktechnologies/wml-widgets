@@ -15,11 +15,11 @@ export const content = < M > (___context: Stack < M > ) => (m: Member < M > ) =>
 
 export class Main < M > extends ___wml.AppView < Stack < M > > {
 
-    constructor(context: Stack < M > ) {
+    constructor(___context: Stack < M > ) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Stack < M > , ___view: ___wml.AppView < Stack < M > > ) =>
+        this.template = (___view: ___wml.AppView < Stack < M > > ) =>
             ___wml.node('ul', {
                 html: {
                     'class': ___context.values.class.root

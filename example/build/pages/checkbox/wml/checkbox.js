@@ -17,9 +17,9 @@ var Checkbox_1 = require("@package/self/control/checkbox/Checkbox");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
-    function Main(context) {
-        var _this = _super.call(this, context) || this;
-        _this.template = function (___context, ___view) {
+    function Main(___context) {
+        var _this = _super.call(this, ___context) || this;
+        _this.template = function (___view) {
             return ___wml.widget(Grid_1.Grid, {
                 html: {},
                 wml: {}

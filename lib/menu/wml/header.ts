@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < Header > {
 
-    constructor(context: Header) {
+    constructor(___context: Header) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Header, ___view: ___wml.AppView < Header > ) =>
+        this.template = (___view: ___wml.AppView < Header > ) =>
             ___wml.node('li', {
                 html: {
                     'class': ___context.values.class.root

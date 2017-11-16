@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < Checkbox > {
 
-    constructor(context: Checkbox) {
+    constructor(___context: Checkbox) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Checkbox, ___view: ___wml.AppView < Checkbox > ) =>
+        this.template = (___view: ___wml.AppView < Checkbox > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root

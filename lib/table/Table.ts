@@ -13,11 +13,17 @@ import { Cell } from './Cell';
 import {
     ASC_ARROW,
     DESC_ARROW,
+    TABLE,
+    THEAD,
+    TBODY,
     stringSort,
     TableAttrs,
+    TableValues,
     SortingStrategy,
     Delegate,
     Column,
+    THead,
+    TBody,
     Comparable
 } from '.';
 
@@ -30,31 +36,15 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
 
     originalData: R[] = this.attrs.ww.data;
 
-    view: View = new view.Table(this);
+    view: View = new view.Main(this);
 
     delegate: Delegate<C, R> = this.attrs.ww.delegate ?
         this.attrs.ww.delegate : new SortDelegate(this);
 
-    values = {
+    values: TableValues<C, R> = {
 
-        id: {
+        empty: this.attrs.ww.empty,
 
-            root: 'root',
-
-        },
-        class: {
-
-            root: concat(names.TABLE, this.attrs.ww.class),
-            row: this.attrs.ww.rowClass || '',
-            cell: this.attrs.ww.cellClass || '',
-            heading: this.attrs.ww.headingClass || ''
-
-        },
-        fragment: {
-
-            empty: <Renderable>this.attrs.ww.empty
-
-        },
         options: {
 
             selectable: this.attrs.ww.selectable
@@ -62,15 +52,27 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
         },
         table: {
 
+            id: TABLE,
+
+            class: concat(names.TABLE, this.attrs.ww.class),
+
             thead: {
+
+                id: THEAD,
+
+              class: this.attrs.ww.theadClass,
+
+                template: <THead<C, R>>(this.attrs.ww.thead || view.thead),
+
+                onCheck: () =>
+                    this.delegate.onAllSelected(new AllSelectedEvent(this.originalData)),
 
                 th: {
 
+                    class: this.attrs.ww.thClass,
+
                     onclick: (field: string) => () =>
                         this.delegate.onHeadingClicked(new HeadingClickedEvent(field)),
-
-                    onSelect: () =>
-                        this.delegate.onAllSelected(new AllSelectedEvent(this.originalData))
 
                 }
 
@@ -78,14 +80,18 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
 
             tbody: {
 
+                id: TBODY,
+
+                template: <TBody<C, R>>(this.attrs.ww.tbody || view.tbody),
+
                 tr: {
 
-                    class: this.attrs.ww.rowClass,
+                    class: this.attrs.ww.trClass,
 
                     onclick: (row: R, index: number, data: R[]) => () =>
                         this.delegate.onRowClicked(new RowClickedEvent(row, index, data)),
 
-                    onSelect: (row: R, index: number, data: R[]) => () =>
+                    onCheck: (row: R, index: number, data: R[]) => () =>
                         this.delegate.onRowSelected(new RowSelectedEvent(row, index, data))
 
                 },
@@ -93,7 +99,7 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
 
                     id: (column: string, colNumber: number, rowNumber: number) => `${column}${colNumber},${rowNumber}`,
 
-                    class: this.attrs.ww.cellClass,
+                    class: this.attrs.ww.tdClass,
 
                     onclick: (value: C, column: string, rowData: R, rowNumber: number) =>
                         (e: Event) =>

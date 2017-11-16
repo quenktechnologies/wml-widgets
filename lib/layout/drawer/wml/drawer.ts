@@ -10,11 +10,11 @@ import {
 
 export class Main extends ___wml.AppView < Drawer > {
 
-    constructor(context: Drawer) {
+    constructor(___context: Drawer) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Drawer, ___view: ___wml.AppView < Drawer > ) =>
+        this.template = (___view: ___wml.AppView < Drawer > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root

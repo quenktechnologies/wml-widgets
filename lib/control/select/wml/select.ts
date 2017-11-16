@@ -11,11 +11,11 @@ import {
 
 export class Main extends ___wml.AppView < Select > {
 
-    constructor(context: Select) {
+    constructor(___context: Select) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Select, ___view: ___wml.AppView < Select > ) =>
+        this.template = (___view: ___wml.AppView < Select > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class

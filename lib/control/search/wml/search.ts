@@ -19,11 +19,11 @@ export const populated = < A extends Result > (___context: Search < A > ) => (op
 export const empty = < A extends Result > (___context: Search < A > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;
 export class Results < A extends Result > extends ___wml.AppView < Search < A > > {
 
-    constructor(context: Search < A > ) {
+    constructor(___context: Search < A > ) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Search < A > , ___view: ___wml.AppView < Search < A > > ) =>
+        this.template = (___view: ___wml.AppView < Search < A > > ) =>
             ___wml.widget(Fragment, {
                 html: {},
                 wml: {}
@@ -47,11 +47,11 @@ export class Results < A extends Result > extends ___wml.AppView < Search < A > 
 
 export class Main < A extends Result > extends ___wml.AppView < Search < A > > {
 
-    constructor(context: Search < A > ) {
+    constructor(___context: Search < A > ) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Search < A > , ___view: ___wml.AppView < Search < A > > ) =>
+        this.template = (___view: ___wml.AppView < Search < A > > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.class.root

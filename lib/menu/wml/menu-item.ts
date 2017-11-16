@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < MenuItem > {
 
-    constructor(context: MenuItem) {
+    constructor(___context: MenuItem) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: MenuItem, ___view: ___wml.AppView < MenuItem > ) =>
+        this.template = (___view: ___wml.AppView < MenuItem > ) =>
             ___wml.node('li', {
                 html: {
                     'class': ___context.values.class.root,

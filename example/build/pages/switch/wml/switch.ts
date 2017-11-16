@@ -15,11 +15,11 @@ import {
 
 export class Main extends ___wml.AppView < SwitchPage > {
 
-    constructor(context: SwitchPage) {
+    constructor(___context: SwitchPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: SwitchPage, ___view: ___wml.AppView < SwitchPage > ) =>
+        this.template = (___view: ___wml.AppView < SwitchPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

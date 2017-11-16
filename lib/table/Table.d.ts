@@ -1,6 +1,6 @@
 import { Component, View, Renderable, Maybe } from '@quenk/wml';
 import { Cell } from './Cell';
-import { TableAttrs, Delegate, Column } from '.';
+import { TableAttrs, TableValues, Delegate } from '.';
 /**
  * Table provides a smarter html table.
  *
@@ -10,47 +10,7 @@ export declare class Table<C, R> extends Component<TableAttrs<C, R>> {
     originalData: R[];
     view: View;
     delegate: Delegate<C, R>;
-    values: {
-        id: {
-            root: string;
-        };
-        class: {
-            root: string;
-            row: string;
-            cell: string;
-            heading: string;
-        };
-        fragment: {
-            empty: Renderable;
-        };
-        options: {
-            selectable: boolean;
-        };
-        table: {
-            thead: {
-                th: {
-                    onclick: (field: string) => () => void;
-                    onSelect: () => void;
-                };
-            };
-            tbody: {
-                tr: {
-                    class: string;
-                    onclick: (row: R, index: number, data: R[]) => () => void;
-                    onSelect: (row: R, index: number, data: R[]) => () => void;
-                };
-                td: {
-                    id: (column: string, colNumber: number, rowNumber: number) => string;
-                    class: string;
-                    onclick: (value: C, column: string, rowData: R, rowNumber: number) => (e: Event) => void;
-                };
-            };
-        };
-        sortedOn: string;
-        data: R[];
-        columns: Column<C, R>[];
-        arrow: string;
-    };
+    values: TableValues<C, R>;
     /**
      * modifyBody allows a function to modify the contents
      * of the <tbody>

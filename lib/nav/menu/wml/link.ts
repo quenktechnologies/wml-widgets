@@ -13,11 +13,11 @@ import {
 
 export class Main extends ___wml.AppView < LinkContext > {
 
-    constructor(context: LinkContext) {
+    constructor(___context: LinkContext) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: LinkContext, ___view: ___wml.AppView < LinkContext > ) =>
+        this.template = (___view: ___wml.AppView < LinkContext > ) =>
             ___wml.widget(Item, {
                 html: {},
                 wml: {},

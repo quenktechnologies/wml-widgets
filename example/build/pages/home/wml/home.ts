@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < HomePage > {
 
-    constructor(context: HomePage) {
+    constructor(___context: HomePage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: HomePage, ___view: ___wml.AppView < HomePage > ) =>
+        this.template = (___view: ___wml.AppView < HomePage > ) =>
             ___wml.node('b', {
                 html: {},
                 wml: {}

@@ -15,11 +15,11 @@ import {
 
 export class Main extends ___wml.AppView < BusyIndicatorPage > {
 
-    constructor(context: BusyIndicatorPage) {
+    constructor(___context: BusyIndicatorPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: BusyIndicatorPage, ___view: ___wml.AppView < BusyIndicatorPage > ) =>
+        this.template = (___view: ___wml.AppView < BusyIndicatorPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

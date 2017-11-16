@@ -3,11 +3,11 @@ import * as B from '../Button';
 
 export class Group extends ___wml.AppView < B.Group > {
 
-    constructor(context: B.Group) {
+    constructor(___context: B.Group) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: B.Group, ___view: ___wml.AppView < B.Group > ) =>
+        this.template = (___view: ___wml.AppView < B.Group > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class
@@ -20,11 +20,11 @@ export class Group extends ___wml.AppView < B.Group > {
 };
 export class Button extends ___wml.AppView < B.Button > {
 
-    constructor(context: B.Button) {
+    constructor(___context: B.Button) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: B.Button, ___view: ___wml.AppView < B.Button > ) =>
+        this.template = (___view: ___wml.AppView < B.Button > ) =>
             ___wml.node('button', {
                 html: {
                     'type': ___context.values.button.type,

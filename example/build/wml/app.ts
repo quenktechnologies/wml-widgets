@@ -22,11 +22,11 @@ import {
 
 export class Main extends ___wml.AppView < App > {
 
-    constructor(context: App) {
+    constructor(___context: App) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: App, ___view: ___wml.AppView < App > ) =>
+        this.template = (___view: ___wml.AppView < App > ) =>
             ___wml.widget(Drawer, {
                 html: {},
                 wml: {

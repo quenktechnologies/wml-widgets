@@ -17,11 +17,11 @@ import {
 
 export class Main extends ___wml.AppView < Date > {
 
-    constructor(context: Date) {
+    constructor(___context: Date) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Date, ___view: ___wml.AppView < Date > ) =>
+        this.template = (___view: ___wml.AppView < Date > ) =>
             ___wml.node('div', {
                 html: {
                     'class': ___context.values.root.class

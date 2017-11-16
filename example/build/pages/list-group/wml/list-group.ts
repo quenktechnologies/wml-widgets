@@ -16,11 +16,11 @@ import {
 
 export class Main extends ___wml.AppView < ListGroupPage > {
 
-    constructor(context: ListGroupPage) {
+    constructor(___context: ListGroupPage) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: ListGroupPage, ___view: ___wml.AppView < ListGroupPage > ) =>
+        this.template = (___view: ___wml.AppView < ListGroupPage > ) =>
             ___wml.widget(Grid, {
                 html: {},
                 wml: {}

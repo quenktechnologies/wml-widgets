@@ -7,11 +7,11 @@ import {
 
 export class Main extends ___wml.AppView < Switch > {
 
-    constructor(context: Switch) {
+    constructor(___context: Switch) {
 
-        super(context);
+        super(___context);
 
-        this.template = (___context: Switch, ___view: ___wml.AppView < Switch > ) =>
+        this.template = (___view: ___wml.AppView < Switch > ) =>
             ___wml.node('label', {
                 html: {
                     'class': ___context.values.class.label
