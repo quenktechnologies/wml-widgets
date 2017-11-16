@@ -127,7 +127,7 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
      */
     modifyBody(f: (e: HTMLElement) => void): Table<C, R> {
 
-        this.view.findById('body').map(f);
+        this.view.findById(TBODY).map(f);
         return this;
 
     }

@@ -1,3 +1,5 @@
+import * as wml from '@quenk/wml';
+import { TextField } from './TextField';
 import { FormControlWWAttrs } from '@package/self/control';
 export interface TextFieldWWAttrs extends FormControlWWAttrs<string> {
     /**
@@ -16,4 +18,8 @@ export interface TextFieldWWAttrs extends FormControlWWAttrs<string> {
      * focus indicates this input should steal focus when rendered.
      */
     focus?: boolean;
+    /**
+     * control is a template for rendering the control.
+     */
+    control?: (t: TextField) => wml.Template;
 }
