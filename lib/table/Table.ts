@@ -91,7 +91,7 @@ export class Table<D> extends Component<TableAttrs<D>> {
                 },
                 td: {
 
-                    id: (column: string, rowNumber: number) => `${column},${rowNumber}`,
+                    id: (column: string, colNumber: number, rowNumber: number) => `${column}${colNumber},${rowNumber}`,
 
                     class: this.attrs.ww.cellClass,
 

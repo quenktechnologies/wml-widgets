@@ -40,7 +40,7 @@ export declare class Table<D> extends Component<TableAttrs<D>> {
                     onSelect: (row: D, index: number, data: D[]) => () => void;
                 };
                 td: {
-                    id: (column: string, rowNumber: number) => string;
+                    id: (column: string, colNumber: number, rowNumber: number) => string;
                     class: string;
                     onclick: <V>(value: V, column: string, rowData: D, rowNumber: number) => (e: Event) => void;
                 };

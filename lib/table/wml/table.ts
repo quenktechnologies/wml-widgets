@@ -55,14 +55,14 @@ export const rowSelectCheckbox = < D > (___context: TableContext < D > ) => (row
     },
     wml: {}
 }, [], ___view)], ___view) : ___wml.domify(``);;
-export const cells = < D > (___context: TableContext < D > ) => (rowData: D) => (rowNumber: number) => (columns: Column < D > []) => (___view: ___wml.View) => ___wml.box((___context.values.options.selectable) ? ___wml.domify(rowSelectCheckbox(___context)(rowData)(rowNumber)(___view)) : ___wml.domify(``), ___wml.map(columns, function _map(field: Column < D > ) {
+export const cells = < D > (___context: TableContext < D > ) => (rowData: D) => (rowNumber: number) => (columns: Column < D > []) => (___view: ___wml.View) => ___wml.box((___context.values.options.selectable) ? ___wml.domify(rowSelectCheckbox(___context)(rowData)(rowNumber)(___view)) : ___wml.domify(``), ___wml.map(columns, function _map(field: Column < D > , index: number) {
     return ___wml.node('td', {
         html: {
             'class': ___context.values.table.tbody.td.class,
             'onclick': ___context.values.table.tbody.td.onclick(get(field.name, rowData), field.name, rowData, rowNumber)
         },
         wml: {
-            'id': ___context.values.table.tbody.td.id(field.name, rowNumber)
+            'id': ___context.values.table.tbody.td.id(field.name, index, rowNumber)
         }
     }, [(field.fragment) ? ___wml.domify(field.fragment(get(field.name, rowData))(field.name)(rowData)(___view)) : ___wml.domify(get(field.name, rowData))], ___view)
 }, function otherwise() {

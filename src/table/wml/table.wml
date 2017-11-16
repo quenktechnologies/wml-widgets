@@ -116,10 +116,10 @@ import {Column, Table as TableContext} from ".."
           
   {% endif %}
 
-  {% for field:Column[D] in columns %}
+  {% for field:Column[D],index:Number in columns %}
         
     <td 
-      wml:id={{@values.table.tbody.td.id(field.name, rowNumber)}}
+      wml:id={{@values.table.tbody.td.id(field.name, index, rowNumber)}}
       class={{@values.table.tbody.td.class}}
       onclick={{@values.table.tbody.td.onclick(get(field.name,rowData),field.name, rowData, rowNumber)}}>
 
