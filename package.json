@@ -16,7 +16,7 @@
   "dependencies": {
     "@package/self": "file:lib",
     "@quenk/polate": "^1.0.0",
-    "@quenk/wml": "^0.16.2",
+    "@quenk/wml": "^0.16.3",
     "afpl": "^0.10.0",
     "moment": "^2.19.1",
     "property-seek": "^3.1.0"

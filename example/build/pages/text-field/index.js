@@ -20,21 +20,21 @@ var TextFieldPage = /** @class */ (function (_super) {
         _this.view = new views.Main(_this);
         _this.onChange = function (_a) {
             var value = _a.value;
-            (value === 'invalid') ?
+            (value === 'error') ?
                 _this.get(_this.id, function (c) {
-                    return c.setError('This control is now invalid!');
+                    return c.setError('This control is now in the error state!');
                 }) :
-                (value === 'valid') ?
+                (value === 'success') ?
                     _this.get(_this.id, function (c) {
-                        return c.setSuccess('This control is now valid!');
+                        return c.setSuccess('This control is now in the success state!');
                     }) :
-                    (value === 'warn') ?
+                    (value === 'warning') ?
                         _this.get(_this.id, function (c) {
-                            return c.setWarning('This control now has a warning!');
+                            return c.setWarning('This control now in the warning state!');
                         }) :
-                        (value === 'reset') ?
+                        (value === 'clear') ?
                             _this.get(_this.id, function (c) {
-                                return c.reset();
+                                return c.clear();
                             }) :
                             _this
                                 .view

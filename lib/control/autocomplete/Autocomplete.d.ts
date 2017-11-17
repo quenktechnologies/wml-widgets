@@ -1,17 +1,17 @@
 import * as wml from '@quenk/wml';
-import { SearchControl, PopulatedFun, EmptyFun } from '@package/self/control/lurch';
-import { AutocompleteAttrs } from './AutocompleteAttrs';
+import { SearchControlWidget, PopulatedFun, EmptyFun } from '@package/self/control/search-control';
+import { AutocompleteAttrs } from '.';
 export declare const ESCAPE = 27;
 export declare const INPUT_ID = "input";
 /**
  * Autocomplate provides an input with a dropdown menu that allows
  * the user to search and select form a list of options.
  */
-export declare class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<V>> {
+export declare class Autocomplete<V> extends SearchControlWidget<V, AutocompleteAttrs<V>> {
     view: wml.View;
     template: {
-        populated: PopulatedFun;
-        empty: EmptyFun;
+        populated: PopulatedFun<V>;
+        empty: EmptyFun<V>;
     };
     values: {
         id: {
@@ -55,8 +55,8 @@ export declare class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<
         };
         item: {
             template: {
-                populated: PopulatedFun;
-                empty: EmptyFun;
+                populated: PopulatedFun<V>;
+                empty: EmptyFun<V>;
             };
             stringify: (r: V) => string;
             click: (index: string | number) => void;
@@ -66,4 +66,5 @@ export declare class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<
     open(): Autocomplete<V>;
     close(): Autocomplete<V>;
     update(results: V[]): Autocomplete<V>;
+    value(): V;
 }

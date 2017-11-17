@@ -1,7 +1,5 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/search-stack'
-import { Search } from '@package/self/control/search/Search';
-import { ResultSelectedEvent } from '@package/self/control/search/ResultSelectedEvent';
 import { SearchStack, TermChangedEvent,StackChangedEvent } from '@package/self/control/search-stack';
 import { Page } from '../Page';
 

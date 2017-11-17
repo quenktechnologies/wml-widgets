@@ -1,10 +1,10 @@
-import { ControlWWAttrs } from '@package/self/control';
+import { FormControlWWAttrs } from '@package/self/control/form-control';
 import { Member } from './Member';
 import { Template } from './Template';
 /**
  * StackWWAttrs
  */
-export interface StackWWAttrs<M> extends ControlWWAttrs<Member<M>[]> {
+export interface StackWWAttrs<M> extends FormControlWWAttrs<Member<M>[]> {
     /**
      * template for rendering each member of the stack.
      */

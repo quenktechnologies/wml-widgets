@@ -1,5 +1,28 @@
+import * as wml from '@quenk/wml';
+import { FormControlWWAttrs } from '@package/self/control/form-control';
+import { TermChangedEvent } from '@package/self/control/search-control';
+
 export { SearchStack } from './SearchStack';
-export { SearchStackAttrs } from './SearchStackAttrs';
-export { SearchStackWWAttrs } from './SearchStackWWAttrs';
 export { StackChangedEvent } from '@package/self/control/stack';
-export {TermChangedEvent} from '@package/self/control/search';
+export { TermChangedEvent } from '@package/self/control/search-control';
+
+export interface SearchStackAttrs<V> extends wml.Attrs {
+
+    ww: SearchStackWWAttrs<V>
+
+}
+
+
+export interface SearchStackWWAttrs<V> extends FormControlWWAttrs<V[]> {
+
+    /**
+     * onSearch receives events from the SearchControl.
+     */
+    onSearch?: (s: TermChangedEvent) => void
+
+    /**
+     * decorator is to the Stack control.
+     */
+    decorator?: (m: V) => string
+
+}

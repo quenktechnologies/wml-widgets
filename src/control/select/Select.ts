@@ -1,12 +1,10 @@
 import * as views from './wml/select';
 import * as wml from '@quenk/wml';
 import { concat } from '@package/self/common/util';
-import { FormControl } from '@package/self/control';
-import { SelectAttrs } from './SelectAttrs';
-import { Option } from './Option';
-import { SelectChangedEvent } from './SelectChangedEvent';
-
-export type Option = Option;
+import { FormControlWidget } from '@package/self/control/form-control';
+import { state } from '@package/self/control/feedback-control';
+import { SelectAttrs, Option } from '.';
+import { SelectionChangedEvent } from './SelectionChangedEvent';
 
 /**
  * Select provides a dropdown list for selecting items.
@@ -15,7 +13,7 @@ export type Option = Option;
  * is likely to change in the future. Use the native <select>
  * directly if you must have that.
  */
-export class Select extends FormControl<string, SelectAttrs> {
+export class Select extends FormControlWidget<string, SelectAttrs> {
 
     view: wml.View = new views.Main(this);
 
@@ -24,7 +22,7 @@ export class Select extends FormControl<string, SelectAttrs> {
         root: {
 
             id: 'root',
-            class: concat('form-group', this.attrs.ww.class, this.state())
+            class: concat('form-group', this.attrs.ww.class, state(this.attrs.ww))
         },
 
         label: {
@@ -52,7 +50,8 @@ export class Select extends FormControl<string, SelectAttrs> {
 
                 this
                     .delegate
-                    .onChange(new SelectChangedEvent(this.attrs.ww.name, target.value));
+                    .onChange(
+                    new SelectionChangedEvent(this.attrs.ww.name, target.value));
 
             }
         },
@@ -65,5 +64,11 @@ export class Select extends FormControl<string, SelectAttrs> {
 
         }
     };
+
+    value(): string {
+
+        return this.view.findById(this.values.select.id).cata(() => '', (e: HTMLInputElement) => e.value);
+
+    }
 
 }

@@ -1,15 +1,15 @@
 import * as wml from '@quenk/wml';
 import * as names from '@package/self/common/names';
 import * as views from './wml/search-stack';
-import { FormControl } from '@package/self/control';
+import { FormControlWidget } from '@package/self/control/form-control';
 import { Autocomplete, TermChangedEvent, ItemSelectedEvent } from '@package/self/control/autocomplete';
 import { Stack, StackChangedEvent } from '@package/self/control/stack';
-import { SearchStackAttrs } from './SearchStackAttrs';
+import { SearchStackAttrs } from '.';
 
 /**
  * SearchStack
  */
-export class SearchStack<V> extends FormControl<V[], SearchStackAttrs<V>> {
+export class SearchStack<V> extends FormControlWidget<V[], SearchStackAttrs<V>> {
 
     view: wml.View = new views.Main(this);
 
@@ -82,6 +82,12 @@ export class SearchStack<V> extends FormControl<V[], SearchStackAttrs<V>> {
             .map((s: Stack<V>) => s.push(v));
 
         return this;
+
+    }
+
+    value(): V[] {
+
+        return this.values.stack.value.slice();
 
     }
 

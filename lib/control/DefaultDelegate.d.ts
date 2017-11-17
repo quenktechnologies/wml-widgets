@@ -1,4 +1,4 @@
-import { Delegate } from './Delegate';
+import { Delegate } from '.';
 import { Event } from './Event';
 import { DefaultDelegateAttrs } from './DefaultDelegateAttrs';
 /**
@@ -8,6 +8,7 @@ import { DefaultDelegateAttrs } from './DefaultDelegateAttrs';
 export declare class DefaultDelegate<A> implements Delegate<A> {
     attrs: DefaultDelegateAttrs<A>;
     constructor(attrs: DefaultDelegateAttrs<A>);
-    onInput: (e: Event<A>) => void;
+    onClick: (e: Event<A>) => void;
     onChange: (e: Event<A>) => void;
+    onSelect: (e: Event<A>) => void;
 }

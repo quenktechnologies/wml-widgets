@@ -1,14 +1,44 @@
 import * as wml from '@quenk/wml';
-import { FormControlValues } from '@package/self/control';
+import { FormControlWWAttrs } from '@package/self/control/form-control';
+import { FormControlWidgetValues } from '@package/self/control/form-control';
 import { TextField } from './TextField';
 export { TextField };
-export { TextFieldWWAttrs } from './TextFieldWWAttrs';
-export { TextFieldAttrs } from './TextFieldAttrs';
 export { TextChangedEvent } from './TextChangedEvent';
+/**
+ * TextFieldAttrs
+ */
+export interface TextFieldAttrs extends wml.Attrs {
+    ww: TextFieldWWAttrs;
+}
+/**
+ * TextFieldWWAttrs
+ */
+export interface TextFieldWWAttrs extends FormControlWWAttrs<string> {
+    /**
+     * placeholder sets placeholder text for the control.
+     */
+    placeholder?: string;
+    /**
+     * type of the text field.
+     */
+    type?: string;
+    /**
+     * rows more than 1 will use a textarea instead of an input.
+     */
+    rows?: number;
+    /**
+     * focus indicates this input should steal focus when rendered.
+     */
+    focus?: boolean;
+    /**
+     * control is a template for rendering the control.
+     */
+    control?: (t: TextField) => wml.Template;
+}
 /**
  * TextFieldValues available to the TextField template.
  */
-export interface TextFieldValues extends FormControlValues {
+export interface TextFieldValues extends FormControlWidgetValues {
     /**
      * root values.
      */

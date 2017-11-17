@@ -1,15 +1,16 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/text-field';
 import { concat } from '@package/self/common/util';
+import { state } from '@package/self/control/feedback-control';
 import { TextFieldValues } from '.';
-import { FormControl } from '@package/self/control';
-import { TextFieldAttrs } from './TextFieldAttrs';
+import { FormControlWidget } from '@package/self/control/form-control';
+import { TextFieldAttrs } from '.';
 import { TextChangedEvent } from './TextChangedEvent';
 
 /**
  * TextField
  */
-export class TextField extends FormControl<string, TextFieldAttrs> {
+export class TextField extends FormControlWidget<string, TextFieldAttrs> {
 
     view: wml.View = new views.Main(this);
 
@@ -18,10 +19,10 @@ export class TextField extends FormControl<string, TextFieldAttrs> {
         root: {
 
             id: 'root',
-            class: concat('form-group', this.attrs.ww.class, this.state())
+            class: concat('form-group', this.attrs.ww.class, state(this.attrs.ww))
 
         },
-      help: {
+        help: {
 
             id: 'message',
             success: this.attrs.ww.success,
@@ -51,5 +52,11 @@ export class TextField extends FormControl<string, TextFieldAttrs> {
                 new TextChangedEvent(this.attrs.ww.name, (<HTMLInputElement>e.target).value))
         }
     };
+
+    value(): string {
+
+        return this.view.findById(this.values.control.id).cata(() => '', (e: HTMLInputElement) => e.value);
+
+    }
 
 }

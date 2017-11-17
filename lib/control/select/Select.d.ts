@@ -1,8 +1,6 @@
 import * as wml from '@quenk/wml';
-import { FormControl } from '@package/self/control';
-import { SelectAttrs } from './SelectAttrs';
-import { Option } from './Option';
-export declare type Option = Option;
+import { FormControlWidget } from '@package/self/control/form-control';
+import { SelectAttrs, Option } from '.';
 /**
  * Select provides a dropdown list for selecting items.
  *
@@ -10,7 +8,7 @@ export declare type Option = Option;
  * is likely to change in the future. Use the native <select>
  * directly if you must have that.
  */
-export declare class Select extends FormControl<string, SelectAttrs> {
+export declare class Select extends FormControlWidget<string, SelectAttrs> {
     view: wml.View;
     values: {
         root: {
@@ -42,4 +40,5 @@ export declare class Select extends FormControl<string, SelectAttrs> {
             warning: string;
         };
     };
+    value(): string;
 }

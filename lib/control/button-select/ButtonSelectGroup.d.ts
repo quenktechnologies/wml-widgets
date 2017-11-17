@@ -1,12 +1,12 @@
 import * as wml from '@quenk/wml';
-import { FormControl } from '@package/self/control';
+import { FormControlWidget } from '@package/self/control/form-control';
 import { Option } from './Option';
 import { ButtonSelectGroupAttrs } from './ButtonSelectGroupAttrs';
 import { Maybe } from 'afpl/lib/monad/Maybe';
 /**
  * ButtonSelectGroup
  */
-export declare abstract class ButtonSelectGroup<V, OV, A extends ButtonSelectGroupAttrs<V, OV>> extends FormControl<V, A> {
+export declare abstract class ButtonSelectGroup<V, OV, A extends ButtonSelectGroupAttrs<V, OV>> extends FormControlWidget<V, A> {
     view: wml.View;
     values: {
         root: {
@@ -30,4 +30,5 @@ export declare abstract class ButtonSelectGroup<V, OV, A extends ButtonSelectGro
     abstract initialize(v: V): Maybe<V>;
     abstract click(v: OV): void;
     abstract isSelected(v: OV): boolean;
+    value(): V;
 }

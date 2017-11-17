@@ -1,1 +1,1 @@
-{"version":3,"file":"StackChangedEvent.js","sourceRoot":"","sources":["StackChangedEvent.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,iDAA8C;AAE9C;;GAEG;AACH;IAA0C,qCAAU;IAApD;;IAAuD,CAAC;IAAD,wBAAC;AAAD,CAAC,AAAxD,CAA0C,eAAK,GAAS;AAA3C,8CAAiB"}
+{"version":3,"file":"StackChangedEvent.js","sourceRoot":"","sources":["StackChangedEvent.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,mEAAsE;AAEtE;;GAEG;AACH;IAA0C,qCAAqB;IAA/D;;IAAkE,CAAC;IAAD,wBAAC;AAAD,CAAC,AAAnE,CAA0C,+BAAgB,GAAS;AAAtD,8CAAiB"}

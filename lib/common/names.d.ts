@@ -52,8 +52,13 @@ export declare const INFO = "-info";
 export declare const WARNING = "-warning";
 /**
  * DANGER style modifier.
+ * @deprecated
  */
 export declare const DANGER = "-danger";
+/**
+ * ERROR style modifier.
+ */
+export declare const ERROR = "-error";
 export declare const LARGE = "-large";
 export declare const SMALL = "-small";
 export declare const EXTRA_SMALL = "-extra-small";

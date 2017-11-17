@@ -65,8 +65,14 @@ export const WARNING = '-warning';
 
 /**
  * DANGER style modifier.
+ * @deprecated
  */
 export const DANGER = '-danger';
+
+/**
+ * ERROR style modifier.
+ */
+export const ERROR = '-error';
 
 export const LARGE = '-large';
 export const SMALL = '-small';

@@ -3,8 +3,8 @@ import * as views from './wml/autocomplete';
 import * as wml from '@quenk/wml';
 import { Menu } from "@package/self/menu/Menu"
 import { concat } from '@package/self/common/util';
-import { SearchControl, ItemSelectedEvent, PopulatedFun, EmptyFun } from '@package/self/control/lurch';
-import { AutocompleteAttrs } from './AutocompleteAttrs';
+import { SearchControlWidget, ItemSelectedEvent, PopulatedFun, EmptyFun } from '@package/self/control/search-control';
+import { AutocompleteAttrs } from '.';
 
 export const ESCAPE = 27;
 export const INPUT_ID = 'input';
@@ -13,11 +13,11 @@ export const INPUT_ID = 'input';
  * Autocomplate provides an input with a dropdown menu that allows
  * the user to search and select form a list of options.
  */
-export class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<V>> {
+export class Autocomplete<V> extends SearchControlWidget<V, AutocompleteAttrs<V>> {
 
     view: wml.View = new views.Main(this);
 
-    template: { populated: PopulatedFun, empty: EmptyFun } = {
+    template: { populated: PopulatedFun<V>, empty: EmptyFun<V> } = {
 
         populated: (this.attrs.ww.populated) ?
             this.attrs.ww.populated : views.populated,
@@ -49,7 +49,7 @@ export class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<V>> {
             class: concat(names.SEARCH, this.attrs.ww.class)
 
         },
-              help: {
+        help: {
 
             id: 'message',
             success: this.attrs.ww.success,
@@ -57,7 +57,7 @@ export class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<V>> {
             warning: this.attrs.ww.warning
 
         },
-         menu: {
+        menu: {
 
             id: 'menu'
 
@@ -154,6 +154,13 @@ export class Autocomplete<V> extends SearchControl<V, AutocompleteAttrs<V>> {
         return this;
 
     }
+
+    value(): V {
+
+        throw new Error('Autocomplete: value() is not yet implemented!');
+
+    }
+
 
 }
 

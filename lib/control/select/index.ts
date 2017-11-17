@@ -1,5 +1,33 @@
-export { Option } from './Option';
+import * as wml from '@quenk/wml';
+import { FormControlWWAttrs } from '@package/self/control/form-control';
+
 export { Select } from './Select';
-export { SelectAttrs } from './SelectAttrs';
-export { SelectWWAttrs } from './SelectWWAttrs';
-export {SelectChangedEvent} from './SelectChangedEvent';
+export { SelectionChangedEvent } from './SelectionChangedEvent';
+
+/**
+ * SelectAttrs
+ */
+export interface SelectAttrs extends wml.Attrs {
+
+    ww: SelectWWAttrs
+
+}
+
+/**
+ * SelectWWAttrs
+ */
+export interface SelectWWAttrs extends FormControlWWAttrs<string> {
+
+    options?: Option[],
+
+    placeholder?: string
+
+}
+
+/**
+ * Option allowed for selects.
+ */
+export type Option
+    = { label: string, value: string }
+    | string
+    ;

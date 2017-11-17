@@ -1,6 +1,6 @@
-import { Event } from '@package/self/control';
+import { FormControlEvent } from '@package/self/control/form-control';
 
 /**
  * TextChangedEvent 
  */
-export class TextChangedEvent extends Event<string> {}
+export class TextChangedEvent extends FormControlEvent<string> { }
