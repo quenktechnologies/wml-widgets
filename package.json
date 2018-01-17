@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Various wml widgets for creating web apps.",
   "scripts": {
     "docs": "cd src; ../node_modules/.bin/typedoc --mode modules --theme minimal --out ../docs ."
