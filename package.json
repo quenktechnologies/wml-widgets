@@ -37,7 +37,7 @@
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=8.9.4",
-    "npm": ">=5.6.0"
+    "node": ">=6.11.3",
+    "npm": ">5.4.2"
   }
 }
