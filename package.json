@@ -3,7 +3,6 @@
   "version": "1.1.1",
   "description": "Various wml widgets for creating web apps.",
   "scripts": {
-    "postinstall": "npm install ./lib",
     "docs": "cd src; ../node_modules/.bin/typedoc --mode modules --theme minimal --out ../docs ."
   },
   "main": "lib/index.js",
@@ -38,7 +37,7 @@
   "author": "Lasana Murray <dev@quenk.com> (http://quenk.com)",
   "license": "Apache-2.0",
   "engines": {
-    "node": ">=6.11.3",
-    "npm": ">=5.4.2"
+    "node": ">=8.9.4",
+    "npm": ">=5.6.0"
   }
 }
