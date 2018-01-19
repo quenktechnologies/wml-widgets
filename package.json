@@ -7,7 +7,8 @@
     "url": "https://github.com/quenktechnologies/wml-widgets"
   },
   "scripts": {
-    "docs": "cd src; ../node_modules/.bin/typedoc --mode modules --theme minimal --out ../docs ."
+    "docs": "cd src; ../node_modules/.bin/typedoc --mode modules --theme minimal --out ../docs .",
+    "postinstall": "npm install --no-save ./lib"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -17,7 +18,6 @@
     "@quenk/wml": "^0.15.27"
   },
   "dependencies": {
-    "@package/self": "file:lib",
     "@quenk/polate": "^1.0.0",
     "@quenk/wml": "^0.16.3",
     "afpl": "^0.10.0",
