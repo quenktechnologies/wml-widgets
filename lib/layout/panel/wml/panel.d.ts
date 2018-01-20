@@ -1,14 +1,17 @@
 import * as ___wml from '@quenk/wml';
-import * as P from '../Panel';
-export declare class Panel extends ___wml.AppView<P.Panel> {
-    constructor(___context: P.Panel);
+import { Panel as PanelContext } from '../Panel';
+import { Header as HeaderContext } from '../Header';
+import { Body as BodyContext } from '../Body';
+import { Footer as FooterContext } from '../Footer';
+export declare class Panel extends ___wml.AppView<PanelContext> {
+    constructor(___context: PanelContext);
 }
-export declare class Header extends ___wml.AppView<P.Header> {
-    constructor(___context: P.Header);
+export declare class Header extends ___wml.AppView<HeaderContext> {
+    constructor(___context: HeaderContext);
 }
-export declare class Body extends ___wml.AppView<P.Body> {
-    constructor(___context: P.Body);
+export declare class Body extends ___wml.AppView<BodyContext> {
+    constructor(___context: BodyContext);
 }
-export declare class Footer extends ___wml.AppView<P.Footer> {
-    constructor(___context: P.Footer);
+export declare class Footer extends ___wml.AppView<FooterContext> {
+    constructor(___context: FooterContext);
 }

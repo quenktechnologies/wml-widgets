@@ -9,7 +9,7 @@ import {
     Header,
     Body,
     Footer
-} from '@package/self/layout/panel/Panel';;
+} from '@package/self/layout/panel';;
 import {
     Fragment
 } from '@package/self/layout/fragment/Fragment';;

@@ -1,5 +1,5 @@
 import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
-import {Panel,Header,Body,Footer} from "@package/self/layout/panel/Panel"
+import {Panel,Header,Body,Footer} from "@package/self/layout/panel"
 import {Fragment} from "@package/self/layout/fragment/Fragment"
 import {PanelPage} from "../"
 

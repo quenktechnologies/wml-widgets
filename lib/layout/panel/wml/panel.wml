@@ -1,32 +1,35 @@
-import * as P from "../Panel"
+import {Panel as PanelContext} from "../Panel"
+import {Header as HeaderContext} from "../Header"
+import {Body as BodyContext} from "../Body"
+import {Footer as FooterContext} from "../Footer"
 
-{% view Panel (P.Panel) %}
+{% view Panel (PanelContext) %}
   
-  <div class={{@values.class.root}}>
+  <div class={{@values.root.class}}>
     {{@children}}
   </div>
 
 {% endview %}
 
-{% view Header (P.Header) %}
+{% view Header (HeaderContext) %}
 
-  <div class={{@values.class.root}}> 
+  <div class={{@values.root.class}}> 
     {{@children}}
   </div>
 
 {% endview %}
 
-{% view Body (P.Body) %}
+{% view Body (BodyContext) %}
 
-  <div class={{@values.class.root}}>
+  <div class={{@values.root.class}}>
     {{@children}}
   </div>
 
 {% endview %}
 
-{% view Footer (P.Footer)%}
+{% view Footer (FooterContext)%}
 
-  <div class={{@values.class.root}}>
+  <div class={{@values.root.class}}>
     {{@children}}
   </div>
 

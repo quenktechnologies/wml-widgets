@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
 var Grid_1 = require("@package/self/layout/grid/Grid");
 ;
-var Panel_1 = require("@package/self/layout/panel/Panel");
+var panel_1 = require("@package/self/layout/panel");
 ;
 ;
 var Main = /** @class */ (function (_super) {
@@ -33,10 +33,10 @@ var Main = /** @class */ (function (_super) {
                         ww: {
                             'size': 4
                         }
-                    }, [___wml.widget(Panel_1.Panel, {
+                    }, [___wml.widget(panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(Panel_1.Body, {
+                        }, [___wml.widget(panel_1.Body, {
                                 html: {},
                                 wml: {}
                             }, [___wml.text("Body only.")], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Column, {
@@ -45,13 +45,13 @@ var Main = /** @class */ (function (_super) {
                         ww: {
                             'size': 4
                         }
-                    }, [___wml.widget(Panel_1.Panel, {
+                    }, [___wml.widget(panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(Panel_1.Header, {
+                        }, [___wml.widget(panel_1.Header, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("With Header")], ___view), ___wml.widget(Panel_1.Body, {
+                            }, [___wml.text("With Header")], ___view), ___wml.widget(panel_1.Body, {
                                 html: {},
                                 wml: {}
                             }, [___wml.text("Lorem impsum dilium net set.")], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Column, {
@@ -60,16 +60,16 @@ var Main = /** @class */ (function (_super) {
                         ww: {
                             'size': 4
                         }
-                    }, [___wml.widget(Panel_1.Panel, {
+                    }, [___wml.widget(panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(Panel_1.Header, {
+                        }, [___wml.widget(panel_1.Header, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("With Footer")], ___view), ___wml.widget(Panel_1.Body, {
+                            }, [___wml.text("With Footer")], ___view), ___wml.widget(panel_1.Body, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("Lorem impsum dilium net set.")], ___view), ___wml.widget(Panel_1.Footer, {
+                            }, [___wml.text("Lorem impsum dilium net set.")], ___view), ___wml.widget(panel_1.Footer, {
                                 html: {},
                                 wml: {}
                             }, [___wml.text("Meh foot.")], ___view)], ___view)], ___view)], ___view)], ___view);
