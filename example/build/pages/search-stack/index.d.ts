@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { TermChangedEvent, StackChangedEvent } from '@package/self/control/search-stack';
+import { TermChangedEvent, StackChangedEvent } from '@package/wml-widgets/control/search-stack';
 import { Page } from '../Page';
 export interface Result {
     label: string;

@@ -19,6 +19,7 @@ var autocomplete_1 = require("./pages/autocomplete");
 var breadcrumbs_1 = require("./pages/breadcrumbs");
 var busy_indicator_1 = require("./pages/busy-indicator");
 var menu_1 = require("./pages/menu");
+var button_group_1 = require("./pages/button-group");
 var button_menu_1 = require("./pages/button-menu");
 var App = /** @class */ (function () {
     function App() {
@@ -48,6 +49,7 @@ var App = /** @class */ (function () {
             'search-stack': new search_stack_1.SearchStackPage(this),
             breadcrumbs: new breadcrumbs_1.BreadCrumbsPage(this),
             menu: new menu_1.MenuPage(this),
+            'button-group': new button_group_1.ButtonGroupPage(this),
             'button-menu': new button_menu_1.ButtonMenuPage(this)
         };
         /**

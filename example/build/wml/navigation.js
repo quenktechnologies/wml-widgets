@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
 ;
-var menu_1 = require("@package/self/nav/menu");
+var menu_1 = require("@package/wml-widgets/nav/menu");
 var Navigation = /** @class */ (function (_super) {
     __extends(Navigation, _super);
     function Navigation(___context) {
@@ -155,6 +155,30 @@ var Navigation = /** @class */ (function (_super) {
                             'onClick': ___context.navigate,
                             'active': (___context.page === "button-select"),
                             'text': "Button Select"
+                        }
+                    }, [], ___view), ___wml.widget(menu_1.Link, {
+                        html: {},
+                        wml: {
+                            'group': "links"
+                        },
+                        ww: {
+                            'name': "button",
+                            'href': "#/button",
+                            'onClick': ___context.navigate,
+                            'active': (___context.page === "button"),
+                            'text': "Button"
+                        }
+                    }, [], ___view), ___wml.widget(menu_1.Link, {
+                        html: {},
+                        wml: {
+                            'group': "links"
+                        },
+                        ww: {
+                            'name': "button-group",
+                            'href': "#/button-group",
+                            'onClick': ___context.navigate,
+                            'active': (___context.page === "button-group"),
+                            'text': "Button Group"
                         }
                     }, [], ___view), ___wml.widget(menu_1.Link, {
                         html: {},

@@ -1,4 +1,4 @@
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import { Attrs, Component } from '@quenk/wml';
 import { Main } from './wml/dash';
 

@@ -1,5 +1,5 @@
-import { Delegate } from '@package/self/control';
-import { FeedbackControlWidget } from '@package/self/control/feedback-control';
+import { Delegate } from '@package/wml-widgets/control';
+import { FeedbackControlWidget } from '@package/wml-widgets/control/feedback-control';
 import { FormControlWidgetValues } from './FormControlWidgetValues';
 import { FormControl, FormControlAttrs } from '.';
 /**

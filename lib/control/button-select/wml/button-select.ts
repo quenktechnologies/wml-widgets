@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Button
-} from '@package/self/control/button/Button';;
+} from '@package/wml-widgets/control/button/Button';;
 import {
     ButtonSelectGroup
 } from '../ButtonSelectGroup';;

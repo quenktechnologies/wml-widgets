@@ -1,5 +1,5 @@
 import { Attrs, Component } from '@quenk/wml';
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 
 export interface Values {
 

@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Aside
-} from '@package/self/layout/aside/Aside';;
+} from '@package/wml-widgets/layout/aside/Aside';;
 import {
     Drawer
 } from '../Drawer';

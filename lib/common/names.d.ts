@@ -97,6 +97,17 @@ export declare const BUTTON_MENU_MENU: string;
  */
 export declare const BUTTON_SELECT = "btn-group";
 export declare const BUTTON_SELECT_OPTION: string;
+/**
+ * TOOLBAR classnames
+ */
+export declare const TOOLBAR = "ww-toolbar";
+/**
+ * TOOLBAR_COMPAT classnames.
+ */
+export declare const TOOLBAR_COMPAT = "-toolbar-compatible";
+/**
+ * MAIN_VIEW classnames.
+ */
 export declare const MAIN_VIEW = "ww-main-view";
 /**
  * MENU class name.

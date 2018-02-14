@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { FormControlWidget } from '@package/self/control/form-control';
+import { FormControlWidget } from '@package/wml-widgets/control/form-control';
 import { Option } from './Option';
 import { ButtonSelectGroupAttrs } from './ButtonSelectGroupAttrs';
 import { Maybe } from 'afpl/lib/monad/Maybe';

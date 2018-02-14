@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     Autocomplete
-} from '@package/self/control/autocomplete';;
+} from '@package/wml-widgets/control/autocomplete';;
 import {
     AutocompletePage,
     Result

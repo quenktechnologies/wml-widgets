@@ -1,4 +1,4 @@
-import {Event} from '@package/self/control';
+import {Event} from '@package/wml-widgets/control';
 
 /**
  * TermChangedEvent signals the search term has changed.

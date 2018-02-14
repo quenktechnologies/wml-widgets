@@ -1,9 +1,9 @@
 import * as wml from '@quenk/wml';
-import * as link from '@package/self/nav/link';
-import * as names from '@package/self/common/names';
+import * as link from '@package/wml-widgets/nav/link';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/link';
-import { concat } from '@package/self/common/util';
-import { LinkClickedEvent } from '@package/self/nav/link';
+import { concat } from '@package/wml-widgets/common/util';
+import { LinkClickedEvent } from '@package/wml-widgets/nav/link';
 
 /**
  * Link provides a link entry into a nav menu.

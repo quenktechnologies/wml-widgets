@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { SearchControlWidget, PopulatedFun, EmptyFun } from '@package/self/control/search-control';
+import { SearchControlWidget, PopulatedFun, EmptyFun } from '@package/wml-widgets/control/search-control';
 import { AutocompleteAttrs } from '.';
 export declare const ESCAPE = 27;
 export declare const INPUT_ID = "input";

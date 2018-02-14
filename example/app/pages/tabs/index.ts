@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/tabs'
-import { TabClickedEvent } from '@package/self/control/tabs/TabClickedEvent';
+import { TabClickedEvent } from '@package/wml-widgets/control/tabs/TabClickedEvent';
 import { Page } from '../Page';
 
 export class TabsPage extends Page {

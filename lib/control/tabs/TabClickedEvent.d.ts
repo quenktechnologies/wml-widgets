@@ -1,4 +1,4 @@
-import { Event } from '@package/self/control';
+import { Event } from '@package/wml-widgets/control';
 /**
  * TabClickedEvent is fired when a user clicks on a tab.
  *

@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { StylableAttrs } from '@package/self/content';
+import { StylableAttrs } from '@package/wml-widgets/content';
 /**
  * BusyIndicator provides a 'hamburger' menu button.
  */

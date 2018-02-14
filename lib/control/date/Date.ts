@@ -1,11 +1,11 @@
 import * as views from './wml/date';
 import * as wml from '@quenk/wml';
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as moment from 'moment';
-import { concat } from '@package/self/common/util';
-import { state } from '@package/self/control/feedback-control';
-import { Delegate, DefaultDelegate } from '@package/self/control';
-import { FormControlWidget } from '@package/self/control/form-control';
+import { concat } from '@package/wml-widgets/common/util';
+import { state } from '@package/wml-widgets/control/feedback-control';
+import { Delegate, DefaultDelegate } from '@package/wml-widgets/control';
+import { FormControlWidget } from '@package/wml-widgets/control/form-control';
 import { DateAttrs, DateValues, format, MONTHS, prefix, inputValues } from '.';
 import { DateChangedEvent } from './DateChangedEvent';
 

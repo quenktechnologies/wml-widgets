@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/autocomplete';
-import { Autocomplete, ItemSelectedEvent, TermChangedEvent} from '@package/self/control/autocomplete';
+import { Autocomplete, ItemSelectedEvent, TermChangedEvent} from '@package/wml-widgets/control/autocomplete';
 import { Page } from '../Page';
 
 export interface Result {

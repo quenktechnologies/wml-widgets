@@ -1,6 +1,6 @@
 {
 
-  "name": "@package/self",
+  "name": "@package/wml-widgets",
   "version": "0.0.1",
   "description": "Virtual package to avoid relative imports"
 

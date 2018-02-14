@@ -1,4 +1,4 @@
-import { DefaultDelegateAttrs } from '@package/self/control';
+import { DefaultDelegateAttrs } from '@package/wml-widgets/control';
 import { TermChangedEvent } from './TermChangedEvent';
 
 /**

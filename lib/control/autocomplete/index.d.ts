@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
-import { SearchControlWWAttrs, PopulatedFun, EmptyFun } from '@package/self/control/search-control';
+import { SearchControlWWAttrs, PopulatedFun, EmptyFun } from '@package/wml-widgets/control/search-control';
 export { Autocomplete } from './Autocomplete';
-export { ItemSelectedEvent, TermChangedEvent } from '@package/self/control/search-control';
+export { ItemSelectedEvent, TermChangedEvent } from '@package/wml-widgets/control/search-control';
 export interface AutocompleteAttrs<V> extends wml.Attrs {
     ww: AutocompleteWWAttrs<V>;
 }

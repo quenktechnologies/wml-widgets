@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     SearchStack
-} from '@package/self/control/search-stack/SearchStack';;
+} from '@package/wml-widgets/control/search-stack/SearchStack';;
 import {
     SearchStackPage,
     Result

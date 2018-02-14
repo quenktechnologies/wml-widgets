@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     Date
-} from '@package/self/control/date/Date';;
+} from '@package/wml-widgets/control/date/Date';;
 import {
     DatePage
 } from '../';

@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     Stack
-} from '@package/self/control/stack';;
+} from '@package/wml-widgets/control/stack';;
 import {
     StackPage
 } from '../';

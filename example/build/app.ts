@@ -1,8 +1,8 @@
 import { View } from '@quenk/wml';
-import { LinkClickedEvent } from '@package/self/nav/link/LinkClickedEvent';
-import { Link } from '@package/self/nav/link/Link';
+import { LinkClickedEvent } from '@package/wml-widgets/nav/link/LinkClickedEvent';
+import { Link } from '@package/wml-widgets/nav/link/Link';
 import { Maybe } from '@quenk/wml';
-import { Drawer } from '@package/self/layout/drawer/Drawer';
+import { Drawer } from '@package/wml-widgets/layout/drawer/Drawer';
 import { Main } from './wml/app';
 import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
@@ -23,6 +23,7 @@ import { AutocompletePage } from './pages/autocomplete';
 import { BreadCrumbsPage } from './pages/breadcrumbs';
 import { BusyIndicatorPage } from './pages/busy-indicator';
 import { MenuPage } from './pages/menu';
+import {ButtonGroupPage} from './pages/button-group';
 import { ButtonMenuPage } from './pages/button-menu';
 
 export class App {
@@ -54,6 +55,7 @@ export class App {
         'search-stack': new SearchStackPage(this),
         breadcrumbs: new BreadCrumbsPage(this),
         menu: new MenuPage(this),
+        'button-group': new ButtonGroupPage(this),
         'button-menu': new ButtonMenuPage(this)
 
     };

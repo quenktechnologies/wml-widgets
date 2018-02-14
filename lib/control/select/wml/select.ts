@@ -5,7 +5,7 @@ import {
 import {
     label,
     message
-} from '@package/self/control/wml';
+} from '@package/wml-widgets/control/wml';
 
 
 

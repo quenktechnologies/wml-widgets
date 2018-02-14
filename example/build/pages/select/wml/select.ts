@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     Select
-} from '@package/self/control/select/Select';;
+} from '@package/wml-widgets/control/select/Select';;
 import {
     SelectPage
 } from '../';

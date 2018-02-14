@@ -1,5 +1,5 @@
 import {App} from "../app"
-import {Menu,Link,Header,SubMenu} from "@package/self/nav/menu"
+import {Menu,Link,Header,SubMenu} from "@package/wml-widgets/nav/menu"
 
 {% main Navigation (App) %}
 
@@ -92,6 +92,22 @@ import {Menu,Link,Header,SubMenu} from "@package/self/nav/menu"
         ww:onClick={{@navigate}}
         ww:active={{@page == 'button-select'}}
         ww:text="Button Select" />
+
+      <Link
+        wml:group="links"
+        ww:name="button"
+        ww:href="#/button"
+        ww:onClick={{@navigate}}
+        ww:active={{@page == 'button'}}
+        ww:text="Button" />
+
+      <Link
+        wml:group="links"
+        ww:name="button-group"
+        ww:href="#/button-group"
+        ww:onClick={{@navigate}}
+        ww:active={{@page == 'button-group'}}
+        ww:text="Button Group" />
 
       <Link
         wml:group="links"

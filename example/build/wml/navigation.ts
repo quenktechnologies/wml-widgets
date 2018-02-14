@@ -7,7 +7,7 @@ import {
     Link,
     Header,
     SubMenu
-} from '@package/self/nav/menu';
+} from '@package/wml-widgets/nav/menu';
 
 
 
@@ -155,6 +155,30 @@ export class Navigation extends ___wml.AppView < App > {
                     'onClick': ___context.navigate,
                     'active': (___context.page === `button-select`),
                     'text': `Button Select`
+                }
+            }, [], ___view), ___wml.widget(Link, {
+                html: {},
+                wml: {
+                    'group': `links`
+                },
+                ww: {
+                    'name': `button`,
+                    'href': `#/button`,
+                    'onClick': ___context.navigate,
+                    'active': (___context.page === `button`),
+                    'text': `Button`
+                }
+            }, [], ___view), ___wml.widget(Link, {
+                html: {},
+                wml: {
+                    'group': `links`
+                },
+                ww: {
+                    'name': `button-group`,
+                    'href': `#/button-group`,
+                    'onClick': ___context.navigate,
+                    'active': (___context.page === `button-group`),
+                    'text': `Button Group`
                 }
             }, [], ___view), ___wml.widget(Link, {
                 html: {},

@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/modal';
-import { Group } from '@package/self/content/Group';
+import { Group } from '@package/wml-widgets/content/Group';
 export interface ModalAttrs extends wml.Attrs {
     ww?: {
         class?: string;

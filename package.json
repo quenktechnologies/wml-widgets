@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@package/self": "file:lib",
+    "@package/wml-widgets": "file:lib",
     "@quenk/polate": "^1.0.0",
     "@quenk/wml": "^0.16.3",
     "afpl": "^0.10.0",

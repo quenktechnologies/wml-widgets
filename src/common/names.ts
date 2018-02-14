@@ -124,6 +124,19 @@ export const BUTTON_SELECT = 'btn-group';
 
 export const BUTTON_SELECT_OPTION = `${BUTTON_SELECT}__option btn`;
 
+/**
+ * TOOLBAR classnames
+ */
+export const TOOLBAR = 'ww-toolbar';
+
+/**
+ * TOOLBAR_COMPAT classnames.
+ */
+export const TOOLBAR_COMPAT = '-toolbar-compatible';
+
+/**
+ * MAIN_VIEW classnames.
+ */
 export const MAIN_VIEW = 'ww-main-view';
 
 /**

@@ -1,11 +1,13 @@
+import {Button} from "@package/wml-widgets/control/button"
 import {Menu} from "@package/wml-widgets/menu/Menu"
 import {ButtonMenu} from "../ButtonMenu"
 
 {% fun button (ButtonMenu) %}
 
-  <button class={{@values.button.class}} type="button" onclick={{@values.button.onClick}} >
-    {{@values.button.text}}
-  </button>
+  <Button 
+    ww:class={{@values.button.class}}
+    ww:onClick={{@values.button.onClick}} 
+    ww:text={{@values.button.text}}/>
 
 {% endfun %}
 

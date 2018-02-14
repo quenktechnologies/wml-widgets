@@ -1,10 +1,10 @@
 import * as ___wml from '@quenk/wml';
 import {
     Autocomplete
-} from '@package/self/control/autocomplete';;
+} from '@package/wml-widgets/control/autocomplete';;
 import {
     Stack
-} from '@package/self/control/stack';;
+} from '@package/wml-widgets/control/stack';;
 import {
     SearchStack
 } from '../SearchStack';

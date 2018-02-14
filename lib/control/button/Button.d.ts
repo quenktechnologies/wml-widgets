@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import * as G from '@package/self/content/Group';
+import * as G from '@package/wml-widgets/content/Group';
 import * as views from './wml/button';
 import { Renderable } from '@quenk/wml';
 /**
