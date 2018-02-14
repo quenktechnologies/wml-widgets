@@ -1,4 +1,4 @@
-import { Event } from '@package/self/control';
+import { Event } from '@package/wml-widgets/control';
 
 /**
  * SwitchChangedEvent signals the user has changed the switch.

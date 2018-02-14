@@ -1,7 +1,7 @@
 import * as T from "../TextField"
-import {label,message} from "@package/self/control/wml"
+import {label,message} from "@package/wml-widgets/control/wml"
 
-{% export {label, message} from "@package/self/control/wml" %}
+{% export {label, message} from "@package/wml-widgets/control/wml" %}
 
 {% fun input (T.TextField) %}
 

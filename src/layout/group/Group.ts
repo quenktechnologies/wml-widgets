@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/group';
-import { concat } from '@package/self/common/util';
+import { concat } from '@package/wml-widgets/common/util';
 
 /**
  * GroupAttrs

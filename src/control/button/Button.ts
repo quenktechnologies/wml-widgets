@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as G from '@package/self/content/Group';
-import * as names from '@package/self/common/names';
+import * as G from '@package/wml-widgets/content/Group';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/button';
-import { concat } from '@package/self/common/util';
+import { concat } from '@package/wml-widgets/common/util';
 import { Renderable } from '@quenk/wml';
 
 /**

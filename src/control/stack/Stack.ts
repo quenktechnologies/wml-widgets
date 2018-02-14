@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/stack';
 import { StackChangedEvent } from './StackChangedEvent';
 import { StackAttrs } from './StackAttrs';

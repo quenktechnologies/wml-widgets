@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/button-select';
-import { FormControlWidget } from '@package/self/control/form-control';
-import { concat } from '@package/self/common/util';
+import { FormControlWidget } from '@package/wml-widgets/control/form-control';
+import { concat } from '@package/wml-widgets/common/util';
 import { Option } from './Option';
 import { ButtonSelectGroupAttrs } from './ButtonSelectGroupAttrs';
 import { Maybe } from 'afpl/lib/monad/Maybe';

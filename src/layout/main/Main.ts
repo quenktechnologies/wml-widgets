@@ -1,8 +1,8 @@
 import * as views from './wml/main';
-import * as names from '@package/self/common/names';
-import { concat } from '@package/self/common/util';
+import * as names from '@package/wml-widgets/common/names';
+import { concat } from '@package/wml-widgets/common/util';
 import { Renderable } from '@quenk/wml';
-import { GroupAttrs, Group } from '@package/self/content/Group';
+import { GroupAttrs, Group } from '@package/wml-widgets/content/Group';
 
 export interface MainAttrs extends GroupAttrs {
 

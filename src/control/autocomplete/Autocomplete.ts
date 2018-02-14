@@ -1,9 +1,9 @@
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/autocomplete';
 import * as wml from '@quenk/wml';
-import { Menu } from "@package/self/menu/Menu"
-import { concat } from '@package/self/common/util';
-import { SearchControlWidget, ItemSelectedEvent, PopulatedFun, EmptyFun } from '@package/self/control/search-control';
+import { Menu } from "@package/wml-widgets/menu/Menu"
+import { concat } from '@package/wml-widgets/common/util';
+import { SearchControlWidget, ItemSelectedEvent, PopulatedFun, EmptyFun } from '@package/wml-widgets/control/search-control';
 import { AutocompleteAttrs } from '.';
 
 export const ESCAPE = 27;

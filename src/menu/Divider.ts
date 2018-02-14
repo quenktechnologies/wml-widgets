@@ -1,4 +1,4 @@
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/divider';
 import * as wml from '@quenk/wml';
 

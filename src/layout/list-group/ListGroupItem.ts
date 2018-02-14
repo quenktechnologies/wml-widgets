@@ -1,6 +1,6 @@
 import * as views from './wml/list-group-item';
 import * as wml from '@quenk/wml';
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import { ListGroupItemAttrs } from './ListGroupItemAttrs';
 
 /**

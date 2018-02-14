@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { FormControlWWAttrs } from '@package/self/control/form-control';
+import { FormControlWWAttrs } from '@package/wml-widgets/control/form-control';
 
 export { Select } from './Select';
 export { SelectionChangedEvent } from './SelectionChangedEvent';

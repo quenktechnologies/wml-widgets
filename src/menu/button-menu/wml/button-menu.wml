@@ -1,4 +1,4 @@
-import {Menu} from "@package/self/menu/Menu"
+import {Menu} from "@package/wml-widgets/menu/Menu"
 import {ButtonMenu} from "../ButtonMenu"
 
 {% fun button (ButtonMenu) %}
