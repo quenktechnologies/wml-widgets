@@ -50,7 +50,7 @@ example/public/app.js: example/build
 example/build: $(shell $(FIND) example/app -name \*.ts -o -name \*.wml) lib
 	$(MKDIRP) $@
 	$(CPR) example/app/* $@
-	$(WMLC) --pretty $@
+	$(WMLC) --pretty --extension ts $@
 	$(TSC) --sourceMap --project $@
 	$(TOUCH) $@
 
