@@ -69,5 +69,5 @@ clean-build:
 	-$(RMR) lib dist || true
 
 .PHONY: clean-example
-test-clean:
-	-$(RMR) example || true
+clean-example:
+	$(RMR) example/build || true
