@@ -1,119 +1,73 @@
 # Current directory
 HERE=$(shell pwd)
 
-# WML compiler
 WMLC?=node_modules/.bin/wmlc
- 
-# Typescript compiler
 TSC?=./node_modules/.bin/tsc
-
-# Browserify bundler
 BROWSERIFY?=./node_modules/.bin/browserify
-
-# Less compiler
 LESSC?=./node_modules/.bin/lessc
-
-# ln may be different on windows?
-LN?=ln -s
-
-# rm may be different on windows?
-RMDIR?=rm -R
-
-# mkdir may be different on windows?
-MKDIR?=mkdir -p
-
-# cp may be different on windows?
-CP?=cp -R
-
-# Public dirs
-PUBLIC_DIR?=public
-PUBLIC_CSS_DIR=$(PUBLIC_DIR)/css
-
-# Path to folder with all the sources, we copy this to a temporary folder.
-SRC_DIR?=src
-
-# Path to copy and build files in
-DEST_DIR=lib
+RMR?=gvfs-trash
+MKDIRP?=mkdir -p
+CPR?=cp -R -u
+TOUCH?=touch
+FIND?=find
 
 # Paths to the objects we use for interpolation when building less files.
-JS_VARS_OBJECTS="@package/self/common/names.js"
+JS_VARS_OBJECTS="@package/wml-widgets/common/names.js"
 
 # Entry point for the less compiler.
-LESS_ENTRY_POINT=$(HERE)/src/less/build.less
 LESS_INCLUDE_PATHS=$(HERE)/src/less:src
 
-# Destination for the css file.
-CSS_DEST?=$(PUBLIC_CSS_DIR)/widgets.css
+$(HERE) : lib dist example
+	$(TOUCH) $@
 
-TEST_APP_DIR=$(HERE)/example/app
-TEST_BUILD_DIR=$(HERE)/example/build
-TEST_JS_ENTRY=$(TEST_BUILD_DIR)/app.js
-TEST_LESS_ENTRY=$(TEST_BUILD_DIR)/less/app.less 
-TEST_DEST_DIR=$(HERE)/example/public
-TEST_JS_DEST=$(TEST_DEST_DIR)/app.js
-TEST_CSS_DEST=$(TEST_DEST_DIR)/app.css
+lib: $(shell $(FIND) src -name \*.ts -o -name \*.wml)
+	$(MKDIRP) $@
+	$(CPR) src/* $@
+	$(WMLC) --pretty --extension ts $@
+	$(TSC) --sourceMap --project $@
+	$(TOUCH) $@
 
-.PHONY: clean
-clean:
-	$(RMDIR) $(DEST_DIR); $(RMDIR) $(PUBLIC_DIR); \
-	$(MKDIR) $(PUBLIC_CSS_DIR)
+dist: dist/widgets.css
+	$(TOUCH) $@
 
-.PHONY: copy
-copy:
-	$(CP) $(SRC_DIR) $(DEST_DIR)
-
-.PHONY: install-self
-install-self:
-	npm install $(DEST_DIR)
-   
-.PHONY: wml
-wml:
-	$(WMLC) --pretty --extension ts $(DEST_DIR)
-
-.PHONY: ts
-ts:
-	$(TSC) --sourceMap --project $(DEST_DIR)
-
-.PHONY: less
-less: 
+dist/widgets.css: $(shell $(FIND) src -name \*.less)
+	$(MKDIRP) dist
 	$(LESSC) --source-map-less-inline \
 	 --js-vars="$(JS_VARS_OBJECTS)" \
 	--include-path=$(LESS_INCLUDE_PATHS) \
-	--npm-import $(LESS_ENTRY_POINT) \
-	> $(CSS_DEST)
+	--npm-import src/less/build.less > $@
 
-.PHONY: test-clean
-test-clean:
-	$(RMDIR) $(TEST_BUILD_DIR); $(MKDIR) $(TEST_BUILD_DIR)
+example: example/public
+	$(TOUCH) $@
 
-.PHONY: test-copy
-test-copy:
-	$(CP) $(TEST_APP_DIR)/* $(TEST_BUILD_DIR)
+example/public: example/public/app.js example/public/app.css
+	$(TOUCH) $@
 
-.PHONY: test-wml
-test-wml:
-	$(WMLC) --extension ts --pretty $(TEST_BUILD_DIR)
+example/public/app.js: example/build
+	$(MKDIRP) example/public
+	$(BROWSERIFY) --debug example/build/app.js > $@ 
 
-.PHONY: test-ts
-test-ts:
-	$(TSC) --sourceMap --project $(TEST_BUILD_DIR)
+example/build: $(shell $(FIND) example/app -name \*.ts -o -name \*.wml) lib
+	$(MKDIRP) $@
+	$(CPR) example/app/* $@
+	$(WMLC) --pretty $@
+	$(TSC) --sourceMap --project $@
+	$(TOUCH) $@
 
-.PHONY: test-app
-test-app:
-	$(BROWSERIFY) --debug $(TEST_JS_ENTRY) > $(TEST_JS_DEST)
-
-.PHONY: test-less
-test-less:
+example/public/app.css: $(shell $(FIND) example/app -name \*.less) $(shell $(FIND) src -name \*.less)
 	$(LESSC) --source-map-less-inline \
 	--js-vars=$(JS_VARS_OBJECTS) \
 	--include-path=$(LESS_INCLUDE_PATHS) \
 	--npm-import \
-	$(TEST_LESS_ENTRY) >\
-	$(TEST_CSS_DEST)
+	example/build/less/app.less > $@
 
-.PHONY: build
-build: clean copy install-self wml ts less
+.PHONY: clean
+clean: clean-build clean-example
 
-.PHONY: test
-test: clean copy install-self wml ts \
-      test-clean test-copy test-wml test-ts test-app test-less
+.PHONY: clean-build
+clean-build:
+	-$(RMR) lib dist || true
+
+.PHONY: clean-example
+test-clean:
+	-$(RMR) example || true
