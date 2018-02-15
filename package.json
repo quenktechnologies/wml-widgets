@@ -8,6 +8,7 @@
   },
   "scripts": {
     "docs": "cd src; ../node_modules/.bin/typedoc --mode modules --theme minimal --out ../docs .",
+    "test:local": "./tools/driver.js start && ./node_modules/.bin/nightwatch --env default",
     "postinstall": "npm install --no-save ./lib"
   },
   "main": "lib/index.js",
@@ -29,7 +30,10 @@
   "devDependencies": {
     "@quenk/wml-cli": "^0.4.0",
     "@types/mocha": "^2.2.41",
+    "bluebird": "^3.5.1",
     "browserify": "^14.4.0",
+    "docopt": "^0.6.2",
+    "http-server": "^0.11.1",
     "less": "^2.7.1",
     "less-plugin-js-vars": "^2.2.4",
     "less-plugin-npm-import": "^2.1.0",

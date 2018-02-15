@@ -1,62 +1,18 @@
 import * as wml from '@quenk/wml';
-import * as G from '@package/wml-widgets/content/Group';
-import * as views from './wml/button';
-import { Renderable } from '@quenk/wml';
-/**
- * GroupAttrs are the allowed attributes for <Group/>
- */
-export interface GroupAttrs extends G.GroupAttrs {
-    ww?: {
-        class?: string;
-        content?: Renderable;
-    };
-}
-/**
- * Group multiple buttons into one element.
- */
-export declare class Group extends G.Group<GroupAttrs> {
-    view: wml.View;
-    values: {
-        root: {
-            class: string;
-        };
-    };
-}
-/**
- * ButtonAttrs are the allowed attributes for <Button/>
- */
-export interface ButtonAttrs extends G.GroupAttrs {
-    ww?: {
-        id?: string;
-        href?: string;
-        variant?: string;
-        size?: string;
-        style?: string;
-        class?: string;
-        active?: boolean;
-        disabled?: boolean;
-        onClick?: (e: Event) => void;
-        text?: string;
-        type?: string;
-        name?: string;
-        content?: Renderable;
-    };
-}
+import { ButtonAttrs } from '.';
 /**
  * Button is an improvement over HTMLButtionElement
  */
-export declare class Button extends G.Group<ButtonAttrs> {
-    view: views.Button;
+export declare class Button extends wml.Component<ButtonAttrs> {
+    view: wml.View;
     values: {
-        id: {
-            button: string;
-        };
         button: {
+            id: string;
             class: string;
             type: string;
             name: string;
             disabled: boolean;
-            onclick: (e: Event) => void;
+            onclick: () => void;
             text: string;
         };
     };
@@ -68,5 +24,8 @@ export declare class Button extends G.Group<ButtonAttrs> {
      * enable this button.
      */
     enable(): void;
-    rendered(): void;
+    /**
+     * toggle the disabled state of this button.
+     */
+    toggle(): void;
 }

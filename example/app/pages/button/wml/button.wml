@@ -1,9 +1,8 @@
 import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
 import {Button} from "@package/wml-widgets/control/button"
-import {ButtonGroup} from "@package/wml-widgets/control/button-group"
-import {ButtonGroupPage} from "../"
+import {ButtonPage} from "../"
 
-{% main (ButtonGroupPage) %}
+{% main (ButtonPage) %}
  
 <Grid>
 
@@ -11,13 +10,13 @@ import {ButtonGroupPage} from "../"
 
     <Column>
 
-      <ButtonGroup>
+      {% for style in @values.styles %}
 
-        <Button ww:text="one"/>
-        <Button ww:text="three"/>
-        <Button ww:text="four"/>
+        <Button 
+          ww:
+          ww:text="Click Me"/>
 
-      </ButtonGroup>
+      {% endfor %}
 
     </Column>
 

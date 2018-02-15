@@ -8474,46 +8474,6 @@ button.close {
 .ww-button + .ww-button {
   margin-left: 0.5em;
 }
-.ww-button-group {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-}
-.ww-button-group > .btn {
-  position: relative;
-  float: left;
-}
-.ww-button-group > .btn:hover,
-.ww-button-group > .btn:focus,
-.ww-button-group > .btn:active,
-.ww-button-group > .btn.active {
-  z-index: 2;
-}
-.ww-button-group .btn + .btn,
-.ww-button-group .btn + .btn-group,
-.ww-button-group .btn-group + .btn,
-.ww-button-group .btn-group + .btn-group {
-  margin-left: -1px;
-}
-.ww-button-group > .ww-button:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
-.ww-button-group > .ww-button:first-child {
-  margin-left: 0;
-}
-.ww-button-group > .ww-button,
-.ww-button-group .btn-group-vertical > .ww-button {
-  position: relative;
-  float: left;
-}
-.ww-button-group.__SPACED__ .ww-button {
-  margin-right: 0.25rem;
-}
-.ww-button-group.__SPACED__ .ww-button:last-child {
-  margin-right: 0;
-}
 .ww-button {
   display: inline-block;
   margin-bottom: 0;
