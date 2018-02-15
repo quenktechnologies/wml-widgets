@@ -1,6 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/button';
+import * as styles from '@package/wml-widgets/util/class-names/style';
 import { concat } from '@package/wml-widgets/common/util';
 import { ButtonAttrs, ButtonClickedEvent } from '.';
 
@@ -10,6 +11,11 @@ import { ButtonAttrs, ButtonClickedEvent } from '.';
 export class Button extends wml.Component<ButtonAttrs> {
 
     view: wml.View = new views.Main(this);
+
+    /**
+     * styles the Button supports.
+     */
+    styles: { [key: string]: string } = styles;
 
     values = {
 
@@ -73,8 +79,8 @@ export class Button extends wml.Component<ButtonAttrs> {
             .view
             .findById(this.values.button.id)
             .map((b: HTMLButtonElement) => b.hasAttribute('disabled') ?
-                this.enable() : 
-              this.disable());
+                this.enable() :
+                this.disable());
 
     }
 

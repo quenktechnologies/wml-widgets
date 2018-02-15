@@ -5,6 +5,12 @@ import { ButtonAttrs } from '.';
  */
 export declare class Button extends wml.Component<ButtonAttrs> {
     view: wml.View;
+    /**
+     * styles the Button supports.
+     */
+    styles: {
+        [key: string]: string;
+    };
     values: {
         button: {
             id: string;
