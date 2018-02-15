@@ -63,37 +63,6 @@
 
 }
 
-.__BUTTON_GROUP__ { 
-
-  .btn-group;      
-
-  & >.__BUTTON__:first-child:not(:last-child):not(.dropdown-toggle) {
-    border-right-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-  }
-  & >.__BUTTON__:first-child {
-    margin-left: 0;
-  }
-  & >.__BUTTON__, .btn-group-vertical >.__BUTTON__ {
-    position: relative;
-    float: left;
-  }
-
-  &.__SPACED__ .__BUTTON__ {
-
-    .margin-right(@button-group-buttons-margin-right);
-
-    &:last-child {
-
-      .margin-right(0);
-
-    }
-
-  }
-
-}
-
 .__BUTTON__                       { .btn;             }
 .__BUTTON__.__DEFAULT__           { .btn-default;     }
 .__BUTTON__.__PRIMARY__           { .btn-primary;     }

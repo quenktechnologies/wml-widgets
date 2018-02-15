@@ -12,193 +12,27 @@ import {Menu,Link,Header,SubMenu} from "@package/wml-widgets/nav/menu"
       ww:href="#"
       ww:onClick={{@navigate}}
       ww:text="Home" />
+
+    {% for items,section:String in @links %}
+
+      <Header ww:text={{@displayName(section)}} />
+
+      <SubMenu>
+
+        {% for _,name:String in @sort(items) %}
+
+          <Link
+            wml:group="links"
+            ww:name={{name}}
+            ww:href="#/${name}"
+            ww:onClick={{@navigate}}
+            ww:active={{@page == '${name}'}}
+            ww:text={{@displayName(name)}} />
+     
+        {% endfor %}
+
+      </SubMenu>
+
+    {% endfor %}
     
-    <Header ww:text="Layout" />
-
-    <SubMenu>
-
-      <Link
-        wml:group="links"
-        ww:name="panel"
-        ww:href="#/panel"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'panel'}}
-        ww:text="Panels" />
-
-      <Link
-        wml:group="links"
-        ww:name="list-group"
-        ww:href="#/list-group"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'list-group'}}
-        ww:text="List Group" />
-
-    </SubMenu>
-
-    <Header ww:text="Table" />
-
-    <SubMenu>
-
-      <Link
-       wml:group="links"
-       ww:name="table"
-       ww:href="#/table"
-       ww:onClick={{@navigate}}
-       ww:active={{@page == 'table'}}
-       ww:text="Table" />
-
-    </SubMenu>
-
-    <Header ww:text="Control" />
-
-    <SubMenu>
-
-      <Link
-        wml:group="links"
-        ww:name="text-field"
-        ww:href="#/text-field"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'text-field'}}
-        ww:text="Text Field" />
-
-      <Link
-        wml:group="links"
-        ww:name="date"
-        ww:href="#/date"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'date'}}
-        ww:text="Date" />
-
-      <Link
-        wml:group="links"
-        ww:name="select"
-        ww:href="#/select"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'select'}}
-        ww:text="Select" />
-
-      <Link
-        wml:group="links"
-        ww:name="autocomplete"
-        ww:href="#/autocomplete"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'autocomplete'}}
-        ww:text="Autocomplete" />
-
-      <Link
-        wml:group="links"
-        ww:name="button-select"
-        ww:href="#/button-select"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'button-select'}}
-        ww:text="Button Select" />
-
-      <Link
-        wml:group="links"
-        ww:name="button"
-        ww:href="#/button"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'button'}}
-        ww:text="Button" />
-
-      <Link
-        wml:group="links"
-        ww:name="button-group"
-        ww:href="#/button-group"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'button-group'}}
-        ww:text="Button Group" />
-
-      <Link
-        wml:group="links"
-        ww:name="checkbox"
-        ww:href="#/checkbox"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'checkbox'}}
-        ww:text="Checkbox" />
-
-      <Link
-        wml:group="links"
-        ww:name="switch"
-        ww:href="#/switch"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'switch'}}
-        ww:text="Switch" />
-
-      <Link
-        wml:group="links"
-        ww:name="tabs"
-        ww:href="#/tabs"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'tabs'}}
-        ww:text="Tabs" />
-
-      <Link
-        wml:group="links"
-        ww:name="stack"
-        ww:href="#/stack"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'stack'}}
-        ww:text="Stack" />
-
-      <Link
-        wml:group="links"
-        ww:name="search-stack"
-        ww:href="#/search-stack"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'search-stack'}}
-        ww:text="Search Stack" />
-
-    </SubMenu>
-
-    <Header ww:text="App" />
-
-    <SubMenu>
-
-      <Link 
-        wml:group="links"
-        ww:name="busy-indicator"
-        ww:href="#/busy-indicator"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'busy-indicator'}}
-        ww:text="Busy Indicator" />
-
-    </SubMenu>
-
-    <Header ww:text="Nav" />
-
-    <SubMenu>
-
-      <Link 
-        wml:group="links"
-        ww:name="breadcrumbs"
-        ww:href="#/breadcrumbs"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'breadcrumbs'}}
-        ww:text="BreadCrumbs" />
-
-    </SubMenu>
-
-    <Header ww:text="Menu" />
-
-    <SubMenu>
-
-      <Link
-        wml:group="links"
-        ww:name="menu"
-        ww:href="#/menu"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'menu'}}
-        ww:text="Menu" />
-
-      <Link
-        wml:group="links"
-        ww:name="button-menu"
-        ww:href="#/button-menu"
-        ww:onClick={{@navigate}}
-        ww:active={{@page == 'button-menu'}}
-        ww:text="Button Menu" />
-
-    </SubMenu>
-
 </Menu>

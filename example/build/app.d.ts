@@ -12,8 +12,14 @@ export declare class App {
     /**
      * pages to show the user.
      */
-    pages: {
+    readonly pages: {
         [key: string]: Page;
+    };
+    /**
+     * links to the pages.
+     */
+    links: {
+        [key: string]: any;
     };
     /**
      * navigation view
@@ -39,6 +45,14 @@ export declare class App {
      * content displayed as the main content.
      */
     content: View;
+    /**
+     * displayName provides the display name for a the links.
+     */
+    displayName: (s: string) => string;
+    /**
+     * sort an object.
+     */
+    sort: (o: any) => any;
     /**
      * toggleDrawer
      */

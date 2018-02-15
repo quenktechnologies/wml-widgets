@@ -56,7 +56,7 @@ export class Main extends ___wml.AppView < App > {
             }, [], ___view)], ___view)], ___view), ___wml.widget(MainLayout, {
                 html: {},
                 wml: {}
-            }, [___wml.domify(___context.content.render())], ___view)], ___view);
+            }, [(___context.content) ? ___wml.domify(___context.content.render()) : ___wml.domify(``)], ___view)], ___view);
 
     }
 

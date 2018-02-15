@@ -24,7 +24,11 @@ import {Main as MainLayout} from "@package/wml-widgets/layout/main/Main"
   </ActionBar>
 
   <MainLayout>
-    {{@content.render()}}
+    {% if @content %}
+      {{@content.render()}}
+    {% else %}
+      {{''}}
+    {% endif %}
   </MainLayout>
 
 </Drawer>
