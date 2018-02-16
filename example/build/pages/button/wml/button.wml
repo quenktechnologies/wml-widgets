@@ -16,6 +16,7 @@ import {ButtonPage} from "../"
 
           <Button 
             ww:name={{v}}
+            ww:style={{v}}
             ww:text={{k|@values.capitalize}} />
 
         {% endfor %}

@@ -1,11 +1,20 @@
 
 /**
+ * ClassMap provides a map of class names constants.
+ */
+export interface ClassMap {
+
+    [key: string]: string
+
+}
+
+/**
  * misc class names.
  */
-export const misc = {
-/**
- * NO_HOVER means no effects on hover. 
- */
+export const misc: ClassMap = {
+    /**
+     * NO_HOVER means no effects on hover. 
+     */
     NO_HOVER: '-no-hover'
 
 }
@@ -13,7 +22,7 @@ export const misc = {
 /** 
  * states commonly used by the widgets. 
  */
-export const states = {
+export const states: ClassMap = {
 
     /**
      * ACTIVE usually means an element is active like a link.
@@ -51,16 +60,16 @@ export const states = {
 /**
  * sizes 
  */
-export const sizes = { 
- LARGE : '-large',
- SMALL : '-small',
- EXTRA_SMALL : '-extra-small'
+export const sizes: ClassMap = {
+    LARGE: '-large',
+    SMALL: '-small',
+    EXTRA_SMALL: '-extra-small'
 }
 
 /**
  * styles preset for contexual widgets.
  */
-export const styles: { [key: string]: string } = {
+export const styles: ClassMap = {
 
     /**
      * DEFAULT style.
@@ -98,7 +107,7 @@ export const styles: { [key: string]: string } = {
  * typeClasses provides class names used for indicating support for
  * particular features by a widget's DOM available to other widets.
  */
-export const typeClasses = {
+export const typeClasses: ClassMap = {
     /**
      * PUSHABLE usually means the widget can be moved by some margin.
      */

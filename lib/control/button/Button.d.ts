@@ -1,4 +1,5 @@
 import * as wml from '@quenk/wml';
+import { ClassNameMap } from '@package/wml-widgets/util/class-names';
 import { ButtonAttrs } from '.';
 /**
  * Button is an improvement over HTMLButtionElement
@@ -6,11 +7,13 @@ import { ButtonAttrs } from '.';
 export declare class Button extends wml.Component<ButtonAttrs> {
     view: wml.View;
     /**
+     * NAME
+     */
+    static CLASSNAME: string;
+    /**
      * styles the Button supports.
      */
-    styles: {
-        [key: string]: string;
-    };
+    static styles: ClassNameMap;
     values: {
         button: {
             id: string;

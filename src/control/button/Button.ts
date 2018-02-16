@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/button';
-import * as styles from '@package/wml-widgets/util/class-names/style';
-import { concat } from '@package/wml-widgets/common/util';
+import classNames from './classNames';
+import { ClassNameMap, styles, states } from '@package/wml-widgets/util/class-names';
+import { concat } from '@package/wml-widgets/util';
 import { ButtonAttrs, ButtonClickedEvent } from '.';
 
 /**
@@ -13,9 +13,14 @@ export class Button extends wml.Component<ButtonAttrs> {
     view: wml.View = new views.Main(this);
 
     /**
+     * NAME
+     */
+    static CLASSNAME = classNames.BUTTON;
+
+    /**
      * styles the Button supports.
      */
-    styles: { [key: string]: string } = styles;
+    static styles: ClassNameMap = styles;
 
     values = {
 
@@ -24,11 +29,11 @@ export class Button extends wml.Component<ButtonAttrs> {
             id: 'button',
 
             class: this.attrs.ww ?
-                concat(names.BUTTON,
+                concat(Button.CLASSNAME,
                     this.attrs.ww.class,
-                    this.attrs.ww.style || names.DEFAULT,
-                    this.attrs.ww.active && names.ACTIVE) :
-                names.BUTTON,
+                    this.attrs.ww.style || Button.styles.DEFAULT,
+                    this.attrs.ww.active && states.ACTIVE) :
+                Button.CLASSNAME,
 
             type: (this.attrs.ww && this.attrs.ww.type) ? this.attrs.ww.type : 'button',
 

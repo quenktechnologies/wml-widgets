@@ -38,6 +38,7 @@ export class Main extends ___wml.AppView < ButtonPage > {
                     wml: {},
                     ww: {
                         'name': v,
+                        'style': v,
                         'text': ___context.values.capitalize(k)
                     }
                 }, [], ___view)

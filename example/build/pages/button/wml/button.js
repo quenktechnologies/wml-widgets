@@ -38,6 +38,7 @@ var Main = /** @class */ (function (_super) {
                                     wml: {},
                                     ww: {
                                         'name': v,
+                                        'style': v,
                                         'text': ___context.values.capitalize(k)
                                     }
                                 }, [], ___view);
