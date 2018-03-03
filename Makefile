@@ -11,8 +11,14 @@ CPR?=cp -R -u
 TOUCH?=touch
 FIND?=find
 
+# These have class names specific to each widget.
+CLASS_NAMES_FILES:=$(shell $(FIND) src -name classNames.ts)
+
+# Has all the classnames merged into on.
+CLASS_NAMES_FILE="@package/wml-widgets/lib/classNames"
+
 # Paths to the objects we use for interpolation when building less files.
-JS_VARS_OBJECTS="@package/wml-widgets/common/names.js"
+JS_VARS_OBJECTS="@package/wml-widgets/common/names,@package/wml-widgets/classNames,@package/wml-widgets/util/class-names"
 
 # Entry point for the less compiler.
 LESS_INCLUDE_PATHS=$(HERE)/src/less:src
@@ -25,6 +31,8 @@ lib: $(shell $(FIND) src -name \*.ts -o -name \*.wml)
 	$(CPR) src/* $@
 	$(WMLC) --pretty --extension ts $@
 	$(TSC) --sourceMap --project $@
+	$(shell cat src/util/class-name/index.ts > lib/classNames.ts)
+	$(foreach class,$(CLASS_NAMES_FILES),$(shell cat $(class) >> lib/classNames.ts))
 	$(TOUCH) $@
 
 dist: dist/widgets.css

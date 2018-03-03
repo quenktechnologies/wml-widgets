@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button';
-import classNames from './classNames';
-import { ClassNameMap, styles, states } from '@package/wml-widgets/util/class-names';
+import * as classNames from './classNames';
+import { ClassMap, styles, states, features } from '@package/wml-widgets/util/class-names';
 import { concat } from '@package/wml-widgets/util';
 import { ButtonAttrs, ButtonClickedEvent } from '.';
 
@@ -15,12 +15,12 @@ export class Button extends wml.Component<ButtonAttrs> {
     /**
      * NAME
      */
-    static CLASSNAME = classNames.BUTTON;
+    static CLASS_NAME = classNames.BUTTON;
 
     /**
      * styles the Button supports.
      */
-    static styles: ClassNameMap = styles;
+    static styles: ClassMap = styles;
 
     values = {
 
@@ -29,17 +29,20 @@ export class Button extends wml.Component<ButtonAttrs> {
             id: 'button',
 
             class: this.attrs.ww ?
-                concat(Button.CLASSNAME,
+                concat(Button.CLASS_NAME,
                     this.attrs.ww.class,
                     this.attrs.ww.style || Button.styles.DEFAULT,
+                    this.attrs.ww.size && this.attrs.ww.size,
+                    this.attrs.ww.outline && features.OUTLINE,
+                    this.attrs.ww.block && features.BLOCK,
                     this.attrs.ww.active && states.ACTIVE) :
-                Button.CLASSNAME,
+                Button.CLASS_NAME,
 
             type: (this.attrs.ww && this.attrs.ww.type) ? this.attrs.ww.type : 'button',
 
             name: (this.attrs.ww && this.attrs.ww.name) ? this.attrs.ww.name : '',
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? this.attrs.ww.disabled : null,
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : null,
 
             onclick: () => this.attrs.ww &&
                 this.attrs.ww.onClick &&

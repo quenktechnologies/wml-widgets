@@ -11,6 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var views = require("./wml/button");
+var class_names_1 = require("@package/wml-widgets/util/class-names");
 var Page_1 = require("../Page");
 var ButtonPage = /** @class */ (function (_super) {
     __extends(ButtonPage, _super);
@@ -19,16 +20,8 @@ var ButtonPage = /** @class */ (function (_super) {
         _this.view = new views.Main(_this);
         _this.values = {
             capitalize: function (s) { return "" + s[0].toUpperCase() + s.slice(1); },
-            styles: {
-                default: '-default',
-                primary: '-primary',
-                success: '-success',
-                danger: '-danger',
-                warning: '-warning',
-                info: '-info',
-                light: '-light',
-                dark: '-light'
-            }
+            styles: class_names_1.styles,
+            sizes: class_names_1.sizes
         };
         return _this;
     }

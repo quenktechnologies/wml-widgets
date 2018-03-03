@@ -1,6 +1,9 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button'
+import { ClassMap, styles, sizes } from '@package/wml-widgets/util/class-names';
 import { Page } from '../Page';
+
+export {ClassMap as __};
 
 export class ButtonPage extends Page {
 
@@ -8,20 +11,10 @@ export class ButtonPage extends Page {
 
     values = {
 
-      capitalize: (s: string) :string => `${s[0].toUpperCase()}${s.slice(1)}`,
+        capitalize: (s: string): string => `${s[0].toUpperCase()}${s.slice(1)}`,
 
-        styles: {
-
-            default: '-default',
-            primary: '-primary',
-            success: '-success',
-            danger: '-danger',
-            warning: '-warning',
-            info: '-info',
-            light: '-light',
-            dark: '-light'
-
-        }
+        styles,
+        sizes
 
     }
 

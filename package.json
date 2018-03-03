@@ -35,7 +35,7 @@
     "docopt": "^0.6.2",
     "http-server": "^0.11.1",
     "less": "^2.7.1",
-    "less-plugin-js-vars": "^2.2.4",
+    "less-plugin-js-vars": "^2.3.0",
     "less-plugin-npm-import": "^2.1.0",
     "less-plugin-variables-output": "^1.2.0",
     "mocha": "^3.4.2",

@@ -26,6 +26,7 @@ import { BusyIndicatorPage } from './pages/busy-indicator';
 import { MenuPage } from './pages/menu';
 import { ButtonGroupPage } from './pages/button-group';
 import { ButtonMenuPage } from './pages/button-menu';
+import { TabViewPage } from './pages/tab-view';
 
 const displayName = (s: string) =>
     [s[0].toUpperCase()]
@@ -60,7 +61,8 @@ export class App {
         layout: {
 
             panel: new PanelPage(this),
-            'list-group': new ListGroupPage(this)
+            'list-group': new ListGroupPage(this),
+          'tab-view': new TabViewPage(this)
 
         },
         table: {
@@ -134,7 +136,7 @@ export class App {
     /**
      * sort an object.
      */
-    sort = (o: any) => 
+    sort = (o: any) =>
         Object.keys(o).sort().reduce((p: any, k) => { p[k] = o[k]; return p; }, {});
 
     /**

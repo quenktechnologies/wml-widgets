@@ -15,8 +15,8 @@ export interface ButtonAttrs extends wml.Attrs {
     ww?: {
 
         /**
-         * size modifier for the button.
-         */
+      * size modifier for the button.
+      */
         size?: string,
 
         /**
@@ -30,6 +30,11 @@ export interface ButtonAttrs extends wml.Attrs {
         class?: string,
 
         /**
+         * outline uses an alternative outline styling 
+         */
+         outline?: boolean,
+
+        /**
          * active indicates whether the button is active or not.
          */
         active?: boolean,
@@ -38,6 +43,11 @@ export interface ButtonAttrs extends wml.Attrs {
          * disabled indicates whether the button is disabled or not.
          */
         disabled?: boolean,
+
+        /**
+         * block scope this button.
+         */
+        block?: boolean,
 
         /**
          * onClick assigns a handler for click events.

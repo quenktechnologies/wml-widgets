@@ -58,12 +58,14 @@ export const states: ClassMap = {
 }
 
 /**
- * sizes 
+ * sizes used by widgets that ship with preset sizes.
  */
 export const sizes: ClassMap = {
-    LARGE: '-large',
+    EXTRA_SMALL: '-xs-small',
     SMALL: '-small',
-    EXTRA_SMALL: '-extra-small'
+    MEDIUM: '-medium',
+    LARGE: '-large',
+    EXTRA_LARGE: '-xs-large'
 }
 
 /**
@@ -104,10 +106,10 @@ export const styles: ClassMap = {
 }
 
 /**
- * typeClasses provides class names used for indicating support for
+ * features provides class names used for indicating support for
  * particular features by a widget's DOM available to other widets.
  */
-export const typeClasses: ClassMap = {
+export const features: ClassMap = {
     /**
      * PUSHABLE usually means the widget can be moved by some margin.
      */
@@ -116,6 +118,23 @@ export const typeClasses: ClassMap = {
     /**
      * FIXED_PUSHABLE is PUSHABLE for position:fixed widgets.
      */
-    FIXED_PUSHABLE: '-fixed-pushable'
+    FIXED_PUSHABLE: '-fixed-pushable',
+
+    /**
+     * BLOCK makes an element block scoped.
+     */
+    BLOCK: '-block',
+
+    /**
+     * OUTLINE indicates no background with only borders shown.
+     */
+    OUTLINE: '-outline',
+
+    /**
+     * LINK indicates an element should be styled like a link.
+     */
+    LINK: '-link',
+
+
 
 };

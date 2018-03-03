@@ -22,6 +22,7 @@ var busy_indicator_1 = require("./pages/busy-indicator");
 var menu_1 = require("./pages/menu");
 var button_group_1 = require("./pages/button-group");
 var button_menu_1 = require("./pages/button-menu");
+var tab_view_1 = require("./pages/tab-view");
 var displayName = function (s) {
     return [s[0].toUpperCase()]
         .concat(s
@@ -52,7 +53,8 @@ var App = /** @class */ (function () {
         this.links = {
             layout: {
                 panel: new panel_1.PanelPage(this),
-                'list-group': new list_group_1.ListGroupPage(this)
+                'list-group': new list_group_1.ListGroupPage(this),
+                'tab-view': new tab_view_1.TabViewPage(this)
             },
             table: {
                 table: new table_1.TablePage(this)

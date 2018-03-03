@@ -1,18 +1,12 @@
 import * as wml from '@quenk/wml';
+import { ClassMap } from '@package/wml-widgets/util/class-names';
 import { Page } from '../Page';
+export { ClassMap as __ };
 export declare class ButtonPage extends Page {
     view: wml.View;
     values: {
         capitalize: (s: string) => string;
-        styles: {
-            default: string;
-            primary: string;
-            success: string;
-            danger: string;
-            warning: string;
-            info: string;
-            light: string;
-            dark: string;
-        };
+        styles: ClassMap;
+        sizes: ClassMap;
     };
 }
