@@ -1,4 +1,4 @@
-import {FormControlWidgetValues} from '@package/self/control/form-control';
+import {FormControlWidgetValues} from '@package/wml-widgets/control/form-control';
 
 /**
  * SearchControlWidgetValues describes the values available to all Search

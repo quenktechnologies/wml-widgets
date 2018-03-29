@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
-import * as link from '@package/self/nav/link';
-import { LinkClickedEvent } from '@package/self/nav/link';
+import * as link from '@package/wml-widgets/nav/link';
+import { LinkClickedEvent } from '@package/wml-widgets/nav/link';
 /**
  * Link provides a link entry into a nav menu.
  */

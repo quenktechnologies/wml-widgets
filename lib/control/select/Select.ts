@@ -1,8 +1,8 @@
 import * as views from './wml/select';
 import * as wml from '@quenk/wml';
-import { concat } from '@package/self/common/util';
-import { FormControlWidget } from '@package/self/control/form-control';
-import { state } from '@package/self/control/feedback-control';
+import { concat } from '@package/wml-widgets/common/util';
+import { FormControlWidget } from '@package/wml-widgets/control/form-control';
+import { state } from '@package/wml-widgets/control/feedback-control';
 import { SelectAttrs, Option } from '.';
 import { SelectionChangedEvent } from './SelectionChangedEvent';
 

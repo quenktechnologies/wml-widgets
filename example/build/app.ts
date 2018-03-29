@@ -1,18 +1,19 @@
+import { reduce, merge } from 'afpl/lib/util';
 import { View } from '@quenk/wml';
-import { LinkClickedEvent } from '@package/self/nav/link/LinkClickedEvent';
-import { Link } from '@package/self/nav/link/Link';
+import { LinkClickedEvent } from '@package/wml-widgets/nav/link/LinkClickedEvent';
+import { Link } from '@package/wml-widgets/nav/link/Link';
 import { Maybe } from '@quenk/wml';
-import { Drawer } from '@package/self/layout/drawer/Drawer';
+import { Drawer } from '@package/wml-widgets/layout/drawer/Drawer';
 import { Main } from './wml/app';
 import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
-import { HomePage } from './pages/home';
 import { PanelPage } from './pages/panel';
 import { ListGroupPage } from './pages/list-group';
 import { TablePage } from './pages/table';
 import { TextFieldPage } from './pages/text-field';
 import { DatePage } from './pages/date';
 import { SelectPage } from './pages/select';
+import { ButtonPage } from './pages/button';
 import { ButtonSelectPage } from './pages/button-select';
 import { CheckboxPage } from './pages/checkbox';
 import { SwitchPage } from './pages/switch';
@@ -23,38 +24,74 @@ import { AutocompletePage } from './pages/autocomplete';
 import { BreadCrumbsPage } from './pages/breadcrumbs';
 import { BusyIndicatorPage } from './pages/busy-indicator';
 import { MenuPage } from './pages/menu';
+import { ButtonGroupPage } from './pages/button-group';
 import { ButtonMenuPage } from './pages/button-menu';
+import { TabViewPage } from './pages/tab-view';
+
+const displayName = (s: string) =>
+    [s[0].toUpperCase()]
+        .concat(s
+            .split(s[0])
+            .slice(1)
+            .join(s[0]))
+        .join('')
+        .replace(/(\-|_|\s)+(.)?/g, (_, __, c) => (c ? c.toUpperCase() : ''));
+
+const flatten = (links: { [key: string]: { [key: string]: Page } }) =>
+    reduce(links, (flatLinks: { [key: string]: Page }, current) =>
+        reduce(current, (p, c, k) => <any>merge(p, { [k]: c }), flatLinks), {});
 
 export class App {
 
     /**
      * page currently displayed.
      */
-    page: string = 'home';
+    page: string = '';
 
     /**
      * pages to show the user.
      */
-    pages: { [key: string]: Page } = {
+    get pages(): { [key: string]: Page } { return flatten(this.links); }
 
-        home: new HomePage(this),
-        panel: new PanelPage(this),
-        'list-group': new ListGroupPage(this),
-        table: new TablePage(this),
-        'text-field': new TextFieldPage(this),
-        date: new DatePage(this),
-        select: new SelectPage(this),
-        autocomplete: new AutocompletePage(this),
-        'button-select': new ButtonSelectPage(this),
-        tabs: new TabsPage(this),
-        stack: new StackPage(this),
-        checkbox: new CheckboxPage(this),
-        'switch': new SwitchPage(this),
-        'busy-indicator': new BusyIndicatorPage(this),
-        'search-stack': new SearchStackPage(this),
-        breadcrumbs: new BreadCrumbsPage(this),
-        menu: new MenuPage(this),
-        'button-menu': new ButtonMenuPage(this)
+    /**
+     * links to the pages.
+     */
+    links: { [key: string]: any } = {
+
+        layout: {
+
+            panel: new PanelPage(this),
+            'list-group': new ListGroupPage(this),
+          'tab-view': new TabViewPage(this)
+
+        },
+        table: {
+            table: new TablePage(this)
+        },
+        control: {
+            'text-field': new TextFieldPage(this),
+            date: new DatePage(this),
+            select: new SelectPage(this),
+            autocomplete: new AutocompletePage(this),
+            button: new ButtonPage(this),
+            'button-group': new ButtonGroupPage(this),
+            'button-select': new ButtonSelectPage(this),
+            tabs: new TabsPage(this),
+            stack: new StackPage(this),
+            checkbox: new CheckboxPage(this),
+            'switch': new SwitchPage(this),
+            'search-stack': new SearchStackPage(this),
+        },
+        app: {
+            'busy-indicator': new BusyIndicatorPage(this)
+        },
+        nav: {
+            breadcrumbs: new BreadCrumbsPage(this),
+        },
+        menu: {
+            menu: new MenuPage(this),
+            'button-menu': new ButtonMenuPage(this)
+        }
 
     };
 
@@ -89,7 +126,18 @@ export class App {
     /**
      * content displayed as the main content.
      */
-    content: View = this.pages.home.view;
+    content: View;
+
+    /**
+     * displayName provides the display name for a the links.
+     */
+    displayName = displayName;
+
+    /**
+     * sort an object.
+     */
+    sort = (o: any) =>
+        Object.keys(o).sort().reduce((p: any, k) => { p[k] = o[k]; return p; }, {});
 
     /**
      * toggleDrawer
@@ -114,16 +162,15 @@ export class App {
      */
     route(name: string): void {
 
-        console.info('name-> ', name);
-        console.info(this.pages.hasOwnProperty(name));
-
         this.page = name;
 
-        if (this.pages.hasOwnProperty(name))
+        if (this.pages.hasOwnProperty(name)) {
             this.content = this.pages[name].view;
 
-        this.view.invalidate();
-        this.navigation.invalidate();
+            this.view.invalidate();
+            this.navigation.invalidate();
+
+        }
 
     }
 

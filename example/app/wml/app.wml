@@ -1,9 +1,9 @@
-import {Drawer} from "@package/self/layout/drawer/Drawer"
-import {ActionBar} from "@package/self/app/action-bar/ActionBar"
+import {Drawer} from "@package/wml-widgets/layout/drawer/Drawer"
+import {ActionBar} from "@package/wml-widgets/app/action-bar/ActionBar"
 import {App} from "../app"
-import {IconButton} from "@package/self/control/icon-button/IconButton"
-import {Dash} from "@package/self/app/dash"
-import {Main as MainLayout} from "@package/self/layout/main/Main"
+import {IconButton} from "@package/wml-widgets/control/icon-button/IconButton"
+import {Dash} from "@package/wml-widgets/app/dash"
+import {Main as MainLayout} from "@package/wml-widgets/layout/main/Main"
 
 {% main (App) %}
 
@@ -24,7 +24,11 @@ import {Main as MainLayout} from "@package/self/layout/main/Main"
   </ActionBar>
 
   <MainLayout>
-    {{@content.render()}}
+    {% if @content %}
+      {{@content.render()}}
+    {% else %}
+      {{''}}
+    {% endif %}
   </MainLayout>
 
 </Drawer>

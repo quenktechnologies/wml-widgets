@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
-import { FormControlWidget } from '@package/self/control/form-control';
-import { TermChangedEvent, ItemSelectedEvent } from '@package/self/control/autocomplete';
-import { StackChangedEvent } from '@package/self/control/stack';
+import { FormControlWidget } from '@package/wml-widgets/control/form-control';
+import { TermChangedEvent, ItemSelectedEvent } from '@package/wml-widgets/control/autocomplete';
+import { StackChangedEvent } from '@package/wml-widgets/control/stack';
 import { SearchStackAttrs } from '.';
 /**
  * SearchStack

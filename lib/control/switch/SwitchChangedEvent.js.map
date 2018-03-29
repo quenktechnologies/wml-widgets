@@ -1,1 +1,1 @@
-{"version":3,"file":"SwitchChangedEvent.js","sourceRoot":"","sources":["SwitchChangedEvent.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,iDAA8C;AAE9C;;GAEG;AACH;IAAwC,sCAAc;IAAtD;;IAAwD,CAAC;IAAD,yBAAC;AAAD,CAAC,AAAzD,CAAwC,eAAK,GAAY;AAA5C,gDAAkB"}
+{"version":3,"file":"SwitchChangedEvent.js","sourceRoot":"","sources":["SwitchChangedEvent.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,wDAAqD;AAErD;;GAEG;AACH;IAAwC,sCAAc;IAAtD;;IAAwD,CAAC;IAAD,yBAAC;AAAD,CAAC,AAAzD,CAAwC,eAAK,GAAY;AAA5C,gDAAkB"}

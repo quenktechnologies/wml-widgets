@@ -1,9 +1,9 @@
-import { debounce } from '@package/self/common/util';
+import { debounce } from '@package/wml-widgets/common/util';
 import { TermChangedEvent } from './TermChangedEvent';
 import { SearchControlAttrs } from './SearchControlAttrs';
 import { SearchDelegate } from './SearchDelegate';
 import { SearchDefaultDelegate } from './SearchDefaultDelegate';
-import { FormControlWidget } from '@package/self/control/form-control';
+import { FormControlWidget } from '@package/wml-widgets/control/form-control';
 import { SearchControlWidgetValues } from './SearchControlWidgetValues';
 
 export const ESCAPE = 27;

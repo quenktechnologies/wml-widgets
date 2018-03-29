@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     Checkbox
-} from '@package/self/control/checkbox/Checkbox';;
+} from '@package/wml-widgets/control/checkbox/Checkbox';;
 import {
     CheckboxPage
 } from '../';

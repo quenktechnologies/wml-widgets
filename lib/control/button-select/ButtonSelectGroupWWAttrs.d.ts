@@ -1,4 +1,4 @@
-import { FormControlWWAttrs } from '@package/self/control/form-control';
+import { FormControlWWAttrs } from '@package/wml-widgets/control/form-control';
 import { Option } from './Option';
 export interface ButtonSelectGroupWWAttrs<V, OV> extends FormControlWWAttrs<V> {
     /**

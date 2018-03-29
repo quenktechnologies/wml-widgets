@@ -3,11 +3,11 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     ButtonSelect,
     MultiButtonSelect
-} from '@package/self/control/button-select';;
+} from '@package/wml-widgets/control/button-select';;
 import {
     ButtonSelectPage
 } from '../';

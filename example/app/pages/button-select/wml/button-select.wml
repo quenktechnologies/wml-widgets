@@ -1,5 +1,5 @@
-import {Grid,Row,Column} from "@package/self/layout/grid/Grid"
-import {ButtonSelect,MultiButtonSelect} from "@package/self/control/button-select"
+import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
+import {ButtonSelect,MultiButtonSelect} from "@package/wml-widgets/control/button-select"
 import {ButtonSelectPage} from "../"
 
 {% main (ButtonSelectPage) %}

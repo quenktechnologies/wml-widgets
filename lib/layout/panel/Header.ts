@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/panel';
 import { Component } from '@quenk/wml';
-import { concat } from '@package/self/common/util';
+import { concat } from '@package/wml-widgets/common/util';
 import { HeaderAttrs } from '.';
 
 export class Header extends Component<HeaderAttrs> {

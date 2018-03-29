@@ -3,13 +3,13 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     Tabs
-} from '@package/self/control/tabs/Tabs';;
+} from '@package/wml-widgets/control/tabs/Tabs';;
 import {
     Tab
-} from '@package/self/control/tabs/Tab';;
+} from '@package/wml-widgets/control/tabs/Tab';;
 import {
     TabsPage
 } from '../';

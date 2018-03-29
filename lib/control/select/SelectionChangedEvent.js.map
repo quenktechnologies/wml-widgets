@@ -1,1 +1,1 @@
-{"version":3,"file":"SelectionChangedEvent.js","sourceRoot":"","sources":["SelectionChangedEvent.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,mEAAsE;AAEtE;IAA2C,yCAAwB;IAAnE;;IAAqE,CAAC;IAAD,4BAAC;AAAD,CAAC,AAAtE,CAA2C,+BAAgB,GAAW;AAAzD,sDAAqB"}
+{"version":3,"file":"SelectionChangedEvent.js","sourceRoot":"","sources":["SelectionChangedEvent.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,0EAA6E;AAE7E;IAA2C,yCAAwB;IAAnE;;IAAqE,CAAC;IAAD,4BAAC;AAAD,CAAC,AAAtE,CAA2C,+BAAgB,GAAW;AAAzD,sDAAqB"}

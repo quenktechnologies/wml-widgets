@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/select'
 import { Page } from '../Page';
-import {SelectionChangedEvent} from '@package/self/control/select';
+import {SelectionChangedEvent} from '@package/wml-widgets/control/select';
 
 export class SelectPage extends Page {
 

@@ -1,6 +1,6 @@
-import * as names from '@package/self/common/names';
-import * as util from '@package/self/common/util';
-import { Group, GroupAttrs } from '@package/self/content/Group';
+import * as names from '@package/wml-widgets/common/names';
+import * as util from '@package/wml-widgets/common/util';
+import { Group, GroupAttrs } from '@package/wml-widgets/content/Group';
 import { Main } from './wml/action_bar';
 
 export interface ActionBarAttrs extends GroupAttrs { }

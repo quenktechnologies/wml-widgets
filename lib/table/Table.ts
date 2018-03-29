@@ -1,6 +1,6 @@
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as view from './wml/table';
-import { concat } from '@package/self/common/util';
+import { concat } from '@package/wml-widgets/common/util';
 import { Component, View, Renderable, Maybe } from '@quenk/wml';
 import { get } from 'property-seek';
 import { CellClickedEvent } from './CellClickedEvent';

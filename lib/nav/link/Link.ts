@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/link';
 import { LinkClickedEvent } from './LinkClickedEvent';
-import { concat } from '@package/self/common/util';
+import { concat } from '@package/wml-widgets/common/util';
 
 export interface LinkAttrs extends wml.Attrs {
 

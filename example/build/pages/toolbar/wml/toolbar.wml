@@ -1,0 +1,35 @@
+import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
+import {Toolbar} from "@package/wml-widgets/control/toolbar"
+import {Button} from "@package/wml-widgets/control/button"
+import {ButtonGroup} from "@package/wml-widgets/control/button-group"
+import {ToolbarPage} from "../"
+
+{% main (ToolbarPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+        <Toolbar>
+
+          <Button ww:text="Start"/>
+
+          <ButtonGroup>
+
+            <Button ww:text="Up"/>
+            <Button ww:text="Down"/>
+            <Button ww:text="Reset"/>
+
+          </ButtonGroup>
+
+          <Button ww:text="Stop"/>
+
+        </Toolbar>
+
+    </Column>
+
+   </Row>
+
+ </Grid>

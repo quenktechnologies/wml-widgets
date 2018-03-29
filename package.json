@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "Various wml widgets for creating web apps.",
   "repository": {
     "type": "git",
@@ -8,6 +8,7 @@
   },
   "scripts": {
     "docs": "cd src; ../node_modules/.bin/typedoc --mode modules --theme minimal --out ../docs .",
+    "test:local": "./tools/driver.js start && ./node_modules/.bin/nightwatch --env default",
     "postinstall": "npm install --no-save ./lib"
   },
   "main": "lib/index.js",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "@package/self": "file:lib",
+    "@package/wml-widgets": "file:lib",
     "@quenk/polate": "^1.0.0",
     "@quenk/wml": "^0.16.3",
     "afpl": "^0.10.0",
@@ -28,13 +30,17 @@
   "devDependencies": {
     "@quenk/wml-cli": "^0.4.0",
     "@types/mocha": "^2.2.41",
+    "bluebird": "^3.5.1",
     "browserify": "^14.4.0",
+    "docopt": "^0.6.2",
+    "http-server": "^0.11.1",
     "less": "^2.7.1",
-    "less-plugin-js-vars": "^2.2.4",
+    "less-plugin-js-vars": "^2.3.0",
     "less-plugin-npm-import": "^2.1.0",
     "less-plugin-variables-output": "^1.2.0",
     "mocha": "^3.4.2",
     "must": "^0.13.4",
+    "nightwatch": "^0.9.19",
     "typedoc": "^0.9.0",
     "typescript": "^2.4.1",
     "web-console-reporter": "^1.0.0"

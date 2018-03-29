@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button-menu'
-import { ButtonMenu } from '@package/self/menu/button-menu';
+import { ButtonMenu } from '@package/wml-widgets/menu/button-menu';
 import { Page } from '../Page';
 
 export class ButtonMenuPage extends Page {

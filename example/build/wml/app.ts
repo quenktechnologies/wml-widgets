@@ -1,22 +1,22 @@
 import * as ___wml from '@quenk/wml';
 import {
     Drawer
-} from '@package/self/layout/drawer/Drawer';;
+} from '@package/wml-widgets/layout/drawer/Drawer';;
 import {
     ActionBar
-} from '@package/self/app/action-bar/ActionBar';;
+} from '@package/wml-widgets/app/action-bar/ActionBar';;
 import {
     App
 } from '../app';;
 import {
     IconButton
-} from '@package/self/control/icon-button/IconButton';;
+} from '@package/wml-widgets/control/icon-button/IconButton';;
 import {
     Dash
-} from '@package/self/app/dash';;
+} from '@package/wml-widgets/app/dash';;
 import {
     Main as MainLayout
-} from '@package/self/layout/main/Main';
+} from '@package/wml-widgets/layout/main/Main';
 
 
 
@@ -56,7 +56,7 @@ export class Main extends ___wml.AppView < App > {
             }, [], ___view)], ___view)], ___view), ___wml.widget(MainLayout, {
                 html: {},
                 wml: {}
-            }, [___wml.domify(___context.content.render())], ___view)], ___view);
+            }, [(___context.content) ? ___wml.domify(___context.content.render()) : ___wml.domify(``)], ___view)], ___view);
 
     }
 

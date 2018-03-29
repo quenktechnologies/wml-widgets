@@ -1,7 +1,7 @@
-import * as names from '@package/self/common/names';
+import * as names from '@package/wml-widgets/common/names';
 import * as views from './wml/item';
 import * as wml from '@quenk/wml';
-import { concat } from '@package/self/common/util';
+import { concat } from '@package/wml-widgets/common/util';
 import { ItemClickedEvent } from './ItemClickedEvent';
 
 export interface Attrs extends wml.Attrs {

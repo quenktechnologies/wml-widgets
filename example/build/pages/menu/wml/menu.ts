@@ -3,13 +3,13 @@ import {
     Grid,
     Row,
     Column
-} from '@package/self/layout/grid/Grid';;
+} from '@package/wml-widgets/layout/grid/Grid';;
 import {
     Menu,
     MenuItem,
     Divider,
     Header
-} from '@package/self/menu';;
+} from '@package/wml-widgets/menu';;
 import {
     MenuPage
 } from '../';
