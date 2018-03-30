@@ -35,7 +35,7 @@ lib: $(shell $(FIND) src -name \*.ts -o -name \*.wml)
 dist: dist/widgets.css
 	$(TOUCH) $@
 
-dist/widgets.css: $(shell $(FIND) src -name \*.less)
+dist/widgets.css: $(shell $(FIND) less -name \*.less)
 	$(MKDIRP) dist
 	$(LESSC) --source-map-less-inline \
 	 --js-vars="$(JS_VARS_OBJECTS)" \
@@ -59,7 +59,7 @@ example/build: $(shell $(FIND) example/app -name \*.ts -o -name \*.wml) lib
 	$(TSC) --sourceMap --project $@
 	$(TOUCH) $@
 
-example/public/app.css: $(shell $(FIND) example/app -name \*.less) $(shell $(FIND) src -name \*.less)
+example/public/app.css: $(shell $(FIND) example/app -name \*.less) $(shell $(FIND) less -name \*.less)
 	$(LESSC) --source-map-less-inline \
 	--js-vars=$(JS_VARS_OBJECTS) \
 	--include-path=$(LESS_INCLUDE_PATHS) \
