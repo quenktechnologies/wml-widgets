@@ -1,17 +1,17 @@
 import * as ___wml from '@quenk/wml';
 import {
     Select
-} from '@package/wml-widgets/control/select';;
+} from '../../../control/select';;
 import {
     TextField
-} from '@package/wml-widgets/control/text-field';;
+} from '../../../control/text-field';;
 import {
     Date
 } from '../Date';;
 import {
     label,
     message
-} from '@package/wml-widgets/control/wml';
+} from '../../../control/wml';
 
 
 

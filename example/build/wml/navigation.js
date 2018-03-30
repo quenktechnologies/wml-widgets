@@ -12,7 +12,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
 ;
-var menu_1 = require("@package/wml-widgets/nav/menu");
+var menu_1 = require("../../../lib/nav/menu");
 var Navigation = /** @class */ (function (_super) {
     __extends(Navigation, _super);
     function Navigation(___context) {

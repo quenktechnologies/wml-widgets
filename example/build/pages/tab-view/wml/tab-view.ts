@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     TabView
-} from '@package/wml-widgets/layout/tab-view';;
+} from '../../../../../lib/layout/tab-view';;
 import {
     TabViewPage
 } from '../';

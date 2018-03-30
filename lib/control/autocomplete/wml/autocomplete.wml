@@ -1,8 +1,8 @@
-import {Menu} from "@package/wml-widgets/menu/Menu"
-import {MenuItem} from "@package/wml-widgets/menu/MenuItem"
-import {Fragment} from "@package/wml-widgets/layout/fragment/Fragment"
+import {Menu} from "../../../menu/Menu"
+import {MenuItem} from "../../../menu/MenuItem"
+import {Fragment} from "../../../layout/fragment/Fragment"
 import {Autocomplete} from "../Autocomplete"
-import {label,message} from "@package/wml-widgets/control/wml"
+import {label,message} from "../../../control/wml"
 
 {% fun populated [V](Autocomplete[V])(option:V, _index:Number, _options:V[]) = {{ @values.item.stringify(option) }}  %}
 

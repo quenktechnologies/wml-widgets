@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
-import { Delegate, Event } from '@package/wml-widgets/control';
-import { FormControlWWAttrs } from '@package/wml-widgets/control/form-control';
-import { Option } from '@package/wml-widgets/control/select';
+import { Delegate, Event } from '../../control';
+import { FormControlWWAttrs } from '../../control/form-control';
+import { Option } from '../../control/select';
 import { Date } from './Date';
 
 export { Date };

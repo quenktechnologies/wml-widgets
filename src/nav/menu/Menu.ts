@@ -1,5 +1,5 @@
-import * as names from '@package/wml-widgets/common/names';
-import * as util from '@package/wml-widgets/common/util';
+import * as names from '../../common/names';
+import * as util from '../../common/util';
 import * as views from './wml/menu';
 import * as wml from '@quenk/wml';
 

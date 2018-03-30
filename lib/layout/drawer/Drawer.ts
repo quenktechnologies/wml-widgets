@@ -1,8 +1,8 @@
 import { View, Renderable } from '@quenk/wml';
-import { Group, GroupAttrs } from '@package/wml-widgets/content/Group';
-import * as names from '@package/wml-widgets/common/names';
+import { Group, GroupAttrs } from '../../content/Group';
+import * as names from '../../common/names';
 import { Main } from './wml/drawer';
-import { Aside } from '@package/wml-widgets/layout/aside/Aside';
+import { Aside } from '../aside/Aside';
 
 export interface DrawerAttrs extends GroupAttrs {
 

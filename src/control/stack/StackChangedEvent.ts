@@ -1,4 +1,4 @@
-import { FormControlEvent } from '@package/wml-widgets/control/form-control';
+import { FormControlEvent } from '../../control/form-control';
 
 /**
  * StackChangedEvent is generated when the user removes an item from the stack.

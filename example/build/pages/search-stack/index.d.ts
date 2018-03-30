@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { TermChangedEvent, StackChangedEvent } from '@package/wml-widgets/control/search-stack';
+import { TermChangedEvent, StackChangedEvent } from '../../../../lib/control/search-stack';
 import { Page } from '../Page';
 export interface Result {
     label: string;
@@ -17,6 +17,6 @@ export declare class SearchStackPage extends Page {
             value: string;
         }[];
     };
-    onSearch: ({value}: TermChangedEvent) => void;
-    onChange: ({value}: StackChangedEvent<Result>) => void;
+    onSearch: ({ value }: TermChangedEvent) => void;
+    onChange: ({ value }: StackChangedEvent<Result>) => void;
 }

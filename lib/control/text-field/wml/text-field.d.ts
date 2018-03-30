@@ -1,6 +1,6 @@
 import * as ___wml from '@quenk/wml';
 import * as T from '../TextField';
-export { label, message } from '@package/wml-widgets/control/wml';
+export { label, message } from '../../../control/wml';
 export declare const input: (___context: T.TextField) => (___view: ___wml.View) => Node;
 export declare const textarea: (___context: T.TextField) => (___view: ___wml.View) => Node;
 export declare const control: (___context: T.TextField) => (___view: ___wml.View) => Node;

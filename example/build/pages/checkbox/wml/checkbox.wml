@@ -1,5 +1,5 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Checkbox} from "@package/wml-widgets/control/checkbox/Checkbox"
+import {Grid,Row,Column} from "../../../../../lib/layout/grid/Grid"
+import {Checkbox} from "../../../../../lib/control/checkbox/Checkbox"
 import {CheckboxPage} from "../"
 
 {% main (CheckboxPage) %}

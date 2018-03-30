@@ -1,4 +1,4 @@
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../common/names';
 import * as views from './wml/divider';
 import * as wml from '@quenk/wml';
 
@@ -9,14 +9,14 @@ export class Divider extends wml.Component<wml.Attrs> {
 
     view: wml.View = new views.Main(this);
 
-  values = {
+    values = {
 
-    class : {
+        class: {
 
-      root : names.MENU_DIVIDER
+            root: names.MENU_DIVIDER
+
+        }
 
     }
-
-  }
 
 }

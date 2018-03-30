@@ -1,10 +1,10 @@
 import * as wml from '@quenk/wml';
-import { FormControlWWAttrs } from '@package/wml-widgets/control/form-control';
-import { TermChangedEvent } from '@package/wml-widgets/control/search-control';
+import { FormControlWWAttrs } from '../../control/form-control';
+import { TermChangedEvent } from '../../control/search-control';
 
 export { SearchStack } from './SearchStack';
-export { StackChangedEvent } from '@package/wml-widgets/control/stack';
-export { TermChangedEvent } from '@package/wml-widgets/control/search-control';
+export { StackChangedEvent } from '../../control/stack';
+export { TermChangedEvent } from '../../control/search-control';
 
 export interface SearchStackAttrs<V> extends wml.Attrs {
 

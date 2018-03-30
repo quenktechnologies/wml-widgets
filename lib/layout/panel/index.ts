@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { StylableAttrs } from '@package/wml-widgets/content';
+import { StylableAttrs } from '../../content';
 
 export {Panel} from './Panel';
 export {Header} from './Header';

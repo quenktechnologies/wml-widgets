@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
 import { FormControlEvent } from './FormControlEvent';
-import { Delegate } from '@package/wml-widgets/control';
-import { FeedbackControlWWAttrs } from '@package/wml-widgets/control/feedback-control';
-import { FeedbackControl } from '@package/wml-widgets/control/feedback-control';
+import { Delegate } from '../../control';
+import { FeedbackControlWWAttrs } from '../../control/feedback-control';
+import { FeedbackControl } from '../../control/feedback-control';
 export { FormControlEvent };
 export { FormControlWidget } from './FormControlWidget';
 export { FormControlWidgetValues } from './FormControlWidgetValues';

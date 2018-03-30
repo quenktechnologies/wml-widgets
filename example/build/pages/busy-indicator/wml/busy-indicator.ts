@@ -1,12 +1,12 @@
 import * as ___wml from '@quenk/wml';
 import {
     BusyIndicator
-} from '@package/wml-widgets/app/busy-indicator/BusyIndicator';;
+} from '../../../../../lib/app/busy-indicator/BusyIndicator';;
 import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     BusyIndicatorPage
 } from '../';

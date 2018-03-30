@@ -1,5 +1,5 @@
 import {Select} from "../Select"
-import {label,message} from "@package/wml-widgets/control/wml"
+import {label,message} from "../../../control/wml"
 
 {% main (Select) %}
 

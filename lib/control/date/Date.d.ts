@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as moment from 'moment';
-import { Delegate } from '@package/wml-widgets/control';
-import { FormControlWidget } from '@package/wml-widgets/control/form-control';
+import { Delegate } from '../../control';
+import { FormControlWidget } from '../../control/form-control';
 import { DateAttrs, DateValues } from '.';
 /**
  * Date input.

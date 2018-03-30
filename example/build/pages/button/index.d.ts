@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { ClassMap } from '@package/wml-widgets/util/class-names';
+import { ClassMap } from '../../../../lib/util/class-names';
 import { Page } from '../Page';
 export { ClassMap as __ };
 export declare class ButtonPage extends Page {

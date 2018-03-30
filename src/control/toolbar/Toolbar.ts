@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/toolbar';
-import * as names from '@package/wml-widgets/common/names';
-import { concat } from '@package/wml-widgets/common/util';
+import * as names from '../../common/names';
+import { concat } from '../../common/util';
 import { ToolbarAttrs } from '.';
 
 /**

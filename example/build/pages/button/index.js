@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var views = require("./wml/button");
-var class_names_1 = require("@package/wml-widgets/util/class-names");
+var class_names_1 = require("../../../../lib/util/class-names");
 var Page_1 = require("../Page");
 var ButtonPage = /** @class */ (function (_super) {
     __extends(ButtonPage, _super);

@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button-select'
-import { ButtonChangedEvent } from '@package/wml-widgets/control/button-select';
+import { ButtonChangedEvent } from '../../../../lib/control/button-select';
 import { Page } from '../Page';
 
 export class ButtonSelectPage extends Page {

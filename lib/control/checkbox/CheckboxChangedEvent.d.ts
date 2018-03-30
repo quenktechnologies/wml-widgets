@@ -1,4 +1,4 @@
-import { Event } from '@package/wml-widgets/control/Event';
+import { Event } from '../../control/Event';
 /**
  * CheckboxChangedEvent signals the user has changed the checkbox state.
  */

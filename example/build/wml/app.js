@@ -11,16 +11,16 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Drawer_1 = require("@package/wml-widgets/layout/drawer/Drawer");
+var Drawer_1 = require("../../../lib/layout/drawer/Drawer");
 ;
-var ActionBar_1 = require("@package/wml-widgets/app/action-bar/ActionBar");
+var ActionBar_1 = require("../../../lib/app/action-bar/ActionBar");
 ;
 ;
-var IconButton_1 = require("@package/wml-widgets/control/icon-button/IconButton");
+var IconButton_1 = require("../../../lib/control/icon-button/IconButton");
 ;
-var dash_1 = require("@package/wml-widgets/app/dash");
+var dash_1 = require("../../../lib/app/dash");
 ;
-var Main_1 = require("@package/wml-widgets/layout/main/Main");
+var Main_1 = require("../../../lib/layout/main/Main");
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {

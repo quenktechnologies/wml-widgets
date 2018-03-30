@@ -1,6 +1,6 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Panel,Header,Body,Footer} from "@package/wml-widgets/layout/panel"
-import {Fragment} from "@package/wml-widgets/layout/fragment/Fragment"
+import {Grid,Row,Column} from "../../../../../lib/layout/grid/Grid"
+import {Panel,Header,Body,Footer} from "../../../../../lib/layout/panel"
+import {Fragment} from "../../../../../lib/layout/fragment/Fragment"
 import {PanelPage} from "../"
 
 {% main (PanelPage) %}

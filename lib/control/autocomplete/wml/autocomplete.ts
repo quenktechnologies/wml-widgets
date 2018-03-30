@@ -1,20 +1,20 @@
 import * as ___wml from '@quenk/wml';
 import {
     Menu
-} from '@package/wml-widgets/menu/Menu';;
+} from '../../../menu/Menu';;
 import {
     MenuItem
-} from '@package/wml-widgets/menu/MenuItem';;
+} from '../../../menu/MenuItem';;
 import {
     Fragment
-} from '@package/wml-widgets/layout/fragment/Fragment';;
+} from '../../../layout/fragment/Fragment';;
 import {
     Autocomplete
 } from '../Autocomplete';;
 import {
     label,
     message
-} from '@package/wml-widgets/control/wml';
+} from '../../../control/wml';
 
 export const populated = < V > (___context: Autocomplete < V > ) => (option: V) => (_index: number) => (_options: V[]) => (___view: ___wml.View) => ___wml.domify(___context.values.item.stringify(option));;
 export const empty = < V > (___context: Autocomplete < V > ) => (___view: ___wml.View) => ___wml.domify(`No results to display.`);;

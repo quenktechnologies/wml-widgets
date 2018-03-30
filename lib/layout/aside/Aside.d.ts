@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { Group, GroupAttrs } from '@package/wml-widgets/content/Group';
+import { Group, GroupAttrs } from '../../content/Group';
 export interface AsideAttrs extends GroupAttrs {
 }
 /**

@@ -1,6 +1,6 @@
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../../common/names';
 import { Component, Attrs, View } from '@quenk/wml';
-import {concat} from '@package/wml-widgets/common/util';
+import {concat} from '../../common/util';
 import { Main } from './wml/icon-button';
 
 export interface IconButtonAttrs extends Attrs {

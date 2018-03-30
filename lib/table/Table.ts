@@ -1,6 +1,6 @@
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../common/names';
 import * as view from './wml/table';
-import { concat } from '@package/wml-widgets/common/util';
+import { concat } from '../common/util';
 import { Component, View, Renderable, Maybe } from '@quenk/wml';
 import { get } from 'property-seek';
 import { CellClickedEvent } from './CellClickedEvent';
@@ -60,7 +60,7 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
 
                 id: THEAD,
 
-              class: this.attrs.ww.theadClass,
+                class: this.attrs.ww.theadClass,
 
                 template: <THead<C, R>>(this.attrs.ww.thead || view.thead),
 
@@ -106,8 +106,8 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
                             this
                                 .delegate
                                 .onCellClicked(
-                                new CellClickedEvent(
-                                    value, column, rowData, rowNumber, new Cell(<HTMLElement>e.target)))
+                                    new CellClickedEvent(
+                                        value, column, rowData, rowNumber, new Cell(<HTMLElement>e.target)))
 
                 }
 

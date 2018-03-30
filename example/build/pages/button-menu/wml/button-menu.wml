@@ -1,6 +1,6 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {ButtonMenu} from "@package/wml-widgets/menu/button-menu"
-import {MenuItem} from "@package/wml-widgets/menu"
+import {Grid,Row,Column} from "../../../../../lib/layout/grid/Grid"
+import {ButtonMenu} from "../../../../../lib/menu/button-menu"
+import {MenuItem} from "../../../../../lib/menu"
 import {ButtonMenuPage} from "../"
 
 {% main (ButtonMenuPage) %}

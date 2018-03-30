@@ -1,4 +1,4 @@
-import * as views from './wml/views';
+import * as views from './wml/fragment';
 import { Component, Attrs } from '@quenk/wml';
 
 export class Fragment extends Component<Attrs> {

@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/wml-widgets/common/names';
-import { Group, GroupAttrs } from '@package/wml-widgets/content/Group';
+import * as names from '../../common/names';
+import { Group, GroupAttrs } from '../../content/Group';
 import { Main } from './wml/aside';
 
 export interface AsideAttrs extends GroupAttrs { }

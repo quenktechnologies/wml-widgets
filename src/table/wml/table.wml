@@ -1,7 +1,7 @@
-import * as names from "@package/wml-widgets/common/names"
-import {concat} from "@package/wml-widgets/common/util"
+import * as names from "../../common/names"
+import {concat} from "../../common/util"
 import {get} from "property-seek"
-import {Fragment} from "@package/wml-widgets/layout/fragment/Fragment"
+import {Fragment} from "../../layout/fragment/Fragment"
 import {Column, Table as Table} from ".."
 
 {% fun thead[C,R] (Table[C,R]) (columns:Column[C,R][]) %}

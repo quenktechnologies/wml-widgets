@@ -1,5 +1,5 @@
-import {BusyIndicator} from "@package/wml-widgets/app/busy-indicator/BusyIndicator"
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
+import {BusyIndicator} from "../../../../../lib/app/busy-indicator/BusyIndicator"
+import {Grid,Row,Column} from "../../../../../lib/layout/grid/Grid"
 import {BusyIndicatorPage} from "../"
 
 {% main (BusyIndicatorPage) %}

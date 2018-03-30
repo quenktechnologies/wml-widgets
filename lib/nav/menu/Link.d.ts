@@ -1,6 +1,5 @@
 import * as wml from '@quenk/wml';
-import * as link from '@package/wml-widgets/nav/link';
-import { LinkClickedEvent } from '@package/wml-widgets/nav/link';
+import * as link from '../../nav/link';
 /**
  * Link provides a link entry into a nav menu.
  */
@@ -23,7 +22,7 @@ export declare class Link extends link.Link {
             href: string;
             active: boolean;
             text: string;
-            onClick: (e: LinkClickedEvent) => void;
+            onClick: (e: link.LinkClickedEvent) => void;
         };
     };
 }

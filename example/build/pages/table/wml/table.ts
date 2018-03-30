@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     Table
-} from '@package/wml-widgets/table/Table';;
+} from '../../../../../lib/table/Table';;
 import {
     TablePage
 } from '../';

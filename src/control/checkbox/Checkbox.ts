@@ -1,4 +1,4 @@
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../../common/names';
 import { Component, Attrs, View } from '@quenk/wml';
 import { Main } from './wml/checkbox';
 import { CheckboxChangedEvent } from './CheckboxChangedEvent';

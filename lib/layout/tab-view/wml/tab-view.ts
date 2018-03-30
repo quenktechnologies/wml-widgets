@@ -2,7 +2,7 @@ import * as ___wml from '@quenk/wml';
 import {
     Tabs,
     Tab
-} from '@package/wml-widgets/control/tabs';;
+} from '../../../control/tabs';;
 import {
     TabView
 } from '..';

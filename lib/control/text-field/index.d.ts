@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
-import { FormControlWWAttrs } from '@package/wml-widgets/control/form-control';
-import { FormControlWidgetValues } from '@package/wml-widgets/control/form-control';
+import { FormControlWWAttrs } from '../../control/form-control';
+import { FormControlWidgetValues } from '../../control/form-control';
 import { TextField } from './TextField';
 export { TextField };
 export { TextChangedEvent } from './TextChangedEvent';

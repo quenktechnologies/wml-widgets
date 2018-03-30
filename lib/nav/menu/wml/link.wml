@@ -1,4 +1,4 @@
-import {Link} from "@package/wml-widgets/nav/link"
+import {Link} from "../../link"
 import {Link as LinkContext} from "../Link"
 import {Item} from "../Item"
 

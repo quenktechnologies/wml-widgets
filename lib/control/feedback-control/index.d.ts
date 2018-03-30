@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { Control, ControlWWAttrs } from '@package/wml-widgets/control';
+import { Control, ControlWWAttrs } from '../../control';
 export { FeedbackControlWidget } from './FeedbackControlWidget';
 /**
  * FeedbackControl is a Control that provides visual hints as to

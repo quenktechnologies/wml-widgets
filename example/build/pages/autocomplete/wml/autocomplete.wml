@@ -1,5 +1,5 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Autocomplete} from "@package/wml-widgets/control/autocomplete"
+import {Grid,Row,Column} from "../../../../../lib/layout/grid/Grid"
+import {Autocomplete} from "../../../../../lib/control/autocomplete"
 import {AutocompletePage, Result} from "../"
 
 {% main (AutocompletePage) %}

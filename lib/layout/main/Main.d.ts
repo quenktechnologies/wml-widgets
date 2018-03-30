@@ -1,6 +1,6 @@
 import * as views from './wml/main';
 import { Renderable } from '@quenk/wml';
-import { GroupAttrs, Group } from '@package/wml-widgets/content/Group';
+import { GroupAttrs, Group } from '../../content/Group';
 export interface MainAttrs extends GroupAttrs {
     ww?: {
         class?: string;

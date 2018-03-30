@@ -1,3 +1,3 @@
-import { FormControlEvent } from '@package/wml-widgets/control/form-control';
+import { FormControlEvent } from '../../control/form-control';
 export declare class SelectionChangedEvent extends FormControlEvent<string> {
 }

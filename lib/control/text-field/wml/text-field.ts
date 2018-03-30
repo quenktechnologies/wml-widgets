@@ -3,13 +3,13 @@ import * as T from '../TextField';;
 import {
     label,
     message
-} from '@package/wml-widgets/control/wml';
+} from '../../../control/wml';
 
 export {
     label,
     message
 }
-from '@package/wml-widgets/control/wml';;
+from '../../../control/wml';;
 export const input = (___context: T.TextField) => (___view: ___wml.View) => ___wml.node('input', {
     html: {
         'name': ___context.values.control.name,

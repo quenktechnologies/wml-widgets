@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/modal';
-import * as names from '@package/wml-widgets/common/names';
-import {concat} from '@package/wml-widgets/common/util';
-import {Group} from '@package/wml-widgets/content/Group';
+import * as names from '../../common/names';
+import {concat} from '../../common/util';
+import {Group} from '../../content/Group';
 
 export interface ModalAttrs extends wml.Attrs {
     ww?: {

@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Link
-} from '@package/wml-widgets/nav/link';;
+} from '../../link';;
 import {
     Link as LinkContext
 } from '../Link';;

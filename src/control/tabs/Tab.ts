@@ -1,7 +1,7 @@
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../../common/names';
 import * as view from './wml/tabs';
 import * as afpl from 'afpl';
-import { concat } from '@package/wml-widgets/common/util';
+import { concat } from '../../common/util';
 import { TabClickedEvent } from './TabClickedEvent';
 import { TabClickedEventHandler } from './TabClickedEventHandler';
 import { Component, Attrs, View } from '@quenk/wml';

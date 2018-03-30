@@ -1,4 +1,4 @@
-import { Tabs,Tab } from "@package/wml-widgets/control/tabs"
+import { Tabs,Tab } from "../../../control/tabs"
 import {TabView} from ".."
 
 {% main (TabView) %}

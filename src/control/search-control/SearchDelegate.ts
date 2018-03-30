@@ -1,4 +1,4 @@
-import { Delegate } from '@package/wml-widgets/control';
+import { Delegate } from '../../control';
 import { TermChangedEvent } from './TermChangedEvent';
 
 /**

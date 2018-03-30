@@ -3,11 +3,11 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     ListGroup,
     ListGroupItem
-} from '@package/wml-widgets/layout/list-group';;
+} from '../../../../../lib/layout/list-group';;
 import {
     ListGroupPage
 } from '../';

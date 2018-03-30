@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/checkbox'
-import { CheckboxChangedEvent } from '@package/wml-widgets/control/checkbox/CheckboxChangedEvent';
+import { CheckboxChangedEvent } from '../../../../lib/control/checkbox/CheckboxChangedEvent';
 import { Page } from '../Page';
 
 export class CheckboxPage extends Page {

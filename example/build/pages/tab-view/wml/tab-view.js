@@ -11,9 +11,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var Grid_1 = require("../../../../../lib/layout/grid/Grid");
 ;
-var tab_view_1 = require("@package/wml-widgets/layout/tab-view");
+var tab_view_1 = require("../../../../../lib/layout/tab-view");
 ;
 var FirstTab = /** @class */ (function (_super) {
     __extends(FirstTab, _super);

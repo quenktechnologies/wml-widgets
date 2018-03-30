@@ -1,6 +1,6 @@
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../../common/names';
 import * as views from './wml/breadcrumbs';
-import {concat} from '@package/wml-widgets/common/util';
+import { concat } from '../../common/util';
 import { Component, Attrs, View } from '@quenk/wml';
 
 export interface BreadCrumbsAttrs extends Attrs {
@@ -23,8 +23,8 @@ export class BreadCrumbs extends Component<BreadCrumbsAttrs>{
     values = {
 
         class: {
-          
-          root: concat( names.BREAD_CRUMBS, this.attrs.ww?this.attrs.ww.class:'')
+
+            root: concat(names.BREAD_CRUMBS, this.attrs.ww ? this.attrs.ww.class : '')
 
         }
 

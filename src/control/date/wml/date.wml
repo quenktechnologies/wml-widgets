@@ -1,7 +1,7 @@
-import {Select} from "@package/wml-widgets/control/select"
-import {TextField} from "@package/wml-widgets/control/text-field"
+import {Select} from "../../../control/select"
+import {TextField} from "../../../control/text-field"
 import {Date} from "../Date"
-import {label,message} from "@package/wml-widgets/control/wml"
+import {label,message} from "../../../control/wml"
 
 {% main (Date) %}
 

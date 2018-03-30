@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button'
-import { ClassMap, styles, sizes } from '@package/wml-widgets/util/class-names';
+import { ClassMap, styles, sizes } from '../../../../lib/util/class-names';
 import { Page } from '../Page';
 
 export {ClassMap as __};

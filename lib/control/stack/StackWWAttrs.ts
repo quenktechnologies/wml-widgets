@@ -1,4 +1,4 @@
-import { FormControlWWAttrs } from '@package/wml-widgets/control/form-control';
+import { FormControlWWAttrs } from '../../control/form-control';
 import { Member } from './Member';
 import { Template } from './Template';
 

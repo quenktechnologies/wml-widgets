@@ -3,16 +3,16 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     Toolbar
-} from '@package/wml-widgets/control/toolbar';;
+} from '../../../../../lib/control/toolbar';;
 import {
     Button
-} from '@package/wml-widgets/control/button';;
+} from '../../../../../lib/control/button';;
 import {
     ButtonGroup
-} from '@package/wml-widgets/control/button-group';;
+} from '../../../../../lib/control/button-group';;
 import {
     ToolbarPage
 } from '../';

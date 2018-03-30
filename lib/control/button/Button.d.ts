@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { ClassMap } from '@package/wml-widgets/util/class-names';
+import { ClassMap } from '../../util/class-names';
 import { ButtonAttrs } from '.';
 /**
  * Button is an improvement over HTMLButtionElement

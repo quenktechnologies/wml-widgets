@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     Switch
-} from '@package/wml-widgets/control/switch/Switch';;
+} from '../../../../../lib/control/switch/Switch';;
 import {
     SwitchPage
 } from '../';

@@ -1,9 +1,9 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/text-field';
-import { concat } from '@package/wml-widgets/common/util';
-import { state } from '@package/wml-widgets/control/feedback-control';
+import { concat } from '../../common/util';
+import { state } from '../../control/feedback-control';
 import { TextFieldValues } from '.';
-import { FormControlWidget } from '@package/wml-widgets/control/form-control';
+import { FormControlWidget } from '../../control/form-control';
 import { TextFieldAttrs } from '.';
 import { TextChangedEvent } from './TextChangedEvent';
 

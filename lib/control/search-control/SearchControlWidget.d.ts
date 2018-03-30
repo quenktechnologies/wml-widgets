@@ -1,6 +1,6 @@
 import { SearchControlAttrs } from './SearchControlAttrs';
 import { SearchDelegate } from './SearchDelegate';
-import { FormControlWidget } from '@package/wml-widgets/control/form-control';
+import { FormControlWidget } from '../../control/form-control';
 import { SearchControlWidgetValues } from './SearchControlWidgetValues';
 export declare const ESCAPE = 27;
 export declare const DEFAULT_DEBOUNCE_TIME = 500;

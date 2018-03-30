@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../../common/names';
 import * as views from './wml/button-menu';
-import { concat } from '@package/wml-widgets/common/util';
-import { Menu } from '@package/wml-widgets/menu';
+import { concat } from '../../common/util';
+import { Menu } from '../../menu';
 import { ButtonMenuAttrs } from './ButtonMenuAttrs';
 import { ButtonTemplate } from './ButtonTemplate';
 

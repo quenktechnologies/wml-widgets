@@ -1,7 +1,7 @@
 import { View } from '@quenk/wml';
-import { LinkClickedEvent } from '@package/wml-widgets/nav/link/LinkClickedEvent';
+import { LinkClickedEvent } from '../../lib/nav/link/LinkClickedEvent';
 import { Maybe } from '@quenk/wml';
-import { Drawer } from '@package/wml-widgets/layout/drawer/Drawer';
+import { Drawer } from '../../lib/layout/drawer/Drawer';
 import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
 export declare class App {
@@ -61,7 +61,7 @@ export declare class App {
      * navigate is called when the user clicks on a
      * navigation link.
      */
-    navigate: ({name}: LinkClickedEvent) => void;
+    navigate: ({ name }: LinkClickedEvent) => void;
     /**
      * route the main content based on the passed string.
      */

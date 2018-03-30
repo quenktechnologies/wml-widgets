@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../../common/names';
 import * as views from './wml/panel';
 import { Component } from '@quenk/wml';
-import { concat } from '@package/wml-widgets/common/util';
+import { concat } from '../../common/util';
 import { BodyAttrs } from '.';
 
 /**

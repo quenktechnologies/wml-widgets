@@ -3,16 +3,16 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     BreadCrumbs
-} from '@package/wml-widgets/nav/breadcrumbs/BreadCrumbs';;
+} from '../../../../../lib/nav/breadcrumbs/BreadCrumbs';;
 import {
     Item
-} from '@package/wml-widgets/nav/breadcrumbs/Item';;
+} from '../../../../../lib/nav/breadcrumbs/Item';;
 import {
     Link
-} from '@package/wml-widgets/nav/link/Link';;
+} from '../../../../../lib/nav/link/Link';;
 import {
     BreadCrumbsPage
 } from '../';

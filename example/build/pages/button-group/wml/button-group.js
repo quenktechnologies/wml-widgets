@@ -11,11 +11,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var Grid_1 = require("../../../../../lib/layout/grid/Grid");
 ;
-var button_1 = require("@package/wml-widgets/control/button");
+var button_1 = require("../../../../../lib/control/button");
 ;
-var button_group_1 = require("@package/wml-widgets/control/button-group");
+var button_group_1 = require("../../../../../lib/control/button-group");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);

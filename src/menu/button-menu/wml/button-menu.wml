@@ -1,5 +1,5 @@
-import {Button} from "@package/wml-widgets/control/button"
-import {Menu} from "@package/wml-widgets/menu/Menu"
+import {Button} from "../../../control/button"
+import {Menu} from "../../"
 import {ButtonMenu} from "../ButtonMenu"
 
 {% fun button (ButtonMenu) %}

@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/text-field'
 import { Page } from '../Page';
-import { TextChangedEvent } from '@package/wml-widgets/control/text-field';
-import { FormControl, FormControlAttrs } from '@package/wml-widgets/control/form-control';
+import { TextChangedEvent } from '../../../../lib/control/text-field';
+import { FormControl, FormControlAttrs } from '../../../../lib/control/form-control';
 
 export class TextFieldPage extends Page {
 

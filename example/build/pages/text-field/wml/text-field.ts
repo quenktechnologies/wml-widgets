@@ -3,10 +3,10 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     TextField
-} from '@package/wml-widgets/control/text-field/TextField';;
+} from '../../../../../lib/control/text-field/TextField';;
 import {
     TextFieldPage
 } from '../';

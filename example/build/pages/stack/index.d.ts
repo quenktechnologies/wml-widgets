@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import { Page } from '../Page';
-import { StackChangedEvent } from '@package/wml-widgets/control/stack';
+import { StackChangedEvent } from '../../../../lib/control/stack';
 export interface Member {
     label: string;
     value: string;
@@ -15,7 +15,7 @@ export declare class StackPage extends Page {
         text: string;
         decorator: (m: Member) => string;
     };
-    onChange: ({value}: StackChangedEvent<{
+    onChange: ({ value }: StackChangedEvent<{
         label: string;
         value: string;
     }>) => void;

@@ -1,5 +1,5 @@
-import {Autocomplete} from "@package/wml-widgets/control/autocomplete"
-import {Stack} from "@package/wml-widgets/control/stack"
+import {Autocomplete} from "../../../control/autocomplete"
+import {Stack} from "../../../control/stack"
 import {SearchStack} from "../SearchStack"
 
 {% main [V](SearchStack[V]) %}

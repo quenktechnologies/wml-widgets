@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
-import { FormControlWidget } from '@package/wml-widgets/control/form-control';
-import { TermChangedEvent, ItemSelectedEvent } from '@package/wml-widgets/control/autocomplete';
-import { StackChangedEvent } from '@package/wml-widgets/control/stack';
+import { FormControlWidget } from '../../control/form-control';
+import { TermChangedEvent, ItemSelectedEvent } from '../../control/autocomplete';
+import { StackChangedEvent } from '../../control/stack';
 import { SearchStackAttrs } from '.';
 /**
  * SearchStack
@@ -27,7 +27,7 @@ export declare class SearchStack<V> extends FormControlWidget<V[], SearchStackAt
             name: string;
             value: string;
             onSearch: (evt: TermChangedEvent) => void;
-            onSelect: ({value}: ItemSelectedEvent<V>) => SearchStack<V>;
+            onSelect: ({ value }: ItemSelectedEvent<V>) => SearchStack<V>;
         };
         stack: {
             id: string;

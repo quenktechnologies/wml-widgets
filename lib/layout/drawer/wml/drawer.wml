@@ -1,4 +1,4 @@
-import {Aside} from "@package/wml-widgets/layout/aside/Aside"
+import {Aside} from "../../aside/Aside"
 import {Drawer} from "../Drawer"
 
 {% main (Drawer) %}

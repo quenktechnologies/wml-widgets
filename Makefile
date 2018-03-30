@@ -14,11 +14,8 @@ FIND?=find
 # These have class names specific to each widget.
 CLASS_NAMES_FILES:=$(shell $(FIND) src -name classNames.ts)
 
-# Has all the classnames merged into on.
-CLASS_NAMES_FILE="@package/wml-widgets/lib/classNames"
-
 # Paths to the objects we use for interpolation when building less files.
-JS_VARS_OBJECTS="@package/wml-widgets/common/names,@package/wml-widgets/classNames,@package/wml-widgets/util/class-names"
+JS_VARS_OBJECTS="./lib/common/names,./lib/classNames,./lib/util/class-names"
 
 # Entry point for the less compiler.
 LESS_INCLUDE_PATHS=$(HERE)/src/less:src
@@ -79,3 +76,12 @@ clean-build:
 .PHONY: clean-example
 clean-example:
 	$(RMR) example/build || true
+
+.PHONY: remove-js
+remove-js:
+	$(eval JS=$(shell $(FIND) src -name \*.js))
+	$(eval DT=$(shell $(FIND) src -name \*.d.ts))
+	$(eval SM=$(shell $(FIND) src -name \*.map))
+	$(foreach j,$(DT),$(shell rm $(j)))
+	$(foreach j,$(SM),$(shell rm $(j)))
+	$(foreach j,$(JS),$(shell rm $(j)))

@@ -1,10 +1,10 @@
 import * as ___wml from '@quenk/wml';
 import {
     Button
-} from '@package/wml-widgets/control/button';;
+} from '../../../control/button';;
 import {
     Menu
-} from '@package/wml-widgets/menu/Menu';;
+} from '../../';;
 import {
     ButtonMenu
 } from '../ButtonMenu';

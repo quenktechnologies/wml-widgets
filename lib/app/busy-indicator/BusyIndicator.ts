@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import { Main } from './wml/busy_indicator';
-import { StylableAttrs } from '@package/wml-widgets/content';
-import {concat} from '@package/wml-widgets/common/util';
+import { StylableAttrs } from '../../content';
+import { concat } from '../../common/util';
 
 /**
  * BusyIndicator provides a 'hamburger' menu button.
@@ -12,7 +12,7 @@ export class BusyIndicator extends wml.Component<StylableAttrs> {
 
     values = {
 
-      class: concat('loading', this.attrs.ww ? this.attrs.ww.class :'')
+        class: concat('loading', this.attrs.ww ? this.attrs.ww.class : '')
 
     }
 

@@ -7,7 +7,7 @@ import {
     Link,
     Header,
     SubMenu
-} from '@package/wml-widgets/nav/menu';
+} from '../../../lib/nav/menu';
 
 
 

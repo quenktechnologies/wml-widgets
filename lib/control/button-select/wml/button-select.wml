@@ -1,4 +1,4 @@
-import {Button} from "@package/wml-widgets/control/button/Button"
+import {Button} from "../../../control/button/Button"
 import {ButtonSelectGroup} from "../ButtonSelectGroup"
 import {ButtonSelectGroupAttrs} from "../ButtonSelectGroupAttrs"
 

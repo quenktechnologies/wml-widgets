@@ -1,4 +1,4 @@
-import { DefaultDelegate } from '@package/wml-widgets/control';
+import { DefaultDelegate } from '../../control';
 import { TermChangedEvent } from './TermChangedEvent';
 import { SearchDefaultDelegateAttrs } from './SearchDefaultDelegateAttrs';
 

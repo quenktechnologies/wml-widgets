@@ -1,22 +1,22 @@
 import * as ___wml from '@quenk/wml';
 import {
     Drawer
-} from '@package/wml-widgets/layout/drawer/Drawer';;
+} from '../../../lib/layout/drawer/Drawer';;
 import {
     ActionBar
-} from '@package/wml-widgets/app/action-bar/ActionBar';;
+} from '../../../lib/app/action-bar/ActionBar';;
 import {
     App
 } from '../app';;
 import {
     IconButton
-} from '@package/wml-widgets/control/icon-button/IconButton';;
+} from '../../../lib/control/icon-button/IconButton';;
 import {
     Dash
-} from '@package/wml-widgets/app/dash';;
+} from '../../../lib/app/dash';;
 import {
     Main as MainLayout
-} from '@package/wml-widgets/layout/main/Main';
+} from '../../../lib/layout/main/Main';
 
 
 

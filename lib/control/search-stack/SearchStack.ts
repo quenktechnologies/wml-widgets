@@ -1,9 +1,9 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/wml-widgets/common/names';
+import * as names from '../../common/names';
 import * as views from './wml/search-stack';
-import { FormControlWidget } from '@package/wml-widgets/control/form-control';
-import { Autocomplete, TermChangedEvent, ItemSelectedEvent } from '@package/wml-widgets/control/autocomplete';
-import { Stack, StackChangedEvent } from '@package/wml-widgets/control/stack';
+import { FormControlWidget } from '../../control/form-control';
+import { Autocomplete, TermChangedEvent, ItemSelectedEvent } from '../../control/autocomplete';
+import { Stack, StackChangedEvent } from '../../control/stack';
 import { SearchStackAttrs } from '.';
 
 /**

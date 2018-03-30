@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import { Page } from '../Page';
-import { SelectionChangedEvent } from '@package/wml-widgets/control/select';
+import { SelectionChangedEvent } from '../../../../lib/control/select';
 export declare class SelectPage extends Page {
     view: wml.View;
     values: {
@@ -9,5 +9,5 @@ export declare class SelectPage extends Page {
             value: string;
         }[];
     };
-    onChange: ({value}: SelectionChangedEvent) => void;
+    onChange: ({ value }: SelectionChangedEvent) => void;
 }

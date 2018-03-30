@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/tab-view'
-import { TabSpecMap } from '@package/wml-widgets/layout/tab-view';
+import { TabSpecMap } from '../../../../lib/layout/tab-view';
 import { Page } from '../Page';
 
 export class TabViewPage extends Page {

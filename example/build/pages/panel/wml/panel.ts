@@ -3,16 +3,16 @@ import {
     Grid,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid/Grid';;
 import {
     Panel,
     Header,
     Body,
     Footer
-} from '@package/wml-widgets/layout/panel';;
+} from '../../../../../lib/layout/panel';;
 import {
     Fragment
-} from '@package/wml-widgets/layout/fragment/Fragment';;
+} from '../../../../../lib/layout/fragment/Fragment';;
 import {
     PanelPage
 } from '../';

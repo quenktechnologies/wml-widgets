@@ -1,14 +1,14 @@
 import * as ___wml from '@quenk/wml';
-import * as names from '@package/wml-widgets/common/names';;
+import * as names from '../../common/names';;
 import {
     concat
-} from '@package/wml-widgets/common/util';;
+} from '../../common/util';;
 import {
     get
 } from 'property-seek';;
 import {
     Fragment
-} from '@package/wml-widgets/layout/fragment/Fragment';;
+} from '../../layout/fragment/Fragment';;
 import {
     Column,
     Table as Table

@@ -1,5 +1,5 @@
 import {App} from "../app"
-import {Menu,Link,Header,SubMenu} from "@package/wml-widgets/nav/menu"
+import {Menu,Link,Header,SubMenu} from "../../../lib/nav/menu"
 
 {% main Navigation (App) %}
 

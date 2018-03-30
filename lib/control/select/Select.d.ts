@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { FormControlWidget } from '@package/wml-widgets/control/form-control';
+import { FormControlWidget } from '../../control/form-control';
 import { SelectAttrs, Option } from '.';
 /**
  * Select provides a dropdown list for selecting items.

@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import { Page } from '../Page';
-import { CellClickedEvent } from '@package/wml-widgets/table';
+import { CellClickedEvent } from '../../../../lib/table';
 export interface User {
     index: number;
     name: string;
