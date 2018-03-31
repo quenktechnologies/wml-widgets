@@ -15,32 +15,36 @@ FIND?=find
 CLASS_NAMES_FILES:=$(shell $(FIND) src -name classNames.ts)
 
 # Paths to the objects we use for interpolation when building less files.
-JS_VARS_OBJECTS="./lib/common/names,./lib/classNames,./lib/util/class-names"
+JS_VARS_OBJECTS:="./lib/common/names,./lib/classNames,./lib/util/class-names"
 
 # Entry point for the less compiler.
-LESS_INCLUDE_PATHS=$(HERE)/src/less:src
+LESS_INCLUDE_PATHS=less:src
 
 $(HERE) : lib dist example
 	$(TOUCH) $@
-
-lib: $(shell $(FIND) src -name \*.ts -o -name \*.wml)
-	$(MKDIRP) $@
-	$(CPR) src/* $@
-	$(WMLC) --pretty --extension ts $@
-	$(TSC) --sourceMap --project $@
-	$(shell cat src/util/class-name/index.ts > lib/classNames.ts)
-	$(foreach class,$(CLASS_NAMES_FILES),$(shell cat $(class) >> lib/classNames.ts))
-	$(TOUCH) $@
+# copy sources to the lib and generates the generated ts code.
+lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml)
+	$(shell $(MKDIRP) $@)
+	$(shell $(CPR) src/* $@)
+	$(WMLC) --pretty --extension ts $@ 
+	$(shell cat $@/util/class-names/index.ts > $(HERE)/lib/classNames.ts) 
+	$(foreach class,$(CLASS_NAMES_FILES),$(shell cat $(class) >> $(HERE)/lib/classNames.ts)) 
+	$(TSC) --sourceMap --project $@ 
+	$(TOUCH) $@ 
 
 dist: dist/widgets.css
 	$(TOUCH) $@
 
-dist/widgets.css: $(shell $(FIND) less -name \*.less)
+# build a css file you an include on a page to have the css for all widgets.
+dist/widgets.css: lib less
 	$(MKDIRP) dist
 	$(LESSC) --source-map-less-inline \
 	 --js-vars="$(JS_VARS_OBJECTS)" \
 	--include-path=$(LESS_INCLUDE_PATHS) \
-	--npm-import src/less/build.less > $@
+	--npm-import less/build.less > $@
+
+less: $(shell $(FIND) less -name \*.less)
+	$(TOUCH) $@
 
 example: example/public
 	$(TOUCH) $@
@@ -59,7 +63,7 @@ example/build: $(shell $(FIND) example/app -name \*.ts -o -name \*.wml) lib
 	$(TSC) --sourceMap --project $@
 	$(TOUCH) $@
 
-example/public/app.css: $(shell $(FIND) example/app -name \*.less) $(shell $(FIND) less -name \*.less)
+example/public/app.css: lib $(shell $(FIND) example/app -name \*.less) $(shell $(FIND) less -name \*.less)
 	$(LESSC) --source-map-less-inline \
 	--js-vars=$(JS_VARS_OBJECTS) \
 	--include-path=$(LESS_INCLUDE_PATHS) \

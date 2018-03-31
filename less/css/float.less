@@ -1,0 +1,10 @@
+
+.float(@dir) { float: @dir !important;  }
+.clear(@dir) { clear: @dir;             }
+
+.-right      { .float(right);           }
+.-left       { .float(left);            }
+
+.-left-clear { .clear(left);            }
+.-right-clear{ .clear(right);           }
+.-both-clear { .clear(both);            }
