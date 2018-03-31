@@ -297,26 +297,6 @@ export const SEARCH = 'ww-search';
 export const SEARCH_INPUT = 'ww-search__input';
 
 /**
- * DATE class name.
- */
-export const DATE = 'ww-date';
-
-/**
- * DATE_DAY class name.
- */
-export const DATE_DAY = `${DATE}__day`;
-
-/**
- * DATE_MONTH class name.
- */
-export const DATE_MONTH = `${DATE}_month`;
-
-/**
- * DATE_YEAR class name.
- */
-export const DATE_YEAR = `${DATE}__year`;
-
-/**
  * STACK class name.
  */
 export const STACK = 'ww-stack';

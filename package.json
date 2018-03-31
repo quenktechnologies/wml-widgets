@@ -39,6 +39,7 @@
     "must": "^0.13.4",
     "nightwatch": "^0.9.20",
     "typedoc": "^0.9.0",
+    "typedoc-plugin-external-module-name": "^1.1.1",
     "typescript": "^2.8.1",
     "web-console-reporter": "^1.0.0"
   },

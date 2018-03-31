@@ -2,7 +2,7 @@ import * as wml from '@quenk/wml';
 import * as views from './wml/tab-view';
 import * as classNames from './classNames';
 import { Maybe } from 'afpl/lib/monad/Maybe';
-import { TabClickedEvent } from '../../control/tabs';
+import { TabClickedEvent } from '../../control/tab-bar';
 import { TabViewAttrs, TabSpec, TabSpecMap } from '.';
 
 /**

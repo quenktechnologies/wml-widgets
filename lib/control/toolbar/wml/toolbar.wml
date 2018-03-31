@@ -1,5 +1,0 @@
-import {Toolbar} from ".."
-
-{% main (Toolbar) %}
-
-<div class={{@values.root.class}}>{{@children}}</div>

@@ -233,22 +233,6 @@ export declare const SEARCH = "ww-search";
  */
 export declare const SEARCH_INPUT = "ww-search__input";
 /**
- * DATE class name.
- */
-export declare const DATE = "ww-date";
-/**
- * DATE_DAY class name.
- */
-export declare const DATE_DAY: string;
-/**
- * DATE_MONTH class name.
- */
-export declare const DATE_MONTH: string;
-/**
- * DATE_YEAR class name.
- */
-export declare const DATE_YEAR: string;
-/**
  * STACK class name.
  */
 export declare const STACK = "ww-stack";

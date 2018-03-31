@@ -1,11 +1,11 @@
-import { Tabs,Tab } from "../../../control/tabs"
+import {TabBar,Tab} from "../../../control/tab-bar"
 import {TabView} from ".."
 
 {% main (TabView) %}
 
 <div ww:class={{@values.root.class}}>
 
-  <Tabs>
+  <TabBar>
 
     {% for tab,name:String in @values.tabs %}
   
@@ -32,7 +32,7 @@ import {TabView} from ".."
 
     {% endfor %}
 
-  </Tabs>
+  </TabBar>
 
   {% if @values.content %}
 

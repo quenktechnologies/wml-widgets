@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { TabClickedEvent } from '../../control/tabs';
+import { TabClickedEvent } from '../../control/tab-bar';
 import { TabViewAttrs, TabSpecMap } from '.';
 /**
  * TabView provides a layout whose displayed content can be changed via tabs.

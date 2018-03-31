@@ -1,8 +1,8 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Tabs,
+    TabBar,
     Tab
-} from '../../../control/tabs';;
+} from '../../../control/tab-bar';;
 import {
     TabView
 } from '..';
@@ -22,7 +22,7 @@ export class Main extends ___wml.AppView < TabView > {
                 ww: {
                     'class': ___context.values.root.class
                 }
-            }, [___wml.widget(Tabs, {
+            }, [___wml.widget(TabBar, {
                 html: {},
                 wml: {}
             }, [___wml.map(___context.values.tabs, function _map(tab, name: string) {

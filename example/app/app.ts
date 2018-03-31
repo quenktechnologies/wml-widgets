@@ -5,28 +5,28 @@ import { Link } from '../../lib/nav/link/Link';
 import { Maybe } from '@quenk/wml';
 import { Drawer } from '../../lib/layout/drawer/Drawer';
 import { Main } from './wml/app';
-import { Navigation } from './wml/navigation';
-import { Page } from './pages/Page';
-import { PanelPage } from './pages/panel';
-import { ListGroupPage } from './pages/list-group';
-import { TablePage } from './pages/table';
-import { TextFieldPage } from './pages/text-field';
-import { DatePage } from './pages/date';
-import { SelectPage } from './pages/select';
-import { ButtonPage } from './pages/button';
-import { ButtonSelectPage } from './pages/button-select';
-import { CheckboxPage } from './pages/checkbox';
-import { SwitchPage } from './pages/switch';
-import { TabsPage } from './pages/tabs';
-import { StackPage } from './pages/stack';
-import { SearchStackPage } from './pages/search-stack';
-import { AutocompletePage } from './pages/autocomplete';
-import { BreadCrumbsPage } from './pages/breadcrumbs';
-import { BusyIndicatorPage } from './pages/busy-indicator';
-import { MenuPage } from './pages/menu';
-import { ButtonGroupPage } from './pages/button-group';
-import { ButtonMenuPage } from './pages/button-menu';
-import { TabViewPage } from './pages/tab-view';
+//import { Navigation } from './wml/navigation';
+//import { Page } from './pages/Page';
+//import { PanelPage } from './pages/panel';
+//import { ListGroupPage } from './pages/list-group';
+//import { TablePage } from './pages/table';
+//import { TextFieldPage } from './pages/text-field';
+//import { DatePage } from './pages/date';
+//import { SelectPage } from './pages/select';
+//import { ButtonPage } from './pages/button';
+////import { ButtonSelectPage } from './pages/button-select';
+//import { CheckboxPage } from './pages/checkbox';
+//import { SwitchPage } from './pages/switch';
+//import { TabsPage } from './pages/tabs';
+//import { StackPage } from './pages/stack';
+//import { SearchStackPage } from './pages/search-stack';
+//import { AutocompletePage } from './pages/autocomplete';
+//import { BreadCrumbsPage } from './pages/breadcrumbs';
+//import { BusyIndicatorPage } from './pages/busy-indicator';
+//import { MenuPage } from './pages/menu';
+//import { ButtonGroupPage } from './pages/button-group';
+//import { ButtonMenuPage } from './pages/button-menu';
+//import { TabViewPage } from './pages/tab-view';
 
 const displayName = (s: string) =>
     [s[0].toUpperCase()]
@@ -56,7 +56,7 @@ export class App {
     /**
      * links to the pages.
      */
-    links: { [key: string]: any } = {
+    links: { [key: string]: any } = {} /*{
 
         layout: {
 
@@ -75,7 +75,7 @@ export class App {
             autocomplete: new AutocompletePage(this),
             button: new ButtonPage(this),
             'button-group': new ButtonGroupPage(this),
-            'button-select': new ButtonSelectPage(this),
+         //   'button-select': new ButtonSelectPage(this),
             tabs: new TabsPage(this),
             stack: new StackPage(this),
             checkbox: new CheckboxPage(this),
@@ -93,7 +93,7 @@ export class App {
             'button-menu': new ButtonMenuPage(this)
         }
 
-    };
+    };*/
 
     /**
      * navigation view
