@@ -8388,13 +8388,15 @@ button.close {
     transform: rotate(360deg);
   }
 }
-.__DASH__ {
+/*
+  Dash styling.
+ */
+.ww-dash {
   width: 1.5em;
   height: 0.25em;
   background-color: #fff;
   display: block;
   margin-top: 0.25em;
-  filter: alpha(opacity=90);
   opacity: 0.9;
 }
 .__MODAL__ {

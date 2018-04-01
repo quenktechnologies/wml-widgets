@@ -1,6 +1,0 @@
-import {Dash} from "../Dash"
-
-{% main (Dash) %}
-
-<span class={{@values.class.root}} />
- 
