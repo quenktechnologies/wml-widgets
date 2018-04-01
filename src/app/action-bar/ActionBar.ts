@@ -1,5 +1,5 @@
 import * as names from './classNames';
-import * as util from '../../common/util';
+import * as util from '../../util';
 import { features } from '../../util/classNames';
 import { Group, GroupAttrs } from '../../content/Group';
 import { Main } from './wml/action-bar';
