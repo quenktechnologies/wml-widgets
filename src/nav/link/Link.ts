@@ -2,7 +2,7 @@ import * as wml from '@quenk/wml';
 import * as names from '../../common/names';
 import * as views from './wml/link';
 import { LinkClickedEvent } from './LinkClickedEvent';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 
 export interface LinkAttrs extends wml.Attrs {
 

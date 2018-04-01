@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button-group';
 import * as names from '../../common/names';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { ButtonGroupAttrs } from '.';
 
 /**

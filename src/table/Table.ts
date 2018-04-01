@@ -1,6 +1,6 @@
 import * as names from '../common/names';
 import * as view from './wml/table';
-import { concat } from '../common/util';
+import { concat } from '../util';
 import { Component, View, Renderable, Maybe } from '@quenk/wml';
 import { get } from 'property-seek';
 import { CellClickedEvent } from './CellClickedEvent';

@@ -1,7 +1,7 @@
 import * as afpl from 'afpl';
 import * as names from './classNames';
 import * as view from './wml/tab';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { states } from '../../util/classNames';
 import { TabClickedEvent } from './TabClickedEvent';
 import { TabClickedEventHandler } from './TabClickedEventHandler';

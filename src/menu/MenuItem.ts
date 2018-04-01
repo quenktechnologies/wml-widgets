@@ -1,7 +1,7 @@
 import * as names from '../common/names';
 import * as views from './wml/menu-item';
 import * as wml from '@quenk/wml';
-import { concat } from '../common/util';
+import { concat } from '../util';
 import { MenuItemClickedEvent } from './MenuItemClickedEvent';
 
 export interface MenuItemAttrs extends wml.Attrs {

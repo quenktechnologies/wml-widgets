@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as names from '../common/names';
-import { concat } from '../common/util';
+import { concat } from '../util';
 import { Main } from './wml/menu';
 
 export interface MenuAttrs extends wml.Attrs {

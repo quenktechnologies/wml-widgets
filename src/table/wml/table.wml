@@ -1,5 +1,5 @@
 import * as names from "../../common/names"
-import {concat} from "../../common/util"
+import {concat} from "../../util"
 import {get} from "property-seek"
 import {Fragment} from "../../layout/fragment/Fragment"
 import {Column, Table as Table} from ".."

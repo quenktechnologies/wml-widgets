@@ -2,7 +2,7 @@ import * as wml from '@quenk/wml';
 import * as names from '../../common/names';
 import * as views from './wml/panel';
 import { Component } from '@quenk/wml';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { HeaderAttrs } from '.';
 
 export class Header extends Component<HeaderAttrs> {

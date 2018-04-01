@@ -1,5 +1,5 @@
 import * as names from '../../common/names';
-import * as util from '../../common/util';
+import * as util from '../../util';
 import * as views from './wml/menu';
 import * as wml from '@quenk/wml';
 

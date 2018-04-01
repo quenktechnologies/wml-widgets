@@ -1,6 +1,6 @@
 import * as views from './wml/main';
 import * as names from '../../common/names';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { Renderable } from '@quenk/wml';
 import { GroupAttrs, Group } from '../../content/Group';
 

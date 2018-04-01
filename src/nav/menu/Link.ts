@@ -2,7 +2,7 @@ import * as wml from '@quenk/wml';
 import * as link from '../../nav/link';
 import * as names from '../../common/names';
 import * as views from './wml/link';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { LinkClickedEvent } from '../../nav/link';
 
 /**

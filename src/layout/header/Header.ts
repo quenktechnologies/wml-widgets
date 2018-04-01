@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as names from '../../common/names';
 import * as views from './wml/header';
-import {concat} from '../../common/util';
+import {concat} from '../../util';
 
 /**
  * HeaderAttrs 

@@ -1,6 +1,6 @@
 import * as names from './classNames';
 import { Component, Attrs, View } from '@quenk/wml';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { Control, ControlAttrsProperties, Event } from '../';
 import { Main } from './wml/icon-button';
 

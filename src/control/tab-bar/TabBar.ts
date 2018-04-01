@@ -1,6 +1,6 @@
 import * as view from './wml/tab-bar';
 import * as names from './classNames';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { Component, Attrs, View } from '@quenk/wml';
 
 /**

@@ -1,6 +1,6 @@
 import * as names from '../../common/names';
 import * as views from './wml/breadcrumbs';
-import { concat } from '../../common/util';
+import { concat } from '../../util';
 import { Component, Attrs, View } from '@quenk/wml';
 
 export interface BreadCrumbsAttrs extends Attrs {
