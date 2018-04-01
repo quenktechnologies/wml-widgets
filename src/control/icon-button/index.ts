@@ -1,27 +1,45 @@
-import * as names from '../../common/names';
+import * as names from './classNames';
 import { Component, Attrs, View } from '@quenk/wml';
 import { concat } from '../../common/util';
+import { Control, ControlAttrsProperties, Event } from '../';
 import { Main } from './wml/icon-button';
 
-export interface IconButtonAttrs extends Attrs {
+/**
+ * IconButtonAttrsProperties
+ */
+export interface IconButtonAttrsProperties extends ControlAttrsProperties {
 
-     ww?: {
-
-        class?: string,
-
-        /**
-         * onClick is called when the user clicks on the menu button.
-         */
-        onClick?: (e: Event) => void
-
-    }
+    /**
+     * onClick is called when the user clicks on the menu button.
+     */
+    onClick?: (e: Event<void>) => void,
 
 }
 
 /**
- * IconButton provides a 'hamburger' menu button.
+ * IconButtonAttrs
  */
-export class IconButton extends Component<IconButtonAttrs> {
+export interface IconButtonAttrs extends Attrs {
+
+    ww: IconButtonAttrsProperties;
+
+}
+
+/**
+ * IconButtonClickedEvent triggered when an icon button is clicked.
+ */
+export class IconButtonClickedEvent extends Event<void> { }
+
+/**
+ * IconButton provides a button with limited styling that displays
+ * an icon for its UI.
+ *
+ *  +---------+
+ *  | <= * => | 
+ *  +---------+ 
+ */
+export class IconButton extends Component<IconButtonAttrs> implements
+    Control<IconButtonAttrs> {
 
     view: View = new Main(this);
 
@@ -37,7 +55,13 @@ export class IconButton extends Component<IconButtonAttrs> {
             class: concat(names.ICON_BUTTON, (this.attrs.ww && this.attrs.ww.class) ?
                 this.attrs.ww.class : ''),
 
-            onClick: (this.attrs.ww && this.attrs.ww.onClick) ? this.attrs.ww.onClick : () => { }
+            onClick: () => {
+
+                if (this.attrs.ww && this.attrs.ww.onClick)
+                    this.attrs.ww.onClick(
+                        new IconButtonClickedEvent(this.attrs.ww.name, undefined));
+
+            }
 
         }
 
