@@ -1,4 +1,12 @@
 /**
+ * ACTION_BAR class name. for the ActionBar root.
+ */
+export declare const ACTION_BAR = "ww-action-bar";
+/**
+ * ACTION_BAR_CONTENT class name.
+ */
+export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
+/**
  * ClassMap provides a map of class names constants.
  */
 export interface ClassMap {
@@ -26,6 +34,10 @@ export declare const styles: ClassMap;
  */
 export declare const features: ClassMap;
 /**
+ * ICON_BUTTON clasess for IconButtons.
+ */
+export declare const ICON_BUTTON = "ww-icon-button";
+/**
  * @module control/feedback
  */
 /**
@@ -40,5 +52,13 @@ export declare const ERROR = "has-error";
  * WARNING
  */
 export declare const WARNING = "has-warning";
+/**
+ * TAB_BAR
+ */
+export declare const TAB_BAR = "ww-tab-bar";
+/**
+ * TAB_BAR_TAB
+ */
+export declare const TAB_BAR_TAB = "ww-tab-bar__tab";
 export declare const BUTTON = "ww-button";
 export declare const TAB_VIEW = "ww-tabview";

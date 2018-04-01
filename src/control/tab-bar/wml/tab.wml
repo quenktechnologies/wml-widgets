@@ -2,17 +2,17 @@ import {Tab} from ".."
 
 {% main (Tab) %}
 <li 
-  wml:id={{@values.id.root}}
-  class={{@values.class.li}}>
+  wml:id={{@values.root.id}}
+  class={{@values.root.class}}>
 
     <a 
-      wml:id={{@values.id.a}}
+      wml:id={{@values.a.id}}
       href="#"
-      onclick={{@clicked}}>
+      onclick={{@values.a.clicked}}>
 
-        {% if @values.tab.text %}
+        {% if @values.a.text %}
 
-          {{@values.tab.text}}
+          {{@values.a.text}}
 
         {% else %}
 

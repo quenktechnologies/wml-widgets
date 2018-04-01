@@ -1,5 +1,8 @@
 import { Group, GroupAttrs } from '../../content/Group';
 import { Main } from './wml/action-bar';
+/**
+ * ActionBarAttrs
+ */
 export interface ActionBarAttrs extends GroupAttrs {
 }
 /**

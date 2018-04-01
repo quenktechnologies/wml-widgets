@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button';
 import * as classNames from './classNames';
-import { ClassMap, styles, states, features } from '../../util/class-names';
+import { ClassMap, styles, states, features } from '../../util/classNames';
 import { concat } from '../../util';
 import { ButtonAttrs, ButtonClickedEvent } from '.';
 

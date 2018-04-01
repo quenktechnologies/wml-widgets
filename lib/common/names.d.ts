@@ -77,10 +77,6 @@ export declare const ACTION_BAR = "ww-action-bar";
  */
 export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
 /**
- * ICON_BUTTON clasess for IconButtons.
- */
-export declare const ICON_BUTTON = "ww-icon-button";
-/**
  * BUTTON_MENU class name.
  */
 export declare const BUTTON_MENU = "ww-button-menu btn-group";
@@ -193,14 +189,6 @@ export declare const CONTROL_LABEL = "control-label";
 export declare const INPUT = "form-control";
 export declare const TEXTAREA = "form-control";
 export declare const SELECT = "form-control";
-/**
- * TABS class name.
- */
-export declare const TABS = "ww-tabs";
-/**
- * TABS_TAB class name.
- */
-export declare const TABS_TAB = "ww-tabs__tab";
 /**
  * SWITCH class name.
  */

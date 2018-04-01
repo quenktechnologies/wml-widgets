@@ -1,8 +1,12 @@
-import * as names from '../../common/names';
+import * as names from './classNames';
 import * as util from '../../common/util';
+import { features } from '../../util/classNames';
 import { Group, GroupAttrs } from '../../content/Group';
 import { Main } from './wml/action-bar';
 
+/**
+ * ActionBarAttrs
+ */
 export interface ActionBarAttrs extends GroupAttrs { }
 
 /**
@@ -23,7 +27,7 @@ export class ActionBar extends Group<ActionBarAttrs> {
 
         class: {
 
-            root: util.combine([names.ACTION_BAR, names.FIXED_PUSHABLE]),
+            root: util.combine([names.ACTION_BAR, features.FIXED_PUSHABLE]),
             content: names.ACTION_BAR_CONTENT
 
         }

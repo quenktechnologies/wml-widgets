@@ -15,7 +15,7 @@ FIND?=find
 CLASS_NAMES_FILES:=$(shell $(FIND) src -name classNames.ts)
 
 # Paths to the objects we use for interpolation when building less files.
-JS_VARS_OBJECTS:="./lib/common/names,./lib/classNames,./lib/util/class-names"
+JS_VARS_OBJECTS:="./lib/classNames"
 
 # Entry point for the less compiler.
 LESS_INCLUDE_PATHS=less:src
