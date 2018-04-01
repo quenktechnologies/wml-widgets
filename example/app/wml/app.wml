@@ -1,9 +1,9 @@
-import {Drawer} from "../../../lib/layout/drawer/Drawer"
-import {ActionBar} from "../../../lib/app/action-bar/ActionBar"
+import {Drawer} from "../../../lib/layout/drawer"
+import {ActionBar} from "../../../lib/app/action-bar"
 import {App} from "../app"
-import {IconButton} from "../../../lib/control/icon-button/IconButton"
+import {IconButton} from "../../../lib/control/icon-button"
 import {Dash} from "../../../lib/app/dash"
-import {Main as MainLayout} from "../../../lib/layout/main/Main"
+import {Main as MainLayout} from "../../../lib/layout/main"
 
 {% main (App) %}
 
