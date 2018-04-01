@@ -25,5 +25,20 @@ export declare const styles: ClassMap;
  * particular features by a widget's DOM available to other widets.
  */
 export declare const features: ClassMap;
+/**
+ * @module control/feedback
+ */
+/**
+ * SUCCESS
+ */
+export declare const SUCCESS = "has-success";
+/**
+ * ERROR
+ */
+export declare const ERROR = "has-error";
+/**
+ * WARNING
+ */
+export declare const WARNING = "has-warning";
 export declare const BUTTON = "ww-button";
 export declare const TAB_VIEW = "ww-tabview";
