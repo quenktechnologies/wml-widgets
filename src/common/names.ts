@@ -87,15 +87,6 @@ export const ASIDE_CONTENT = 'ww-drawer__content';
 export const ASIDE_PUSHABLE = '-drawer-pushable';
 export const ASIDE_PUSHABLE_FIXED = '-drawer-pushable-fixed';
 
-/**
- * ACTION_BAR class name. for the ActionBar root.
- */
-export const ACTION_BAR = 'ww-action-bar';
-
-/**
- * ACTION_BAR_CONTENT class name. 
- */
-export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 
 /**
  * BUTTON_MENU class name.
@@ -154,10 +145,6 @@ export const MENU_HEADER = `${MENU}__header`;
  */
 export const MENU_DIVIDER = `${MENU}__divider`;
 
-/**
- * DASH class name.
- */
-export const DASH = 'ww-dash';
 
 /**
  * NAV class name.
@@ -227,12 +214,6 @@ export const PANEL_FOOTER = 'ww-panel__footer';
  */
 export const HEADER = 'ww-header';
 
-export const MODAL = 'ww-modal';
-export const MODAL_DIALOG = 'ww-modal__dialog';
-export const MODAL_CONTENT = 'ww-modal__content';
-export const MODAL_HEADER = 'ww-modal__header';
-export const MODAL_BODY = 'ww-modal__body';
-export const MODAL_FOOTER = 'ww-moadl__footer';
 
 export const FORM_GROUP = 'form-group';
 export const CONTROL_LABEL = 'control-label';
