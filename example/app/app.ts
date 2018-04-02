@@ -1,6 +1,6 @@
 import { reduce, merge } from 'afpl/lib/util';
 import { View } from '@quenk/wml';
-import {Link, LinkClickedEvent } from '../../lib/content/nav/link';
+import { Link, LinkClickedEvent } from '../../lib/content/nav/link';
 import { Maybe } from '@quenk/wml';
 import { DrawerLayout } from '../../lib/layout/drawer-layout';
 import { Main } from './wml/app';
@@ -27,6 +27,7 @@ import { TabBarPage } from './pages/tab-bar';
 //import { ButtonMenuPage } from './pages/button-menu';
 //import { TabViewPage } from './pages/tab-view';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
+import { NavPage } from './pages/nav';
 
 const displayName = (s: string) =>
     [s[0].toUpperCase()]
@@ -82,6 +83,11 @@ export class App {
             //      checkbox: new CheckboxPage(this),
             //      'switch': new SwitchPage(this),
             //      'search-stack': new SearchStackPage(this),
+        },
+        content: {
+
+            nav: new NavPage(this)
+
         },
         app: {
             //     'busy-indicator': new BusyIndicatorPage(this)

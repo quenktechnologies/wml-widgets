@@ -6,7 +6,7 @@ import {Link} from "../../../lib/content/nav/link"
 
 {% main Navigation (App) %}
 
-<Nav>
+<Nav ww:vertical=true>
 
   <Item>
 
@@ -26,7 +26,7 @@ import {Link} from "../../../lib/content/nav/link"
 
         <NavHeader ww:text={{@displayName(section)}} />
 
-        <Nav>
+        <Nav ww:vertical=true>
 
           {% for _,name:String in @sort(items) %}
 
