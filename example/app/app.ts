@@ -3,7 +3,7 @@ import { View } from '@quenk/wml';
 import { LinkClickedEvent } from '../../lib/nav/link/LinkClickedEvent';
 import { Link } from '../../lib/nav/link/Link';
 import { Maybe } from '@quenk/wml';
-import { Drawer } from '../../lib/layout/drawer/Drawer';
+import { DrawerLayout } from '../../lib/layout/drawer-layout';
 import { Main } from './wml/app';
 import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
@@ -27,6 +27,7 @@ import { TabBarPage } from './pages/tab-bar';
 //import { ButtonGroupPage } from './pages/button-group';
 //import { ButtonMenuPage } from './pages/button-menu';
 //import { TabViewPage } from './pages/tab-view';
+import { HorizontalLayoutPage } from './pages/horizontal-layout';
 
 const displayName = (s: string) =>
     [s[0].toUpperCase()]
@@ -60,37 +61,38 @@ export class App {
 
         layout: {
 
-      //      panel: new PanelPage(this),
-      //      'list-group': new ListGroupPage(this),
-      //      'tab-view': new TabViewPage(this)
+            //      panel: new PanelPage(this),
+            //      'list-group': new ListGroupPage(this),
+            //      'tab-view': new TabViewPage(this)
+            'horizontal-layout': new HorizontalLayoutPage(this)
 
         },
         table: {
-    //        table: new TablePage(this)
+            //        table: new TablePage(this)
         },
         control: {
-       //     'text-field': new TextFieldPage(this),
-      //      date: new DatePage(this),
-      //      select: new SelectPage(this),
-      //      autocomplete: new AutocompletePage(this),
-      //      button: new ButtonPage(this),
-      //      'button-group': new ButtonGroupPage(this),
-      //   //   'button-select': new ButtonSelectPage(this),
+            //     'text-field': new TextFieldPage(this),
+            //      date: new DatePage(this),
+            //      select: new SelectPage(this),
+            //      autocomplete: new AutocompletePage(this),
+            //      button: new ButtonPage(this),
+            //      'button-group': new ButtonGroupPage(this),
+            //   //   'button-select': new ButtonSelectPage(this),
             'tab-bar': new TabBarPage(this),
-      //      stack: new StackPage(this),
-      //      checkbox: new CheckboxPage(this),
-      //      'switch': new SwitchPage(this),
-      //      'search-stack': new SearchStackPage(this),
+            //      stack: new StackPage(this),
+            //      checkbox: new CheckboxPage(this),
+            //      'switch': new SwitchPage(this),
+            //      'search-stack': new SearchStackPage(this),
         },
         app: {
-       //     'busy-indicator': new BusyIndicatorPage(this)
+            //     'busy-indicator': new BusyIndicatorPage(this)
         },
         nav: {
-     //       breadcrumbs: new BreadCrumbsPage(this),
+            //       breadcrumbs: new BreadCrumbsPage(this),
         },
         menu: {
-   //         menu: new MenuPage(this),
- //           'button-menu': new ButtonMenuPage(this)
+            //         menu: new MenuPage(this),
+            //           'button-menu': new ButtonMenuPage(this)
         }
 
     };
@@ -116,7 +118,7 @@ export class App {
     /**
      * layout is the current application layout in use.
      */
-    layout: Maybe<Drawer>;
+    layout: Maybe<DrawerLayout>;
 
     /**
      * view is the current application view.
@@ -147,7 +149,7 @@ export class App {
         this
             .view
             .findById(this.values.id.layout)
-            .map((d: Drawer) => d.toggleDrawer());
+            .map((d: DrawerLayout) => d.toggle());
 
     }
 
@@ -186,7 +188,7 @@ export class App {
 
         root.appendChild(this.view.render());
 
-        this.layout = this.view.findById<Drawer>(this.values.id.layout);
+        this.layout = this.view.findById<DrawerLayout>(this.values.id.layout);
 
         let path = window.location.hash.split('#')[1];
         path = path ? path.split('/').join('') : '';

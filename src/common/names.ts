@@ -31,30 +31,7 @@ export const TOOLBAR = 'ww-toolbar';
  */
 export const TOOLBAR_COMPAT = '-toolbar-compatible';
 
-/**
- * MAIN_VIEW classnames.
- */
-export const MAIN_VIEW = 'ww-main-view';
 
-/**
- * MENU class name.
- */
-export const MENU = 'ww-menu';
-
-/**
- * MENU_ITEM class name.
- */
-export const MENU_ITEM = `${MENU}__item`;
-
-/**
- * MENU_HEADER class name.
- */
-export const MENU_HEADER = `${MENU}__header`;
-
-/**
- * MENU_DIVIDER class name.
- */
-export const MENU_DIVIDER = `${MENU}__divider`;
 
 
 /**
@@ -100,30 +77,7 @@ export const GRID = 'container-fluid';
 export const GRID_COLUMN = 'ww-grid-column';
 export const GRID_ROW = 'row';
 
-/**
- * PANEL wrapper class.
- */
-export const PANEL = 'ww-panel';
 
-/**
- * PANEL_HEADER class name.
- */
-export const PANEL_HEADER = 'ww-panel__header';
-
-/**
- * PANEL_BODY class name.
- */
-export const PANEL_BODY = 'ww-panel__body';
-
-/**
- * PANEL_FOOTER class name.
- */
-export const PANEL_FOOTER = 'ww-panel__footer';
-
-/**
- * HEADER class name.
- */
-export const HEADER = 'ww-header';
 
 
 export const FORM_GROUP = 'form-group';
@@ -149,7 +103,6 @@ export const SWITCH_SLIDER = 'ww-switch__slider';
  */
 export const CHECKBOX = 'checkbox';
 
-export const TABLE = 'table'; //@todo un-bootstrap
 
 /**
  * BREAD_CRUMBS clasess

@@ -1,13 +1,13 @@
-import {Drawer} from "../../../lib/layout/drawer"
+import {DrawerLayout} from "../../../lib/layout/drawer-layout"
 import {ActionBar} from "../../../lib/app/action-bar"
 import {App} from "../app"
 import {IconButton} from "../../../lib/control/icon-button"
 import {Dash} from "../../../lib/app/dash"
-import {Main as MainLayout} from "../../../lib/layout/main"
+import {MainLayout} from "../../../lib/layout/main-layout"
 
 {% main (App) %}
 
-<Drawer
+<DrawerLayout
   wml:id={{@values.id.layout}}
   ww:drawer={{@navigation}}>
 
@@ -33,4 +33,4 @@ import {Main as MainLayout} from "../../../lib/layout/main"
     {% endif %}
   </MainLayout>
 
-</Drawer>
+</DrawerLayout>

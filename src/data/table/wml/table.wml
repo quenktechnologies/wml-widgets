@@ -1,7 +1,7 @@
-import * as names from "../../common/names"
-import {concat} from "../../util"
+import {concat} from "../../../util"
 import {get} from "property-seek"
-import {Fragment} from "../../layout/fragment/Fragment"
+import {Fragment} from "../../../layout/fragment"
+import {ACTIVE} from "../../../content/state/active/classNames"
 import {Column, Table as Table} from ".."
 
 {% fun thead[C,R] (Table[C,R]) (columns:Column[C,R][]) %}
@@ -51,7 +51,7 @@ import {Column, Table as Table} from ".."
       <th 
        class={{concat(@values.table.thead.th.class, 
          if(@values.sortedOn == field.name) then 
-           names.ACTIVE 
+           ACTIVE 
          else '')}}
             onclick={{@values.table.thead.th.onclick(field.name)}}>
 
@@ -74,7 +74,7 @@ import {Column, Table as Table} from ".."
           <th 
             class={{concat(@values.table.thead.th.class,
               if(@values.sortedOn == field.name) then 
-                names.ACTIVE 
+                ACTIVE 
               else '')}}
             onclick={{@values.table.thead.th.onclick(field.name)}}>
 

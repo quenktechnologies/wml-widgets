@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import * as names from '../../common/names';
+import * as names from './classNames';
 import * as views from './wml/header';
 import {concat} from '../../util';
 
