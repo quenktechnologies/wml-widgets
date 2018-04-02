@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var util_1 = require("afpl/lib/util");
 var app_1 = require("./wml/app");
 var navigation_1 = require("./wml/navigation");
-//import { PanelPage } from './pages/panel';
+var panel_1 = require("./pages/panel");
 //import { ListGroupPage } from './pages/list-group';
 //import { TablePage } from './pages/table';
 //import { TextFieldPage } from './pages/text-field';
@@ -54,7 +54,7 @@ var App = /** @class */ (function () {
          */
         this.links = {
             layout: {
-                //      panel: new PanelPage(this),
+                panel: new panel_1.PanelPage(this),
                 //      'list-group': new ListGroupPage(this),
                 //      'tab-view': new TabViewPage(this)
                 'horizontal-layout': new horizontal_layout_1.HorizontalLayoutPage(this)

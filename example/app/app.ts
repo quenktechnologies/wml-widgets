@@ -6,7 +6,7 @@ import { DrawerLayout } from '../../lib/layout/drawer-layout';
 import { Main } from './wml/app';
 import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
-//import { PanelPage } from './pages/panel';
+import { PanelPage } from './pages/panel';
 //import { ListGroupPage } from './pages/list-group';
 //import { TablePage } from './pages/table';
 //import { TextFieldPage } from './pages/text-field';
@@ -61,7 +61,7 @@ export class App {
 
         layout: {
 
-            //      panel: new PanelPage(this),
+                  panel: new PanelPage(this),
             //      'list-group': new ListGroupPage(this),
             //      'tab-view': new TabViewPage(this)
             'horizontal-layout': new HorizontalLayoutPage(this)
