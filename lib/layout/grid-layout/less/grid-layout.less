@@ -1,0 +1,56 @@
+@import "css/padding";
+@import "css/margin";
+
+/**
+ * adjustable-padding allows padding to be adjusted on a box.
+ */
+.adjustable-padding(@top;@right;@bottom;@left) {
+
+  .padding-top(@top);
+  .padding-right(@right);
+  .padding-bottom(@bottom);
+  .padding-left(@left);
+
+}
+
+/**
+ * adjustable-margin allows the marins to be adjusted on a box.
+ */
+.adjustable-margin(@top;@right;@bottom;@left) {
+
+  .margin-top(@top);
+  .margin-right(@right);
+  .margin-bottom(@bottom);
+  .margin-left(@left);
+
+}
+
+.__GRID__ {
+
+  .adjustable-padding(@grid-padding-top, @grid-padding-right,
+                      @grid-padding-bottom, @grid-padding-left);
+
+  .adjustable-margin(@grid-margin-top, @grid-margin-right,
+                      @grid-margin-bottom, @grid-margin-left);
+
+}
+
+.__GRID_ROW__ {
+
+  .adjustable-padding(@grid-row-padding-top, @grid-row-padding-right,
+                      @grid-row-padding-bottom, @grid-row-padding-left);
+
+  .adjustable-margin(@grid-row-margin-top, @grid-row-margin-right,
+                      @grid-row-margin-bottom, @grid-row-margin-left);
+
+}
+
+.__GRID_COLUMN__ {
+
+  .adjustable-padding(@grid-column-padding-top, @grid-column-padding-right,
+                      @grid-column-padding-bottom, @grid-column-padding-left);
+
+  .adjustable-margin(@grid-column-margin-top, @grid-column-margin-right,
+                      @grid-column-margin-bottom, @grid-column-margin-left);
+
+}
