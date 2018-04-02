@@ -33,28 +33,28 @@
 
     width: 0;
 
-    &.__HIDDEN__ ~ .__PUSHABLE__  { 
+  }
 
-      margin-left: 0; 
+  &.__HIDDEN__ ~ .__RIGHT_PUSHABLE__:not(.__POSITIONED__)  { 
 
-    }
-
-    &.__HIDDEN__ ~ .__FIXED_PUSHABLE__ { 
-
-      left: 0;                
-
-    }
+    margin-left: 0; 
 
   }
 
-  & ~ .__PUSHABLE__ { 
+  &.__HIDDEN__ ~ .__RIGHT_PUSHABLE__.__POSITIONED__ {
+
+    left: 0;
+
+  }
+
+  & ~ .__RIGHT_PUSHABLE__:not(.__POSITIONED__) { 
 
     margin-left: @drawer-width; 
     transition: margin-left @easing-duration ease;
 
   }
 
-  & ~ .__FIXED_PUSHABLE__ {
+  & ~ .__RIGHT_PUSHABLE__.__POSITIONED__ {
 
     left: @drawer-width; 
     transition: left @easing-duration ease;

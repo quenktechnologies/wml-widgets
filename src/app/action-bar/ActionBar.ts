@@ -1,6 +1,7 @@
 import * as names from './classNames';
 import * as util from '../../util';
-import { features } from '../../util/classNames';
+import * as orientation from '../../content/orientation/classNames';
+import { View } from '@quenk/wml';
 import { Group, GroupAttrs } from '../../content/Group';
 import { Main } from './wml/action-bar';
 
@@ -15,7 +16,7 @@ export interface ActionBarAttrs extends GroupAttrs { }
  */
 export class ActionBar extends Group<ActionBarAttrs> {
 
-    view = new Main(this);
+    view: View = new Main(this);
 
     values = {
 
@@ -27,7 +28,11 @@ export class ActionBar extends Group<ActionBarAttrs> {
 
         class: {
 
-            root: util.combine([names.ACTION_BAR, features.FIXED_PUSHABLE]),
+            root: util.combine([
+              names.ACTION_BAR,
+              orientation.RIGHT_PUSHABLE,
+              orientation.POSITIONED
+            ]),
             content: names.ACTION_BAR_CONTENT
 
         }

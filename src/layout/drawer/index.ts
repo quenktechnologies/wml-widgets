@@ -10,7 +10,7 @@ import {
     hide,
     show,
     toggle
-} from '../../content/state/hidable';
+} from '../../content/state/hidden';
 import { Group, GroupAttrs } from '../../content/Group';
 import { Main } from './wml/drawer';
 
