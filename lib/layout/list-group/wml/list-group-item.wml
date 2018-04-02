@@ -1,0 +1,4 @@
+import {ListGroupItem} from "../ListGroupItem"
+
+{% main (ListGroupItem) %}
+<li class={{@values.root.class}}>{{@children}}</li>

@@ -1,0 +1,8 @@
+import {TabBar} from ".."
+
+{% main (TabBar) %}
+<ul class={{@values.root.class}}>
+
+  {{@children}}
+
+</ul>

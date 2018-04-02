@@ -1,0 +1,36 @@
+import {DrawerLayout} from "../../../lib/layout/drawer-layout"
+import {ActionBar} from "../../../lib/app/action-bar"
+import {App} from "../app"
+import {IconButton} from "../../../lib/control/icon-button"
+import {Dash} from "../../../lib/app/dash"
+import {MainLayout} from "../../../lib/layout/main-layout"
+
+{% main (App) %}
+
+<DrawerLayout
+  wml:id={{@values.id.layout}}
+  ww:drawer={{@navigation}}>
+
+  <ActionBar>
+
+    <IconButton 
+      ww:name="toggle"
+      ww:onClick={{@toggleDrawer}}>
+
+      <Dash/>
+      <Dash/>
+      <Dash/>
+
+    </IconButton>
+
+  </ActionBar>
+
+  <MainLayout>
+    {% if @content %}
+      {{@content.render()}}
+    {% else %}
+      {{''}}
+    {% endif %}
+  </MainLayout>
+
+</DrawerLayout>

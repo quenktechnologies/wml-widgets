@@ -1,0 +1,83 @@
+
+/**
+ Drawer styling
+*/
+.__DRAWER__ { 
+
+  width: @drawer-width; 
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left:0;
+  bottom:0;
+  display: block;
+
+  border-right: @drawer-border-right-width
+  @drawer-border-right-style 
+  @drawer-border-right-color;
+
+  box-shadow: @drawer-box-shadow-offset-x
+  @drawer-box-shadow-offset-y
+  @drawer-box-shadow-blur-radius
+  @drawer-box-shadow-spread-radius
+  @drawer-box-shadow-color;
+
+  z-index: @drawer-z-index;
+  background-color: @drawer-background-color; 
+  transition: width @easing-duration ease;    
+
+  /**
+    Styles for supporting the hiding and pushing of the Drawer in CSS.
+   */
+  &.__HIDDEN__ { 
+
+    width: 0;
+
+  }
+
+  &.__HIDDEN__ ~ .__RIGHT_PUSHABLE__:not(.__POSITIONED__)  { 
+
+    margin-left: 0; 
+
+  }
+
+  &.__HIDDEN__ ~ .__RIGHT_PUSHABLE__.__POSITIONED__ {
+
+    left: 0;
+
+  }
+
+  & ~ .__RIGHT_PUSHABLE__:not(.__POSITIONED__) { 
+
+    margin-left: @drawer-width; 
+    transition: margin-left @easing-duration ease;
+
+  }
+
+  & ~ .__RIGHT_PUSHABLE__.__POSITIONED__ {
+
+    left: @drawer-width; 
+    transition: left @easing-duration ease;
+
+  }
+
+}
+
+/**
+  Styles applied to the inner content of a Drawer.
+
+  We add some padding to prevent touching the edges etc.
+ */
+.__DRAWER_CONTENT__ {
+
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch; 
+  color: @drawer-content-color;
+
+}

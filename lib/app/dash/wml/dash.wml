@@ -1,0 +1,6 @@
+import {Dash} from ".."
+
+{% main (Dash) %}
+
+<span class={{@values.class.root}} />
+ 

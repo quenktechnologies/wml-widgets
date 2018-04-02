@@ -1,0 +1,17 @@
+import {NavHeader} from "../"
+
+{% main (NavHeader) %}
+
+<span class={{@values.span.class}}>
+
+    {% if @values.text %}
+
+      {{@values.text}}
+
+    {% else %}
+
+      {{@children}}
+
+    {% endif %}
+
+</span>

@@ -1,0 +1,25 @@
+import * as G from "../Grid"
+
+{% view Grid (G.Grid) %}
+
+  <section class={{@values.class.root}}>
+    {{@children}}
+  </section>
+
+{% endview %}
+
+{% view Row (G.Row) %}
+
+  <div class={{@values.class.root}}>
+    {{@children}}
+  </div>
+
+{% endview %}
+
+{% view Column (G.Column) %}
+
+  <div class={{@values.class.root}}>
+    {{@children}}
+  </div>
+
+{% endview %}

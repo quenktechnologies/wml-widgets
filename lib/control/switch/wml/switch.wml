@@ -1,0 +1,17 @@
+import {Switch} from "../Switch"
+
+{% main (Switch) %}
+
+<label class={{@values.class.label}}>
+
+  <input 
+  type="checkbox"
+  name={{@values.input.name}}
+  checked={{@values.input.on || null}}
+  disabled={{@values.input.disabled}}
+  onchange={{@values.input.onChange}}/>
+
+  <div class={{@values.class.slider}}></div>
+
+</label>
+

@@ -1,0 +1,13 @@
+import {ActionBar} from "../ActionBar"
+
+{% main (ActionBar) %}
+
+<div class={{@values.class.root}}>
+
+  <div wml:id={{@values.id.content}} class={{@values.class.content}}>
+
+    {{@children}}
+
+  </div>
+
+</div>

@@ -1,0 +1,27 @@
+import {Grid,Row,Column} from "../../../../../lib/layout/grid"
+import {HorizontalLayout} from "../../../../../lib/layout/horizontal-layout"
+import {HorizontalLayoutPage} from "../"
+
+{% main (HorizontalLayoutPage) %}
+ 
+<Grid>
+
+  <Row>
+
+    <Column>
+
+      <HorizontalLayout>
+        
+        <textarea>Area 1</textarea>
+
+        <textarea>Area 2</textarea>
+
+        <textarea>Area 3</textarea>
+
+      </Horizontal>
+
+    </Column>
+
+   </Row>
+
+ </Grid>

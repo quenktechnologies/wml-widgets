@@ -1,0 +1,7 @@
+import {Item} from ".."
+
+{% main (Item) %}
+  
+<li class={{@values.root.class}}>
+  {{ @values.content.render()  }}
+</li>

@@ -1,0 +1,16 @@
+import {Drawer} from "../../drawer"
+import {DrawerLayout} from ".."
+
+{% main (DrawerLayout) %}
+
+<div 
+  wml:id={{@values.root.id}}
+  class={{@values.root.class}}>
+
+  <Drawer
+    wml:id={{@values.drawer.id}}
+    ww:content={{@values.drawer.content}}/>
+
+    {{@values.content.render()}}
+
+</div>

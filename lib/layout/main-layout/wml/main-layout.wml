@@ -1,0 +1,7 @@
+import {MainLayout} from "..";
+
+{% main (MainLayout) %}
+
+<div class={{@values.root.class}}>
+    {{@children}}
+</div>

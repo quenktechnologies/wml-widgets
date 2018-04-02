@@ -1,0 +1,94 @@
+@import "bootstrap/bootstrap.less";
+
+/* 
+  Originally from bootstrap/mixins/panel.less
+  We needed to override the class names.
+ */
+._panel-variant(@border; @heading-text-color; @heading-bg-color; @heading-border) {
+
+  border-color: @border;
+
+  & > .__PANEL_HEADER__ {
+    color: @heading-text-color;
+    background-color: @heading-bg-color;
+    border-color: @heading-border;
+
+    + .panel-collapse > .__PANEL_BODY__ {
+      border-top-color: @border;
+    }
+    .badge {
+      color: @heading-bg-color;
+      background-color: @heading-text-color;
+    }
+  }
+  & > .__PANEL_FOOTER__ {
+    + .panel-collapse > .__PANEL_BODY__ {
+      border-bottom-color: @border;
+    }
+  }
+}
+
+.__PANEL__                { .panel;            }
+
+.__PANEL_HEADER__         { .panel-heading;    }
+.__PANEL_BODY__           { .panel-body;       }
+.__PANEL_FOOTER__         { .panel-footer;     }
+
+.__PANEL__.__DEFAULT__    { 
+
+  .panel-default;    
+  ._panel-variant(@panel-default-border; 
+                 @panel-default-text;
+                 @panel-default-heading-bg;
+                 @panel-default-border);
+
+}
+
+.__PANEL__.__PRIMARY__    { 
+
+  .panel-primary;    
+  ._panel-variant(@panel-primary-border;
+                 @panel-primary-text; 
+                 @panel-primary-heading-bg; 
+                 @panel-primary-border);
+
+}
+
+.__PANEL__.__SUCCESS__    { 
+
+  .panel-success;    
+  ._panel-variant(@panel-success-border;
+                 @panel-success-text;
+                 @panel-success-heading-bg;
+                 @panel-success-border);
+}
+
+.__PANEL__.__INFO__       { 
+
+  .panel-info;       
+  ._panel-variant(@panel-info-border;
+                 @panel-info-text;
+                 @panel-info-heading-bg;
+                 @panel-info-border);
+
+}
+
+.__PANEL__.__WARNING__    { 
+
+  .panel-warning;    
+  ._panel-variant(@panel-warning-border;
+                 @panel-warning-text;
+                 @panel-warning-heading-bg; 
+                 @panel-warning-border);
+
+}
+
+.__PANEL__.__DANGER__     { 
+
+  .panel-danger;     
+  ._panel-variant(@panel-danger-border;
+                 @panel-danger-text; 
+                 @panel-danger-heading-bg;
+                 @panel-danger-border);
+
+}

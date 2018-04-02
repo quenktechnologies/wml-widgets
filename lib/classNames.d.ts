@@ -1,0 +1,161 @@
+export declare const MODAL = "ww-modal";
+export declare const MODAL_DIALOG = "ww-modal__dialog";
+export declare const MODAL_CONTENT = "ww-modal__content";
+export declare const MODAL_HEADER = "ww-modal__header";
+export declare const MODAL_BODY = "ww-modal__body";
+export declare const MODAL_FOOTER = "ww-modal__footer";
+/**
+ * ACTION_BAR class name. for the ActionBar root.
+ */
+export declare const ACTION_BAR = "ww-action-bar";
+/**
+ * ACTION_BAR_CONTENT class name.
+ */
+export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
+/**
+ * DASH
+ */
+export declare const DASH = "ww-dash";
+/**
+ * ClassMap provides a map of class names constants.
+ */
+export interface ClassMap {
+    [key: string]: string;
+}
+/**
+ * misc class names.
+ */
+export declare const misc: ClassMap;
+/**
+ * states commonly used by the widgets.
+ */
+export declare const states: ClassMap;
+/**
+ * sizes used by widgets that ship with preset sizes.
+ */
+export declare const sizes: ClassMap;
+/**
+ * styles preset for contexual widgets.
+ */
+export declare const styles: ClassMap;
+/**
+ * features provides class names used for indicating support for
+ * particular features by a widget's DOM available to other widets.
+ */
+export declare const features: ClassMap;
+/**
+ * ICON_BUTTON clasess for IconButtons.
+ */
+export declare const ICON_BUTTON = "ww-icon-button";
+/**
+ * TAB_BAR
+ */
+export declare const TAB_BAR = "ww-tab-bar";
+/**
+ * TAB_BAR_TAB
+ */
+export declare const TAB_BAR_TAB = "ww-tab-bar__tab";
+export declare const BUTTON = "ww-button";
+export declare const TABLE = "table";
+/**
+ * MAIN_VIEW classnames.
+ */
+export declare const MAIN_LAYOUT = "ww-main-layout";
+export declare const DRAWER = "ww-drawer";
+export declare const DRAWER_CONTENT = "ww-drawer__content";
+/**
+ * HEADER class name.
+ */
+export declare const HEADER = "ww-header";
+/**
+ * DRAWER_LAYOUT
+ */
+export declare const DRAWER_LAYOUT = "ww-drawer-layout";
+/**
+ * HORIZONTAL_LAYOUT
+ */
+export declare const HORIZONTAL_LAYOUT = "ww-horizontal-layout";
+/**
+ * PANEL wrapper class.
+ */
+export declare const PANEL = "ww-panel";
+/**
+ * PANEL_HEADER class name.
+ */
+export declare const PANEL_HEADER = "ww-panel__header";
+/**
+ * PANEL_BODY class name.
+ */
+export declare const PANEL_BODY = "ww-panel__body";
+/**
+ * PANEL_FOOTER class name.
+ */
+export declare const PANEL_FOOTER = "ww-panel__footer";
+export declare const TAB_VIEW = "ww-tabview";
+/**
+ * VERTICAL indicates an element is vertical rendererd.
+ */
+export declare const VERTICAL = "-vertical";
+/**
+ * RIGHT_PUSHABLE indicates an element can supports being pushed right
+ * by specifying styles around this class.
+ */
+export declare const RIGHT_PUSHABLE = "-right-pushable";
+/**
+ * POSITIONED indicates an element is positioned ie remove
+ * from flow.
+ */
+export declare const POSITIONED = "-positioned";
+/**
+ * HIDDEN means an element should not be visible but not removed
+ * from the DOM.
+ */
+export declare const HIDDEN = "-hidden";
+/**
+ * OPEN state.
+ */
+export declare const OPEN = "-open";
+/**
+ * ACTIVE
+ */
+export declare const ACTIVE = "-active";
+/**
+ * DEFAULT style.
+ */
+export declare const DEFAULT = "-default";
+/**
+ * PRIMARY style.
+ */
+export declare const PRIMARY = "-primary";
+/**
+ * SUCCESS style.
+ */
+export declare const SUCCESS = "-success";
+/**
+ * INFO style.
+ */
+export declare const INFO = "-info";
+/**
+ * WARNING style.
+ */
+export declare const WARNING = "-warning";
+/**
+ * ERROR style.
+ */
+export declare const ERROR = "-error";
+/**
+ * LINK
+ */
+export declare const LINK = "ww-link";
+/**
+ * NAV
+ */
+export declare const NAV = "ww-nav";
+/**
+ * NAV_HEADER
+ */
+export declare const NAV_HEADER = "ww-nav-header";
+/**
+ * ITEM
+ */
+export declare const ITEM = "ww-item";

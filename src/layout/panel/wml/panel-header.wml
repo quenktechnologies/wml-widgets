@@ -1,0 +1,7 @@
+import {PanelHeader} from ".."
+
+{% main (PanelHeader) %}
+
+<div class={{@values.root.class}}> 
+  {{@children}}
+</div>

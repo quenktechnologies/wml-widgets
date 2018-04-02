@@ -1,0 +1,30 @@
+import {Nav} from "../../../../../lib/content/nav"
+import {Item} from "../../../../../lib/content/nav/item"
+import {Link} from "../../../../../lib/content/nav/link"
+import {PageExample} from "../../../page-example"
+import {NavPage} from "../"
+
+{% main (NavPage) %}
+ 
+<PageExample>
+
+  <Nav>
+
+    {% for _,key:String in @links %}
+
+      <Item>
+
+        <Link
+          wml:id={{key}}
+          wml:group="links"
+          ww:name={{key}}
+          ww:onClick={{@navigate}}
+          ww:text={{key}}/>
+
+      </Item>
+
+    {% endfor %}
+    
+  </Nav>
+
+</PageExample>
