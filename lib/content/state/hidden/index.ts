@@ -1,5 +1,12 @@
-import * as names from './classNames';
 import { Maybe } from 'afpl/lib/monad/Maybe';
+
+///classNames:begin
+/**
+ * HIDDEN means an element should not be visible but not removed
+ * from the DOM.
+ */
+export const HIDDEN = '-hidden';
+///classNames:end
 
 /**
  * IsVisiable
@@ -59,7 +66,7 @@ export interface Hidable {
   */
 export const isVisible = (fn: () => Maybe<HTMLElement>) => (): boolean =>
     fn()
-        .map((e: HTMLElement) => e.classList.contains(names.HIDDEN))
+        .map((e: HTMLElement) => e.classList.contains(HIDDEN))
         .orJust(() => false)
         .get();
 
@@ -74,7 +81,7 @@ export const hide = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
         Maybe
             .fromBoolean(h.isVisible())
             .chain(fn)
-            .map((e: HTMLElement) => e.classList.add(names.HIDDEN))
+            .map((e: HTMLElement) => e.classList.add(HIDDEN))
             .map(() => h)
             .orJust(() => h)
             .get();
@@ -89,7 +96,7 @@ export const show = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
     : Show<H> => () =>
         Maybe
             .fromBoolean(h.isVisible())
-            .orElse(() => fn().map((e: HTMLElement) => e.classList.remove(names.HIDDEN)))
+            .orElse(() => fn().map((e: HTMLElement) => e.classList.remove(HIDDEN)))
             .map(() => h)
             .orJust(() => h)
             .get();
@@ -100,7 +107,7 @@ export const show = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
 export const toggle = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
     : Toggle<H> => () =>
         fn()
-            .map((e: HTMLElement) => e.classList.toggle(names.HIDDEN))
+            .map((e: HTMLElement) => e.classList.toggle(HIDDEN))
             .map(() => h)
             .orJust(() => h)
             .get();

@@ -10,7 +10,7 @@ import {
 } from '../../../layout/fragment';;
 import {
     ACTIVE
-} from '../../../content/state/active/classNames';;
+} from '../../../content/state/active';;
 import {
     Column,
     Table as Table

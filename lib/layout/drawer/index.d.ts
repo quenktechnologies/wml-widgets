@@ -1,6 +1,8 @@
 import * as wml from '@quenk/wml';
 import { Hidable, IsVisible, Hide, Show, Toggle } from '../../content/state/hidden';
 import { Group, GroupAttrs } from '../../content/Group';
+export declare const DRAWER = "ww-drawer";
+export declare const DRAWER_CONTENT = "ww-drawer__content";
 /**
  * DrawerAttrs
  */

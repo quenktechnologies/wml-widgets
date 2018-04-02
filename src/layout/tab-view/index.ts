@@ -3,6 +3,10 @@ import { TabView } from './TabView';
 
 export { TabView }
 
+///classNames:begin
+export const TAB_VIEW = 'ww-tabview';
+///classNames:end
+
 /**
  * TabSpec is used to render a tab and it's associated View.
  */

@@ -1,6 +1,10 @@
 import * as wml from '@quenk/wml';
 import { WidgetAttrs, StylableAttrs } from '../../..';
 /**
+ * NAV_HEADER
+ */
+export declare const NAV_HEADER = "ww-nav-header";
+/**
  * NavHeaderAttrs
  */
 export interface NavHeaderAttrs extends StylableAttrs {

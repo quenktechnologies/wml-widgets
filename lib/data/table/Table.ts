@@ -1,5 +1,4 @@
 import * as view from './wml/table';
-import * as names from './classNames';
 import { concat } from '../../util';
 import { Component, View, Renderable, Maybe } from '@quenk/wml';
 import { get } from 'property-seek';
@@ -54,7 +53,7 @@ export class Table<C, R> extends Component<TableAttrs<C, R>> {
 
             id: TABLE,
 
-            class: concat(names.TABLE, this.attrs.ww.class),
+            class: concat(TABLE, this.attrs.ww.class),
 
             thead: {
 

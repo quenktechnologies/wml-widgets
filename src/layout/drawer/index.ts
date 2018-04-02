@@ -1,5 +1,4 @@
 import * as wml from '@quenk/wml';
-import * as names from './classNames';
 import {
     Hidable,
     IsVisible,
@@ -19,6 +18,11 @@ const getDom = (d: Drawer) => () =>
         .view
         .findById(d.values.root.id)
         .map((e: wml.WMLElement) => <HTMLElement>e);
+
+///classNames:begin
+export const DRAWER = 'ww-drawer';
+export const DRAWER_CONTENT = 'ww-drawer__content';
+///classNames:end
 
 /**
  * DrawerAttrs
@@ -55,12 +59,12 @@ export class Drawer extends Group<DrawerAttrs> implements Hidable {
 
             id: 'drawer',
 
-            class: names.DRAWER,
+            class: DRAWER,
 
         },
         content: {
 
-            class: names.DRAWER_CONTENT,
+            class: DRAWER_CONTENT,
 
             render: () => (this.attrs.ww && this.attrs.ww.content) ?
                 this.attrs.ww.content.render() :

@@ -1,6 +1,10 @@
 import * as wml from '@quenk/wml';
 import { WidgetAttrs, StylableAttrs } from '../../../';
 /**
+ * LINK
+ */
+export declare const LINK = "ww-link";
+/**
  * LinkAttrs
  */
 export interface LinkAttrs extends StylableAttrs {

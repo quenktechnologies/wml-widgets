@@ -1,8 +1,14 @@
-import * as names from './classNames';
 import { Component, Attrs, View } from '@quenk/wml';
 import { concat } from '../../util';
 import { Control, ControlAttrsProperties, Event } from '../';
 import { Main } from './wml/icon-button';
+
+///classNames:begin
+/**
+ * ICON_BUTTON clasess for IconButtons.
+ */
+export const ICON_BUTTON = 'ww-icon-button';
+///classNames:end
 
 /**
  * IconButtonAttrsProperties
@@ -47,12 +53,12 @@ export class IconButton extends Component<IconButtonAttrs> implements
 
         class: {
 
-            root: names.ICON_BUTTON
+            root: ICON_BUTTON
 
         },
         button: {
 
-            class: concat(names.ICON_BUTTON, (this.attrs.ww && this.attrs.ww.class) ?
+            class: concat(ICON_BUTTON, (this.attrs.ww && this.attrs.ww.class) ?
                 this.attrs.ww.class : ''),
 
             onClick: () => {

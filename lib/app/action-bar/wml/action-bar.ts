@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     ActionBar
-} from '../ActionBar';
+} from '..';
 
 
 

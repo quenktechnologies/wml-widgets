@@ -1,8 +1,14 @@
 import * as wml from '@quenk/wml';
-import * as names from './classNames';
 import * as views from './wml/nav-header';
 import { concat } from '../../../util';
 import { WidgetAttrs, StylableAttrs } from '../../..';
+
+///classNames:begin
+/**
+ * NAV_HEADER
+ */
+export const NAV_HEADER = 'ww-nav-header';
+///classNames:end
 
 /**
  * NavHeaderAttrs
@@ -32,7 +38,7 @@ export class NavHeader extends wml.Component<WidgetAttrs<NavHeaderAttrs>> {
         },
         span: {
 
-            class: concat(names.NAV_HEADER,
+            class: concat(NAV_HEADER,
                 this.attrs.ww ? this.attrs.ww.class : '')
 
         },

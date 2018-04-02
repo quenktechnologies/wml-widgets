@@ -1,8 +1,11 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/horizontal-layout';
-import * as names from './classNames';
 import { concat } from '../../util';
 import { WidgetAttrs, StylableAttrs } from '../../';
+
+///classNames:begin
+export const HORIZONTAL_LAYOUT = 'ww-horizontal-layout';
+///classNames:end
 
 /**
  * HorizontalLayoutAttrs
@@ -31,7 +34,7 @@ export class HorizontalLayout extends
             /**
              * class names of the root element.
              */
-            class: concat(names.HORIZONTAL_LAYOUT)
+            class: concat(HORIZONTAL_LAYOUT)
 
         }
 

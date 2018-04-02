@@ -2,6 +2,10 @@ import * as wml from '@quenk/wml';
 import { Activatable, Activate, Deactivate } from '../../state/active';
 import { WidgetAttrs, StylableAttrs } from '../../../';
 /**
+ * ITEM
+ */
+export declare const ITEM = "ww-item";
+/**
  * ItemAttrs
  */
 export interface ItemAttrs extends StylableAttrs {

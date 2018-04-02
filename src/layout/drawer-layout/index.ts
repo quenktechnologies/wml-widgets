@@ -1,9 +1,17 @@
-import * as names from './classNames';
 import { View, WMLElement } from '@quenk/wml';
 import { Group, GroupAttrs } from '../../content/Group';
 import { Hidable } from '../../content/state/hidden';
 import { Main } from './wml/drawer-layout';
 import { Drawer } from '../drawer';
+
+///classNames:begin
+
+/**
+ * DRAWER_LAYOUT
+ */
+export const DRAWER_LAYOUT = 'ww-drawer-layout';
+
+///classNames:end
 
 const drawer = (l: DrawerLayout) => (f: (d: Drawer) => Drawer) =>
     l
@@ -106,7 +114,7 @@ export class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
 
             id: 'content',
 
-            class: names.DRAWER_LAYOUT,
+            class: DRAWER_LAYOUT,
 
         },
         drawer: {

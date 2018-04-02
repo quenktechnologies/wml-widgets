@@ -1,5 +1,9 @@
 import { View, Renderable } from '@quenk/wml';
 import { GroupAttrs, Group } from '../../content/Group';
+export declare const MAIN_LAYOUT = "ww-main-layout";
+/**
+ * MainAttrs
+ */
 export interface MainAttrs extends GroupAttrs {
     ww?: {
         class?: string;

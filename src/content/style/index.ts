@@ -1,3 +1,4 @@
+///classNames:begin
 /**
  * DEFAULT style.
  */
@@ -27,3 +28,4 @@ export const WARNING = '-warning';
  * ERROR style.
  */
 export const ERROR = '-error';
+///classNames:end

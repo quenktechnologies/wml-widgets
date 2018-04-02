@@ -1,11 +1,10 @@
 import * as wml from '@quenk/wml';
-import * as names from './classNames';
-import * as style from '../../content/style/classNames';
+import * as style from '../../content/style';
 import { WidgetAttrs } from '../../';
 import { Component } from '@quenk/wml';
 import { concat } from '../../util';
 import { Main } from './wml/panel';
-import { PanelAttrs } from '.';
+import { PANEL, PanelAttrs } from '.';
 
 /**
  * Panel provides a rectangular container for visually seperating
@@ -31,7 +30,7 @@ export class Panel extends Component<WidgetAttrs<PanelAttrs>> {
             /**
              * class name for the root element.
              */
-            class: concat(names.PANEL, this.attrs.ww ?
+            class: concat(PANEL, this.attrs.ww ?
                 this.attrs.ww.style : style.DEFAULT, this.attrs.ww ?
                     this.attrs.ww.class : '')
 

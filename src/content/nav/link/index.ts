@@ -1,9 +1,15 @@
 import * as wml from '@quenk/wml';
-import * as names from './classNames';
 import * as views from './wml/link';
 import { concat } from '../../../util';
-import { ACTIVE } from '../../state/active/classNames';
+import { ACTIVE } from '../../state/active';
 import { WidgetAttrs, StylableAttrs } from '../../../';
+
+///classNames:begin
+/**
+ * LINK
+ */
+export const LINK = 'ww-link';
+///classNames:end
 
 /**
  * LinkAttrs
@@ -82,7 +88,7 @@ export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
 
             id: 'root',
 
-            class: concat(names.LINK,
+            class: concat(LINK,
                 this.attrs.ww ? this.attrs.ww.class : '',
                 (this.attrs.ww && this.attrs.ww.active) ?
                     ACTIVE : ''),

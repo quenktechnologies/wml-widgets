@@ -1,7 +1,7 @@
 import * as view from './wml/tab-bar';
-import * as names from './classNames';
 import { concat } from '../../util';
 import { Component, Attrs, View } from '@quenk/wml';
+import { TAB_BAR } from '.';
 
 /**
  * TabBarAttrs
@@ -31,7 +31,7 @@ export class TabBar extends Component<TabBarAttrs> {
         root: {
 
             class: concat(
-                names.TAB_BAR,
+                TAB_BAR,
                 'nav nav-tabs',
                 this.attrs.ww ? this.attrs.ww.class : '')
 

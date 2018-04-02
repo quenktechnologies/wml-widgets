@@ -1,5 +1,11 @@
-import * as names from './classNames';
 import { Maybe } from 'afpl/lib/monad/Maybe';
+
+///classNames:begin
+/**
+ * ACTIVE
+ */
+export const ACTIVE = '-active';
+///classNames:end
 
 /**
  * Activate
@@ -34,7 +40,7 @@ export interface Activatable {
 export const deactivate = <A extends Activatable>(a: A) => (fn: () => Maybe<HTMLElement>)
     : Deactivate<A> => () =>
         fn()
-            .map((e: HTMLElement) => e.classList.remove(names.ACTIVE))
+            .map((e: HTMLElement) => e.classList.remove(ACTIVE))
             .map(() => a)
             .orJust(() => a)
             .get();
@@ -46,8 +52,8 @@ export const activate = <A extends Activatable>(a: A) => (fn: () => Maybe<HTMLEl
     : Deactivate<A> => () =>
         fn()
             .map((e: HTMLElement) => {
-                e.classList.remove(names.ACTIVE);
-                e.classList.add(names.ACTIVE);
+                e.classList.remove(ACTIVE);
+                e.classList.add(ACTIVE);
             })
             .map(() => a)
             .orJust(() => a)

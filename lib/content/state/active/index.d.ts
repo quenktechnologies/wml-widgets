@@ -1,5 +1,9 @@
 import { Maybe } from 'afpl/lib/monad/Maybe';
 /**
+ * ACTIVE
+ */
+export declare const ACTIVE = "-active";
+/**
  * Activate
  */
 export declare type Activate<A extends Activatable> = () => A;

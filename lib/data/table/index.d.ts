@@ -6,13 +6,13 @@ import { RowClickedEvent } from './RowClickedEvent';
 import { RowSelectedEvent } from './RowSelectedEvent';
 import { HeadingClickedEvent } from './HeadingClickedEvent';
 import { Table } from './Table';
+export declare const TABLE = "table";
 export { Table, CellClickedEvent, RowClickedEvent, HeadingClickedEvent, AllSelectedEvent };
 export { Cell } from './Cell';
 export declare const ASC_ARROW = "⇧";
 export declare const DESC_ARROW = "⇩";
 export declare const THEAD = "thead";
 export declare const TBODY = "tbody";
-export declare const TABLE = "table";
 /**
  * Comparable represents those types that we know how to compare.
  */

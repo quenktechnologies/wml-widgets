@@ -1,6 +1,7 @@
 import * as wml from '@quenk/wml';
 import { TabView } from './TabView';
 export { TabView };
+export declare const TAB_VIEW = "ww-tabview";
 /**
  * TabSpec is used to render a tab and it's associated View.
  */

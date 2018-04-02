@@ -1,4 +1,4 @@
-import * as names from '../../content/style/classNames';
+import * as names from '../../content/style';
 import { View } from '@quenk/wml';
 import { Control, ControlAttrs, ControlAttrsProperties } from '../../control';
 

@@ -1,6 +1,10 @@
 import { Component, Attrs, View } from '@quenk/wml';
 import { Control, ControlAttrsProperties, Event } from '../';
 /**
+ * ICON_BUTTON clasess for IconButtons.
+ */
+export declare const ICON_BUTTON = "ww-icon-button";
+/**
  * IconButtonAttrsProperties
  */
 export interface IconButtonAttrsProperties extends ControlAttrsProperties {

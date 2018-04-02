@@ -7,6 +7,10 @@ import { RowSelectedEvent } from './RowSelectedEvent';
 import { HeadingClickedEvent } from './HeadingClickedEvent';
 import { Table } from './Table';
 
+///classNames:begin
+export const TABLE = 'table'; //@todo un-bootstrap
+///classNames:end
+
 export { Table, CellClickedEvent, RowClickedEvent, HeadingClickedEvent, AllSelectedEvent };
 export { Cell } from './Cell';
 
@@ -14,7 +18,6 @@ export const ASC_ARROW = '\u21e7';
 export const DESC_ARROW = '\u21e9';
 export const THEAD = 'thead';
 export const TBODY = 'tbody';
-export const TABLE = 'table';
 
 /**
  * Comparable represents those types that we know how to compare.
@@ -67,8 +70,8 @@ export interface TableAttrs<C, R> extends Attrs {
     ww: {
 
         class?: string,
-      theadClass?: string,
-        tbodyClass?:string,
+        theadClass?: string,
+        tbodyClass?: string,
         thClass?: string,
         trClass?: string,
         tdClass?: string,

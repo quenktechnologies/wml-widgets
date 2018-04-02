@@ -1,1 +1,50 @@
-export {Header} from './Header';
+import * as wml from '@quenk/wml';
+import * as views from './wml/header';
+import {concat} from '../../util';
+
+///classNames:begin
+export const HEADER = 'ww-header';
+///classNames:end
+
+/**
+ * HeaderAttrs 
+ */
+export interface HeaderAttrs extends wml.Attrs {
+
+    ww?: {
+
+        /**
+         * class or classes to append to the root element.
+         */
+        class?: string,
+
+        /**
+         * text to display as an alternative to specifying children elements.
+         */
+        text?: string
+
+    }
+
+}
+
+/**
+ * Header is used to clearly separate headings from 
+ * the rest of content.
+ */
+export class Header extends wml.Component<HeaderAttrs> {
+
+    view: wml.View = new views.Main(this);
+
+    values = {
+
+        class: {
+
+            root: concat(HEADER, this.attrs.ww ? this.attrs.ww.class : '')
+
+        },
+        text: (this.attrs.ww && this.attrs.ww.text) ?
+            this.attrs.ww.text : ''
+
+    }
+
+}

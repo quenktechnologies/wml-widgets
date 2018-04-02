@@ -13,8 +13,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "peerDependencies": {
-    "less-plugin-js-vars": "^2.2.4",
-    "less-plugin-npm-import": "^2.1.0",
+    "less-plugin-js-vars": "^2.4.0",
     "@quenk/wml": "^0.15.27"
   },
   "dependencies": {
@@ -34,7 +33,6 @@
     "less": "^2.7.3",
     "less-plugin-js-vars": "^2.4.0",
     "less-plugin-npm-import": "^2.1.0",
-    "less-plugin-variables-output": "^1.2.0",
     "mocha": "^3.4.2",
     "must": "^0.13.4",
     "nightwatch": "^0.9.20",

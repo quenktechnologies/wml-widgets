@@ -1,9 +1,8 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button';
-import * as classNames from './classNames';
 import { ClassMap, styles, states, features } from '../../util/classNames';
 import { concat } from '../../util';
-import { ButtonAttrs, ButtonClickedEvent } from '.';
+import { BUTTON, ButtonAttrs, ButtonClickedEvent } from '.';
 
 /**
  * Button is an improvement over HTMLButtionElement
@@ -15,7 +14,7 @@ export class Button extends wml.Component<ButtonAttrs> {
     /**
      * NAME
      */
-    static CLASS_NAME = classNames.BUTTON;
+    static CLASS_NAME = BUTTON;
 
     /**
      * styles the Button supports.

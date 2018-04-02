@@ -1,6 +1,5 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/item';
-import * as names from './classNames';
 import {
     Activatable,
     Activate,
@@ -8,12 +7,19 @@ import {
     activate,
     deactivate
 } from '../../state/active';
-import { ACTIVE } from '../../state/active/classNames';
+import { ACTIVE } from '../../state/active';
 import { WidgetAttrs, StylableAttrs } from '../../../';
 import { concat } from '../../../util';
 
 const get = (i: Item) =>
     () => i.view.findById(i.values.root.id).map((e: HTMLElement) => e);
+
+///classNames:begin
+/**
+ * ITEM
+ */
+export const ITEM = 'ww-item';
+///classNames:end
 
 /**
  * ItemAttrs
@@ -72,7 +78,7 @@ export class Item extends wml.Component<WidgetAttrs<ItemAttrs>> implements
 
             id: 'root',
 
-            class: concat(names.ITEM,
+            class: concat(ITEM,
                 (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : null)
 
         },

@@ -1,5 +1,6 @@
 import * as wml from '@quenk/wml';
 import { ButtonClickedEvent } from './ButtonClickedEvent';
+export declare const BUTTON = "ww-button";
 export { Button } from './Button';
 export { ButtonClickedEvent };
 /**

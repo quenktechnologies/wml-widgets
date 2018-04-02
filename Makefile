@@ -27,8 +27,11 @@ lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml -o -name \*.less)
 	$(shell $(MKDIRP) $@)
 	$(shell $(CPR) src/* $@)
 	$(WMLC) --pretty --extension ts $@ 
-	$(shell cat $@/util/class-names/index.ts > $(HERE)/lib/classNames.ts) 
-	$(foreach class,$(CLASS_NAMES_FILES),$(shell cat $(class) >> $(HERE)/lib/classNames.ts)) 
+
+	$(shell grep -rsl "///classNames:begin" src | \
+	xargs sed -n '/\/\/\/classNames:begin/,/\/\/\/classNames:end/p' \
+	> $(HERE)/lib/classNames.ts) 
+
 	$(TSC) --sourceMap --project $@ 
 	$(TOUCH) $@ 
 
@@ -86,3 +89,5 @@ remove-js:
 	$(foreach j,$(DT),$(shell rm $(j)))
 	$(foreach j,$(SM),$(shell rm $(j)))
 	$(foreach j,$(JS),$(shell rm $(j)))
+
+.DELETE_ON_ERROR:

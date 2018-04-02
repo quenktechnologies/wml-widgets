@@ -1,9 +1,8 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/tab-view';
-import * as classNames from './classNames';
 import { Maybe } from 'afpl/lib/monad/Maybe';
 import { TabClickedEvent } from '../../control/tab-bar';
-import { TabViewAttrs, TabSpec, TabSpecMap } from '.';
+import {TAB_VIEW, TabViewAttrs, TabSpec, TabSpecMap } from '.';
 
 /**
  * TabView provides a layout whose displayed content can be changed via tabs.
@@ -30,7 +29,7 @@ export class TabView extends wml.Component<TabViewAttrs> {
 
       root: {
 
-        class: classNames.TAB_VIEW
+        class: TAB_VIEW
 
       },
 

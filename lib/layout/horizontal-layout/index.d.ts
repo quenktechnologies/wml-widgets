@@ -1,5 +1,6 @@
 import * as wml from '@quenk/wml';
 import { WidgetAttrs, StylableAttrs } from '../../';
+export declare const HORIZONTAL_LAYOUT = "ww-horizontal-layout";
 /**
  * HorizontalLayoutAttrs
  */

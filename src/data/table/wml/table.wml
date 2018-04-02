@@ -1,7 +1,7 @@
 import {concat} from "../../../util"
 import {get} from "property-seek"
 import {Fragment} from "../../../layout/fragment"
-import {ACTIVE} from "../../../content/state/active/classNames"
+import {ACTIVE} from "../../../content/state/active"
 import {Column, Table as Table} from ".."
 
 {% fun thead[C,R] (Table[C,R]) (columns:Column[C,R][]) %}

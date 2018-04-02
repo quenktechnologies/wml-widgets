@@ -1,5 +1,9 @@
 import { Maybe } from 'afpl/lib/monad/Maybe';
 /**
+ * OPEN state.
+ */
+export declare const OPEN = "-open";
+/**
  * Open
  */
 export declare type Open<W extends Openable> = () => W;

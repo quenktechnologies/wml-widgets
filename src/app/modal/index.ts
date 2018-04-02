@@ -1,8 +1,16 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/modal';
-import * as names from './classNames';
 import { concat } from '../../util';
 import { Group } from '../../content/Group';
+
+///classNames:begin
+export const MODAL = 'ww-modal';
+export const MODAL_DIALOG = 'ww-modal__dialog';
+export const MODAL_CONTENT = 'ww-modal__content';
+export const MODAL_HEADER = 'ww-modal__header';
+export const MODAL_BODY = 'ww-modal__body';
+export const MODAL_FOOTER = 'ww-modal__footer';
+///classNames:end
 
 export interface ModalAttrs extends wml.Attrs {
     ww?: {
@@ -41,9 +49,9 @@ export class Modal extends Group<ModalAttrs> {
         },
         class: {
 
-            root: concat(names.MODAL, this.attrs.ww ? this.attrs.ww.class : ''),
-            content: names.MODAL_CONTENT,
-            dialog: names.MODAL_DIALOG
+            root: concat(MODAL, this.attrs.ww ? this.attrs.ww.class : ''),
+            content: MODAL_CONTENT,
+            dialog: MODAL_DIALOG
 
         }
 
@@ -80,7 +88,7 @@ export class Header extends wml.Component<HeaderAttrs> {
 
         class: {
 
-            root: names.MODAL_HEADER
+            root: MODAL_HEADER
 
         }
 
@@ -104,7 +112,7 @@ export class Body extends Group<BodyAttrs> {
         },
         class: {
 
-            root: names.MODAL_BODY
+            root: MODAL_BODY
 
         }
 
@@ -129,7 +137,7 @@ export class Footer extends Group<FooterAttrs> {
 
         class: {
 
-            root: names.MODAL_FOOTER
+            root: MODAL_FOOTER
 
         }
 

@@ -1,5 +1,11 @@
-import * as names from './classNames';
 import { Maybe } from 'afpl/lib/monad/Maybe';
+
+///classNames:begin
+/**
+ * OPEN state.
+ */
+export const OPEN = '-open';
+///classNames:end
 
 /**
  * Open
@@ -35,7 +41,7 @@ export interface Openable {
 export const open = <W extends Openable>(w: W) => (fn: () => Maybe<HTMLElement>)
     : Open<W> => () =>
         fn()
-            .map((e: HTMLElement) => e.classList.add(names.OPEN))
+            .map((e: HTMLElement) => e.classList.add(OPEN))
             .map(() => w)
             .orJust(() => w)
             .get();
@@ -44,10 +50,10 @@ export const open = <W extends Openable>(w: W) => (fn: () => Maybe<HTMLElement>)
  * close this widget.
  */
 export const close = <W extends Openable>(w: W) => (fn: () => Maybe<HTMLElement>)
-    : Close<W> => ()=>
-    fn()
-        .map((e: HTMLElement) => e.classList.remove(names.OPEN))
-        .map(() => w)
-        .orJust(() => w)
-        .get();
+    : Close<W> => () =>
+        fn()
+            .map((e: HTMLElement) => e.classList.remove(OPEN))
+            .map(() => w)
+            .orJust(() => w)
+            .get();
 

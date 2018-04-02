@@ -1,4 +1,4 @@
-
+///classNames:begin
 /**
  * VERTICAL indicates an element is vertical rendererd.
  */
@@ -11,7 +11,8 @@ export const VERTICAL = '-vertical';
 export const RIGHT_PUSHABLE = '-right-pushable';
 
 /**
- * POSITIONED indicates an element is positioned ie remove
- * from flow.
+ * POSITIONED indicates an element is positioned and responds
+ * to the left ,right modifiers etc.
  */
 export const POSITIONED = '-positioned';
+///classNames:end

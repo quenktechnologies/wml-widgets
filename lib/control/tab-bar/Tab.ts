@@ -1,12 +1,12 @@
 import * as afpl from 'afpl';
-import * as names from './classNames';
 import * as view from './wml/tab';
+import * as active from '../../content/state/active';
 import { concat } from '../../util';
-import { states } from '../../util/classNames';
 import { TabClickedEvent } from './TabClickedEvent';
 import { TabClickedEventHandler } from './TabClickedEventHandler';
 import { Component, Attrs, View } from '@quenk/wml';
 import { Control, ControlAttrsProperties } from '..';
+import {TAB} from '.';
 
 /**
  * TabAttrsProperties
@@ -56,7 +56,7 @@ export class Tab extends Component<TabAttrs> implements Control<TabAttrs> {
 
             id: 'root',
 
-            class: concat(names.TAB_BAR_TAB, this.attrs.ww.active ? states.ACTIVE : ''),
+            class: concat(TAB, this.attrs.ww.active ? active.ACTIVE : ''),
 
         },
         a: {
@@ -78,12 +78,12 @@ export class Tab extends Component<TabAttrs> implements Control<TabAttrs> {
                         let us = parent.children;
 
                         for (var i = 0; i < us.length; i++)
-                            us[i].classList.remove(states.ACTIVE);
+                            us[i].classList.remove(active.ACTIVE);
 
                         return this
                             .view
                             .findById(this.values.root.id)
-                            .map((el: HTMLElement) => el.classList.add(states.ACTIVE))
+                            .map((el: HTMLElement) => el.classList.add(active.ACTIVE))
                             .chain(() => afpl.Maybe.fromAny(this.attrs.ww.onClick))
                             .map((f: TabClickedEventHandler) =>
                                 f(new TabClickedEvent(this.attrs.ww.name)));

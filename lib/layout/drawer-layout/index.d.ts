@@ -1,6 +1,10 @@
 import { View } from '@quenk/wml';
 import { Group, GroupAttrs } from '../../content/Group';
 import { Hidable } from '../../content/state/hidden';
+/**
+ * DRAWER_LAYOUT
+ */
+export declare const DRAWER_LAYOUT = "ww-drawer-layout";
 export interface DrawerLayoutAttrs extends GroupAttrs {
     ww?: {
         drawer?: View;
