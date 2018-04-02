@@ -1215,10 +1215,7 @@ body {
   overflow-x: auto;
   overflow-y: auto;
   background-color: #f6f7f9;
-  padding-top: 15em;
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-bottom: 0px;
+  padding: 60px 0px;
 }
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
