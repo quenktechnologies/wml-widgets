@@ -23,7 +23,7 @@ LESS_INCLUDE_PATHS=less:src
 $(HERE) : lib dist example
 	$(TOUCH) $@
 # copy sources to the lib and generates the generated ts code.
-lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml)
+lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml -o -name \*.less)
 	$(shell $(MKDIRP) $@)
 	$(shell $(CPR) src/* $@)
 	$(WMLC) --pretty --extension ts $@ 
@@ -36,15 +36,12 @@ dist: dist/widgets.css
 	$(TOUCH) $@
 
 # build a css file you an include on a page to have the css for all widgets.
-dist/widgets.css: lib less
+dist/widgets.css: lib $(shell $(FIND) less -name \*.less) $(shell $(FIND) lib -name \*.less)
 	$(MKDIRP) dist
 	$(LESSC) --source-map-less-inline \
 	 --js-vars="$(JS_VARS_OBJECTS)" \
 	--include-path=$(LESS_INCLUDE_PATHS) \
 	--npm-import less/build.less > $@
-
-less: $(shell $(FIND) less -name \*.less)
-	$(TOUCH) $@
 
 example: example/public
 	$(TOUCH) $@
