@@ -1143,7 +1143,10 @@ body {
 .-no-list-style {
   list-style: none;
 }
-.__ASIDE__ {
+/**
+ Drawer styling
+*/
+.ww-drawer {
   width: 15em;
   height: 100%;
   position: fixed;
@@ -1153,37 +1156,36 @@ body {
   display: block;
   border-right: 1px solid #343434;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
-  z-index: 900;
+  z-index: 9;
   background-color: #1a1a1a;
-  -webkit-transition: width 0.5s ease;
-  -moz-transition: width 0.5s ease;
-  -o-transition: width 0.5s ease;
   transition: width 0.5s ease;
+  /**
+    Styles for supporting the hiding and pushing of the Drawer in CSS.
+   */
 }
-.__ASIDE__.__HIDDEN__ {
-  width: 0px;
+.ww-drawer.-hidden {
+  width: 0;
 }
-.__ASIDE__.__HIDDEN__ ~ .__PUSHABLE__ {
+.ww-drawer.-hidden.-hidden ~ .__PUSHABLE__ {
   margin-left: 0;
 }
-.__ASIDE__.__HIDDEN__ ~ .__FIXED_PUSHABLE__ {
+.ww-drawer.-hidden.-hidden ~ .__FIXED_PUSHABLE__ {
   left: 0;
 }
-.__ASIDE__ ~ .__PUSHABLE__ {
+.ww-drawer ~ .__PUSHABLE__ {
   margin-left: 15em;
-  -webkit-transition: margin-left 0.5s ease;
-  -moz-transition: margin-left 0.5s ease;
-  -o-transition: margin-left 0.5s ease;
   transition: margin-left 0.5s ease;
 }
-.__ASIDE__ ~ .__FIXED_PUSHABLE__ {
+.ww-drawer ~ .__FIXED_PUSHABLE__ {
   left: 15em;
-  -webkit-transition: left 0.5s ease;
-  -moz-transition: left 0.5s ease;
-  -o-transition: left 0.5s ease;
   transition: left 0.5s ease;
 }
-.__ASIDE_CONTENT__ {
+/**
+  Styles applied to the inner content of a Drawer.
+
+  We add some padding to prevent touching the edges etc.
+ */
+.ww-drawer__content {
   width: 100%;
   position: absolute;
   top: 0;
@@ -1194,18 +1196,21 @@ body {
   -webkit-overflow-scrolling: touch;
   color: #fff;
 }
-.__DRAWER__ {
+/**
+ * DrawerLayout styling
+ */
+.ww-drawer-layout {
   height: 100%;
   margin: 0;
-  padding: 0 0 0 0;
+  padding: 0;
   background-color: #212121;
   color: #333333;
 }
-.__DRAWER__ > .__ASIDE__:not(.__HIDDEN__) {
+.ww-drawer-layout > .ww-drawer:not(.-hidden) {
   width: 15em;
   background-color: #1a1a1a;
 }
-.__MAIN_VIEW__ {
+.ww-main-layout {
   height: 100%;
   overflow-x: auto;
   overflow-y: auto;
@@ -7617,8 +7622,8 @@ button.close {
 .modal-header:after,
 .modal-footer:before,
 .modal-footer:after,
-.__PANEL_BODY__:before,
-.__PANEL_BODY__:after,
+.ww-panel__body:before,
+.ww-panel__body:after,
 .ww-modal__header:before,
 .ww-modal__header:after,
 .ww-modal__footer:before,
@@ -7642,7 +7647,7 @@ button.close {
 .panel-body:after,
 .modal-header:after,
 .modal-footer:after,
-.__PANEL_BODY__:after,
+.ww-panel__body:after,
 .ww-modal__header:after,
 .ww-modal__footer:after {
   clear: both;
@@ -7894,7 +7899,7 @@ button.close {
   Originally from bootstrap/mixins/panel.less
   We needed to override the class names.
  */
-.__PANEL__ {
+.ww-panel {
   margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;
@@ -7902,191 +7907,191 @@ button.close {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 }
-.__PANEL__ > .list-group,
-.__PANEL__ > .panel-collapse > .list-group {
+.ww-panel > .list-group,
+.ww-panel > .panel-collapse > .list-group {
   margin-bottom: 0;
 }
-.__PANEL__ > .list-group .list-group-item,
-.__PANEL__ > .panel-collapse > .list-group .list-group-item {
+.ww-panel > .list-group .list-group-item,
+.ww-panel > .panel-collapse > .list-group .list-group-item {
   border-width: 1px 0;
   border-radius: 0;
 }
-.__PANEL__ > .list-group:first-child .list-group-item:first-child,
-.__PANEL__ > .panel-collapse > .list-group:first-child .list-group-item:first-child {
+.ww-panel > .list-group:first-child .list-group-item:first-child,
+.ww-panel > .panel-collapse > .list-group:first-child .list-group-item:first-child {
   border-top: 0;
   border-top-radius: 3px;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.__PANEL__ > .list-group:last-child .list-group-item:last-child,
-.__PANEL__ > .panel-collapse > .list-group:last-child .list-group-item:last-child {
+.ww-panel > .list-group:last-child .list-group-item:last-child,
+.ww-panel > .panel-collapse > .list-group:last-child .list-group-item:last-child {
   border-bottom: 0;
   border-bottom-radius: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.__PANEL__ > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
+.ww-panel > .panel-heading + .panel-collapse > .list-group .list-group-item:first-child {
   border-top-radius: 0;
   border-top-right-radius: 0;
   border-top-left-radius: 0;
 }
-.__PANEL__ > .table,
-.__PANEL__ > .table-responsive > .table,
-.__PANEL__ > .panel-collapse > .table {
+.ww-panel > .table,
+.ww-panel > .table-responsive > .table,
+.ww-panel > .panel-collapse > .table {
   margin-bottom: 0;
 }
-.__PANEL__ > .table caption,
-.__PANEL__ > .table-responsive > .table caption,
-.__PANEL__ > .panel-collapse > .table caption {
+.ww-panel > .table caption,
+.ww-panel > .table-responsive > .table caption,
+.ww-panel > .panel-collapse > .table caption {
   padding-left: 15px;
   padding-right: 15px;
 }
-.__PANEL__ > .table:first-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child {
+.ww-panel > .table:first-child,
+.ww-panel > .table-responsive:first-child > .table:first-child {
   border-top-radius: 3px;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.__PANEL__ > .table:first-child > thead:first-child > tr:first-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
-.__PANEL__ > .table:first-child > tbody:first-child > tr:first-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child {
+.ww-panel > .table:first-child > thead:first-child > tr:first-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child,
+.ww-panel > .table:first-child > tbody:first-child > tr:first-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 }
-.__PANEL__ > .table:first-child > thead:first-child > tr:first-child td:first-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
-.__PANEL__ > .table:first-child > tbody:first-child > tr:first-child td:first-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
-.__PANEL__ > .table:first-child > thead:first-child > tr:first-child th:first-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
-.__PANEL__ > .table:first-child > tbody:first-child > tr:first-child th:first-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
+.ww-panel > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:first-child,
+.ww-panel > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:first-child,
+.ww-panel > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:first-child,
+.ww-panel > .table:first-child > tbody:first-child > tr:first-child th:first-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:first-child {
   border-top-left-radius: 3px;
 }
-.__PANEL__ > .table:first-child > thead:first-child > tr:first-child td:last-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
-.__PANEL__ > .table:first-child > tbody:first-child > tr:first-child td:last-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
-.__PANEL__ > .table:first-child > thead:first-child > tr:first-child th:last-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
-.__PANEL__ > .table:first-child > tbody:first-child > tr:first-child th:last-child,
-.__PANEL__ > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
+.ww-panel > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child td:last-child,
+.ww-panel > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child td:last-child,
+.ww-panel > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > thead:first-child > tr:first-child th:last-child,
+.ww-panel > .table:first-child > tbody:first-child > tr:first-child th:last-child,
+.ww-panel > .table-responsive:first-child > .table:first-child > tbody:first-child > tr:first-child th:last-child {
   border-top-right-radius: 3px;
 }
-.__PANEL__ > .table:last-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child {
+.ww-panel > .table:last-child,
+.ww-panel > .table-responsive:last-child > .table:last-child {
   border-bottom-radius: 3px;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-.__PANEL__ > .table:last-child > tbody:last-child > tr:last-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
-.__PANEL__ > .table:last-child > tfoot:last-child > tr:last-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child {
+.ww-panel > .table:last-child > tbody:last-child > tr:last-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child,
+.ww-panel > .table:last-child > tfoot:last-child > tr:last-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child {
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-.__PANEL__ > .table:last-child > tbody:last-child > tr:last-child td:first-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
-.__PANEL__ > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
-.__PANEL__ > .table:last-child > tbody:last-child > tr:last-child th:first-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
-.__PANEL__ > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
+.ww-panel > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:first-child,
+.ww-panel > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:first-child,
+.ww-panel > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:first-child,
+.ww-panel > .table:last-child > tfoot:last-child > tr:last-child th:first-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:first-child {
   border-bottom-left-radius: 3px;
 }
-.__PANEL__ > .table:last-child > tbody:last-child > tr:last-child td:last-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
-.__PANEL__ > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
-.__PANEL__ > .table:last-child > tbody:last-child > tr:last-child th:last-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
-.__PANEL__ > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
-.__PANEL__ > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
+.ww-panel > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child td:last-child,
+.ww-panel > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child td:last-child,
+.ww-panel > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tbody:last-child > tr:last-child th:last-child,
+.ww-panel > .table:last-child > tfoot:last-child > tr:last-child th:last-child,
+.ww-panel > .table-responsive:last-child > .table:last-child > tfoot:last-child > tr:last-child th:last-child {
   border-bottom-right-radius: 3px;
 }
-.__PANEL__ > .panel-body + .table,
-.__PANEL__ > .panel-body + .table-responsive,
-.__PANEL__ > .table + .panel-body,
-.__PANEL__ > .table-responsive + .panel-body {
+.ww-panel > .panel-body + .table,
+.ww-panel > .panel-body + .table-responsive,
+.ww-panel > .table + .panel-body,
+.ww-panel > .table-responsive + .panel-body {
   border-top: 1px solid #ddd;
 }
-.__PANEL__ > .table > tbody:first-child > tr:first-child th,
-.__PANEL__ > .table > tbody:first-child > tr:first-child td {
+.ww-panel > .table > tbody:first-child > tr:first-child th,
+.ww-panel > .table > tbody:first-child > tr:first-child td {
   border-top: 0;
 }
-.__PANEL__ > .table-bordered,
-.__PANEL__ > .table-responsive > .table-bordered {
+.ww-panel > .table-bordered,
+.ww-panel > .table-responsive > .table-bordered {
   border: 0;
 }
-.__PANEL__ > .table-bordered > thead > tr > th:first-child,
-.__PANEL__ > .table-responsive > .table-bordered > thead > tr > th:first-child,
-.__PANEL__ > .table-bordered > tbody > tr > th:first-child,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr > th:first-child,
-.__PANEL__ > .table-bordered > tfoot > tr > th:first-child,
-.__PANEL__ > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
-.__PANEL__ > .table-bordered > thead > tr > td:first-child,
-.__PANEL__ > .table-responsive > .table-bordered > thead > tr > td:first-child,
-.__PANEL__ > .table-bordered > tbody > tr > td:first-child,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr > td:first-child,
-.__PANEL__ > .table-bordered > tfoot > tr > td:first-child,
-.__PANEL__ > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+.ww-panel > .table-bordered > thead > tr > th:first-child,
+.ww-panel > .table-responsive > .table-bordered > thead > tr > th:first-child,
+.ww-panel > .table-bordered > tbody > tr > th:first-child,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr > th:first-child,
+.ww-panel > .table-bordered > tfoot > tr > th:first-child,
+.ww-panel > .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+.ww-panel > .table-bordered > thead > tr > td:first-child,
+.ww-panel > .table-responsive > .table-bordered > thead > tr > td:first-child,
+.ww-panel > .table-bordered > tbody > tr > td:first-child,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr > td:first-child,
+.ww-panel > .table-bordered > tfoot > tr > td:first-child,
+.ww-panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
   border-left: 0;
 }
-.__PANEL__ > .table-bordered > thead > tr > th:last-child,
-.__PANEL__ > .table-responsive > .table-bordered > thead > tr > th:last-child,
-.__PANEL__ > .table-bordered > tbody > tr > th:last-child,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr > th:last-child,
-.__PANEL__ > .table-bordered > tfoot > tr > th:last-child,
-.__PANEL__ > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
-.__PANEL__ > .table-bordered > thead > tr > td:last-child,
-.__PANEL__ > .table-responsive > .table-bordered > thead > tr > td:last-child,
-.__PANEL__ > .table-bordered > tbody > tr > td:last-child,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr > td:last-child,
-.__PANEL__ > .table-bordered > tfoot > tr > td:last-child,
-.__PANEL__ > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+.ww-panel > .table-bordered > thead > tr > th:last-child,
+.ww-panel > .table-responsive > .table-bordered > thead > tr > th:last-child,
+.ww-panel > .table-bordered > tbody > tr > th:last-child,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr > th:last-child,
+.ww-panel > .table-bordered > tfoot > tr > th:last-child,
+.ww-panel > .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+.ww-panel > .table-bordered > thead > tr > td:last-child,
+.ww-panel > .table-responsive > .table-bordered > thead > tr > td:last-child,
+.ww-panel > .table-bordered > tbody > tr > td:last-child,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr > td:last-child,
+.ww-panel > .table-bordered > tfoot > tr > td:last-child,
+.ww-panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
   border-right: 0;
 }
-.__PANEL__ > .table-bordered > thead > tr:first-child > td,
-.__PANEL__ > .table-responsive > .table-bordered > thead > tr:first-child > td,
-.__PANEL__ > .table-bordered > tbody > tr:first-child > td,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr:first-child > td,
-.__PANEL__ > .table-bordered > thead > tr:first-child > th,
-.__PANEL__ > .table-responsive > .table-bordered > thead > tr:first-child > th,
-.__PANEL__ > .table-bordered > tbody > tr:first-child > th,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr:first-child > th {
+.ww-panel > .table-bordered > thead > tr:first-child > td,
+.ww-panel > .table-responsive > .table-bordered > thead > tr:first-child > td,
+.ww-panel > .table-bordered > tbody > tr:first-child > td,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr:first-child > td,
+.ww-panel > .table-bordered > thead > tr:first-child > th,
+.ww-panel > .table-responsive > .table-bordered > thead > tr:first-child > th,
+.ww-panel > .table-bordered > tbody > tr:first-child > th,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr:first-child > th {
   border-bottom: 0;
 }
-.__PANEL__ > .table-bordered > tbody > tr:last-child > td,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr:last-child > td,
-.__PANEL__ > .table-bordered > tfoot > tr:last-child > td,
-.__PANEL__ > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
-.__PANEL__ > .table-bordered > tbody > tr:last-child > th,
-.__PANEL__ > .table-responsive > .table-bordered > tbody > tr:last-child > th,
-.__PANEL__ > .table-bordered > tfoot > tr:last-child > th,
-.__PANEL__ > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
+.ww-panel > .table-bordered > tbody > tr:last-child > td,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr:last-child > td,
+.ww-panel > .table-bordered > tfoot > tr:last-child > td,
+.ww-panel > .table-responsive > .table-bordered > tfoot > tr:last-child > td,
+.ww-panel > .table-bordered > tbody > tr:last-child > th,
+.ww-panel > .table-responsive > .table-bordered > tbody > tr:last-child > th,
+.ww-panel > .table-bordered > tfoot > tr:last-child > th,
+.ww-panel > .table-responsive > .table-bordered > tfoot > tr:last-child > th {
   border-bottom: 0;
 }
-.__PANEL__ > .table-responsive {
+.ww-panel > .table-responsive {
   border: 0;
   margin-bottom: 0;
 }
-.__PANEL_HEADER__ {
+.ww-panel__header {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
   border-top-radius: 3px;
   border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
-.__PANEL_HEADER__ > .dropdown .dropdown-toggle {
+.ww-panel__header > .dropdown .dropdown-toggle {
   color: inherit;
 }
-.__PANEL_BODY__ {
+.ww-panel__body {
   padding: 15px;
 }
-.__PANEL_FOOTER__ {
+.ww-panel__footer {
   padding: 10px 15px;
   background-color: #f5f5f5;
   border-top: 1px solid #ddd;
@@ -8112,19 +8117,19 @@ button.close {
 .__PANEL__.__DEFAULT__ > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ddd;
 }
-.__PANEL__.__DEFAULT__ > .__PANEL_HEADER__ {
+.__PANEL__.__DEFAULT__ > .ww-panel__header {
   color: #333333;
   background-color: #f5f5f5;
   border-color: #ddd;
 }
-.__PANEL__.__DEFAULT__ > .__PANEL_HEADER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__DEFAULT__ > .ww-panel__header + .panel-collapse > .ww-panel__body {
   border-top-color: #ddd;
 }
-.__PANEL__.__DEFAULT__ > .__PANEL_HEADER__ .badge {
+.__PANEL__.__DEFAULT__ > .ww-panel__header .badge {
   color: #f5f5f5;
   background-color: #333333;
 }
-.__PANEL__.__DEFAULT__ > .__PANEL_FOOTER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__DEFAULT__ > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #ddd;
 }
 .__PANEL__.__PRIMARY__ {
@@ -8145,19 +8150,19 @@ button.close {
 .__PANEL__.__PRIMARY__ > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #337ab7;
 }
-.__PANEL__.__PRIMARY__ > .__PANEL_HEADER__ {
+.__PANEL__.__PRIMARY__ > .ww-panel__header {
   color: #fff;
   background-color: #337ab7;
   border-color: #337ab7;
 }
-.__PANEL__.__PRIMARY__ > .__PANEL_HEADER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__PRIMARY__ > .ww-panel__header + .panel-collapse > .ww-panel__body {
   border-top-color: #337ab7;
 }
-.__PANEL__.__PRIMARY__ > .__PANEL_HEADER__ .badge {
+.__PANEL__.__PRIMARY__ > .ww-panel__header .badge {
   color: #337ab7;
   background-color: #fff;
 }
-.__PANEL__.__PRIMARY__ > .__PANEL_FOOTER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__PRIMARY__ > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #337ab7;
 }
 .__PANEL__.__SUCCESS__ {
@@ -8178,19 +8183,19 @@ button.close {
 .__PANEL__.__SUCCESS__ > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #d6e9c6;
 }
-.__PANEL__.__SUCCESS__ > .__PANEL_HEADER__ {
+.__PANEL__.__SUCCESS__ > .ww-panel__header {
   color: #3c763d;
   background-color: #dff0d8;
   border-color: #d6e9c6;
 }
-.__PANEL__.__SUCCESS__ > .__PANEL_HEADER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__SUCCESS__ > .ww-panel__header + .panel-collapse > .ww-panel__body {
   border-top-color: #d6e9c6;
 }
-.__PANEL__.__SUCCESS__ > .__PANEL_HEADER__ .badge {
+.__PANEL__.__SUCCESS__ > .ww-panel__header .badge {
   color: #dff0d8;
   background-color: #3c763d;
 }
-.__PANEL__.__SUCCESS__ > .__PANEL_FOOTER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__SUCCESS__ > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #d6e9c6;
 }
 .__PANEL__.__INFO__ {
@@ -8211,19 +8216,19 @@ button.close {
 .__PANEL__.__INFO__ > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #bce8f1;
 }
-.__PANEL__.__INFO__ > .__PANEL_HEADER__ {
+.__PANEL__.__INFO__ > .ww-panel__header {
   color: #31708f;
   background-color: #d9edf7;
   border-color: #bce8f1;
 }
-.__PANEL__.__INFO__ > .__PANEL_HEADER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__INFO__ > .ww-panel__header + .panel-collapse > .ww-panel__body {
   border-top-color: #bce8f1;
 }
-.__PANEL__.__INFO__ > .__PANEL_HEADER__ .badge {
+.__PANEL__.__INFO__ > .ww-panel__header .badge {
   color: #d9edf7;
   background-color: #31708f;
 }
-.__PANEL__.__INFO__ > .__PANEL_FOOTER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__INFO__ > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #bce8f1;
 }
 .__PANEL__.__WARNING__ {
@@ -8244,19 +8249,19 @@ button.close {
 .__PANEL__.__WARNING__ > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #faebcc;
 }
-.__PANEL__.__WARNING__ > .__PANEL_HEADER__ {
+.__PANEL__.__WARNING__ > .ww-panel__header {
   color: #8a6d3b;
   background-color: #fcf8e3;
   border-color: #faebcc;
 }
-.__PANEL__.__WARNING__ > .__PANEL_HEADER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__WARNING__ > .ww-panel__header + .panel-collapse > .ww-panel__body {
   border-top-color: #faebcc;
 }
-.__PANEL__.__WARNING__ > .__PANEL_HEADER__ .badge {
+.__PANEL__.__WARNING__ > .ww-panel__header .badge {
   color: #fcf8e3;
   background-color: #8a6d3b;
 }
-.__PANEL__.__WARNING__ > .__PANEL_FOOTER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__WARNING__ > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #faebcc;
 }
 .__PANEL__.__DANGER__ {
@@ -8277,22 +8282,22 @@ button.close {
 .__PANEL__.__DANGER__ > .panel-footer + .panel-collapse > .panel-body {
   border-bottom-color: #ebccd1;
 }
-.__PANEL__.__DANGER__ > .__PANEL_HEADER__ {
+.__PANEL__.__DANGER__ > .ww-panel__header {
   color: #a94442;
   background-color: #f2dede;
   border-color: #ebccd1;
 }
-.__PANEL__.__DANGER__ > .__PANEL_HEADER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__DANGER__ > .ww-panel__header + .panel-collapse > .ww-panel__body {
   border-top-color: #ebccd1;
 }
-.__PANEL__.__DANGER__ > .__PANEL_HEADER__ .badge {
+.__PANEL__.__DANGER__ > .ww-panel__header .badge {
   color: #f2dede;
   background-color: #a94442;
 }
-.__PANEL__.__DANGER__ > .__PANEL_FOOTER__ + .panel-collapse > .__PANEL_BODY__ {
+.__PANEL__.__DANGER__ > .ww-panel__footer + .panel-collapse > .ww-panel__body {
   border-bottom-color: #ebccd1;
 }
-.__HEADER__ {
+.ww-header {
   padding: 1em 1em;
   background-color: #262626;
 }
@@ -8331,6 +8336,14 @@ button.close {
   margin-right: 0px;
   margin-bottom: 0px;
   margin-left: 0px;
+}
+.ww-horizontal-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  align-content: flex-start;
+  justify-content: space-between;
 }
 .ww-action-bar {
   width: 100%;
@@ -8569,7 +8582,7 @@ button.close {
   border-color: #adadad;
 }
 .ww-button.-default:active,
-.ww-button.-default.__ACTIVE__ {
+.ww-button.-default.-active {
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
@@ -8610,7 +8623,7 @@ button.close {
   border-color: #204d74;
 }
 .ww-button.-primary:active,
-.ww-button.-primary.__ACTIVE__ {
+.ww-button.-primary.-active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
@@ -8651,7 +8664,7 @@ button.close {
   border-color: #398439;
 }
 .ww-button.-success:active,
-.ww-button.-success.__ACTIVE__ {
+.ww-button.-success.-active {
   color: #fff;
   background-color: #449d44;
   border-color: #398439;
@@ -8692,7 +8705,7 @@ button.close {
   border-color: #269abc;
 }
 .ww-button.-info:active,
-.ww-button.-info.__ACTIVE__ {
+.ww-button.-info.-active {
   color: #fff;
   background-color: #31b0d5;
   border-color: #269abc;
@@ -8733,7 +8746,7 @@ button.close {
   border-color: #d58512;
 }
 .ww-button.-warning:active,
-.ww-button.-warning.__ACTIVE__ {
+.ww-button.-warning.-active {
   color: #fff;
   background-color: #ec971f;
   border-color: #d58512;
@@ -8774,7 +8787,7 @@ button.close {
   border-color: #ac2925;
 }
 .ww-button.-danger:active,
-.ww-button.-danger.__ACTIVE__ {
+.ww-button.-danger.-active {
   color: #fff;
   background-color: #c9302c;
   border-color: #ac2925;
@@ -8857,162 +8870,46 @@ button.close {
   vertical-align: middle;
   background: transparent;
 }
-.-uppercase {
-  text-transform: uppercase;
+/*
+  Nav styling.
+ */
+.ww-nav {
+  list-style-type: none;
+  padding-left: 0;
+  padding-right: 0;
 }
-.__NAV_MENU__ {
-  list-style: none;
-  padding-left: 1em;
-  padding-right: 1em;
-}
-.__NAV_MENU_ITEM__ {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.__NAV_MENU_ITEM__ > .__NAV_MENU__ {
-  margin-left: 0;
-}
-.__NAV_MENU_ITEM__ > .__NAV_MENU_HEADER__ {
+.ww-nav-header {
   padding: 0.7em 1em;
   color: grey;
   font-weight: bolder;
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.__NAV_MENU_ITEM__ > a {
+.ww-item {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.ww-item > .ww-nav {
+  margin-left: 0;
+}
+.ww-item > a {
   padding: 0.7em 1em;
   display: block;
   color: inherit;
   text-decoration: inherit;
   text-transform: uppercase;
   font-weight: bolder;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.15em;
 }
-.__NAV_MENU_ITEM__ > a:hover {
+.ww-item > a:hover {
   background-color: #31708f;
 }
-.__NAV_MENU_ITEM__ > a.__ACTIVE__ {
+.ww-item > a.-active {
   background-color: #31708f;
 }
-.__NAV_MENU_ITEM__ > a.__NO_HOVER__:hover,
-.__NAV_MENU_ITEM__ > a.__NO_HOVER__.__ACTIVE__ {
+.ww-item > a.__NO_HOVER__:hover,
+.ww-item > a.__NO_HOVER__.-active {
   background-color: inherit;
-}
-.__BREAD_CRUMBS__ {
-  background-color: inherit;
-}
-.__MENU__ {
-  min-width: 5em;
-  margin: 0;
-  margin: 2px 0 0;
-  position: relative;
-  top: 100%;
-  left: 0;
-  z-index: 100000;
-  display: block;
-  padding: 5px 0;
-  list-style: none;
-  font-size: 14px;
-  text-align: left;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
-  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
-  background-clip: padding-box;
-}
-.__MENU__.__HIDDEN__ {
-  display: none;
-}
-.__MENU__ > .__MENU_DIVIDER__ {
-  height: 1px;
-  margin: 9px 0;
-  overflow: hidden;
-  background-color: #e5e5e5;
-}
-.__MENU__ > li > a {
-  display: block;
-  padding: 3px 20px;
-  clear: both;
-  font-weight: normal;
-  line-height: 1.42857143;
-  color: #333333;
-  white-space: nowrap;
-}
-.__MENU__ > li > a:hover,
-.__MENU__ > li > a:focus {
-  text-decoration: none;
-  color: #262626;
-  background-color: #f5f5f5;
-}
-.__MENU__ > .active > a,
-.__MENU__ > .active > a:hover,
-.__MENU__ > .active > a:focus {
-  color: #fff;
-  text-decoration: none;
-  outline: 0;
-  background-color: #337ab7;
-}
-.__MENU__ > .disabled > a,
-.__MENU__ > .disabled > a:hover,
-.__MENU__ > .disabled > a:focus {
-  color: #777777;
-}
-.__MENU__ > .disabled > a:hover,
-.__MENU__ > .disabled > a:focus {
-  text-decoration: none;
-  background-color: transparent;
-  background-image: none;
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
-  cursor: not-allowed;
-}
-.open > .__MENU__ {
-  display: block;
-}
-.open > a {
-  outline: 0;
-}
-.__MENU__-right {
-  left: auto;
-  right: 0;
-}
-.__MENU__-left {
-  left: 0;
-  right: auto;
-}
-.dropdown-header {
-  display: block;
-  padding: 3px 20px;
-  font-size: 12px;
-  line-height: 1.42857143;
-  color: #777777;
-  white-space: nowrap;
-}
-.dropdown-backdrop {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  z-index: 990;
-}
-.pull-right > .__MENU__ {
-  right: 0;
-  left: auto;
-}
-.dropup .caret,
-.navbar-fixed-bottom .dropdown .caret {
-  border-top: 0;
-  border-bottom: 4px dashed;
-  border-bottom: 4px solid \9;
-  content: "";
-}
-.dropup .__MENU__,
-.navbar-fixed-bottom .dropdown .__MENU__ {
-  top: auto;
-  bottom: 100%;
-  margin-bottom: 2px;
 }
 /**
  * place customisations here. 

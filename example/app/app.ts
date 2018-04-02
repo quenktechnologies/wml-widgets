@@ -1,7 +1,6 @@
 import { reduce, merge } from 'afpl/lib/util';
 import { View } from '@quenk/wml';
-import { LinkClickedEvent } from '../../lib/nav/link/LinkClickedEvent';
-import { Link } from '../../lib/nav/link/Link';
+import {Link, LinkClickedEvent } from '../../lib/content/nav/link';
 import { Maybe } from '@quenk/wml';
 import { DrawerLayout } from '../../lib/layout/drawer-layout';
 import { Main } from './wml/app';
