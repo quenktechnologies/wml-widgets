@@ -21,7 +21,7 @@ import { TabBarPage } from './pages/tab-bar';
 //import { SearchStackPage } from './pages/search-stack';
 //import { AutocompletePage } from './pages/autocomplete';
 //import { BreadCrumbsPage } from './pages/breadcrumbs';
-//import { BusyIndicatorPage } from './pages/busy-indicator';
+import {ActivityIndicatorPage} from './pages/activity-indicator';
 //import { MenuPage } from './pages/menu';
 //import { ButtonGroupPage } from './pages/button-group';
 //import { ButtonMenuPage } from './pages/button-menu';
@@ -90,7 +90,7 @@ export class App {
 
         },
         app: {
-            //     'busy-indicator': new BusyIndicatorPage(this)
+                 'activity-indicator': new ActivityIndicatorPage(this)
         },
         nav: {
             //       breadcrumbs: new BreadCrumbsPage(this),

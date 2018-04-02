@@ -20,6 +20,9 @@ export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 
 ///classNames:end
 ///classNames:begin
+export const ACTIVITY_INDICATOR = 'ww-activity-indicator';
+///classNames:end
+///classNames:begin
 /**
  * DASH
  */

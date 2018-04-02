@@ -1,0 +1,5 @@
+import {ActivityIndicator} from ".."
+
+{% main (ActivityIndicator) %}
+
+<div class={{@values.root.class}}/>

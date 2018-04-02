@@ -18,7 +18,7 @@ var tab_bar_1 = require("./pages/tab-bar");
 //import { SearchStackPage } from './pages/search-stack';
 //import { AutocompletePage } from './pages/autocomplete';
 //import { BreadCrumbsPage } from './pages/breadcrumbs';
-//import { BusyIndicatorPage } from './pages/busy-indicator';
+var activity_indicator_1 = require("./pages/activity-indicator");
 //import { MenuPage } from './pages/menu';
 //import { ButtonGroupPage } from './pages/button-group';
 //import { ButtonMenuPage } from './pages/button-menu';
@@ -76,7 +76,7 @@ var App = /** @class */ (function () {
                 nav: new nav_1.NavPage(this)
             },
             app: {
-            //     'busy-indicator': new BusyIndicatorPage(this)
+                'activity-indicator': new activity_indicator_1.ActivityIndicatorPage(this)
             },
             nav: {
             //       breadcrumbs: new BreadCrumbsPage(this),

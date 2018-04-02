@@ -12,6 +12,7 @@ export declare const ACTION_BAR = "ww-action-bar";
  * ACTION_BAR_CONTENT class name.
  */
 export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
+export declare const ACTIVITY_INDICATOR = "ww-activity-indicator";
 /**
  * DASH
  */

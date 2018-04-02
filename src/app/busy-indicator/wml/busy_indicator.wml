@@ -1,5 +1,0 @@
-import {BusyIndicator} from ".."
-
-{% main (BusyIndicator) %}
-
-<div class={{@values.class}}/>
