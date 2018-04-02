@@ -5,7 +5,7 @@ var app_1 = require("./wml/app");
 var navigation_1 = require("./wml/navigation");
 var panel_1 = require("./pages/panel");
 //import { ListGroupPage } from './pages/list-group';
-//import { TablePage } from './pages/table';
+var table_1 = require("./pages/table");
 //import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
 //import { SelectPage } from './pages/select';
@@ -59,8 +59,8 @@ var App = /** @class */ (function () {
                 //      'tab-view': new TabViewPage(this)
                 'horizontal-layout': new horizontal_layout_1.HorizontalLayoutPage(this)
             },
-            table: {
-            //        table: new TablePage(this)
+            data: {
+                table: new table_1.TablePage(this)
             },
             control: {
                 //     'text-field': new TextFieldPage(this),

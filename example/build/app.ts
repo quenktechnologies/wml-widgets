@@ -8,7 +8,7 @@ import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
 import { PanelPage } from './pages/panel';
 //import { ListGroupPage } from './pages/list-group';
-//import { TablePage } from './pages/table';
+import { TablePage } from './pages/table';
 //import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
 //import { SelectPage } from './pages/select';
@@ -61,14 +61,14 @@ export class App {
 
         layout: {
 
-                  panel: new PanelPage(this),
+            panel: new PanelPage(this),
             //      'list-group': new ListGroupPage(this),
             //      'tab-view': new TabViewPage(this)
             'horizontal-layout': new HorizontalLayoutPage(this)
 
         },
-        table: {
-            //        table: new TablePage(this)
+        data: {
+            table: new TablePage(this)
         },
         control: {
             //     'text-field': new TextFieldPage(this),
