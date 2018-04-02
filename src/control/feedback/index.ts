@@ -1,4 +1,4 @@
-import * as names from './classNames';
+import * as names from '../../content/style/classNames';
 import { View } from '@quenk/wml';
 import { Control, ControlAttrs, ControlAttrsProperties } from '../../control';
 
@@ -124,7 +124,7 @@ export interface FeedbackControlWidget<A extends FeedbackControlAttrs>
  * setState helper for changing the state of the displayed DOM.
  */
 export const setState = <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>
-    (c: C)  => (state:string) : C=>
+    (c: C) => (state: string): C =>
         c
             .clear()
             .view
@@ -143,14 +143,14 @@ export const setSuccess = <A extends FeedbackControlAttrs, C extends FeedbackCon
 /**
  * setWarning helper.
  */
-export const setWarning =  <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>
-  (c:C) => (): C => setState(c)(names.WARNING);
+export const setWarning = <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>
+    (c: C) => (): C => setState(c)(names.WARNING);
 
 /**
  * setError helper.
  */
-export const setError =   <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>
- (c:C) => (): C =>  setState(c)(names.ERROR);
+export const setError = <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>
+    (c: C) => (): C => setState(c)(names.ERROR);
 
 /**
  * setMessage helper for setting a message on a FeedbackControl.
