@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var grid_1 = require("../../../../../lib/layout/grid");
+var page_example_1 = require("../../../page-example");
 ;
 var tab_bar_1 = require("../../../../../lib/control/tab-bar");
 ;
@@ -20,51 +20,45 @@ var Main = /** @class */ (function (_super) {
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(grid_1.Row, {
+            }, [___wml.widget(tab_bar_1.TabBar, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(grid_1.Column, {
+                }, [___wml.widget(tab_bar_1.Tab, {
                         html: {},
-                        wml: {}
-                    }, [___wml.widget(tab_bar_1.TabBar, {
-                            html: {},
-                            wml: {}
-                        }, [___wml.widget(tab_bar_1.Tab, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'active': (___context.tab === "First"),
-                                    'text': "First",
-                                    'name': "First",
-                                    'onClick': ___context.clicked
-                                }
-                            }, [], ___view), ___wml.widget(tab_bar_1.Tab, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'active': (___context.tab === "Second"),
-                                    'text': "Second",
-                                    'name': "Second",
-                                    'onClick': ___context.clicked
-                                }
-                            }, [], ___view), ___wml.widget(tab_bar_1.Tab, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'active': (___context.tab === "Third"),
-                                    'text': "Third",
-                                    'name': "Third",
-                                    'onClick': ___context.clicked
-                                }
-                            }, [], ___view)], ___view), ___wml.node('p', {
-                            html: {},
-                            wml: {
-                                'id': "content"
-                            }
-                        }, [___wml.domify(___context.content)], ___view)], ___view)], ___view)], ___view);
+                        wml: {},
+                        ww: {
+                            'active': (___context.tab === "First"),
+                            'text': "First",
+                            'name': "First",
+                            'onClick': ___context.clicked
+                        }
+                    }, [], ___view), ___wml.widget(tab_bar_1.Tab, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'active': (___context.tab === "Second"),
+                            'text': "Second",
+                            'name': "Second",
+                            'onClick': ___context.clicked
+                        }
+                    }, [], ___view), ___wml.widget(tab_bar_1.Tab, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'active': (___context.tab === "Third"),
+                            'text': "Third",
+                            'name': "Third",
+                            'onClick': ___context.clicked
+                        }
+                    }, [], ___view)], ___view), ___wml.node('p', {
+                    html: {},
+                    wml: {
+                        'id': "content"
+                    }
+                }, [___wml.domify(___context.content)], ___view)], ___view);
         };
         return _this;
     }

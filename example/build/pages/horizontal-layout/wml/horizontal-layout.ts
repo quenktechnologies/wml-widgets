@@ -1,9 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '../../../../../lib/layout/grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     HorizontalLayout
 } from '../../../../../lib/layout/horizontal-layout';;
@@ -20,13 +18,7 @@ export class Main extends ___wml.AppView < HorizontalLayoutPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < HorizontalLayoutPage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.widget(HorizontalLayout, {
@@ -41,7 +33,7 @@ export class Main extends ___wml.AppView < HorizontalLayoutPage > {
             }, [___wml.text(`Area 2`)], ___view), ___wml.node('textarea', {
                 html: {},
                 wml: {}
-            }, [___wml.text(`Area 3`)], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [___wml.text(`Area 3`)], ___view)], ___view)], ___view);
 
     }
 

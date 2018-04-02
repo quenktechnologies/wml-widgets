@@ -1,9 +1,9 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
+    GridLayout,
     Row,
     Column
-} from '../../../../lib/layout/grid';;
+} from '../../../../lib/layout/grid-layout';;
 import {
     PageExample
 } from '..';
@@ -17,7 +17,7 @@ export class Main extends ___wml.AppView < PageExample > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < PageExample > ) =>
-            ___wml.widget(Grid, {
+            ___wml.widget(GridLayout, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Row, {

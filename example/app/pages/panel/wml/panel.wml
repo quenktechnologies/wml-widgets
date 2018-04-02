@@ -1,11 +1,11 @@
-import {Grid,Row,Column} from "../../../../../lib/layout/grid"
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
 import {Panel,PanelHeader,PanelBody,PanelFooter} from "../../../../../lib/layout/panel"
 import {Fragment} from "../../../../../lib/layout/fragment"
 import {PanelPage} from "../"
 
 {% main (PanelPage) %}
  
-<Grid>
+<GridLayout>
 
   <Row>
 
@@ -47,4 +47,4 @@ import {PanelPage} from "../"
 
    </Row>
 
- </Grid>
+ </GridLayout>

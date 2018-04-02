@@ -34,6 +34,9 @@ export declare const MAIN_LAYOUT = "ww-main-layout";
 export declare const DRAWER = "ww-drawer";
 export declare const DRAWER_CONTENT = "ww-drawer__content";
 export declare const HEADER = "ww-header";
+export declare const GRID_LAYOUT = "container-fluid";
+export declare const COLUMN = "ww-column";
+export declare const ROW = "row";
 /**
  * DRAWER_LAYOUT
  */

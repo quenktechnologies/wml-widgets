@@ -1,9 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '../../../../../lib/layout/grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     TabBar,
     Tab
@@ -21,13 +19,7 @@ export class Main extends ___wml.AppView < TabBarPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < TabBarPage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.widget(TabBar, {
@@ -65,7 +57,7 @@ export class Main extends ___wml.AppView < TabBarPage > {
                 wml: {
                     'id': `content`
                 }
-            }, [___wml.domify(___context.content)], ___view)], ___view)], ___view)], ___view);
+            }, [___wml.domify(___context.content)], ___view)], ___view);
 
     }
 

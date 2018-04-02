@@ -1,27 +1,20 @@
-import {Grid,Row,Column} from "../../../../../lib/layout/grid"
+import {PageExample} from "../../../page-example"
 import {HorizontalLayout} from "../../../../../lib/layout/horizontal-layout"
 import {HorizontalLayoutPage} from "../"
 
 {% main (HorizontalLayoutPage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+  <HorizontalLayout>
+    
+    <textarea>Area 1</textarea>
 
-    <Column>
+    <textarea>Area 2</textarea>
 
-      <HorizontalLayout>
-        
-        <textarea>Area 1</textarea>
+    <textarea>Area 3</textarea>
 
-        <textarea>Area 2</textarea>
+  </Horizontal>
 
-        <textarea>Area 3</textarea>
+</PageExample>
 
-      </Horizontal>
-
-    </Column>
-
-   </Row>
-
- </Grid>

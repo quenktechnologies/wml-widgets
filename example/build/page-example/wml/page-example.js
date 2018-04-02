@@ -11,20 +11,20 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var grid_1 = require("../../../../lib/layout/grid");
+var grid_layout_1 = require("../../../../lib/layout/grid-layout");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(grid_1.Grid, {
+            return ___wml.widget(grid_layout_1.GridLayout, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(grid_1.Row, {
+            }, [___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {}
                     }, [___wml.domify(___context.children)], ___view)], ___view)], ___view);

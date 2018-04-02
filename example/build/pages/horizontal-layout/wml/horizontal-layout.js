@@ -11,7 +11,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var grid_1 = require("../../../../../lib/layout/grid");
+var page_example_1 = require("../../../page-example");
 ;
 var horizontal_layout_1 = require("../../../../../lib/layout/horizontal-layout");
 ;
@@ -20,28 +20,22 @@ var Main = /** @class */ (function (_super) {
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(grid_1.Row, {
+            }, [___wml.widget(horizontal_layout_1.HorizontalLayout, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(grid_1.Column, {
+                }, [___wml.node('textarea', {
                         html: {},
                         wml: {}
-                    }, [___wml.widget(horizontal_layout_1.HorizontalLayout, {
-                            html: {},
-                            wml: {}
-                        }, [___wml.node('textarea', {
-                                html: {},
-                                wml: {}
-                            }, [___wml.text("Area 1")], ___view), ___wml.node('textarea', {
-                                html: {},
-                                wml: {}
-                            }, [___wml.text("Area 2")], ___view), ___wml.node('textarea', {
-                                html: {},
-                                wml: {}
-                            }, [___wml.text("Area 3")], ___view)], ___view)], ___view)], ___view)], ___view);
+                    }, [___wml.text("Area 1")], ___view), ___wml.node('textarea', {
+                        html: {},
+                        wml: {}
+                    }, [___wml.text("Area 2")], ___view), ___wml.node('textarea', {
+                        html: {},
+                        wml: {}
+                    }, [___wml.text("Area 3")], ___view)], ___view)], ___view);
         };
         return _this;
     }

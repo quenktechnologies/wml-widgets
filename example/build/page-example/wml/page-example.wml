@@ -1,9 +1,9 @@
-import {Grid,Row,Column} from "../../../../lib/layout/grid"
+import {GridLayout,Row,Column} from "../../../../lib/layout/grid-layout"
 import {PageExample} from ".."
 
 {% main (PageExample) %}
  
-<Grid>
+<GridLayout>
 
   <Row>
 
@@ -15,4 +15,4 @@ import {PageExample} from ".."
 
    </Row>
 
- </Grid>
+ </GridLayout>

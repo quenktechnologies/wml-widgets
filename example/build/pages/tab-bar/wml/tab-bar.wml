@@ -1,41 +1,33 @@
-import {Grid,Row,Column} from "../../../../../lib/layout/grid"
+import {PageExample} from "../../../page-example"
 import {TabBar, Tab} from "../../../../../lib/control/tab-bar"
 import {TabBarPage} from "../"
 
 {% main (TabBarPage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+  <TabBar>
 
-    <Column>
+    <Tab 
+      ww:active={{@tab == 'First'}}
+      ww:text="First"
+      ww:name="First"
+      ww:onClick={{@clicked}}/>
 
-      <TabBar>
+    <Tab 
+      ww:active={{@tab == 'Second'}}
+      ww:text="Second"
+      ww:name="Second"
+      ww:onClick={{@clicked}}/>
 
-        <Tab 
-          ww:active={{@tab == 'First'}}
-          ww:text="First"
-          ww:name="First"
-          ww:onClick={{@clicked}}/>
+    <Tab 
+      ww:active={{@tab == 'Third'}}
+      ww:text="Third"
+      ww:name="Third"
+      ww:onClick={{@clicked}}/>
 
-        <Tab 
-          ww:active={{@tab == 'Second'}}
-          ww:text="Second"
-          ww:name="Second"
-          ww:onClick={{@clicked}}/>
+  </TabBar>
 
-        <Tab 
-          ww:active={{@tab == 'Third'}}
-          ww:text="Third"
-          ww:name="Third"
-          ww:onClick={{@clicked}}/>
+  <p wml:id="content">{{@content}}</p>
 
-      </TabBar>
-
-      <p wml:id="content">{{@content}}</p>
-
-    </Column>
-
-   </Row>
-
- </Grid>
+</PageExample>
