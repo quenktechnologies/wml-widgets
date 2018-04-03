@@ -1,0 +1,33 @@
+import {PageExample} from "../../../page-example"
+import {TabLayout} from "../../../../../lib/layout/tab-layout"
+import {TabLayoutPage} from "../"
+
+{% view FirstTab (TabLayoutPage) %}
+
+  <p>Click a tab to change content.</p>
+
+{% endview %}
+
+{% view SecondTab (TabLayoutPage) %}
+
+  <p>Second tab.</p>
+
+{% endview %}
+
+{% view ThirdTab (TabLayoutPage) %}
+
+  <p>Third tab.</p>
+
+{% endview %}
+
+{% main (TabLayoutPage) %}
+ 
+<PageExample>
+
+   <TabLayout ww:tabs={{@tabs}}>
+
+     <p>Click a tab to change content.</p>
+   
+   </TabLayout>
+
+</PageHeader>

@@ -1,8 +1,45 @@
 import * as wml from '@quenk/wml';
+import { WidgetAttrs, StylableAttrs } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
-import { TabViewAttrs, TabSpecMap } from '.';
+export declare const TAB_LAYOUT = "ww-tab-layout";
 /**
- * TabView provides a layout whose displayed content can be changed via tabs.
+ * TabSpec is used to render a tab and it's associated View.
+ */
+export interface TabSpec {
+    /**
+     * text to display in the tab.
+     */
+    text?: string;
+    /**
+     * tabContent can be specified to render custom content in the tab.
+     */
+    tabContent?: (tv: TabLayout) => wml.Template;
+    /**
+     * view rendered when the tab is active.
+     */
+    view: wml.Renderable;
+}
+/**
+ * TabSpecMap provides a mapping of tab names to their respective TabSpec.
+ */
+export interface TabSpecMap {
+    [key: string]: TabSpec;
+}
+/**
+ * TabLayoutAttrs
+ */
+export interface TabLayoutAttrs extends StylableAttrs {
+    /**
+     * active tab.
+     */
+    active: string;
+    /**
+     * tabs TabSpecs to be displayed.
+     */
+    tabs: TabSpecMap;
+}
+/**
+ * TabLayout provides a layout whose displayed content can be changed via tabs.
  *
  * ----------------------------------------------------------------------------
  * |                                                                          |
@@ -18,7 +55,7 @@ import { TabViewAttrs, TabSpecMap } from '.';
  * |                                                                          |
  * |__________________________________________________________________________|
  */
-export declare class TabView extends wml.Component<TabViewAttrs> {
+export declare class TabLayout extends wml.Component<WidgetAttrs<TabLayoutAttrs>> {
     view: wml.View;
     values: {
         root: {

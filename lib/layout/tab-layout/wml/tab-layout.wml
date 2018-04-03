@@ -1,7 +1,7 @@
 import {TabBar,Tab} from "../../../control/tab-bar"
-import {TabView} from ".."
+import {TabLayout} from ".."
 
-{% main (TabView) %}
+{% main (TabLayout) %}
 
 <div ww:class={{@values.root.class}}>
 

@@ -4,18 +4,18 @@ import {
     Tab
 } from '../../../control/tab-bar';;
 import {
-    TabView
+    TabLayout
 } from '..';
 
 
 
-export class Main extends ___wml.AppView < TabView > {
+export class Main extends ___wml.AppView < TabLayout > {
 
-    constructor(___context: TabView) {
+    constructor(___context: TabLayout) {
 
         super(___context);
 
-        this.template = (___view: ___wml.AppView < TabView > ) =>
+        this.template = (___view: ___wml.AppView < TabLayout > ) =>
             ___wml.node('div', {
                 html: {},
                 wml: {},

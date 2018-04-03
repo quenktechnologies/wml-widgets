@@ -22,7 +22,7 @@ var activity_indicator_1 = require("./pages/activity-indicator");
 //import { MenuPage } from './pages/menu';
 //import { ButtonGroupPage } from './pages/button-group';
 //import { ButtonMenuPage } from './pages/button-menu';
-//import { TabViewPage } from './pages/tab-view';
+var tab_layout_1 = require("./pages/tab-layout");
 var horizontal_layout_1 = require("./pages/horizontal-layout");
 var nav_1 = require("./pages/nav");
 var displayName = function (s) {
@@ -56,7 +56,7 @@ var App = /** @class */ (function () {
             layout: {
                 panel: new panel_1.PanelPage(this),
                 'list-layout': new list_layout_1.ListLayoutPage(this),
-                //      'tab-view': new TabViewPage(this)
+                'tab-layout': new tab_layout_1.TabLayoutPage(this),
                 'horizontal-layout': new horizontal_layout_1.HorizontalLayoutPage(this)
             },
             data: {

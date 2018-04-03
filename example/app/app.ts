@@ -25,7 +25,7 @@ import { ActivityIndicatorPage } from './pages/activity-indicator';
 //import { MenuPage } from './pages/menu';
 //import { ButtonGroupPage } from './pages/button-group';
 //import { ButtonMenuPage } from './pages/button-menu';
-//import { TabViewPage } from './pages/tab-view';
+import { TabLayoutPage } from './pages/tab-layout';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
 import { NavPage } from './pages/nav';
 
@@ -63,7 +63,7 @@ export class App {
 
             panel: new PanelPage(this),
             'list-layout': new ListLayoutPage(this),
-            //      'tab-view': new TabViewPage(this)
+            'tab-layout': new TabLayoutPage(this),
             'horizontal-layout': new HorizontalLayoutPage(this)
 
         },

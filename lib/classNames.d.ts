@@ -37,6 +37,7 @@ export declare const DRAWER_CONTENT = "ww-drawer__content";
 export declare const HEADER = "ww-header";
 export declare const LIST_LAYOUT = "ww-list-layout";
 export declare const LIST_LAYOUT_ITEM = "ww-list-layout__item";
+export declare const TAB_LAYOUT = "ww-tab-layout";
 export declare const GRID_LAYOUT = "container-fluid";
 export declare const COLUMN = "ww-column";
 export declare const ROW = "row";
@@ -61,7 +62,6 @@ export declare const PANEL_BODY = "ww-panel__body";
  * PANEL_FOOTER class name.
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
-export declare const TAB_VIEW = "ww-tabview";
 /**
  * VERTICAL indicates an element is vertical rendererd.
  */
