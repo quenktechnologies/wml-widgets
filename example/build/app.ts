@@ -20,7 +20,7 @@ import { TabBarPage } from './pages/tab-bar';
 //import { StackPage } from './pages/stack';
 //import { SearchStackPage } from './pages/search-stack';
 //import { AutocompletePage } from './pages/autocomplete';
-//import { BreadCrumbsPage } from './pages/breadcrumbs';
+import { BreadcrumbPage } from './pages/breadcrumb';
 import { ActivityIndicatorPage } from './pages/activity-indicator';
 //import { MenuPage } from './pages/menu';
 //import { ButtonGroupPage } from './pages/button-group';
@@ -62,7 +62,7 @@ export class App {
         layout: {
 
             panel: new PanelPage(this),
-                  'list-layout': new ListLayoutPage(this),
+            'list-layout': new ListLayoutPage(this),
             //      'tab-view': new TabViewPage(this)
             'horizontal-layout': new HorizontalLayoutPage(this)
 
@@ -86,14 +86,12 @@ export class App {
         },
         content: {
 
-            nav: new NavPage(this)
+            nav: new NavPage(this),
+            breadcrumb: new BreadcrumbPage(this),
 
         },
         app: {
             'activity-indicator': new ActivityIndicatorPage(this)
-        },
-        nav: {
-            //       breadcrumbs: new BreadCrumbsPage(this),
         },
         menu: {
             //         menu: new MenuPage(this),

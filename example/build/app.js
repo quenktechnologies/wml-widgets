@@ -17,7 +17,7 @@ var tab_bar_1 = require("./pages/tab-bar");
 //import { StackPage } from './pages/stack';
 //import { SearchStackPage } from './pages/search-stack';
 //import { AutocompletePage } from './pages/autocomplete';
-//import { BreadCrumbsPage } from './pages/breadcrumbs';
+var breadcrumb_1 = require("./pages/breadcrumb");
 var activity_indicator_1 = require("./pages/activity-indicator");
 //import { MenuPage } from './pages/menu';
 //import { ButtonGroupPage } from './pages/button-group';
@@ -73,13 +73,11 @@ var App = /** @class */ (function () {
                 'tab-bar': new tab_bar_1.TabBarPage(this),
             },
             content: {
-                nav: new nav_1.NavPage(this)
+                nav: new nav_1.NavPage(this),
+                breadcrumb: new breadcrumb_1.BreadcrumbPage(this),
             },
             app: {
                 'activity-indicator': new activity_indicator_1.ActivityIndicatorPage(this)
-            },
-            nav: {
-            //       breadcrumbs: new BreadCrumbsPage(this),
             },
             menu: {
             //         menu: new MenuPage(this),

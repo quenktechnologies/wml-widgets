@@ -117,6 +117,7 @@ export declare const ERROR = "-error";
  * LINK
  */
 export declare const LINK = "ww-link";
+export declare const BREADCRUMB = "ww-breadcrumb";
 /**
  * NAV
  */

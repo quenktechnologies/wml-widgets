@@ -183,6 +183,9 @@ export const ERROR = '-error';
 export const LINK = 'ww-link';
 ///classNames:end
 ///classNames:begin
+export const BREADCRUMB = 'ww-breadcrumb'; //@todo un-bootstrap
+///classNames:end
+///classNames:begin
 /**
  * NAV
  */

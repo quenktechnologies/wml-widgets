@@ -8913,21 +8913,17 @@ button.close {
 .ww-nav.-vertical > .ww-item {
   float: none;
 }
-.ww-nav-header {
-  padding: 0.7em 1em;
-  color: grey;
-  font-weight: bolder;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-.ww-item {
+/*
+  Nav styles for child Item widgets.
+ */
+.ww-nav > .ww-item {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
-.ww-item > .ww-nav {
+.ww-nav > .ww-item > .ww-nav {
   margin-left: 0;
 }
-.ww-item > a {
+.ww-nav > .ww-item > a {
   padding: 0.7em 1em;
   display: block;
   color: inherit;
@@ -8936,13 +8932,38 @@ button.close {
   font-weight: bolder;
   letter-spacing: 0.15em;
 }
-.ww-item > a:hover {
+.ww-nav > .ww-item > a:hover {
   background-color: #31708f;
 }
-.ww-item > a.-active {
+.ww-nav > .ww-item > a.-active {
   background-color: #31708f;
 }
-.ww-item > a.__NO_HOVER__:hover,
-.ww-item > a.__NO_HOVER__.-active {
+.ww-nav > .ww-item > a.__NO_HOVER__:hover,
+.ww-nav > .ww-item > a.__NO_HOVER__.-active {
   background-color: inherit;
+}
+.ww-nav-header {
+  padding: 0.7em 1em;
+  color: grey;
+  font-weight: bolder;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.ww-breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 20px;
+  list-style: none;
+  background-color: #f5f5f5;
+  border-radius: 0.25rem;
+}
+.ww-breadcrumb > li {
+  display: inline-block;
+}
+.ww-breadcrumb > li + li:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #ccc;
+}
+.ww-breadcrumb > .-active {
+  color: #777777;
 }

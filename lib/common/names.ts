@@ -104,15 +104,6 @@ export const SWITCH_SLIDER = 'ww-switch__slider';
 export const CHECKBOX = 'checkbox';
 
 
-/**
- * BREAD_CRUMBS clasess
- */
-export const BREAD_CRUMBS = 'breadcrumb'; //@todo un-bootstrap
-
-/**
- * BREAD_CRUMBS_ITEM class name.
- */
-export const BREAD_CRUMBS_ITEM = `${BREAD_CRUMBS}__item`;
 
 export const LIST = 'ww-list';
 export const LIST_ITEM = 'ww-list__item';

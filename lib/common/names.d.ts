@@ -73,14 +73,6 @@ export declare const SWITCH_SLIDER = "ww-switch__slider";
  * CHECKBOX class name.
  */
 export declare const CHECKBOX = "checkbox";
-/**
- * BREAD_CRUMBS clasess
- */
-export declare const BREAD_CRUMBS = "breadcrumb";
-/**
- * BREAD_CRUMBS_ITEM class name.
- */
-export declare const BREAD_CRUMBS_ITEM: string;
 export declare const LIST = "ww-list";
 export declare const LIST_ITEM = "ww-list__item";
 /**
