@@ -35,6 +35,9 @@ export const DASH = 'ww-dash';
 export const ICON_BUTTON = 'ww-icon-button';
 ///classNames:end
 ///classNames:begin
+export const BUTTON_GROUP = 'ww-button-group';
+///classNames:end
+///classNames:begin
 /**
  * TAB_BAR 
  */
@@ -125,6 +128,11 @@ export const RIGHT_PUSHABLE = '-right-pushable';
  * to the left ,right modifiers etc.
  */
 export const POSITIONED = '-positioned';
+
+/**
+ * BLOCK indicates an element should be block displayed.
+ */
+export const BLOCK = '-block';
 ///classNames:end
 ///classNames:begin
 /**
@@ -175,6 +183,11 @@ export const WARNING = '-warning';
  * ERROR style.
  */
 export const ERROR = '-error';
+
+/**
+ * OUTLINE style.
+ */
+export const OUTLINE = '-outline';
 ///classNames:end
 ///classNames:begin
 /**

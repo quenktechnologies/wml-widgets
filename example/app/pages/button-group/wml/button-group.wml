@@ -1,0 +1,18 @@
+import {PageExample} from "../../../page-example"
+import {Button} from "../../../../../lib/control/button"
+import {ButtonGroup} from "../../../../../lib/control/button-group"
+import {ButtonGroupPage} from "../"
+
+{% main (ButtonGroupPage) %}
+ 
+<PageExample>
+
+  <ButtonGroup>
+
+    <Button ww:text="one"/>
+    <Button ww:text="three"/>
+    <Button ww:text="four"/>
+
+  </ButtonGroup>
+
+</PageExample>

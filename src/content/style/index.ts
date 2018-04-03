@@ -28,4 +28,9 @@ export const WARNING = '-warning';
  * ERROR style.
  */
 export const ERROR = '-error';
+
+/**
+ * OUTLINE style.
+ */
+export const OUTLINE = '-outline';
 ///classNames:end

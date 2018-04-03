@@ -22,3 +22,7 @@ export declare const WARNING = "-warning";
  * ERROR style.
  */
 export declare const ERROR = "-error";
+/**
+ * OUTLINE style.
+ */
+export declare const OUTLINE = "-outline";

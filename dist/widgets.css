@@ -8519,50 +8519,50 @@ button.close {
   margin-left: 0;
 }
 /* 
-  ButtonDimension defines the sizing of a Button.
+ButtonDimension defines the sizing of a Button.
 
-  @pv       - Vertical padding.
-  @ph       - Horizontal padding.
-  @font     - Font size.
-  @lh       - Line height.
-  @br       - Border radius.
+@pv       - Vertical padding.
+@ph       - Horizontal padding.
+@font     - Font size.
+@lh       - Line height.
+@br       - Border radius.
 */
 /*
-  ButtonColor provides the color styling of a Button.
+ButtonColor provides the color styling of a Button.
 
-   @color       - The base text color.
-   @background  - The base background color.
-   @border      - The base border color.
+@color       - The base text color.
+@background  - The base background color.
+@border      - The base border color.
 
- */
+*/
 /*
-  ButtonOutline provides an alternative outline based styling for a button.
+ButtonOutline provides an alternative outline based styling for a button.
 
-  @color - The color for the outline.
+@color - The color for the outline.
 */
 /*
-  ButtonStyle defines styles for a style variant of a button.
+ButtonStyle defines styles for a style variant of a button.
 
-   @color       - The base text color.
-   @background  - The base background color.
-   @border      - The base border color.
- */
-/*
-  ButtonActiveFeel styles the feeling of a button while active.
+@color       - The base text color.
+@background  - The base background color.
+@border      - The base border color.
 */
 /*
-  ButtonLinkBackground styles the background and shadows.
+ButtonActiveFeel styles the feeling of a button while active.
 */
 /*
- ButtonLinkAttentionState provides styling for button links
- when given attention.
+ButtonLinkBackground styles the background and shadows.
 */
 /*
-  ButtonLink styles the button to appear like a link.
+ButtonLinkAttentionState provides styling for button links
+when given attention.
 */
 /*
-  Button widget styles.
- */
+ButtonLink styles the button to appear like a link.
+*/
+/*
+Button widget styles.
+*/
 .ww-button {
   display: inline-block;
   font-weight: normal;
@@ -8576,9 +8576,6 @@ button.close {
   font-size: 14px;
   line-height: 1.42857143;
   border-radius: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 .ww-button:hover,
@@ -8593,304 +8590,366 @@ button.close {
 }
 .ww-button[disabled] {
   cursor: not-allowed;
-  filter: alpha(opacity=65);
-  opacity: 0.65;
-  -webkit-box-shadow: none;
+  opacity: .65;
   box-shadow: none;
 }
-.ww-button.__styles.DEFAULT__ {
+.ww-button.-default {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
 }
-.ww-button.__styles.DEFAULT__:focus {
+.ww-button.-default:focus {
   color: #333;
   background-color: #e6e6e6;
   border-color: #8c8c8c;
 }
-.ww-button.__styles.DEFAULT__:hover {
+.ww-button.-default:hover {
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
-.ww-button.__styles.DEFAULT__:active,
-.ww-button.__styles.DEFAULT__.-active {
+.ww-button.-default:active,
+.ww-button.-default.-active {
   color: #333;
   background-color: #e6e6e6;
   border-color: #adadad;
 }
-.ww-button.__styles.DEFAULT__[disabled]:hover,
-.ww-button.__styles.DEFAULT__[disabled]:focus {
+.ww-button.-default[disabled]:hover,
+.ww-button.-default[disabled]:focus {
   color: #333;
   background-color: #fff;
   border-color: #ccc;
 }
-.ww-button.__styles.DEFAULT__.__features.OUTLINE__ {
+.ww-button.-default.-outline {
   color: #fff;
   background-color: transparent;
   border-color: #fff;
 }
-.ww-button.__styles.DEFAULT__.__features.OUTLINE__:hover {
+.ww-button.-default.-outline:hover {
   color: #808080;
   background-color: #fff;
   border-color: #fff;
 }
-.ww-button.__styles.DEFAULT__.__features.OUTLINE__:disabled {
+.ww-button.-default.-outline:disabled {
   color: #fff;
   background-color: transparent;
 }
-.ww-button.__styles.PRIMARY__ {
+.ww-button.-primary {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-.ww-button.__styles.PRIMARY__:focus {
+.ww-button.-primary:focus {
   color: #fff;
   background-color: #286090;
   border-color: #122b40;
 }
-.ww-button.__styles.PRIMARY__:hover {
+.ww-button.-primary:hover {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
 }
-.ww-button.__styles.PRIMARY__:active,
-.ww-button.__styles.PRIMARY__.-active {
+.ww-button.-primary:active,
+.ww-button.-primary.-active {
   color: #fff;
   background-color: #286090;
   border-color: #204d74;
 }
-.ww-button.__styles.PRIMARY__[disabled]:hover,
-.ww-button.__styles.PRIMARY__[disabled]:focus {
+.ww-button.-primary[disabled]:hover,
+.ww-button.-primary[disabled]:focus {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
 }
-.ww-button.__styles.PRIMARY__.__features.OUTLINE__ {
+.ww-button.-primary.-outline {
   color: #337ab7;
   background-color: transparent;
   border-color: #337ab7;
 }
-.ww-button.__styles.PRIMARY__.__features.OUTLINE__:hover {
+.ww-button.-primary.-outline:hover {
   color: #000000;
   background-color: #337ab7;
   border-color: #337ab7;
 }
-.ww-button.__styles.PRIMARY__.__features.OUTLINE__:disabled {
+.ww-button.-primary.-outline:disabled {
   color: #337ab7;
   background-color: transparent;
 }
-.ww-button.__styles.SUCCESS__ {
+.ww-button.-success {
   color: #fff;
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
-.ww-button.__styles.SUCCESS__:focus {
+.ww-button.-success:focus {
   color: #fff;
   background-color: #449d44;
   border-color: #255625;
 }
-.ww-button.__styles.SUCCESS__:hover {
+.ww-button.-success:hover {
   color: #fff;
   background-color: #449d44;
   border-color: #398439;
 }
-.ww-button.__styles.SUCCESS__:active,
-.ww-button.__styles.SUCCESS__.-active {
+.ww-button.-success:active,
+.ww-button.-success.-active {
   color: #fff;
   background-color: #449d44;
   border-color: #398439;
 }
-.ww-button.__styles.SUCCESS__[disabled]:hover,
-.ww-button.__styles.SUCCESS__[disabled]:focus {
+.ww-button.-success[disabled]:hover,
+.ww-button.-success[disabled]:focus {
   color: #fff;
   background-color: #5cb85c;
   border-color: #4cae4c;
 }
-.ww-button.__styles.SUCCESS__.__features.OUTLINE__ {
+.ww-button.-success.-outline {
   color: #5cb85c;
   background-color: transparent;
   border-color: #5cb85c;
 }
-.ww-button.__styles.SUCCESS__.__features.OUTLINE__:hover {
+.ww-button.-success.-outline:hover {
   color: #060f06;
   background-color: #5cb85c;
   border-color: #5cb85c;
 }
-.ww-button.__styles.SUCCESS__.__features.OUTLINE__:disabled {
+.ww-button.-success.-outline:disabled {
   color: #5cb85c;
   background-color: transparent;
 }
-.ww-button.__styles.INFO__ {
+.ww-button.-info {
   color: #fff;
   background-color: #5bc0de;
   border-color: #46b8da;
 }
-.ww-button.__styles.INFO__:focus {
+.ww-button.-info:focus {
   color: #fff;
   background-color: #31b0d5;
   border-color: #1b6d85;
 }
-.ww-button.__styles.INFO__:hover {
+.ww-button.-info:hover {
   color: #fff;
   background-color: #31b0d5;
   border-color: #269abc;
 }
-.ww-button.__styles.INFO__:active,
-.ww-button.__styles.INFO__.-active {
+.ww-button.-info:active,
+.ww-button.-info.-active {
   color: #fff;
   background-color: #31b0d5;
   border-color: #269abc;
 }
-.ww-button.__styles.INFO__[disabled]:hover,
-.ww-button.__styles.INFO__[disabled]:focus {
+.ww-button.-info[disabled]:hover,
+.ww-button.-info[disabled]:focus {
   color: #fff;
   background-color: #5bc0de;
   border-color: #46b8da;
 }
-.ww-button.__styles.INFO__.__features.OUTLINE__ {
+.ww-button.-info.-outline {
   color: #5bc0de;
   background-color: transparent;
   border-color: #5bc0de;
 }
-.ww-button.__styles.INFO__.__features.OUTLINE__:hover {
+.ww-button.-info.-outline:hover {
   color: #0a2730;
   background-color: #5bc0de;
   border-color: #5bc0de;
 }
-.ww-button.__styles.INFO__.__features.OUTLINE__:disabled {
+.ww-button.-info.-outline:disabled {
   color: #5bc0de;
   background-color: transparent;
 }
-.ww-button.__styles.WARNING__ {
+.ww-button.-warning {
   color: #fff;
   background-color: #f0ad4e;
   border-color: #eea236;
 }
-.ww-button.__styles.WARNING__:focus {
+.ww-button.-warning:focus {
   color: #fff;
   background-color: #ec971f;
   border-color: #985f0d;
 }
-.ww-button.__styles.WARNING__:hover {
+.ww-button.-warning:hover {
   color: #fff;
   background-color: #ec971f;
   border-color: #d58512;
 }
-.ww-button.__styles.WARNING__:active,
-.ww-button.__styles.WARNING__.-active {
+.ww-button.-warning:active,
+.ww-button.-warning.-active {
   color: #fff;
   background-color: #ec971f;
   border-color: #d58512;
 }
-.ww-button.__styles.WARNING__[disabled]:hover,
-.ww-button.__styles.WARNING__[disabled]:focus {
+.ww-button.-warning[disabled]:hover,
+.ww-button.-warning[disabled]:focus {
   color: #fff;
   background-color: #f0ad4e;
   border-color: #eea236;
 }
-.ww-button.__styles.WARNING__.__features.OUTLINE__ {
+.ww-button.-warning.-outline {
   color: #f0ad4e;
   background-color: transparent;
   border-color: #f0ad4e;
 }
-.ww-button.__styles.WARNING__.__features.OUTLINE__:hover {
+.ww-button.-warning.-outline:hover {
   color: #3a2405;
   background-color: #f0ad4e;
   border-color: #f0ad4e;
 }
-.ww-button.__styles.WARNING__.__features.OUTLINE__:disabled {
+.ww-button.-warning.-outline:disabled {
   color: #f0ad4e;
   background-color: transparent;
 }
-.ww-button.__styles.DANGER__ {
+.ww-button.-error {
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;
 }
-.ww-button.__styles.DANGER__:focus {
+.ww-button.-error:focus {
   color: #fff;
   background-color: #c9302c;
   border-color: #761c19;
 }
-.ww-button.__styles.DANGER__:hover {
+.ww-button.-error:hover {
   color: #fff;
   background-color: #c9302c;
   border-color: #ac2925;
 }
-.ww-button.__styles.DANGER__:active,
-.ww-button.__styles.DANGER__.-active {
+.ww-button.-error:active,
+.ww-button.-error.-active {
   color: #fff;
   background-color: #c9302c;
   border-color: #ac2925;
 }
-.ww-button.__styles.DANGER__[disabled]:hover,
-.ww-button.__styles.DANGER__[disabled]:focus {
+.ww-button.-error[disabled]:hover,
+.ww-button.-error[disabled]:focus {
   color: #fff;
   background-color: #d9534f;
   border-color: #d43f3a;
 }
-.ww-button.__styles.DANGER__.__features.OUTLINE__ {
+.ww-button.-error.-outline {
   color: #d9534f;
   background-color: transparent;
   border-color: #d9534f;
 }
-.ww-button.__styles.DANGER__.__features.OUTLINE__:hover {
+.ww-button.-error.-outline:hover {
   color: #220807;
   background-color: #d9534f;
   border-color: #d9534f;
 }
-.ww-button.__styles.DANGER__.__features.OUTLINE__:disabled {
+.ww-button.-error.-outline:disabled {
   color: #d9534f;
   background-color: transparent;
 }
-.ww-button.__features.LINK__ {
+.ww-button.ww-link {
   color: #337ab7;
   font-weight: normal;
   border-radius: 0;
   background-color: transparent;
   box-shadow: none;
 }
-.ww-button.__features.LINK__:hover,
-.ww-button.__features.LINK__:focus {
+.ww-button.ww-link:hover,
+.ww-button.ww-link:focus {
   color: #23527c;
   text-decoration: underline;
   background-color: transparent;
 }
-.ww-button.__features.LINK__[disabled]:hover,
-.ww-button.__features.LINK__[disabled]:focus {
+.ww-button.ww-link[disabled]:hover,
+.ww-button.ww-link[disabled]:focus {
   color: #777777;
   text-decoration: none;
 }
-.ww-button.__states.ACTIVE__ {
+.ww-button.-active {
   outline: 0;
   background-image: none;
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.ww-button.__sizes.LARGE__ {
+.ww-button.__LARGE__ {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
-.ww-button.__sizes.SMALL__ {
+.ww-button.__SMALL__ {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
-.ww-button.__sizes.EXTRA_SMALL__ {
+.ww-button.__EXTRA_SMALL__ {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
-.ww-button.__features.BLOCK__ {
+.ww-button.-block {
   display: block;
   width: 100%;
 }
-.ww-button.__features.BLOCK__ + .ww-button.__features.BLOCK__ {
+.ww-button.-block + .ww-button.-block {
   margin-top: 5px;
+}
+.ww-button + .ww-button {
+  margin-left: button-sibiling-spacing;
+}
+.ww-button-group {
+  position: relative;
+  display: inline-block;
+}
+.ww-button-group > .ww-button {
+  position: relative;
+  float: left;
+}
+.ww-button-group > .ww-button:hover,
+.ww-button-group > .ww-button:focus,
+.ww-button-group > .ww-button:active,
+.ww-button-group > .ww-button.-active {
+  z-index: 2;
+}
+.ww-button-group .ww-button + .ww-button,
+.ww-button-group .ww-button + .ww-button-group,
+.ww-button-group .ww-button-group + .ww-button,
+.ww-button-group .ww-button-group + .ww-button-group {
+  margin-left: -1px;
+}
+.ww-button-group > .ww-button:first-child {
+  margin-left: 0;
+}
+.ww-button-group > .ww-button:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-right-radius: 0;
+}
+.ww-button-group > .ww-button:last-child:not(:first-child),
+.ww-button-group > .dropdown-toggle:not(:first-child) {
+  border-left-radius: 0;
+}
+.ww-button-group > .ww-button-group {
+  float: left;
+}
+.ww-button-group > .ww-button-group:not(:first-child):not(:last-child) > .ww-button {
+  border-radius: 0;
+}
+.ww-button-group > .ww-button-group:first-child:not(:last-child) > .ww-button:last-child,
+.ww-button-group > .ww-button-group:first-child:not(:last-child) > .dropdown-toggle {
+  border-right-radius: 0;
+}
+.ww-button-group > .ww-button-group:last-child:not(:first-child) > .ww-button:first-child {
+  border-left-radius: 0;
+}
+.ww-button-group .dropdown-toggle:active,
+.ww-button-group.open .dropdown-toggle {
+  outline: 0;
+}
+.ww-button-group > .ww-button + .dropdown-toggle {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.ww-button-group > .btn-lg + .dropdown-toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.ww-button-group.open .dropdown-toggle {
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.ww-button-group.open .dropdown-toggle.ww-link {
+  box-shadow: none;
 }
 /*
   IconButton styling.

@@ -1,0 +1,148 @@
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {Button} from "../../../../../lib/control/button"
+import {ButtonPage} from "../"
+
+{% main (ButtonPage) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column>
+
+      <h1>Buttons</h2>
+
+      <p>
+
+        <h2>Style</h2>
+
+        {% for v:String,k:String in @values.styles %}
+
+          <Button 
+            ww:name={{v}}
+            ww:style={{v}}
+            ww:text={{k|@values.capitalize}} /> {{ ' ' }}
+
+        {% endfor %}
+
+      </p>
+
+    </Column>
+
+  </Row>
+
+  <Row>
+
+    <Column>
+
+        <h2>Outline</h2>
+
+          {% for style:String,text:String in @values.styles %}
+
+              <Button 
+               ww:style={{style}}
+               ww:outline=true
+               ww:text={{text|@values.capitalize}} /> {{ ' ' }}
+
+          {% endfor %}
+
+    </Column>
+
+   </Row>
+
+  <Row>
+
+    <Column>
+
+      <p>
+
+        <h2>Active</h2>
+
+          {% for v:String,k:String in @values.styles %}
+
+            <Button 
+             ww:name={{v}}
+             ww:active=true
+             ww:style={{v}}
+             ww:text={{k|@values.capitalize}} /> {{ ' ' }}
+
+          {% endfor %}
+
+      </p>
+
+    </Column>
+
+   </Row>
+
+  <Row>
+
+    <Column>
+
+      <p>
+
+        <h2>Disabled</h2>
+
+          {% for v:String,k:String in @values.styles %}
+
+            <Button 
+             ww:name={{v}}
+             ww:disabled=true
+             ww:style={{v}}
+             ww:text={{k|@values.capitalize}} /> {{ ' ' }}
+
+          {% endfor %}
+
+      </p>
+
+    </Column>
+
+   </Row>
+
+   <Row>
+
+    <Column>
+
+        <h2>Size</h2>
+
+          {% for style:String,_:String in @values.styles %}
+
+            <p>
+              
+              {% for sizeValue:String,size:String in @values.sizes %}
+
+                <Button 
+                ww:name={{size}}
+                ww:style={{style}}
+                ww:size={{sizeValue}}
+                ww:text={{size|@values.capitalize}} /> {{ ' ' }}
+
+              {% endfor %}
+
+            </p>
+
+          {% endfor %}
+
+    </Column>
+
+   </Row>
+
+   <Row>
+
+    <Column>
+
+        <h2>Block</h2>
+
+          {% for style:String,text:String in @values.styles %}
+
+              <Button 
+               ww:style={{style}}
+               ww:block=true
+               ww:text={{text|@values.capitalize}} /> {{ ' ' }}
+
+          {% endfor %}
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>

@@ -10,18 +10,16 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
-var _1 = require("../");
-/**
- * ButtonClickedEvent
- */
-var ButtonClickedEvent = /** @class */ (function (_super) {
-    __extends(ButtonClickedEvent, _super);
-    function ButtonClickedEvent(name) {
-        var _this = _super.call(this, name, null) || this;
-        _this.name = name;
+var views = require("./wml/button-group");
+var Page_1 = require("../Page");
+var ButtonGroupPage = /** @class */ (function (_super) {
+    __extends(ButtonGroupPage, _super);
+    function ButtonGroupPage() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.view = new views.Main(_this);
         return _this;
     }
-    return ButtonClickedEvent;
-}(_1.Event));
-exports.ButtonClickedEvent = ButtonClickedEvent;
-//# sourceMappingURL=ButtonClickedEvent.js.map
+    return ButtonGroupPage;
+}(Page_1.Page));
+exports.ButtonGroupPage = ButtonGroupPage;
+//# sourceMappingURL=index.js.map

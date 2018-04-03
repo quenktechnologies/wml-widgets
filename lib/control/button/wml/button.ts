@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Button
-} from '../Button';
+} from '../';
 
 
 

@@ -9,7 +9,7 @@ var table_1 = require("./pages/table");
 //import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
 //import { SelectPage } from './pages/select';
-//import { ButtonPage } from './pages/button';
+var button_1 = require("./pages/button");
 ////import { ButtonSelectPage } from './pages/button-select';
 //import { CheckboxPage } from './pages/checkbox';
 //import { SwitchPage } from './pages/switch';
@@ -20,7 +20,7 @@ var tab_bar_1 = require("./pages/tab-bar");
 var breadcrumb_1 = require("./pages/breadcrumb");
 var activity_indicator_1 = require("./pages/activity-indicator");
 //import { MenuPage } from './pages/menu';
-//import { ButtonGroupPage } from './pages/button-group';
+var button_group_1 = require("./pages/button-group");
 //import { ButtonMenuPage } from './pages/button-menu';
 var tab_layout_1 = require("./pages/tab-layout");
 var horizontal_layout_1 = require("./pages/horizontal-layout");
@@ -67,8 +67,8 @@ var App = /** @class */ (function () {
                 //      date: new DatePage(this),
                 //      select: new SelectPage(this),
                 //      autocomplete: new AutocompletePage(this),
-                //      button: new ButtonPage(this),
-                //      'button-group': new ButtonGroupPage(this),
+                button: new button_1.ButtonPage(this),
+                'button-group': new button_group_1.ButtonGroupPage(this),
                 //   //   'button-select': new ButtonSelectPage(this),
                 'tab-bar': new tab_bar_1.TabBarPage(this),
             },

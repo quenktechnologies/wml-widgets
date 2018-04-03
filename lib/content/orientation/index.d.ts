@@ -12,3 +12,7 @@ export declare const RIGHT_PUSHABLE = "-right-pushable";
  * to the left ,right modifiers etc.
  */
 export declare const POSITIONED = "-positioned";
+/**
+ * BLOCK indicates an element should be block displayed.
+ */
+export declare const BLOCK = "-block";

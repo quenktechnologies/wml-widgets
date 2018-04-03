@@ -21,6 +21,7 @@ export declare const DASH = "ww-dash";
  * ICON_BUTTON clasess for IconButtons.
  */
 export declare const ICON_BUTTON = "ww-icon-button";
+export declare const BUTTON_GROUP = "ww-button-group";
 /**
  * TAB_BAR
  */
@@ -77,6 +78,10 @@ export declare const RIGHT_PUSHABLE = "-right-pushable";
  */
 export declare const POSITIONED = "-positioned";
 /**
+ * BLOCK indicates an element should be block displayed.
+ */
+export declare const BLOCK = "-block";
+/**
  * HIDDEN means an element should not be visible but not removed
  * from the DOM.
  */
@@ -113,6 +118,10 @@ export declare const WARNING = "-warning";
  * ERROR style.
  */
 export declare const ERROR = "-error";
+/**
+ * OUTLINE style.
+ */
+export declare const OUTLINE = "-outline";
 /**
  * LINK
  */

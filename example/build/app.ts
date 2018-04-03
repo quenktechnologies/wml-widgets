@@ -12,7 +12,7 @@ import { TablePage } from './pages/table';
 //import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
 //import { SelectPage } from './pages/select';
-//import { ButtonPage } from './pages/button';
+import { ButtonPage } from './pages/button';
 ////import { ButtonSelectPage } from './pages/button-select';
 //import { CheckboxPage } from './pages/checkbox';
 //import { SwitchPage } from './pages/switch';
@@ -23,7 +23,7 @@ import { TabBarPage } from './pages/tab-bar';
 import { BreadcrumbPage } from './pages/breadcrumb';
 import { ActivityIndicatorPage } from './pages/activity-indicator';
 //import { MenuPage } from './pages/menu';
-//import { ButtonGroupPage } from './pages/button-group';
+import { ButtonGroupPage } from './pages/button-group';
 //import { ButtonMenuPage } from './pages/button-menu';
 import { TabLayoutPage } from './pages/tab-layout';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
@@ -75,8 +75,8 @@ export class App {
             //      date: new DatePage(this),
             //      select: new SelectPage(this),
             //      autocomplete: new AutocompletePage(this),
-            //      button: new ButtonPage(this),
-            //      'button-group': new ButtonGroupPage(this),
+                  button: new ButtonPage(this),
+                  'button-group': new ButtonGroupPage(this),
             //   //   'button-select': new ButtonSelectPage(this),
             'tab-bar': new TabBarPage(this),
             //      stack: new StackPage(this),

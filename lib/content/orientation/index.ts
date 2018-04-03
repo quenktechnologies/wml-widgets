@@ -15,4 +15,9 @@ export const RIGHT_PUSHABLE = '-right-pushable';
  * to the left ,right modifiers etc.
  */
 export const POSITIONED = '-positioned';
+
+/**
+ * BLOCK indicates an element should be block displayed.
+ */
+export const BLOCK = '-block';
 ///classNames:end

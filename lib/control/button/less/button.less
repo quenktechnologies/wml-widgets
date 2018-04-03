@@ -1,13 +1,12 @@
-@import (reference) "css/basic-user-interface";
 
 /* 
-  ButtonDimension defines the sizing of a Button.
+ButtonDimension defines the sizing of a Button.
 
-  @pv       - Vertical padding.
-  @ph       - Horizontal padding.
-  @font     - Font size.
-  @lh       - Line height.
-  @br       - Border radius.
+@pv       - Vertical padding.
+@ph       - Horizontal padding.
+@font     - Font size.
+@lh       - Line height.
+@br       - Border radius.
 */
 .ButtonDimension(@pv; @ph; @font; @lh; @br) {
 
@@ -19,13 +18,13 @@
 }
 
 /*
-  ButtonColor provides the color styling of a Button.
+ButtonColor provides the color styling of a Button.
 
-   @color       - The base text color.
-   @background  - The base background color.
-   @border      - The base border color.
+@color       - The base text color.
+@background  - The base background color.
+@border      - The base border color.
 
- */
+*/
 .ButtonColor(@color; @background; @border) {
 
   color: @color;
@@ -35,12 +34,12 @@
 }
 
 /*
-  ButtonOutline provides an alternative outline based styling for a button.
+ButtonOutline provides an alternative outline based styling for a button.
 
-  @color - The color for the outline.
+@color - The color for the outline.
 */
 .ButtonOutline(@color) {
-  
+
   color: @color;
   background-color: transparent;
   border-color: @color;
@@ -63,15 +62,15 @@
 }
 
 /*
-  ButtonStyle defines styles for a style variant of a button.
+ButtonStyle defines styles for a style variant of a button.
 
-   @color       - The base text color.
-   @background  - The base background color.
-   @border      - The base border color.
- */
+@color       - The base text color.
+@background  - The base background color.
+@border      - The base border color.
+*/
 .ButtonStyle(@color; @background; @border) {
 
- .ButtonColor(@color; @background; @border);
+  .ButtonColor(@color; @background; @border);
 
   &:focus { 
 
@@ -97,7 +96,7 @@
 
   }
 
-  &.__features.OUTLINE__ {
+  &.__OUTLINE__ {
 
     .ButtonOutline(@background);
 
@@ -106,7 +105,7 @@
 }
 
 /*
-  ButtonActiveFeel styles the feeling of a button while active.
+ButtonActiveFeel styles the feeling of a button while active.
 */ 
 .ButtonActiveFeel() {
 
@@ -117,7 +116,7 @@
 }
 
 /*
-  ButtonLinkBackground styles the background and shadows.
+ButtonLinkBackground styles the background and shadows.
 */
 .ButtonLinkBackground() {
 
@@ -127,8 +126,8 @@
 }
 
 /*
- ButtonLinkAttentionState provides styling for button links
- when given attention.
+ButtonLinkAttentionState provides styling for button links
+when given attention.
 */
 .ButtonLinkAttentionState() {
 
@@ -139,34 +138,34 @@
 }
 
 /*
-  ButtonLink styles the button to appear like a link.
+ButtonLink styles the button to appear like a link.
 */
 .ButtonLink() {
 
-    color: @link-color;
-    font-weight: normal;
-    border-radius: 0;
-    background-color: transparent;
-    box-shadow: none;
+  color: @link-color;
+  font-weight: normal;
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
 
-    &:hover, &:focus {
+  &:hover, &:focus {
 
-      .ButtonLinkAttentionState();
+    .ButtonLinkAttentionState();
 
-    }
+  }
 
-    &[disabled]:hover, &[disabled]:focus {
+  &[disabled]:hover, &[disabled]:focus {
 
-      color: @btn-link-disabled-color;
-      text-decoration: none;
+    color: @btn-link-disabled-color;
+    text-decoration: none;
 
-    }
+  }
 
 }
 
 /*
-  Button widget styles.
- */
+Button widget styles.
+*/
 .__BUTTON__ {
 
   display: inline-block;
@@ -185,7 +184,7 @@
   @line-height-base;
   @btn-border-radius-base);
 
-  .user-select(none);
+  user-select: none;
 
   &:hover, &:focus {
 
@@ -195,67 +194,69 @@
   }
 
   &:active {
- 
+
     .ButtonActiveFeel();
 
   }
 
   &[disabled] {
+
     cursor: @cursor-disabled;
-    .opacity(.65);
-    .box-shadow(none);
+    opacity: .65;
+    box-shadow: none;
+
   }
 
-  &.__styles.DEFAULT__ {
+  &.__DEFAULT__ {
 
     .ButtonStyle(@btn-default-color, @btn-default-bg, @btn-default-border);
-    
+
   }
 
-  &.__styles.PRIMARY__ {
+  &.__PRIMARY__ {
 
     .ButtonStyle(@btn-primary-color, @btn-primary-bg, @btn-primary-border);
 
   }
 
-  &.__styles.SUCCESS__ {
+  &.__SUCCESS__ {
 
     .ButtonStyle(@btn-success-color, @btn-success-bg, @btn-success-border);
 
   }
-  &.__styles.INFO__ {
+  &.__INFO__ {
 
     .ButtonStyle(@btn-info-color, @btn-info-bg, @btn-info-border);
 
   }
 
-  &.__styles.WARNING__ {
+  &.__WARNING__ {
 
     .ButtonStyle(@btn-warning-color, @btn-warning-bg, @btn-warning-border);
 
   }
 
-  &.__styles.DANGER__ {
+  &.__ERROR__ {
 
     .ButtonStyle(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
 
   }
 
-  &.__features.LINK__  {
+  &.__LINK__ {
 
     .ButtonLink();
 
   }
 
-  &.__states.ACTIVE__ {
+  &.__ACTIVE__ {
 
     .ButtonActiveFeel();
 
   }
 
-  &.__sizes.LARGE__ {
+  &.__LARGE__ {
 
-  .ButtonDimension(
+    .ButtonDimension(
     @padding-large-vertical; 
     @padding-large-horizontal;
     @font-size-large;
@@ -264,30 +265,30 @@
 
   }
 
-  &.__sizes.SMALL__ {
+  &.__SMALL__ {
 
-  .ButtonDimension(
+    .ButtonDimension(
     @padding-small-vertical;
     @padding-small-horizontal;
     @font-size-small;
     @line-height-small;
     @btn-border-radius-small);
-  
+
   }
 
-  &.__sizes.EXTRA_SMALL__ {
-  
+  &.__EXTRA_SMALL__ {
+
     .ButtonDimension(
-      @padding-xs-vertical;
-      @padding-xs-horizontal;
-      @font-size-small;
-      @line-height-small;
-      @btn-border-radius-small);
+    @padding-xs-vertical;
+    @padding-xs-horizontal;
+    @font-size-small;
+    @line-height-small;
+    @btn-border-radius-small);
 
   }
 
-  &.__features.BLOCK__ {
-    
+  &.__BLOCK__ {
+
     display: block;
     width: 100%;
 
@@ -299,6 +300,12 @@
     }
 
   }
+
+}
+
+.__BUTTON__ + .__BUTTON__ {
+
+  margin-left: button-sibiling-spacing;
 
 }
 
