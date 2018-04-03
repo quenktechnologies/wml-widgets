@@ -17,6 +17,10 @@ var PageExample = /** @class */ (function (_super) {
     function PageExample() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.view = new views.Main(_this);
+        _this.values = {
+            size: _this.attrs.size,
+            offset: _this.attrs.offset
+        };
         return _this;
     }
     return PageExample;

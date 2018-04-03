@@ -25,7 +25,10 @@ export class Main extends ___wml.AppView < PageExample > {
                 wml: {}
             }, [___wml.widget(Column, {
                 html: {},
-                wml: {}
+                wml: {},
+                ww: {
+                    'size': ___context.values.size
+                }
             }, [___wml.domify(___context.children)], ___view)], ___view)], ___view);
 
     }

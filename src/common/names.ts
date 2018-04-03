@@ -147,12 +147,3 @@ export const STACK_MEMBER = `${STACK}__member`;
  */
 export const SEARCH_STACK = 'ww-search-stack';
 
-/**
- * LIST_GROUP class name.
- */
-export const LIST_GROUP = 'list-group';
-
-/**
- * LIST_GROUP_ITEM class name.
- */
-export const LIST_GROUP_ITEM = 'list-group-item';

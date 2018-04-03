@@ -4,7 +4,7 @@ var util_1 = require("afpl/lib/util");
 var app_1 = require("./wml/app");
 var navigation_1 = require("./wml/navigation");
 var panel_1 = require("./pages/panel");
-//import { ListGroupPage } from './pages/list-group';
+var list_layout_1 = require("./pages/list-layout");
 var table_1 = require("./pages/table");
 //import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
@@ -55,7 +55,7 @@ var App = /** @class */ (function () {
         this.links = {
             layout: {
                 panel: new panel_1.PanelPage(this),
-                //      'list-group': new ListGroupPage(this),
+                'list-layout': new list_layout_1.ListLayoutPage(this),
                 //      'tab-view': new TabViewPage(this)
                 'horizontal-layout': new horizontal_layout_1.HorizontalLayoutPage(this)
             },

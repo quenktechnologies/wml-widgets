@@ -1,4 +1,0 @@
-import {ListGroup} from "../ListGroup"
-
-{% main (ListGroup) %}
-<ul class={{@values.root.class}}>{{@children}}</ul>

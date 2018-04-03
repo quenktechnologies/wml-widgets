@@ -7,7 +7,7 @@ import { Main } from './wml/app';
 import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
 import { PanelPage } from './pages/panel';
-//import { ListGroupPage } from './pages/list-group';
+import { ListLayoutPage } from './pages/list-layout';
 import { TablePage } from './pages/table';
 //import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
@@ -21,7 +21,7 @@ import { TabBarPage } from './pages/tab-bar';
 //import { SearchStackPage } from './pages/search-stack';
 //import { AutocompletePage } from './pages/autocomplete';
 //import { BreadCrumbsPage } from './pages/breadcrumbs';
-import {ActivityIndicatorPage} from './pages/activity-indicator';
+import { ActivityIndicatorPage } from './pages/activity-indicator';
 //import { MenuPage } from './pages/menu';
 //import { ButtonGroupPage } from './pages/button-group';
 //import { ButtonMenuPage } from './pages/button-menu';
@@ -62,7 +62,7 @@ export class App {
         layout: {
 
             panel: new PanelPage(this),
-            //      'list-group': new ListGroupPage(this),
+                  'list-layout': new ListLayoutPage(this),
             //      'tab-view': new TabViewPage(this)
             'horizontal-layout': new HorizontalLayoutPage(this)
 
@@ -90,7 +90,7 @@ export class App {
 
         },
         app: {
-                 'activity-indicator': new ActivityIndicatorPage(this)
+            'activity-indicator': new ActivityIndicatorPage(this)
         },
         nav: {
             //       breadcrumbs: new BreadCrumbsPage(this),

@@ -26,7 +26,10 @@ var Main = /** @class */ (function (_super) {
                     wml: {}
                 }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
-                        wml: {}
+                        wml: {},
+                        ww: {
+                            'size': ___context.values.size
+                        }
                     }, [___wml.domify(___context.children)], ___view)], ___view)], ___view);
         };
         return _this;

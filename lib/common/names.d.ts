@@ -107,11 +107,3 @@ export declare const STACK_MEMBER: string;
  * SEARCH_STACK class name.
  */
 export declare const SEARCH_STACK = "ww-search-stack";
-/**
- * LIST_GROUP class name.
- */
-export declare const LIST_GROUP = "list-group";
-/**
- * LIST_GROUP_ITEM class name.
- */
-export declare const LIST_GROUP_ITEM = "list-group-item";

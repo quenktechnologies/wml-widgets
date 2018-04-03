@@ -62,6 +62,10 @@ export const DRAWER_CONTENT = 'ww-drawer__content';
 export const HEADER = 'ww-header';
 ///classNames:end
 ///classNames:begin
+export const LIST_LAYOUT = 'ww-list-layout';
+export const LIST_LAYOUT_ITEM = 'ww-list-layout__item';
+///classNames:end
+///classNames:begin
 //@todo: refactor this to be inline with other class names
 export const GRID_LAYOUT = 'container-fluid';
 export const COLUMN = 'ww-column';
