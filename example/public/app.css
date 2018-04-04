@@ -1203,7 +1203,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #212121;
+  background-color: #f6f7f9;
   color: #333333;
 }
 .ww-drawer-layout > .ww-drawer:not(.-hidden) {
@@ -1211,10 +1211,10 @@ body {
   background-color: #1a1a1a;
 }
 .ww-main-layout {
-  height: 100%;
+  height: auto;
   overflow-x: auto;
-  overflow-y: auto;
-  background-color: #f6f7f9;
+  overflow-y: hidden;
+  background-color: transparent;
   padding: 60px 0px;
 }
 /*!
