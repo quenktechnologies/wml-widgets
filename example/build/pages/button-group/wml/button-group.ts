@@ -37,7 +37,8 @@ export class Main extends ___wml.AppView < ButtonGroupPage > {
                 html: {},
                 wml: {},
                 ww: {
-                    'text': `three`
+                    'text': `three`,
+                    'active': true
                 }
             }, [], ___view), ___wml.widget(Button, {
                 html: {},

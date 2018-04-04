@@ -8523,50 +8523,8 @@ button.close {
 .ww-modal__footer .btn-block + .btn-block {
   margin-left: 0;
 }
-/* 
-ButtonDimension defines the sizing of a Button.
-
-@pv       - Vertical padding.
-@ph       - Horizontal padding.
-@font     - Font size.
-@lh       - Line height.
-@br       - Border radius.
-*/
 /*
-ButtonColor provides the color styling of a Button.
-
-@color       - The base text color.
-@background  - The base background color.
-@border      - The base border color.
-
-*/
-/*
-ButtonOutline provides an alternative outline based styling for a button.
-
-@color - The color for the outline.
-*/
-/*
-ButtonStyle defines styles for a style variant of a button.
-
-@color       - The base text color.
-@background  - The base background color.
-@border      - The base border color.
-*/
-/*
-ButtonActiveFeel styles the feeling of a button while active.
-*/
-/*
-ButtonLinkBackground styles the background and shadows.
-*/
-/*
-ButtonLinkAttentionState provides styling for button links
-when given attention.
-*/
-/*
-ButtonLink styles the button to appear like a link.
-*/
-/*
-Button widget styles.
+  Button styling.
 */
 .ww-button {
   display: inline-block;
@@ -8867,19 +8825,25 @@ Button widget styles.
   background-image: none;
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-.ww-button.__LARGE__ {
+.ww-button.-large {
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px;
 }
-.ww-button.__SMALL__ {
+.ww-button.-xs-large {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.ww-button.-small {
   padding: 5px 10px;
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
 }
-.ww-button.__EXTRA_SMALL__ {
+.ww-button.-xs-small {
   padding: 1px 5px;
   font-size: 12px;
   line-height: 1.5;
@@ -8893,21 +8857,59 @@ Button widget styles.
   margin-top: 5px;
 }
 .ww-button + .ww-button {
-  margin-left: button-sibiling-spacing;
+  margin-left: 0.5em;
 }
-.ww-button-group {
+/* 
+buttonDimension defines the sizing of a button.
+
+@pv       - Vertical padding.
+@ph       - Horizontal padding.
+@font     - Font size.
+@lh       - Line height.
+@br       - Border radius.
+*/
+/*
+buttonColor provides the color styling of a button.
+
+@color       - The base text color.
+@background  - The base background color.
+@border      - The base border color.
+
+*/
+/*
+buttonOutline provides an alternative outline based styling for a button.
+
+@color - The color for the outline.
+*/
+/*
+buttonStyle defines styles for a variant of a button.
+
+@color       - The base text color.
+@background  - The base background color.
+@border      - The base border color.
+*/
+/*
+buttonActiveFeel styles the feeling of a button while active.
+*/
+/*
+buttonLinkBackground styles the background and shadows.
+*/
+/*
+buttonLinkAttentionState provides styling for button links
+when given attention.
+*/
+/*
+buttonLink styles the button to appear like a link.
+*/
+.ww-button-group,
+.ww-button-group.-vertical {
   position: relative;
   display: inline-block;
 }
-.ww-button-group > .ww-button {
+.ww-button-group > .ww-button,
+.ww-button-group.-vertical > .ww-button {
   position: relative;
   float: left;
-}
-.ww-button-group > .ww-button:hover,
-.ww-button-group > .ww-button:focus,
-.ww-button-group > .ww-button:active,
-.ww-button-group > .ww-button.-active {
-  z-index: 2;
 }
 .ww-button-group .ww-button + .ww-button,
 .ww-button-group .ww-button + .ww-button-group,
@@ -8915,15 +8917,20 @@ Button widget styles.
 .ww-button-group .ww-button-group + .ww-button-group {
   margin-left: -1px;
 }
+.ww-button-group > .ww-button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
 .ww-button-group > .ww-button:first-child {
   margin-left: 0;
 }
 .ww-button-group > .ww-button:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 .ww-button-group > .ww-button:last-child:not(:first-child),
 .ww-button-group > .dropdown-toggle:not(:first-child) {
-  border-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 .ww-button-group > .ww-button-group {
   float: left;
@@ -8933,10 +8940,12 @@ Button widget styles.
 }
 .ww-button-group > .ww-button-group:first-child:not(:last-child) > .ww-button:last-child,
 .ww-button-group > .ww-button-group:first-child:not(:last-child) > .dropdown-toggle {
-  border-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
 }
 .ww-button-group > .ww-button-group:last-child:not(:first-child) > .ww-button:first-child {
-  border-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
 }
 .ww-button-group .dropdown-toggle:active,
 .ww-button-group.open .dropdown-toggle {

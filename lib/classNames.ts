@@ -113,29 +113,6 @@ export const PANEL_FOOTER = 'ww-panel__footer';
 ///classNames:end
 ///classNames:begin
 /**
- * VERTICAL indicates an element is vertical rendererd.
- */
-export const VERTICAL = '-vertical';
-
-/**
- * RIGHT_PUSHABLE indicates an element can supports being pushed right
- * by specifying styles around this class.
- */
-export const RIGHT_PUSHABLE = '-right-pushable';
-
-/**
- * POSITIONED indicates an element is positioned and responds
- * to the left ,right modifiers etc.
- */
-export const POSITIONED = '-positioned';
-
-/**
- * BLOCK indicates an element should be block displayed.
- */
-export const BLOCK = '-block';
-///classNames:end
-///classNames:begin
-/**
  * HIDDEN means an element should not be visible but not removed
  * from the DOM.
  */
@@ -188,6 +165,36 @@ export const ERROR = '-error';
  * OUTLINE style.
  */
 export const OUTLINE = '-outline';
+///classNames:end
+///classNames:begin
+/**
+ * VERTICAL indicates an element is vertical rendererd.
+ */
+export const VERTICAL = '-vertical';
+
+/**
+ * RIGHT_PUSHABLE indicates an element can supports being pushed right
+ * by specifying styles around this class.
+ */
+export const RIGHT_PUSHABLE = '-right-pushable';
+
+/**
+ * POSITIONED indicates an element is positioned and responds
+ * to the left ,right modifiers etc.
+ */
+export const POSITIONED = '-positioned';
+
+/**
+ * BLOCK indicates an element should be block displayed.
+ */
+export const BLOCK = '-block';
+///classNames:end
+///classNames:begin
+ export const   EXTRA_SMALL= '-xs-small';
+export const     SMALL= '-small';
+ export const    MEDIUM= '-medium';
+  export const  LARGE= '-large';
+export const    EXTRA_LARGE= '-xs-large';
 ///classNames:end
 ///classNames:begin
 /**

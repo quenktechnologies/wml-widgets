@@ -64,24 +64,6 @@ export declare const PANEL_BODY = "ww-panel__body";
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
 /**
- * VERTICAL indicates an element is vertical rendererd.
- */
-export declare const VERTICAL = "-vertical";
-/**
- * RIGHT_PUSHABLE indicates an element can supports being pushed right
- * by specifying styles around this class.
- */
-export declare const RIGHT_PUSHABLE = "-right-pushable";
-/**
- * POSITIONED indicates an element is positioned and responds
- * to the left ,right modifiers etc.
- */
-export declare const POSITIONED = "-positioned";
-/**
- * BLOCK indicates an element should be block displayed.
- */
-export declare const BLOCK = "-block";
-/**
  * HIDDEN means an element should not be visible but not removed
  * from the DOM.
  */
@@ -122,6 +104,29 @@ export declare const ERROR = "-error";
  * OUTLINE style.
  */
 export declare const OUTLINE = "-outline";
+/**
+ * VERTICAL indicates an element is vertical rendererd.
+ */
+export declare const VERTICAL = "-vertical";
+/**
+ * RIGHT_PUSHABLE indicates an element can supports being pushed right
+ * by specifying styles around this class.
+ */
+export declare const RIGHT_PUSHABLE = "-right-pushable";
+/**
+ * POSITIONED indicates an element is positioned and responds
+ * to the left ,right modifiers etc.
+ */
+export declare const POSITIONED = "-positioned";
+/**
+ * BLOCK indicates an element should be block displayed.
+ */
+export declare const BLOCK = "-block";
+export declare const EXTRA_SMALL = "-xs-small";
+export declare const SMALL = "-small";
+export declare const MEDIUM = "-medium";
+export declare const LARGE = "-large";
+export declare const EXTRA_LARGE = "-xs-large";
 /**
  * LINK
  */

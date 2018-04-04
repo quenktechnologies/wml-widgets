@@ -1,29 +1,34 @@
 
 .__BUTTON_GROUP__ { 
 
-  position: relative;
-  display: inline-block;
- 
-  & > .__BUTTON__ {
+  &, &.__VERTICAL__ {
 
     position: relative;
-    float: left;
-    // Bring the "active" button to the front
-    &:hover, &:focus, &:active, &.__ACTIVE__ {
+    display: inline-block;
 
-      z-index: 2;
-      
+    & > .__BUTTON__ {
+
+      position: relative;
+      float: left;
+
     }
+
   }
 
   // Prevent double borders when buttons are next to each other
   & .__BUTTON__ + .__BUTTON__,
-    .__BUTTON__ + .__BUTTON_GROUP__,
-    .__BUTTON_GROUP__ + .__BUTTON__,
-    .__BUTTON_GROUP__ + .__BUTTON_GROUP__ {
+  .__BUTTON__ + .__BUTTON_GROUP__,
+  .__BUTTON_GROUP__ + .__BUTTON__,
+  .__BUTTON_GROUP__ + .__BUTTON_GROUP__ {
 
-     margin-left: -1px;
-    
+    margin-left: -1px;
+
+  }
+
+  & > .__BUTTON__:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+
+    border-radius: 0;
+
   }
 
   // Set corners individual because sometimes a single button can be in 
@@ -34,7 +39,8 @@
 
     &:not(:last-child):not(.dropdown-toggle) {
 
-      border-right-radius:0;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
 
     }
 
@@ -45,7 +51,8 @@
   & > .__BUTTON__:last-child:not(:first-child),
   & > .dropdown-toggle:not(:first-child) {
 
-    border-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 
   }
 
@@ -56,7 +63,7 @@
     float: left;
 
   }
-  
+
   & > .__BUTTON_GROUP__:not(:first-child):not(:last-child) > .__BUTTON__ {
 
     border-radius: 0;
@@ -66,15 +73,17 @@
   & > .__BUTTON_GROUP__:first-child:not(:last-child) {
     > .__BUTTON__:last-child,
     > .dropdown-toggle {
-      
-      border-right-radius: 0;
+
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
 
     }
   }
-  
+
   & > .__BUTTON_GROUP__:last-child:not(:first-child) > .__BUTTON__:first-child {
 
-    border-left-radius:0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 
   }
 

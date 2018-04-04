@@ -38,7 +38,8 @@ var Main = /** @class */ (function (_super) {
                         html: {},
                         wml: {},
                         ww: {
-                            'text': "three"
+                            'text': "three",
+                            'active': true
                         }
                     }, [], ___view), ___wml.widget(button_1.Button, {
                         html: {},

@@ -10,7 +10,7 @@ import {ButtonGroupPage} from "../"
   <ButtonGroup>
 
     <Button ww:text="one"/>
-    <Button ww:text="three"/>
+    <Button ww:text="three" ww:active=true />
     <Button ww:text="four"/>
 
   </ButtonGroup>
