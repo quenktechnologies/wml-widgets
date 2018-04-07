@@ -17,11 +17,14 @@ export declare const ACTIVITY_INDICATOR = "ww-activity-indicator";
  * DASH
  */
 export declare const DASH = "ww-dash";
-/**
- * ICON_BUTTON clasess for IconButtons.
- */
-export declare const ICON_BUTTON = "ww-icon-button";
 export declare const BUTTON_GROUP = "ww-button-group";
+export declare const DROP_DOWN_MENU = "ww-drop-down-menu";
+export declare const DROP_DOWN_MENU_BUTTON = "ww-drop-down-menu__button";
+export declare const TOOLBAR = "ww-toolbar";
+export declare const TOOLBAR_COMPAT = "-toolbar-compat";
+export declare const MENU = "ww-menu";
+export declare const MENU_DIVIDER = "ww-menu__divider";
+export declare const MENU_HEADER = "ww-menu__header";
 /**
  * TAB_BAR
  */
@@ -64,6 +67,28 @@ export declare const PANEL_BODY = "ww-panel__body";
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
 /**
+ * VERTICAL indicates an element is vertical rendererd.
+ */
+export declare const VERTICAL = "-vertical";
+/**
+ * RIGHT_PUSHABLE indicates an element can supports being pushed right
+ * by specifying styles around this class.
+ */
+export declare const RIGHT_PUSHABLE = "-right-pushable";
+/**
+ * POSITIONED indicates an element is positioned and responds
+ * to the left ,right modifiers etc.
+ */
+export declare const POSITIONED = "-positioned";
+/**
+ * BLOCK indicates an element should be block displayed.
+ */
+export declare const BLOCK = "-block";
+/**
+ * CLEARFIX hack.
+ */
+export declare const CLEARFIX = "-clearfix";
+/**
  * HIDDEN means an element should not be visible but not removed
  * from the DOM.
  */
@@ -104,24 +129,6 @@ export declare const ERROR = "-error";
  * OUTLINE style.
  */
 export declare const OUTLINE = "-outline";
-/**
- * VERTICAL indicates an element is vertical rendererd.
- */
-export declare const VERTICAL = "-vertical";
-/**
- * RIGHT_PUSHABLE indicates an element can supports being pushed right
- * by specifying styles around this class.
- */
-export declare const RIGHT_PUSHABLE = "-right-pushable";
-/**
- * POSITIONED indicates an element is positioned and responds
- * to the left ,right modifiers etc.
- */
-export declare const POSITIONED = "-positioned";
-/**
- * BLOCK indicates an element should be block displayed.
- */
-export declare const BLOCK = "-block";
 export declare const EXTRA_SMALL = "-xs-small";
 export declare const SMALL = "-small";
 export declare const MEDIUM = "-medium";

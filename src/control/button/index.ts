@@ -1,11 +1,11 @@
-import * as wml from '@quenk/wml';
 import * as views from './wml/button';
 import * as style from '../../content/style';
 import * as active from '../../content/state/active';
 import * as orientation from '../../content/orientation';
+import { View } from '@quenk/wml';
 import { concat } from '../../util';
-import { WidgetAttrs, StylableAttrs } from '../../';
-import { Event } from '../';
+import { TOOLBAR_COMPAT } from '../toolbar';
+import { ControlAttrs, GenericControl, Event } from '../';
 
 ///classNames:begin
 export const BUTTON = 'ww-button';
@@ -14,7 +14,7 @@ export const BUTTON = 'ww-button';
 /**
  * ButtonAttrs
  */
-export interface ButtonAttrs extends StylableAttrs {
+export interface ButtonAttrs<V> extends ControlAttrs<V> {
 
     /**
      * size modifier for the button.
@@ -27,11 +27,6 @@ export interface ButtonAttrs extends StylableAttrs {
     style?: string,
 
     /**
-     * class names that can be assigned to the button.
-     */
-    class?: string,
-
-    /**
      * outline uses an alternative outline styling 
      */
     outline?: boolean,
@@ -42,11 +37,6 @@ export interface ButtonAttrs extends StylableAttrs {
     active?: boolean,
 
     /**
-     * disabled indicates whether the button is disabled or not.
-     */
-    disabled?: boolean,
-
-    /**
      * block scope this button.
      */
     block?: boolean,
@@ -54,7 +44,7 @@ export interface ButtonAttrs extends StylableAttrs {
     /**
      * onClick assigns a handler for click events.
      */
-    onClick?: (e: ButtonClickedEvent) => void,
+    onClick?: (e: ButtonClickedEvent<V>) => void,
 
     /**
      * text can be specified as an alternative to explicit children.
@@ -66,28 +56,19 @@ export interface ButtonAttrs extends StylableAttrs {
      */
     type?: string,
 
-    /**
-     * name of the button (used in event generation)
-     */
-    name?: string
-
 };
 
 /**
  * ButtonClickedEvent
  */
-export class ButtonClickedEvent extends Event<void> {
-
-    constructor(public name: string) { super(name, null); }
-
-}
+export class ButtonClickedEvent<V> extends Event<V> { }
 
 /**
  * Button is an improvement over HTMLButtionElement
  */
-export class Button extends wml.Component<WidgetAttrs<ButtonAttrs>> {
+export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
 
-    view: wml.View = new views.Main(this);
+    view: View = new views.Main(this);
 
     values = {
 
@@ -97,6 +78,8 @@ export class Button extends wml.Component<WidgetAttrs<ButtonAttrs>> {
 
             class: this.attrs.ww ?
                 concat(BUTTON,
+
+                    TOOLBAR_COMPAT,
                     this.attrs.ww.class,
                     this.attrs.ww.style || style.DEFAULT,
                     this.attrs.ww.size && this.attrs.ww.size,
@@ -112,7 +95,8 @@ export class Button extends wml.Component<WidgetAttrs<ButtonAttrs>> {
 
             onclick: () => this.attrs.ww &&
                 this.attrs.ww.onClick &&
-                this.attrs.ww.onClick(new ButtonClickedEvent(this.attrs.ww.name || '')),
+                this.attrs.ww.onClick(
+                    new ButtonClickedEvent(this.attrs.ww.name || '', this.attrs.ww.value)),
 
             text: (this.attrs.ww && this.attrs.ww.text) ? this.attrs.ww.text : ''
 

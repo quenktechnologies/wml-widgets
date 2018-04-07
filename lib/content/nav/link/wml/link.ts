@@ -17,6 +17,7 @@ export class Main extends ___wml.AppView < Link > {
                     'class': ___context.values.a.class,
                     'href': ___context.values.a.href,
                     'title': ___context.values.a.title,
+                    'disabled': ___context.values.a.disabled,
                     'onclick': ___context.values.a.clicked
                 },
                 wml: {}

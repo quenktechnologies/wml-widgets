@@ -4,6 +4,7 @@ HERE=$(shell pwd)
 WMLC?=node_modules/.bin/wmlc
 TSC?=./node_modules/.bin/tsc
 BROWSERIFY?=./node_modules/.bin/browserify
+TYPEDOC?=./node_modules/.bin/typedoc
 LESSC?=./node_modules/.bin/lessc
 RMR?=rm -R
 MKDIRP?=mkdir -p
@@ -20,7 +21,7 @@ JS_VARS_OBJECTS:="./lib/classNames"
 # Entry point for the less compiler.
 LESS_INCLUDE_PATHS=less:src
 
-$(HERE) : lib dist example
+$(HERE) : lib dist example docs
 	$(TOUCH) $@
 # copy sources to the lib and generates the generated ts code.
 lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml -o -name \*.less)
@@ -70,8 +71,16 @@ example/public/app.css: lib $(shell $(FIND) example/app -name \*.less) $(shell $
 	--npm-import \
 	example/build/less/app.less > $@
 
+docs: src
+	$(TYPEDOC) --out docs \
+	  --excludeExternals \
+	  --excludeNotExported \
+	  --tsconfig src/tsconfig.json 
+	 
+	 touch docs/.nojekyll
+
 .PHONY: clean
-clean: clean-build clean-example
+clean: clean-build clean-example clean-docs
 
 .PHONY: clean-build
 clean-build:
@@ -80,6 +89,10 @@ clean-build:
 .PHONY: clean-example
 clean-example:
 	$(RMR) example/build || true
+
+.PHONY: clean-docs
+clean-docs:
+	$(RMR) docs || true
 
 .PHONY: remove-js
 remove-js:

@@ -19,27 +19,32 @@ export interface LinkAttrs extends StylableAttrs {
     /**
      * name of this Link.
      */
-    name?: string
+    name?: string,
 
     /**
      * title of the Link.
      */
-    title?: string
+    title?: string,
 
     /**
      * href for the link element.
      */
-    href?: string
+    href?: string,
+
+    /**
+     * disabled disables the link
+     */
+    disabled?: boolean,
 
     /**
      * text to display in the Link.
      */
-    text?: string
+    text?: string,
 
     /**
      * active indicates whether the Link is active or not.
      */
-    active?: boolean
+    active?: boolean,
 
     /**
      * onClick handler
@@ -87,6 +92,8 @@ export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
         a: {
 
             id: 'root',
+
+            disabled: this.attrs.ww.disabled || null,
 
             class: concat(LINK,
                 this.attrs.ww ? this.attrs.ww.class : '',

@@ -1,45 +1,29 @@
-import { Control, ControlAttrs, ControlAttrsProperties } from '../';
+import { Control, ControlAttrs } from '../';
 /**
- * @module control/form
+ * @module control
  *
- * The form module provides controls that can be used for accepting user input.
- *
- * Widgets here are designed with 'streaming' in mind. That is, as the user
- * interacts with them, events are generated and applied to the relevant
- * user supplied functions.
- *
- * Each widget provides its own class of Events where feasible except for those
- * where the interactions are mostly indistiguishable.
+ * The form module deals with controls specifically for accepting user input.
  */
 /**
- * FormControlAttrsProperties
+ * FormControlAtrrs
  */
-export interface FormControlAttrsProperties<V> extends ControlAttrsProperties {
+export interface FormControlAttrs<V> extends ControlAttrs<V> {
     /**
      * label for the control.
      */
     label?: string;
-    /**
-     * value the control will be initilized with.
-     */
-    value?: V;
 }
 /**
- * FormControlAttrs are common to most FormControl implementors.
+ * FormControl generates events based on user input.
  */
-export interface FormControlAttrs<V> extends ControlAttrs {
-    ww: FormControlAttrsProperties<V>;
-}
-/**
- * FormControl are those controls that typically relay user input via events.
- */
-export interface FormControl<V, A extends ControlAttrs> extends Control<A> {
+export interface FormControl<V, A extends FormControlAttrs<V>> extends Control<V, A> {
     /**
-     * get provides the value of a FormControl
+     * get provides the current value of a FormControlear;make
+     *
      */
     get(): V;
     /**
-     * set the vallue of a FormControl
+     * set the current value of a FormControl.
      */
     set(value: V): FormControl<V, A>;
 }

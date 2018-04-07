@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Header | @package/self</title>
+	<title>Header | @quenk/wml-widgets</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">@package/self</a>
+					<a href="../index.html" class="title">@quenk/wml-widgets</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,10 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -80,28 +76,45 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_app_modal_index_.header.html" class="tsd-signature-type">Header</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_app_modal_index_.headerattrs.html" class="tsd-signature-type">HeaderAttrs</a><span class="tsd-signature-symbol">&gt;</span>
+						<span class="tsd-signature-type">Component</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_app_modal_index_.headerattrs.html" class="tsd-signature-type">HeaderAttrs</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Header</span>
-								<ul class="tsd-hierarchy">
-									<li>
-										<a href="_app_modal_index_.header.html" class="tsd-signature-type">Header</a>
-									</li>
-								</ul>
 							</li>
 						</ul>
 					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><span class="tsd-signature-type">Widget</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="_app_modal_index_.header.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_app_modal_index_.header.html#view" class="tsd-kind-icon">view</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_app_modal_index_.header.html#attrs" class="tsd-kind-icon">attrs</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_app_modal_index_.header.html#children" class="tsd-kind-icon">children</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_app_modal_index_.header.html#view" class="tsd-kind-icon">view</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-inherited">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_app_modal_index_.header.html#removed" class="tsd-kind-icon">removed</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_app_modal_index_.header.html#render" class="tsd-kind-icon">render</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_app_modal_index_.header.html#rendered" class="tsd-kind-icon">rendered</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -113,17 +126,132 @@
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Header<span class="tsd-signature-symbol">(</span>attrs<span class="tsd-signature-symbol">: </span><a href="../interfaces/_app_modal_index_.headerattrs.html" class="tsd-signature-type">HeaderAttrs</a>, children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Content</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_app_modal_index_.header.html" class="tsd-signature-type">Header</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Component.__constructor</p>
+								<ul>
+									<li>Defined in /home/master/Documents/code/development/node/wml-widgets/node_modules/@quenk/wml/lib/index.d.ts:121</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>children is an array of content passed to this Component.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>attrs: <a href="../interfaces/_app_modal_index_.headerattrs.html" class="tsd-signature-type">HeaderAttrs</a></h5>
+								</li>
+								<li>
+									<h5>children: <span class="tsd-signature-type">Content</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_app_modal_index_.header.html" class="tsd-signature-type">Header</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="view" class="tsd-anchor"></a>
-					<h3>view</h3>
-					<div class="tsd-signature tsd-kind-icon">view<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;new views.Header(this)</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="attrs" class="tsd-anchor"></a>
+					<h3>attrs</h3>
+					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_app_modal_index_.headerattrs.html" class="tsd-signature-type">HeaderAttrs</a></div>
 					<aside class="tsd-sources">
+						<p>Inherited from Component.attrs</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/987476b/src/app/modal/index.ts#L71">app/modal/index.ts:71</a></li>
+							<li>Defined in /home/master/Documents/code/development/node/wml-widgets/node_modules/@quenk/wml/lib/index.d.ts:114</li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="children" class="tsd-anchor"></a>
+					<h3>children</h3>
+					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Content</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Component.children</p>
+						<ul>
+							<li>Defined in /home/master/Documents/code/development/node/wml-widgets/node_modules/@quenk/wml/lib/index.d.ts:115</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+					<a name="view" class="tsd-anchor"></a>
+					<h3>view</h3>
+					<div class="tsd-signature tsd-kind-icon">view<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">View</span><span class="tsd-signature-symbol"> =&nbsp;new views.Header(this)</span></div>
+					<aside class="tsd-sources">
+						<p>Overrides Component.view</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/app/modal/index.ts#L79">app/modal/index.ts:79</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="removed" class="tsd-anchor"></a>
+					<h3>removed</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">removed<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Component.removed</p>
+								<ul>
+									<li>Defined in /home/master/Documents/code/development/node/wml-widgets/node_modules/@quenk/wml/lib/index.d.ts:130</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="render" class="tsd-anchor"></a>
+					<h3>render</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">render<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Content</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Component.render</p>
+								<ul>
+									<li>Defined in /home/master/Documents/code/development/node/wml-widgets/node_modules/@quenk/wml/lib/index.d.ts:131</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Content</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+					<a name="rendered" class="tsd-anchor"></a>
+					<h3>rendered</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">rendered<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Inherited from Component.rendered</p>
+								<ul>
+									<li>Defined in /home/master/Documents/code/development/node/wml-widgets/node_modules/@quenk/wml/lib/index.d.ts:129</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -134,7 +262,7 @@
 					<div class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/987476b/src/app/modal/index.ts#L73">app/modal/index.ts:73</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/app/modal/index.ts#L81">app/modal/index.ts:81</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
@@ -143,16 +271,16 @@
 						<div class="tsd-signature tsd-kind-icon">class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/987476b/src/app/modal/index.ts#L81">app/modal/index.ts:81</a></li>
+								<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/app/modal/index.ts#L89">app/modal/index.ts:89</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
 							<a name="values.class.root" class="tsd-anchor"></a>
 							<h3>root</h3>
-							<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;names.MODAL_HEADER</span></div>
+							<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;MODAL_HEADER</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/987476b/src/app/modal/index.ts#L83">app/modal/index.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/app/modal/index.ts#L91">app/modal/index.ts:91</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -163,7 +291,7 @@
 						<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/987476b/src/app/modal/index.ts#L75">app/modal/index.ts:75</a></li>
+								<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/app/modal/index.ts#L83">app/modal/index.ts:83</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
@@ -172,7 +300,7 @@
 							<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;root&quot;</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/987476b/src/app/modal/index.ts#L77">app/modal/index.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/app/modal/index.ts#L85">app/modal/index.ts:85</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -204,8 +332,26 @@
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
 						<a href="_app_modal_index_.header.html" class="tsd-kind-icon">Header</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+								<a href="_app_modal_index_.header.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_app_modal_index_.header.html#attrs" class="tsd-kind-icon">attrs</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_app_modal_index_.header.html#children" class="tsd-kind-icon">children</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_app_modal_index_.header.html#view" class="tsd-kind-icon">view</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_app_modal_index_.header.html#removed" class="tsd-kind-icon">removed</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_app_modal_index_.header.html#render" class="tsd-kind-icon">render</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="_app_modal_index_.header.html#rendered" class="tsd-kind-icon">rendered</a>
 							</li>
 							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
 								<a href="_app_modal_index_.header.html#values" class="tsd-kind-icon">values</a>
@@ -228,6 +374,24 @@
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
 						<a href="../interfaces/_app_modal_index_.modalattrs.html" class="tsd-kind-icon">Modal<wbr>Attrs</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="../modules/_app_modal_index_.html#modal-1" class="tsd-kind-icon">MODAL</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="../modules/_app_modal_index_.html#modal_body" class="tsd-kind-icon">MODAL_<wbr>BODY</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="../modules/_app_modal_index_.html#modal_content" class="tsd-kind-icon">MODAL_<wbr>CONTENT</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="../modules/_app_modal_index_.html#modal_dialog" class="tsd-kind-icon">MODAL_<wbr>DIALOG</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="../modules/_app_modal_index_.html#modal_footer" class="tsd-kind-icon">MODAL_<wbr>FOOTER</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="../modules/_app_modal_index_.html#modal_header" class="tsd-kind-icon">MODAL_<wbr>HEADER</a>
 					</li>
 				</ul>
 			</nav>

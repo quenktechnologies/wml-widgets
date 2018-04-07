@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Switch
-} from '../Switch';
+} from '..';
 
 
 
@@ -21,7 +21,7 @@ export class Main extends ___wml.AppView < Switch > {
                 html: {
                     'type': `checkbox`,
                     'name': ___context.values.input.name,
-                    'checked': (___context.values.input.on || null),
+                    'checked': ___context.values.input.value,
                     'disabled': ___context.values.input.disabled,
                     'onchange': ___context.values.input.onChange
                 },

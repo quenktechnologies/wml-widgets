@@ -22,9 +22,9 @@ import { TabBarPage } from './pages/tab-bar';
 //import { AutocompletePage } from './pages/autocomplete';
 import { BreadcrumbPage } from './pages/breadcrumb';
 import { ActivityIndicatorPage } from './pages/activity-indicator';
-//import { MenuPage } from './pages/menu';
+import { MenuPage } from './pages/menu';
 import { ButtonGroupPage } from './pages/button-group';
-//import { ButtonMenuPage } from './pages/button-menu';
+import { DropDownMenuPage } from './pages/drop-down-menu';
 import { TabLayoutPage } from './pages/tab-layout';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
 import { NavPage } from './pages/nav';
@@ -75,10 +75,12 @@ export class App {
             //      date: new DatePage(this),
             //      select: new SelectPage(this),
             //      autocomplete: new AutocompletePage(this),
-                  button: new ButtonPage(this),
-                  'button-group': new ButtonGroupPage(this),
+            button: new ButtonPage(this),
+            'button-group': new ButtonGroupPage(this),
             //   //   'button-select': new ButtonSelectPage(this),
             'tab-bar': new TabBarPage(this),
+            menu: new MenuPage(this),
+            'drop-down-menu': new DropDownMenuPage(this)
             //      stack: new StackPage(this),
             //      checkbox: new CheckboxPage(this),
             //      'switch': new SwitchPage(this),
@@ -92,10 +94,6 @@ export class App {
         },
         app: {
             'activity-indicator': new ActivityIndicatorPage(this)
-        },
-        menu: {
-            //         menu: new MenuPage(this),
-            //           'button-menu': new ButtonMenuPage(this)
         }
 
     };

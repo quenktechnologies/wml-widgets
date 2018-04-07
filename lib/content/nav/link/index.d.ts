@@ -21,6 +21,10 @@ export interface LinkAttrs extends StylableAttrs {
      */
     href?: string;
     /**
+     * disabled disables the link
+     */
+    disabled?: boolean;
+    /**
      * text to display in the Link.
      */
     text?: string;
@@ -61,6 +65,7 @@ export declare class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
     values: {
         a: {
             id: string;
+            disabled: boolean;
             class: string;
             title: string;
             name: string;

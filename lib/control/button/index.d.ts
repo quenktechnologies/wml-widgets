@@ -1,11 +1,10 @@
-import * as wml from '@quenk/wml';
-import { WidgetAttrs, StylableAttrs } from '../../';
-import { Event } from '../';
+import { View } from '@quenk/wml';
+import { ControlAttrs, GenericControl, Event } from '../';
 export declare const BUTTON = "ww-button";
 /**
  * ButtonAttrs
  */
-export interface ButtonAttrs extends StylableAttrs {
+export interface ButtonAttrs<V> extends ControlAttrs<V> {
     /**
      * size modifier for the button.
      */
@@ -15,10 +14,6 @@ export interface ButtonAttrs extends StylableAttrs {
      */
     style?: string;
     /**
-     * class names that can be assigned to the button.
-     */
-    class?: string;
-    /**
      * outline uses an alternative outline styling
      */
     outline?: boolean;
@@ -27,17 +22,13 @@ export interface ButtonAttrs extends StylableAttrs {
      */
     active?: boolean;
     /**
-     * disabled indicates whether the button is disabled or not.
-     */
-    disabled?: boolean;
-    /**
      * block scope this button.
      */
     block?: boolean;
     /**
      * onClick assigns a handler for click events.
      */
-    onClick?: (e: ButtonClickedEvent) => void;
+    onClick?: (e: ButtonClickedEvent<V>) => void;
     /**
      * text can be specified as an alternative to explicit children.
      */
@@ -46,23 +37,17 @@ export interface ButtonAttrs extends StylableAttrs {
      * type corresponds to the html attribute.
      */
     type?: string;
-    /**
-     * name of the button (used in event generation)
-     */
-    name?: string;
 }
 /**
  * ButtonClickedEvent
  */
-export declare class ButtonClickedEvent extends Event<void> {
-    name: string;
-    constructor(name: string);
+export declare class ButtonClickedEvent<V> extends Event<V> {
 }
 /**
  * Button is an improvement over HTMLButtionElement
  */
-export declare class Button extends wml.Component<WidgetAttrs<ButtonAttrs>> {
-    view: wml.View;
+export declare class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
+    view: View;
     values: {
         button: {
             id: string;

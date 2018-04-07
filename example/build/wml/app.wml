@@ -1,7 +1,7 @@
 import {DrawerLayout} from "../../../lib/layout/drawer-layout"
 import {ActionBar} from "../../../lib/app/action-bar"
 import {App} from "../app"
-import {IconButton} from "../../../lib/control/icon-button"
+import {Button} from "../../../lib/control/button"
 import {Dash} from "../../../lib/app/dash"
 import {MainLayout} from "../../../lib/layout/main-layout"
 
@@ -13,7 +13,7 @@ import {MainLayout} from "../../../lib/layout/main-layout"
 
   <ActionBar>
 
-    <IconButton 
+    <Button 
       ww:name="toggle"
       ww:onClick={{@toggleDrawer}}>
 
@@ -21,7 +21,7 @@ import {MainLayout} from "../../../lib/layout/main-layout"
       <Dash/>
       <Dash/>
 
-    </IconButton>
+    </Button>
 
   </ActionBar>
 

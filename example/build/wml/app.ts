@@ -9,8 +9,8 @@ import {
     App
 } from '../app';;
 import {
-    IconButton
-} from '../../../lib/control/icon-button';;
+    Button
+} from '../../../lib/control/button';;
 import {
     Dash
 } from '../../../lib/app/dash';;
@@ -38,7 +38,7 @@ export class Main extends ___wml.AppView < App > {
             }, [___wml.widget(ActionBar, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(IconButton, {
+            }, [___wml.widget(Button, {
                 html: {},
                 wml: {},
                 ww: {

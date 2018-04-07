@@ -1,4 +1,4 @@
-import {Switch} from "../Switch"
+import {Switch} from ".."
 
 {% main (Switch) %}
 
@@ -7,7 +7,7 @@ import {Switch} from "../Switch"
   <input 
   type="checkbox"
   name={{@values.input.name}}
-  checked={{@values.input.on || null}}
+  checked={{@values.input.value}}
   disabled={{@values.input.disabled}}
   onchange={{@values.input.onChange}}/>
 

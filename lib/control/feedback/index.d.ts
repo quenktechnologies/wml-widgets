@@ -1,5 +1,6 @@
 import { View } from '@quenk/wml';
-import { Control, ControlAttrs, ControlAttrsProperties } from '../../control';
+import { Maybe } from 'afpl/lib/monad/Maybe';
+import { Control, ControlAttrs, GenericControl } from '../../control';
 /**
  * @module control/feedback
  */
@@ -8,11 +9,44 @@ export declare const ERROR = 1;
 export declare const SUCCESS = 2;
 export declare const WARNING = 3;
 /**
- * FeedbackControlAttrsProperties are the ww attributes common to all FeedbackControls.
+ * ValidationState
+ */
+export declare enum ValidationState {
+    NEUTRAL = 0,
+    ERROR = 1,
+    SUCCESS = 2,
+    WARNING = 3,
+}
+/**
+ * Success
+ */
+export declare type Success<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
+/**
+ * Warning
+ */
+export declare type Warning<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
+/**
+ * Error
+ */
+export declare type Error<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
+/**
+ * Neutral
+ */
+export declare type Neutral<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
+/**
+ * SetMessage
+ */
+export declare type SetMessage<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message: string) => C;
+/**
+ * GetValidationState
+ */
+export declare type GetValidationState = () => ValidationState;
+/**
+ * FeedbackControlAttrs are the ww attributes common to all FeedbackControls.
  *
  * Some of these may be ignored by implementations.
  */
-export interface FeedbackControlAttrsProperties extends ControlAttrsProperties {
+export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
     /**
      * success allows the control to be intialized in the valid state with
      * a message.
@@ -30,48 +64,50 @@ export interface FeedbackControlAttrsProperties extends ControlAttrsProperties {
     warning?: string;
 }
 /**
- * FeedbackControlAttrs
- */
-export interface FeedbackControlAttrs extends ControlAttrs {
-    ww: FeedbackControlAttrsProperties;
-}
-/**
  * FeedbackControl is a Control that provides visual hints as to
  * the validity of the value entered in the Control.
  */
-export interface FeedbackControl<A extends FeedbackControlAttrs> extends Control<A> {
+export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>> extends Control<V, A> {
     /**
-     * message sets a message on the control.
+     * setMessage on the control.
      */
-    message(msg: string): FeedbackControl<A>;
+    setMessage(msg: string): FeedbackControl<V, A>;
     /**
      * success sets a success message on the FeedbackControl.
      */
-    success(message: string): FeedbackControl<A>;
+    success(message?: string): FeedbackControl<V, A>;
     /**
      * error sets an error message on the FeedbackControl.
      */
-    error(message: string): FeedbackControl<A>;
+    error(message?: string): FeedbackControl<V, A>;
     /**
      * warning sets a warning messages on the FeedbackControl.
      */
-    warning(message: string): FeedbackControl<A>;
+    warning(message?: string): FeedbackControl<V, A>;
     /**
-     * clear any validation state on the control.
+     * neutral clears any validation state on the control.
      */
-    clear(): FeedbackControl<A>;
+    neutral(): FeedbackControl<V, A>;
+    /**
+     * getValidationState returns the a value representing the
+     * validation state of the control
+     */
+    getValidationState(): ValidationState;
 }
-export interface FeedbackControlWidget<A extends FeedbackControlAttrs> extends FeedbackControl<A> {
+/**
+ * GenericFeedbackControl provides a base implementation of a FeedbackControl.
+ */
+export declare abstract class GenericFeedbackControl<V, A extends FeedbackControlAttrs<V>> extends GenericControl<V, A> implements FeedbackControl<V, A> {
     /**
-     * view of the FeedbackControl
+     * view of the Control.
      */
-    view: View;
+    abstract view: View;
     /**
-     * values used in the view.
+     * values provided to the view template.
      */
-    values: {
+    abstract values: {
         /**
-         * root element values.
+         * root element values
          */
         root: {
             /**
@@ -79,41 +115,42 @@ export interface FeedbackControlWidget<A extends FeedbackControlAttrs> extends F
              */
             id: string;
         };
-        /**
-         * messages element values.
-         */
-        messages: {
-            /**
-             * id of the messages element.
-             */
-            id: string;
-        };
     };
+    setMessage: SetMessage<V, A, GenericFeedbackControl<V, A>>;
+    success: Success<V, A, GenericFeedbackControl<V, A>>;
+    warning: Warning<V, A, GenericFeedbackControl<V, A>>;
+    error: Error<V, A, GenericFeedbackControl<V, A>>;
+    neutral: Neutral<V, A, GenericFeedbackControl<V, A>>;
+    getValidationState: GetValidationState;
 }
 /**
- * setState helper for changing the state of the displayed DOM.
+ * setState helper.
  */
-export declare const setState: <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>(c: C) => (state: string) => C;
+export declare const setState: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => (state: string) => (m?: string) => C;
 /**
- * setSuccess helper.
+ * success helper.
  */
-export declare const setSuccess: <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>(c: C) => () => C;
+export declare const success: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Success<V, A, C>;
 /**
- * setWarning helper.
+ * warning helper.
  */
-export declare const setWarning: <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>(c: C) => () => C;
+export declare const warning: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Warning<V, A, C>;
 /**
- * setError helper.
+ * error helper.
  */
-export declare const setError: <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>(c: C) => () => C;
+export declare const error: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Error<V, A, C>;
 /**
- * setMessage helper for setting a message on a FeedbackControl.
+ * setMessage helper.
  */
-export declare const setMessage: <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>(c: C) => (msg: string) => C;
+export declare const setMessage: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => SetMessage<V, A, C>;
 /**
- * clear validation states from a control.
+ * neutral clears validation states from a control.
  */
-export declare const clear: <A extends FeedbackControlAttrs, C extends FeedbackControlWidget<A>>(c: C) => () => C;
+export declare const neutral: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Neutral<V, A, C>;
+/**
+ * getValidationState default.
+ */
+export declare const getValidationState: (fn: () => Maybe<HTMLElement>) => GetValidationState;
 /**
  * selectState from an attribute list.
  */

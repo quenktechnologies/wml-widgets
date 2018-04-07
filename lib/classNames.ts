@@ -29,13 +29,20 @@ export const ACTIVITY_INDICATOR = 'ww-activity-indicator';
 export const DASH = 'ww-dash';
 ///classNames:end
 ///classNames:begin
-/**
- * ICON_BUTTON clasess for IconButtons.
- */
-export const ICON_BUTTON = 'ww-icon-button';
+export const BUTTON_GROUP = 'ww-button-group';
 ///classNames:end
 ///classNames:begin
-export const BUTTON_GROUP = 'ww-button-group';
+export const DROP_DOWN_MENU = 'ww-drop-down-menu';
+export const DROP_DOWN_MENU_BUTTON = 'ww-drop-down-menu__button';
+///classNames:end
+///classNames:begin
+export const TOOLBAR = 'ww-toolbar';
+export const TOOLBAR_COMPAT = '-toolbar-compat';
+///classNames:end
+///classNames:begin
+export const MENU = 'ww-menu';
+export const MENU_DIVIDER = 'ww-menu__divider';
+export const MENU_HEADER = 'ww-menu__header';
 ///classNames:end
 ///classNames:begin
 /**
@@ -113,6 +120,34 @@ export const PANEL_FOOTER = 'ww-panel__footer';
 ///classNames:end
 ///classNames:begin
 /**
+ * VERTICAL indicates an element is vertical rendererd.
+ */
+export const VERTICAL = '-vertical';
+
+/**
+ * RIGHT_PUSHABLE indicates an element can supports being pushed right
+ * by specifying styles around this class.
+ */
+export const RIGHT_PUSHABLE = '-right-pushable';
+
+/**
+ * POSITIONED indicates an element is positioned and responds
+ * to the left ,right modifiers etc.
+ */
+export const POSITIONED = '-positioned';
+
+/**
+ * BLOCK indicates an element should be block displayed.
+ */
+export const BLOCK = '-block';
+
+/**
+ * CLEARFIX hack.
+ */
+export const CLEARFIX = '-clearfix';
+///classNames:end
+///classNames:begin
+/**
  * HIDDEN means an element should not be visible but not removed
  * from the DOM.
  */
@@ -165,29 +200,6 @@ export const ERROR = '-error';
  * OUTLINE style.
  */
 export const OUTLINE = '-outline';
-///classNames:end
-///classNames:begin
-/**
- * VERTICAL indicates an element is vertical rendererd.
- */
-export const VERTICAL = '-vertical';
-
-/**
- * RIGHT_PUSHABLE indicates an element can supports being pushed right
- * by specifying styles around this class.
- */
-export const RIGHT_PUSHABLE = '-right-pushable';
-
-/**
- * POSITIONED indicates an element is positioned and responds
- * to the left ,right modifiers etc.
- */
-export const POSITIONED = '-positioned';
-
-/**
- * BLOCK indicates an element should be block displayed.
- */
-export const BLOCK = '-block';
 ///classNames:end
 ///classNames:begin
  export const   EXTRA_SMALL= '-xs-small';

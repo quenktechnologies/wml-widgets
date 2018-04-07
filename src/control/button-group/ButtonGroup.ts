@@ -1,6 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button-group';
 import { concat } from '../../util';
+import { TOOLBAR_COMPAT } from '../toolbar';
 import { ButtonGroupAttrs } from '.';
 
 ///classNames:begin
@@ -18,7 +19,8 @@ export class ButtonGroup extends wml.Component<ButtonGroupAttrs> {
 
         root: {
 
-            class: concat(BUTTON_GROUP, (this.attrs.ww) ? this.attrs.ww.class : '')
+            class: concat(BUTTON_GROUP, TOOLBAR_COMPAT, (this.attrs.ww) ?
+                this.attrs.ww.class : '')
 
         }
 

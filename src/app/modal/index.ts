@@ -37,7 +37,7 @@ export interface FooterAttrs extends wml.Attrs { }
  */
 export class Modal extends Group<ModalAttrs> {
 
-    view = new views.Modal(this);
+  view : wml.View = new views.Modal(this);
 
     values = {
 
@@ -76,7 +76,7 @@ export class Modal extends Group<ModalAttrs> {
  */
 export class Header extends wml.Component<HeaderAttrs> {
 
-    view = new views.Header(this);
+  view : wml.View = new views.Header(this);
 
     values = {
 
@@ -101,7 +101,7 @@ export class Header extends wml.Component<HeaderAttrs> {
  */
 export class Body extends Group<BodyAttrs> {
 
-    view = new views.Body(this);
+  view : wml.View= new views.Body(this);
 
     values = {
 
@@ -125,7 +125,7 @@ export class Body extends Group<BodyAttrs> {
  */
 export class Footer extends Group<FooterAttrs> {
 
-    view = new views.Footer(this);
+  view : wml.View = new views.Footer(this);
 
     values = {
 

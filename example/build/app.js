@@ -19,9 +19,9 @@ var tab_bar_1 = require("./pages/tab-bar");
 //import { AutocompletePage } from './pages/autocomplete';
 var breadcrumb_1 = require("./pages/breadcrumb");
 var activity_indicator_1 = require("./pages/activity-indicator");
-//import { MenuPage } from './pages/menu';
+var menu_1 = require("./pages/menu");
 var button_group_1 = require("./pages/button-group");
-//import { ButtonMenuPage } from './pages/button-menu';
+var drop_down_menu_1 = require("./pages/drop-down-menu");
 var tab_layout_1 = require("./pages/tab-layout");
 var horizontal_layout_1 = require("./pages/horizontal-layout");
 var nav_1 = require("./pages/nav");
@@ -71,6 +71,12 @@ var App = /** @class */ (function () {
                 'button-group': new button_group_1.ButtonGroupPage(this),
                 //   //   'button-select': new ButtonSelectPage(this),
                 'tab-bar': new tab_bar_1.TabBarPage(this),
+                menu: new menu_1.MenuPage(this),
+                'drop-down-menu': new drop_down_menu_1.DropDownMenuPage(this)
+                //      stack: new StackPage(this),
+                //      checkbox: new CheckboxPage(this),
+                //      'switch': new SwitchPage(this),
+                //      'search-stack': new SearchStackPage(this),
             },
             content: {
                 nav: new nav_1.NavPage(this),
@@ -78,10 +84,6 @@ var App = /** @class */ (function () {
             },
             app: {
                 'activity-indicator': new activity_indicator_1.ActivityIndicatorPage(this)
-            },
-            menu: {
-            //         menu: new MenuPage(this),
-            //           'button-menu': new ButtonMenuPage(this)
             }
         };
         /**

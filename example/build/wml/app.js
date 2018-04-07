@@ -16,7 +16,7 @@ var drawer_layout_1 = require("../../../lib/layout/drawer-layout");
 var action_bar_1 = require("../../../lib/app/action-bar");
 ;
 ;
-var icon_button_1 = require("../../../lib/control/icon-button");
+var button_1 = require("../../../lib/control/button");
 ;
 var dash_1 = require("../../../lib/app/dash");
 ;
@@ -37,7 +37,7 @@ var Main = /** @class */ (function (_super) {
             }, [___wml.widget(action_bar_1.ActionBar, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(icon_button_1.IconButton, {
+                }, [___wml.widget(button_1.Button, {
                         html: {},
                         wml: {},
                         ww: {
