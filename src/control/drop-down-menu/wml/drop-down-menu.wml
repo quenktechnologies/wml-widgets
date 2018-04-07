@@ -1,0 +1,38 @@
+import {Button} from "../../button"
+import { Caret } from "../../../content/x/caret"
+import {Menu} from "../../menu"
+import {DropDownMenu} from "../"
+
+{% fun button (DropDownMenu) %}
+
+  <Button 
+    ww:class={{@values.button.class}}
+    ww:text={{@values.button.text}}/>
+
+  <Button
+    ww:class={{@values.toggle.class}}
+    ww:onClick={{@values.toggle.onClick}}>
+
+    <Caret/>
+
+  </Button>
+
+{% endfun %}
+
+{% main (DropDownMenu) %}
+
+<div 
+  wml:id={{@values.root.id}} 
+  class={{@values.root.class}}>
+
+  {{<(@values.button.template())(@)>}}
+
+  <Menu 
+    wml:id={{@values.menu.id}}
+    ww:hidden=true>
+
+    {{@values.menu.content()}}
+
+  </Menu>
+
+</div>
