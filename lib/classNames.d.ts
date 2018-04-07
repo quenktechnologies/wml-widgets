@@ -19,7 +19,7 @@ export declare const ACTIVITY_INDICATOR = "ww-activity-indicator";
 export declare const DASH = "ww-dash";
 export declare const BUTTON_GROUP = "ww-button-group";
 export declare const DROP_DOWN_MENU = "ww-drop-down-menu";
-export declare const DROP_DOWN_MENU_BUTTON = "ww-drop-down-menu__button";
+export declare const DROP_DOWN_MENU_TOGGLE = "ww-drop-down-menu__toggle";
 export declare const TOOLBAR = "ww-toolbar";
 export declare const TOOLBAR_COMPAT = "-toolbar-compat";
 export declare const MENU = "ww-menu";
@@ -66,6 +66,7 @@ export declare const PANEL_BODY = "ww-panel__body";
  * PANEL_FOOTER class name.
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
+export declare const CARET = "ww-caret";
 /**
  * VERTICAL indicates an element is vertical rendererd.
  */

@@ -1,11 +1,11 @@
 import * as wml from '@quenk/wml';
 import {
     Hidable,
-    IsVisible,
+    IsHidden,
     Hide,
     Show,
     Toggle,
-    isVisible,
+    isHidden,
     hide,
     show,
     toggle
@@ -42,7 +42,7 @@ export class Drawer extends Group<DrawerAttrs> implements Hidable {
 
     view: wml.View = new Main(this);
 
-    isVisible: IsVisible = isVisible(getDom(this));
+    isHidden: IsHidden = isHidden(getDom(this));
 
     hide: Hide<Drawer> = hide<Drawer>(this)(getDom(this));
 

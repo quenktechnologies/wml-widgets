@@ -5,9 +5,9 @@ import { Maybe } from 'afpl/lib/monad/Maybe';
  */
 export declare const HIDDEN = "-hidden";
 /**
- * IsVisiable
+ * IsHidden
  */
-export declare type IsVisible = () => boolean;
+export declare type IsHidden = () => boolean;
 /**
  * Hide
  */
@@ -28,9 +28,9 @@ export declare type Toggle<H extends Hidable> = () => H;
  */
 export interface Hidable {
     /**
-     * isVisible indicates the DOM for the widget is visible.
+     * isHidden indicates the DOM for the widget is hidden.
      */
-    isVisible: () => boolean;
+    isHidden: () => boolean;
     /**
      * hide the DOM of the widget.
      */
@@ -50,7 +50,7 @@ export interface Hidable {
   * It retrieves an HTMLElement by id and checks whether
   * it does not have a hidden class.
   */
-export declare const isVisible: (fn: () => Maybe<HTMLElement>) => () => boolean;
+export declare const isHidden: (fn: () => Maybe<HTMLElement>) => () => boolean;
 /**
  * hide the Hidable.
  *

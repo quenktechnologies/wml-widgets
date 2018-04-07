@@ -33,7 +33,7 @@ export const BUTTON_GROUP = 'ww-button-group';
 ///classNames:end
 ///classNames:begin
 export const DROP_DOWN_MENU = 'ww-drop-down-menu';
-export const DROP_DOWN_MENU_BUTTON = 'ww-drop-down-menu__button';
+export const DROP_DOWN_MENU_TOGGLE = 'ww-drop-down-menu__toggle';
 ///classNames:end
 ///classNames:begin
 export const TOOLBAR = 'ww-toolbar';
@@ -117,6 +117,9 @@ export const PANEL_BODY = 'ww-panel__body';
  */
 export const PANEL_FOOTER = 'ww-panel__footer';
 
+///classNames:end
+///classNames:begin
+export const CARET = 'ww-caret';
 ///classNames:end
 ///classNames:begin
 /**

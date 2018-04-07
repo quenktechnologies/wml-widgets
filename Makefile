@@ -69,6 +69,7 @@ example/public/app.css: lib $(shell $(FIND) example/app -name \*.less) $(shell $
 	--js-vars=$(JS_VARS_OBJECTS) \
 	--include-path=$(LESS_INCLUDE_PATHS) \
 	--npm-import \
+	--source-map-map-inline \
 	example/build/less/app.less > $@
 
 docs: src

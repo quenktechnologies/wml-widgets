@@ -9,9 +9,9 @@ export const HIDDEN = '-hidden';
 ///classNames:end
 
 /**
- * IsVisiable
+ * IsHidden
  */
-export type IsVisible = () => boolean;
+export type IsHidden = () => boolean;
 
 /**
  * Hide
@@ -37,9 +37,9 @@ export type Toggle<H extends Hidable> = () => H;
 export interface Hidable {
 
     /**
-     * isVisible indicates the DOM for the widget is visible.
+     * isHidden indicates the DOM for the widget is hidden.
      */
-    isVisible: () => boolean;
+    isHidden: () => boolean;
 
     /**
      * hide the DOM of the widget.
@@ -64,9 +64,9 @@ export interface Hidable {
   * It retrieves an HTMLElement by id and checks whether
   * it does not have a hidden class.
   */
-export const isVisible = (fn: () => Maybe<HTMLElement>) => (): boolean =>
+export const isHidden = (fn: () => Maybe<HTMLElement>) => (): boolean =>
     fn()
-        .map((e: HTMLElement) => e.classList.contains(HIDDEN))
+        .map((e: HTMLElement) => !e.classList.contains(HIDDEN))
         .orJust(() => false)
         .get();
 
@@ -78,10 +78,8 @@ export const isVisible = (fn: () => Maybe<HTMLElement>) => (): boolean =>
  */
 export const hide = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
     : Hide<H> => () =>
-        Maybe
-            .fromBoolean(h.isVisible())
-            .chain(fn)
-            .map((e: HTMLElement) => e.classList.add(HIDDEN))
+          fn()
+.map((e:HTMLElement) => {e.classList.remove(HIDDEN); e.classList.add(HIDDEN); })
             .map(() => h)
             .orJust(() => h)
             .get();
@@ -95,8 +93,8 @@ export const hide = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
 export const show = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
     : Show<H> => () =>
         Maybe
-            .fromBoolean(h.isVisible())
-            .orElse(() => fn().map((e: HTMLElement) => e.classList.remove(HIDDEN)))
+            .fromBoolean(h.isHidden())
+            .map(() => fn().map((e: HTMLElement) => e.classList.remove(HIDDEN)))
             .map(() => h)
             .orJust(() => h)
             .get();

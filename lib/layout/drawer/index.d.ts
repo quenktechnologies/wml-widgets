@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { Hidable, IsVisible, Hide, Show, Toggle } from '../../content/state/hidden';
+import { Hidable, IsHidden, Hide, Show, Toggle } from '../../content/state/hidden';
 import { Group, GroupAttrs } from '../../content/Group';
 export declare const DRAWER = "ww-drawer";
 export declare const DRAWER_CONTENT = "ww-drawer__content";
@@ -19,7 +19,7 @@ export interface DrawerAttrs extends GroupAttrs {
  */
 export declare class Drawer extends Group<DrawerAttrs> implements Hidable {
     view: wml.View;
-    isVisible: IsVisible;
+    isHidden: IsHidden;
     hide: Hide<Drawer>;
     show: Show<Drawer>;
     toggle: Toggle<Drawer>;

@@ -61,7 +61,7 @@ export interface DrawerLayoutAttrs extends GroupAttrs {
  */
 export declare class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
     view: View;
-    isVisible: () => boolean;
+    isHidden: () => boolean;
     hide: () => DrawerLayout;
     show: () => DrawerLayout;
     toggle: () => DrawerLayout;

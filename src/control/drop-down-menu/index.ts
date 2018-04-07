@@ -1,5 +1,6 @@
 import * as views from './wml/drop-down-menu';
 import * as hidden from '../../content/state/hidden';
+import * as style from '../../content/style';
 import { View, Attrs, Template, Component } from '@quenk/wml';
 import { concat } from '../../util';
 import { Menu } from '../menu';
@@ -8,7 +9,7 @@ const menu = (dm: DropDownMenu) => dm.view.findById<Menu>(dm.values.menu.id);
 
 ///classNames:begin
 export const DROP_DOWN_MENU = 'ww-drop-down-menu';
-export const DROP_DOWN_MENU_BUTTON = 'ww-drop-down-menu__button';
+export const DROP_DOWN_MENU_TOGGLE = 'ww-drop-down-menu__toggle';
 ///classNames:end
 
 /**
@@ -68,7 +69,7 @@ export class DropDownMenu extends Component<DropDownMenuAttrs>
         menu(this).map(m => m.isHidden()).get();
 
     hide: hidden.Hide<DropDownMenu> = () =>
-        menu(this).map(m => console.error(m) || m.hide()).map(() => this).get();
+        menu(this).map(m => m.hide()).map(() => this).get();
 
     show: hidden.Show<DropDownMenu> = () =>
         menu(this).map(m => m.show()).map(() => this).get();
@@ -90,13 +91,33 @@ export class DropDownMenu extends Component<DropDownMenuAttrs>
 
             text: this.attrs.ww.buttonText ? this.attrs.ww.buttonText : '',
 
+            class: style.DEFAULT,
+
             template: (): ButtonTemplate => this.attrs.ww.buttonTemplate ?
                 this.attrs.ww.buttonTemplate : views.button,
 
-            class: DROP_DOWN_MENU_BUTTON,
+        },
+
+        toggle: {
+
+            class: concat(DROP_DOWN_MENU_TOGGLE, style.PRIMARY),
 
             onClick: () => {
-                this.view.findById(this.values.menu.id).map((m: Menu) => m.toggle());
+
+                this
+                    .view
+                    .findById(this.values.root.id)
+                    .map((e: HTMLElement) => {
+
+                        for (let i = 0; i < e.children.length; i++) {
+                            e.children[i].removeEventListener('click', this.hide);
+                            e.children[i].addEventListener('click', this.hide);
+                        }
+
+                    })
+                    .map(this.toggle)
+                    .map(() => window.addEventListener('click', this))
+
             }
 
         },
@@ -120,25 +141,12 @@ export class DropDownMenu extends Component<DropDownMenuAttrs>
                     document.removeEventListener('click', this);
 
                 if ((!root.contains(<Node>e.target)))
-                    this.hide();
+                  this.hide();
+
 
             });
 
     }
 
-    rendered() {
-
-        this
-            .view
-            .findById(this.values.root.id)
-            .map((root: HTMLElement) => {
-
-                for (let i = 0; i < root.children.length; i++)
-                    root.children[i].addEventListener('click', () => this.hide());
-
-            })
-            .map(() => window.addEventListener('click', this));
-
-    }
 
 }
