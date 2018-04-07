@@ -91,11 +91,11 @@ export class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
 
     view: View = new Main(this);
 
-    isVisible = () =>
+    isHidden = () =>
         this
             .view
             .findById(this.values.root.id)
-            .map((d: WMLElement) => (<Drawer>d).isVisible())
+            .map((d: WMLElement) => (<Drawer>d).isHidden())
             .orJust(() => false)
             .get();
 
