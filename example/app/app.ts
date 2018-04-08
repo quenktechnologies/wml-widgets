@@ -9,7 +9,7 @@ import { Page } from './pages/Page';
 import { PanelPage } from './pages/panel';
 import { ListLayoutPage } from './pages/list-layout';
 import { TablePage } from './pages/table';
-//import { TextFieldPage } from './pages/text-field';
+import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
 //import { SelectPage } from './pages/select';
 import { ButtonPage } from './pages/button';
@@ -71,7 +71,7 @@ export class App {
             table: new TablePage(this)
         },
         control: {
-            //     'text-field': new TextFieldPage(this),
+                 'text-field': new TextFieldPage(this),
             //      date: new DatePage(this),
             //      select: new SelectPage(this),
             //      autocomplete: new AutocompletePage(this),
