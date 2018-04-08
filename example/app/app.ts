@@ -24,7 +24,7 @@ import { BreadcrumbPage } from './pages/breadcrumb';
 import { ActivityIndicatorPage } from './pages/activity-indicator';
 import { MenuPage } from './pages/menu';
 import { ButtonGroupPage } from './pages/button-group';
-import { DropDownMenuPage } from './pages/drop-down-menu';
+import { DropDownPage } from './pages/drop-down';
 import { TabLayoutPage } from './pages/tab-layout';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
 import { NavPage } from './pages/nav';
@@ -80,7 +80,7 @@ export class App {
             //   //   'button-select': new ButtonSelectPage(this),
             'tab-bar': new TabBarPage(this),
             menu: new MenuPage(this),
-            'drop-down-menu': new DropDownMenuPage(this)
+            'drop-down': new DropDownPage(this)
             //      stack: new StackPage(this),
             //      checkbox: new CheckboxPage(this),
             //      'switch': new SwitchPage(this),
