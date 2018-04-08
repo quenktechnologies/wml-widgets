@@ -3,19 +3,12 @@
 
   min-width: 10em;
   display: block; 
-  position: absolute;
-  top: 100%;
   z-index: 2000;
   padding: 5px 0;
   list-style: none;
   font-size: @font-size-base;
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   background-color: @dropdown-bg;
-  border: 1px solid @dropdown-fallback-border; // IE8 fallback
-  border: 1px solid @dropdown-border;
-  border-radius: @border-radius-base;
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  background-clip: padding-box;
 
   &.__HIDDEN__ {
 
@@ -57,7 +50,7 @@
   }
 
   // Active state
- & > .__ACTIVE__ > a, & > .__ACTIVE__ > a:hover, & > .__ACTIVE__ > a:focus {
+  & > .__ACTIVE__ > a, & > .__ACTIVE__ > a:hover, & > .__ACTIVE__ > a:focus {
 
     color: @dropdown-link-active-color;
     text-decoration: none;
@@ -66,9 +59,9 @@
 
   }
 
-// Disabled state
-//
-// Gray out text and ensure the hover/focus state remains gray
+  // Disabled state
+  //
+  // Gray out text and ensure the hover/focus state remains gray
 
   & > .__DISABLED__> a, & > .__DISABLED__ > a:hover, & > .__DISABLED__ > a:focus { 
 
@@ -91,14 +84,14 @@
 // Open state for the dropdown
 //.open {
   // Show the menu
- // > .__MENU__ {
- //   display: block;
- // }
+  // > .__MENU__ {
+    //   display: block;
+  // }
 
   // Remove the outline when :focus is triggered
-//  > a {
-  //  outline: 0;
-//  }
+  //  > a {
+    //  outline: 0;
+  //  }
 //}
 
 // Right alignment.
@@ -108,12 +101,12 @@
 }
 
 
-  // Provides styling for a horizontal line in the menu.
- .__MENU_DIVIDER__ {
+// Provides styling for a horizontal line in the menu.
+.__MENU_DIVIDER__ {
 
-    height: 1px;
-    margin: ((@line-height-computed / 2) - 1) 0;
-    overflow: hidden;
-    background-color: @dropdown-divider-bg;
+  height: 1px;
+  margin: ((@line-height-computed / 2) - 1) 0;
+  overflow: hidden;
+  background-color: @dropdown-divider-bg;
 
-  }
+}

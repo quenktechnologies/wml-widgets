@@ -1,0 +1,11 @@
+import {Menu} from "../"
+
+{% main (Menu) %}
+
+<ul 
+  wml:id={{@values.root.id}}
+  class={{@values.root.class}}>
+
+  {{@values.content()}}
+
+</ul>
