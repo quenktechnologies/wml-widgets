@@ -13,8 +13,8 @@ import { TextFieldPage } from './pages/text-field';
 //import { DatePage } from './pages/date';
 //import { SelectPage } from './pages/select';
 import { ButtonPage } from './pages/button';
-import {ToolbarPage} from './pages/toolbar';
-////import { ButtonSelectPage } from './pages/button-select';
+import { ToolbarPage } from './pages/toolbar';
+import { ButtonSelectPage } from './pages/button-select';
 //import { CheckboxPage } from './pages/checkbox';
 //import { SwitchPage } from './pages/switch';
 import { TabBarPage } from './pages/tab-bar';
@@ -79,7 +79,7 @@ export class App {
             button: new ButtonPage(this),
             'button-group': new ButtonGroupPage(this),
             'toolbar': new ToolbarPage(this),
-            //   //   'button-select': new ButtonSelectPage(this),
+            'button-select': new ButtonSelectPage(this),
             'tab-bar': new TabBarPage(this),
             menu: new MenuPage(this),
             'drop-down': new DropDownPage(this)

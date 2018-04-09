@@ -1,0 +1,47 @@
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {ButtonSelect,MultiButtonSelect} from "../../../../../lib/control/button-select"
+import {ButtonSelectPage} from "../"
+
+{% main (ButtonSelectPage) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column>
+
+      <p>You selected: <b wml:id="select-content">(None)</b>.</p>
+
+      <p>
+        <ButtonSelect 
+          wml:id="select"
+          ww:name="select"
+          ww:style="-primary"
+          ww:options={{@values.options}}
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+   <Row>
+
+    <Column>
+
+      <p>You can also use MultiButtonSelect instead: <b wml:id="multi-content">(None)</b>.</p>
+
+      <p>
+        <MultiButtonSelect 
+          wml:id="multi"
+          ww:name="multi"
+          ww:style="-primary"
+          ww:options={{@values.options}}
+          ww:onChange={{@onChangeMulti}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>
