@@ -18,7 +18,7 @@ import { ButtonSelectPage } from './pages/button-select';
 import { CheckboxPage } from './pages/checkbox';
 import { SwitchPage } from './pages/switch';
 import { TabBarPage } from './pages/tab-bar';
-//import { StackPage } from './pages/stack';
+import { StackPage } from './pages/stack';
 //import { SearchStackPage } from './pages/search-stack';
 //import { AutocompletePage } from './pages/autocomplete';
 import { BreadcrumbPage } from './pages/breadcrumb';
@@ -83,7 +83,7 @@ export class App {
             'tab-bar': new TabBarPage(this),
             menu: new MenuPage(this),
             'drop-down': new DropDownPage(this),
-            //      stack: new StackPage(this),
+                  stack: new StackPage(this),
             checkbox: new CheckboxPage(this),
                   'switch': new SwitchPage(this),
             //      'search-stack': new SearchStackPage(this),
