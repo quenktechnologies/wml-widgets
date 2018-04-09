@@ -2,7 +2,7 @@ import {Switch} from ".."
 
 {% main (Switch) %}
 
-<label class={{@values.class.label}}>
+<label class={{@values.root.class}}>
 
   <input 
   type="checkbox"
@@ -11,7 +11,7 @@ import {Switch} from ".."
   disabled={{@values.input.disabled}}
   onchange={{@values.input.onChange}}/>
 
-  <div class={{@values.class.slider}}></div>
+  <div class={{@values.slider.class}}></div>
 
 </label>
 

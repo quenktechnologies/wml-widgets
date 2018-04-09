@@ -1,0 +1,17 @@
+import {PageExample} from "../../../page-example"
+import {Checkbox} from "../../../../../lib/control/checkbox"
+import {CheckboxPage} from "../"
+
+{% main (CheckboxPage) %}
+ 
+<PageExample>
+
+  <p>The checkbox is <b wml:id="content">untouched</b>.</p>
+
+  <p>
+    <Checkbox
+      ww:name="checkbox"
+      ww:onChange={{@onChange}} />
+  </p>
+
+</PageExample>
