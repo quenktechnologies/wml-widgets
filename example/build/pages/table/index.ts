@@ -2,7 +2,7 @@ import * as wml from '@quenk/wml';
 import { Page } from '../Page';
 import { Main } from './wml/table';
 import { users } from './data';
-import { Cell, CellClickedEvent, Table } from '@package/wml-widgets/table';
+import { Cell, CellClickedEvent, Table } from '../../../../lib/data/table';
 
 const columns = [
 

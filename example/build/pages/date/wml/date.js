@@ -11,45 +11,39 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var page_example_1 = require("../../../page-example");
 ;
-var Date_1 = require("@package/wml-widgets/control/date/Date");
+var date_1 = require("../../../../../lib/control/date");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.node('p', {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.text("The date is : "), ___wml.node('b', {
                         html: {},
-                        wml: {}
-                    }, [___wml.node('p', {
-                            html: {},
-                            wml: {}
-                        }, [___wml.text("The date is : "), ___wml.node('b', {
-                                html: {},
-                                wml: {
-                                    'id': "selected"
-                                }
-                            }, [___wml.text("(None selected)")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
-                            html: {},
-                            wml: {}
-                        }, [___wml.widget(Date_1.Date, {
-                                html: {},
-                                wml: {
-                                    'id': "date"
-                                },
-                                ww: {
-                                    'name': "date",
-                                    'onChange': ___context.onChange
-                                }
-                            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+                        wml: {
+                            'id': "selected"
+                        }
+                    }, [___wml.text("(None selected)")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
+                    html: {},
+                    wml: {}
+                }, [___wml.widget(date_1.Date, {
+                        html: {},
+                        wml: {
+                            'id': "date"
+                        },
+                        ww: {
+                            'name': "date",
+                            'onChange': ___context.onChange
+                        }
+                    }, [], ___view)], ___view)], ___view);
         };
         return _this;
     }

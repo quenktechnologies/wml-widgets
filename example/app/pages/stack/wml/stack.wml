@@ -1,10 +1,10 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Stack} from "@package/wml-widgets/control/stack"
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {Stack} from "../../../../../lib/control/stack"
 import {StackPage} from "../"
 
 {% main (StackPage) %}
  
-<Grid>
+<GridLayout>
 
   <Row>
 
@@ -24,4 +24,4 @@ import {StackPage} from "../"
 
    </Row>
 
- </Grid>
+ </GridLayout>

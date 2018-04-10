@@ -1,19 +1,20 @@
-import {Button} from "@package/wml-widgets/control/button/Button"
-import {ButtonSelectGroup} from "../ButtonSelectGroup"
-import {ButtonSelectGroupAttrs} from "../ButtonSelectGroupAttrs"
+import {ButtonGroup} from "../../button-group"
+import {Button} from "../../button"
+import {ButtonSelectInterface, Option} from "../"
 
-{% main [V,OV,A:ButtonSelectGroupAttrs[V,OV]](ButtonSelectGroup[V,OV,A]) %}
+{% main [V](ButtonSelectInterface[V]) %}
 
-<div class={{@values.root.class}}>
+<ButtonGroup 
+  class={{@values.root.class}}>
 
-  {% for opt in @values.select.options %}
+  {% for opt:Option[V] in @values.buttons.options %}
 
     <Button
-      ww:class={{@values.calculateClass(opt)}}
-      ww:active={{@values.select.isSelected(opt.value)}}
-      ww:onClick={{@values.click(opt.value)}}
-      ww:text={{opt.text}} />
+      ww:class={{@values.buttons.getClass(opt)}}
+      ww:active={{@values.buttons.isActive(opt.value)}}
+      ww:onClick={{=>@values.buttons.click(opt.value)}}
+      ww:text={{opt.title}} />
 
   {% endfor %}
 
-</div>
+</Button>

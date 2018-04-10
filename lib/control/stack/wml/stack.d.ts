@@ -1,7 +1,6 @@
 import * as ___wml from '@quenk/wml';
-import { Stack } from '../Stack';
-import { Member } from '../Member';
-export declare const content: <M>(___context: Stack<M>) => (m: Member<M>) => (_: number) => (__: Member<M>[]) => (___view: ___wml.View) => Node;
-export declare class Main<M> extends ___wml.AppView<Stack<M>> {
-    constructor(___context: Stack<M>);
+import { Stack } from '../';
+export declare const content: <V>(___context: Stack<V>) => (v: V) => (_: number) => (___view: ___wml.View) => Node;
+export declare class Main<V> extends ___wml.AppView<Stack<V>> {
+    constructor(___context: Stack<V>);
 }

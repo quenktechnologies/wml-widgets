@@ -12,54 +12,75 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
 ;
-var menu_1 = require("@package/wml-widgets/nav/menu");
+var nav_1 = require("../../../lib/content/nav");
+;
+var item_1 = require("../../../lib/content/nav/item");
+;
+var nav_header_1 = require("../../../lib/content/nav/nav-header");
+;
+var link_1 = require("../../../lib/content/nav/link");
 var Navigation = /** @class */ (function (_super) {
     __extends(Navigation, _super);
     function Navigation(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(menu_1.Menu, {
+            return ___wml.widget(nav_1.Nav, {
                 html: {},
-                wml: {}
-            }, [___wml.widget(menu_1.Link, {
+                wml: {},
+                ww: {
+                    'vertical': true
+                }
+            }, [___wml.widget(item_1.Item, {
                     html: {},
-                    wml: {
-                        'group': "links"
-                    },
-                    ww: {
-                        'active': (___context.page === "home"),
-                        'name': "home",
-                        'href': "#",
-                        'onClick': ___context.navigate,
-                        'text': "Home"
-                    }
-                }, [], ___view), ___wml.map(___context.links, function _map(items, section) {
-                    return ___wml.box(___wml.widget(menu_1.Header, {
+                    wml: {}
+                }, [___wml.widget(link_1.Link, {
                         html: {},
-                        wml: {},
+                        wml: {
+                            'group': "links"
+                        },
                         ww: {
-                            'text': ___context.displayName(section)
+                            'active': (___context.page === "home"),
+                            'name': "home",
+                            'href': "#",
+                            'onClick': ___context.navigate,
+                            'text': "Home"
                         }
-                    }, [], ___view), ___wml.widget(menu_1.SubMenu, {
+                    }, [], ___view)], ___view), ___wml.map(___context.links, function _map(items, section) {
+                    return ___wml.widget(item_1.Item, {
                         html: {},
                         wml: {}
-                    }, [___wml.map(___context.sort(items), function _map(_, name) {
-                            return ___wml.widget(menu_1.Link, {
-                                html: {},
-                                wml: {
-                                    'group': "links"
-                                },
-                                ww: {
-                                    'name': name,
-                                    'href': "#/" + name,
-                                    'onClick': ___context.navigate,
-                                    'active': (___context.page === "" + name),
-                                    'text': ___context.displayName(name)
-                                }
-                            }, [], ___view);
-                        }, function otherwise() {
-                            return document.createDocumentFragment();
-                        })], ___view));
+                    }, [___wml.widget(nav_header_1.NavHeader, {
+                            html: {},
+                            wml: {},
+                            ww: {
+                                'text': ___context.displayName(section)
+                            }
+                        }, [], ___view), ___wml.widget(nav_1.Nav, {
+                            html: {},
+                            wml: {},
+                            ww: {
+                                'vertical': true
+                            }
+                        }, [___wml.map(___context.sort(items), function _map(_, name) {
+                                return ___wml.widget(item_1.Item, {
+                                    html: {},
+                                    wml: {}
+                                }, [___wml.widget(link_1.Link, {
+                                        html: {},
+                                        wml: {
+                                            'group': "links"
+                                        },
+                                        ww: {
+                                            'name': name,
+                                            'href': "#/" + name,
+                                            'onClick': ___context.navigate,
+                                            'active': (___context.page === "" + name),
+                                            'text': ___context.displayName(name)
+                                        }
+                                    }, [], ___view)], ___view);
+                            }, function otherwise() {
+                                return document.createDocumentFragment();
+                            })], ___view)], ___view);
                 }, function otherwise() {
                     return document.createDocumentFragment();
                 })], ___view);

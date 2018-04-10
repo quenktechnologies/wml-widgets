@@ -1,0 +1,4 @@
+import {ListLayout} from "../"
+
+{% main (ListLayout) %}
+<div class={{@values.root.class}}>{{@children}}</div>

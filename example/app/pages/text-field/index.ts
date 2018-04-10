@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/text-field'
 import { Page } from '../Page';
-import { TextChangedEvent } from '@package/wml-widgets/control/text-field';
-import { FormControl, FormControlAttrs } from '@package/wml-widgets/control/form-control';
+import { TextChangedEvent } from '../../../../lib/control/text-field';
+import { FormControl, FormControlAttrs } from '../../../../lib/control/form';
 
 export class TextFieldPage extends Page {
 
@@ -14,16 +14,16 @@ export class TextFieldPage extends Page {
 
         (value === 'error') ?
             this.get(this.id, <V>(c: FormControl<V, FormControlAttrs<V>>) =>
-                c.setError('This control is now in the error state!')) :
+                c.error('This control is now in the error state!')) :
             (value === 'success') ?
                 this.get(this.id, <V>(c: FormControl<V, FormControlAttrs<V>>) =>
-                    c.setSuccess('This control is now in the success state!')) :
+                    c.success('This control is now in the success state!')) :
                 (value === 'warning') ?
                     this.get(this.id, <V>(c: FormControl<V, FormControlAttrs<V>>) =>
-                        c.setWarning('This control now in the warning state!')) :
-                    (value === 'clear') ?
+                        c.warning('This control now in the warning state!')) :
+                    (value === 'neutral') ?
                         this.get(this.id, <V>(c: FormControl<V, FormControlAttrs<V>>) =>
-                            c.clear()) :
+                            c.neutral()) :
                         this
                             .view
                             .findById('content')

@@ -1,25 +1,27 @@
-import {Drawer} from "@package/wml-widgets/layout/drawer/Drawer"
-import {ActionBar} from "@package/wml-widgets/app/action-bar/ActionBar"
+import {DrawerLayout} from "../../../lib/layout/drawer-layout"
+import {ActionBar} from "../../../lib/app/action-bar"
 import {App} from "../app"
-import {IconButton} from "@package/wml-widgets/control/icon-button/IconButton"
-import {Dash} from "@package/wml-widgets/app/dash"
-import {Main as MainLayout} from "@package/wml-widgets/layout/main/Main"
+import {Button} from "../../../lib/control/button"
+import {Dash} from "../../../lib/app/dash"
+import {MainLayout} from "../../../lib/layout/main-layout"
 
 {% main (App) %}
 
-<Drawer
+<DrawerLayout
   wml:id={{@values.id.layout}}
   ww:drawer={{@navigation}}>
 
   <ActionBar>
 
-    <IconButton ww:onClick={{@toggleDrawer}}>
+    <Button 
+      ww:name="toggle"
+      ww:onClick={{@toggleDrawer}}>
 
       <Dash/>
       <Dash/>
       <Dash/>
 
-    </IconButton>
+    </Button>
 
   </ActionBar>
 
@@ -31,4 +33,4 @@ import {Main as MainLayout} from "@package/wml-widgets/layout/main/Main"
     {% endif %}
   </MainLayout>
 
-</Drawer>
+</DrawerLayout>

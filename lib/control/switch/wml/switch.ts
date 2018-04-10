@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Switch
-} from '../Switch';
+} from '..';
 
 
 
@@ -14,21 +14,21 @@ export class Main extends ___wml.AppView < Switch > {
         this.template = (___view: ___wml.AppView < Switch > ) =>
             ___wml.node('label', {
                 html: {
-                    'class': ___context.values.class.label
+                    'class': ___context.values.root.class
                 },
                 wml: {}
             }, [___wml.node('input', {
                 html: {
                     'type': `checkbox`,
                     'name': ___context.values.input.name,
-                    'checked': (___context.values.input.on || null),
+                    'checked': ___context.values.input.value,
                     'disabled': ___context.values.input.disabled,
                     'onchange': ___context.values.input.onChange
                 },
                 wml: {}
             }, [], ___view), ___wml.node('div', {
                 html: {
-                    'class': ___context.values.class.slider
+                    'class': ___context.values.slider.class
                 },
                 wml: {}
             }, [], ___view)], ___view);

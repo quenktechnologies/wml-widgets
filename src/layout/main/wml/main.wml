@@ -1,7 +1,0 @@
-import * as m from "../Main";
-
-{% main (m.Main) %}
-
-<div class={{@values.class.root}}>
-    {{@children}}
-</div>

@@ -1,25 +1,17 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Checkbox} from "@package/wml-widgets/control/checkbox/Checkbox"
+import {PageExample} from "../../../page-example"
+import {Checkbox} from "../../../../../lib/control/checkbox"
 import {CheckboxPage} from "../"
 
 {% main (CheckboxPage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+  <p>The checkbox is <b wml:id="content">untouched</b>.</p>
 
-    <Column>
+  <p>
+    <Checkbox
+      ww:name="checkbox"
+      ww:onChange={{@onChange}} />
+  </p>
 
-      <p>The checkbox is <b wml:id="content">untouched</b>.</p>
-
-      <p>
-        <Checkbox
-          ww:name="checkbox"
-          ww:onChange={{@onChange}} />
-      </p>
-
-    </Column>
-
-   </Row>
-
- </Grid>
+</PageExample>

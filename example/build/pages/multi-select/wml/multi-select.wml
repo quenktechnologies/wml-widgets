@@ -1,0 +1,29 @@
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {MultiSelect} from "../../../../../lib/control/multi-select"
+import {MultiSelectPage, Result} from "../"
+
+{% main (MultiSelectPage) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column ww:size=6>
+
+      <p>You selected: <b wml:id="text">{{@values.text()}}</b>.</p>
+
+      <p>
+        <MultiSelect
+          wml:id={{@values.id}}
+          ww:name={{@values.name}}
+          ww:value={{@values.selected}}
+          ww:decorator={{\r:Result=>r.label}}
+          ww:onChange={{@onChange}}
+          ww:onSearch={{@onSearch}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>

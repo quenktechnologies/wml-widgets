@@ -1,37 +1,38 @@
 import * as ___wml from '@quenk/wml';
 import {
+    ButtonGroup
+} from '../../button-group';;
+import {
     Button
-} from '@package/wml-widgets/control/button/Button';;
+} from '../../button';;
 import {
-    ButtonSelectGroup
-} from '../ButtonSelectGroup';;
-import {
-    ButtonSelectGroupAttrs
-} from '../ButtonSelectGroupAttrs';
+    ButtonSelectInterface,
+    Option
+} from '../';
 
 
 
-export class Main < V, OV, A extends ButtonSelectGroupAttrs < V, OV > > extends ___wml.AppView < ButtonSelectGroup < V, OV, A > > {
+export class Main < V > extends ___wml.AppView < ButtonSelectInterface < V > > {
 
-    constructor(___context: ButtonSelectGroup < V, OV, A > ) {
+    constructor(___context: ButtonSelectInterface < V > ) {
 
         super(___context);
 
-        this.template = (___view: ___wml.AppView < ButtonSelectGroup < V, OV, A > > ) =>
-            ___wml.node('div', {
+        this.template = (___view: ___wml.AppView < ButtonSelectInterface < V > > ) =>
+            ___wml.widget(ButtonGroup, {
                 html: {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.map(___context.values.select.options, function _map(opt) {
+            }, [___wml.map(___context.values.buttons.options, function _map(opt: Option < V > ) {
                 return ___wml.widget(Button, {
                     html: {},
                     wml: {},
                     ww: {
-                        'class': ___context.values.calculateClass(opt),
-                        'active': ___context.values.select.isSelected(opt.value),
-                        'onClick': ___context.values.click(opt.value),
-                        'text': opt.text
+                        'class': ___context.values.buttons.getClass(opt),
+                        'active': ___context.values.buttons.isActive(opt.value),
+                        'onClick': () => ___context.values.buttons.click(opt.value),
+                        'text': opt.title
                     }
                 }, [], ___view)
             }, function otherwise() {

@@ -9,8 +9,9 @@
         "moduleResolution": "node",
         "allowUnreachableCode": true,
         "noUnusedParameters": true,
-        "noUnusedLocals":true,
+        "noUnusedLocals": true,
         "noImplicitAny": true,
+        "alwaysStrict": true,
         "sourceMap": true,
         "declaration": true,
         "typeRoots": ["node_modules/@types"]

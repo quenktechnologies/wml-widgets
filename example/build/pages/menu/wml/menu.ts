@@ -1,15 +1,15 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     Menu,
-    MenuItem,
-    Divider,
-    Header
-} from '@package/wml-widgets/menu';;
+    Item,
+    Divider
+} from '../../../../../lib/control/menu';;
+import {
+    Link
+} from '../../../../../lib/content/nav/link';;
 import {
     MenuPage
 } from '../';
@@ -23,41 +23,39 @@ export class Main extends ___wml.AppView < MenuPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < MenuPage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Menu, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Header, {
+            }, [___wml.node('h6', {
                 html: {},
-                wml: {},
-                ww: {
-                    'text': `Heading`
-                }
-            }, [], ___view), ___wml.widget(MenuItem, {
+                wml: {}
+            }, [___wml.text(`Menu`)], ___view), ___wml.widget(Item, {
+                html: {},
+                wml: {}
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {},
                 ww: {
                     'disabled': true,
                     'text': `Back`
                 }
-            }, [], ___view), ___wml.widget(MenuItem, {
+            }, [], ___view)], ___view), ___wml.widget(Item, {
+                html: {},
+                wml: {}
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {},
                 ww: {
+                    'disabled': true,
                     'text': `Refresh`
                 }
-            }, [], ___view), ___wml.widget(Divider, {
+            }, [], ___view)], ___view), ___wml.widget(Divider, {
                 html: {},
                 wml: {}
-            }, [], ___view), ___wml.widget(MenuItem, {
+            }, [], ___view), ___wml.widget(Item, {
                 html: {},
                 wml: {}
             }, [___wml.node('a', {
@@ -65,7 +63,7 @@ export class Main extends ___wml.AppView < MenuPage > {
                     'href': `#/menu`
                 },
                 wml: {}
-            }, [___wml.text(`Quit`)], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [___wml.text(`Quit`)], ___view)], ___view)], ___view)], ___view);
 
     }
 

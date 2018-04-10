@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/date'
 import { Page } from '../Page';
-import { DateChangedEvent } from '@package/wml-widgets/control/date';
+import { DateChangedEvent } from '../../../../lib/control/date';
 
 export class DatePage extends Page {
 

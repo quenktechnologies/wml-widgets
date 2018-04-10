@@ -1,11 +1,11 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Panel,Header,Body,Footer} from "@package/wml-widgets/layout/panel"
-import {Fragment} from "@package/wml-widgets/layout/fragment/Fragment"
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {Panel,PanelHeader,PanelBody,PanelFooter} from "../../../../../lib/layout/panel"
+import {Fragment} from "../../../../../lib/layout/fragment"
 import {PanelPage} from "../"
 
 {% main (PanelPage) %}
  
-<Grid>
+<GridLayout>
 
   <Row>
 
@@ -13,7 +13,7 @@ import {PanelPage} from "../"
 
       <Panel>
 
-        <Body>Body only.</Body>
+        <PanelBody>PanelBody only.</PanelBody>
 
       </Panel>
 
@@ -23,9 +23,9 @@ import {PanelPage} from "../"
 
       <Panel>
 
-        <Header>With Header</Header>
+        <PanelHeader>With PanelHeader</PanelHeader>
 
-        <Body>Lorem impsum dilium net set.</Body>
+        <PanelBody>Lorem impsum dilium net set.</PanelBody>
 
       </Panel>
 
@@ -35,11 +35,11 @@ import {PanelPage} from "../"
 
       <Panel>
 
-        <Header>With Footer</Header>
+        <PanelHeader>With PanelFooter</PanelHeader>
 
-        <Body>Lorem impsum dilium net set.</Body>
+        <PanelBody>Lorem impsum dilium net set.</PanelBody>
 
-        <Footer>Meh foot.</Footer>
+        <PanelFooter>Meh foot.</PanelFooter>
 
       </Panel>
 
@@ -47,4 +47,4 @@ import {PanelPage} from "../"
 
    </Row>
 
- </Grid>
+ </GridLayout>

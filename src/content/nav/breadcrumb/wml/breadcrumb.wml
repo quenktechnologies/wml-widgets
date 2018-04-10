@@ -1,0 +1,6 @@
+import {Breadcrumb} from ".."
+
+{% main (Breadcrumb) %}
+<ol class={{@values.root.class}}>
+  {{ @children }}
+</ol>

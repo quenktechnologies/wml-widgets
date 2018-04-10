@@ -1,13 +1,13 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
+    GridLayout,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid-layout';;
 import {
     ButtonSelect,
     MultiButtonSelect
-} from '@package/wml-widgets/control/button-select';;
+} from '../../../../../lib/control/button-select';;
 import {
     ButtonSelectPage
 } from '../';
@@ -21,7 +21,7 @@ export class Main extends ___wml.AppView < ButtonSelectPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < ButtonSelectPage > ) =>
-            ___wml.widget(Grid, {
+            ___wml.widget(GridLayout, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Row, {
@@ -48,7 +48,7 @@ export class Main extends ___wml.AppView < ButtonSelectPage > {
                 },
                 ww: {
                     'name': `select`,
-                    'variant': `-primary`,
+                    'style': `-primary`,
                     'options': ___context.values.options,
                     'onChange': ___context.onChange
                 }
@@ -76,9 +76,9 @@ export class Main extends ___wml.AppView < ButtonSelectPage > {
                 },
                 ww: {
                     'name': `multi`,
-                    'variant': `-primary`,
+                    'style': `-primary`,
                     'options': ___context.values.options,
-                    'onChange': ___context.onChange
+                    'onChange': ___context.onChangeMulti
                 }
             }, [], ___view)], ___view)], ___view)], ___view)], ___view);
 

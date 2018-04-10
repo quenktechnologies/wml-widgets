@@ -1,35 +1,27 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Toolbar} from "@package/wml-widgets/control/toolbar"
-import {Button} from "@package/wml-widgets/control/button"
-import {ButtonGroup} from "@package/wml-widgets/control/button-group"
+import {PageExample} from "../../../page-example"
+import {Toolbar} from "../../../../../lib/control/toolbar"
+import {Button} from "../../../../../lib/control/button"
+import {ButtonGroup} from "../../../../../lib/control/button-group"
 import {ToolbarPage} from "../"
 
 {% main (ToolbarPage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+   <Toolbar>
 
-    <Column>
+     <Button ww:text="Start"/>
 
-        <Toolbar>
+     <ButtonGroup>
 
-          <Button ww:text="Start"/>
+       <Button ww:text="Up"/>
+       <Button ww:text="Down"/>
+       <Button ww:text="Reset"/>
 
-          <ButtonGroup>
+     </ButtonGroup>
 
-            <Button ww:text="Up"/>
-            <Button ww:text="Down"/>
-            <Button ww:text="Reset"/>
+     <Button ww:text="Stop"/>
 
-          </ButtonGroup>
+   </Toolbar>
 
-          <Button ww:text="Stop"/>
-
-        </Toolbar>
-
-    </Column>
-
-   </Row>
-
- </Grid>
+ </PageExample>

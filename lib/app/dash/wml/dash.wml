@@ -1,4 +1,4 @@
-import {Dash} from "../Dash"
+import {Dash} from ".."
 
 {% main (Dash) %}
 

@@ -1,6 +1,6 @@
-import {Button} from '../Button';
+import {Button} from "../";
 
-{% main (Button) %}
+{% main [V](Button[V]) %}
   
 <button
   wml:id={{@values.button.id}}

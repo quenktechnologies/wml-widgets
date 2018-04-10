@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/checkbox'
-import { CheckboxChangedEvent } from '@package/wml-widgets/control/checkbox/CheckboxChangedEvent';
+import { CheckChangedEvent } from '../../../../lib/control/checkbox';
 import { Page } from '../Page';
 
 export class CheckboxPage extends Page {
@@ -9,7 +9,7 @@ export class CheckboxPage extends Page {
 
     value: boolean = true;
 
-    onChange = ({ value }: CheckboxChangedEvent) => {
+    onChange = ({ value }: CheckChangedEvent) => {
 
         this.view.findById('content')
             .map((e: HTMLElement) => {
@@ -24,6 +24,5 @@ export class CheckboxPage extends Page {
             });
 
     }
-
 
 }

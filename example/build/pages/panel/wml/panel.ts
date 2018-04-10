@@ -1,18 +1,18 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
+    GridLayout,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid-layout';;
 import {
     Panel,
-    Header,
-    Body,
-    Footer
-} from '@package/wml-widgets/layout/panel';;
+    PanelHeader,
+    PanelBody,
+    PanelFooter
+} from '../../../../../lib/layout/panel';;
 import {
     Fragment
-} from '@package/wml-widgets/layout/fragment/Fragment';;
+} from '../../../../../lib/layout/fragment';;
 import {
     PanelPage
 } from '../';
@@ -26,7 +26,7 @@ export class Main extends ___wml.AppView < PanelPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < PanelPage > ) =>
-            ___wml.widget(Grid, {
+            ___wml.widget(GridLayout, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Row, {
@@ -41,10 +41,10 @@ export class Main extends ___wml.AppView < PanelPage > {
             }, [___wml.widget(Panel, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Body, {
+            }, [___wml.widget(PanelBody, {
                 html: {},
                 wml: {}
-            }, [___wml.text(`Body only.`)], ___view)], ___view)], ___view), ___wml.widget(Column, {
+            }, [___wml.text(`PanelBody only.`)], ___view)], ___view)], ___view), ___wml.widget(Column, {
                 html: {},
                 wml: {},
                 ww: {
@@ -53,10 +53,10 @@ export class Main extends ___wml.AppView < PanelPage > {
             }, [___wml.widget(Panel, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Header, {
+            }, [___wml.widget(PanelHeader, {
                 html: {},
                 wml: {}
-            }, [___wml.text(`With Header`)], ___view), ___wml.widget(Body, {
+            }, [___wml.text(`With PanelHeader`)], ___view), ___wml.widget(PanelBody, {
                 html: {},
                 wml: {}
             }, [___wml.text(`Lorem impsum dilium net set.`)], ___view)], ___view)], ___view), ___wml.widget(Column, {
@@ -68,13 +68,13 @@ export class Main extends ___wml.AppView < PanelPage > {
             }, [___wml.widget(Panel, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Header, {
+            }, [___wml.widget(PanelHeader, {
                 html: {},
                 wml: {}
-            }, [___wml.text(`With Footer`)], ___view), ___wml.widget(Body, {
+            }, [___wml.text(`With PanelFooter`)], ___view), ___wml.widget(PanelBody, {
                 html: {},
                 wml: {}
-            }, [___wml.text(`Lorem impsum dilium net set.`)], ___view), ___wml.widget(Footer, {
+            }, [___wml.text(`Lorem impsum dilium net set.`)], ___view), ___wml.widget(PanelFooter, {
                 html: {},
                 wml: {}
             }, [___wml.text(`Meh foot.`)], ___view)], ___view)], ___view)], ___view)], ___view);

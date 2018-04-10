@@ -22,19 +22,19 @@ var TextFieldPage = /** @class */ (function (_super) {
             var value = _a.value;
             (value === 'error') ?
                 _this.get(_this.id, function (c) {
-                    return c.setError('This control is now in the error state!');
+                    return c.error('This control is now in the error state!');
                 }) :
                 (value === 'success') ?
                     _this.get(_this.id, function (c) {
-                        return c.setSuccess('This control is now in the success state!');
+                        return c.success('This control is now in the success state!');
                     }) :
                     (value === 'warning') ?
                         _this.get(_this.id, function (c) {
-                            return c.setWarning('This control now in the warning state!');
+                            return c.warning('This control now in the warning state!');
                         }) :
-                        (value === 'clear') ?
+                        (value === 'neutral') ?
                             _this.get(_this.id, function (c) {
-                                return c.clear();
+                                return c.neutral();
                             }) :
                             _this
                                 .view

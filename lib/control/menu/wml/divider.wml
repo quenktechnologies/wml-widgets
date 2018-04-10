@@ -1,0 +1,5 @@
+import {Divider} from "../";
+
+{% main (Divider) %}
+
+<li class={{@values.root.class}} />

@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/button-select'
-import { ButtonChangedEvent } from '@package/wml-widgets/control/button-select';
+import { Option, ButtonChangedEvent } from '../../../../lib/control/button-select';
 import { Page } from '../Page';
 
 export class ButtonSelectPage extends Page {
@@ -9,30 +9,45 @@ export class ButtonSelectPage extends Page {
 
     values = {
 
-        options: [
-            { text: 'Asus', value: 'Asus' },
-            { text: 'MSI', value: 'MSI' },
-            { text: 'Gigabyte', value: 'Gigabyte' }]
+        options: <Option<string>[]>[
+            { title: 'Asus', value: 'Asus' },
+            { title: 'MSI', value: 'MSI' },
+            { title: 'Gigabyte', value: 'Gigabyte' }]
 
     };
 
-    onChange = ({ value, name }: ButtonChangedEvent<string | string[]>) => {
+    onChange: (e: ButtonChangedEvent<string>) => void =
+        ({ value, name }: ButtonChangedEvent<string>) => {
 
-        this
-            .view
-            .findById(`${name}-content`)
-            .map((e: HTMLElement) => {
+            this
+                .view
+                .findById(`${name}-content`)
+                .map((e: HTMLElement) => {
 
-                while (e.lastChild)
-                    e.removeChild(e.lastChild);
+                    while (e.lastChild)
+                        e.removeChild(e.lastChild);
 
-                e.appendChild(document.createTextNode(String(value)));
+                    e.appendChild(document.createTextNode(String(value)));
 
+                });
 
-            });
+        }
 
+    onChangeMulti: (e: ButtonChangedEvent<string[]>) => void =
+        ({ value, name }: ButtonChangedEvent<string[]>) => {
 
-    }
+            this
+                .view
+                .findById(`${name}-content`)
+                .map((e: HTMLElement) => {
 
+                    while (e.lastChild)
+                        e.removeChild(e.lastChild);
+
+                    e.appendChild(document.createTextNode(String(value)));
+
+                });
+
+        }
 
 }

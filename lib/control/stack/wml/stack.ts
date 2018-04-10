@@ -1,38 +1,37 @@
 import * as ___wml from '@quenk/wml';
 import {
     Stack
-} from '../Stack';;
-import {
-    Member
-} from '../Member';
+} from '../';
 
-export const content = < M > (___context: Stack < M > ) => (m: Member < M > ) => (_: number) => (__: Member < M > []) => (___view: ___wml.View) => ___wml.node('span', {
+export const content = < V > (___context: Stack < V > ) => (v: V) => (_: number) => (___view: ___wml.View) => ___wml.node('div', {
     html: {
-        'class': ___context.values.class.member
+        'class': ___context.values.element.content.class
     },
     wml: {}
-}, [___wml.domify(___context.values.item.decorator(m))], ___view);
+}, [___wml.domify(___context.values.element.decorator(v))], ___view);
 
-export class Main < M > extends ___wml.AppView < Stack < M > > {
+export class Main < V > extends ___wml.AppView < Stack < V > > {
 
-    constructor(___context: Stack < M > ) {
+    constructor(___context: Stack < V > ) {
 
         super(___context);
 
-        this.template = (___view: ___wml.AppView < Stack < M > > ) =>
+        this.template = (___view: ___wml.AppView < Stack < V > > ) =>
             ___wml.node('ul', {
                 html: {
-                    'class': ___context.values.class.root
+                    'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.map(___context.values.value, function _map(m, index: number) {
+            }, [___wml.map(___context.values.root.value, function _map(v, index: number) {
                 return ___wml.node('li', {
-                    html: {},
-                    wml: {}
-                }, [___wml.domify(___context.values.item.template(___context)(m)(index)(___context.values.value)(___view)), ___wml.node('button', {
                     html: {
-                        'class': ___context.values.class.close,
-                        'onclick': ___context.values.item.close(index)
+                        'class': ___context.values.element.class
+                    },
+                    wml: {}
+                }, [___wml.domify(___context.values.element.template()(v)(index)(___view)), ___wml.node('button', {
+                    html: {
+                        'class': ___context.values.close.class,
+                        'onclick': ___context.values.element.close(index)
                     },
                     wml: {}
                 }, [___wml.text(`×`)], ___view)], ___view)

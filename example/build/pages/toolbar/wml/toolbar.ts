@@ -1,18 +1,16 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     Toolbar
-} from '@package/wml-widgets/control/toolbar';;
+} from '../../../../../lib/control/toolbar';;
 import {
     Button
-} from '@package/wml-widgets/control/button';;
+} from '../../../../../lib/control/button';;
 import {
     ButtonGroup
-} from '@package/wml-widgets/control/button-group';;
+} from '../../../../../lib/control/button-group';;
 import {
     ToolbarPage
 } from '../';
@@ -26,13 +24,7 @@ export class Main extends ___wml.AppView < ToolbarPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < ToolbarPage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Toolbar, {
@@ -71,7 +63,7 @@ export class Main extends ___wml.AppView < ToolbarPage > {
                 ww: {
                     'text': `Stop`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [], ___view)], ___view)], ___view);
 
     }
 

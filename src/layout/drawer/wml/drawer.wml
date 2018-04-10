@@ -1,28 +1,15 @@
-import {Aside} from "@package/wml-widgets/layout/aside/Aside"
-import {Drawer} from "../Drawer"
+import {Drawer} from ".."
 
 {% main (Drawer) %}
 
-<div 
-  wml:id={{@values.id.root}}
-  class={{@values.class.root}}>
+<div
+  wml:id={{@values.root.id}}
+  class={{@values.root.class}}>
 
-  <Aside
-    wml:id={{@values.id.drawer}}
-    ww:content={{@values.aside.content}}/>
-
-  {% if @content %}
-
-    {{@content}}
-    
-  {% else if @values.content %}
+  <div class={{@values.content.class}}>
 
     {{ @values.content.render() }}
 
-  {% else %}
-
-    {{@children}}
-
-  {% endif %}
+  </div>
 
 </div>

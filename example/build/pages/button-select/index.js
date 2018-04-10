@@ -19,12 +19,23 @@ var ButtonSelectPage = /** @class */ (function (_super) {
         _this.view = new views.Main(_this);
         _this.values = {
             options: [
-                { text: 'Asus', value: 'Asus' },
-                { text: 'MSI', value: 'MSI' },
-                { text: 'Gigabyte', value: 'Gigabyte' }
+                { title: 'Asus', value: 'Asus' },
+                { title: 'MSI', value: 'MSI' },
+                { title: 'Gigabyte', value: 'Gigabyte' }
             ]
         };
         _this.onChange = function (_a) {
+            var value = _a.value, name = _a.name;
+            _this
+                .view
+                .findById(name + "-content")
+                .map(function (e) {
+                while (e.lastChild)
+                    e.removeChild(e.lastChild);
+                e.appendChild(document.createTextNode(String(value)));
+            });
+        };
+        _this.onChangeMulti = function (_a) {
             var value = _a.value, name = _a.name;
             _this
                 .view

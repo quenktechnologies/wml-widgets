@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/switch'
-import { SwitchChangedEvent } from '@package/wml-widgets/control/switch/SwitchChangedEvent';
+import { SwitchChangedEvent } from '../../../../lib/control/switch';
 import { Page } from '../Page';
 
 export class SwitchPage extends Page {

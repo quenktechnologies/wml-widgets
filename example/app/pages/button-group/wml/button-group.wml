@@ -1,26 +1,18 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Button} from "@package/wml-widgets/control/button"
-import {ButtonGroup} from "@package/wml-widgets/control/button-group"
+import {PageExample} from "../../../page-example"
+import {Button} from "../../../../../lib/control/button"
+import {ButtonGroup} from "../../../../../lib/control/button-group"
 import {ButtonGroupPage} from "../"
 
 {% main (ButtonGroupPage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+  <ButtonGroup>
 
-    <Column>
+    <Button ww:text="one"/>
+    <Button ww:text="three" ww:active=true />
+    <Button ww:text="four"/>
 
-      <ButtonGroup>
+  </ButtonGroup>
 
-        <Button ww:text="one"/>
-        <Button ww:text="three"/>
-        <Button ww:text="four"/>
-
-      </ButtonGroup>
-
-    </Column>
-
-   </Row>
-
- </Grid>
+</PageExample>

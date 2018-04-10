@@ -1,4 +1,5 @@
 import * as wml from '@quenk/wml';
+import { WidgetAttrs } from '../../';
 import { Component } from '@quenk/wml';
 import { PanelAttrs } from '.';
 /**
@@ -8,7 +9,7 @@ import { PanelAttrs } from '.';
  * This class provides the containing, part that can be further
  * subdivided into a header, body and/or footer section.
  */
-export declare class Panel extends Component<PanelAttrs> {
+export declare class Panel extends Component<WidgetAttrs<PanelAttrs>> {
     view: wml.View;
     /**
      * values

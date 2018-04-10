@@ -1,12 +1,12 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
+    GridLayout,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid-layout';;
 import {
     Stack
-} from '@package/wml-widgets/control/stack';;
+} from '../../../../../lib/control/stack';;
 import {
     StackPage
 } from '../';
@@ -20,7 +20,7 @@ export class Main extends ___wml.AppView < StackPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < StackPage > ) =>
-            ___wml.widget(Grid, {
+            ___wml.widget(GridLayout, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Row, {

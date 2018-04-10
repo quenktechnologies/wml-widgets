@@ -11,58 +11,58 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var page_example_1 = require("../../../page-example");
 ;
-var menu_1 = require("@package/wml-widgets/menu");
+var menu_1 = require("../../../../../lib/control/menu");
+;
+var link_1 = require("../../../../../lib/content/nav/link");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.widget(menu_1.Menu, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.node('h6', {
                         html: {},
                         wml: {}
-                    }, [___wml.widget(menu_1.Menu, {
+                    }, [___wml.text("Menu")], ___view), ___wml.widget(menu_1.Item, {
+                        html: {},
+                        wml: {}
+                    }, [___wml.widget(link_1.Link, {
                             html: {},
+                            wml: {},
+                            ww: {
+                                'disabled': true,
+                                'text': "Back"
+                            }
+                        }, [], ___view)], ___view), ___wml.widget(menu_1.Item, {
+                        html: {},
+                        wml: {}
+                    }, [___wml.widget(link_1.Link, {
+                            html: {},
+                            wml: {},
+                            ww: {
+                                'disabled': true,
+                                'text': "Refresh"
+                            }
+                        }, [], ___view)], ___view), ___wml.widget(menu_1.Divider, {
+                        html: {},
+                        wml: {}
+                    }, [], ___view), ___wml.widget(menu_1.Item, {
+                        html: {},
+                        wml: {}
+                    }, [___wml.node('a', {
+                            html: {
+                                'href': "#/menu"
+                            },
                             wml: {}
-                        }, [___wml.widget(menu_1.Header, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'text': "Heading"
-                                }
-                            }, [], ___view), ___wml.widget(menu_1.MenuItem, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'disabled': true,
-                                    'text': "Back"
-                                }
-                            }, [], ___view), ___wml.widget(menu_1.MenuItem, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'text': "Refresh"
-                                }
-                            }, [], ___view), ___wml.widget(menu_1.Divider, {
-                                html: {},
-                                wml: {}
-                            }, [], ___view), ___wml.widget(menu_1.MenuItem, {
-                                html: {},
-                                wml: {}
-                            }, [___wml.node('a', {
-                                    html: {
-                                        'href': "#/menu"
-                                    },
-                                    wml: {}
-                                }, [___wml.text("Quit")], ___view)], ___view)], ___view)], ___view)], ___view)], ___view);
+                        }, [___wml.text("Quit")], ___view)], ___view)], ___view)], ___view);
         };
         return _this;
     }

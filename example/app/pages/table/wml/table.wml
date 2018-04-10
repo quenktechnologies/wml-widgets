@@ -1,23 +1,15 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Table} from "@package/wml-widgets/table/Table"
+import {PageExample} from "../../../page-example"
+import {Table} from "../../../../../lib/data/table/Table"
 import {TablePage} from "../"
 
 {% main (TablePage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+  <Table
+    ww:selectable=true
+    ww:data={{@values.users}}
+    ww:columns={{@values.columns}}
+    ww:onCellClicked={{@values.onCellClicked}}/>
 
-    <Column>
-
-      <Table
-        ww:selectable=true
-        ww:data={{@values.users}}
-        ww:columns={{@values.columns}}
-        ww:onCellClicked={{@values.onCellClicked}}/>
-
-    </Column>
-
-   </Row>
-
- </Grid>
+</PageExample>

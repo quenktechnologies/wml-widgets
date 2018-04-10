@@ -1,25 +1,17 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Switch} from "@package/wml-widgets/control/switch/Switch"
+import {PageExample} from "../../../page-example"
+import {Switch} from "../../../../../lib/control/switch"
 import {SwitchPage} from "../"
 
 {% main (SwitchPage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+    <p>The switch is <b wml:id="content">untouched</b>.</p>
 
-    <Column>
+    <p>
+      <Switch 
+        ww:name="switch"
+        ww:onChange={{@onChange}} />
+    </p>
 
-      <p>The switch is <b wml:id="content">untouched</b>.</p>
-
-      <p>
-        <Switch 
-          ww:name="switch"
-          ww:onChange={{@onChange}} />
-      </p>
-
-    </Column>
-
-   </Row>
-
- </Grid>
+</PageExample>

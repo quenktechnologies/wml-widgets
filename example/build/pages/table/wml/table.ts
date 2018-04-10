@@ -1,12 +1,10 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     Table
-} from '@package/wml-widgets/table/Table';;
+} from '../../../../../lib/data/table/Table';;
 import {
     TablePage
 } from '../';
@@ -20,13 +18,7 @@ export class Main extends ___wml.AppView < TablePage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < TablePage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Table, {
@@ -38,7 +30,7 @@ export class Main extends ___wml.AppView < TablePage > {
                     'columns': ___context.values.columns,
                     'onCellClicked': ___context.values.onCellClicked
                 }
-            }, [], ___view)], ___view)], ___view)], ___view);
+            }, [], ___view)], ___view);
 
     }
 

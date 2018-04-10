@@ -1,17 +1,17 @@
 import * as ___wml from '@quenk/wml';
 import {
     Button
-} from '../Button';
+} from '../';
 
 
 
-export class Main extends ___wml.AppView < Button > {
+export class Main < V > extends ___wml.AppView < Button < V > > {
 
-    constructor(___context: Button) {
+    constructor(___context: Button < V > ) {
 
         super(___context);
 
-        this.template = (___view: ___wml.AppView < Button > ) =>
+        this.template = (___view: ___wml.AppView < Button < V > > ) =>
             ___wml.node('button', {
                 html: {
                     'id': ___context.values.button.id,

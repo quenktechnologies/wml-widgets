@@ -1,5 +1,0 @@
-import {Group} from "../Group"
-
-{% main (Group) %}
-
-<div id={{@values.root.id}} class={{@values.root.class}}>{{@values.root.content}}</div>

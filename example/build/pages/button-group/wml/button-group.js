@@ -11,48 +11,43 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var page_example_1 = require("../../../page-example");
 ;
-var button_1 = require("@package/wml-widgets/control/button");
+var button_1 = require("../../../../../lib/control/button");
 ;
-var button_group_1 = require("@package/wml-widgets/control/button-group");
+var button_group_1 = require("../../../../../lib/control/button-group");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.widget(button_group_1.ButtonGroup, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(button_1.Button, {
                         html: {},
-                        wml: {}
-                    }, [___wml.widget(button_group_1.ButtonGroup, {
-                            html: {},
-                            wml: {}
-                        }, [___wml.widget(button_1.Button, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'text': "one"
-                                }
-                            }, [], ___view), ___wml.widget(button_1.Button, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'text': "three"
-                                }
-                            }, [], ___view), ___wml.widget(button_1.Button, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'text': "four"
-                                }
-                            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+                        wml: {},
+                        ww: {
+                            'text': "one"
+                        }
+                    }, [], ___view), ___wml.widget(button_1.Button, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'text': "three",
+                            'active': true
+                        }
+                    }, [], ___view), ___wml.widget(button_1.Button, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'text': "four"
+                        }
+                    }, [], ___view)], ___view)], ___view);
         };
         return _this;
     }

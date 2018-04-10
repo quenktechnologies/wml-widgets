@@ -1,17 +1,11 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Select
-} from '@package/wml-widgets/control/select';;
-import {
-    TextField
-} from '@package/wml-widgets/control/text-field';;
-import {
-    Date
-} from '../Date';;
-import {
     label,
     message
-} from '@package/wml-widgets/control/wml';
+} from '../../wml';;
+import {
+    Date
+} from '../';
 
 
 
@@ -32,18 +26,15 @@ export class Main extends ___wml.AppView < Date > {
                     'class': ___context.values.inline.class
                 },
                 wml: {}
-            }, [___wml.widget(Select, {
-                html: {},
+            }, [___wml.node('select', {
+                html: {
+                    'name': ___context.values.month.id,
+                    'onchange': ___context.values.month.onchange,
+                    'disabled': ___context.values.month.disabled,
+                    'class': ___context.values.month.class
+                },
                 wml: {
                     'id': ___context.values.month.id
-                },
-                ww: {
-                    'name': ___context.values.month.id,
-                    'onChange': ___context.values.month.onInput,
-                    'disabled': ___context.values.month.disabled,
-                    'readOnly': ___context.values.month.readOnly,
-                    'class': ___context.values.month.class,
-                    'options': ___context.values.date.months
                 }
             }, [___wml.node('option', {
                 html: {
@@ -52,35 +43,44 @@ export class Main extends ___wml.AppView < Date > {
                     'disabled': true
                 },
                 wml: {}
-            }, [___wml.text(`Month`)], ___view)], ___view), ___wml.widget(TextField, {
-                html: {},
+            }, [___wml.text(`Month`)], ___view), ___wml.map(___context.values.date.months, function _map(opt) {
+                return ___wml.node('option', {
+                    html: {
+                        'value': opt.value
+                    },
+                    wml: {}
+                }, [___wml.domify(opt.label)], ___view)
+            }, function otherwise() {
+                return document.createDocumentFragment();
+            })], ___view), ___wml.node('input', {
+                html: {
+                    'name': ___context.values.day.id,
+                    'oninput': ___context.values.day.oninput,
+                    'onkeyup': ___context.values.day.onkeyup,
+                    'value': ___context.values.day.value(),
+                    'disabled': ___context.values.day.disabled,
+                    'class': ___context.values.day.class,
+                    'size': `2`,
+                    'placeholder': `DD`
+                },
                 wml: {
                     'id': ___context.values.day.id
-                },
-                ww: {
-                    'name': ___context.values.day.id,
-                    'onChange': ___context.values.day.onInput,
-                    'value': ___context.values.day.value,
-                    'disabled': ___context.values.day.disabled,
-                    'readOnly': ___context.values.day.readOnly,
-                    'class': ___context.values.day.class,
-                    'placeholder': `DD`
                 }
-            }, [], ___view), ___wml.widget(TextField, {
-                html: {},
+            }, [], ___view), ___wml.node('input', {
+                html: {
+                    'name': ___context.values.year.id,
+                    'oninput': ___context.values.year.oninput,
+                    'onkeyup': ___context.values.year.onkeyup,
+                    'value': ___context.values.year.value(),
+                    'disabled': ___context.values.year.disabled,
+                    'class': ___context.values.year.class,
+                    'placeholder': `YYYY`,
+                    'size': `4`
+                },
                 wml: {
                     'id': ___context.values.year.id
-                },
-                ww: {
-                    'name': ___context.values.year.id,
-                    'onChange': ___context.values.year.onInput,
-                    'value': ___context.values.year.value,
-                    'disabled': ___context.values.year.disabled,
-                    'readOnly': ___context.values.year.readOnly,
-                    'class': ___context.values.year.class,
-                    'placeholder': `YYYY`
                 }
-            }, [], ___view), ___wml.domify(message(___context.values.help.id)(___context.values.help)(___view))], ___view)], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.messages.id)(___context.values.messages)(___view))], ___view)], ___view);
 
     }
 

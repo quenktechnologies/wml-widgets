@@ -11,34 +11,28 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var page_example_1 = require("../../../page-example");
 ;
-var Table_1 = require("@package/wml-widgets/table/Table");
+var Table_1 = require("../../../../../lib/data/table/Table");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.widget(Table_1.Table, {
                     html: {},
-                    wml: {}
-                }, [___wml.widget(Grid_1.Column, {
-                        html: {},
-                        wml: {}
-                    }, [___wml.widget(Table_1.Table, {
-                            html: {},
-                            wml: {},
-                            ww: {
-                                'selectable': true,
-                                'data': ___context.values.users,
-                                'columns': ___context.values.columns,
-                                'onCellClicked': ___context.values.onCellClicked
-                            }
-                        }, [], ___view)], ___view)], ___view)], ___view);
+                    wml: {},
+                    ww: {
+                        'selectable': true,
+                        'data': ___context.values.users,
+                        'columns': ___context.values.columns,
+                        'onCellClicked': ___context.values.onCellClicked
+                    }
+                }, [], ___view)], ___view);
         };
         return _this;
     }

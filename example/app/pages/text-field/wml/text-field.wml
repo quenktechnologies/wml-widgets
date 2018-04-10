@@ -1,10 +1,10 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {TextField} from "@package/wml-widgets/control/text-field/TextField"
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {TextField} from "../../../../../lib/control/text-field"
 import {TextFieldPage} from "../"
 
 {% main (TextFieldPage) %}
  
-<Grid>
+<GridLayout>
 
   <Row>
 
@@ -96,4 +96,4 @@ import {TextFieldPage} from "../"
 
    </Row>
 
- </Grid>
+ </GridLayout>

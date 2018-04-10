@@ -1,12 +1,10 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     Date
-} from '@package/wml-widgets/control/date/Date';;
+} from '../../../../../lib/control/date';;
 import {
     DatePage
 } from '../';
@@ -20,13 +18,7 @@ export class Main extends ___wml.AppView < DatePage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < DatePage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.node('p', {
@@ -49,7 +41,7 @@ export class Main extends ___wml.AppView < DatePage > {
                     'name': `date`,
                     'onChange': ___context.onChange
                 }
-            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [], ___view)], ___view)], ___view);
 
     }
 

@@ -1,23 +1,25 @@
-import {Stack} from "../Stack"
-import {Member} from "../Member"
+import {Stack} from "../"
 
-{% fun content [M](Stack[M]) (m:Member[M], _:Number, __:Member[M][])%}
+{% fun content [V](Stack[V]) (v:V, _:Number) %}
 
-  <span class={{@values.class.member}}>{{@values.item.decorator(m)}}</span>
+  <div class={{@values.element.content.class}}>{{@values.element.decorator(v)}}</div>
 
 {% endfun %}
 
-{% main [M](Stack[M]) %}
+{% main [V](Stack[V]) %}
 
-<ul class={{@values.class.root}}>
+<ul class={{@values.root.class}}>
 
-  {% for m,index:Number in @values.value %}
+  {% for v,index:Number in @values.root.value %}
 
-    <li>
-      {{<(@values.item.template)(@)(m)(index)(@values.value)>}}
+    <li class={{@values.element.class}}>
+
+      {{<(@values.element.template())(v)(index)>}}
+
       <button 
-        class={{@values.class.close}}
-        onclick={{@values.item.close(index)}}>×</button>
+        class={{@values.close.class}}
+        onclick={{@values.element.close(index)}}>×</button>
+
     </li>
 
   {% endfor %}

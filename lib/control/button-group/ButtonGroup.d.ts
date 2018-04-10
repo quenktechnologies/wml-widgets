@@ -1,5 +1,6 @@
 import * as wml from '@quenk/wml';
 import { ButtonGroupAttrs } from '.';
+export declare const BUTTON_GROUP = "ww-button-group";
 /**
  * ButtonGroup groups multiple buttons into one element.
  */

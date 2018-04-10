@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Checkbox
-} from '../Checkbox';
+} from '../';
 
 
 
@@ -14,7 +14,7 @@ export class Main extends ___wml.AppView < Checkbox > {
         this.template = (___view: ___wml.AppView < Checkbox > ) =>
             ___wml.node('div', {
                 html: {
-                    'class': ___context.values.class.root
+                    'class': ___context.values.root.class
                 },
                 wml: {}
             }, [___wml.node('label', {
@@ -24,7 +24,7 @@ export class Main extends ___wml.AppView < Checkbox > {
                 html: {
                     'type': `checkbox`,
                     'name': ___context.values.input.name,
-                    'checked': (___context.values.input.checked || null),
+                    'checked': ___context.values.input.value,
                     'onchange': ___context.values.input.onChange
                 },
                 wml: {}

@@ -1,109 +1,38 @@
-import * as wml from '@quenk/wml';
-import { Delegate, Event } from '@package/wml-widgets/control';
-import { FormControlWWAttrs } from '@package/wml-widgets/control/form-control';
-import { Option } from '@package/wml-widgets/control/select';
-import { Date } from './Date';
-export { Date };
-export { DateChangedEvent } from './DateChangedEvent';
+import * as moment from 'moment';
+import { View } from '@quenk/wml';
+import { FormControlAttrs, FormControl } from '../form';
+import { FeedbackControlAttrs, GenericFeedbackControl } from '../feedback';
+import { Event as ControlEvent } from '../';
+/**
+ * DATE class name.
+ */
+export declare const DATE = "ww-date";
+/**
+ * DATE_DAY class name.
+ */
+export declare const DATE_DAY: string;
+/**
+ * DATE_MONTH class name.
+ */
+export declare const DATE_MONTH: string;
+/**
+ * DATE_YEAR class name.
+ */
+export declare const DATE_YEAR: string;
 /**
  * DateAttrs
  */
-export interface DateAttrs extends wml.Attrs {
-    ww: DateWWAttrs;
+export interface DateAttrs extends FormControlAttrs<string>, FeedbackControlAttrs<string> {
+    /**
+     * onChange handler.
+     */
+    onChange: (e: DateChangedEvent) => void;
 }
 /**
- * DateWWAttrs
+ * DateChangedEvent is generated when the date has
+ * been changed to a valid date.
  */
-export interface DateWWAttrs extends FormControlWWAttrs<string> {
-}
-/**
- * DateValues available to the template context via @values.
- */
-export interface DateValues {
-    /**
-     * root element values.
-     */
-    root: {
-        id: string;
-        class: string;
-    };
-    inline: {
-        class: string;
-    };
-    /**
-     * delegate that will receive events.
-     */
-    delegate: Delegate<string>;
-    /**
-     *date values
-     */
-    date: {
-        months: Option[];
-        prefix: (s: string | number, inc: boolean) => string;
-    };
-    /**
-     * day input values.
-     */
-    day: InputValues;
-    /**
-     * month input values.
-     */
-    month: InputValues;
-    /**
-     * year input values.
-     */
-    year: InputValues;
-    /**
-     * name assigned to the date input.
-     */
-    name: string;
-    /**
-     * help things.
-     */
-    help: {
-        id: string;
-        success?: string;
-        error?: string;
-        warning?: string;
-    };
-    /**
-     * label
-     */
-    label: {
-        id: string;
-        text: string;
-    };
-}
-/**
- * InputValues are the values specific for each of the inputs
- * in the view.
- */
-export interface InputValues {
-    /**
-     * id for accessing the input
-     */
-    id: string;
-    /**
-     * class assigned to the input
-     */
-    class: string;
-    /**
-     * value of the input (day,month or year).
-     */
-    value: string;
-    /**
-     * disabled indicates whether the input should be disabled or not.
-     */
-    disabled: boolean;
-    /**
-     * readOnly indicates whether the value should be readOnly.
-     */
-    readOnly: boolean;
-    /**
-     * onInput is called each time the user enters text
-     * to the input.
-     */
-    onInput: (e: Event<string>) => void;
+export declare class DateChangedEvent extends ControlEvent<string> {
 }
 export declare const format: {
     YYYYDDMM: string;
@@ -112,5 +41,68 @@ export declare const format: {
     YYYY: string;
 };
 export declare const MONTHS: string[];
-export declare const inputValues: (id: string, klass: string, value: string, date: Date, cb: (v: string) => void) => InputValues;
-export declare const prefix: (s: string | number, inc?: boolean) => string;
+/**
+ * Date input.
+ */
+export declare class Date extends GenericFeedbackControl<string, DateAttrs> implements FormControl<string, DateAttrs> {
+    view: View;
+    get: () => string;
+    set: (_: string) => this;
+    values: {
+        root: {
+            id: string;
+            class: string;
+        };
+        inline: {
+            class: string;
+        };
+        date: {
+            months: {
+                label: string;
+                value: string;
+            }[];
+            value: moment.Moment;
+            sep: string;
+            format: string;
+            fire: () => void;
+        };
+        month: {
+            id: string;
+            class: string;
+            value: () => string;
+            disabled: boolean;
+            onchange: (e: Event) => void;
+        };
+        day: {
+            id: string;
+            class: string;
+            value: () => string;
+            disabled: boolean;
+            oninput: (e: KeyboardEvent) => void;
+            onkeyup: (e: Event) => void;
+        };
+        year: {
+            id: string;
+            class: string;
+            value: () => string;
+            disabled: boolean;
+            oninput: (e: KeyboardEvent) => void;
+            onkeyup: (e: Event) => void;
+        };
+        name: string;
+        messages: {
+            id: string;
+            success: string;
+            error: string;
+            warning: string;
+        };
+        label: {
+            id: string;
+            text: string;
+        };
+    };
+    /**
+     * calculate the date based on the current value of the inputs.
+     */
+    calculate(): moment.Moment;
+}

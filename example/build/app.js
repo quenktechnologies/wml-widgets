@@ -4,25 +4,27 @@ var util_1 = require("afpl/lib/util");
 var app_1 = require("./wml/app");
 var navigation_1 = require("./wml/navigation");
 var panel_1 = require("./pages/panel");
-var list_group_1 = require("./pages/list-group");
+var list_layout_1 = require("./pages/list-layout");
 var table_1 = require("./pages/table");
 var text_field_1 = require("./pages/text-field");
 var date_1 = require("./pages/date");
-var select_1 = require("./pages/select");
 var button_1 = require("./pages/button");
+var toolbar_1 = require("./pages/toolbar");
 var button_select_1 = require("./pages/button-select");
 var checkbox_1 = require("./pages/checkbox");
 var switch_1 = require("./pages/switch");
-var tabs_1 = require("./pages/tabs");
+var tab_bar_1 = require("./pages/tab-bar");
 var stack_1 = require("./pages/stack");
-var search_stack_1 = require("./pages/search-stack");
-var autocomplete_1 = require("./pages/autocomplete");
-var breadcrumbs_1 = require("./pages/breadcrumbs");
-var busy_indicator_1 = require("./pages/busy-indicator");
+var multi_select_1 = require("./pages/multi-select");
+var select_1 = require("./pages/select");
+var breadcrumb_1 = require("./pages/breadcrumb");
+var activity_indicator_1 = require("./pages/activity-indicator");
 var menu_1 = require("./pages/menu");
 var button_group_1 = require("./pages/button-group");
-var button_menu_1 = require("./pages/button-menu");
-var tab_view_1 = require("./pages/tab-view");
+var drop_down_1 = require("./pages/drop-down");
+var tab_layout_1 = require("./pages/tab-layout");
+var horizontal_layout_1 = require("./pages/horizontal-layout");
+var nav_1 = require("./pages/nav");
 var displayName = function (s) {
     return [s[0].toUpperCase()]
         .concat(s
@@ -53,35 +55,35 @@ var App = /** @class */ (function () {
         this.links = {
             layout: {
                 panel: new panel_1.PanelPage(this),
-                'list-group': new list_group_1.ListGroupPage(this),
-                'tab-view': new tab_view_1.TabViewPage(this)
+                'list-layout': new list_layout_1.ListLayoutPage(this),
+                'tab-layout': new tab_layout_1.TabLayoutPage(this),
+                'horizontal-layout': new horizontal_layout_1.HorizontalLayoutPage(this)
             },
-            table: {
+            data: {
                 table: new table_1.TablePage(this)
             },
             control: {
                 'text-field': new text_field_1.TextFieldPage(this),
                 date: new date_1.DatePage(this),
                 select: new select_1.SelectPage(this),
-                autocomplete: new autocomplete_1.AutocompletePage(this),
+                'multi-select': new multi_select_1.MultiSelectPage(this),
                 button: new button_1.ButtonPage(this),
                 'button-group': new button_group_1.ButtonGroupPage(this),
+                'toolbar': new toolbar_1.ToolbarPage(this),
                 'button-select': new button_select_1.ButtonSelectPage(this),
-                tabs: new tabs_1.TabsPage(this),
+                'tab-bar': new tab_bar_1.TabBarPage(this),
+                menu: new menu_1.MenuPage(this),
+                'drop-down': new drop_down_1.DropDownPage(this),
                 stack: new stack_1.StackPage(this),
                 checkbox: new checkbox_1.CheckboxPage(this),
-                'switch': new switch_1.SwitchPage(this),
-                'search-stack': new search_stack_1.SearchStackPage(this),
+                'switch': new switch_1.SwitchPage(this)
+            },
+            content: {
+                nav: new nav_1.NavPage(this),
+                breadcrumb: new breadcrumb_1.BreadcrumbPage(this),
             },
             app: {
-                'busy-indicator': new busy_indicator_1.BusyIndicatorPage(this)
-            },
-            nav: {
-                breadcrumbs: new breadcrumbs_1.BreadCrumbsPage(this),
-            },
-            menu: {
-                menu: new menu_1.MenuPage(this),
-                'button-menu': new button_menu_1.ButtonMenuPage(this)
+                'activity-indicator': new activity_indicator_1.ActivityIndicatorPage(this)
             }
         };
         /**
@@ -117,7 +119,7 @@ var App = /** @class */ (function () {
             _this
                 .view
                 .findById(_this.values.id.layout)
-                .map(function (d) { return d.toggleDrawer(); });
+                .map(function (d) { return d.toggle(); });
         };
         /**
          * navigate is called when the user clicks on a

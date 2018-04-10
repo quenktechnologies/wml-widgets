@@ -1,15 +1,13 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     Button
-} from '@package/wml-widgets/control/button';;
+} from '../../../../../lib/control/button';;
 import {
     ButtonGroup
-} from '@package/wml-widgets/control/button-group';;
+} from '../../../../../lib/control/button-group';;
 import {
     ButtonGroupPage
 } from '../';
@@ -23,13 +21,7 @@ export class Main extends ___wml.AppView < ButtonGroupPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < ButtonGroupPage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.widget(ButtonGroup, {
@@ -45,7 +37,8 @@ export class Main extends ___wml.AppView < ButtonGroupPage > {
                 html: {},
                 wml: {},
                 ww: {
-                    'text': `three`
+                    'text': `three`,
+                    'active': true
                 }
             }, [], ___view), ___wml.widget(Button, {
                 html: {},
@@ -53,7 +46,7 @@ export class Main extends ___wml.AppView < ButtonGroupPage > {
                 ww: {
                     'text': `four`
                 }
-            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [], ___view)], ___view)], ___view);
 
     }
 

@@ -1,9 +1,10 @@
 import * as wml from '@quenk/wml';
-import * as names from '@package/wml-widgets/common/names';
-import * as views from './wml/panel';
+import * as style from '../../content/style';
+import { WidgetAttrs } from '../../';
 import { Component } from '@quenk/wml';
-import { concat } from '@package/wml-widgets/common/util';
-import { PanelAttrs } from '.';
+import { concat } from '../../util';
+import { Main } from './wml/panel';
+import { PANEL, PanelAttrs } from '.';
 
 /**
  * Panel provides a rectangular container for visually seperating
@@ -12,9 +13,9 @@ import { PanelAttrs } from '.';
  * This class provides the containing, part that can be further
  * subdivided into a header, body and/or footer section.
  */
-export class Panel extends Component<PanelAttrs> {
+export class Panel extends Component<WidgetAttrs<PanelAttrs>> {
 
-    view: wml.View = new views.Panel(this);
+    view: wml.View = new Main(this);
 
     /**
      * values
@@ -29,8 +30,8 @@ export class Panel extends Component<PanelAttrs> {
             /**
              * class name for the root element.
              */
-            class: concat(names.PANEL, this.attrs.ww ?
-                this.attrs.ww.style : names.DEFAULT, this.attrs.ww ?
+            class: concat(PANEL, this.attrs.ww ?
+                this.attrs.ww.style : style.DEFAULT, this.attrs.ww ?
                     this.attrs.ww.class : '')
 
         }

@@ -1,26 +1,18 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Date} from "@package/wml-widgets/control/date/Date"
+import {PageExample} from "../../../page-example"
+import {Date} from "../../../../../lib/control/date"
 import {DatePage} from "../"
 
 {% main (DatePage) %}
  
-<Grid>
+<PageExample>
 
-  <Row>
+  <p>The date is : <b wml:id="selected">(None selected)</b>.</p>
 
-    <Column>
+  <p>
+    <Date 
+      wml:id="date"
+      ww:name="date"
+      ww:onChange={{@onChange}} />
+  </p>
 
-      <p>The date is : <b wml:id="selected">(None selected)</b>.</p>
-
-      <p>
-        <Date 
-          wml:id="date"
-          ww:name="date"
-          ww:onChange={{@onChange}} />
-      </p>
-
-    </Column>
-
-   </Row>
-
- </Grid>
+ </PageExample>

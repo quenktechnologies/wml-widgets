@@ -1,0 +1,14 @@
+import {Search} from "../"
+
+{% main (Search) %}
+
+<input 
+  wml:id={{@values.root.id}}
+  class={{@values.root.class}}
+  onkeydown={{@values.root.onkeydown}} 
+  onkeyup={{@values.root.onkeyup}} 
+  oninput={{@values.root.oninput}}
+  onfocus={{@values.root.onfocus}}
+  placeholder={{@values.root.placeholder}}
+  readOnly={{@values.root.readOnly}}
+  value={{@values.root.value}} />

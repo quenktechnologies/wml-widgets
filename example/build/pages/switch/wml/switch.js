@@ -11,43 +11,37 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var page_example_1 = require("../../../page-example");
 ;
-var Switch_1 = require("@package/wml-widgets/control/switch/Switch");
+var switch_1 = require("../../../../../lib/control/switch");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.node('p', {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.text("The switch is "), ___wml.node('b', {
                         html: {},
-                        wml: {}
-                    }, [___wml.node('p', {
-                            html: {},
-                            wml: {}
-                        }, [___wml.text("The switch is "), ___wml.node('b', {
-                                html: {},
-                                wml: {
-                                    'id': "content"
-                                }
-                            }, [___wml.text("untouched")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
-                            html: {},
-                            wml: {}
-                        }, [___wml.widget(Switch_1.Switch, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'name': "switch",
-                                    'onChange': ___context.onChange
-                                }
-                            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+                        wml: {
+                            'id': "content"
+                        }
+                    }, [___wml.text("untouched")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
+                    html: {},
+                    wml: {}
+                }, [___wml.widget(switch_1.Switch, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'name': "switch",
+                            'onChange': ___context.onChange
+                        }
+                    }, [], ___view)], ___view)], ___view);
         };
         return _this;
     }

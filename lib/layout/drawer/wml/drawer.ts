@@ -1,10 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Aside
-} from '@package/wml-widgets/layout/aside/Aside';;
-import {
     Drawer
-} from '../Drawer';
+} from '..';
 
 
 
@@ -17,20 +14,17 @@ export class Main extends ___wml.AppView < Drawer > {
         this.template = (___view: ___wml.AppView < Drawer > ) =>
             ___wml.node('div', {
                 html: {
-                    'class': ___context.values.class.root
+                    'class': ___context.values.root.class
                 },
                 wml: {
-                    'id': ___context.values.id.root
+                    'id': ___context.values.root.id
                 }
-            }, [___wml.widget(Aside, {
-                html: {},
-                wml: {
-                    'id': ___context.values.id.drawer
+            }, [___wml.node('div', {
+                html: {
+                    'class': ___context.values.content.class
                 },
-                ww: {
-                    'content': ___context.values.aside.content
-                }
-            }, [], ___view), (___context.content) ? ___wml.domify(___context.content) : (___context.values.content) ? ___wml.domify(___context.values.content.render()) : ___wml.domify(___context.children)], ___view);
+                wml: {}
+            }, [___wml.domify(___context.values.content.render())], ___view)], ___view);
 
     }
 

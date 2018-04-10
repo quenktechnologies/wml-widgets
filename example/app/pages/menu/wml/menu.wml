@@ -1,31 +1,40 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Menu,MenuItem,Divider,Header} from "@package/wml-widgets/menu"
+import {PageExample} from "../../../page-example"
+import {Menu,Item,Divider} from "../../../../../lib/control/menu"
+import {Link} from "../../../../../lib/content/nav/link"
 import {MenuPage} from "../"
 
 {% main (MenuPage) %}
  
-<Grid>
-
-  <Row>
-
-    <Column>
+<PageExample>
 
       <Menu>
 
-        <Header ww:text="Heading"/>
+        <h6>Menu</h6>
 
-        <MenuItem ww:disabled=true ww:text="Back"/>
+        <Item>
+        
+          <Link
+            ww:disabled=true 
+            ww:text="Back"/>
 
-        <MenuItem ww:text="Refresh"/>
+        </Item>
+
+        <Item>
+        
+          <Link
+            ww:disabled=true
+            ww:text="Refresh"/>
+            
+        </Item>
 
         <Divider/>
 
-        <MenuItem><a href="#/menu">Quit</a></MenuItem>
+        <Item>
+        
+          <a href="#/menu">Quit</a>
+          
+        </Item>
 
       </Menu>
 
-    </Column>
-
-   </Row>
-
- </Grid>
+ </PageExample>

@@ -1,22 +1,22 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Drawer
-} from '@package/wml-widgets/layout/drawer/Drawer';;
+    DrawerLayout
+} from '../../../lib/layout/drawer-layout';;
 import {
     ActionBar
-} from '@package/wml-widgets/app/action-bar/ActionBar';;
+} from '../../../lib/app/action-bar';;
 import {
     App
 } from '../app';;
 import {
-    IconButton
-} from '@package/wml-widgets/control/icon-button/IconButton';;
+    Button
+} from '../../../lib/control/button';;
 import {
     Dash
-} from '@package/wml-widgets/app/dash';;
+} from '../../../lib/app/dash';;
 import {
-    Main as MainLayout
-} from '@package/wml-widgets/layout/main/Main';
+    MainLayout
+} from '../../../lib/layout/main-layout';
 
 
 
@@ -27,7 +27,7 @@ export class Main extends ___wml.AppView < App > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < App > ) =>
-            ___wml.widget(Drawer, {
+            ___wml.widget(DrawerLayout, {
                 html: {},
                 wml: {
                     'id': ___context.values.id.layout
@@ -38,10 +38,11 @@ export class Main extends ___wml.AppView < App > {
             }, [___wml.widget(ActionBar, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(IconButton, {
+            }, [___wml.widget(Button, {
                 html: {},
                 wml: {},
                 ww: {
+                    'name': `toggle`,
                     'onClick': ___context.toggleDrawer
                 }
             }, [___wml.widget(Dash, {

@@ -11,9 +11,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var grid_layout_1 = require("../../../../../lib/layout/grid-layout");
 ;
-var panel_1 = require("@package/wml-widgets/layout/panel");
+var panel_1 = require("../../../../../lib/layout/panel");
 ;
 ;
 var Main = /** @class */ (function (_super) {
@@ -21,13 +21,13 @@ var Main = /** @class */ (function (_super) {
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(grid_layout_1.GridLayout, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {},
                         ww: {
@@ -36,10 +36,10 @@ var Main = /** @class */ (function (_super) {
                     }, [___wml.widget(panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(panel_1.Body, {
+                        }, [___wml.widget(panel_1.PanelBody, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("Body only.")], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Column, {
+                            }, [___wml.text("PanelBody only.")], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {},
                         ww: {
@@ -48,13 +48,13 @@ var Main = /** @class */ (function (_super) {
                     }, [___wml.widget(panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(panel_1.Header, {
+                        }, [___wml.widget(panel_1.PanelHeader, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("With Header")], ___view), ___wml.widget(panel_1.Body, {
+                            }, [___wml.text("With PanelHeader")], ___view), ___wml.widget(panel_1.PanelBody, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("Lorem impsum dilium net set.")], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Column, {
+                            }, [___wml.text("Lorem impsum dilium net set.")], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {},
                         ww: {
@@ -63,13 +63,13 @@ var Main = /** @class */ (function (_super) {
                     }, [___wml.widget(panel_1.Panel, {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(panel_1.Header, {
+                        }, [___wml.widget(panel_1.PanelHeader, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("With Footer")], ___view), ___wml.widget(panel_1.Body, {
+                            }, [___wml.text("With PanelFooter")], ___view), ___wml.widget(panel_1.PanelBody, {
                                 html: {},
                                 wml: {}
-                            }, [___wml.text("Lorem impsum dilium net set.")], ___view), ___wml.widget(panel_1.Footer, {
+                            }, [___wml.text("Lorem impsum dilium net set.")], ___view), ___wml.widget(panel_1.PanelFooter, {
                                 html: {},
                                 wml: {}
                             }, [___wml.text("Meh foot.")], ___view)], ___view)], ___view)], ___view)], ___view);

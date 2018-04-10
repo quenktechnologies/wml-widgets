@@ -11,65 +11,59 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var page_example_1 = require("../../../page-example");
 ;
-var toolbar_1 = require("@package/wml-widgets/control/toolbar");
+var toolbar_1 = require("../../../../../lib/control/toolbar");
 ;
-var button_1 = require("@package/wml-widgets/control/button");
+var button_1 = require("../../../../../lib/control/button");
 ;
-var button_group_1 = require("@package/wml-widgets/control/button-group");
+var button_group_1 = require("../../../../../lib/control/button-group");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(page_example_1.PageExample, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.widget(toolbar_1.Toolbar, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(button_1.Button, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'text': "Start"
+                        }
+                    }, [], ___view), ___wml.widget(button_group_1.ButtonGroup, {
                         html: {},
                         wml: {}
-                    }, [___wml.widget(toolbar_1.Toolbar, {
+                    }, [___wml.widget(button_1.Button, {
                             html: {},
-                            wml: {}
-                        }, [___wml.widget(button_1.Button, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'text': "Start"
-                                }
-                            }, [], ___view), ___wml.widget(button_group_1.ButtonGroup, {
-                                html: {},
-                                wml: {}
-                            }, [___wml.widget(button_1.Button, {
-                                    html: {},
-                                    wml: {},
-                                    ww: {
-                                        'text': "Up"
-                                    }
-                                }, [], ___view), ___wml.widget(button_1.Button, {
-                                    html: {},
-                                    wml: {},
-                                    ww: {
-                                        'text': "Down"
-                                    }
-                                }, [], ___view), ___wml.widget(button_1.Button, {
-                                    html: {},
-                                    wml: {},
-                                    ww: {
-                                        'text': "Reset"
-                                    }
-                                }, [], ___view)], ___view), ___wml.widget(button_1.Button, {
-                                html: {},
-                                wml: {},
-                                ww: {
-                                    'text': "Stop"
-                                }
-                            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+                            wml: {},
+                            ww: {
+                                'text': "Up"
+                            }
+                        }, [], ___view), ___wml.widget(button_1.Button, {
+                            html: {},
+                            wml: {},
+                            ww: {
+                                'text': "Down"
+                            }
+                        }, [], ___view), ___wml.widget(button_1.Button, {
+                            html: {},
+                            wml: {},
+                            ww: {
+                                'text': "Reset"
+                            }
+                        }, [], ___view)], ___view), ___wml.widget(button_1.Button, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'text': "Stop"
+                        }
+                    }, [], ___view)], ___view)], ___view);
         };
         return _this;
     }

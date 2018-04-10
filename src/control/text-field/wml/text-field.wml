@@ -1,9 +1,9 @@
-import * as T from "../TextField"
-import {label,message} from "@package/wml-widgets/control/wml"
+import {label,message} from "../../wml"
+import {TextField}  from "../"
 
-{% export {label, message} from "@package/wml-widgets/control/wml" %}
+{% export {label, message} from "../../wml" %}
 
-{% fun input (T.TextField) %}
+{% fun input (TextField) %}
 
   <input
     wml:id="control"
@@ -19,7 +19,7 @@ import {label,message} from "@package/wml-widgets/control/wml"
 
 {% endfun %}
 
-{% fun textarea (T.TextField) %}
+{% fun textarea (TextField) %}
 
   <textarea
     wml:id="control"
@@ -33,7 +33,7 @@ import {label,message} from "@package/wml-widgets/control/wml"
 
 {% endfun %}
 
-{% fun control (T.TextField) %}
+{% fun control (TextField) %}
 
   {% if @values.control.rows == 1 %}
 
@@ -47,7 +47,7 @@ import {label,message} from "@package/wml-widgets/control/wml"
 
 {% endfun %}
 
-{% fun group (T.TextField) %}
+{% fun group (TextField) %}
 
    {{ <label(@values.label.id)(@values.label.text)> }}
 
@@ -57,10 +57,10 @@ import {label,message} from "@package/wml-widgets/control/wml"
 
 {% endfun %}
 
-{% main (T.TextField) %}
+{% main (TextField) %}
 
-  <div wml:id={{@values.root.id}} class={{@values.root.class}}>
+<div wml:id={{@values.root.id}} class={{@values.root.class}}>
 
-    {{ <(@values.control.template)(@)> }}
+  {{ <(@values.control.template())(@)> }}
 
-  </div>
+</div>

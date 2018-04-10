@@ -1,7 +1,7 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/stack'
 import { Page } from '../Page';
-import { StackChangedEvent } from '@package/wml-widgets/control/stack';
+import { StackChangedEvent } from '../../../../lib/control/stack';
 
 export interface Member { label: string, value: string }
 

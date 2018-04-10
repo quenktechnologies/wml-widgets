@@ -1,21 +1,34 @@
-import * as wml from '@quenk/wml';
+import * as views from './wml/toolbar';
+import {View, Component} from '@quenk/wml';
+import { concat } from '../../util';
+import {WidgetAttrs, StylableAttrs} from '../../';
+import { ToolbarAttrs } from '.';
 
-export { Toolbar } from './Toolbar';
+///classNames:begin
+export const TOOLBAR = 'ww-toolbar';
+export const TOOLBAR_COMPAT = '-toolbar-compat';
+///classNames:end
 
 /**
  * ToolbarAttrs
  */
-export interface ToolbarAttrs extends wml.Attrs {
+export interface ToolbarAttrs extends StylableAttrs {}
 
-    /**
-     * ww properties.
-     */
-    ww?: {
+/**
+ * Toolbar provides a widget for grouping related controls into a
+ * single row.
+ */
+export class Toolbar extends Component<WidgetAttrs<ToolbarAttrs>> {
 
-        /**
-         * class names to add to the root element.
-         */
-        class?: string
+    view: View = new views.Main(this);
+
+    values = {
+
+        root: {
+
+            class: concat(TOOLBAR, this.attrs.ww && this.attrs.ww.class)
+
+        }
 
     }
 

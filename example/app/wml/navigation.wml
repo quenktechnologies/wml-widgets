@@ -1,9 +1,14 @@
 import {App} from "../app"
-import {Menu,Link,Header,SubMenu} from "@package/wml-widgets/nav/menu"
+import {Nav} from "../../../lib/content/nav"
+import {Item} from "../../../lib/content/nav/item"
+import {NavHeader} from "../../../lib/content/nav/nav-header"
+import {Link} from "../../../lib/content/nav/link"
 
 {% main Navigation (App) %}
 
-<Menu>
+<Nav ww:vertical=true>
+
+  <Item>
 
     <Link
       wml:group="links"
@@ -13,26 +18,36 @@ import {Menu,Link,Header,SubMenu} from "@package/wml-widgets/nav/menu"
       ww:onClick={{@navigate}}
       ww:text="Home" />
 
+  </Item>
+
     {% for items,section:String in @links %}
 
-      <Header ww:text={{@displayName(section)}} />
+      <Item>
 
-      <SubMenu>
+        <NavHeader ww:text={{@displayName(section)}} />
 
-        {% for _,name:String in @sort(items) %}
+        <Nav ww:vertical=true>
 
-          <Link
-            wml:group="links"
-            ww:name={{name}}
-            ww:href="#/${name}"
-            ww:onClick={{@navigate}}
-            ww:active={{@page == '${name}'}}
-            ww:text={{@displayName(name)}} />
+          {% for _,name:String in @sort(items) %}
+
+            <Item>
+
+              <Link
+                wml:group="links"
+                ww:name={{name}}
+                ww:href="#/${name}"
+                ww:onClick={{@navigate}}
+                ww:active={{@page == '${name}'}}
+                ww:text={{@displayName(name)}} />
+
+            </Item>
      
-        {% endfor %}
+          {% endfor %}
 
-      </SubMenu>
+        </Nav>
 
-    {% endfor %}
+      </Item>
+
+      {% endfor %}
     
-</Menu>
+</Nav>

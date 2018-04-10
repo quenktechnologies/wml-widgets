@@ -1,32 +1,33 @@
 import { reduce, merge } from 'afpl/lib/util';
 import { View } from '@quenk/wml';
-import { LinkClickedEvent } from '@package/wml-widgets/nav/link/LinkClickedEvent';
-import { Link } from '@package/wml-widgets/nav/link/Link';
+import { Link, LinkClickedEvent } from '../../lib/content/nav/link';
 import { Maybe } from '@quenk/wml';
-import { Drawer } from '@package/wml-widgets/layout/drawer/Drawer';
+import { DrawerLayout } from '../../lib/layout/drawer-layout';
 import { Main } from './wml/app';
 import { Navigation } from './wml/navigation';
 import { Page } from './pages/Page';
 import { PanelPage } from './pages/panel';
-import { ListGroupPage } from './pages/list-group';
+import { ListLayoutPage } from './pages/list-layout';
 import { TablePage } from './pages/table';
 import { TextFieldPage } from './pages/text-field';
 import { DatePage } from './pages/date';
-import { SelectPage } from './pages/select';
 import { ButtonPage } from './pages/button';
+import { ToolbarPage } from './pages/toolbar';
 import { ButtonSelectPage } from './pages/button-select';
 import { CheckboxPage } from './pages/checkbox';
 import { SwitchPage } from './pages/switch';
-import { TabsPage } from './pages/tabs';
+import { TabBarPage } from './pages/tab-bar';
 import { StackPage } from './pages/stack';
-import { SearchStackPage } from './pages/search-stack';
-import { AutocompletePage } from './pages/autocomplete';
-import { BreadCrumbsPage } from './pages/breadcrumbs';
-import { BusyIndicatorPage } from './pages/busy-indicator';
+import { MultiSelectPage } from './pages/multi-select';
+import { SelectPage } from './pages/select';
+import { BreadcrumbPage } from './pages/breadcrumb';
+import { ActivityIndicatorPage } from './pages/activity-indicator';
 import { MenuPage } from './pages/menu';
 import { ButtonGroupPage } from './pages/button-group';
-import { ButtonMenuPage } from './pages/button-menu';
-import { TabViewPage } from './pages/tab-view';
+import { DropDownPage } from './pages/drop-down';
+import { TabLayoutPage } from './pages/tab-layout';
+import { HorizontalLayoutPage } from './pages/horizontal-layout';
+import { NavPage } from './pages/nav';
 
 const displayName = (s: string) =>
     [s[0].toUpperCase()]
@@ -61,36 +62,38 @@ export class App {
         layout: {
 
             panel: new PanelPage(this),
-            'list-group': new ListGroupPage(this),
-          'tab-view': new TabViewPage(this)
+            'list-layout': new ListLayoutPage(this),
+            'tab-layout': new TabLayoutPage(this),
+            'horizontal-layout': new HorizontalLayoutPage(this)
 
         },
-        table: {
+        data: {
             table: new TablePage(this)
         },
         control: {
             'text-field': new TextFieldPage(this),
-            date: new DatePage(this),
+                  date: new DatePage(this),
             select: new SelectPage(this),
-            autocomplete: new AutocompletePage(this),
+            'multi-select': new MultiSelectPage(this),
             button: new ButtonPage(this),
             'button-group': new ButtonGroupPage(this),
+            'toolbar': new ToolbarPage(this),
             'button-select': new ButtonSelectPage(this),
-            tabs: new TabsPage(this),
+            'tab-bar': new TabBarPage(this),
+            menu: new MenuPage(this),
+            'drop-down': new DropDownPage(this),
             stack: new StackPage(this),
             checkbox: new CheckboxPage(this),
-            'switch': new SwitchPage(this),
-            'search-stack': new SearchStackPage(this),
+            'switch': new SwitchPage(this)
+        },
+        content: {
+
+            nav: new NavPage(this),
+            breadcrumb: new BreadcrumbPage(this),
+
         },
         app: {
-            'busy-indicator': new BusyIndicatorPage(this)
-        },
-        nav: {
-            breadcrumbs: new BreadCrumbsPage(this),
-        },
-        menu: {
-            menu: new MenuPage(this),
-            'button-menu': new ButtonMenuPage(this)
+            'activity-indicator': new ActivityIndicatorPage(this)
         }
 
     };
@@ -116,7 +119,7 @@ export class App {
     /**
      * layout is the current application layout in use.
      */
-    layout: Maybe<Drawer>;
+    layout: Maybe<DrawerLayout>;
 
     /**
      * view is the current application view.
@@ -147,7 +150,7 @@ export class App {
         this
             .view
             .findById(this.values.id.layout)
-            .map((d: Drawer) => d.toggleDrawer());
+            .map((d: DrawerLayout) => d.toggle());
 
     }
 
@@ -186,7 +189,7 @@ export class App {
 
         root.appendChild(this.view.render());
 
-        this.layout = this.view.findById<Drawer>(this.values.id.layout);
+        this.layout = this.view.findById<DrawerLayout>(this.values.id.layout);
 
         let path = window.location.hash.split('#')[1];
         path = path ? path.split('/').join('') : '';

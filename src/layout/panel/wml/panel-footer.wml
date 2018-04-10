@@ -1,0 +1,7 @@
+import {PanelFooter} from ".."
+
+{% main (PanelFooter) %}
+
+<div class={{@values.root.class}}> 
+  {{@children}}
+</div>

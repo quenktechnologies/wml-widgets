@@ -1,12 +1,10 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
-    Row,
-    Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+    PageExample
+} from '../../../page-example';;
 import {
     Checkbox
-} from '@package/wml-widgets/control/checkbox/Checkbox';;
+} from '../../../../../lib/control/checkbox';;
 import {
     CheckboxPage
 } from '../';
@@ -20,13 +18,7 @@ export class Main extends ___wml.AppView < CheckboxPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < CheckboxPage > ) =>
-            ___wml.widget(Grid, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Row, {
-                html: {},
-                wml: {}
-            }, [___wml.widget(Column, {
+            ___wml.widget(PageExample, {
                 html: {},
                 wml: {}
             }, [___wml.node('p', {
@@ -47,7 +39,7 @@ export class Main extends ___wml.AppView < CheckboxPage > {
                     'name': `checkbox`,
                     'onChange': ___context.onChange
                 }
-            }, [], ___view)], ___view)], ___view)], ___view)], ___view);
+            }, [], ___view)], ___view)], ___view);
 
     }
 

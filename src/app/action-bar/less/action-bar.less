@@ -1,44 +1,34 @@
-@import "css/width";
-@import "css/height";
-@import "css/display";
-@import "css/position";
-@import "css/box-shadow";
-@import "css/background";
-@import "css/flex";
-@import "css/padding";
 
 .__ACTION_BAR__ {
 
-  .width(@action-bar-width);
-  .-auto-height;
-  .min-height(@action-bar-min-height);
-  .-block-display;
-  .-fixed-position;
-  .-no-top;
-  .z-index(@action-bar-z-index);
+  width: @action-bar-width;
+  height: auto;
+  min-height: @action-bar-min-height;
+  display: block;
+  position: fixed;
+  top:0;
+  z-index: @action-bar-z-index;
+  box-shadow: @action-bar-box-shadow-offset-x 
+              @action-bar-box-shadow-offset-y
+              @action-bar-box-shadow-blur-radius
+              @action-bar-box-shadow-spread-radius
+              @action-bar-box-shadow-color;
 
-  .box-shadow(@action-bar-box-shadow-offset-x,
-              @action-bar-box-shadow-offset-y,
-              @action-bar-box-shadow-blur-radius,
-              @action-bar-box-shadow-spread-radius,
-              @action-bar-box-shadow-color);
-
-  .background-color(@action-bar-background-color);
+  background-color: @action-bar-background-color;
 
   & .__ACTION_BAR_CONTENT__ {
   
-    .-flex-display;
-    .flex-direction(@action-bar-content-flex-direction);
-    .justify-content(@action-bar-content-justify-content);
-    .padding-vh(@action-bar-padding-vertical; @action-bar-padding-horizontal);
+    display: flex;
+    flex-direction: @action-bar-content-flex-direction;
+    justify-content: @action-bar-content-justify-content;
+    padding: @action-bar-padding-vertical @action-bar-padding-horizontal;
 
   }
 
   & :empty {
 
-    .-no-padding;
+    padding: 0;
 
   }
 
 }
-

@@ -1,10 +1,10 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {Button} from "@package/wml-widgets/control/button"
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {Button} from "../../../../../lib/control/button"
 import {ButtonPage} from "../"
 
 {% main (ButtonPage) %}
  
-<Grid>
+<GridLayout>
 
   <Row>
 
@@ -145,4 +145,4 @@ import {ButtonPage} from "../"
 
    </Row>
 
- </Grid>
+ </GridLayout>

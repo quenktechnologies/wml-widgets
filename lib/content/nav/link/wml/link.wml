@@ -1,0 +1,14 @@
+import {Link} from "../"
+
+{% main (Link) %}
+
+<a 
+  class={{@values.a.class}}
+  href={{@values.a.href}}
+  title={{@values.a.title}}
+  disabled={{@values.a.disabled}}
+  onclick={{@values.a.clicked}}>
+
+    {{@values.a.content()}}
+
+</a>

@@ -1,10 +1,10 @@
-import {Grid,Row,Column} from "@package/wml-widgets/layout/grid/Grid"
-import {ButtonSelect,MultiButtonSelect} from "@package/wml-widgets/control/button-select"
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {ButtonSelect,MultiButtonSelect} from "../../../../../lib/control/button-select"
 import {ButtonSelectPage} from "../"
 
 {% main (ButtonSelectPage) %}
  
-<Grid>
+<GridLayout>
 
   <Row>
 
@@ -16,7 +16,7 @@ import {ButtonSelectPage} from "../"
         <ButtonSelect 
           wml:id="select"
           ww:name="select"
-          ww:variant="-primary"
+          ww:style="-primary"
           ww:options={{@values.options}}
           ww:onChange={{@onChange}} />
       </p>
@@ -35,13 +35,13 @@ import {ButtonSelectPage} from "../"
         <MultiButtonSelect 
           wml:id="multi"
           ww:name="multi"
-          ww:variant="-primary"
+          ww:style="-primary"
           ww:options={{@values.options}}
-          ww:onChange={{@onChange}} />
+          ww:onChange={{@onChangeMulti}} />
       </p>
 
     </Column>
 
    </Row>
 
- </Grid>
+ </GridLayout>

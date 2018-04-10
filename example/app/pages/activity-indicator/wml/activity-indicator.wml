@@ -1,0 +1,11 @@
+import {ActivityIndicator} from "../../../../../lib/app/indicator/activity"
+import {PageExample} from "../../../page-example"
+import {ActivityIndicatorPage} from "../"
+
+{% main (ActivityIndicatorPage) %}
+ 
+<PageExample>
+
+  <ActivityIndicator/>
+
+</PageExample>

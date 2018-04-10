@@ -11,44 +11,81 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var grid_layout_1 = require("../../../../../lib/layout/grid-layout");
 ;
-var Select_1 = require("@package/wml-widgets/control/select/Select");
+var select_1 = require("../../../../../lib/control/select");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(grid_layout_1.GridLayout, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
-                        wml: {}
+                        wml: {},
+                        ww: {
+                            'size': 6
+                        }
                     }, [___wml.node('p', {
                             html: {},
                             wml: {}
                         }, [___wml.text("You selected: "), ___wml.node('b', {
                                 html: {},
                                 wml: {
-                                    'id': "selected"
+                                    'id': ___context.values.autocomplete.name
                                 }
-                            }, [___wml.text("(None)")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
+                            }, [___wml.text("(nothing)")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(Select_1.Select, {
+                        }, [___wml.widget(select_1.Select, {
                                 html: {},
                                 wml: {
-                                    'id': "select"
+                                    'id': ___context.values.autocomplete.id
                                 },
                                 ww: {
-                                    'name': "select",
-                                    'options': ___context.values.options,
-                                    'onChange': ___context.onChange
+                                    'name': ___context.values.autocomplete.name,
+                                    'stringifier': function (r) { return r.value; },
+                                    'onSearch': ___context.values.autocomplete.onSearch,
+                                    'onSelect': ___context.values.autocomplete.onSelect
+                                }
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Row, {
+                    html: {},
+                    wml: {}
+                }, [___wml.widget(grid_layout_1.Column, {
+                        html: {},
+                        wml: {},
+                        ww: {
+                            'size': 6
+                        }
+                    }, [___wml.node('p', {
+                            html: {},
+                            wml: {}
+                        }, [___wml.text("You selected: "), ___wml.node('b', {
+                                html: {},
+                                wml: {
+                                    'id': ___context.values.native.name
+                                }
+                            }, [___wml.text("(nothing)")], ___view), ___wml.text(".")], ___view), ___wml.node('p', {
+                            html: {},
+                            wml: {}
+                        }, [___wml.widget(select_1.Select, {
+                                html: {},
+                                wml: {
+                                    'id': ___context.values.native.id
+                                },
+                                ww: {
+                                    'name': ___context.values.native.name,
+                                    'readOnly': true,
+                                    'stringifier': function (r) { return r.value; },
+                                    'options': ___context.values.native.options,
+                                    'onSearch': ___context.values.native.onSearch,
+                                    'onSelect': ___context.values.native.onSelect
                                 }
                             }, [], ___view)], ___view)], ___view)], ___view)], ___view);
         };

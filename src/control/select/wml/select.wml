@@ -1,36 +1,63 @@
-import {Select} from "../Select"
-import {label,message} from "@package/wml-widgets/control/wml"
+import {Search} from "../../search"
+import {Menu, Item} from "../../menu"
+import {Link} from "../../../content/nav/link"
+import {Fragment} from "../../../layout/fragment"
+import {label,message} from "../../wml"
+import {Select} from "../"
 
-{% main (Select) %}
+{% fun itemContentTemplate [V](Select[V])(option:V, _index:Number) %}
+  {{ @values.item.stringify(option) }}  
+{% endfun %}
+
+{% fun noItemsTemplate [V](Select[V]) %}
+  {{'No results to display.'}} 
+{% endfun %}
+
+{% view Results [V](Select[V]) %}
+
+  <Fragment>
+
+    {% for option,index:Number in @values.menu.options %}
+
+      <Item ww:name={{''+index}}>
+
+          <Link 
+            ww:onClick={{=>@values.item.click(index)}}>
+
+            {{ <(@values.item.itemContentTemplate())(@)(option)(index)> }}
+
+          </Link>
+
+      </Item>
+
+    {% else %}
+
+      {{<(@values.item.noItemsTemplate())(@)>}}
+
+    {% endfor %}
+
+  </Fragment>
+
+{% endview %}
+
+{% main [V](Select[V]) %}
 
 <div class={{@values.root.class}}>
 
   {{<label(@values.label.id)(@values.label.text)>}}
 
-  <select 
-    wml:id={{@values.select.id}}
-    name={{@values.select.name}}
-    onchange={{@values.select.onChange}} 
-    value={{@values.select.value}}
-    disabled={{@values.select.disabled}}
-    readonly={{@values.select.readOnly}}
-    class={{@values.select.class}}>
+  <Search
+    wml:id={{@values.search.id}}
+    ww:class={{@values.search.class}}
+    ww:placeholder={{@values.search.placeholder}} 
+    ww:readOnly={{@values.search.readOnly}}
+    ww:onEscape={{@values.search.onEscape}}
+    ww:onFocus={{@values.search.onFocus}}
+    ww:onSearch={{@values.search.onSearch}} />
 
-    <option value="" disabled>{{@values.select.placeholder}}</option>
-
-    {% for opt in @values.select.options %}
-
-      <option 
-        value={{@values.select.optValue(opt)}}
-        selected={{@values.select.isSelected(@values.select.optValue(opt))}}>
-        {{@values.select.optLabel(opt)}}
-      </option>
-
-    {% endfor %}
-
-    {{@children}}
-
-  </select>
+  <Menu 
+    wml:id={{@values.menu.id}}
+    ww:hidden=true />
 
    {{<message(@values.help.id)(@values.help)>}}
 

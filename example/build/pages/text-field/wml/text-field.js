@@ -11,22 +11,22 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
-var Grid_1 = require("@package/wml-widgets/layout/grid/Grid");
+var grid_layout_1 = require("../../../../../lib/layout/grid-layout");
 ;
-var TextField_1 = require("@package/wml-widgets/control/text-field/TextField");
+var text_field_1 = require("../../../../../lib/control/text-field");
 ;
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {
         var _this = _super.call(this, ___context) || this;
         _this.template = function (___view) {
-            return ___wml.widget(Grid_1.Grid, {
+            return ___wml.widget(grid_layout_1.GridLayout, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Grid_1.Row, {
+            }, [___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {}
                     }, [___wml.node('p', {
@@ -40,7 +40,7 @@ var Main = /** @class */ (function (_super) {
                         }, [___wml.domify("(Nothing)")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(TextField_1.TextField, {
+                        }, [___wml.widget(text_field_1.TextField, {
                                 html: {},
                                 wml: {
                                     'id': "text"
@@ -49,10 +49,10 @@ var Main = /** @class */ (function (_super) {
                                     'name': "text",
                                     'onChange': ___context.onChange
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Row, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {}
                     }, [___wml.node('p', {
@@ -64,7 +64,7 @@ var Main = /** @class */ (function (_super) {
                             }, [___wml.text("Success")], ___view)], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(TextField_1.TextField, {
+                        }, [___wml.widget(text_field_1.TextField, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -72,10 +72,10 @@ var Main = /** @class */ (function (_super) {
                                     'success': "This textfield has a success",
                                     'onChange': ___context.onChange
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Row, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {}
                     }, [___wml.node('p', {
@@ -87,7 +87,7 @@ var Main = /** @class */ (function (_super) {
                             }, [___wml.text("Warning")], ___view)], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(TextField_1.TextField, {
+                        }, [___wml.widget(text_field_1.TextField, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -95,10 +95,10 @@ var Main = /** @class */ (function (_super) {
                                     'warning': "This textfield has a warning.",
                                     'onChange': ___context.onChange
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Row, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {}
                     }, [___wml.node('p', {
@@ -110,7 +110,7 @@ var Main = /** @class */ (function (_super) {
                             }, [___wml.text("Error")], ___view)], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(TextField_1.TextField, {
+                        }, [___wml.widget(text_field_1.TextField, {
                                 html: {},
                                 wml: {},
                                 ww: {
@@ -118,10 +118,10 @@ var Main = /** @class */ (function (_super) {
                                     'error': "This textfield has an error.",
                                     'onChange': ___context.onChange
                                 }
-                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Grid_1.Row, {
+                            }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Row, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(Grid_1.Column, {
+                }, [___wml.widget(grid_layout_1.Column, {
                         html: {},
                         wml: {}
                     }, [___wml.node('p', {
@@ -130,7 +130,7 @@ var Main = /** @class */ (function (_super) {
                         }, [___wml.text("The one uses rows to render a text area:")], ___view), ___wml.node('p', {
                             html: {},
                             wml: {}
-                        }, [___wml.widget(TextField_1.TextField, {
+                        }, [___wml.widget(text_field_1.TextField, {
                                 html: {},
                                 wml: {},
                                 ww: {

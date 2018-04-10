@@ -1,12 +1,12 @@
 import * as ___wml from '@quenk/wml';
 import {
-    Grid,
+    GridLayout,
     Row,
     Column
-} from '@package/wml-widgets/layout/grid/Grid';;
+} from '../../../../../lib/layout/grid-layout';;
 import {
     TextField
-} from '@package/wml-widgets/control/text-field/TextField';;
+} from '../../../../../lib/control/text-field';;
 import {
     TextFieldPage
 } from '../';
@@ -20,7 +20,7 @@ export class Main extends ___wml.AppView < TextFieldPage > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < TextFieldPage > ) =>
-            ___wml.widget(Grid, {
+            ___wml.widget(GridLayout, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Row, {

@@ -1,7 +1,7 @@
 import * as ___wml from '@quenk/wml';
 import {
     Dash
-} from '../Dash';
+} from '..';
 
 
 

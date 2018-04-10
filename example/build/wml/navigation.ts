@@ -3,11 +3,17 @@ import {
     App
 } from '../app';;
 import {
-    Menu,
-    Link,
-    Header,
-    SubMenu
-} from '@package/wml-widgets/nav/menu';
+    Nav
+} from '../../../lib/content/nav';;
+import {
+    Item
+} from '../../../lib/content/nav/item';;
+import {
+    NavHeader
+} from '../../../lib/content/nav/nav-header';;
+import {
+    Link
+} from '../../../lib/content/nav/link';
 
 
 
@@ -18,7 +24,13 @@ export class Navigation extends ___wml.AppView < App > {
         super(___context);
 
         this.template = (___view: ___wml.AppView < App > ) =>
-            ___wml.widget(Menu, {
+            ___wml.widget(Nav, {
+                html: {},
+                wml: {},
+                ww: {
+                    'vertical': true
+                }
+            }, [___wml.widget(Item, {
                 html: {},
                 wml: {}
             }, [___wml.widget(Link, {
@@ -33,18 +45,27 @@ export class Navigation extends ___wml.AppView < App > {
                     'onClick': ___context.navigate,
                     'text': `Home`
                 }
-            }, [], ___view), ___wml.map(___context.links, function _map(items, section: string) {
-                return ___wml.box(___wml.widget(Header, {
+            }, [], ___view)], ___view), ___wml.map(___context.links, function _map(items, section: string) {
+                return ___wml.widget(Item, {
+                    html: {},
+                    wml: {}
+                }, [___wml.widget(NavHeader, {
                     html: {},
                     wml: {},
                     ww: {
                         'text': ___context.displayName(section)
                     }
-                }, [], ___view), ___wml.widget(SubMenu, {
+                }, [], ___view), ___wml.widget(Nav, {
                     html: {},
-                    wml: {}
+                    wml: {},
+                    ww: {
+                        'vertical': true
+                    }
                 }, [___wml.map(___context.sort(items), function _map(_, name: string) {
-                    return ___wml.widget(Link, {
+                    return ___wml.widget(Item, {
+                        html: {},
+                        wml: {}
+                    }, [___wml.widget(Link, {
                         html: {},
                         wml: {
                             'group': `links`
@@ -56,10 +77,10 @@ export class Navigation extends ___wml.AppView < App > {
                             'active': (___context.page === `${name}`),
                             'text': ___context.displayName(name)
                         }
-                    }, [], ___view)
+                    }, [], ___view)], ___view)
                 }, function otherwise() {
                     return document.createDocumentFragment();
-                })], ___view))
+                })], ___view)], ___view)
             }, function otherwise() {
                 return document.createDocumentFragment();
             })], ___view);

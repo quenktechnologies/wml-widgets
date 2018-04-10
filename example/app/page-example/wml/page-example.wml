@@ -1,0 +1,18 @@
+import {GridLayout,Row,Column} from "../../../../lib/layout/grid-layout"
+import {PageExample} from ".."
+
+{% main (PageExample) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column ww:size={{@values.size}}>
+
+      {{@children}}
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>
