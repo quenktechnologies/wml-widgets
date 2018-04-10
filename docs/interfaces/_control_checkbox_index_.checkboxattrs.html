@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>FeedbackControlAttrs | @quenk/wml-widgets</title>
+	<title>CheckboxAttrs | @quenk/wml-widgets</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,13 +52,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_control_feedback_index_.html">&quot;control/feedback/index&quot;</a>
+					<a href="../modules/_control_checkbox_index_.html">&quot;control/checkbox/index&quot;</a>
 				</li>
 				<li>
-					<a href="_control_feedback_index_.feedbackcontrolattrs.html">FeedbackControlAttrs</a>
+					<a href="_control_checkbox_index_.checkboxattrs.html">CheckboxAttrs</a>
 				</li>
 			</ul>
-			<h1>Interface FeedbackControlAttrs&lt;V&gt;</h1>
+			<h1>Interface CheckboxAttrs</h1>
 		</div>
 	</div>
 </header>
@@ -68,27 +68,18 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>FeedbackControlAttrs are the ww attributes common to all FeedbackControls.</p>
+						<p>CheckboxAttrs</p>
 					</div>
-					<p>Some of these may be ignored by implementations.</p>
 				</div>
-			</section>
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>V</h4>
-					</li>
-				</ul>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_control_index_.controlattrs.html" class="tsd-signature-type">ControlAttrs</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_control_index_.controlattrs.html" class="tsd-signature-type">ControlAttrs</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">FeedbackControlAttrs</span>
+								<span class="target">CheckboxAttrs</span>
 							</li>
 						</ul>
 					</li>
@@ -101,13 +92,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_control_feedback_index_.feedbackcontrolattrs.html#class" class="tsd-kind-icon">class</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_control_feedback_index_.feedbackcontrolattrs.html#disabled" class="tsd-kind-icon">disabled</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_control_feedback_index_.feedbackcontrolattrs.html#error" class="tsd-kind-icon">error</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_control_feedback_index_.feedbackcontrolattrs.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_control_feedback_index_.feedbackcontrolattrs.html#success" class="tsd-kind-icon">success</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_control_feedback_index_.feedbackcontrolattrs.html#value" class="tsd-kind-icon">value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_control_feedback_index_.feedbackcontrolattrs.html#warning" class="tsd-kind-icon">warning</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_control_checkbox_index_.checkboxattrs.html#class" class="tsd-kind-icon">class</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="_control_checkbox_index_.checkboxattrs.html#disabled" class="tsd-kind-icon">disabled</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_control_checkbox_index_.checkboxattrs.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_control_checkbox_index_.checkboxattrs.html#onchange" class="tsd-kind-icon">on<wbr>Change</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_control_checkbox_index_.checkboxattrs.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -122,7 +111,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_index_.stylableattrs.html">StylableAttrs</a>.<a href="_index_.stylableattrs.html#class">class</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/index.ts#L16">index.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/b068c95/src/index.ts#L16">index.ts:16</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -134,35 +123,19 @@
 						widget instances.</p>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="disabled" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> disabled</h3>
 					<div class="tsd-signature tsd-kind-icon">disabled<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_control_index_.controlattrs.html">ControlAttrs</a>.<a href="_control_index_.controlattrs.html#disabled">disabled</a></p>
+						<p>Overrides <a href="_control_index_.controlattrs.html">ControlAttrs</a>.<a href="_control_index_.controlattrs.html#disabled">disabled</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/control/index.ts#L44">control/index.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/b068c95/src/control/checkbox/index.ts#L17">control/checkbox/index.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>disabled indicates the control should not be interactable.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="error" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> error</h3>
-					<div class="tsd-signature tsd-kind-icon">error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/control/feedback/index.ts#L84">control/feedback/index.ts:84</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>error allows the control to be intialized in the invalid state with
-							a message.</p>
+							<p>disabled checkbox.</p>
 						</div>
 					</div>
 				</section>
@@ -173,7 +146,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_control_index_.controlattrs.html">ControlAttrs</a>.<a href="_control_index_.controlattrs.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/control/index.ts#L31">control/index.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/b068c95/src/control/index.ts#L28">control/index.ts:28</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -184,29 +157,49 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="success" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> success</h3>
-					<div class="tsd-signature tsd-kind-icon">success<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="onchange" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> on<wbr>Change</h3>
+					<div class="tsd-signature tsd-kind-icon">on<wbr>Change<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/control/feedback/index.ts#L78">control/feedback/index.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/b068c95/src/control/checkbox/index.ts#L22">control/checkbox/index.ts:22</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>success allows the control to be intialized in the valid state with
-							a message.</p>
+							<p>onChange handler.</p>
 						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>e<span class="tsd-signature-symbol">: </span><a href="../classes/_control_checkbox_index_.checkchangedevent.html" class="tsd-signature-type">CheckChangedEvent</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>e: <a href="../classes/_control_checkbox_index_.checkchangedevent.html" class="tsd-signature-type">CheckChangedEvent</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
 					<a name="value" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> value</h3>
-					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">V</span></div>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_control_index_.controlattrs.html">ControlAttrs</a>.<a href="_control_index_.controlattrs.html#value">value</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/control/index.ts#L39">control/index.ts:39</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/b068c95/src/control/index.ts#L36">control/index.ts:36</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -215,22 +208,6 @@
 						</div>
 						<p>Used to intialize controls and may also be the
 						value of an Event.</p>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="warning" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> warning</h3>
-					<div class="tsd-signature tsd-kind-icon">warning<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/8ec9ce1/src/control/feedback/index.ts#L90">control/feedback/index.ts:90</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>warning allows the control to be intilalized in the warn state with
-							a message.</p>
-						</div>
 					</div>
 				</section>
 			</section>
@@ -242,104 +219,44 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html">"control/feedback/index"</a>
+						<a href="../modules/_control_checkbox_index_.html">"control/checkbox/index"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
-						<a href="../enums/_control_feedback_index_.validationstate.html" class="tsd-kind-icon">Validation<wbr>State</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_control_checkbox_index_.checkchangedevent.html" class="tsd-kind-icon">Check<wbr>Changed<wbr>Event</a>
 					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../classes/_control_feedback_index_.genericfeedbackcontrol.html" class="tsd-kind-icon">Generic<wbr>Feedback<wbr>Control</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_control_feedback_index_.feedbackcontrol.html" class="tsd-kind-icon">Feedback<wbr>Control</a>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="../classes/_control_checkbox_index_.checkbox.html" class="tsd-kind-icon">Checkbox</a>
 					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="_control_feedback_index_.feedbackcontrolattrs.html" class="tsd-kind-icon">Feedback<wbr>Control<wbr>Attrs</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_control_checkbox_index_.checkboxattrs.html" class="tsd-kind-icon">Checkbox<wbr>Attrs</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_control_feedback_index_.feedbackcontrolattrs.html#class" class="tsd-kind-icon">class</a>
+								<a href="_control_checkbox_index_.checkboxattrs.html#class" class="tsd-kind-icon">class</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+								<a href="_control_checkbox_index_.checkboxattrs.html#disabled" class="tsd-kind-icon">disabled</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_control_feedback_index_.feedbackcontrolattrs.html#disabled" class="tsd-kind-icon">disabled</a>
+								<a href="_control_checkbox_index_.checkboxattrs.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_control_feedback_index_.feedbackcontrolattrs.html#error" class="tsd-kind-icon">error</a>
+								<a href="_control_checkbox_index_.checkboxattrs.html#onchange" class="tsd-kind-icon">on<wbr>Change</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_control_feedback_index_.feedbackcontrolattrs.html#name" class="tsd-kind-icon">name</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_control_feedback_index_.feedbackcontrolattrs.html#success" class="tsd-kind-icon">success</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
-								<a href="_control_feedback_index_.feedbackcontrolattrs.html#value" class="tsd-kind-icon">value</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_control_feedback_index_.feedbackcontrolattrs.html#warning" class="tsd-kind-icon">warning</a>
+								<a href="_control_checkbox_index_.checkboxattrs.html#value" class="tsd-kind-icon">value</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#error" class="tsd-kind-icon">Error</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html#getvalidationstate" class="tsd-kind-icon">Get<wbr>Validation<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#neutral" class="tsd-kind-icon">Neutral</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#setmessage" class="tsd-kind-icon">Set<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#success" class="tsd-kind-icon">Success</a>
-					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#warning" class="tsd-kind-icon">Warning</a>
-					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html#error-1" class="tsd-kind-icon">ERROR</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html#neutral-1" class="tsd-kind-icon">NEUTRAL</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html#success-1" class="tsd-kind-icon">SUCCESS</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html#warning-1" class="tsd-kind-icon">WARNING</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#error-2" class="tsd-kind-icon">error</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html#getvalidationstate-1" class="tsd-kind-icon">get<wbr>Validation<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#neutral-2" class="tsd-kind-icon">neutral</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="../modules/_control_feedback_index_.html#selectstate" class="tsd-kind-icon">select<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#setmessage-1" class="tsd-kind-icon">set<wbr>Message</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#setstate" class="tsd-kind-icon">set<wbr>State</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#success-2" class="tsd-kind-icon">success</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module tsd-has-type-parameter">
-						<a href="../modules/_control_feedback_index_.html#warning-2" class="tsd-kind-icon">warning</a>
+						<a href="../modules/_control_checkbox_index_.html#checkbox-1" class="tsd-kind-icon">CHECKBOX</a>
 					</li>
 				</ul>
 			</nav>
