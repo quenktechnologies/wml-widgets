@@ -2,8 +2,6 @@ import { Component } from '@quenk/wml';
 import { WidgetAttrs, StylableAttrs } from '../';
 
 /**
- * @module control
- *
  * This module provides the parent interfaces for most of the 
  * widgets considered 'controls'.
  *
@@ -15,7 +13,6 @@ import { WidgetAttrs, StylableAttrs } from '../';
  * Generally, we use a streaming based workflow, that is
  * as the user preforms a supported action and event is generated
  * each and every time and some handler is applied to the event.
- *
  */
 
 /**

@@ -123,5 +123,17 @@ export class Menu extends Component<WidgetAttrs<MenuAttrs>> implements hidden.Hi
 
     };
 
+    /**
+     * setContent of this Menu.
+     */
+    setContent(view: View): Menu {
+
+        this.values.content = () => [view.render()];
+        this.view.invalidate();
+        this.show();
+        return this;
+
+    }
+
 }
 
