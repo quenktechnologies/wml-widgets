@@ -10,8 +10,7 @@ import { PanelPage } from './pages/panel';
 import { ListLayoutPage } from './pages/list-layout';
 import { TablePage } from './pages/table';
 import { TextFieldPage } from './pages/text-field';
-//import { DatePage } from './pages/date';
-//import { SelectPage } from './pages/select';
+import { DatePage } from './pages/date';
 import { ButtonPage } from './pages/button';
 import { ToolbarPage } from './pages/toolbar';
 import { ButtonSelectPage } from './pages/button-select';
@@ -19,7 +18,7 @@ import { CheckboxPage } from './pages/checkbox';
 import { SwitchPage } from './pages/switch';
 import { TabBarPage } from './pages/tab-bar';
 import { StackPage } from './pages/stack';
-//import { SearchStackPage } from './pages/search-stack';
+import { MultiSelectPage } from './pages/multi-select';
 import { SelectPage } from './pages/select';
 import { BreadcrumbPage } from './pages/breadcrumb';
 import { ActivityIndicatorPage } from './pages/activity-indicator';
@@ -73,8 +72,9 @@ export class App {
         },
         control: {
             'text-field': new TextFieldPage(this),
-            //      date: new DatePage(this),
+                  date: new DatePage(this),
             select: new SelectPage(this),
+            'multi-select': new MultiSelectPage(this),
             button: new ButtonPage(this),
             'button-group': new ButtonGroupPage(this),
             'toolbar': new ToolbarPage(this),
@@ -84,8 +84,7 @@ export class App {
             'drop-down': new DropDownPage(this),
             stack: new StackPage(this),
             checkbox: new CheckboxPage(this),
-            'switch': new SwitchPage(this),
-            //      'search-stack': new SearchStackPage(this),
+            'switch': new SwitchPage(this)
         },
         content: {
 

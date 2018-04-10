@@ -9,22 +9,22 @@ import { Page } from './pages/Page';
 import { PanelPage } from './pages/panel';
 import { ListLayoutPage } from './pages/list-layout';
 import { TablePage } from './pages/table';
-//import { TextFieldPage } from './pages/text-field';
-//import { DatePage } from './pages/date';
-//import { SelectPage } from './pages/select';
+import { TextFieldPage } from './pages/text-field';
+import { DatePage } from './pages/date';
 import { ButtonPage } from './pages/button';
-////import { ButtonSelectPage } from './pages/button-select';
-//import { CheckboxPage } from './pages/checkbox';
-//import { SwitchPage } from './pages/switch';
+import { ToolbarPage } from './pages/toolbar';
+import { ButtonSelectPage } from './pages/button-select';
+import { CheckboxPage } from './pages/checkbox';
+import { SwitchPage } from './pages/switch';
 import { TabBarPage } from './pages/tab-bar';
-//import { StackPage } from './pages/stack';
-//import { SearchStackPage } from './pages/search-stack';
-//import { AutocompletePage } from './pages/autocomplete';
+import { StackPage } from './pages/stack';
+import { MultiSelectPage } from './pages/multi-select';
+import { SelectPage } from './pages/select';
 import { BreadcrumbPage } from './pages/breadcrumb';
 import { ActivityIndicatorPage } from './pages/activity-indicator';
 import { MenuPage } from './pages/menu';
 import { ButtonGroupPage } from './pages/button-group';
-import { DropDownMenuPage } from './pages/drop-down-menu';
+import { DropDownPage } from './pages/drop-down';
 import { TabLayoutPage } from './pages/tab-layout';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
 import { NavPage } from './pages/nav';
@@ -71,20 +71,20 @@ export class App {
             table: new TablePage(this)
         },
         control: {
-            //     'text-field': new TextFieldPage(this),
-            //      date: new DatePage(this),
-            //      select: new SelectPage(this),
-            //      autocomplete: new AutocompletePage(this),
+            'text-field': new TextFieldPage(this),
+                  date: new DatePage(this),
+            select: new SelectPage(this),
+            'multi-select': new MultiSelectPage(this),
             button: new ButtonPage(this),
             'button-group': new ButtonGroupPage(this),
-            //   //   'button-select': new ButtonSelectPage(this),
+            'toolbar': new ToolbarPage(this),
+            'button-select': new ButtonSelectPage(this),
             'tab-bar': new TabBarPage(this),
             menu: new MenuPage(this),
-            'drop-down-menu': new DropDownMenuPage(this)
-            //      stack: new StackPage(this),
-            //      checkbox: new CheckboxPage(this),
-            //      'switch': new SwitchPage(this),
-            //      'search-stack': new SearchStackPage(this),
+            'drop-down': new DropDownPage(this),
+            stack: new StackPage(this),
+            checkbox: new CheckboxPage(this),
+            'switch': new SwitchPage(this)
         },
         content: {
 

@@ -10,7 +10,7 @@
         "noUnusedParameters": true,
         "noImplicitAny": true,
         "sourceMap": true,
-        "declaration": true,
+        "declaration": false,
         "typeRoots": ["node_modules/@types"]
     },
     "exclude": ["node_modules"]

@@ -1,0 +1,27 @@
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {Stack} from "../../../../../lib/control/stack"
+import {StackPage} from "../"
+
+{% main (StackPage) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column ww:size=4>
+
+      <p>Members: <b wml:id="selected">{{@values.text}}</b>.</p>
+
+      <p>
+        <Stack
+          ww:name="stack"
+          ww:value={{@values.values}}
+          ww:decorator={{@values.decorator}}
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>

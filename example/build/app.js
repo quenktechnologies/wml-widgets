@@ -6,22 +6,22 @@ var navigation_1 = require("./wml/navigation");
 var panel_1 = require("./pages/panel");
 var list_layout_1 = require("./pages/list-layout");
 var table_1 = require("./pages/table");
-//import { TextFieldPage } from './pages/text-field';
-//import { DatePage } from './pages/date';
-//import { SelectPage } from './pages/select';
+var text_field_1 = require("./pages/text-field");
+var date_1 = require("./pages/date");
 var button_1 = require("./pages/button");
-////import { ButtonSelectPage } from './pages/button-select';
-//import { CheckboxPage } from './pages/checkbox';
-//import { SwitchPage } from './pages/switch';
+var toolbar_1 = require("./pages/toolbar");
+var button_select_1 = require("./pages/button-select");
+var checkbox_1 = require("./pages/checkbox");
+var switch_1 = require("./pages/switch");
 var tab_bar_1 = require("./pages/tab-bar");
-//import { StackPage } from './pages/stack';
-//import { SearchStackPage } from './pages/search-stack';
-//import { AutocompletePage } from './pages/autocomplete';
+var stack_1 = require("./pages/stack");
+var multi_select_1 = require("./pages/multi-select");
+var select_1 = require("./pages/select");
 var breadcrumb_1 = require("./pages/breadcrumb");
 var activity_indicator_1 = require("./pages/activity-indicator");
 var menu_1 = require("./pages/menu");
 var button_group_1 = require("./pages/button-group");
-var drop_down_menu_1 = require("./pages/drop-down-menu");
+var drop_down_1 = require("./pages/drop-down");
 var tab_layout_1 = require("./pages/tab-layout");
 var horizontal_layout_1 = require("./pages/horizontal-layout");
 var nav_1 = require("./pages/nav");
@@ -63,20 +63,20 @@ var App = /** @class */ (function () {
                 table: new table_1.TablePage(this)
             },
             control: {
-                //     'text-field': new TextFieldPage(this),
-                //      date: new DatePage(this),
-                //      select: new SelectPage(this),
-                //      autocomplete: new AutocompletePage(this),
+                'text-field': new text_field_1.TextFieldPage(this),
+                date: new date_1.DatePage(this),
+                select: new select_1.SelectPage(this),
+                'multi-select': new multi_select_1.MultiSelectPage(this),
                 button: new button_1.ButtonPage(this),
                 'button-group': new button_group_1.ButtonGroupPage(this),
-                //   //   'button-select': new ButtonSelectPage(this),
+                'toolbar': new toolbar_1.ToolbarPage(this),
+                'button-select': new button_select_1.ButtonSelectPage(this),
                 'tab-bar': new tab_bar_1.TabBarPage(this),
                 menu: new menu_1.MenuPage(this),
-                'drop-down-menu': new drop_down_menu_1.DropDownMenuPage(this)
-                //      stack: new StackPage(this),
-                //      checkbox: new CheckboxPage(this),
-                //      'switch': new SwitchPage(this),
-                //      'search-stack': new SearchStackPage(this),
+                'drop-down': new drop_down_1.DropDownPage(this),
+                stack: new stack_1.StackPage(this),
+                checkbox: new checkbox_1.CheckboxPage(this),
+                'switch': new switch_1.SwitchPage(this)
             },
             content: {
                 nav: new nav_1.NavPage(this),

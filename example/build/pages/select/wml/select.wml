@@ -1,0 +1,49 @@
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {Select} from "../../../../../lib/control/select"
+import {SelectPage, Result} from "../"
+
+{% main (SelectPage) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column ww:size=6>
+
+      <p>You selected: <b wml:id={{@values.autocomplete.name}}>(nothing)</b>.</p>
+
+      <p>
+        <Select 
+          wml:id={{@values.autocomplete.id}}
+          ww:name={{@values.autocomplete.name}}
+          ww:stringifier={{\r:Result => r.value }}
+          ww:onSearch={{@values.autocomplete.onSearch}}
+          ww:onSelect={{@values.autocomplete.onSelect}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+   <Row>
+
+    <Column ww:size=6>
+
+      <p>You selected: <b wml:id={{@values.native.name}}>(nothing)</b>.</p>
+
+      <p>
+        <Select 
+          wml:id={{@values.native.id}}
+          ww:name={{@values.native.name}}
+          ww:readOnly=true
+          ww:stringifier={{\r:Result => r.value }}
+          ww:options={{@values.native.options}}
+          ww:onSearch={{@values.native.onSearch}}
+          ww:onSelect={{@values.native.onSelect}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>
