@@ -29,15 +29,41 @@ export const ACTIVITY_INDICATOR = 'ww-activity-indicator';
 export const DASH = 'ww-dash';
 ///classNames:end
 ///classNames:begin
-export const BUTTON_GROUP = 'ww-button-group';
+export const TEXT_FIELD = 'form-control';
 ///classNames:end
 ///classNames:begin
-export const DROP_DOWN_MENU = 'ww-drop-down-menu';
-export const DROP_DOWN_MENU_TOGGLE = 'ww-drop-down-menu__toggle';
+export const STACK = 'ww-stack';
+export const STACK_ELEMENT = 'ww-stack__element';
+export const STACK_ELEMENT_CONTENT = 'ww-stack__element__content';
+export const STACK_CLOSE_BUTTON = 'ww-stack__button';
+///classNames:end
+///classNames:begin
+export const BUTTON_GROUP = 'ww-button-group';
 ///classNames:end
 ///classNames:begin
 export const TOOLBAR = 'ww-toolbar';
 export const TOOLBAR_COMPAT = '-toolbar-compat';
+///classNames:end
+///classNames:begin
+/**
+ * DATE class name.
+ */
+export const DATE = 'ww-date';
+
+/**
+ * DATE_DAY class name.
+ */
+export const DATE_DAY = `${DATE}__day`;
+
+/**
+ * DATE_MONTH class name.
+ */
+export const DATE_MONTH = `${DATE}__month`;
+
+/**
+ * DATE_YEAR class name.
+ */
+export const DATE_YEAR = `${DATE}__year form-control`;
 ///classNames:end
 ///classNames:begin
 export const MENU = 'ww-menu';
@@ -57,6 +83,24 @@ export const TAB = 'ww-tab';
 ///classNames:end
 ///classNames:begin
 export const BUTTON = 'ww-button';
+///classNames:end
+///classNames:begin
+export const SELECT = 'ww-select';
+///classNames:end
+///classNames:begin
+export const MULTI_SELECT = 'ww-multi-select';
+///classNames:end
+///classNames:begin
+export const DROP_DOWN = 'ww-drop-down-menu';
+export const DROP_DOWN_TOGGLE = 'ww-drop-down-menu__toggle';
+export const DROP_DOWN_CONTENT = 'ww-drop-down__content';
+///classNames:end
+///classNames:begin
+export const SWITCH = 'ww-switch';
+export const SWITCH_SLIDER = 'ww-switch__slider';
+///classNames:end
+///classNames:begin
+export const CHECKBOX = 'ww-checkbox';
 ///classNames:end
 ///classNames:begin
 export const TABLE = 'table'; //@todo un-bootstrap
@@ -117,6 +161,9 @@ export const PANEL_BODY = 'ww-panel__body';
  */
 export const PANEL_FOOTER = 'ww-panel__footer';
 
+///classNames:end
+///classNames:begin
+export const CLOSE = 'ww-close';
 ///classNames:end
 ///classNames:begin
 export const CARET = 'ww-caret';

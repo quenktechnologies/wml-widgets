@@ -17,11 +17,30 @@ export declare const ACTIVITY_INDICATOR = "ww-activity-indicator";
  * DASH
  */
 export declare const DASH = "ww-dash";
+export declare const TEXT_FIELD = "form-control";
+export declare const STACK = "ww-stack";
+export declare const STACK_ELEMENT = "ww-stack__element";
+export declare const STACK_ELEMENT_CONTENT = "ww-stack__element__content";
+export declare const STACK_CLOSE_BUTTON = "ww-stack__button";
 export declare const BUTTON_GROUP = "ww-button-group";
-export declare const DROP_DOWN_MENU = "ww-drop-down-menu";
-export declare const DROP_DOWN_MENU_TOGGLE = "ww-drop-down-menu__toggle";
 export declare const TOOLBAR = "ww-toolbar";
 export declare const TOOLBAR_COMPAT = "-toolbar-compat";
+/**
+ * DATE class name.
+ */
+export declare const DATE = "ww-date";
+/**
+ * DATE_DAY class name.
+ */
+export declare const DATE_DAY: string;
+/**
+ * DATE_MONTH class name.
+ */
+export declare const DATE_MONTH: string;
+/**
+ * DATE_YEAR class name.
+ */
+export declare const DATE_YEAR: string;
 export declare const MENU = "ww-menu";
 export declare const MENU_DIVIDER = "ww-menu__divider";
 export declare const MENU_HEADER = "ww-menu__header";
@@ -34,6 +53,14 @@ export declare const TAB_BAR = "ww-tab-bar";
  */
 export declare const TAB = "ww-tab";
 export declare const BUTTON = "ww-button";
+export declare const SELECT = "ww-select";
+export declare const MULTI_SELECT = "ww-multi-select";
+export declare const DROP_DOWN = "ww-drop-down-menu";
+export declare const DROP_DOWN_TOGGLE = "ww-drop-down-menu__toggle";
+export declare const DROP_DOWN_CONTENT = "ww-drop-down__content";
+export declare const SWITCH = "ww-switch";
+export declare const SWITCH_SLIDER = "ww-switch__slider";
+export declare const CHECKBOX = "ww-checkbox";
 export declare const TABLE = "table";
 export declare const MAIN_LAYOUT = "ww-main-layout";
 export declare const DRAWER = "ww-drawer";
@@ -66,6 +93,7 @@ export declare const PANEL_BODY = "ww-panel__body";
  * PANEL_FOOTER class name.
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
+export declare const CLOSE = "ww-close";
 export declare const CARET = "ww-caret";
 /**
  * VERTICAL indicates an element is vertical rendererd.

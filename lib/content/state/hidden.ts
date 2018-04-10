@@ -66,7 +66,7 @@ export interface Hidable {
   */
 export const isHidden = (fn: () => Maybe<HTMLElement>) => (): boolean =>
     fn()
-        .map((e: HTMLElement) => !e.classList.contains(HIDDEN))
+        .map((e: HTMLElement) => e.classList.contains(HIDDEN))
         .orJust(() => false)
         .get();
 
@@ -78,8 +78,8 @@ export const isHidden = (fn: () => Maybe<HTMLElement>) => (): boolean =>
  */
 export const hide = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
     : Hide<H> => () =>
-          fn()
-.map((e:HTMLElement) => {e.classList.remove(HIDDEN); e.classList.add(HIDDEN); })
+        fn()
+            .map((e: HTMLElement) => { e.classList.remove(HIDDEN); e.classList.add(HIDDEN); })
             .map(() => h)
             .orJust(() => h)
             .get();

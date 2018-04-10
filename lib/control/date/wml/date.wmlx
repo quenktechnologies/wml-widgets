@@ -1,0 +1,52 @@
+import {TextField} from "../../text-field"
+import {label,message} from "../../wml"
+import {Date} from "../"
+
+{% main (Date) %}
+
+<div class={{@values.root.class}}>
+
+  {{<label(@values.label.id)(@values.label.text)>}}
+
+  <div class={{@values.inline.class}}>
+
+    <select
+      wml:id={{@values.month.id}}
+      name={{@values.month.id}}
+      onChange={{@values.month.onInput}} 
+      disabled={{@values.month.disabled}}
+      class={{@values.month.class}}>
+
+      <option selected=true value="" disabled>Month</option>
+
+      {% for opt in @values.date.months %}
+
+        <option value={{opt.value}}>{{opt.label}}</option>
+
+      {% endfor %}
+
+    </select>
+
+    <TextField 
+      wml:id={{@values.day.id}}
+      ww:name={{@values.day.id}}
+      ww:onChange={{@values.day.onInput}} 
+      ww:value={{@values.day.value()}}
+      ww:disabled={{@values.day.disabled}}
+      ww:class={{@values.day.class}}
+      ww:placeholder="DD" />
+
+    <TextField 
+      wml:id={{@values.year.id}}
+      ww:name={{@values.year.id}}
+      ww:onChange={{@values.year.onInput}} 
+      ww:value={{@values.year.value()}}
+      ww:disabled={{@values.year.disabled}}
+      ww:class={{@values.year.class}}
+      ww:placeholder="YYYY" />
+
+     {{<message(@values.messages.id)(@values.messages)>}}
+
+  </div>
+
+</div>

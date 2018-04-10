@@ -1,0 +1,18 @@
+import {Checkbox} from "../"
+
+{% main (Checkbox) %}
+
+<div class={{@values.root.class}}>
+
+  <label>
+
+    <input 
+      type="checkbox"
+      name={{@values.input.name}}
+      checked={{@values.input.value}}
+      onchange={{@values.input.onChange}}/> {{@children}}
+
+  </label>
+
+</div>
+

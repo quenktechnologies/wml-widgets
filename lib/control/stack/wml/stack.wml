@@ -1,0 +1,29 @@
+import {Stack} from "../"
+
+{% fun content [V](Stack[V]) (v:V, _:Number) %}
+
+  <div class={{@values.element.content.class}}>{{@values.element.decorator(v)}}</div>
+
+{% endfun %}
+
+{% main [V](Stack[V]) %}
+
+<ul class={{@values.root.class}}>
+
+  {% for v,index:Number in @values.root.value %}
+
+    <li class={{@values.element.class}}>
+
+      {{<(@values.element.template())(v)(index)>}}
+
+      <button 
+        class={{@values.close.class}}
+        onclick={{@values.element.close(index)}}>×</button>
+
+    </li>
+
+  {% endfor %}
+
+</ul>
+
+

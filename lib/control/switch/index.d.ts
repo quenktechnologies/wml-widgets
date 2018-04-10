@@ -22,9 +22,11 @@ export declare class SwitchChangedEvent extends Event<boolean> {
 export declare class Switch extends GenericControl<boolean, SwitchAttrs> {
     view: View;
     values: {
-        class: {
-            label: string;
-            slider: string;
+        root: {
+            class: string;
+        };
+        slider: {
+            class: string;
         };
         input: {
             name: string;

@@ -14,7 +14,7 @@ export class Main extends ___wml.AppView < Switch > {
         this.template = (___view: ___wml.AppView < Switch > ) =>
             ___wml.node('label', {
                 html: {
-                    'class': ___context.values.class.label
+                    'class': ___context.values.root.class
                 },
                 wml: {}
             }, [___wml.node('input', {
@@ -28,7 +28,7 @@ export class Main extends ___wml.AppView < Switch > {
                 wml: {}
             }, [], ___view), ___wml.node('div', {
                 html: {
-                    'class': ___context.values.class.slider
+                    'class': ___context.values.slider.class
                 },
                 wml: {}
             }, [], ___view)], ___view);
