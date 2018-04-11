@@ -8337,7 +8337,7 @@ button.close {
  * adjustable-margin allows the marins to be adjusted on a box.
  */
 .__GRID__ {
-  padding-top: 0px;
+  padding-top: top;
   padding-right: 15px;
   padding-bottom: 0px;
   padding-left: 15px;
@@ -8347,7 +8347,7 @@ button.close {
   margin-left: 0px;
 }
 .__GRID_ROW__ {
-  padding-top: 0px;
+  padding-top: top;
   padding-right: 0px;
   padding-bottom: 0px;
   padding-left: 0px;
@@ -8357,7 +8357,7 @@ button.close {
   margin-left: 15px;
 }
 .__GRID_COLUMN__ {
-  padding-top: 0px;
+  padding-top: top;
   padding-right: 15px;
   padding-bottom: 0px;
   padding-left: 15px;
