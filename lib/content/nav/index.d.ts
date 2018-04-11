@@ -1,5 +1,7 @@
 import * as wml from '@quenk/wml';
 import { WidgetAttrs, StylableAttrs } from '../../';
+export { Item } from './item';
+export { Link } from './link';
 /**
  * NAV
  */

@@ -4,6 +4,9 @@ import * as views from './wml/nav';
 import { VERTICAL } from '../orientation';
 import { WidgetAttrs, StylableAttrs } from '../../';
 
+export {Item} from './item';
+export {Link} from './link';
+
 ///classNames:begin
 /**
  * NAV

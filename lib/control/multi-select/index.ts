@@ -6,7 +6,7 @@ import { TermChangedEvent, ItemChangedEvent } from '../select';
 import { StackChangedEvent, Stack } from '../stack';
 import { Select } from '../select';
 
-export {TermChangedEvent}
+export { TermChangedEvent }
 
 ///classNames:begin
 export const MULTI_SELECT = 'ww-multi-select';
