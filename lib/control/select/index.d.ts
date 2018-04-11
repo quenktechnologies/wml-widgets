@@ -15,7 +15,7 @@ export declare type ItemContentTemplate<V> = (s: Select<V>) => (option: V) => (i
  * EmpFun for rendering when there are no results.
  */
 export declare type NoItemsTemplate<V> = (s: Select<V>) => Template;
-export interface AutocompleteAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttrs<V> {
+export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttrs<V> {
     /**
      * itemContentTemplate if specified will be used to render each
      * result item.
@@ -65,7 +65,7 @@ export interface AutocompleteAttrs<V> extends FormControlAttrs<V>, FeedbackContr
  */
 export declare class ItemSelectedEvent<V> extends ControlEvent<V> {
 }
-export declare class Select<V> extends GenericFeedbackControl<V, AutocompleteAttrs<V>> {
+export declare class Select<V> extends GenericFeedbackControl<V, SelectAttrs<V>> {
     view: View;
     values: {
         id: {

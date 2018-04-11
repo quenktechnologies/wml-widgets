@@ -29,7 +29,7 @@ export type ItemContentTemplate<V>
  */
 export type NoItemsTemplate<V> = (s: Select<V>) => Template;
 
-export interface AutocompleteAttrs<V>
+export interface SelectAttrs<V>
     extends FormControlAttrs<V>,
     FeedbackControlAttrs<V> {
 
@@ -98,7 +98,7 @@ export class ItemSelectedEvent<V> extends ControlEvent<V> { }
  * the user to search and select form a list of options.
  */
 export class Select<V>
-    extends GenericFeedbackControl<V, AutocompleteAttrs<V>> {
+    extends GenericFeedbackControl<V, SelectAttrs<V>> {
 
     view: View = new views.Main(this);
 
