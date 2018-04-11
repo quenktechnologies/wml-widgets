@@ -53,7 +53,7 @@ export class Main extends ___wml.AppView < SelectPage > {
                     'name': ___context.values.autocomplete.name,
                     'stringifier': (r: Result) => r.value,
                     'onSearch': ___context.values.autocomplete.onSearch,
-                    'onSelect': ___context.values.autocomplete.onSelect
+                    'onChange': ___context.values.autocomplete.onChange
                 }
             }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(Row, {
                 html: {},
@@ -86,7 +86,7 @@ export class Main extends ___wml.AppView < SelectPage > {
                     'stringifier': (r: Result) => r.value,
                     'options': ___context.values.native.options,
                     'onSearch': ___context.values.native.onSearch,
-                    'onSelect': ___context.values.native.onSelect
+                    'onChange': ___context.values.native.onChange
                 }
             }, [], ___view)], ___view)], ___view)], ___view)], ___view);
 

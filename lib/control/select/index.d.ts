@@ -52,18 +52,18 @@ export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttr
      * behave similarly to a native select element.
      */
     /**
-     * onSelect handler.
+     * onChange handler.
      */
-    onSelect?: (e: ItemSelectedEvent<V>) => void;
+    onChange?: (e: ItemChangedEvent<V>) => void;
     /**
      * onSearch handler.
      */
     onSearch?: (e: TermChangedEvent) => void;
 }
 /**
- * ItemSelectedEvent
+ * ItemChangedEvent
  */
-export declare class ItemSelectedEvent<V> extends ControlEvent<V> {
+export declare class ItemChangedEvent<V> extends ControlEvent<V> {
 }
 export declare class Select<V> extends GenericFeedbackControl<V, SelectAttrs<V>> {
     view: View;

@@ -2,7 +2,7 @@ import * as wml from '@quenk/wml';
 import * as views from './wml/select';
 import {
     Select,
-    ItemSelectedEvent,
+    ItemChangedEvent,
     TermChangedEvent
 } from '../../../../lib/control/select';
 import { Page } from '../Page';
@@ -34,7 +34,7 @@ const onSearch = (page: SelectPage) => (id: string) => ({ value }: TermChangedEv
         });
 
 
-const onSelect = (page: SelectPage) => ({ name, value }: ItemSelectedEvent<Result>) =>
+const onChange = (page: SelectPage) => ({ name, value }: ItemChangedEvent<Result>) =>
 
     page.view.findById(name)
         .map((e: HTMLElement) => {
@@ -64,7 +64,7 @@ export class SelectPage extends Page {
             id: 'autocomplete',
             name: 'autocompleteName',
             onSearch: onSearch(this)('autocomplete'),
-            onSelect: onSelect(this)
+            onChange: onChange(this)
 
         },
         native: {
@@ -73,7 +73,7 @@ export class SelectPage extends Page {
             name: 'nativeName',
             options: results,
             onSearch: onSearch(this)('native'),
-            onSelect: onSelect(this)
+            onChange: onChange(this)
 
         }
 

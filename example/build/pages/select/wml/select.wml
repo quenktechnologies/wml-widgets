@@ -18,7 +18,7 @@ import {SelectPage, Result} from "../"
           ww:name={{@values.autocomplete.name}}
           ww:stringifier={{\r:Result => r.value }}
           ww:onSearch={{@values.autocomplete.onSearch}}
-          ww:onSelect={{@values.autocomplete.onSelect}} />
+          ww:onChange={{@values.autocomplete.onChange}} />
       </p>
 
     </Column>
@@ -39,7 +39,7 @@ import {SelectPage, Result} from "../"
           ww:stringifier={{\r:Result => r.value }}
           ww:options={{@values.native.options}}
           ww:onSearch={{@values.native.onSearch}}
-          ww:onSelect={{@values.native.onSelect}} />
+          ww:onChange={{@values.native.onChange}} />
       </p>
 
     </Column>

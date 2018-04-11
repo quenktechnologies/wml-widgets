@@ -2,7 +2,7 @@ import * as views from './wml/multi-select';
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { ControlAttrs, Event, GenericControl } from '../';
-import { TermChangedEvent, ItemSelectedEvent } from '../select';
+import { TermChangedEvent, ItemChangedEvent } from '../select';
 import { StackChangedEvent, Stack } from '../stack';
 import { Select } from '../select';
 
@@ -25,7 +25,7 @@ export interface MultiSelectAttrs<V> extends ControlAttrs<V[]> {
     /**
      * onChange handler.
      */
-    onChange?: (e: SelectionChangedEvent<V>) => void,
+    onChange?: (e: ItemsChangedEvent<V>) => void,
 
     /**
      * decorator is to the Stack control.
@@ -35,9 +35,9 @@ export interface MultiSelectAttrs<V> extends ControlAttrs<V[]> {
 }
 
 /**
- * SelectionChangedEvent
+ * ItemsChangedEvent
  */
-export class SelectionChangedEvent<V> extends Event<V[]> { }
+export class ItemsChangedEvent<V> extends Event<V[]> { }
 
 /**
  * MultiSelect provides a control for allowing a user to select
@@ -96,7 +96,7 @@ export class MultiSelect<V> extends GenericControl<V[], MultiSelectAttrs<V>> {
                     this.attrs.ww.onSearch(evt);
 
             },
-            onSelect: ({ value }: ItemSelectedEvent<V>) => this.push(value)
+            onChange: ({ value }: ItemChangedEvent<V>) => this.push(value)
 
         },
         stack: {

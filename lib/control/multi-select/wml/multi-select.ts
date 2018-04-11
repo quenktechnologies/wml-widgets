@@ -33,7 +33,7 @@ export class Main < V > extends ___wml.AppView < MultiSelect < V > > {
                     'value': ___context.values.search.value,
                     'stringifier': ___context.values.stack.decorator,
                     'onSearch': ___context.values.search.onSearch,
-                    'onSelect': ___context.values.search.onSelect
+                    'onChange': ___context.values.search.onChange
                 }
             }, [], ___view), ___wml.widget(Stack, {
                 html: {},

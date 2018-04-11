@@ -36,7 +36,7 @@ var onSearch = function (page) { return function (id) { return function (_a) {
         s.update(hit);
     });
 }; }; };
-var onSelect = function (page) { return function (_a) {
+var onChange = function (page) { return function (_a) {
     var name = _a.name, value = _a.value;
     return page.view.findById(name)
         .map(function (e) {
@@ -55,14 +55,14 @@ var SelectPage = /** @class */ (function (_super) {
                 id: 'autocomplete',
                 name: 'autocompleteName',
                 onSearch: onSearch(_this)('autocomplete'),
-                onSelect: onSelect(_this)
+                onChange: onChange(_this)
             },
             native: {
                 id: 'native',
                 name: 'nativeName',
                 options: results,
                 onSearch: onSearch(_this)('native'),
-                onSelect: onSelect(_this)
+                onChange: onChange(_this)
             }
         };
         return _this;

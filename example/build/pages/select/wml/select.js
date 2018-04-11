@@ -52,7 +52,7 @@ var Main = /** @class */ (function (_super) {
                                     'name': ___context.values.autocomplete.name,
                                     'stringifier': function (r) { return r.value; },
                                     'onSearch': ___context.values.autocomplete.onSearch,
-                                    'onSelect': ___context.values.autocomplete.onSelect
+                                    'onChange': ___context.values.autocomplete.onChange
                                 }
                             }, [], ___view)], ___view)], ___view)], ___view), ___wml.widget(grid_layout_1.Row, {
                     html: {},
@@ -85,7 +85,7 @@ var Main = /** @class */ (function (_super) {
                                     'stringifier': function (r) { return r.value; },
                                     'options': ___context.values.native.options,
                                     'onSearch': ___context.values.native.onSearch,
-                                    'onSelect': ___context.values.native.onSelect
+                                    'onChange': ___context.values.native.onChange
                                 }
                             }, [], ___view)], ___view)], ___view)], ___view)], ___view);
         };

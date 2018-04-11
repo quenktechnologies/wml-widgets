@@ -1,6 +1,6 @@
 import { View } from '@quenk/wml';
 import { ControlAttrs, Event, GenericControl } from '../';
-import { TermChangedEvent, ItemSelectedEvent } from '../select';
+import { TermChangedEvent, ItemChangedEvent } from '../select';
 import { StackChangedEvent } from '../stack';
 export { TermChangedEvent };
 export declare const MULTI_SELECT = "ww-multi-select";
@@ -15,16 +15,16 @@ export interface MultiSelectAttrs<V> extends ControlAttrs<V[]> {
     /**
      * onChange handler.
      */
-    onChange?: (e: SelectionChangedEvent<V>) => void;
+    onChange?: (e: ItemsChangedEvent<V>) => void;
     /**
      * decorator is to the Stack control.
      */
     decorator?: (m: V) => string;
 }
 /**
- * SelectionChangedEvent
+ * ItemsChangedEvent
  */
-export declare class SelectionChangedEvent<V> extends Event<V[]> {
+export declare class ItemsChangedEvent<V> extends Event<V[]> {
 }
 /**
  * MultiSelect provides a control for allowing a user to select
@@ -66,7 +66,7 @@ export declare class MultiSelect<V> extends GenericControl<V[], MultiSelectAttrs
             name: string;
             value: string;
             onSearch: (evt: TermChangedEvent) => void;
-            onSelect: ({ value }: ItemSelectedEvent<V>) => MultiSelect<V>;
+            onChange: ({ value }: ItemChangedEvent<V>) => MultiSelect<V>;
         };
         stack: {
             id: string;

@@ -54,10 +54,10 @@ export interface SelectAttrs<V>
      */
     placeholder?: string,
 
-      /**
-       * readOnly
-       */
-      readOnly?: boolean,
+    /**
+     * readOnly
+     */
+    readOnly?: boolean,
 
     /**
      * options to initialize the dropdown list with.
@@ -77,9 +77,9 @@ export interface SelectAttrs<V>
      */
 
     /**
-     * onSelect handler.
+     * onChange handler.
      */
-    onSelect?: (e: ItemSelectedEvent<V>) => void;
+    onChange?: (e: ItemChangedEvent<V>) => void;
 
     /**
      * onSearch handler.
@@ -89,9 +89,9 @@ export interface SelectAttrs<V>
 }
 
 /**
- * ItemSelectedEvent
+ * ItemChangedEvent
  */
-export class ItemSelectedEvent<V> extends ControlEvent<V> { }
+export class ItemChangedEvent<V> extends ControlEvent<V> { }
 
 /* *
  * Autocomplate provides an input with a dropdown menu that allows
@@ -153,7 +153,7 @@ export class Select<V>
             placeholder: this.attrs.ww.placeholder ?
                 this.attrs.ww.placeholder : null,
 
-          readOnly: this.attrs.ww && this.attrs.ww.readOnly,
+            readOnly: this.attrs.ww && this.attrs.ww.readOnly,
 
             onFocus: () => {
 
@@ -188,8 +188,8 @@ export class Select<V>
 
                 this.close();
 
-                if (this.attrs.ww && this.attrs.ww.onSelect)
-                    this.attrs.ww.onSelect(new ItemSelectedEvent(
+                if (this.attrs.ww && this.attrs.ww.onChange)
+                    this.attrs.ww.onChange(new ItemChangedEvent(
                         this.attrs.ww.name, selected));
 
                 this

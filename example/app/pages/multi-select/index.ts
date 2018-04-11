@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/multi-select'
-import { MultiSelect, TermChangedEvent, SelectionChangedEvent }
+import { MultiSelect, TermChangedEvent, ItemsChangedEvent }
     from '../../../../lib/control/multi-select';
 import { Page } from '../Page';
 
@@ -46,7 +46,7 @@ export class MultiSelectPage extends Page {
             s.update(options.filter(s => s.value.toLowerCase().startsWith(value.toLowerCase()))))
     }
 
-    onChange = ({ value }: SelectionChangedEvent<Result>) => {
+    onChange = ({ value }: ItemsChangedEvent<Result>) => {
 
         this.values.selected = value;
         this.view.invalidate();
