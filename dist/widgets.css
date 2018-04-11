@@ -6911,6 +6911,11 @@ button.close {
   Ideally you want to load this last.
 
  */
+/*!
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
 .full {
   width: 100%;
 }
@@ -7919,11 +7924,6 @@ button.close {
   background-color: transparent;
   padding: 60px 0px;
 }
-/*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
 /* 
   Originally from bootstrap/mixins/panel.less
   We needed to override the class names.
