@@ -1,6 +1,7 @@
-import * as wml from '@quenk/wml';
-import { WidgetAttrs, StylableAttrs } from '../../';
+import { View, Template, Content, Component } from '@quenk/wml';
+import { WidgetAttrs } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
+import { LayoutAttrs, Layout } from '../';
 export declare const TAB_LAYOUT = "ww-tab-layout";
 /**
  * TabSpec is used to render a tab and it's associated View.
@@ -11,13 +12,13 @@ export interface TabSpec {
      */
     text?: string;
     /**
-     * tabContent can be specified to render custom content in the tab.
+     * tabTemplate can be specified to render custom content in the tab.
      */
-    tabContent?: (tv: TabLayout) => wml.Template;
+    tabTemplate?: (t: TabLayout) => Template;
     /**
-     * view rendered when the tab is active.
+     * contentTemplate is rendered when the tab is active.
      */
-    view: wml.Renderable;
+    contentTemplate: (t: TabLayout) => Template;
 }
 /**
  * TabSpecMap provides a mapping of tab names to their respective TabSpec.
@@ -28,7 +29,7 @@ export interface TabSpecMap {
 /**
  * TabLayoutAttrs
  */
-export interface TabLayoutAttrs extends StylableAttrs {
+export interface TabLayoutAttrs extends LayoutAttrs {
     /**
      * active tab.
      */
@@ -55,15 +56,17 @@ export interface TabLayoutAttrs extends StylableAttrs {
  * |                                                                          |
  * |__________________________________________________________________________|
  */
-export declare class TabLayout extends wml.Component<WidgetAttrs<TabLayoutAttrs>> {
-    view: wml.View;
+export declare class TabLayout extends Component<WidgetAttrs<TabLayoutAttrs>> implements Layout {
+    view: View;
+    setContent: (c: Content) => TabLayout;
+    removeContent: () => TabLayout;
     values: {
         root: {
             class: string;
         };
         tab: string;
         tabs: TabSpecMap;
-        content: wml.Content;
+        content: (t: TabLayout) => Template;
         onClick: (e: TabClickedEvent) => void;
     };
 }

@@ -1,9 +1,8 @@
-import * as wml from '@quenk/wml';
 import * as style from '../../content/style';
-import { WidgetAttrs } from '../../';
-import { Component } from '@quenk/wml';
+import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { Main } from './wml/panel';
+import { GenericLayout } from '..';
 import { PANEL, PanelAttrs } from '.';
 
 /**
@@ -13,9 +12,9 @@ import { PANEL, PanelAttrs } from '.';
  * This class provides the containing, part that can be further
  * subdivided into a header, body and/or footer section.
  */
-export class Panel extends Component<WidgetAttrs<PanelAttrs>> {
+export class Panel extends GenericLayout<PanelAttrs> {
 
-    view: wml.View = new Main(this);
+    view: View = new Main(this);
 
     /**
      * values
@@ -25,7 +24,9 @@ export class Panel extends Component<WidgetAttrs<PanelAttrs>> {
         /**
          * root values.
          */
-        root: {
+        content: {
+
+            id: 'panel',
 
             /**
              * class name for the root element.

@@ -15,53 +15,20 @@ var page_example_1 = require("../../../page-example");
 ;
 var tab_layout_1 = require("../../../../../lib/layout/tab-layout");
 ;
-var FirstTab = /** @class */ (function (_super) {
-    __extends(FirstTab, _super);
-    function FirstTab(___context) {
-        var _this = _super.call(this, ___context) || this;
-        _this.template = function (___view) {
-            return ___wml.node('p', {
-                html: {},
-                wml: {}
-            }, [___wml.text("Click a tab to change content.")], ___view);
-        };
-        return _this;
-    }
-    return FirstTab;
-}(___wml.AppView));
-exports.FirstTab = FirstTab;
+exports.firstTab = function (_) { return function (___view) { return ___wml.node('p', {
+    html: {},
+    wml: {}
+}, [___wml.text("Click a tab to change content.")], ___view); }; };
 ;
-var SecondTab = /** @class */ (function (_super) {
-    __extends(SecondTab, _super);
-    function SecondTab(___context) {
-        var _this = _super.call(this, ___context) || this;
-        _this.template = function (___view) {
-            return ___wml.node('p', {
-                html: {},
-                wml: {}
-            }, [___wml.text("Second tab.")], ___view);
-        };
-        return _this;
-    }
-    return SecondTab;
-}(___wml.AppView));
-exports.SecondTab = SecondTab;
+exports.secondTab = function (_) { return function (___view) { return ___wml.node('p', {
+    html: {},
+    wml: {}
+}, [___wml.text("Second tab.")], ___view); }; };
 ;
-var ThirdTab = /** @class */ (function (_super) {
-    __extends(ThirdTab, _super);
-    function ThirdTab(___context) {
-        var _this = _super.call(this, ___context) || this;
-        _this.template = function (___view) {
-            return ___wml.node('p', {
-                html: {},
-                wml: {}
-            }, [___wml.text("Third tab.")], ___view);
-        };
-        return _this;
-    }
-    return ThirdTab;
-}(___wml.AppView));
-exports.ThirdTab = ThirdTab;
+exports.thirdTab = function (_) { return function (___view) { return ___wml.node('p', {
+    html: {},
+    wml: {}
+}, [___wml.text("Third tab.")], ___view); }; };
 var Main = /** @class */ (function (_super) {
     __extends(Main, _super);
     function Main(___context) {

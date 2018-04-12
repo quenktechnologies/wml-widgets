@@ -1,5 +1,11 @@
+import {Content} from "@quenk/wml"
+import { Fragment} from "../../fragment"
 import {TabBar,Tab} from "../../../control/tab-bar"
 import {TabLayout} from ".."
+
+{% fun empty (TabLayout) %} <Fragment/> {% endfun %}
+
+{% fun content (c:Content, _:TabLayout) = {{ c }} %}
 
 {% main (TabLayout) %}
 
@@ -14,9 +20,9 @@ import {TabLayout} from ".."
         ww:active={{@values.tab == name}}
         ww:onClick={{@values.onClick}}>
 
-          {% if tab.tabContent %}
+          {% if tab.tabTemplate %}
 
-           {{<tab.tabContent(@)>}}
+           {{<tab.tabTemplate(@)>}}
 
           {% else if tab.text %}
 
@@ -36,7 +42,7 @@ import {TabLayout} from ".."
 
   {% if @values.content %}
 
-    {{@values.content}}
+    {{<(@values.content)(@)>}}
 
   {% else %}
 

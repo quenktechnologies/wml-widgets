@@ -1,6 +1,5 @@
-import * as wml from '@quenk/wml';
-import { WidgetAttrs } from '../../';
-import { Component } from '@quenk/wml';
+import { View } from '@quenk/wml';
+import { GenericLayout } from '..';
 import { PanelAttrs } from '.';
 /**
  * Panel provides a rectangular container for visually seperating
@@ -9,13 +8,14 @@ import { PanelAttrs } from '.';
  * This class provides the containing, part that can be further
  * subdivided into a header, body and/or footer section.
  */
-export declare class Panel extends Component<WidgetAttrs<PanelAttrs>> {
-    view: wml.View;
+export declare class Panel extends GenericLayout<PanelAttrs> {
+    view: View;
     /**
      * values
      */
     values: {
-        root: {
+        content: {
+            id: string;
             class: string;
         };
     };

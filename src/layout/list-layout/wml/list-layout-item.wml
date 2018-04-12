@@ -1,4 +1,6 @@
 import {ListLayoutItem} from "../"
 
 {% main (ListLayoutItem) %}
-<div class={{@values.root.class}}>{{@children}}</div>
+<div
+  wml:id={{@values.content.id}}
+  class={{@values.content.class}}>{{@children}}</div>

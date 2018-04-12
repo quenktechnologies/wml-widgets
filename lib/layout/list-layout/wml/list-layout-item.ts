@@ -14,9 +14,11 @@ export class Main extends ___wml.AppView < ListLayoutItem > {
         this.template = (___view: ___wml.AppView < ListLayoutItem > ) =>
             ___wml.node('div', {
                 html: {
-                    'class': ___context.values.root.class
+                    'class': ___context.values.content.class
                 },
-                wml: {}
+                wml: {
+                    'id': ___context.values.content.id
+                }
             }, [___wml.domify(___context.children)], ___view);
 
     }

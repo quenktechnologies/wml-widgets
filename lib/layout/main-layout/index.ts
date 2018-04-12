@@ -1,8 +1,8 @@
 import * as views from './wml/main-layout';
 import * as orientation from '../../../lib/content/orientation';
-import { View, Renderable } from '@quenk/wml';
+import { View  } from '@quenk/wml';
 import { concat } from '../../util';
-import { GroupAttrs, Group } from '../../content/Group';
+import { LayoutAttrs, GenericLayout } from '../';
 
 ///classNames:begin
 export const MAIN_LAYOUT = 'ww-main-layout';
@@ -11,22 +11,20 @@ export const MAIN_LAYOUT = 'ww-main-layout';
 /**
  * MainAttrs
  */
-export interface MainAttrs extends GroupAttrs {
-
-    ww?: { class?: string, content: Renderable }
-
-}
+export interface MainAttrs extends LayoutAttrs { }
 
 /**
  * MainLayout provides a container for the main content of an application.
  */
-export class MainLayout extends Group<MainAttrs> {
+export class MainLayout extends GenericLayout<MainAttrs> {
 
     view: View = new views.Main(this);
 
     values = {
 
-        root: {
+        content: {
+
+            id: 'main',
 
             class: concat(
                 MAIN_LAYOUT,

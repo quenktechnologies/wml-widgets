@@ -2,23 +2,23 @@ import {PageExample} from "../../../page-example"
 import {TabLayout} from "../../../../../lib/layout/tab-layout"
 import {TabLayoutPage} from "../"
 
-{% view FirstTab (TabLayoutPage) %}
+{% fun firstTab (_:TabLayout) %}
 
   <p>Click a tab to change content.</p>
 
-{% endview %}
+{% endfun %}
 
-{% view SecondTab (TabLayoutPage) %}
+{% fun secondTab (_:TabLayout) %}
 
   <p>Second tab.</p>
 
-{% endview %}
+{% endfun %}
 
-{% view ThirdTab (TabLayoutPage) %}
+{% fun thirdTab (_:TabLayout) %}
 
   <p>Third tab.</p>
 
-{% endview %}
+{% endfun %}
 
 {% main (TabLayoutPage) %}
  

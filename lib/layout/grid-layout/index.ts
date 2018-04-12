@@ -1,8 +1,7 @@
-import * as wml from '@quenk/wml';
 import * as views from './wml/grid-layout';
-import { Component } from '@quenk/wml';
-import { WidgetAttrs, StylableAttrs } from '../../';
+import { View } from '@quenk/wml';
 import { concat } from '../../util';
+import { LayoutAttrs, GenericLayout } from '../';
 
 ///classNames:begin
 //@todo: refactor this to be inline with other class names
@@ -14,9 +13,17 @@ export const ROW = 'row';
 /**
  * GridLayoutAttrs
  */
-export interface GridLayoutAttrs extends StylableAttrs { }
+export interface GridLayoutAttrs extends LayoutAttrs { }
 
-export interface ColumnAttrs extends StylableAttrs {
+/**
+ * RowAttrs
+ */
+export interface RowAttrs extends LayoutAttrs { }
+
+/**
+ * ColumnAttrs
+ */
+export interface ColumnAttrs extends LayoutAttrs {
 
     size?: number
 
@@ -25,15 +32,35 @@ export interface ColumnAttrs extends StylableAttrs {
 /**
  * GridLayout
  */
-export class GridLayout extends Component<WidgetAttrs<GridLayoutAttrs>> {
+export class GridLayout extends GenericLayout<GridLayoutAttrs> {
 
-    view: wml.View = new views.Grid(this);
+    view: View = new views.Grid(this);
 
     values = {
 
-        class: {
+        content: {
 
-            root: concat(GRID_LAYOUT, (this.attrs.ww && this.attrs.ww.class) ?
+            id: 'root',
+
+            class: concat(GRID_LAYOUT, (this.attrs.ww && this.attrs.ww.class) ?
+                this.attrs.ww.class : '')
+        }
+
+    }
+
+}
+
+export class Row extends GenericLayout<RowAttrs> {
+
+    view: View = new views.Row(this);
+
+    values = {
+
+        content: {
+
+            id: 'row',
+
+            class: concat(ROW, (this.attrs.ww && this.attrs.ww.class) ?
                 this.attrs.ww.class : '')
 
         }
@@ -42,32 +69,17 @@ export class GridLayout extends Component<WidgetAttrs<GridLayoutAttrs>> {
 
 }
 
-export class Row extends Component<WidgetAttrs<StylableAttrs>> {
+export class Column extends GenericLayout<ColumnAttrs> {
 
-    view: wml.View = new views.Row(this);
-
-    values = {
-
-        class: {
-
-            root: concat(ROW, (this.attrs.ww && this.attrs.ww.class) ?
-                this.attrs.ww.class : '')
-
-        }
-
-    }
-
-}
-
-export class Column extends Component<WidgetAttrs<ColumnAttrs>> {
-
-    view: wml.View = new views.Column(this);
+    view: View = new views.Column(this);
 
     values = {
 
-        class: {
+        content: {
 
-            root: this.attrs.ww ? concat(this.attrs.ww.size ?
+            id: 'column',
+
+            class: this.attrs.ww ? concat(this.attrs.ww.size ?
                 `col-md-${this.attrs.ww.size}` : 'col-md-12',
                 this.attrs.ww.class) : 'col-md-12'
 

@@ -19,9 +19,7 @@ export class Main extends ___wml.AppView < DrawerLayout > {
                 html: {
                     'class': ___context.values.root.class
                 },
-                wml: {
-                    'id': ___context.values.root.id
-                }
+                wml: {}
             }, [___wml.widget(Drawer, {
                 html: {},
                 wml: {

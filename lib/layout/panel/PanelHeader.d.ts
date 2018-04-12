@@ -1,14 +1,14 @@
-import * as wml from '@quenk/wml';
-import { Component } from '@quenk/wml';
-import { WidgetAttrs } from '../..';
+import { View } from '@quenk/wml';
+import { GenericLayout } from '../';
 import { PanelHeaderAttrs } from '.';
-export declare class PanelHeader extends Component<WidgetAttrs<PanelHeaderAttrs>> {
-    view: wml.View;
+export declare class PanelHeader extends GenericLayout<PanelHeaderAttrs> {
+    view: View;
     /**
      * values
      */
     values: {
-        root: {
+        content: {
+            id: string;
             class: string;
         };
     };

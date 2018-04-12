@@ -1,17 +1,17 @@
-import * as wml from '@quenk/wml';
-import { Component } from '@quenk/wml';
-import { WidgetAttrs } from '../..';
+import { View } from '@quenk/wml';
+import { GenericLayout } from '../';
 import { PanelBodyAttrs } from '.';
 /**
  * PanelBody part of a Panel for containing the main content.
  */
-export declare class PanelBody extends Component<WidgetAttrs<PanelBodyAttrs>> {
-    view: wml.View;
+export declare class PanelBody extends GenericLayout<PanelBodyAttrs> {
+    view: View;
     /**
      * values
      */
     values: {
-        root: {
+        content: {
+            id: string;
             class: string;
         };
     };

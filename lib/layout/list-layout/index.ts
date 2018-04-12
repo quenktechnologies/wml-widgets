@@ -1,8 +1,8 @@
-import * as wml from '@quenk/wml';
 import * as item from './wml/list-layout-item';
 import * as layout from './wml/list-layout';
+import { View } from '@quenk/wml';
 import { concat } from '../../util';
-import { WidgetAttrs, StylableAttrs } from '../../';
+import { LayoutAttrs, GenericLayout } from '../';
 
 ///classNames:begin
 export const LIST_LAYOUT = 'ww-list-layout';
@@ -12,24 +12,25 @@ export const LIST_LAYOUT_ITEM = 'ww-list-layout__item';
 /**
  * ListLayoutAttrs
  */
-export interface ListLayoutAttrs extends StylableAttrs { }
+export interface ListLayoutAttrs extends LayoutAttrs { }
 
 /**
  * ListLayoutItemAttrs
  */
-export interface ListLayoutItemAttrs extends StylableAttrs { }
-
+export interface ListLayoutItemAttrs extends LayoutAttrs { }
 
 /**
  * ListLayoutItem 
  */
-export class ListLayoutItem extends wml.Component<WidgetAttrs<ListLayoutItemAttrs>> {
+export class ListLayoutItem extends GenericLayout<ListLayoutItemAttrs> {
 
-    view: wml.View = new item.Main(this);
+    view: View = new item.Main(this);
 
     values = {
 
-        root: {
+        content: {
+
+            id: 'item',
 
             class: LIST_LAYOUT_ITEM
 
@@ -44,13 +45,15 @@ export class ListLayoutItem extends wml.Component<WidgetAttrs<ListLayoutItemAttr
  *
  * Children must be ListGroupItems.
  */
-export class ListLayout extends wml.Component<WidgetAttrs<ListLayoutAttrs>> {
+export class ListLayout extends GenericLayout<ListLayoutAttrs> {
 
-    view: wml.View = new layout.Main(this);
+    view: View = new layout.Main(this);
 
     values = {
 
-        root: {
+        content: {
+
+            id: 'list',
 
             class: concat(LIST_LAYOUT, this.attrs.ww && this.attrs.ww.class)
 

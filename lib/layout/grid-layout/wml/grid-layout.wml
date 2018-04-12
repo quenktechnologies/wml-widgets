@@ -2,7 +2,9 @@ import * as G from ".."
 
 {% view Grid (G.GridLayout) %}
 
-  <section class={{@values.class.root}}>
+  <section 
+    wml:id={{@values.content.id}}
+    class={{@values.content.class}}>
     {{@children}}
   </section>
 
@@ -10,7 +12,9 @@ import * as G from ".."
 
 {% view Row (G.Row) %}
 
-  <div class={{@values.class.root}}>
+  <div 
+    wml:id={{@values.content.id}}
+    class={{@values.content.class}}>
     {{@children}}
   </div>
 
@@ -18,7 +22,9 @@ import * as G from ".."
 
 {% view Column (G.Column) %}
 
-  <div class={{@values.class.root}}>
+  <div 
+    wml:id={{@values.content.id}}
+    class={{@values.content.class}}>
     {{@children}}
   </div>
 

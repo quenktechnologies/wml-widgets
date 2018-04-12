@@ -11,20 +11,19 @@ export class TabLayoutPage extends Page {
 
         first: {
 
-            view: new views.FirstTab(this)
+            contentTemplate: views.firstTab
 
         },
         second: {
 
-            view: new views.SecondTab(this)
+            contentTemplate: views.secondTab
 
         },
         third: {
 
-            view: new views.ThirdTab(this)
+            contentTemplate: views.thirdTab
 
         }
-
 
     }
 

@@ -19,13 +19,13 @@ var TabLayoutPage = /** @class */ (function (_super) {
         _this.view = new views.Main(_this);
         _this.tabs = {
             first: {
-                view: new views.FirstTab(_this)
+                contentTemplate: views.firstTab
             },
             second: {
-                view: new views.SecondTab(_this)
+                contentTemplate: views.secondTab
             },
             third: {
-                view: new views.ThirdTab(_this)
+                contentTemplate: views.thirdTab
             }
         };
         return _this;

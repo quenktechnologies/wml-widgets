@@ -1,8 +1,9 @@
-import { View, WMLElement } from '@quenk/wml';
-import { Group, GroupAttrs } from '../../content/Group';
+import { View, WMLElement, Content, Component } from '@quenk/wml';
 import { Hidable } from '../../content/state/hidden';
-import { Main } from './wml/drawer-layout';
+import { WidgetAttrs } from '../../';
+import { Main  } from './wml/drawer-layout';
 import { Drawer } from '../drawer';
+import { LayoutAttrs, Layout } from '../';
 
 ///classNames:begin
 
@@ -23,22 +24,13 @@ const drawer = (l: DrawerLayout) => (f: (d: Drawer) => Drawer) =>
         .orJust(() => l)
         .get();
 
-export interface DrawerLayoutAttrs extends GroupAttrs {
+export interface DrawerLayoutAttrs extends LayoutAttrs {
 
-    ww?: {
-
-        /*
-         * drawer is a view that will be used to populate the drawer 
-         * part of the layout.
-         */
-        drawer?: View
-
-        /**
-         * content can be used instead of speciying children.
-         */
-        content?: View
-
-    }
+    /*
+     * drawer is a view that will be used to populate the drawer 
+     * part of the layout.
+     */
+    drawer?: View
 
 };
 
@@ -87,15 +79,17 @@ export interface DrawerLayoutAttrs extends GroupAttrs {
  *  +------------------------------------------------------------------------------+
  *
  */
-export class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
+export class DrawerLayout
+    extends Component<WidgetAttrs<DrawerLayoutAttrs>>
+    implements Hidable, Layout {
 
     view: View = new Main(this);
 
     isHidden = () =>
         this
             .view
-            .findById(this.values.root.id)
-            .map((d: WMLElement) => (<Drawer>d).isHidden())
+            .findById(this.values.drawer.id)
+            .map((d: Drawer) => d.isHidden())
             .orJust(() => false)
             .get();
 
@@ -103,7 +97,21 @@ export class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
 
     show = () => drawer(this)(d => d.show());
 
-    toggle = () => drawer(this)(d => d.toggle())
+    toggle = () => drawer(this)(d => d.toggle());
+
+    setContent: (c: Content) => DrawerLayout = (c: Content) => {
+
+        this.values.content.render = () => [c]
+        return this;
+
+    }
+
+    removeContent: () => DrawerLayout = () => {
+
+        this.values.content.render = ()=>[]
+        return this;
+
+    }
 
     /**
      * values is a hash of values used in the template.
@@ -111,8 +119,6 @@ export class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
     values = {
 
         root: {
-
-            id: 'content',
 
             class: DRAWER_LAYOUT,
 
@@ -126,10 +132,12 @@ export class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
         },
         content: {
 
-            render: () => (this.attrs.ww && this.attrs.ww.content) ?
-                this.attrs.ww.content.render() : this.children
+            id: 'content',
+
+            render: () => this.children
 
         }
+
     }
 
 }

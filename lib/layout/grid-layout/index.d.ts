@@ -1,41 +1,51 @@
-import * as wml from '@quenk/wml';
-import { Component } from '@quenk/wml';
-import { WidgetAttrs, StylableAttrs } from '../../';
+import { View } from '@quenk/wml';
+import { LayoutAttrs, GenericLayout } from '../';
 export declare const GRID_LAYOUT = "container-fluid";
 export declare const COLUMN = "ww-column";
 export declare const ROW = "row";
 /**
  * GridLayoutAttrs
  */
-export interface GridLayoutAttrs extends StylableAttrs {
+export interface GridLayoutAttrs extends LayoutAttrs {
 }
-export interface ColumnAttrs extends StylableAttrs {
+/**
+ * RowAttrs
+ */
+export interface RowAttrs extends LayoutAttrs {
+}
+/**
+ * ColumnAttrs
+ */
+export interface ColumnAttrs extends LayoutAttrs {
     size?: number;
 }
 /**
  * GridLayout
  */
-export declare class GridLayout extends Component<WidgetAttrs<GridLayoutAttrs>> {
-    view: wml.View;
+export declare class GridLayout extends GenericLayout<GridLayoutAttrs> {
+    view: View;
     values: {
-        class: {
-            root: string;
+        content: {
+            id: string;
+            class: string;
         };
     };
 }
-export declare class Row extends Component<WidgetAttrs<StylableAttrs>> {
-    view: wml.View;
+export declare class Row extends GenericLayout<RowAttrs> {
+    view: View;
     values: {
-        class: {
-            root: string;
+        content: {
+            id: string;
+            class: string;
         };
     };
 }
-export declare class Column extends Component<WidgetAttrs<ColumnAttrs>> {
-    view: wml.View;
+export declare class Column extends GenericLayout<ColumnAttrs> {
+    view: View;
     values: {
-        class: {
-            root: string;
+        content: {
+            id: string;
+            class: string;
         };
     };
 }

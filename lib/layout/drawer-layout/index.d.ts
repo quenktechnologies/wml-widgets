@@ -1,18 +1,13 @@
-import { View } from '@quenk/wml';
-import { Group, GroupAttrs } from '../../content/Group';
+import { View, Content, Component } from '@quenk/wml';
 import { Hidable } from '../../content/state/hidden';
+import { WidgetAttrs } from '../../';
+import { LayoutAttrs, Layout } from '../';
 /**
  * DRAWER_LAYOUT
  */
 export declare const DRAWER_LAYOUT = "ww-drawer-layout";
-export interface DrawerLayoutAttrs extends GroupAttrs {
-    ww?: {
-        drawer?: View;
-        /**
-         * content can be used instead of speciying children.
-         */
-        content?: View;
-    };
+export interface DrawerLayoutAttrs extends LayoutAttrs {
+    drawer?: View;
 }
 /**
  * DrawerLayout provides a 1 column application layout with a drawer that can
@@ -59,18 +54,19 @@ export interface DrawerLayoutAttrs extends GroupAttrs {
  *  +------------------------------------------------------------------------------+
  *
  */
-export declare class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hidable {
+export declare class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttrs>> implements Hidable, Layout {
     view: View;
     isHidden: () => boolean;
     hide: () => DrawerLayout;
     show: () => DrawerLayout;
     toggle: () => DrawerLayout;
+    setContent: (c: Content) => DrawerLayout;
+    removeContent: () => DrawerLayout;
     /**
      * values is a hash of values used in the template.
      */
     values: {
         root: {
-            id: string;
             class: string;
         };
         drawer: {
@@ -78,7 +74,8 @@ export declare class DrawerLayout extends Group<DrawerLayoutAttrs> implements Hi
             content: View;
         };
         content: {
-            render: () => Node | (Element | Node | HTMLElement)[];
+            id: string;
+            render: () => Content[];
         };
     };
 }

@@ -1,24 +1,25 @@
-import * as wml from '@quenk/wml';
-import { WidgetAttrs, StylableAttrs } from '../../';
+import { View } from '@quenk/wml';
+import { LayoutAttrs, GenericLayout } from '../';
 export declare const LIST_LAYOUT = "ww-list-layout";
 export declare const LIST_LAYOUT_ITEM = "ww-list-layout__item";
 /**
  * ListLayoutAttrs
  */
-export interface ListLayoutAttrs extends StylableAttrs {
+export interface ListLayoutAttrs extends LayoutAttrs {
 }
 /**
  * ListLayoutItemAttrs
  */
-export interface ListLayoutItemAttrs extends StylableAttrs {
+export interface ListLayoutItemAttrs extends LayoutAttrs {
 }
 /**
  * ListLayoutItem
  */
-export declare class ListLayoutItem extends wml.Component<WidgetAttrs<ListLayoutItemAttrs>> {
-    view: wml.View;
+export declare class ListLayoutItem extends GenericLayout<ListLayoutItemAttrs> {
+    view: View;
     values: {
-        root: {
+        content: {
+            id: string;
             class: string;
         };
     };
@@ -28,10 +29,11 @@ export declare class ListLayoutItem extends wml.Component<WidgetAttrs<ListLayout
  *
  * Children must be ListGroupItems.
  */
-export declare class ListLayout extends wml.Component<WidgetAttrs<ListLayoutAttrs>> {
-    view: wml.View;
+export declare class ListLayout extends GenericLayout<ListLayoutAttrs> {
+    view: View;
     values: {
-        root: {
+        content: {
+            id: string;
             class: string;
         };
     };

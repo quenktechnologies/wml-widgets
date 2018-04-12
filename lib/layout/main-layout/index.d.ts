@@ -1,22 +1,19 @@
-import { View, Renderable } from '@quenk/wml';
-import { GroupAttrs, Group } from '../../content/Group';
+import { View } from '@quenk/wml';
+import { LayoutAttrs, GenericLayout } from '../';
 export declare const MAIN_LAYOUT = "ww-main-layout";
 /**
  * MainAttrs
  */
-export interface MainAttrs extends GroupAttrs {
-    ww?: {
-        class?: string;
-        content: Renderable;
-    };
+export interface MainAttrs extends LayoutAttrs {
 }
 /**
  * MainLayout provides a container for the main content of an application.
  */
-export declare class MainLayout extends Group<MainAttrs> {
+export declare class MainLayout extends GenericLayout<MainAttrs> {
     view: View;
     values: {
-        root: {
+        content: {
+            id: string;
             class: string;
         };
     };

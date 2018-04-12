@@ -1,5 +1,11 @@
 import * as ___wml from '@quenk/wml';
 import {
+    Content
+} from '@quenk/wml';;
+import {
+    Fragment
+} from '../../fragment';;
+import {
     TabBar,
     Tab
 } from '../../../control/tab-bar';;
@@ -7,7 +13,11 @@ import {
     TabLayout
 } from '..';
 
-
+export const empty = (___context: TabLayout) => (___view: ___wml.View) => ___wml.widget(Fragment, {
+    html: {},
+    wml: {}
+}, [], ___view);;
+export const content = (c: Content) => (_: TabLayout) => (___view: ___wml.View) => ___wml.domify(c);
 
 export class Main extends ___wml.AppView < TabLayout > {
 
@@ -34,10 +44,10 @@ export class Main extends ___wml.AppView < TabLayout > {
                         'active': (___context.values.tab === name),
                         'onClick': ___context.values.onClick
                     }
-                }, [(tab.tabContent) ? ___wml.domify(tab.tabContent(___context)(___view)) : (tab.text) ? ___wml.domify(tab.text) : ___wml.domify(name)], ___view)
+                }, [(tab.tabTemplate) ? ___wml.domify(tab.tabTemplate(___context)(___view)) : (tab.text) ? ___wml.domify(tab.text) : ___wml.domify(name)], ___view)
             }, function otherwise() {
                 return document.createDocumentFragment();
-            })], ___view), (___context.values.content) ? ___wml.domify(___context.values.content) : ___wml.domify(___context.children)], ___view);
+            })], ___view), (___context.values.content) ? ___wml.domify(___context.values.content(___context)(___view)) : ___wml.domify(___context.children)], ___view);
 
     }
 

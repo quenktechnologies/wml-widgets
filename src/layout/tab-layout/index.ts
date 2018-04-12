@@ -1,8 +1,9 @@
-import * as wml from '@quenk/wml';
 import * as views from './wml/tab-layout';
 import { Maybe } from 'afpl/lib/monad/Maybe';
-import {WidgetAttrs, StylableAttrs} from '../../';
+import { View, Template, Content, Component } from '@quenk/wml';
+import { WidgetAttrs } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
+import { LayoutAttrs, Layout } from '../';
 
 ///classNames:begin
 export const TAB_LAYOUT = 'ww-tab-layout';
@@ -19,14 +20,14 @@ export interface TabSpec {
     text?: string,
 
     /**
-     * tabContent can be specified to render custom content in the tab.
+     * tabTemplate can be specified to render custom content in the tab.
      */
-    tabContent?: (tv: TabLayout) => wml.Template
+    tabTemplate?: (t: TabLayout) => Template,
 
     /**
-     * view rendered when the tab is active.
+     * contentTemplate is rendered when the tab is active.
      */
-    view: wml.Renderable
+    contentTemplate: (t: TabLayout) => Template
 
 }
 
@@ -42,17 +43,17 @@ export interface TabSpecMap {
 /**
  * TabLayoutAttrs
  */
-export interface TabLayoutAttrs extends StylableAttrs {
+export interface TabLayoutAttrs extends LayoutAttrs {
 
-        /**
-         * active tab.
-         */
-        active: string,
+    /**
+     * active tab.
+     */
+    active: string,
 
-        /**
-         * tabs TabSpecs to be displayed.
-         */
-        tabs: TabSpecMap
+    /**
+     * tabs TabSpecs to be displayed.
+     */
+    tabs: TabSpecMap
 
 }
 
@@ -73,9 +74,27 @@ export interface TabLayoutAttrs extends StylableAttrs {
  * |                                                                          |
  * |__________________________________________________________________________|
  */
-export class TabLayout extends wml.Component<WidgetAttrs<TabLayoutAttrs>> {
+export class TabLayout
+    extends Component<WidgetAttrs<TabLayoutAttrs>>
+    implements Layout {
 
-    view: wml.View = new views.Main(this);
+    view: View = new views.Main(this);
+
+    setContent: (c: Content) => TabLayout = (c: Content) => {
+
+        this.values.content = views.content(c);
+        this.view.invalidate();
+        return this;
+
+    }
+
+    removeContent: () => TabLayout = () => {
+
+        this.values.content = views.empty;
+        this.view.invalidate();
+        return this;
+
+    }
 
     values = {
 
@@ -92,8 +111,7 @@ export class TabLayout extends wml.Component<WidgetAttrs<TabLayoutAttrs>> {
         content: Maybe
             .fromAny(this.attrs.ww.tabs[this.attrs.ww.active])
             .orElse(() => Maybe.fromAny(this.attrs.ww.tabs[Object.keys(this.attrs.ww.tabs)[0]]))
-            .map((ts: TabSpec) => ts.view)
-            .map((view: wml.View) => view.render())
+            .map((ts: TabSpec) => ts.contentTemplate)
             .get(),
 
         onClick: (e: TabClickedEvent) => {
@@ -104,7 +122,9 @@ export class TabLayout extends wml.Component<WidgetAttrs<TabLayoutAttrs>> {
                 .chain(() =>
                     Maybe
                         .fromAny(this.attrs.ww.tabs[e.name])
-                        .map((ts: TabSpec) => { this.values.content = ts.view.render() })
+                        .map((ts: TabSpec) => {
+                            this.values.content = ts.contentTemplate;
+                        })
                         .map(() => { this.view.invalidate(); })
                         .orJust(() => { console.error(`TabLayout: unknown tab '${e.name}'!`); }))
 
