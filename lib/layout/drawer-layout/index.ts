@@ -102,6 +102,7 @@ export class DrawerLayout
     setContent: (c: Content) => DrawerLayout = (c: Content) => {
 
         this.values.content.render = () => [c]
+      this.view.invalidate();
         return this;
 
     }
