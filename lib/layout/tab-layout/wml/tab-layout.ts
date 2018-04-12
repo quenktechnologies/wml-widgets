@@ -27,11 +27,10 @@ export class Main extends ___wml.AppView < TabLayout > {
 
         this.template = (___view: ___wml.AppView < TabLayout > ) =>
             ___wml.node('div', {
-                html: {},
-                wml: {},
-                ww: {
+                html: {
                     'class': ___context.values.root.class
-                }
+                },
+                wml: {}
             }, [___wml.widget(TabBar, {
                 html: {},
                 wml: {}
