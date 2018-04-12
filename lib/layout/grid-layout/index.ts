@@ -1,7 +1,7 @@
 import * as views from './wml/grid-layout';
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
-import { LayoutAttrs, GenericLayout } from '../';
+import { LAYOUT, LayoutAttrs, GenericLayout } from '../';
 
 ///classNames:begin
 //@todo: refactor this to be inline with other class names
@@ -42,7 +42,7 @@ export class GridLayout extends GenericLayout<GridLayoutAttrs> {
 
             id: 'root',
 
-            class: concat(GRID_LAYOUT, (this.attrs.ww && this.attrs.ww.class) ?
+            class: concat(GRID_LAYOUT, LAYOUT, (this.attrs.ww && this.attrs.ww.class) ?
                 this.attrs.ww.class : '')
         }
 

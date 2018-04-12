@@ -76,7 +76,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_content_group_.group.html" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span>
+						<a href="_layout_index_.genericlayout.html" class="tsd-signature-type">GenericLayout</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">MainLayout</span>
@@ -89,6 +89,7 @@
 				<h3>Implements</h3>
 				<ul class="tsd-hierarchy">
 					<li><span class="tsd-signature-type">Widget</span></li>
+					<li><a href="../interfaces/_layout_index_.layout.html" class="tsd-signature-type">Layout</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -106,24 +107,23 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#attrs" class="tsd-kind-icon">attrs</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#children" class="tsd-kind-icon">children</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#content" class="tsd-kind-icon">content</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#removecontent" class="tsd-kind-icon">remove<wbr>Content</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="_layout_main_layout_index_.mainlayout.html#view" class="tsd-kind-icon">view</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#removecontent" class="tsd-kind-icon">remove<wbr>Content</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#removed" class="tsd-kind-icon">removed</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#render" class="tsd-kind-icon">render</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#rendered" class="tsd-kind-icon">rendered</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="_layout_main_layout_index_.mainlayout.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Object literals</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal tsd-parent-kind-class"><a href="_layout_main_layout_index_.mainlayout.html#values" class="tsd-kind-icon">values</a></li>
+								<li class="tsd-kind-object-literal tsd-parent-kind-class tsd-is-overwrite"><a href="_layout_main_layout_index_.mainlayout.html#values" class="tsd-kind-icon">values</a></li>
 							</ul>
 						</section>
 					</div>
@@ -135,7 +135,7 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Main<wbr>Layout<span class="tsd-signature-symbol">(</span>attrs<span class="tsd-signature-symbol">: </span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a>, children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Content</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_layout_main_layout_index_.mainlayout.html" class="tsd-signature-type">MainLayout</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Main<wbr>Layout<span class="tsd-signature-symbol">(</span>attrs<span class="tsd-signature-symbol">: </span><a href="../interfaces/_index_.widgetattrs.html" class="tsd-signature-type">WidgetAttrs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span>, children<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Content</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_layout_main_layout_index_.mainlayout.html" class="tsd-signature-type">MainLayout</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -153,7 +153,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>attrs: <a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a></h5>
+									<h5>attrs: <a href="../interfaces/_index_.widgetattrs.html" class="tsd-signature-type">WidgetAttrs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
 									<h5>children: <span class="tsd-signature-type">Content</span><span class="tsd-signature-symbol">[]</span></h5>
@@ -169,7 +169,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="attrs" class="tsd-anchor"></a>
 					<h3>attrs</h3>
-					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a></div>
+					<div class="tsd-signature tsd-kind-icon">attrs<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_index_.widgetattrs.html" class="tsd-signature-type">WidgetAttrs</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from Component.attrs</p>
 						<ul>
@@ -189,60 +189,43 @@
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-					<a name="content" class="tsd-anchor"></a>
-					<h3>content</h3>
-					<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Content</span></div>
+					<a name="removecontent" class="tsd-anchor"></a>
+					<h3>remove<wbr>Content</h3>
+					<div class="tsd-signature tsd-kind-icon">remove<wbr>Content<span class="tsd-signature-symbol">:</span> <a href="../modules/_layout_index_.html#removecontent" class="tsd-signature-type">RemoveContent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;removeContent(this)(_get(this))</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_content_group_.group.html">Group</a>.<a href="_content_group_.group.html#content">content</a></p>
+						<p>Implementation of <a href="../interfaces/_layout_index_.layout.html">Layout</a>.<a href="../interfaces/_layout_index_.layout.html#removecontent">removeContent</a></p>
+						<p>Inherited from <a href="_layout_index_.genericlayout.html">GenericLayout</a>.<a href="_layout_index_.genericlayout.html#removecontent">removeContent</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/content/Group.ts#L31">content/Group.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/index.ts#L73">layout/index.ts:73</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>content is dynamic content that can be changed
-								after the Widget has been rendered. It&#39;s up
-							to the respective template to utilize this property or ignore it.</p>
-						</div>
-					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+					<a name="setcontent" class="tsd-anchor"></a>
+					<h3>set<wbr>Content</h3>
+					<div class="tsd-signature tsd-kind-icon">set<wbr>Content<span class="tsd-signature-symbol">:</span> <a href="../modules/_layout_index_.html#setcontent" class="tsd-signature-type">SetContent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">this</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;setContent(this)(_get(this))</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_layout_index_.layout.html">Layout</a>.<a href="../interfaces/_layout_index_.layout.html#setcontent">setContent</a></p>
+						<p>Inherited from <a href="_layout_index_.genericlayout.html">GenericLayout</a>.<a href="_layout_index_.genericlayout.html#setcontent">setContent</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/index.ts#L71">layout/index.ts:71</a></li>
+						</ul>
+					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 					<a name="view" class="tsd-anchor"></a>
 					<h3>view</h3>
 					<div class="tsd-signature tsd-kind-icon">view<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">View</span><span class="tsd-signature-symbol"> =&nbsp;new views.Main(this)</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides Component.view</p>
+						<p>Overrides <a href="_layout_index_.genericlayout.html">GenericLayout</a>.<a href="_layout_index_.genericlayout.html#view">view</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/layout/main-layout/index.ts#L25">layout/main-layout/index.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/main-layout/index.ts#L20">layout/main-layout/index.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="removecontent" class="tsd-anchor"></a>
-					<h3>remove<wbr>Content</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">remove<wbr>Content<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_content_group_.group.html" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="_content_group_.group.html">Group</a>.<a href="_content_group_.group.html#removecontent">removeContent</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/content/Group.ts#L47">content/Group.ts:47</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>removeContent removes existing content.</p>
-								</div>
-							</div>
-							<h4 class="tsd-returns-title">Returns <a href="_content_group_.group.html" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="removed" class="tsd-anchor"></a>
 					<h3>removed</h3>
@@ -297,63 +280,45 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-					<a name="setcontent" class="tsd-anchor"></a>
-					<h3>set<wbr>Content</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-						<li class="tsd-signature tsd-kind-icon">set<wbr>Content<span class="tsd-signature-symbol">(</span>content<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Content</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_content_group_.group.html" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Inherited from <a href="_content_group_.group.html">Group</a>.<a href="_content_group_.group.html#setcontent">setContent</a></p>
-								<ul>
-									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/content/Group.ts#L36">content/Group.ts:36</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>setContent changes the content value.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>content: <span class="tsd-signature-type">Content</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_content_group_.group.html" class="tsd-signature-type">Group</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_layout_main_layout_index_.mainattrs.html" class="tsd-signature-type">MainAttrs</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Object literals</h2>
-				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class">
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-class tsd-is-overwrite">
 					<a name="values" class="tsd-anchor"></a>
 					<h3>values</h3>
 					<div class="tsd-signature tsd-kind-icon">values<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
+						<p>Overrides <a href="_layout_index_.genericlayout.html">GenericLayout</a>.<a href="_layout_index_.genericlayout.html#values">values</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/layout/main-layout/index.ts#L27">layout/main-layout/index.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/main-layout/index.ts#L22">layout/main-layout/index.ts:22</a></li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-object-literal">
-						<a name="values.root" class="tsd-anchor"></a>
-						<h3>root</h3>
-						<div class="tsd-signature tsd-kind-icon">root<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+						<a name="values.content" class="tsd-anchor"></a>
+						<h3>content</h3>
+						<div class="tsd-signature tsd-kind-icon">content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/layout/main-layout/index.ts#L29">layout/main-layout/index.ts:29</a></li>
+								<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/main-layout/index.ts#L24">layout/main-layout/index.ts:24</a></li>
 							</ul>
 						</aside>
 						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-							<a name="values.root.class" class="tsd-anchor"></a>
+							<a name="values.content.class" class="tsd-anchor"></a>
 							<h3>class</h3>
-							<div class="tsd-signature tsd-kind-icon">class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;concat(MAIN_LAYOUT,orientation.RIGHT_PUSHABLE,this.attrs.ww ? this.attrs.ww.class : &#x27;&#x27;)</span></div>
+							<div class="tsd-signature tsd-kind-icon">class<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;concat(MAIN_LAYOUT,LAYOUT,this.attrs.ww ? this.attrs.ww.class : &#x27;&#x27;)</span></div>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/layout/main-layout/index.ts#L31">layout/main-layout/index.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/main-layout/index.ts#L28">layout/main-layout/index.ts:28</a></li>
+								</ul>
+							</aside>
+						</section>
+						<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
+							<a name="values.content.id" class="tsd-anchor"></a>
+							<h3>id</h3>
+							<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;main&quot;</span></div>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/main-layout/index.ts#L26">layout/main-layout/index.ts:26</a></li>
 								</ul>
 							</aside>
 						</section>
@@ -389,13 +354,13 @@
 								<a href="_layout_main_layout_index_.mainlayout.html#children" class="tsd-kind-icon">children</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="_layout_main_layout_index_.mainlayout.html#content" class="tsd-kind-icon">content</a>
+								<a href="_layout_main_layout_index_.mainlayout.html#removecontent" class="tsd-kind-icon">remove<wbr>Content</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
+								<a href="_layout_main_layout_index_.mainlayout.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_layout_main_layout_index_.mainlayout.html#view" class="tsd-kind-icon">view</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_layout_main_layout_index_.mainlayout.html#removecontent" class="tsd-kind-icon">remove<wbr>Content</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_layout_main_layout_index_.mainlayout.html#removed" class="tsd-kind-icon">removed</a>
@@ -406,10 +371,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 								<a href="_layout_main_layout_index_.mainlayout.html#rendered" class="tsd-kind-icon">rendered</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="_layout_main_layout_index_.mainlayout.html#setcontent" class="tsd-kind-icon">set<wbr>Content</a>
-							</li>
-							<li class=" tsd-kind-object-literal tsd-parent-kind-class">
+							<li class=" tsd-kind-object-literal tsd-parent-kind-class tsd-is-overwrite">
 								<a href="_layout_main_layout_index_.mainlayout.html#values" class="tsd-kind-icon">values</a>
 							</li>
 						</ul>

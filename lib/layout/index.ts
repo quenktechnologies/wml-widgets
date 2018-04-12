@@ -7,6 +7,10 @@ const _get = <A extends LayoutAttrs>(gen: GenericLayout<A>) => () =>
         .view
         .findById<HTMLElement>(gen.values.content.id);
 
+///classNames:begin
+export const LAYOUT='-layout';
+///classNames:end
+
 /**
  * SetContent
  */

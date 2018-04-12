@@ -5,14 +5,14 @@
 export const VERTICAL = '-vertical';
 
 /**
- * RIGHT_PUSHABLE indicates an element can supports being pushed right
- * by specifying styles around this class.
+ * PUSHABLE indicates an element supports being pushed 
+ * and can have styles added to it around the concept.
  */
-export const RIGHT_PUSHABLE = '-right-pushable';
+export const PUSHABLE = '-pushable';
 
 /**
  * POSITIONED indicates an element is positioned and responds
- * to the left ,right modifiers etc.
+ * to the left,right etc. properties.
  */
 export const POSITIONED = '-positioned';
 

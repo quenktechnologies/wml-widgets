@@ -7,19 +7,6 @@ export const MODAL_BODY = 'ww-modal__body';
 export const MODAL_FOOTER = 'ww-modal__footer';
 ///classNames:end
 ///classNames:begin
-
-/**
- * ACTION_BAR class name. for the ActionBar root.
- */
-export const ACTION_BAR = 'ww-action-bar';
-
-/**
- * ACTION_BAR_CONTENT class name. 
- */
-export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
-
-///classNames:end
-///classNames:begin
 export const ACTIVITY_INDICATOR = 'ww-activity-indicator';
 ///classNames:end
 ///classNames:begin
@@ -123,6 +110,22 @@ export const LIST_LAYOUT_ITEM = 'ww-list-layout__item';
 export const TAB_LAYOUT = 'ww-tab-layout';
 ///classNames:end
 ///classNames:begin
+export const LAYOUT='-layout';
+///classNames:end
+///classNames:begin
+
+/**
+ * ACTION_BAR class name. for the ActionBar root.
+ */
+export const ACTION_BAR = 'ww-action-bar';
+
+/**
+ * ACTION_BAR_CONTENT class name. 
+ */
+export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
+
+///classNames:end
+///classNames:begin
 //@todo: refactor this to be inline with other class names
 export const GRID_LAYOUT = 'container-fluid';
 export const COLUMN = 'ww-column';
@@ -175,14 +178,14 @@ export const CARET = 'ww-caret';
 export const VERTICAL = '-vertical';
 
 /**
- * RIGHT_PUSHABLE indicates an element can supports being pushed right
- * by specifying styles around this class.
+ * PUSHABLE indicates an element supports being pushed 
+ * and can have styles added to it around the concept.
  */
-export const RIGHT_PUSHABLE = '-right-pushable';
+export const PUSHABLE = '-pushable';
 
 /**
  * POSITIONED indicates an element is positioned and responds
- * to the left ,right modifiers etc.
+ * to the left,right etc. properties.
  */
 export const POSITIONED = '-positioned';
 

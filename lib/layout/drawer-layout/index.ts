@@ -1,9 +1,10 @@
-import { View, WMLElement, Content, Component } from '@quenk/wml';
+import { View,  Content, Component } from '@quenk/wml';
 import { Hidable } from '../../content/state/hidden';
+import { concat } from '../../util';
 import { WidgetAttrs } from '../../';
-import { Main  } from './wml/drawer-layout';
+import { Main } from './wml/drawer-layout';
 import { Drawer } from '../drawer';
-import { LayoutAttrs, Layout } from '../';
+import { LAYOUT, LayoutAttrs, Layout } from '../';
 
 ///classNames:begin
 
@@ -18,7 +19,7 @@ const drawer = (l: DrawerLayout) => (f: (d: Drawer) => Drawer) =>
     l
         .view
         .findById(l.values.drawer.id)
-        .map((e: WMLElement) => <Drawer>e)
+        .map((e: Drawer) => e)
         .map(f)
         .map(() => l)
         .orJust(() => l)
@@ -102,14 +103,14 @@ export class DrawerLayout
     setContent: (c: Content) => DrawerLayout = (c: Content) => {
 
         this.values.content.render = () => [c]
-      this.view.invalidate();
+        this.view.invalidate();
         return this;
 
     }
 
     removeContent: () => DrawerLayout = () => {
 
-        this.values.content.render = ()=>[]
+        this.values.content.render = () => []
         return this;
 
     }
@@ -121,7 +122,7 @@ export class DrawerLayout
 
         root: {
 
-            class: DRAWER_LAYOUT,
+            class: concat(DRAWER_LAYOUT, LAYOUT, this.attrs.ww && this.attrs.ww.class)
 
         },
         drawer: {

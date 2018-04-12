@@ -1,6 +1,7 @@
 import { Maybe } from 'afpl/lib/monad/Maybe';
 import { Component, View, Content } from '@quenk/wml';
 import { StylableAttrs, WidgetAttrs } from '../';
+export declare const LAYOUT = "-layout";
 /**
  * SetContent
  */

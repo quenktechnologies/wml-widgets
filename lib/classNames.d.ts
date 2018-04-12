@@ -4,14 +4,6 @@ export declare const MODAL_CONTENT = "ww-modal__content";
 export declare const MODAL_HEADER = "ww-modal__header";
 export declare const MODAL_BODY = "ww-modal__body";
 export declare const MODAL_FOOTER = "ww-modal__footer";
-/**
- * ACTION_BAR class name. for the ActionBar root.
- */
-export declare const ACTION_BAR = "ww-action-bar";
-/**
- * ACTION_BAR_CONTENT class name.
- */
-export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
 export declare const ACTIVITY_INDICATOR = "ww-activity-indicator";
 /**
  * DASH
@@ -69,6 +61,15 @@ export declare const HEADER = "ww-header";
 export declare const LIST_LAYOUT = "ww-list-layout";
 export declare const LIST_LAYOUT_ITEM = "ww-list-layout__item";
 export declare const TAB_LAYOUT = "ww-tab-layout";
+export declare const LAYOUT = "-layout";
+/**
+ * ACTION_BAR class name. for the ActionBar root.
+ */
+export declare const ACTION_BAR = "ww-action-bar";
+/**
+ * ACTION_BAR_CONTENT class name.
+ */
+export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
 export declare const GRID_LAYOUT = "container-fluid";
 export declare const COLUMN = "ww-column";
 export declare const ROW = "row";
@@ -100,13 +101,13 @@ export declare const CARET = "ww-caret";
  */
 export declare const VERTICAL = "-vertical";
 /**
- * RIGHT_PUSHABLE indicates an element can supports being pushed right
- * by specifying styles around this class.
+ * PUSHABLE indicates an element supports being pushed
+ * and can have styles added to it around the concept.
  */
-export declare const RIGHT_PUSHABLE = "-right-pushable";
+export declare const PUSHABLE = "-pushable";
 /**
  * POSITIONED indicates an element is positioned and responds
- * to the left ,right modifiers etc.
+ * to the left,right etc. properties.
  */
 export declare const POSITIONED = "-positioned";
 /**

@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var ___wml = require("@quenk/wml");
 var drawer_layout_1 = require("../../../lib/layout/drawer-layout");
 ;
-var action_bar_1 = require("../../../lib/app/action-bar");
+var action_bar_1 = require("../../../lib/layout/action-bar");
 ;
 ;
 var button_1 = require("../../../lib/control/button");

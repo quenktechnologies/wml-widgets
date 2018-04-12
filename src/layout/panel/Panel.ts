@@ -2,7 +2,7 @@ import * as style from '../../content/style';
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { Main } from './wml/panel';
-import { GenericLayout } from '..';
+import { LAYOUT, GenericLayout } from '..';
 import { PANEL, PanelAttrs } from '.';
 
 /**
@@ -31,7 +31,7 @@ export class Panel extends GenericLayout<PanelAttrs> {
             /**
              * class name for the root element.
              */
-            class: concat(PANEL, this.attrs.ww ?
+            class: concat(PANEL, LAYOUT, this.attrs.ww ?
                 this.attrs.ww.style : style.DEFAULT, this.attrs.ww ?
                     this.attrs.ww.class : '')
 

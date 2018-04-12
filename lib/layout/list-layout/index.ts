@@ -2,7 +2,7 @@ import * as item from './wml/list-layout-item';
 import * as layout from './wml/list-layout';
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
-import { LayoutAttrs, GenericLayout } from '../';
+import { LAYOUT, LayoutAttrs, GenericLayout } from '../';
 
 ///classNames:begin
 export const LIST_LAYOUT = 'ww-list-layout';
@@ -55,7 +55,7 @@ export class ListLayout extends GenericLayout<ListLayoutAttrs> {
 
             id: 'list',
 
-            class: concat(LIST_LAYOUT, this.attrs.ww && this.attrs.ww.class)
+            class: concat(LIST_LAYOUT, LAYOUT, this.attrs.ww && this.attrs.ww.class)
 
         }
 

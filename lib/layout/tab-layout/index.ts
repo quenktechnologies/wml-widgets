@@ -1,9 +1,10 @@
 import * as views from './wml/tab-layout';
 import { Maybe } from 'afpl/lib/monad/Maybe';
 import { View, Template, Content, Component } from '@quenk/wml';
+import {concat} from '../../util';
 import { WidgetAttrs } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
-import { LayoutAttrs, Layout } from '../';
+import { LAYOUT, LayoutAttrs, Layout } from '../';
 
 ///classNames:begin
 export const TAB_LAYOUT = 'ww-tab-layout';
@@ -48,7 +49,7 @@ export interface TabLayoutAttrs extends LayoutAttrs {
     /**
      * active tab.
      */
-    active: string,
+    active?: string,
 
     /**
      * tabs TabSpecs to be displayed.
@@ -100,11 +101,11 @@ export class TabLayout
 
         root: {
 
-            class: TAB_LAYOUT
+            class: concat(TAB_LAYOUT, LAYOUT)
 
         },
 
-        tab: this.attrs.ww.active || Object.keys(this.attrs.ww.tabs)[0],
+        tab: (this.attrs.ww && this.attrs.ww.active) || Object.keys(this.attrs.ww.tabs)[0],
 
         tabs: <TabSpecMap>this.attrs.ww.tabs,
 

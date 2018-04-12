@@ -4,7 +4,7 @@ import {
 } from '../../../lib/layout/drawer-layout';;
 import {
     ActionBar
-} from '../../../lib/app/action-bar';;
+} from '../../../lib/layout/action-bar';;
 import {
     App
 } from '../app';;

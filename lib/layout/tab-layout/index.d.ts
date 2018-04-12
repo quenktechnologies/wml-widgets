@@ -33,7 +33,7 @@ export interface TabLayoutAttrs extends LayoutAttrs {
     /**
      * active tab.
      */
-    active: string;
+    active?: string;
     /**
      * tabs TabSpecs to be displayed.
      */

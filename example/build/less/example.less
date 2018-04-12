@@ -7,3 +7,21 @@ body {
   min-height:800px;
 
 }
+
+
+.__DRAWER__ {
+
+
+  & ~ .__ACTION_BAR__ {
+  
+    width: ~"calc(100% -" @drawer-width ~")";         
+
+  }
+
+  &.__HIDDEN__ ~ .__ACTION_BAR__ {
+
+    width: 100%;
+
+  }
+
+}

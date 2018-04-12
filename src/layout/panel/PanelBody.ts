@@ -1,7 +1,7 @@
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { Main } from './wml/panel-body';
-import { GenericLayout } from '../';
+import { LAYOUT, GenericLayout } from '../';
 import { PANEL_BODY, PanelBodyAttrs } from '.';
 
 /**
@@ -23,7 +23,7 @@ export class PanelBody extends GenericLayout<PanelBodyAttrs> {
             /**
              * class for the root element.
              */
-            class: concat(PANEL_BODY, this.attrs.ww ? this.attrs.ww.class : '')
+            class: concat(PANEL_BODY, LAYOUT, this.attrs.ww ? this.attrs.ww.class : '')
 
         }
 

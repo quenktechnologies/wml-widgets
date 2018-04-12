@@ -7891,15 +7891,19 @@ button.close {
   list-style: none;
 }
 /**
- Drawer styling
-*/
+ * Drawer styling.
+ * 
+ * Drawer's are fixed positioned to the left of the 
+ * screen by default. Any component that is a sibling
+ * of a Drawer SHOULD have a "& ~ .ww-drawer:not(.-hidden)"
+ * rule where the width is reduced by the @drawer-width.
+ * 
+ * This prevents content from scrolling or showing off-screen.
+ */
 .ww-drawer {
   width: 15em;
   height: 100%;
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
   display: block;
   border-right: 1px solid #343434;
   box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
@@ -7907,45 +7911,63 @@ button.close {
   background-color: #1a1a1a;
   transition: width 0.5s ease;
   /**
-    Styles for supporting the hiding and pushing of the Drawer in CSS.
+   * The inner area of the Drawer where content is placed. 
+   * This is absolutely positioned so style it with the parent
+   * in mind.
+   */
+  /**
+   * Style layouts adjacent to the Drawer.
+   * 
+   * For each we set a transition effect. Do not forget
+   * to create width rules for things like ActionBar, MainLayout etc!
+   */
+  /**
+    Styles for the hidden state.
    */
 }
-.ww-drawer.-hidden {
-  width: 0;
-}
-.ww-drawer.-hidden ~ .-right-pushable:not(.-positioned) {
-  margin-left: 0;
-}
-.ww-drawer.-hidden ~ .-right-pushable.-positioned {
-  left: 0;
-}
-.ww-drawer ~ .-right-pushable:not(.-positioned) {
-  margin-left: 15em;
-  transition: margin-left 0.5s ease;
-}
-.ww-drawer ~ .-right-pushable.-positioned {
-  left: 15em;
-  transition: left 0.5s ease;
-}
-/**
-  Styles applied to the inner content of a Drawer.
-
-  We add some padding to prevent touching the edges etc.
- */
-.ww-drawer__content {
+.ww-drawer > .ww-drawer__content {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
   bottom: 0;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   color: #fff;
 }
-/**
- * DrawerLayout styling
- */
+.ww-drawer ~ .-layout {
+  transition: all 0.5s ease;
+  /**
+     * For non-positioned siblings, attach a left-margin
+     * equal to the drawer width so that they make way
+     * for it.
+     */
+  /**
+     * Positioned elements we use a left offset
+     * to make way.
+     */
+}
+.ww-drawer ~ .-layout:not(.-positioned) {
+  margin-left: 15em;
+}
+.ww-drawer ~ .-layout.-positioned {
+  left: 15em;
+}
+.ww-drawer.-hidden {
+  width: 0;
+  /**
+     * Remove the left margin on siblings that do not declare "positioned".
+     */
+  /**
+     * Remove the left offset on siblings that are positioned.
+     */
+}
+.ww-drawer.-hidden ~ .-layout:not(.-positioned) {
+  margin-left: 0;
+}
+.ww-drawer.-hidden ~ .-layout.-positioned {
+  left: 0;
+}
 .ww-drawer-layout {
   height: 100%;
   margin: 0;
@@ -7953,9 +7975,11 @@ button.close {
   background-color: #f6f7f9;
   color: #333333;
 }
+.ww-drawer-layout > .ww-drawer {
+  background-color: #1a1a1a;
+}
 .ww-drawer-layout > .ww-drawer:not(.-hidden) {
   width: 15em;
-  background-color: #1a1a1a;
 }
 .ww-main-layout {
   height: 100%;

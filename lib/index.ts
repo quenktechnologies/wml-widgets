@@ -26,6 +26,6 @@ export interface WidgetAttrs<A> extends Attrs {
     /**
      * ww is the namespace for widgets from this library.
      */
-    ww: A;
+    ww?: A;
 
 }

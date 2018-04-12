@@ -87,9 +87,9 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_layout_tab_layout_index_.tabspec.html#tabcontent" class="tsd-kind-icon">tab<wbr>Content</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_layout_tab_layout_index_.tabspec.html#contenttemplate" class="tsd-kind-icon">content<wbr>Template</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_layout_tab_layout_index_.tabspec.html#tabtemplate" class="tsd-kind-icon">tab<wbr>Template</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_layout_tab_layout_index_.tabspec.html#text" class="tsd-kind-icon">text</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_layout_tab_layout_index_.tabspec.html#view" class="tsd-kind-icon">view</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,17 +98,17 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tabcontent" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> tab<wbr>Content</h3>
-					<div class="tsd-signature tsd-kind-icon">tab<wbr>Content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<a name="contenttemplate" class="tsd-anchor"></a>
+					<h3>content<wbr>Template</h3>
+					<div class="tsd-signature tsd-kind-icon">content<wbr>Template<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/layout/tab-layout/index.ts#L24">layout/tab-layout/index.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/tab-layout/index.ts#L31">layout/tab-layout/index.ts:31</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>tabContent can be specified to render custom content in the tab.</p>
+							<p>contentTemplate is rendered when the tab is active.</p>
 						</div>
 					</div>
 					<div class="tsd-type-declaration">
@@ -116,14 +116,50 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>tv<span class="tsd-signature-symbol">: </span><a href="../classes/_layout_tab_layout_index_.tablayout.html" class="tsd-signature-type">TabLayout</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Template</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../classes/_layout_tab_layout_index_.tablayout.html" class="tsd-signature-type">TabLayout</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Template</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>tv: <a href="../classes/_layout_tab_layout_index_.tablayout.html" class="tsd-signature-type">TabLayout</a></h5>
+												<h5>t: <a href="../classes/_layout_tab_layout_index_.tablayout.html" class="tsd-signature-type">TabLayout</a></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Template</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="tabtemplate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> tab<wbr>Template</h3>
+					<div class="tsd-signature tsd-kind-icon">tab<wbr>Template<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/tab-layout/index.ts#L26">layout/tab-layout/index.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>tabTemplate can be specified to render custom content in the tab.</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-siganture">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>t<span class="tsd-signature-symbol">: </span><a href="../classes/_layout_tab_layout_index_.tablayout.html" class="tsd-signature-type">TabLayout</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Template</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>t: <a href="../classes/_layout_tab_layout_index_.tablayout.html" class="tsd-signature-type">TabLayout</a></h5>
 											</li>
 										</ul>
 										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Template</span></h4>
@@ -139,27 +175,12 @@
 					<div class="tsd-signature tsd-kind-icon">text<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/layout/tab-layout/index.ts#L19">layout/tab-layout/index.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/36fe129/src/layout/tab-layout/index.ts#L21">layout/tab-layout/index.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>text to display in the tab.</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="view" class="tsd-anchor"></a>
-					<h3>view</h3>
-					<div class="tsd-signature tsd-kind-icon">view<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Renderable</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/quenktechnologies/wml-widgets/blob/207ce55/src/layout/tab-layout/index.ts#L29">layout/tab-layout/index.ts:29</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>view rendered when the tab is active.</p>
 						</div>
 					</div>
 				</section>
@@ -190,13 +211,13 @@
 						<a href="_layout_tab_layout_index_.tabspec.html" class="tsd-kind-icon">Tab<wbr>Spec</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_layout_tab_layout_index_.tabspec.html#tabcontent" class="tsd-kind-icon">tab<wbr>Content</a>
+								<a href="_layout_tab_layout_index_.tabspec.html#contenttemplate" class="tsd-kind-icon">content<wbr>Template</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_layout_tab_layout_index_.tabspec.html#tabtemplate" class="tsd-kind-icon">tab<wbr>Template</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="_layout_tab_layout_index_.tabspec.html#text" class="tsd-kind-icon">text</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_layout_tab_layout_index_.tabspec.html#view" class="tsd-kind-icon">view</a>
 							</li>
 						</ul>
 					</li>
