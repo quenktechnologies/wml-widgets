@@ -80,12 +80,12 @@ export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
                 concat(BUTTON,
 
                     TOOLBAR_COMPAT,
-                    this.attrs.ww.class,
                     this.attrs.ww.style || style.DEFAULT,
                     this.attrs.ww.size && this.attrs.ww.size,
                     this.attrs.ww.outline && style.OUTLINE,
                     this.attrs.ww.block && orientation.BLOCK,
-                    this.attrs.ww.active && active.ACTIVE) : BUTTON,
+                    this.attrs.ww.active && active.ACTIVE,
+                    this.attrs.ww.class        ) : BUTTON,
 
             type: (this.attrs.ww && this.attrs.ww.type) ? this.attrs.ww.type : 'button',
 
