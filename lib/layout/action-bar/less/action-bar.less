@@ -23,6 +23,18 @@
     justify-content: @action-bar-content-justify-content;
     padding: @action-bar-padding-vertical @action-bar-padding-horizontal;
 
+    /**
+     * Set the line height of immediate content by default to 0.
+     * 
+     * Ideally an ActionBar should only have one row of content,
+     * which means we have no need for line-heights.
+     */
+    & > * {
+
+      line-height: @action-bar-line-height;
+
+    }
+
   }
 
   & :empty {

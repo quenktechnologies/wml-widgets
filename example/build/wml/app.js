@@ -16,9 +16,10 @@ var drawer_layout_1 = require("../../../lib/layout/drawer-layout");
 var action_bar_1 = require("../../../lib/layout/action-bar");
 ;
 ;
-var button_1 = require("../../../lib/control/button");
+var link_1 = require("../../../lib/content/nav/link");
 ;
-var dash_1 = require("../../../lib/app/dash");
+;
+var menu_icon_1 = require("../../../lib/content/x/menu-icon");
 ;
 var main_layout_1 = require("../../../lib/layout/main-layout");
 var Main = /** @class */ (function (_super) {
@@ -37,20 +38,13 @@ var Main = /** @class */ (function (_super) {
             }, [___wml.widget(action_bar_1.ActionBar, {
                     html: {},
                     wml: {}
-                }, [___wml.widget(button_1.Button, {
+                }, [___wml.widget(link_1.Link, {
                         html: {},
                         wml: {},
                         ww: {
-                            'name': "toggle",
                             'onClick': ___context.toggleDrawer
                         }
-                    }, [___wml.widget(dash_1.Dash, {
-                            html: {},
-                            wml: {}
-                        }, [], ___view), ___wml.widget(dash_1.Dash, {
-                            html: {},
-                            wml: {}
-                        }, [], ___view), ___wml.widget(dash_1.Dash, {
+                    }, [___wml.widget(menu_icon_1.MenuIcon, {
                             html: {},
                             wml: {}
                         }, [], ___view)], ___view)], ___view), ___wml.widget(main_layout_1.MainLayout, {

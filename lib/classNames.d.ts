@@ -96,6 +96,8 @@ export declare const PANEL_BODY = "ww-panel__body";
 export declare const PANEL_FOOTER = "ww-panel__footer";
 export declare const CLOSE = "ww-close";
 export declare const CARET = "ww-caret";
+export declare const MENU_ICON = "ww-menu-icon";
+export declare const MENU_ICON_DASH = "ww-menu-icon__dash";
 /**
  * VERTICAL indicates an element is vertical rendererd.
  */

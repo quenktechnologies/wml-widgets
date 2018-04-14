@@ -9,11 +9,14 @@ import {
     App
 } from '../app';;
 import {
+    Link
+} from '../../../lib/content/nav/link';;
+import {
     Button
 } from '../../../lib/control/button';;
 import {
-    Dash
-} from '../../../lib/app/dash';;
+    MenuIcon
+} from '../../../lib/content/x/menu-icon';;
 import {
     MainLayout
 } from '../../../lib/layout/main-layout';
@@ -38,20 +41,13 @@ export class Main extends ___wml.AppView < App > {
             }, [___wml.widget(ActionBar, {
                 html: {},
                 wml: {}
-            }, [___wml.widget(Button, {
+            }, [___wml.widget(Link, {
                 html: {},
                 wml: {},
                 ww: {
-                    'name': `toggle`,
                     'onClick': ___context.toggleDrawer
                 }
-            }, [___wml.widget(Dash, {
-                html: {},
-                wml: {}
-            }, [], ___view), ___wml.widget(Dash, {
-                html: {},
-                wml: {}
-            }, [], ___view), ___wml.widget(Dash, {
+            }, [___wml.widget(MenuIcon, {
                 html: {},
                 wml: {}
             }, [], ___view)], ___view)], ___view), ___wml.widget(MainLayout, {

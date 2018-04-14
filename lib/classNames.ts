@@ -172,6 +172,10 @@ export const CLOSE = 'ww-close';
 export const CARET = 'ww-caret';
 ///classNames:end
 ///classNames:begin
+export const MENU_ICON = 'ww-menu-icon';
+export const MENU_ICON_DASH = 'ww-menu-icon__dash';
+///classNames:end
+///classNames:begin
 /**
  * VERTICAL indicates an element is vertical rendererd.
  */

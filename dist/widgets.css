@@ -16,42 +16,6 @@
 /* spacing */
 /* font-size */
 /* Switch */
-.ww-caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 2px;
-  vertical-align: middle;
-  border-top: 4px dashed;
-  border-top: 4px solid \9;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-}
-.close {
-  float: right;
-  font-size: 21px;
-  font-weight: bold;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  filter: alpha(opacity=20);
-  opacity: 0.2;
-}
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  filter: alpha(opacity=50);
-  opacity: 0.5;
-}
-button.close {
-  padding: 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  -webkit-appearance: none;
-}
 /* Grid */
 /* MainView */
 /* Button */
@@ -8497,6 +8461,15 @@ button.close {
   flex-direction: row;
   justify-content: flex-start;
   padding: 1rem 1rem;
+  /**
+     * Set the line height of immediate content by default to 0.
+     * 
+     * Ideally an ActionBar should only have one row of content,
+     * which means we have no need for line-heights.
+     */
+}
+.ww-action-bar .ww-action-bar__content > * {
+  line-height: 0;
 }
 .ww-action-bar :empty {
   padding: 0;
@@ -9535,4 +9508,67 @@ buttonLink styles the button to appear like a link.
 }
 .ww-breadcrumb > .-active {
   color: #777777;
+}
+.ww-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: 0.2;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+/**
+ * MenuIcon styling.
+ *
+ * We style some spans to look like the dashes in the 'menu'.
+ */
+.ww-menu-icon {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  /**
+   * Style the individual dashes, we expect 3.
+   */
+}
+.ww-menu-icon > .ww-menu-icon__dash {
+  width: 1.5em;
+  height: 0.25em;
+  display: block;
+  background-color: #fff;
+  /**
+     * The second dash receives the margins to space out the 
+     *  icon properly.
+     */
+}
+.ww-menu-icon > .ww-menu-icon__dash:nth-child(2) {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
