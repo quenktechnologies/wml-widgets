@@ -7946,9 +7946,11 @@ button.close {
   width: 15em;
 }
 .ww-main-layout {
-  height: 100%;
+  width: auto;
+  height: auto;
+  min-height: 1024px;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   background-color: transparent;
   padding: 60px 0px;
 }
@@ -8460,7 +8462,7 @@ button.close {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 1rem 1rem;
+  padding: 1em 1em;
   /**
      * Set the line height of immediate content by default to 0.
      * 
