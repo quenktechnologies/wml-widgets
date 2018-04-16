@@ -70,7 +70,7 @@ example/public/app.css: lib $(shell $(FIND) example/app -name \*.less) $(shell $
 	--include-path=$(LESS_INCLUDE_PATHS) \
 	--npm-import \
 	--source-map-map-inline \
-	example/build/less/app.less > $@
+	example/app/less/app.less > $@
 
 docs: src
 	$(TYPEDOC) --out docs \
