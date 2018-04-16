@@ -8391,22 +8391,22 @@ button.close {
  * Each one of these will have style variables attached.
  */
 .ww-grid-layout {
-  margin-right: auto;
-  margin-left: auto;
-  padding-left: 15px;
+  padding-top: 0px;
   padding-right: 15px;
-  padding: 0px 0px;
-  margin: 0px 0px;
+  padding-bottom: 0px;
+  padding-left: 15px;
+  margin: 0px auto;
   /**
    * Rows group columns together, ideally on the same line but overflows
    * are allowed.
    */
 }
 .ww-grid-layout > .ww-grid-layout-row {
+  padding: 0px 0px;
   margin-left: -15px;
   margin-right: -15px;
-  padding: 0px 0px;
-  margin: 0px 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   /**
      * Style the columns within a row.
      *
@@ -8417,6 +8417,7 @@ button.close {
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  margin: 0px 0px;
   position: relative;
   /**
        * These styles only kick in when the screen is large enough.
