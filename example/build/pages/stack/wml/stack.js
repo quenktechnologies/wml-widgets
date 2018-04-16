@@ -30,7 +30,7 @@ var Main = /** @class */ (function (_super) {
                         html: {},
                         wml: {},
                         ww: {
-                            'size': 4
+                            'span': 4
                         }
                     }, [___wml.node('p', {
                             html: {},

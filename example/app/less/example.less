@@ -8,12 +8,11 @@ body {
 
 }
 
-
 .__DRAWER__ {
 
 
   & ~ .__ACTION_BAR__ {
-  
+
     width: ~"calc(100% -" @drawer-width ~")";         
 
   }
@@ -24,4 +23,26 @@ body {
 
   }
 
+}
+
+.grid-layout-example {
+
+  margin-left: .5em;
+  margin-right: .5em;
+
+  & > .__GRID_LAYOUT_ROW__ {
+
+    background-color: rgba(86,61,124,.15);
+    border: 1px solid rgba(86,61,124,.2);
+    margin-bottom: .5em;
+
+    & > .__GRID_LAYOUT_COLUMN__ {
+
+      &:not(:first-child) {
+
+        border-left: 1px solid rgba(86,61,124,.2)
+
+      }
+    }
+  }
 }

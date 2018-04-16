@@ -7,7 +7,7 @@ import {PageExample} from ".."
 
   <Row>
 
-    <Column ww:size={{@values.size}}>
+    <Column ww:span={{@values.size}}>
 
       {{@children}}
 

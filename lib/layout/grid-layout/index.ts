@@ -5,9 +5,9 @@ import { LAYOUT, LayoutAttrs, GenericLayout } from '../';
 
 ///classNames:begin
 //@todo: refactor this to be inline with other class names
-export const GRID_LAYOUT = 'container-fluid';
-export const COLUMN = 'ww-column';
-export const ROW = 'row';
+export const GRID_LAYOUT = 'ww-grid-layout';
+export const GRID_LAYOUT_ROW = 'ww-grid-layout-row';
+export const GRID_LAYOUT_COLUMN = 'ww-grid-layout-column';
 ///classNames:end
 
 /**
@@ -25,7 +25,10 @@ export interface RowAttrs extends LayoutAttrs { }
  */
 export interface ColumnAttrs extends LayoutAttrs {
 
-    size?: number
+  /**
+   * span indicates the length of the row a Column should span.
+   */
+    span?: number
 
 };
 
@@ -60,7 +63,7 @@ export class Row extends GenericLayout<RowAttrs> {
 
             id: 'row',
 
-            class: concat(ROW, (this.attrs.ww && this.attrs.ww.class) ?
+            class: concat(GRID_LAYOUT_ROW, (this.attrs.ww && this.attrs.ww.class) ?
                 this.attrs.ww.class : '')
 
         }
@@ -79,9 +82,10 @@ export class Column extends GenericLayout<ColumnAttrs> {
 
             id: 'column',
 
-            class: this.attrs.ww ? concat(this.attrs.ww.size ?
-                `col-md-${this.attrs.ww.size}` : 'col-md-12',
-                this.attrs.ww.class) : 'col-md-12'
+            class: this.attrs.ww ?
+          concat(GRID_LAYOUT_COLUMN, this.attrs.ww.span ?
+                `-span${this.attrs.ww.span}` : '-span12',
+                this.attrs.ww.class) : concat(GRID_LAYOUT_COLUMN, '-span12')
 
         }
 

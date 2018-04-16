@@ -27,7 +27,7 @@ export class Main extends ___wml.AppView < PageExample > {
                 html: {},
                 wml: {},
                 ww: {
-                    'size': ___context.values.size
+                    'span': ___context.values.size
                 }
             }, [___wml.domify(___context.children)], ___view)], ___view)], ___view);
 

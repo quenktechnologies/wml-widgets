@@ -1,54 +1,110 @@
+@import "bootstrap/mixins/clearfix";
 
 /**
- * adjustable-padding allows padding to be adjusted on a box.
+ * span generates modifier classes for column row span.
+ *
+ * @param {int} @step  - The current step.
+ * @param {int} @total - The total number of columns.
  */
-.adjustable-padding(@top;@right;@bottom;@left) {
+.span(@step, @total:@grid-columns) when(@step =< @total) {
 
-  padding-top:top;
-  padding-right:@right;
-  padding-bottom:@bottom;
-  padding-left:@left;
+  &.-span@{step} {
+
+    width: percentage((@step / @total));
+
+  }
+
+  .span(@step+1; @total);
 
 }
 
 /**
- * adjustable-margin allows the marins to be adjusted on a box.
+ * offset generates a left margin offset for a step in the
+ * offset scale.
+ *
+ * Uses a left-margin.
+ * @param {int} @step - The offset step.
+ * @parm  {int} @total - Total number of columns
  */
-.adjustable-margin(@top;@right;@bottom;@left) {
+.offset(@step; @total:@grid-columns) when(@step =< @total){
 
-  margin-top:@top;
-  margin-right:@right;
-  margin-bottom:@bottom;
-  margin-left:@left;
+  &.-offset@{step} {
 
-}
+    margin-left: percentage((@step / @total));
 
-.__GRID__ {
+  }
 
-  .adjustable-padding(@grid-padding-top, @grid-padding-right,
-                      @grid-padding-bottom, @grid-padding-left);
-
-  .adjustable-margin(@grid-margin-top, @grid-margin-right,
-                      @grid-margin-bottom, @grid-margin-left);
+  .offset(@step+1; @total);
 
 }
 
-.__GRID_ROW__ {
+/**
+ * The wml-widgets non-flex based grid layout framework.
+ * 
+ * Based on the bootstrap framework.
+ * TODO: bring styles here:
+ * We intend to replace the col-md-* stuff with individual 
+ * modifier classes in a scale like : -x1 -x2 -x3 -x4 -x5 -x6.
+*  
+ * Each one of these will have style variables attached.
+ */
+.__GRID_LAYOUT__ {
 
-  .adjustable-padding(@grid-row-padding-top, @grid-row-padding-right,
-                      @grid-row-padding-bottom, @grid-row-padding-left);
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  floor((@grid-gutter-width / 2));
+  padding-right: ceil((@grid-gutter-width / 2));
 
-  .adjustable-margin(@grid-row-margin-top, @grid-row-margin-right,
-                      @grid-row-margin-bottom, @grid-row-margin-left);
+  &:extend(.clearfix all); //@todo resolve this clearfix thing.
 
-}
+  padding:@grid-layout-vertical-padding @grid-layout-horizontal-padding;
+  margin: @grid-layout-vertical-margin @grid-layout-horizontal-margin;
 
-.__GRID_COLUMN__ {
+  /**
+   * Rows group columns together, ideally on the same line but overflows
+   * are allowed.
+   */
+   & > .__GRID_LAYOUT_ROW__ {
 
-  .adjustable-padding(@grid-column-padding-top, @grid-column-padding-right,
-                      @grid-column-padding-bottom, @grid-column-padding-left);
+    margin-left: ceil((@grid-gutter-width / -2));
+    margin-right: floor((@grid-gutter-width / -2));
 
-  .adjustable-margin(@grid-column-margin-top, @grid-column-margin-right,
-                      @grid-column-margin-bottom, @grid-column-margin-left);
+    &:extend(.clearfix all);
+
+    padding:@grid-layout-row-vertical-padding @grid-layout-row-horizontal-padding;
+    margin: @grid-layout-row-vertical-margin @grid-layout-row-horizontal-margin;
+
+    /**
+     * Style the columns within a row.
+     *
+     * Columns should always be within a row.
+     */
+    & > .__GRID_LAYOUT_COLUMN__ {
+
+      min-height: 1px; // Prevent columns from collapsing when empty
+      padding-left:  ceil((@grid-gutter-width / 2));
+      padding-right: floor((@grid-gutter-width / 2));
+      position: relative;
+
+      /**
+       * These styles only kick in when the screen is large enough.
+       * For smaller screens each column fills the whole row.
+       * @todo: do not depend on bootstrap's variable, also
+       * we should support more breakpoints for phones etc.
+       * What we do want is to not have col-md, col-sm col-xs crap,
+       * instead just 'ww-column' that adjusts through other classes
+       * or media queries.
+       */
+      @media (min-width: @screen-md-min) {
+
+        float:left;
+        .span(1);
+        .offset(1);
+
+      }
+
+    }
+
+  }
 
 }

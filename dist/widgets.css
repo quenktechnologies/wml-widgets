@@ -6637,6 +6637,10 @@ button.close {
 .modal-footer:after,
 .ww-panel__body:before,
 .ww-panel__body:after,
+.ww-grid-layout:before,
+.ww-grid-layout:after,
+.ww-grid-layout > .ww-grid-layout-row:before,
+.ww-grid-layout > .ww-grid-layout-row:after,
 .ww-modal__header:before,
 .ww-modal__header:after,
 .ww-modal__footer:before,
@@ -6661,6 +6665,8 @@ button.close {
 .modal-header:after,
 .modal-footer:after,
 .ww-panel__body:after,
+.ww-grid-layout:after,
+.ww-grid-layout > .ww-grid-layout-row:after,
 .ww-modal__header:after,
 .ww-modal__footer:after {
   clear: both;
@@ -8361,40 +8367,143 @@ button.close {
   background-color: #262626;
 }
 /**
- * adjustable-padding allows padding to be adjusted on a box.
+ * span generates modifier classes for column row span.
+ *
+ * @param {int} @step  - The current step.
+ * @param {int} @total - The total number of columns.
  */
 /**
- * adjustable-margin allows the marins to be adjusted on a box.
+ * offset generates a left margin offset for a step in the
+ * offset scale.
+ *
+ * Uses a left-margin.
+ * @param {int} @step - The offset step.
+ * @parm  {int} @total - Total number of columns
  */
-.__GRID__ {
-  padding-top: top;
-  padding-right: 15px;
-  padding-bottom: 0px;
+/**
+ * The wml-widgets non-flex based grid layout framework.
+ * 
+ * Based on the bootstrap framework.
+ * TODO: bring styles here:
+ * We intend to replace the col-md-* stuff with individual 
+ * modifier classes in a scale like : -x1 -x2 -x3 -x4 -x5 -x6.
+*  
+ * Each one of these will have style variables attached.
+ */
+.ww-grid-layout {
+  margin-right: auto;
+  margin-left: auto;
   padding-left: 15px;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
-}
-.__GRID_ROW__ {
-  padding-top: top;
-  padding-right: 0px;
-  padding-bottom: 0px;
-  padding-left: 0px;
-  margin-top: 0px;
-  margin-right: 15px;
-  margin-bottom: 0px;
-  margin-left: 15px;
-}
-.__GRID_COLUMN__ {
-  padding-top: top;
   padding-right: 15px;
-  padding-bottom: 0px;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  /**
+   * Rows group columns together, ideally on the same line but overflows
+   * are allowed.
+   */
+}
+.ww-grid-layout > .ww-grid-layout-row {
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  /**
+     * Style the columns within a row.
+     *
+     * Columns should always be within a row.
+     */
+}
+.ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column {
+  min-height: 1px;
   padding-left: 15px;
-  margin-top: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  margin-left: 0px;
+  padding-right: 15px;
+  position: relative;
+  /**
+       * These styles only kick in when the screen is large enough.
+       * For smaller screens each column fills the whole row.
+       * @todo: do not depend on bootstrap's variable, also
+       * we should support more breakpoints for phones etc.
+       * What we do want is to not have col-md, col-sm col-xs crap,
+       * instead just 'ww-column' that adjusts through other classes
+       * or media queries.
+       */
+}
+@media (min-width: 992px) {
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column {
+    float: left;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span1 {
+    width: 8.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span2 {
+    width: 16.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span3 {
+    width: 25%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span4 {
+    width: 33.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span5 {
+    width: 41.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span6 {
+    width: 50%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span7 {
+    width: 58.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span8 {
+    width: 66.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span9 {
+    width: 75%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span10 {
+    width: 83.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span11 {
+    width: 91.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-span12 {
+    width: 100%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset1 {
+    margin-left: 8.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset2 {
+    margin-left: 16.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset3 {
+    margin-left: 25%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset4 {
+    margin-left: 33.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset5 {
+    margin-left: 41.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset6 {
+    margin-left: 50%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset7 {
+    margin-left: 58.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset8 {
+    margin-left: 66.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset9 {
+    margin-left: 75%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset10 {
+    margin-left: 83.33333333%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset11 {
+    margin-left: 91.66666667%;
+  }
+  .ww-grid-layout > .ww-grid-layout-row > .ww-grid-layout-column.-offset12 {
+    margin-left: 100%;
+  }
 }
 .ww-horizontal-layout {
   display: flex;

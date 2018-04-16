@@ -26,6 +26,7 @@ import { MenuPage } from './pages/menu';
 import { ButtonGroupPage } from './pages/button-group';
 import { DropDownPage } from './pages/drop-down';
 import { TabLayoutPage } from './pages/tab-layout';
+import {GridLayoutPage} from './pages/grid-layout';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
 import { NavPage } from './pages/nav';
 
@@ -60,7 +61,7 @@ export class App {
     links: { [key: string]: any } = {
 
         layout: {
-
+'grid-layout': new GridLayoutPage(this),
             panel: new PanelPage(this),
             'list-layout': new ListLayoutPage(this),
             'tab-layout': new TabLayoutPage(this),

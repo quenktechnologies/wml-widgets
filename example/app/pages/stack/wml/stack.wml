@@ -8,7 +8,7 @@ import {StackPage} from "../"
 
   <Row>
 
-    <Column ww:size=4>
+    <Column ww:span=4>
 
       <p>Members: <b wml:id="selected">{{@values.text}}</b>.</p>
 

@@ -31,7 +31,7 @@ export class Main extends ___wml.AppView < MultiSelectPage > {
                 html: {},
                 wml: {},
                 ww: {
-                    'size': 6
+                    'span': 6
                 }
             }, [___wml.node('p', {
                 html: {},

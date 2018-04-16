@@ -30,7 +30,7 @@ export class Main extends ___wml.AppView < StackPage > {
                 html: {},
                 wml: {},
                 ww: {
-                    'size': 4
+                    'span': 4
                 }
             }, [___wml.node('p', {
                 html: {},

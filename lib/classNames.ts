@@ -127,9 +127,9 @@ export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 ///classNames:end
 ///classNames:begin
 //@todo: refactor this to be inline with other class names
-export const GRID_LAYOUT = 'container-fluid';
-export const COLUMN = 'ww-column';
-export const ROW = 'row';
+export const GRID_LAYOUT = 'ww-grid-layout';
+export const GRID_LAYOUT_ROW = 'ww-grid-layout-row';
+export const GRID_LAYOUT_COLUMN = 'ww-grid-layout-column';
 ///classNames:end
 ///classNames:begin
 

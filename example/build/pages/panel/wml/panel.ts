@@ -36,7 +36,7 @@ export class Main extends ___wml.AppView < PanelPage > {
                 html: {},
                 wml: {},
                 ww: {
-                    'size': 4
+                    'span': 4
                 }
             }, [___wml.widget(Panel, {
                 html: {},
@@ -48,7 +48,7 @@ export class Main extends ___wml.AppView < PanelPage > {
                 html: {},
                 wml: {},
                 ww: {
-                    'size': 4
+                    'span': 4
                 }
             }, [___wml.widget(Panel, {
                 html: {},
@@ -63,7 +63,7 @@ export class Main extends ___wml.AppView < PanelPage > {
                 html: {},
                 wml: {},
                 ww: {
-                    'size': 4
+                    'span': 4
                 }
             }, [___wml.widget(Panel, {
                 html: {},

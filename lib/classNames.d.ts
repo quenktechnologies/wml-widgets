@@ -70,9 +70,9 @@ export declare const ACTION_BAR = "ww-action-bar";
  * ACTION_BAR_CONTENT class name.
  */
 export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
-export declare const GRID_LAYOUT = "container-fluid";
-export declare const COLUMN = "ww-column";
-export declare const ROW = "row";
+export declare const GRID_LAYOUT = "ww-grid-layout";
+export declare const GRID_LAYOUT_ROW = "ww-grid-layout-row";
+export declare const GRID_LAYOUT_COLUMN = "ww-grid-layout-column";
 /**
  * DRAWER_LAYOUT
  */

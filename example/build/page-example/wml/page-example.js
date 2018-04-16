@@ -28,7 +28,7 @@ var Main = /** @class */ (function (_super) {
                         html: {},
                         wml: {},
                         ww: {
-                            'size': ___context.values.size
+                            'span': ___context.values.size
                         }
                     }, [___wml.domify(___context.children)], ___view)], ___view)], ___view);
         };

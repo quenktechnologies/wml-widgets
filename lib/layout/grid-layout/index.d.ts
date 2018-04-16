@@ -1,8 +1,8 @@
 import { View } from '@quenk/wml';
 import { LayoutAttrs, GenericLayout } from '../';
-export declare const GRID_LAYOUT = "container-fluid";
-export declare const COLUMN = "ww-column";
-export declare const ROW = "row";
+export declare const GRID_LAYOUT = "ww-grid-layout";
+export declare const GRID_LAYOUT_ROW = "ww-grid-layout-row";
+export declare const GRID_LAYOUT_COLUMN = "ww-grid-layout-column";
 /**
  * GridLayoutAttrs
  */
@@ -17,7 +17,10 @@ export interface RowAttrs extends LayoutAttrs {
  * ColumnAttrs
  */
 export interface ColumnAttrs extends LayoutAttrs {
-    size?: number;
+    /**
+     * span indicates the length of the row a Column should span.
+     */
+    span?: number;
 }
 /**
  * GridLayout

@@ -8,7 +8,7 @@ import {MultiSelectPage, Result} from "../"
 
   <Row>
 
-    <Column ww:size=6>
+    <Column ww:span=6>
 
       <p>You selected: <b wml:id="text">{{@values.text()}}</b>.</p>
 

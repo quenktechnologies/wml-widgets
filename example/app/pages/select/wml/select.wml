@@ -8,7 +8,7 @@ import {SelectPage, Result} from "../"
 
   <Row>
 
-    <Column ww:size=6>
+    <Column ww:span=6>
 
       <p>You selected: <b wml:id={{@values.autocomplete.name}}>(nothing)</b>.</p>
 
@@ -27,7 +27,7 @@ import {SelectPage, Result} from "../"
 
    <Row>
 
-    <Column ww:size=6>
+    <Column ww:span=6>
 
       <p>You selected: <b wml:id={{@values.native.name}}>(nothing)</b>.</p>
 

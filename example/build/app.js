@@ -23,6 +23,7 @@ var menu_1 = require("./pages/menu");
 var button_group_1 = require("./pages/button-group");
 var drop_down_1 = require("./pages/drop-down");
 var tab_layout_1 = require("./pages/tab-layout");
+var grid_layout_1 = require("./pages/grid-layout");
 var horizontal_layout_1 = require("./pages/horizontal-layout");
 var nav_1 = require("./pages/nav");
 var displayName = function (s) {
@@ -54,6 +55,7 @@ var App = /** @class */ (function () {
          */
         this.links = {
             layout: {
+                'grid-layout': new grid_layout_1.GridLayoutPage(this),
                 panel: new panel_1.PanelPage(this),
                 'list-layout': new list_layout_1.ListLayoutPage(this),
                 'tab-layout': new tab_layout_1.TabLayoutPage(this),
