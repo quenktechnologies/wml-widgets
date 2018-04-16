@@ -30,6 +30,12 @@ export interface ColumnAttrs extends LayoutAttrs {
    */
     span?: number
 
+  /**
+   * offset the column location in the row by the provided number
+   * of columns (max 12).
+   */
+  offset?: number
+
 };
 
 /**
@@ -83,8 +89,9 @@ export class Column extends GenericLayout<ColumnAttrs> {
             id: 'column',
 
             class: this.attrs.ww ?
-          concat(GRID_LAYOUT_COLUMN, this.attrs.ww.span ?
-                `-span${this.attrs.ww.span}` : '-span12',
+          concat(GRID_LAYOUT_COLUMN, 
+            this.attrs.ww.span ? `-span${this.attrs.ww.span}` : '-span12',
+            this.attrs.ww.offset ? `-offset${this.attrs.ww.offset}` : '',
                 this.attrs.ww.class) : concat(GRID_LAYOUT_COLUMN, '-span12')
 
         }

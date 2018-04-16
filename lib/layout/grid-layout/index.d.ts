@@ -21,6 +21,11 @@ export interface ColumnAttrs extends LayoutAttrs {
      * span indicates the length of the row a Column should span.
      */
     span?: number;
+    /**
+     * offset the column location in the row by the provided number
+     * of columns (max 12).
+     */
+    offset?: number;
 }
 /**
  * GridLayout
