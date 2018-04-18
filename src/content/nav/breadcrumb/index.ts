@@ -8,6 +8,7 @@ export const BREADCRUMB = 'ww-breadcrumb'; //@todo un-bootstrap
 ///classNames:end
 
 export {Item} from '../item';
+export {Link} from '../link';
 
 /**
  * Breadcrumb

@@ -2,6 +2,7 @@ import { Component, View } from '@quenk/wml';
 import { WidgetAttrs, StylableAttrs } from '../../..';
 export declare const BREADCRUMB = "ww-breadcrumb";
 export { Item } from '../item';
+export { Link } from '../link';
 /**
  * Breadcrumb
  */
