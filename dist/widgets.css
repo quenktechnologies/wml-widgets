@@ -7942,7 +7942,7 @@ button.close {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f6f7f9;
+  background-color: inherit;
   color: #333333;
 }
 .ww-drawer-layout > .ww-drawer {
@@ -7954,10 +7954,9 @@ button.close {
 .ww-main-layout {
   width: auto;
   height: auto;
-  min-height: 1024px;
   overflow-x: auto;
   overflow-y: auto;
-  background-color: transparent;
+  background-color: inherit;
   padding: 60px 0px;
 }
 /* 
