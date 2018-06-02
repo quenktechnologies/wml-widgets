@@ -73,6 +73,7 @@ export class Main < V > extends ___wml.AppView < Select < V > > {
                     'id': ___context.values.search.id
                 },
                 ww: {
+                    'name': ___context.values.search.name,
                     'class': ___context.values.search.class,
                     'placeholder': ___context.values.search.placeholder,
                     'readOnly': ___context.values.search.readOnly,

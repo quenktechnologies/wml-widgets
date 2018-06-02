@@ -99,6 +99,7 @@ export declare class Select<V> extends GenericFeedbackControl<V, SelectAttrs<V>>
         };
         search: {
             id: string;
+            name: string;
             class: string;
             placeholder: string;
             readOnly: boolean;

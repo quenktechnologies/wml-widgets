@@ -48,6 +48,7 @@ import {Select} from "../"
 
   <Search
     wml:id={{@values.search.id}}
+    ww:name={{@values.search.name}}
     ww:class={{@values.search.class}}
     ww:placeholder={{@values.search.placeholder}} 
     ww:readOnly={{@values.search.readOnly}}

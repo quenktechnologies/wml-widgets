@@ -148,6 +148,8 @@ export class Select<V>
 
             id: 'search',
 
+          name: this.attrs.ww.name,
+
             class: this.attrs.ww.inputClass,
 
             placeholder: this.attrs.ww.placeholder ?
