@@ -112,6 +112,12 @@ export declare abstract class GenericFeedbackControl<V, A extends FeedbackContro
              */
             id: string;
         };
+        messages: {
+            /**
+             * id of the element that contains feedback messages.
+             */
+            id: string;
+        };
     };
     setMessage: SetMessage<V, A, GenericFeedbackControl<V, A>>;
     success: Success<V, A, GenericFeedbackControl<V, A>>;

@@ -60,6 +60,6 @@ import {Select} from "../"
     wml:id={{@values.menu.id}}
     ww:hidden=true />
 
-   {{<message(@values.help.id)(@values.help)>}}
+   {{<message(@values.messages.id)(@values.messages)>}}
 
 </div>

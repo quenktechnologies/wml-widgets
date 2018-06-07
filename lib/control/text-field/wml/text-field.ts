@@ -43,7 +43,7 @@ export const textarea = (___context: TextField) => (___view: ___wml.View) => ___
     }
 }, [___wml.domify(___context.values.control.value)], ___view);;
 export const control = (___context: TextField) => (___view: ___wml.View) => ((___context.values.control.rows === 1)) ? ___wml.domify(input(___context)(___view)) : ___wml.domify(textarea(___context)(___view));;
-export const group = (___context: TextField) => (___view: ___wml.View) => ___wml.box(___wml.domify(label(___context.values.label.id)(___context.values.label.text)(___view)), ___wml.domify(control(___context)(___view)), ___wml.domify(message(___context.values.help.id)(___context.values.help)(___view)));
+export const group = (___context: TextField) => (___view: ___wml.View) => ___wml.box(___wml.domify(label(___context.values.label.id)(___context.values.label.text)(___view)), ___wml.domify(control(___context)(___view)), ___wml.domify(message(___context.values.messages.id)(___context.values.messages)(___view)));
 
 export class Main extends ___wml.AppView < TextField > {
 

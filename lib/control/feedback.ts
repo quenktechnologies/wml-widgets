@@ -153,12 +153,20 @@ export abstract class GenericFeedbackControl<V, A extends FeedbackControlAttrs<V
              */
             id: string
 
+        },
+        messages: {
+
+            /**
+             * id of the element that contains feedback messages.
+             */
+            id: string
+
         }
 
     }
 
     setMessage: SetMessage<V, A, GenericFeedbackControl<V, A>> =
-        setMessage(this)(_root(this));
+        setMessage(this)(_messages(this));
 
     success: Success<V, A, GenericFeedbackControl<V, A>> =
         success(this)(_root(this));
@@ -179,6 +187,9 @@ export abstract class GenericFeedbackControl<V, A extends FeedbackControlAttrs<V
 
 const _root = <V, A extends FeedbackControlAttrs<V>, C extends GenericFeedbackControl<V, A>>
     (c: C) => () => c.view.findById<HTMLElement>(c.values.root.id);
+
+const _messages = <V, A extends FeedbackControlAttrs<V>, C extends GenericFeedbackControl<V, A>>
+    (c: C) => () => c.view.findById<HTMLElement>(c.values.messages.id);
 
 /** 
  * setState helper.
@@ -217,15 +228,14 @@ export const error = <V, A extends FeedbackControlAttrs<V>, C extends FeedbackCo
 export const setMessage = <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>
     (c: C) => (fn: () => Maybe<HTMLElement>): SetMessage<V, A, C> => (msg: string): C =>
         fn()
-            .map((message: HTMLElement) => {
+            .map((messages: HTMLElement) => {
 
                 let node = document.createTextNode(msg);
 
-                if (message.firstChild) {
-                    message.replaceChild(node, message.firstChild);
-                } else {
-                    message.appendChild(node);
-                }
+                while (messages.lastChild)
+                    messages.removeChild(messages.lastChild);
+
+                messages.appendChild(node);
 
             })
             .map(() => c)

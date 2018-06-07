@@ -53,7 +53,7 @@ import {TextField}  from "../"
 
    {{ <control(@)> }}
 
-   {{ <message(@values.help.id)(@values.help)> }}
+   {{ <message(@values.messages.id)(@values.messages)> }}
 
 {% endfun %}
 

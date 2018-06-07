@@ -123,7 +123,7 @@ export class Select<V>
             id: 'root',
             class: concat(SELECT, this.attrs.ww.class)
         },
-        help: {
+        messages: {
 
             id: 'message',
             success: this.attrs.ww.success,

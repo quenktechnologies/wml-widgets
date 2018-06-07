@@ -57,7 +57,7 @@ export declare class TextField extends GenericFormControl<string, TextFieldAttrs
             id: string;
             class: string;
         };
-        help: {
+        messages: {
             id: string;
             success: string;
             error: string;

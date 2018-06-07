@@ -89,7 +89,7 @@ export class Main < V > extends ___wml.AppView < Select < V > > {
                 ww: {
                     'hidden': true
                 }
-            }, [], ___view), ___wml.domify(message(___context.values.help.id)(___context.values.help)(___view))], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.messages.id)(___context.values.messages)(___view))], ___view);
 
     }
 

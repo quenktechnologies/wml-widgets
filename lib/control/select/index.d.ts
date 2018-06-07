@@ -82,7 +82,7 @@ export declare class Select<V> extends GenericFeedbackControl<V, SelectAttrs<V>>
             id: string;
             class: string;
         };
-        help: {
+        messages: {
             id: string;
             success: string;
             error: string;

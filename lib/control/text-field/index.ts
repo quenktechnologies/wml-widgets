@@ -88,7 +88,7 @@ export class TextField extends GenericFormControl<string, TextFieldAttrs> {
             class: concat('form-group', this.attrs.ww.class, selectState(this.attrs.ww))
 
         },
-        help: {
+        messages: {
 
             id: 'message',
             success: this.attrs.ww.success,
