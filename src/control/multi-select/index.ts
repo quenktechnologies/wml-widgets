@@ -1,7 +1,9 @@
 import * as views from './wml/multi-select';
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
-import { ControlAttrs, Event, GenericControl } from '../';
+import { Event } from '../';
+import { FeedbackControlAttrs, GenericFeedbackControl } from '../feedback';
+import { FormControlAttrs } from '../form';
 import { TermChangedEvent, ItemChangedEvent } from '../select';
 import { StackChangedEvent, Stack } from '../stack';
 import { Select } from '../select';
@@ -15,7 +17,9 @@ export const MULTI_SELECT = 'ww-multi-select';
 /**
  * MultiSelectAttrs
  */
-export interface MultiSelectAttrs<V> extends ControlAttrs<V[]> {
+export interface MultiSelectAttrs<V> extends
+    FormControlAttrs<V[]>,
+    FeedbackControlAttrs<V[]> {
 
     /**
      * onSearch receives events from the SearchControl.
@@ -58,7 +62,7 @@ export class ItemsChangedEvent<V> extends Event<V[]> { }
  *     |   <item>              x | 
  *     +-------------------------+
  */
-export class MultiSelect<V> extends GenericControl<V[], MultiSelectAttrs<V>> {
+export class MultiSelect<V> extends GenericFeedbackControl<V[], MultiSelectAttrs<V>> {
 
     view: View = new views.Main(this);
 
@@ -79,10 +83,10 @@ export class MultiSelect<V> extends GenericControl<V[], MultiSelectAttrs<V>> {
             class: concat(MULTI_SELECT, this.attrs.ww && this.attrs.ww.class)
 
         },
-        help: {
+        label: {
 
-            id: 'help'
-
+            id: this.attrs.ww.name,
+            text: this.attrs.ww.label || ''
 
         },
         search: {
@@ -97,6 +101,14 @@ export class MultiSelect<V> extends GenericControl<V[], MultiSelectAttrs<V>> {
 
             },
             onChange: ({ value }: ItemChangedEvent<V>) => this.push(value)
+
+        },
+        messages: {
+
+            id: 'message',
+            success: this.attrs.ww.success,
+            error: this.attrs.ww.error,
+            warning: this.attrs.ww.warning
 
         },
         stack: {

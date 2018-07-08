@@ -1,10 +1,13 @@
 import {Select} from "../../select"
 import {Stack} from "../../stack"
+import {label,message} from "../../wml"
 import {MultiSelect} from "../"
 
 {% main [V](MultiSelect[V]) %}
 
 <div class={{@values.root.class}}>
+
+  {{<label(@values.label.id)(@values.label.text)>}}
 
   <Select
     wml:id={{@values.search.id}}
@@ -20,5 +23,7 @@ import {MultiSelect} from "../"
     ww:value={{@values.stack.value}}
     ww:decorator={{@values.stack.decorator}}
     ww:onChange={{@values.stack.onChange}} />
+
+   {{<message(@values.messages.id)(@values.messages)>}}
 
 </div>

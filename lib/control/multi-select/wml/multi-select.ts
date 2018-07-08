@@ -6,6 +6,10 @@ import {
     Stack
 } from '../../stack';;
 import {
+    label,
+    message
+} from '../../wml';;
+import {
     MultiSelect
 } from '../';
 
@@ -23,7 +27,7 @@ export class Main < V > extends ___wml.AppView < MultiSelect < V > > {
                     'class': ___context.values.root.class
                 },
                 wml: {}
-            }, [___wml.widget(Select, {
+            }, [___wml.domify(label(___context.values.label.id)(___context.values.label.text)(___view)), ___wml.widget(Select, {
                 html: {},
                 wml: {
                     'id': ___context.values.search.id
@@ -46,7 +50,7 @@ export class Main < V > extends ___wml.AppView < MultiSelect < V > > {
                     'decorator': ___context.values.stack.decorator,
                     'onChange': ___context.values.stack.onChange
                 }
-            }, [], ___view)], ___view);
+            }, [], ___view), ___wml.domify(message(___context.values.messages.id)(___context.values.messages)(___view))], ___view);
 
     }
 
