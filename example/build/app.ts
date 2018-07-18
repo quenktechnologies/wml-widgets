@@ -29,6 +29,7 @@ import { TabLayoutPage } from './pages/tab-layout';
 import {GridLayoutPage} from './pages/grid-layout';
 import { HorizontalLayoutPage } from './pages/horizontal-layout';
 import { NavPage } from './pages/nav';
+import {NativeSelectPage} from './pages/native-select';
 
 const displayName = (s: string) =>
     [s[0].toUpperCase()]
@@ -85,7 +86,8 @@ export class App {
             'drop-down': new DropDownPage(this),
             stack: new StackPage(this),
             checkbox: new CheckboxPage(this),
-            'switch': new SwitchPage(this)
+          'switch': new SwitchPage(this),
+          'native-select': new NativeSelectPage(this)
         },
         content: {
 

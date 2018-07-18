@@ -1,0 +1,19 @@
+import {Select} from "../"
+
+{% main [V](Select[V]) %}
+
+<select
+  class={{@values.className}}
+  onchange={{@values.onchange}}
+  value={{@values.selected}}>
+
+  <option disabled="true" selected>{{@values.instruction}}</option>
+  
+  {% for opt,index:Number in @values.options %}
+
+    <option value={{""+index}}>{{opt.title}}</option>
+
+  {% endfor %}
+
+</select>
+

@@ -182,4 +182,5 @@ export declare const MENU = "ww-menu";
 export declare const MENU_DIVIDER = "ww-menu__divider";
 export declare const MENU_HEADER = "ww-menu__header";
 export declare const MULTI_SELECT = "ww-multi-select";
+export declare const NATIVE_SELECT = "ww-native-select";
 export declare const CHECKBOX = "ww-checkbox";

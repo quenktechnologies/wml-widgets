@@ -26,6 +26,7 @@ var tab_layout_1 = require("./pages/tab-layout");
 var grid_layout_1 = require("./pages/grid-layout");
 var horizontal_layout_1 = require("./pages/horizontal-layout");
 var nav_1 = require("./pages/nav");
+var native_select_1 = require("./pages/native-select");
 var displayName = function (s) {
     return [s[0].toUpperCase()]
         .concat(s
@@ -78,7 +79,8 @@ var App = /** @class */ (function () {
                 'drop-down': new drop_down_1.DropDownPage(this),
                 stack: new stack_1.StackPage(this),
                 checkbox: new checkbox_1.CheckboxPage(this),
-                'switch': new switch_1.SwitchPage(this)
+                'switch': new switch_1.SwitchPage(this),
+                'native-select': new native_select_1.NativeSelectPage(this)
             },
             content: {
                 nav: new nav_1.NavPage(this),

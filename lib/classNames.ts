@@ -290,5 +290,8 @@ export const MENU_HEADER = 'ww-menu__header';
 export const MULTI_SELECT = 'ww-multi-select';
 ///classNames:end
 ///classNames:begin
+export const NATIVE_SELECT = 'ww-native-select';
+///classNames:end
+///classNames:begin
 export const CHECKBOX = 'ww-checkbox';
 ///classNames:end

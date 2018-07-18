@@ -1,0 +1,27 @@
+import {GridLayout,Row,Column} from "../../../../../lib/layout/grid-layout"
+import {Select} from "../../../../../lib/control/native/select"
+import {NativeSelectPage} from "../"
+
+{% main (NativeSelectPage) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column>
+
+      <p>You selected: <b wml:id="select-content">(None)</b>.</p>
+
+      <p>
+        <Select 
+          wml:id="select"
+          ww:name="select"
+          ww:options={{@values.options}}
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>
