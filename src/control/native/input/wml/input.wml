@@ -1,0 +1,14 @@
+import {Input} from "../"
+
+{% main (Input) %}
+<input
+  name={{@values.name}}
+  type={{@values.type}}
+  placeholder={{@values.placeholder}}
+  oninput={{@values.oninput}} 
+  value={{@values.value}}
+  disabled={{@values.disabled}}
+  readonly={{@values.readOnly}}
+  class={{@values.className}} />
+
+

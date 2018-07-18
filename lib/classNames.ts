@@ -293,5 +293,8 @@ export const MULTI_SELECT = 'ww-multi-select';
 export const NATIVE_SELECT = 'ww-native-select';
 ///classNames:end
 ///classNames:begin
+export const NATIVE_INPUT = 'ww-native-input';
+///classNames:end
+///classNames:begin
 export const CHECKBOX = 'ww-checkbox';
 ///classNames:end

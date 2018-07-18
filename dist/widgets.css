@@ -9545,6 +9545,13 @@ buttonLink styles the button to appear like a link.
 .ww-select {
   margin-bottom: 15px;
 }
+/**
+ * .__NATIVE_CONTROL__ provides a common style for native form controls.
+ * TODO: variablize.
+ */
+/**
+ * .ww-native-select styling.
+ */
 .ww-native-select {
   display: block;
   width: auto;
@@ -9594,6 +9601,60 @@ fieldset[disabled] .ww-native-select {
   cursor: not-allowed;
 }
 textarea.ww-native-select {
+  height: auto;
+}
+/**
+ * ww-native-input styling.
+ */
+.ww-native-input {
+  display: block;
+  width: auto;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #777;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+.ww-native-input:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.ww-native-input::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+.ww-native-input:-ms-input-placeholder {
+  color: #999;
+}
+.ww-native-input::-webkit-input-placeholder {
+  color: #999;
+}
+.ww-native-input::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.ww-native-input[disabled],
+.ww-native-input[readonly],
+fieldset[disabled] .ww-native-input {
+  background-color: #eeeeee;
+  opacity: 1;
+}
+.ww-native-input[disabled],
+fieldset[disabled] .ww-native-input {
+  cursor: not-allowed;
+}
+textarea.ww-native-input {
   height: auto;
 }
 /*
