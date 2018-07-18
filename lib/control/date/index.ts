@@ -188,7 +188,7 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
                     () => _prefix(value);
                 this.values.date.value = this.calculate();
                 this.values.date.fire();
-                console.error(value, value.length);
+
                 if (value.length === 2)
                     this
                         .view
