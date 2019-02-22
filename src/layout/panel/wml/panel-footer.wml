@@ -1,9 +1,0 @@
-import {PanelFooter} from ".."
-
-{% main (PanelFooter) %}
-
-<div 
-  wml:id={{@values.content.id}}
-  class={{@values.content.class}}> 
-  {{@children}}
-</div>

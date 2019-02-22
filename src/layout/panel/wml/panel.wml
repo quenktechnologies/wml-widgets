@@ -1,9 +1,33 @@
-import {Panel} from ".."
+{% import * as panel from ".." %}
 
-{% main (Panel) %}
-  
-<div 
+{% view Panel (panel.Panel) %}
+<div
   wml:id={{@values.content.id}}
-  class={{@values.content.class}}>
-  {{@children}}
+  class={{@values.content.className}}>
+  {{...@children}}
+</div>
+
+{% view PanelHeader (panel.PanelHeader) %}
+
+<div
+  wml:id={{@values.content.id}}
+  class={{@values.content.className}}>
+  {{...@children}}
+</div>
+
+
+{% view PanelBody (panel.PanelBody) %}
+
+<div
+  wml:id={{@values.content.id}}
+  class={{@values.content.className}}>
+  {{...@children}}
+</div>
+
+{% view PanelFooter (panel.PanelFooter) %}
+
+<div
+  wml:id={{@values.content.id}}
+  class={{@values.content.className}}>
+  {{...@children}}
 </div>
