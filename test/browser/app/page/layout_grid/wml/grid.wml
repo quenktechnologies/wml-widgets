@@ -1,0 +1,81 @@
+{% import (GridLayout, Row, Column) from "../../../../../../lib/layout/grid" %}
+{% import (GridLayoutPage) from "../" %}
+
+{% view Main (GridLayoutPage) %}
+ 
+<GridLayout ww:className={{@values.root.className}}>
+
+  <Row>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+    <Column ww:span=1>Span 1</Column>
+
+  </Row>
+  
+  <Row>
+
+    <Column ww:span=8>Span 8</Column>
+
+    <Column ww:span=4>Span 4</Column>
+
+  </Row>
+
+  <Row>
+
+    <Column ww:span=4>Span 4</Column>
+
+    <Column ww:span=4>Span 4</Column>
+
+    <Column ww:span=4>Span 4</Column>
+
+  </Row>
+
+  <Row>
+
+    <Column ww:span=6>Span 6</Column>
+
+    <Column ww:span=6>Span 6</Column>
+
+  </Row>
+
+  <Row>
+
+    <Column ww:span=6>Span 6</Column>
+
+    <Column ww:span=6>Span 6</Column>
+
+    <Column ww:span=6>Span 6</Column>
+
+    <Column ww:span=6>Span 6</Column>
+
+  </Row>
+
+  <Row>
+
+    <Column ww:span=12>Span 12</Column>
+
+  </Row>
+
+</GridLayout>
+
