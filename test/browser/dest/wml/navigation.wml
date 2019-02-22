@@ -1,0 +1,53 @@
+{% import (App) from "../app" %}
+{% import (Nav) from "../../../../lib/menu/nav" %}
+{% import (Item) from "../../../../lib/menu/item" %}
+{% import (MenuHeader) from "../../../../lib/menu/header" %}
+{% import (Link) from "../../../../lib/content/link" %}
+
+{% view Navigation (App) %}
+
+<Nav ww:vertical=true>
+
+  <Item>
+
+    <Link
+      wml:group="links"
+      ww:active={{@page == 'home'}}
+      ww:name="home"
+      ww:href="#"
+      ww:onClick={{@navigate}}
+      ww:text="Home" />
+
+  </Item>
+
+    {% for items, section of @pages %}
+
+      <Item>
+
+        <MenuHeader ww:text={{section}} />
+
+        <Nav ww:vertical=true>
+
+          {% for _,name of items %}
+
+            <Item>
+
+              <Link
+                wml:group="links"
+                ww:name={{name}}
+                ww:href={{"#/"+name}}
+                ww:onClick={{@navigate}}
+                ww:active={{@page == name}}
+                ww:text={{name}} />
+
+            </Item>
+     
+          {% endfor %}
+
+        </Nav>
+
+      </Item>
+
+      {% endfor %}
+    
+</Nav>

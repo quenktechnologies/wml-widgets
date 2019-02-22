@@ -1,0 +1,64 @@
+{% import (GridLayout,Row,Column) from "../../../../../../lib/layout/grid" %}
+{% import (
+  Panel,
+  PanelHeader,
+  PanelBody,
+  PanelFooter)
+from "../../../../../../lib/layout/panel" %}
+{% import (styles) from "../../../../../../lib/content/style" %}
+{% import (PanelPage) from "../" %}
+
+{% view Main (PanelPage) %}
+<GridLayout>
+
+  {% for style in styles %}
+
+    <Row>
+
+      <Column ww:span=4>
+
+        <Panel ww:style={{style}}>
+
+          <PanelBody>
+            PanelBody only.
+          </PanelBody>
+
+        </Panel>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Panel ww:style={{style}}>
+
+          <PanelHeader>
+            With PanelHeader
+          </PanelHeader>
+
+          <PanelBody>
+            Lorem impsum dilium net set.
+          </PanelBody>
+
+        </Panel>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Panel ww:style={{style}}>
+
+          <PanelHeader>With PanelFooter</PanelHeader>
+
+          <PanelBody>Lorem impsum dilium net set.</PanelBody>
+
+          <PanelFooter>Meh foot.</PanelFooter>
+
+        </Panel>
+
+      </Column>
+
+    </Row>
+
+  {% endfor %}
+
+ </GridLayout>

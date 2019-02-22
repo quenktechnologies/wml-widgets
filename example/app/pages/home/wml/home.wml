@@ -1,4 +1,0 @@
-import {HomePage} from "../"
-
-{% main (HomePage) %}
-<b>Index</b>

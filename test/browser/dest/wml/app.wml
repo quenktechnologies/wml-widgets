@@ -1,0 +1,32 @@
+{% import (DrawerLayout) from "../../../../lib/layout/drawer" %}
+{% import (ActionBar) from "../../../../lib/layout/action-bar" %}
+{% import (App) from "../app" %}
+{% import (Link) from "../../../../lib/content/link" %}
+{% import (MenuIcon) from "../../../../lib/content/menu-icon" %}
+{% import (MainLayout) from "../../../../lib/layout/main" %}
+{% import (Navigation) from "./navigation" %}
+
+{% view  Main (App) %}
+
+<DrawerLayout 
+  wml:id={{@values.id.layout}} 
+  ww:drawerContent={{[<Navigation(@)>]}}>
+
+  <ActionBar>
+
+    <Link
+      ww:onClick={{@toggleDrawer}}>
+
+      <MenuIcon/>
+
+    </Link>
+
+  </ActionBar>
+
+  <MainLayout>
+
+    {{...@content}}
+
+  </MainLayout>
+
+</DrawerLayout>
