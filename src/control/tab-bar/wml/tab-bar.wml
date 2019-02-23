@@ -1,8 +1,25 @@
-import {TabBar} from ".."
+{% import * as tabbar from "../" %}
 
-{% main (TabBar) %}
-<ul class={{@values.root.class}}>
+{% view TabBar (tabbar.TabBar) %}
+<ul id={{@values.root.id}} class={{@values.root.className}}>
 
-  {{@children}}
+  {{...@children}}
 
 </ul>
+
+{% view Tab (tabbar.Tab) %}
+<li 
+  wml:id={{@values.root.wml.id}}
+  id={{@values.root.id}}
+  class={{@values.root.className}}>
+
+    <a 
+      wml:id={{@values.a.wml.id}}
+      href="#"
+      onclick={{@values.a.clicked}}>
+
+          {{...@values.a.content}}
+
+    </a> 
+
+</li>

@@ -1,0 +1,69 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (TabBar, Tab) from "../../../../../../lib/control/tab-bar" %}
+{% import (TabBarPage) from "../" %}
+
+{% view Main (TabBarPage) %}
+ 
+<Demo>
+
+  <Demo>
+
+    <TabBar>
+
+      <Tab 
+        ww:active={{@tab == 'First'}}
+        ww:text="First"
+        ww:name="First"
+        ww:onClick={{@clicked}}/>
+
+      <Tab 
+        ww:active={{@tab == 'Second'}}
+        ww:text="Second"
+        ww:name="Second"
+        ww:onClick={{@clicked}}/>
+
+      <Tab 
+        ww:active={{@tab == 'Third'}}
+        ww:text="Third"
+        ww:name="Third"
+        ww:onClick={{@clicked}}/>
+
+    </TabBar>
+
+  </Demo>
+
+  <Demo>
+
+    <TabBar ww:justify=true>
+
+      <Tab 
+        ww:active={{@tab == 'First'}}
+        ww:text="First"
+        ww:name="First"
+        ww:onClick={{@clicked}}/>
+
+      <Tab 
+        ww:active={{@tab == 'Second'}}
+        ww:text="Second"
+        ww:name="Second"
+        ww:onClick={{@clicked}}/>
+
+      <Tab 
+        ww:active={{@tab == 'Third'}}
+        ww:text="Third"
+        ww:name="Third"
+        ww:onClick={{@clicked}}/>
+
+    </TabBar>
+
+  </Demo>
+
+  <Demo>
+
+    <p wml:id="content">{{@content}}</p>
+
+  </Demo>
+
+</Demo>
+
+
