@@ -1,0 +1,23 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (ListLayout, ListLayoutItem) from "../../../../../../lib/layout/list" %}
+{% import (ListLayoutPage) from "../" %}
+
+{% view Main (ListLayoutPage) %}
+ 
+<Demo>
+
+   <ListLayout>
+
+    {% for yes,key of @items %}
+
+      <ListLayoutItem ww:active={{yes}}>
+
+        <p>{{document.createTextNode(key)}}</p>
+
+      </ListLayoutItem>
+
+     {% endfor %}
+
+   </ListLayout>
+
+ </Demo>
