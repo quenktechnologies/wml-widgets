@@ -1,0 +1,28 @@
+{% import (TabBar,Tab) from "../../../control/tab-bar" %}
+{% import (TabLayout) from ".." %}
+
+{% view Main (TabLayout) %}
+<div 
+  id={{@values.root.id}}
+  class={{@values.root.className}}>
+
+  <TabBar>
+
+    {% for tab,name of @values.tabs.data %}
+  
+      <Tab 
+        ww:name={{name}}
+        ww:active={{@values.tabs.current == name}}
+        ww:onClick={{@values.tabs.onClick}}>
+
+          {{...@values.tabs.content(tab)}}
+
+      </Tab>
+
+    {% endfor %}
+
+  </TabBar>
+
+  {{...@values.root.content()}}
+
+</div>
