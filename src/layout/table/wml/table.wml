@@ -1,0 +1,34 @@
+{% import * as table from "../" %}
+
+{% view TableHeader (table.TableHeader) %}
+<thead id={{@values.id}} class={{@values.className}}>{{...@children}}</thead>
+
+{% view TableBody (table.TableBody) %}
+<tbody id={{@values.id}} class={{@values.className}}>{{...@children}}</tbody>
+
+{% view TableFooter (table.TableFooter) %}
+<tfoot id={{@values.id}} class={{@values.className}}>{{...@children}}</tfoot>
+
+{% view TableRow (table.TableRow) %}
+<tr 
+ id={{@values.id}} 
+ class={{@values.className}}
+ onclick={{@values.onclick}}>{{...@children}}</tr>
+
+{% view TableHeading (table.TableHeading) %}
+<th
+ id={{@values.id}}
+ class={{@values.className}} 
+ onclick={{@values.onclick}}>{{...@children}}</th>
+
+{% view TableCell (table.TableCell) %}
+<td 
+ id={{@values.id}} 
+ class={{@values.className}}
+ onclick={{@values.onclick}}>{{...@children}}</td>
+
+{% view TableWindow (table.TableWindow) %}
+<div id={{@values.id}} class={{@values.className}}>{{...@children}}</div>
+
+{% view TableLayout (table.TableLayout) %}
+<table id={{@values.id}} class={{@values.className}}>{{...@children}}</table>
