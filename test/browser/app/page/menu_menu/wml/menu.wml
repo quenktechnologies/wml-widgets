@@ -1,0 +1,45 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Menu) from "../../../../../../lib/menu/menu" %}
+{% import (Item) from "../../../../../../lib/menu/item" %}
+{% import (Link) from "../../../../../../lib/content/link" %}
+{% import (MenuPage) from "../" %}
+
+{% view Main (MenuPage) %}
+ 
+<Demo>
+
+      <Menu>
+
+        <Item>
+
+          <h6>Menu</h6>
+
+        </Item>
+
+        <Item>
+        
+          <Link
+            ww:disabled=true 
+            ww:text="Back"/>
+
+        </Item>
+
+        <Item>
+        
+          <Link
+            ww:disabled=true
+            ww:text="Refresh"/>
+            
+        </Item>
+
+        <Item ww:divider=true />
+
+        <Item>
+        
+          <a href="#/menu">Quit</a>
+          
+        </Item>
+
+      </Menu>
+
+ </Demo>
