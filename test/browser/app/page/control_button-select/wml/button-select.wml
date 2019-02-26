@@ -1,0 +1,41 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Style) from "../../../../../../lib/content/style" %}
+{% import (ButtonSelect,MultiButtonSelect) 
+    from "../../../../../../lib/control/button-select" %}
+{% import (ButtonSelectPage) from "../" %}
+
+{% view Main (ButtonSelectPage) %}
+ 
+<Demo>
+
+  <Demo>
+
+    <p>You selected: <b wml:id="select-content">(None)</b>.</p>
+
+    <p>
+        <ButtonSelect 
+          wml:id="select"
+          ww:name="select"
+          ww:style={{Style.Primary}}
+          ww:options={{@values.options}}
+          ww:onChange={{@onChange}} />
+    </p>
+
+  </Demo>
+
+  <Demo>
+  
+    <p>You can also use MultiButtonSelect instead: <b wml:id="multi-content">(None)</b>.</p>
+
+      <p>
+        <MultiButtonSelect 
+          wml:id="multi"
+          ww:name="multi"
+          ww:style={{Style.Warning}}
+          ww:options={{@values.options}}
+          ww:onChange={{@onChangeMulti}} />
+      </p>
+
+  </Demo>
+
+</Demo>
