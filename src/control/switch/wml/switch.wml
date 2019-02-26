@@ -1,0 +1,16 @@
+{% import (Switch) from "../" %}
+
+{% view Main (Switch) %}
+<label id={{@values.root.id}} class={{@values.root.className}}>
+
+  <input 
+  type="checkbox"
+  name={{@values.input.name}}
+  checked={{@values.input.value}}
+  disabled={{@values.input.disabled}}
+  onchange={{@values.input.onChange}}/>
+
+  <div class={{@values.slider.className}}></div>
+
+</label>
+

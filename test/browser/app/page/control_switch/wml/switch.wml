@@ -1,0 +1,17 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Switch) from "../../../../../../lib/control/switch" %}
+{% import (SwitchPage) from "../" %}
+
+{% view Main (SwitchPage) %}
+ 
+<Demo>
+
+    <p>The switch is <b wml:id="content">untouched</b>.</p>
+
+    <p>
+      <Switch 
+        ww:name="switch"
+        ww:onChange={{@onChange}} />
+    </p>
+
+</Demo>
