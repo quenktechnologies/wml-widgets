@@ -1,107 +1,100 @@
 # Current directory
 HERE=$(shell pwd)
 
-WMLC?=node_modules/.bin/wmlc
+WMLC?=./node_modules/.bin/wmlc
 TSC?=./node_modules/.bin/tsc
 BROWSERIFY?=./node_modules/.bin/browserify
 TYPEDOC?=./node_modules/.bin/typedoc
 LESSC?=./node_modules/.bin/lessc
-RMR?=rm -R
-MKDIRP?=mkdir -p
-CPR?=cp -R -u
-TOUCH?=touch
 FIND?=find
 
-# These have class names specific to each widget.
-CLASS_NAMES_FILES:=$(shell $(FIND) src -name classNames.ts)
-
-# Paths to the objects we use for interpolation when building less files.
-JS_VARS_OBJECTS:="./lib/classNames"
-
 # Entry point for the less compiler.
-LESS_INCLUDE_PATHS=less:src
+LESS_INCLUDE_PATHS=node_modules
 
-$(HERE) : lib dist example docs
-	$(TOUCH) $@
-# copy sources to the lib and generates the generated ts code.
-lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml -o -name \*.less)
-	$(shell $(MKDIRP) $@)
-	$(shell $(CPR) src/* $@)
-	$(WMLC) --pretty --extension ts $@ 
+./ : dist lib test
+	touch $@
 
-	$(shell grep -rsl "///classNames:begin" src | \
-	xargs sed -n '/\/\/\/classNames:begin/,/\/\/\/classNames:end/p' \
-	> $(HERE)/lib/classNames.ts) 
-
+lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml) src/classNames.ts
+	rm -R $@ || true
+	cp -R src $@
+	$(WMLC) --extension ts $@ 
 	$(TSC) --sourceMap --project $@ 
-	$(TOUCH) $@ 
+	touch $@ 
+
+src/classNames.ts: $(shell $(FIND) src -name \*.less)
+	mkdir -p lib
+	grep -rsl "///classNames:begin" src | \
+	xargs sed -n "/\/\/\/classNames:begin/,/\/\/\/classNames:end/p" \
+	> $@ 
 
 dist: dist/widgets.css
-	$(TOUCH) $@
+	touch $@
 
 # build a css file you an include on a page to have the css for all widgets.
-dist/widgets.css: lib $(shell $(FIND) less -name \*.less) $(shell $(FIND) lib -name \*.less)
-	$(MKDIRP) dist
+dist/widgets.css: $(shell $(FIND) src -name \*.less) lib
+	mkdir -p dist
 	$(LESSC) --source-map-less-inline \
-	 --js-vars="$(JS_VARS_OBJECTS)" \
+	 --js-vars="./lib/classNames" \
 	--include-path=$(LESS_INCLUDE_PATHS) \
-	--npm-import less/build.less > $@
+	--npm-import src/widgets.less > $@
 
-example: example/public
-	$(TOUCH) $@
+test: test/browser
+	touch $@
 
-example/public: example/public/app.js example/public/app.css
-	$(TOUCH) $@
+test/browser: test/browser/public
+	touch $@
 
-example/public/app.js: example/build
-	$(MKDIRP) example/public
-	$(BROWSERIFY) --debug example/build/app.js > $@ 
+test/browser/public: test/browser/public/app.js\
+                     test/browser/public/app.css\
+		     test/browser/public/test.js
+	touch $@
 
-example/build: $(shell $(FIND) example/app -name \*.ts -o -name \*.wml) lib
-	$(MKDIRP) $@
-	$(CPR) example/app/* $@
-	$(WMLC) --pretty --extension ts $@
+test/browser/public/app.js: test/browser/dest
+	mkdir -p test/browser/public
+	$(BROWSERIFY) --debug test/browser/dest/app.js > $@ 
+
+test/browser/dest: lib test/browser/app
+	rm -R $@ || true
+	cp -r test/browser/app $@
+	$(WMLC) --extension ts $@ 
+	find test/browser/app/page -type d | \
+	echo "export const pages:{[key:string]:any} = {" >\
+	test/browser/dest/pages.ts	
+	ls test/browser/app/page |\
+	sed "s/[^ ]*/'&' : require('.\/page\/&').default,/g" >>\
+	test/browser/dest/pages.ts
+	echo "}" >> test/browser/dest/pages.ts
 	$(TSC) --sourceMap --project $@
-	$(TOUCH) $@
 
-example/public/app.css: lib $(shell $(FIND) example/app -name \*.less) $(shell $(FIND) less -name \*.less)
+test/browser/app: $(shell find test/browser/app -name \*.ts -o -name \*.wml)
+	touch $@
+
+test/browser/public/app.css: lib/classNames.js\
+			     $(shell find src -name \*.less)\
+                             $(shell find test/browser/app -name \*.less)
+	mkdir -p test/browser/public
 	$(LESSC) --source-map-less-inline \
-	--js-vars=$(JS_VARS_OBJECTS) \
+	--js-vars="./lib/classNames" \
 	--include-path=$(LESS_INCLUDE_PATHS) \
 	--npm-import \
 	--source-map-map-inline \
-	example/app/less/app.less > $@
+	test/browser/app/less/app.less > $@
 
+test/browser/public/test.js: test/browser/dest/run.js
+	$(BROWSERIFY) test/browser/dest/run.js > $@
+
+test/browser/dest/run.js: $(shell find test/browser/unit -name \*_test.ts)
+	mkdir -p test/browser/dest
+	cd test/browser/unit/ && \
+	find . -name \*_test.js | \
+	sed 's/[^ ]*/require("&");/g' >> ../dest/run.js
+
+.PHONY: docs
 docs: src
 	$(TYPEDOC) --out docs \
 	  --excludeExternals \
 	  --excludeNotExported \
-	  --tsconfig src/tsconfig.json 
-	 
+	  --tsconfig src/tsconfig.json
 	 touch docs/.nojekyll
-
-.PHONY: clean
-clean: clean-build clean-example clean-docs
-
-.PHONY: clean-build
-clean-build:
-	-$(RMR) lib dist || true
-
-.PHONY: clean-example
-clean-example:
-	$(RMR) example/build || true
-
-.PHONY: clean-docs
-clean-docs:
-	$(RMR) docs || true
-
-.PHONY: remove-js
-remove-js:
-	$(eval JS=$(shell $(FIND) src -name \*.js))
-	$(eval DT=$(shell $(FIND) src -name \*.d.ts))
-	$(eval SM=$(shell $(FIND) src -name \*.map))
-	$(foreach j,$(DT),$(shell rm $(j)))
-	$(foreach j,$(SM),$(shell rm $(j)))
-	$(foreach j,$(JS),$(shell rm $(j)))
 
 .DELETE_ON_ERROR:
