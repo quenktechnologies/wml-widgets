@@ -1,0 +1,24 @@
+{% import (Select) from "../../select" %}
+{% import (Stack) from "../../stack" %}
+{% import (MultiSelect) from "../" %}
+
+{% view  Main [V](MultiSelect[V]) %}
+
+<div id={{@values.root.id}} class={{@values.root.className}}>
+
+  <Select
+    wml:id={{@values.search.wml.id}}
+    ww:name={{@values.search.name}}
+    ww:value={{@values.search.value}}
+    ww:stringifier={{@values.stack.decorator}}
+    ww:onSearch={{@values.search.onSearch}}
+    ww:onChange={{@values.search.onChange}} />
+
+  <Stack
+    wml:id={{@values.stack.wml.id}}
+    ww:name={{@values.stack.name}}
+    ww:value={{@values.stack.value}}
+    ww:decorator={{@values.stack.decorator}}
+    ww:onChange={{@values.stack.onChange}} />
+
+</div>
