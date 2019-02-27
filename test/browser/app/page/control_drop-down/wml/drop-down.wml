@@ -1,0 +1,43 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (DropDown) from "../../../../../../lib/control/drop-down" %}
+{% import (Menu) from "../../../../../../lib/menu/menu" %}
+{% import (Item) from "../../../../../../lib/menu/item" %}
+{% import (DropDownPage) from "../" %}
+
+{% view Main (DropDownPage) %}
+<Demo>
+
+  <p>
+
+    <DropDown 
+      ww:buttonText="Click Me">
+
+      <Menu>
+
+        <Item>
+          <a href="#" onclick={{@onClick('You clicked one')}}>One</a>
+        </Item>
+
+        <Item>
+          <a href="#" onclick={{@onClick('You clicked two')}}>Two</a>
+        </Item>
+
+        <Item>
+          <a href="#" onclick={{@onClick('You clicked three')}}>Three</a>
+        </Item>
+
+      </Menu>
+
+    </DropDown>
+
+    <DropDown 
+      ww:buttonText="Me Too"
+      ww:autoClose=false>
+
+      <h1>Any flow content can go here!</h1>
+
+    </DropDown>
+
+  </p>
+
+</Demo>

@@ -1,0 +1,38 @@
+{% import (Button) from "../../button" %}
+{% import ( Caret) from "../../../content/caret" %}
+{% import (DropDown) from "../" %}
+
+{% fun button (d:DropDown) %}
+
+  <Button 
+    ww:class={{d.values.button.className}}
+    ww:onClick={{d.values.toggle.onClick}}
+    ww:text={{d.values.button.text}}/>
+
+  <Button
+    ww:class={{d.values.toggle.className}}
+    ww:onClick={{d.values.toggle.onClick}}>
+
+    <Caret/>
+
+  </Button>
+
+{% endfun %}
+
+{% view Main (DropDown) %}
+
+<div 
+  wml:id={{@values.root.wml.id}} 
+  class={{@values.root.className}}>
+
+  {{...<(@values.button.template())(@)>}}
+
+  <div
+    wml:id={{@values.content.wml.id}}
+    class={{@values.content.className}}>
+
+      {{...@values.content.render()}}
+
+  </div>
+
+</div>
