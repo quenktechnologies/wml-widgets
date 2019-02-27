@@ -6,14 +6,21 @@ var panel_1 = require("../../../../../../lib/layout/panel");
 ;
 var style_1 = require("../../../../../../lib/content/style");
 ;
+//@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
-exports.$$forIn = function (list, f, alt) {
+//@ts-ignore:6192
+var __if = function (__expr, __conseq, __alt) {
+    return (__expr) ? __conseq() : __alt();
+};
+//@ts-ignore:6192
+var __forIn = function (list, f, alt) {
     var ret = [];
     for (var i = 0; i < list.length; i++)
         ret = ret.concat(f(list[i], i, list));
     return ret.length === 0 ? alt() : ret;
 };
-exports.$$forOf = function (o, f, alt) {
+//@ts-ignore:6192
+var __forOf = function (o, f, alt) {
     var ret = [];
     for (var key in o)
         if (o.hasOwnProperty(key))
@@ -22,41 +29,40 @@ exports.$$forOf = function (o, f, alt) {
 };
 var Main = /** @class */ (function () {
     function Main(__context) {
-        var _this = this;
         this.ids = {};
         this.groups = {};
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return _this.widget(grid_1.GridLayout, { html: {}, wml: {} }, exports.$$forIn(style_1.styles, function (style, _$$i, _$$all) {
+            return __this.widget(grid_1.GridLayout, { html: {}, wml: {} }, __forIn(style_1.styles, function (style, _$$i, _$$all) {
                 return ([
-                    _this.widget(grid_1.Row, { html: {}, wml: {} }, [
-                        _this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            _this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
-                                _this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
+                    __this.widget(grid_1.Row, { html: {}, wml: {} }, [
+                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
+                            __this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
+                                __this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
                                     document.createTextNode("\n            PanelBody only.\n          ")
                                 ])
                             ])
                         ]),
-                        _this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            _this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
-                                _this.widget(panel_1.PanelHeader, { html: {}, wml: {} }, [
+                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
+                            __this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
+                                __this.widget(panel_1.PanelHeader, { html: {}, wml: {} }, [
                                     document.createTextNode("\n            With PanelHeader\n          ")
                                 ]),
-                                _this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
+                                __this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
                                     document.createTextNode("\n            Lorem impsum dilium net set.\n          ")
                                 ])
                             ])
                         ]),
-                        _this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            _this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
-                                _this.widget(panel_1.PanelHeader, { html: {}, wml: {} }, [
+                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
+                            __this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
+                                __this.widget(panel_1.PanelHeader, { html: {}, wml: {} }, [
                                     document.createTextNode("With PanelFooter")
                                 ]),
-                                _this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
+                                __this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
                                     document.createTextNode("Lorem impsum dilium net set.")
                                 ]),
-                                _this.widget(panel_1.PanelFooter, { html: {}, wml: {} }, [
+                                __this.widget(panel_1.PanelFooter, { html: {}, wml: {} }, [
                                     document.createTextNode("Meh foot.")
                                 ])
                             ])

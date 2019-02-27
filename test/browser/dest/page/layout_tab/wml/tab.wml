@@ -1,0 +1,33 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (TabLayout) from "../../../../../../lib/layout/tab" %}
+{% import (TabLayoutPage) from "../" %}
+
+{% fun firstTab (_:TabLayout) %}
+
+  <p>Click a tab to change content.</p>
+
+{% endfun %}
+
+{% fun secondTab (_:TabLayout) %}
+
+  <p>Second tab.</p>
+
+{% endfun %}
+
+{% fun thirdTab (_:TabLayout) %}
+
+  <p>Third tab.</p>
+
+{% endfun %}
+
+{% view Main (TabLayoutPage) %}
+ 
+<Demo>
+
+   <TabLayout ww:tabs={{@tabs}} ww:active="first">
+
+     <p>Click a tab to change content.</p>
+   
+   </TabLayout>
+
+</Demo>

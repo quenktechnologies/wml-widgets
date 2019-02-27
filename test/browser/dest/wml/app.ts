@@ -7,32 +7,38 @@ import {Link} from '../../../../lib/content/link'; ;
 import {MenuIcon} from '../../../../lib/content/menu-icon'; ;
 import {MainLayout} from '../../../../lib/layout/main'; ;
 import {Navigation} from './navigation'; 
+//@ts-ignore: 6192
 import {
 Maybe as __Maybe,
 fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-export type NodeFunc = 
-(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) => __wml.Content;
+//@ts-ignore:6192
+type __IfArg = ()=>__wml.Content[]
 
-export type WidgetFunc<A extends __wml.Attrs, W extends 
-     __wml.WidgetConstructor<A>> = 
-(C: W, attrs:A, children: __wml.Content[]) => __wml.Content;
+//@ts-ignore:6192
+type __ForAlt = ()=> __wml.Content[]
 
-export type ForAlt = ()=> __wml.Content[]
+//@ts-ignore:6192
+type __ForInBody<A> =(val:A, idx:number, all:A[])=>__wml.Content[]
 
-export type ForInBody<A> =(val:A, idx:number, all:A[])=>__wml.Content[]
+//@ts-ignore:6192
+type __ForOfBody<A> = (val:A, key:string, all:object) =>__wml.Content[]
 
-export type ForOfBody<A> = (val:A, key:string, all:object) =>__wml.Content[]
-
-export interface Record<A> {
+//@ts-ignore:6192
+interface __Record<A> {
 
  [key:string]: A
 
 }
 
-export const $$forIn = <A>(list:A[], f:ForInBody<A>, alt:ForAlt) : __wml.Content[] => {
+//@ts-ignore:6192
+const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt();
+
+//@ts-ignore:6192
+const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
 
    let ret:__wml.Content[] = [];
 
@@ -42,7 +48,8 @@ export const $$forIn = <A>(list:A[], f:ForInBody<A>, alt:ForAlt) : __wml.Content
    return ret.length === 0 ? alt() : ret;
 
 }
-export const $$forOf = <A>(o:Record<A>, f:ForOfBody<A>,alt:ForAlt) : __wml.Content[] => {
+//@ts-ignore:6192
+const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Content[] => {
 
     let ret:__wml.Content[] = [];
 
@@ -59,22 +66,22 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return this.widget(DrawerLayout, {html : {  } ,wml : { 'id' : __context.values.id .layout   } ,ww : { 'drawerContent' : [
+           return __this.widget(DrawerLayout, {html : {  } ,wml : { 'id' : __context.values.id .layout   } ,ww : { 'drawerContent' : [
 
             (new Navigation(__context)).render()
             ]  } }, [
 
-        this.widget(ActionBar, {html : {  } ,wml : {  } }, [
+        __this.widget(ActionBar, {html : {  } ,wml : {  } }, [
 
-        this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'onClick' : __context.toggleDrawer  } }, [
+        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'onClick' : __context.toggleDrawer  } }, [
 
-        this.widget(MenuIcon, {html : {  } ,wml : {  } }, [
+        __this.widget(MenuIcon, {html : {  } ,wml : {  } }, [
 
         
      ])
      ])
      ]),
-this.widget(MainLayout, {html : {  } ,wml : {  } }, [
+__this.widget(MainLayout, {html : {  } ,wml : {  } }, [
 
         ... (__context.content)
      ])

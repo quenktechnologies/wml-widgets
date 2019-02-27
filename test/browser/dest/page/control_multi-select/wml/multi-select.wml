@@ -1,0 +1,21 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (MultiSelect) from "../../../../../../lib/control/multi-select" %}
+{% import (MultiSelectPage, Result) from "../" %}
+
+{% view Main (MultiSelectPage) %}
+ 
+<Demo>
+
+  <p>You selected: <b wml:id="text">{{document.createTextNode(@values.text())}}</b>.</p>
+
+      <p>
+        <MultiSelect
+          wml:id={{@values.id}}
+          ww:name={{@values.name}}
+          ww:value={{@values.selected}}
+          ww:decorator={{\r:Result -> r.label}}
+          ww:onChange={{@onChange}}
+          ww:onSearch={{@onSearch}} />
+      </p>
+
+</Demo>

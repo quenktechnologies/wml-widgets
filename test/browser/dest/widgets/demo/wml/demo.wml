@@ -1,0 +1,18 @@
+{% import (GridLayout,Row,Column) from "../../../../../../lib/layout/grid" %}
+{% import (Demo) from "../" %}
+
+{% view Main (Demo) %}
+ 
+<GridLayout>
+
+  <Row>
+
+    <Column ww:span={{@values.size}}>
+
+      {{...@children}}
+
+    </Column>
+
+   </Row>
+
+ </GridLayout>

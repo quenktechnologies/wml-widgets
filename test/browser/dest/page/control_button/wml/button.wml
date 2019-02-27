@@ -1,0 +1,123 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Button) from "../../../../../../lib/control/button" %}
+{% import (ButtonPage) from "../" %}
+
+{% view Main (ButtonPage) %}
+<Demo>
+
+  <Demo>
+
+      <h1>Buttons</h2>
+
+      <p>
+
+        <h2>Style</h2>
+
+        {% for v in @values.styles %}
+
+          <Button 
+            ww:name={{v}}
+            ww:style={{v}}
+            ww:text={{v|@values.capitalize}} />
+
+        {% endfor %}
+
+      </p>
+
+   </Demo>
+
+   <Demo>
+
+    <h2>Outline</h2>
+
+      {% for style in @values.styles %}
+
+        <Button 
+         ww:style={{style}}
+         ww:outline=true
+         ww:text={{style|@values.capitalize}} />
+
+      {% endfor %}
+
+    </Demo>
+
+    <Demo>
+
+      <p>
+
+        <h2>Active</h2>
+
+          {% for v in @values.styles %}
+
+            <Button 
+             ww:name={{v}}
+             ww:active=true
+             ww:style={{v}}
+             ww:text={{v|@values.capitalize}} />
+
+          {% endfor %}
+
+      </p>
+
+    </Demo>
+
+    <Demo>
+
+      <p>
+
+        <h2>Disabled</h2>
+
+          {% for v in @values.styles %}
+
+            <Button 
+             ww:name={{v}}
+             ww:disabled=true
+             ww:style={{v}}
+             ww:text={{v|@values.capitalize}} />
+
+          {% endfor %}
+
+      </p>
+
+    </Demo>
+
+    <Demo>
+
+      <h2>Size</h2>
+
+        {% for style in @values.styles %}
+
+          <p>
+              
+              {% for size in @values.sizes %}
+
+                <Button 
+                ww:name={{size}}
+                ww:style={{style}}
+                ww:size={{size}}
+                ww:text={{size|@values.capitalize}} />
+
+              {% endfor %}
+
+            </p>
+
+          {% endfor %}
+
+    </Demo>
+
+    <Demo>
+
+        <h2>Block</h2>
+
+          {% for style in @values.styles %}
+
+              <Button 
+               ww:style={{style}}
+               ww:block=true
+               ww:text={{style|@values.capitalize}} />
+
+          {% endfor %}
+
+    </Demo>
+
+</Demo>

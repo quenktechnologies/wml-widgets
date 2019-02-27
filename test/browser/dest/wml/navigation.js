@@ -8,14 +8,21 @@ var item_1 = require("../../../../lib/menu/item");
 var header_1 = require("../../../../lib/menu/header");
 ;
 var link_1 = require("../../../../lib/content/link");
+//@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
-exports.$$forIn = function (list, f, alt) {
+//@ts-ignore:6192
+var __if = function (__expr, __conseq, __alt) {
+    return (__expr) ? __conseq() : __alt();
+};
+//@ts-ignore:6192
+var __forIn = function (list, f, alt) {
     var ret = [];
     for (var i = 0; i < list.length; i++)
         ret = ret.concat(f(list[i], i, list));
     return ret.length === 0 ? alt() : ret;
 };
-exports.$$forOf = function (o, f, alt) {
+//@ts-ignore:6192
+var __forOf = function (o, f, alt) {
     var ret = [];
     for (var key in o)
         if (o.hasOwnProperty(key))
@@ -24,24 +31,23 @@ exports.$$forOf = function (o, f, alt) {
 };
 var Navigation = /** @class */ (function () {
     function Navigation(__context) {
-        var _this = this;
         this.ids = {};
         this.groups = {};
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return _this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, [
-                _this.widget(item_1.Item, { html: {}, wml: {} }, [
-                    _this.widget(link_1.Link, { html: {}, wml: { 'group': "links" }, ww: { 'active': (__context.page === "home"), 'name': "home", 'href': "#", 'onClick': __context.navigate, 'text': "Home" } }, [])
+            return __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, [
+                __this.widget(item_1.Item, { html: {}, wml: {} }, [
+                    __this.widget(link_1.Link, { html: {}, wml: { 'group': "links" }, ww: { 'active': (__context.page === "home"), 'name': "home", 'href': "#", 'onClick': __context.navigate, 'text': "Home" } }, [])
                 ])
-            ].concat(exports.$$forOf(__context.pages, function (items, section, _$$all) {
+            ].concat(__forOf(__context.pages, function (items, section, _$$all) {
                 return ([
-                    _this.widget(item_1.Item, { html: {}, wml: {} }, [
-                        _this.widget(header_1.MenuHeader, { html: {}, wml: {}, ww: { 'text': section } }, []),
-                        _this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, exports.$$forOf(items, function (_, name, _$$all) {
+                    __this.widget(item_1.Item, { html: {}, wml: {} }, [
+                        __this.widget(header_1.MenuHeader, { html: {}, wml: {}, ww: { 'text': section } }, []),
+                        __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, __forOf(items, function (_, name, _$$all) {
                             return ([
-                                _this.widget(item_1.Item, { html: {}, wml: {} }, [
-                                    _this.widget(link_1.Link, { html: {}, wml: { 'group': "links" }, ww: { 'name': name, 'href': ("#/" + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name } }, [])
+                                __this.widget(item_1.Item, { html: {}, wml: {} }, [
+                                    __this.widget(link_1.Link, { html: {}, wml: { 'group': "links" }, ww: { 'name': name, 'href': ("#/" + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name } }, [])
                                 ])
                             ]);
                         }, function () { return ([]); }).slice())

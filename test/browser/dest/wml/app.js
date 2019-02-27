@@ -12,14 +12,21 @@ var menu_icon_1 = require("../../../../lib/content/menu-icon");
 var main_1 = require("../../../../lib/layout/main");
 ;
 var navigation_1 = require("./navigation");
+//@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
-exports.$$forIn = function (list, f, alt) {
+//@ts-ignore:6192
+var __if = function (__expr, __conseq, __alt) {
+    return (__expr) ? __conseq() : __alt();
+};
+//@ts-ignore:6192
+var __forIn = function (list, f, alt) {
     var ret = [];
     for (var i = 0; i < list.length; i++)
         ret = ret.concat(f(list[i], i, list));
     return ret.length === 0 ? alt() : ret;
 };
-exports.$$forOf = function (o, f, alt) {
+//@ts-ignore:6192
+var __forOf = function (o, f, alt) {
     var ret = [];
     for (var key in o)
         if (o.hasOwnProperty(key))
@@ -28,21 +35,20 @@ exports.$$forOf = function (o, f, alt) {
 };
 var Main = /** @class */ (function () {
     function Main(__context) {
-        var _this = this;
         this.ids = {};
         this.groups = {};
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return _this.widget(drawer_1.DrawerLayout, { html: {}, wml: { 'id': __context.values.id.layout }, ww: { 'drawerContent': [
+            return __this.widget(drawer_1.DrawerLayout, { html: {}, wml: { 'id': __context.values.id.layout }, ww: { 'drawerContent': [
                         (new navigation_1.Navigation(__context)).render()
                     ] } }, [
-                _this.widget(action_bar_1.ActionBar, { html: {}, wml: {} }, [
-                    _this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'onClick': __context.toggleDrawer } }, [
-                        _this.widget(menu_icon_1.MenuIcon, { html: {}, wml: {} }, [])
+                __this.widget(action_bar_1.ActionBar, { html: {}, wml: {} }, [
+                    __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'onClick': __context.toggleDrawer } }, [
+                        __this.widget(menu_icon_1.MenuIcon, { html: {}, wml: {} }, [])
                     ])
                 ]),
-                _this.widget(main_1.MainLayout, { html: {}, wml: {} }, (__context.content).slice())
+                __this.widget(main_1.MainLayout, { html: {}, wml: {} }, (__context.content).slice())
             ]);
         };
     }

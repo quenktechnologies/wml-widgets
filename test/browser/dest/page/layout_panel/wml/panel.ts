@@ -4,32 +4,38 @@ import {GridLayout,Row,Column} from '../../../../../../lib/layout/grid'; ;
 import {Panel,PanelHeader,PanelBody,PanelFooter} from '../../../../../../lib/layout/panel'; ;
 import {styles} from '../../../../../../lib/content/style'; ;
 import {PanelPage} from '../'; 
+//@ts-ignore: 6192
 import {
 Maybe as __Maybe,
 fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-export type NodeFunc = 
-(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) => __wml.Content;
+//@ts-ignore:6192
+type __IfArg = ()=>__wml.Content[]
 
-export type WidgetFunc<A extends __wml.Attrs, W extends 
-     __wml.WidgetConstructor<A>> = 
-(C: W, attrs:A, children: __wml.Content[]) => __wml.Content;
+//@ts-ignore:6192
+type __ForAlt = ()=> __wml.Content[]
 
-export type ForAlt = ()=> __wml.Content[]
+//@ts-ignore:6192
+type __ForInBody<A> =(val:A, idx:number, all:A[])=>__wml.Content[]
 
-export type ForInBody<A> =(val:A, idx:number, all:A[])=>__wml.Content[]
+//@ts-ignore:6192
+type __ForOfBody<A> = (val:A, key:string, all:object) =>__wml.Content[]
 
-export type ForOfBody<A> = (val:A, key:string, all:object) =>__wml.Content[]
-
-export interface Record<A> {
+//@ts-ignore:6192
+interface __Record<A> {
 
  [key:string]: A
 
 }
 
-export const $$forIn = <A>(list:A[], f:ForInBody<A>, alt:ForAlt) : __wml.Content[] => {
+//@ts-ignore:6192
+const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt();
+
+//@ts-ignore:6192
+const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
 
    let ret:__wml.Content[] = [];
 
@@ -39,7 +45,8 @@ export const $$forIn = <A>(list:A[], f:ForInBody<A>, alt:ForAlt) : __wml.Content
    return ret.length === 0 ? alt() : ret;
 
 }
-export const $$forOf = <A>(o:Record<A>, f:ForOfBody<A>,alt:ForAlt) : __wml.Content[] => {
+//@ts-ignore:6192
+const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Content[] => {
 
     let ret:__wml.Content[] = [];
 
@@ -56,18 +63,18 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return this.widget(GridLayout, {html : {  } ,wml : {  } }, [
+           return __this.widget(GridLayout, {html : {  } ,wml : {  } }, [
 
-        ...$$forIn(styles,(style ,_$$i,_$$all)=>
+        ...__forIn (styles, (style , _$$i, _$$all)=> 
 ([
 
-        this.widget(Row, {html : {  } ,wml : {  } }, [
+        __this.widget(Row, {html : {  } ,wml : {  } }, [
 
-        this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
+        __this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
 
-        this.widget(Panel, {html : {  } ,wml : {  } ,ww : { 'style' : style  } }, [
+        __this.widget(Panel, {html : {  } ,wml : {  } ,ww : { 'style' : style  } }, [
 
-        this.widget(PanelBody, {html : {  } ,wml : {  } }, [
+        __this.widget(PanelBody, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`
             PanelBody only.
@@ -75,17 +82,17 @@ export class Main  implements __wml.View {
      ])
      ])
      ]),
-this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
+__this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
 
-        this.widget(Panel, {html : {  } ,wml : {  } ,ww : { 'style' : style  } }, [
+        __this.widget(Panel, {html : {  } ,wml : {  } ,ww : { 'style' : style  } }, [
 
-        this.widget(PanelHeader, {html : {  } ,wml : {  } }, [
+        __this.widget(PanelHeader, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`
             With PanelHeader
           `)
      ]),
-this.widget(PanelBody, {html : {  } ,wml : {  } }, [
+__this.widget(PanelBody, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`
             Lorem impsum dilium net set.
@@ -93,27 +100,27 @@ this.widget(PanelBody, {html : {  } ,wml : {  } }, [
      ])
      ])
      ]),
-this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
+__this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
 
-        this.widget(Panel, {html : {  } ,wml : {  } ,ww : { 'style' : style  } }, [
+        __this.widget(Panel, {html : {  } ,wml : {  } ,ww : { 'style' : style  } }, [
 
-        this.widget(PanelHeader, {html : {  } ,wml : {  } }, [
+        __this.widget(PanelHeader, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`With PanelFooter`)
      ]),
-this.widget(PanelBody, {html : {  } ,wml : {  } }, [
+__this.widget(PanelBody, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`Lorem impsum dilium net set.`)
      ]),
-this.widget(PanelFooter, {html : {  } ,wml : {  } }, [
+__this.widget(PanelFooter, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`Meh foot.`)
      ])
      ])
      ])
      ])
-     ]),
-()=>([]))
+     ]), 
+()=> ([]))
      ]);
 
        }

@@ -1,0 +1,76 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (DataTable) from "../../../../../../lib/data/table" %}
+{% import (TableWindow) from "../../../../../../lib/layout/table" %}
+{% import (DataTablePage) from "../" %}
+
+{% view Main (DataTablePage) %}
+ 
+<Demo>
+  
+  <Demo>
+
+    <h3>Normal</h3>
+
+    <DataTable
+      ww:data={{@values.users}}
+      ww:columns={{@values.columns}} />
+
+  </Demo>
+
+  <Demo>
+
+    <h3>Alternate</h3>
+
+    <DataTable
+      ww:alternate=true
+      ww:data={{@values.users}}
+      ww:columns={{@values.columns}} />
+
+  </Demo>
+
+  <Demo>
+
+    <h3>Bordered</h3>
+
+    <DataTable
+      ww:bordered=true
+      ww:data={{@values.users}}
+      ww:columns={{@values.columns}} />
+
+  </Demo>
+
+  <Demo>
+
+    <h3>Hoverable</h3>
+
+    <DataTable
+      ww:hoverable=true
+      ww:data={{@values.users}}
+      ww:columns={{@values.columns}} />
+
+  </Demo>
+
+  <Demo>
+
+    <h3>Compact</h3>
+
+    <DataTable
+      ww:compact=true
+      ww:data={{@values.users}}
+      ww:columns={{@values.columns}} />
+
+  </Demo>
+
+  <Demo>
+
+    <TableWindow>
+
+      <DataTable
+        ww:data={{@values.users}}
+        ww:columns={{@values.columns}} />
+
+    </TableWindow>
+
+  </Demo>
+
+</Demo>

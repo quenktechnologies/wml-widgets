@@ -1,0 +1,80 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (TextField) from "../../../../../../lib/control/text-field" %}
+{% import (TextFieldPage) from "../" %}
+
+{% view Main (TextFieldPage) %}
+ 
+<Demo>
+
+    <Demo>
+
+      <p>The value of the input is:</p>
+      <p wml:id="content">Nothing</p>
+
+      <p>
+        <TextField 
+          wml:id="text"
+          ww:name="text"
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Demo>
+
+    <Demo>
+
+      <p>
+        <strong>Success</strong>
+      </p>
+      <p>
+        <TextField 
+          ww:name="text"
+          ww:success="This textfield has a success"
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Demo>
+
+    <Demo>
+
+      <p>
+        <strong>Warning</strong>
+      </p>
+
+      <p>
+        <TextField 
+          ww:name="text"
+          ww:warning="This textfield has a warning."
+          ww:onChange={{@onChange}} />
+      </p>
+
+    </Demo>
+
+   <Demo>
+
+        <p>
+          <strong>Error</strong>
+        </p>
+        <p>
+          <TextField 
+            ww:name="text"
+            ww:error="This textfield has an error."
+            ww:onChange={{@onChange}} />
+        </p>
+
+
+  </Demo>
+
+   <Demo>
+
+      <p>The one uses rows to render a text area:</p>
+
+      <p>
+        <TextField 
+          ww:name="text"
+          ww:rows=3
+          ww:onChange={{@onChange}} />
+      </p>
+
+   </Demo>
+
+ </Demo>

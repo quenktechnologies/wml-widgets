@@ -5,32 +5,38 @@ import {Nav} from '../../../../lib/menu/nav'; ;
 import {Item} from '../../../../lib/menu/item'; ;
 import {MenuHeader} from '../../../../lib/menu/header'; ;
 import {Link} from '../../../../lib/content/link'; 
+//@ts-ignore: 6192
 import {
 Maybe as __Maybe,
 fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-export type NodeFunc = 
-(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) => __wml.Content;
+//@ts-ignore:6192
+type __IfArg = ()=>__wml.Content[]
 
-export type WidgetFunc<A extends __wml.Attrs, W extends 
-     __wml.WidgetConstructor<A>> = 
-(C: W, attrs:A, children: __wml.Content[]) => __wml.Content;
+//@ts-ignore:6192
+type __ForAlt = ()=> __wml.Content[]
 
-export type ForAlt = ()=> __wml.Content[]
+//@ts-ignore:6192
+type __ForInBody<A> =(val:A, idx:number, all:A[])=>__wml.Content[]
 
-export type ForInBody<A> =(val:A, idx:number, all:A[])=>__wml.Content[]
+//@ts-ignore:6192
+type __ForOfBody<A> = (val:A, key:string, all:object) =>__wml.Content[]
 
-export type ForOfBody<A> = (val:A, key:string, all:object) =>__wml.Content[]
-
-export interface Record<A> {
+//@ts-ignore:6192
+interface __Record<A> {
 
  [key:string]: A
 
 }
 
-export const $$forIn = <A>(list:A[], f:ForInBody<A>, alt:ForAlt) : __wml.Content[] => {
+//@ts-ignore:6192
+const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt();
+
+//@ts-ignore:6192
+const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
 
    let ret:__wml.Content[] = [];
 
@@ -40,7 +46,8 @@ export const $$forIn = <A>(list:A[], f:ForInBody<A>, alt:ForAlt) : __wml.Content
    return ret.length === 0 ? alt() : ret;
 
 }
-export const $$forOf = <A>(o:Record<A>, f:ForOfBody<A>,alt:ForAlt) : __wml.Content[] => {
+//@ts-ignore:6192
+const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Content[] => {
 
     let ret:__wml.Content[] = [];
 
@@ -57,42 +64,42 @@ export class Navigation  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
+           return __this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
 
-        this.widget(Item, {html : {  } ,wml : {  } }, [
+        __this.widget(Item, {html : {  } ,wml : {  } }, [
 
-        this.widget(Link, {html : {  } ,wml : { 'group' : `links`  } ,ww : { 'active' : (__context.page === `home`) ,'name' : `home` ,'href' : `#` ,'onClick' : __context.navigate ,'text' : `Home`  } }, [
+        __this.widget(Link, {html : {  } ,wml : { 'group' : `links`  } ,ww : { 'active' : (__context.page === `home`) ,'name' : `home` ,'href' : `#` ,'onClick' : __context.navigate ,'text' : `Home`  } }, [
 
         
      ])
      ]),
-...$$forOf(__context.pages, (items , section , _$$all) => 
+...__forOf (__context.pages, (items , section , _$$all) => 
        ([
 
-        this.widget(Item, {html : {  } ,wml : {  } }, [
+        __this.widget(Item, {html : {  } ,wml : {  } }, [
 
-        this.widget(MenuHeader, {html : {  } ,wml : {  } ,ww : { 'text' : section  } }, [
+        __this.widget(MenuHeader, {html : {  } ,wml : {  } ,ww : { 'text' : section  } }, [
 
         
      ]),
-this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
+__this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
 
-        ...$$forOf(items, (_ , name , _$$all) => 
+        ...__forOf (items, (_ , name , _$$all) => 
        ([
 
-        this.widget(Item, {html : {  } ,wml : {  } }, [
+        __this.widget(Item, {html : {  } ,wml : {  } }, [
 
-        this.widget(Link, {html : {  } ,wml : { 'group' : `links`  } ,ww : { 'name' : name ,'href' : (`#/` + name) ,'onClick' : __context.navigate ,'active' : (__context.page === name) ,'text' : name  } }, [
+        __this.widget(Link, {html : {  } ,wml : { 'group' : `links`  } ,ww : { 'name' : name ,'href' : (`#/` + name) ,'onClick' : __context.navigate ,'active' : (__context.page === name) ,'text' : name  } }, [
 
         
      ])
      ])
-     ]),
-    ()=>([]))
+     ]), 
+    ()=> ([]))
      ])
      ])
-     ]),
-    ()=>([]))
+     ]), 
+    ()=> ([]))
      ]);
 
        }
