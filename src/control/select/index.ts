@@ -130,15 +130,7 @@ export class Select<V>
 
                 id: 'message'
 
-            },
-            success: (this.attrs.ww && this.attrs.ww.success) ?
-                this.attrs.ww.success : '',
-
-            error: (this.attrs.ww && this.attrs.ww.error) ?
-                this.attrs.ww.error : '',
-
-            warning: (this.attrs.ww && this.attrs.ww.warning) ?
-                this.attrs.ww.warning : ''
+            }
 
         },
 
