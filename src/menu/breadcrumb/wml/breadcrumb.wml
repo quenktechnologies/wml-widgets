@@ -1,0 +1,6 @@
+{% import (BreadcrumbMenu) from ".." %}
+
+{% view Main (BreadcrumbMenu) %}
+<ol id={{@values.root.id}} class={{@values.root.className}}>
+  {{ ...@children }}
+</ol>

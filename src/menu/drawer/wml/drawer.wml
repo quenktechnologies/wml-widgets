@@ -1,0 +1,18 @@
+{% import (Drawer) from ".." %}
+
+{% view Main (Drawer) %}
+
+<div
+  wml:id={{@values.root.wml.id}}
+  id={{@values.root.id}}
+  class={{@values.root.className}}>
+
+  <div
+    wml:id={{@values.content.wml.id}}
+    class={{@values.content.className}}>
+
+    {{ ...@values.content.value }}
+
+  </div>
+
+</div>
