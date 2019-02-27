@@ -1,0 +1,53 @@
+{% import (label) from "../../wml" %}
+{% import (Date) from "../" %}
+
+{% view  Main (Date) %}
+
+<div id={{@values.root.id}} class={{@values.root.className}}>
+
+  {{...<label(@values.label.id)(@values.label.text)>}}
+
+  <div class={{@values.inline.className}}>
+
+    <select
+      wml:id={{@values.month.wml.id}}
+      name={{@values.month.wml.id}}
+      onchange={{@values.month.onchange}} 
+      disabled={{@values.month.disabled}}
+      class={{@values.month.className}}>
+
+      <option selected=true value="" disabled>Month</option>
+
+      {% for opt in @values.date.months %}
+
+        <option value={{opt.value}}>{{document.createTextNode(opt.label)}}</option>
+
+      {% endfor %}
+
+    </select>
+
+    <input
+      wml:id={{@values.day.wml.id}}
+      name={{@values.day.wml.id}}
+      oninput={{@values.day.oninput}} 
+      onkeyup={{@values.day.onkeyup}}
+      value={{@values.day.value()}}
+      disabled={{@values.day.disabled}}
+      class={{@values.day.className}}
+      size="2"
+      placeholder="DD"  />
+
+    <input 
+      wml:id={{@values.year.wml.id}}
+      name={{@values.year.wml.id}}
+      oninput={{@values.year.oninput}} 
+      onkeyup={{@values.year.onkeyup}}
+      value={{@values.year.value()}}
+      disabled={{@values.year.disabled}}
+      class={{@values.year.className}}
+      placeholder="YYYY"
+      size="4" />
+
+  </div>
+
+</div>

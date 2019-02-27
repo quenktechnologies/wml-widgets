@@ -1,0 +1,17 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Date) from "../../../../../../lib/control/date" %}
+{% import (DatePage) from "../" %}
+
+{% view Main (DatePage) %}
+<Demo>
+
+  <p>The date is : <b wml:id="selected">(None selected)</b>.</p>
+
+  <p>
+    <Date 
+      wml:id="date"
+      ww:name="date"
+      ww:onChange={{@onChange}} />
+  </p>
+
+ </Demo>
