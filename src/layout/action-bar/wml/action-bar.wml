@@ -1,16 +1,17 @@
-import {ActionBar} from ".."
+{% import (ActionBar) from "../" %}
 
-{% main (ActionBar) %}
+{% view Main (ActionBar) %}
 
 <div 
-  wml:id={{@values.root.id}}
+  wml:id={{@values.root.wml.id}}
+  id={{@values.root.id}}
   class={{@values.root.class}}>
 
   <div 
-    wml:id={{@values.content.id}} 
+    wml:id={{@values.content.wml.id}} 
     class={{@values.content.class}}>
 
-    {{@children}}
+    {{...@children}}
 
   </div>
 

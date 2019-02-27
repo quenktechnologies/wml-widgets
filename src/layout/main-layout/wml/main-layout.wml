@@ -1,9 +1,0 @@
-import {MainLayout} from "..";
-
-{% main (MainLayout) %}
-
-<div 
-  wml:id={{@values.content.id}}
-  class={{@values.content.class}}>
-    {{@children}}
-</div>

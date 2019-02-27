@@ -1,7 +1,7 @@
 import * as util from '../../util';
 import * as orientation from '../../content/orientation';
 import { View } from '@quenk/wml';
-import { LAYOUT, LayoutAttrs, GenericLayout } from '../';
+import { LAYOUT, LayoutAttrs, AbstractLayout } from '../';
 import { Main } from './wml/action-bar';
 
 ///classNames:begin
@@ -27,7 +27,7 @@ export interface ActionBarAttrs extends LayoutAttrs { }
  * ActionBar provides a bar across the screen that can be
  * used as a toolbar, navigation menu or something simillar.
  */
-export class ActionBar extends GenericLayout<ActionBarAttrs> {
+export class ActionBar extends AbstractLayout<ActionBarAttrs> {
 
     view: View = new Main(this);
 
@@ -35,7 +35,14 @@ export class ActionBar extends GenericLayout<ActionBarAttrs> {
 
         root: {
 
-            id: 'root',
+            wml: {
+
+                id: 'root',
+
+            },
+
+            id: (this.attrs.ww && this.attrs.ww.id) ?
+                this.attrs.ww.id : '',
 
             class: util.combine([
                 ACTION_BAR,
@@ -46,7 +53,12 @@ export class ActionBar extends GenericLayout<ActionBarAttrs> {
         },
         content: {
 
-            id: 'content',
+            wml: {
+
+                id: 'content'
+
+            },
+
             class: ACTION_BAR_CONTENT
 
         }

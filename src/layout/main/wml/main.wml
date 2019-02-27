@@ -1,0 +1,9 @@
+{% import (MainLayout) from "../" %}
+
+{% view Main (MainLayout) %}
+<div 
+  wml:id={{@values.content.wml.id}}
+  id={{@values.content.id}}
+  class={{@values.content.className}}>
+    {{...@children}}
+</div>

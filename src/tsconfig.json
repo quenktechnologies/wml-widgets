@@ -1,21 +1,23 @@
 {
     "compilerOptions": {
         "baseUrl": "src",
-        "lib": ["ES2015", "DOM"],
+        "lib": ["es5", "ES2015", "DOM"],
         "module": "commonjs",
         "target": "es5",
-        "rootDirs": ["../src", "../lib"],
+        "rootDir": ".",
         "outDir": "../lib",
         "moduleResolution": "node",
         "allowUnreachableCode": true,
         "noUnusedParameters": true,
         "noUnusedLocals": true,
+        "skipLibCheck": true,
         "noImplicitAny": true,
-        "alwaysStrict": true,
         "sourceMap": true,
         "declaration": true,
+        "strict": true,
+        "types": ["node"],
         "typeRoots": ["node_modules/@types"]
     },
-    "exclude": ["../node_modules"]
+    "exclude": ["node_modules"]
 
 }

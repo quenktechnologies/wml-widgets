@@ -1,15 +1,17 @@
-import {Drawer} from ".."
+{% import (Drawer) from "../../../menu/drawer" %}
+{% import * as drawer from "../" %}
 
-{% main (Drawer) %}
+{% view DrawerLayout (drawer.DrawerLayout) %}
 
-<div
-  wml:id={{@values.root.id}}
-  class={{@values.root.class}}>
+<div 
+  wml:id={{@values.root.wml.id}}
+  id={{@values.root.id}}
+  class={{@values.root.className}}>
 
-  <div class={{@values.content.class}}>
+  <Drawer
+    wml:id={{@values.drawer.wml.id}}
+    ww:content={{@values.drawer.content}}/>
 
-    {{ @values.content.render() }}
-
-  </div>
+    {{...@values.content.value}}
 
 </div>

@@ -1,4 +1,4 @@
-@import "@quenk/common-less/screen";
+@import "../../../content/screen/less/screen";
 @import "./span.less";
 @import "./offset.less";
 @import "./variables";
@@ -70,22 +70,13 @@
       margin: @grid-layout-margin-vertical @grid-layout-column-margin-horizontal;
       position: relative;
 
-      /**
-       * These styles only kick in when the screen is large enough.
-       * For smaller screens each column fills the whole row.
-       * @todo: do not depend on bootstrap's variable, also
-       * we should support more breakpoints for phones etc.
-       * What we do want is to not have col-md, col-sm col-xs crap,
-       * instead just 'ww-column' that adjusts through other classes
-       * or media queries.
-       */
-      @media (min-width: @screen-medium) {
+      .screen-not-small({
 
         float: left;
         .span(1, @grid-columns);
         .offset(1, @grid-columns);
 
-      }
+      });
 
     }
 
