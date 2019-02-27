@@ -1,0 +1,17 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Checkbox) from "../../../../../../lib/control/checkbox" %}
+{% import (CheckboxPage) from "../" %}
+
+{% view Main (CheckboxPage) %}
+
+<Demo>
+
+  <p>The checkbox is <b wml:id="content">untouched</b>.</p>
+
+  <p>
+    <Checkbox
+      ww:name="checkbox"
+      ww:onChange={{@onChange}} />
+  </p>
+
+</Demo>
