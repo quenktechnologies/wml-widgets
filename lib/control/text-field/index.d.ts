@@ -1,12 +1,12 @@
-import { Template, View } from '@quenk/wml';
-import { FormControlAttrs, GenericFormControl } from '../form';
+import { Fun, View } from '@quenk/wml';
+import { FormControlAttrs, AbstractFormControl } from '../form';
 import { Event } from '../';
 export declare const TEXT_FIELD = "form-control";
 /**
  * TextFieldTemplate describes the template used to render
  * the TextField.
  */
-export declare type TextFieldTemplate = (f: TextField) => Template;
+export declare type TextFieldTemplate = (f: TextField) => Fun;
 /**
  * TextFieldAttrs
  */
@@ -48,36 +48,39 @@ export declare class TextChangedEvent extends Event<string> {
 /**
  * TextField provides a wrapped native text input control.
  */
-export declare class TextField extends GenericFormControl<string, TextFieldAttrs> {
+export declare class TextField extends AbstractFormControl<string, TextFieldAttrs> {
     view: View;
     get: () => string;
     set: (v: string) => this;
     values: {
         root: {
+            wml: {
+                id: string;
+            };
             id: string;
-            class: string;
+            className: string;
         };
         messages: {
-            id: string;
-            success: string;
-            error: string;
-            warning: string;
+            wml: {
+                id: string;
+            };
         };
         label: {
             id: string;
             text: string;
         };
         control: {
-            id: string;
+            wml: {
+                id: string;
+            };
             template: () => TextFieldTemplate;
-            class: string;
             name: string;
             type: string;
-            focus: boolean;
+            focus: boolean | null;
             placeholder: string;
             value: string;
-            disabled: boolean;
-            readOnly: boolean;
+            disabled: boolean | null;
+            readOnly: boolean | null;
             rows: number;
             oninput: (e: KeyboardEvent) => void;
         };

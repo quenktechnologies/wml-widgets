@@ -1,7 +1,8 @@
 import * as views from './wml/input';
 import { View } from '@quenk/wml';
 import { concat } from '../../../util';
-import { ControlAttrs, Event, GenericControl } from '../../';
+import { ControlAttrs, Event, AbstractControl,getName } from '../../';
+import {getId, getClassName} from '../../../';
 
 ///classNames:begin
 export const NATIVE_INPUT = 'ww-native-input';
@@ -46,9 +47,10 @@ export class Values {
 
     constructor(
         public self: Input,
-        public id = 'root',
-        public className = concat(NATIVE_INPUT, self.attrs.ww.class),
-        public name = (self.attrs.ww && self.attrs.ww.name) ? self.attrs.ww.name : '',
+      public wml = { id: 'root' },
+      public id = getId(self.attrs),
+        public className = concat(NATIVE_INPUT, getClassName(self.attrs)),
+      public name = getName(self.attrs),
         public type = (self.attrs.ww && self.attrs.ww.type) ? self.attrs.ww.type : 'text',
 
         public placeholder = (self.attrs.ww && self.attrs.ww.placeholder) ?
@@ -70,7 +72,7 @@ export class Values {
 /**
  * Input provides a wrapped native text input control.
  */
-export class Input extends GenericControl<string, InputAttrs> {
+export class Input extends AbstractControl<string, InputAttrs> {
 
     view: View = new views.Main(this);
 
@@ -84,7 +86,8 @@ export class Input extends GenericControl<string, InputAttrs> {
 export const dispatchInput = (i: Input) => (e: KeyboardEvent) => {
 
     if (i.attrs.ww && i.attrs.ww.onChange)
-        i.attrs.ww.onChange(new TextChangedEvent(i.attrs.ww.name,
+    i.attrs.ww.onChange(new TextChangedEvent((i.attrs &&i.attrs.ww.name)?
+      i.attrs.ww.name : '',
             (<HTMLInputElement>e.target).value));
 
 }

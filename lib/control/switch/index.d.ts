@@ -1,5 +1,5 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, GenericControl, Event } from '../../control';
+import { ControlAttrs, AbstractControl, Event } from '../';
 export declare const SWITCH = "ww-switch";
 export declare const SWITCH_SLIDER = "ww-switch__slider";
 /**
@@ -19,14 +19,15 @@ export declare class SwitchChangedEvent extends Event<boolean> {
 /**
  * Switch allows the user to select between one or two values.
  */
-export declare class Switch extends GenericControl<boolean, SwitchAttrs> {
+export declare class Switch extends AbstractControl<boolean, SwitchAttrs> {
     view: View;
     values: {
         root: {
-            class: string;
+            id: string;
+            className: string;
         };
         slider: {
-            class: string;
+            className: string;
         };
         input: {
             name: string;

@@ -1,5 +1,5 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, GenericControl, Event } from '../';
+import { ControlAttrs, AbstractControl, Event } from '../';
 export declare const CHECKBOX = "ww-checkbox";
 /**
  * CheckboxAttrs
@@ -24,15 +24,16 @@ export declare class CheckChangedEvent extends Event<boolean> {
  *
  * This is an alternative to the native checkbox that can be styled.
  */
-export declare class Checkbox extends GenericControl<boolean, CheckboxAttrs> {
+export declare class Checkbox extends AbstractControl<boolean, CheckboxAttrs> {
     view: View;
     values: {
         root: {
-            class: string;
+            id: string;
+            className: string;
         };
         input: {
             name: string;
-            value: boolean;
+            value: boolean | null;
             onChange: () => void;
         };
     };

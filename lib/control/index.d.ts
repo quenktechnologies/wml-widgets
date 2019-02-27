@@ -1,5 +1,6 @@
 import { Component } from '@quenk/wml';
-import { WidgetAttrs, StylableAttrs } from '../';
+import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { WidgetAttrs, HTMLElementAttrs } from '../';
 /**
  * This module provides the parent interfaces for most of the
  * widgets considered 'controls'.
@@ -16,7 +17,7 @@ import { WidgetAttrs, StylableAttrs } from '../';
 /**
  * ControlAttrs
  */
-export interface ControlAttrs<V> extends StylableAttrs {
+export interface ControlAttrs<V> extends HTMLElementAttrs {
     /**
      * name of the control.
      *
@@ -49,7 +50,19 @@ export declare class Event<V> {
     constructor(name: string, value: V);
 }
 /**
- * GenericControl implements the methods of the Control interface.
+ * AbstractControl implements the methods of the Control interface.
  */
-export declare abstract class GenericControl<V, A extends ControlAttrs<V>> extends Component<WidgetAttrs<A>> implements Control<V, A> {
+export declare abstract class AbstractControl<V, A extends ControlAttrs<V>> extends Component<WidgetAttrs<A>> implements Control<V, A> {
 }
+/**
+ * getName
+ */
+export declare const getName: <V>(attrs: WidgetAttrs<ControlAttrs<V>>) => string;
+/**
+ * getDisabled
+ */
+export declare const getDisabled: <V>(attrs: WidgetAttrs<ControlAttrs<V>>) => boolean;
+/**
+ * getValue
+ */
+export declare const getValue: <V>(attrs: WidgetAttrs<ControlAttrs<V>>) => Maybe<V>;

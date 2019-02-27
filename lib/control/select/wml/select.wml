@@ -1,30 +1,28 @@
-import {Search} from "../../search"
-import {Menu, Item} from "../../menu"
-import {Link} from "../../../content/nav/link"
-import {Fragment} from "../../../layout/fragment"
-import {label,message} from "../../wml"
-import {Select} from "../"
+{% import (Search) from "../../search" %}
+{% import (Menu) from "../../../menu/menu" %}
+{% import (Item) from "../../../menu/item" %}
+{% import (Link) from "../../../content/link" %}
+{% import (textNode) from "../../../" %}
+{% import (Select) from "../" %}
 
-{% fun itemContentTemplate [V](Select[V])(option:V, _index:Number) %}
-  {{ @values.item.stringify(option) }}  
+{% fun itemContentTemplate [V] (s:Select[V]) (option:V) (_index:Number) %}
+  {{ textNode(s.values.item.stringify(option)) }}  
 {% endfun %}
 
-{% fun noItemsTemplate [V](Select[V]) %}
-  {{'No results to display.'}} 
+{% fun noItemsTemplate [V] (_:Select[V]) %}
+  <b>No results to display.</b>
 {% endfun %}
 
-{% view Results [V](Select[V]) %}
+{% fun results [V] (s:Select[V]) %}
 
-  <Fragment>
-
-    {% for option,index:Number in @values.menu.options %}
+    {% for option,index:Number in s.values.menu.options %}
 
       <Item ww:name={{''+index}}>
 
           <Link 
-            ww:onClick={{=>@values.item.click(index)}}>
+            ww:onClick={{\->s.values.item.click(index)}}>
 
-            {{ <(@values.item.itemContentTemplate())(@)(option)(index)> }}
+            {{ ...<(s.values.item.itemContentTemplate())(s)(option)(index)> }}
 
           </Link>
 
@@ -32,24 +30,20 @@ import {Select} from "../"
 
     {% else %}
 
-      {{<(@values.item.noItemsTemplate())(@)>}}
+      {{...<(s.values.item.noItemsTemplate())(s)>}}
 
     {% endfor %}
 
-  </Fragment>
+{% endfun %}
 
-{% endview %}
+{% view Main [V](Select[V]) %}
 
-{% main [V](Select[V]) %}
-
-<div class={{@values.root.class}}>
-
-  {{<label(@values.label.id)(@values.label.text)>}}
+<div id={{@values.root.id}} class={{@values.root.className}}>
 
   <Search
-    wml:id={{@values.search.id}}
+    wml:id={{@values.search.wml.id}}
     ww:name={{@values.search.name}}
-    ww:class={{@values.search.class}}
+    ww:class={{@values.search.className}}
     ww:placeholder={{@values.search.placeholder}} 
     ww:readOnly={{@values.search.readOnly}}
     ww:onEscape={{@values.search.onEscape}}
@@ -57,9 +51,10 @@ import {Select} from "../"
     ww:onSearch={{@values.search.onSearch}} />
 
   <Menu 
-    wml:id={{@values.menu.id}}
+    wml:id={{@values.menu.wml.id}}
     ww:hidden=true />
 
-   {{<message(@values.messages.id)(@values.messages)>}}
+    <span      
+      class="help-block"></span>
 
 </div>

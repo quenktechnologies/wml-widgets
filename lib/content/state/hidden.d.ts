@@ -1,71 +1,56 @@
-import { Maybe } from 'afpl/lib/monad/Maybe';
+import { View } from '@quenk/wml';
 /**
  * HIDDEN means an element should not be visible but not removed
  * from the DOM.
  */
-export declare const HIDDEN = "-hidden";
+export declare const HIDDEN = "-ww-hidden";
 /**
- * IsHidden
- */
-export declare type IsHidden = () => boolean;
-/**
- * Hide
- */
-export declare type Hide<H extends Hidable> = () => H;
-/**
- * Show
- */
-export declare type Show<H extends Hidable> = () => H;
-/**
- * Toggle
- */
-export declare type Toggle<H extends Hidable> = () => H;
-/**
- * Hidable represents some Widget that can be hidden.
+ * Hidable is widget that has a Hidden mode.
  *
- * Switching between visible and hidden state is expected to
- * be done in CSS using the '__HIDDEN__' class name.
+ * This is usually implemented by styling around the occurance of the
+ * HIDDEN class name.
  */
 export interface Hidable {
     /**
      * isHidden indicates the DOM for the widget is hidden.
      */
-    isHidden: () => boolean;
+    isHidden(): boolean;
     /**
      * hide the DOM of the widget.
      */
-    hide: () => Hidable;
+    hide(): Hidable;
     /**
      * show the DOM of the widget.
      */
-    show: () => Hidable;
+    show(): Hidable;
     /**
      * toggle between show and hide states
      */
-    toggle: () => Hidable;
+    toggle(): Hidable;
 }
 /**
-  * visible queries whether the Hidable is visible or not.
-  *
-  * It retrieves an HTMLElement by id and checks whether
-  * it does not have a hidden class.
-  */
-export declare const isHidden: (fn: () => Maybe<HTMLElement>) => () => boolean;
-/**
- * hide the Hidable.
+ * isHidden helper.
  *
- * This is acheived by adding a 'hidden' class name
- * to an HTMLElement retrieved by id.
+ * Retrieves an HTMLElement by id and checks whether
+ * it has the hidden class attached.
  */
-export declare const hide: <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>) => Hide<H>;
+export declare const isHidden: (view: View, id: string) => boolean;
 /**
- * show the Hidable
+ * hide helper.
  *
- * This is acheived by removing a 'hidden' class name
- * to an HTMLElement retrieved by id.
+ * Attempts to add HIDDEN to the target elements class name.
  */
-export declare const show: <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>) => Show<H>;
+export declare const hide: (view: View, id: string) => void;
 /**
- * toggle the visibility of the Hidable.
+ * show helper.
+ *
+ * Attempts to remove the HIDDEN class name from the target element.
  */
-export declare const toggle: <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>) => Toggle<H>;
+export declare const show: (view: View, id: string) => void;
+/**
+ * toggle helper.
+ *
+ * Attempts to toggle the HIDDEN class name from the target element
+ * classList.
+ */
+export declare const toggle: (view: View, id: string) => void;

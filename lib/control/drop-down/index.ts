@@ -1,11 +1,10 @@
 import * as views from './wml/drop-down';
 import * as hidden from '../../content/state/hidden';
 import * as style from '../../content/style';
-import { View, Attrs, Template, Component } from '@quenk/wml';
-import { concat } from '../../util';
+import { View, Fun, Component } from '@quenk/wml';
+import { concat, getById } from '../../util';
+import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
 
-const content = (dm: DropDown) => () =>
-    dm.view.findById<HTMLElement>(dm.values.content.id);
 
 ///classNames:begin
 export const DROP_DOWN = 'ww-drop-down-menu';
@@ -16,37 +15,28 @@ export const DROP_DOWN_CONTENT = 'ww-drop-down__content';
 /**
  * ButtonTemplate provides the template for rendering the button part.
  */
-export type ButtonTemplate = (b: DropDown) => Template;
+export type ButtonTemplate = (b: DropDown) => Fun;
 
 /**
  * DropDownMenuAttrs
  */
-export interface DropDownMenuAttrs extends Attrs {
+export interface DropDownMenuAttrs extends HTMLElementAttrs {
 
-    ww?: {
+    /**
+     * buttonText for the button.
+     */
+    buttonText?: string,
 
-        /**
-         * class styles for the root element (ul).
-         */
-        class?: string,
+    /**
+     * buttonTemplate for rendering the button.
+     */
+    buttonTemplate?: ButtonTemplate
 
-        /**
-         * buttonText for the button.
-         */
-        buttonText?: string,
-
-        /**
-         * buttonTemplate for rendering the button.
-         */
-        buttonTemplate?: ButtonTemplate
-
-        /**
-         * autoClose when true, will automatically hide the content.
-         * Defaults to true.
-         */
-        autoClose?: boolean
-
-    }
+    /**
+     * autoClose when true, will automatically hide the content.
+     * Defaults to true.
+     */
+    autoClose?: boolean
 
 }
 
@@ -67,49 +57,46 @@ export interface DropDownMenuAttrs extends Attrs {
  *    |                         |
  *    +-------------------------+
  */
-export class DropDown extends Component<DropDownMenuAttrs>
+export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
     implements hidden.Hidable {
 
     view: View = new views.Main(this);
-
-    isHidden: hidden.IsHidden = hidden.isHidden(content(this));
-
-    hide: hidden.Hide<DropDown> = hidden.hide(this)(content(this));
-
-    show: hidden.Show<DropDown> = hidden.show(this)(content(this));
-
-    toggle: hidden.Toggle<DropDown> = hidden.toggle(this)(content(this));
 
     values = {
 
         root: {
 
-            id: 'root',
+            wml: {
 
-            class: concat(DROP_DOWN, (this.attrs.ww && this.attrs.ww.class) ?
-                this.attrs.ww.class : '')
+                id: 'root'
+
+            },
+
+            id: getId(this.attrs),
+
+            className: concat(DROP_DOWN, getClassName(this.attrs))
 
         },
         button: {
 
-            text: this.attrs.ww.buttonText ? this.attrs.ww.buttonText : '',
+            text: (this.attrs.ww && this.attrs.ww.buttonText) ?
+                this.attrs.ww.buttonText : '',
 
-            class: style.DEFAULT,
+            className: style.DEFAULT,
 
-            template: (): ButtonTemplate => this.attrs.ww.buttonTemplate ?
-                this.attrs.ww.buttonTemplate : views.button,
+            template: (): ButtonTemplate =>
+                (this.attrs.ww && this.attrs.ww.buttonTemplate) ?
+                    this.attrs.ww.buttonTemplate : views.button,
 
         },
 
         toggle: {
 
-            class: concat(DROP_DOWN_TOGGLE, style.PRIMARY),
+            className: concat(DROP_DOWN_TOGGLE, style.PRIMARY),
 
             onClick: () => {
 
-                this
-                    .view
-                    .findById(this.values.root.id)
+                getById<HTMLElement>(this.view, this.values.root.wml.id)
                     .map((e: HTMLElement) => {
 
                         if (this.values.content.autoClose) {
@@ -128,20 +115,52 @@ export class DropDown extends Component<DropDownMenuAttrs>
         },
         content: {
 
-            id: 'content',
-            class: concat(DROP_DOWN_CONTENT, hidden.HIDDEN),
-            autoClose: (this.attrs.ww.autoClose === false) ? false : true,
+            wml: {
+
+                id: 'content'
+            },
+
+            className: concat(DROP_DOWN_CONTENT, hidden.HIDDEN),
+
+            autoClose: (this.attrs.ww && this.attrs.ww.autoClose === false) ?
+                false : true,
+
             render: () => this.children
 
         }
 
     };
 
+    isHidden(): boolean {
+
+        return hidden.isHidden(this.view, this.values.content.wml.id);
+
+    }
+
+    hide(): DropDown {
+
+        hidden.hide(this.view, this.values.content.wml.id);
+        return this;
+
+    }
+
+    show(): DropDown {
+
+        hidden.show(this.view, this.values.content.wml.id);
+        return this;
+
+    }
+
+    toggle(): DropDown {
+
+        hidden.toggle(this.view, this.values.content.wml.id);
+        return this;
+
+    }
+
     handleEvent(e: Event): void {
 
-        this
-            .view
-            .findById(this.values.root.id)
+        getById<HTMLElement>(this.view, this.values.root.wml.id)
             .map((root: HTMLElement) => {
 
                 if (!document.body.contains(root))

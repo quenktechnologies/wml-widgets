@@ -1,7 +1,7 @@
 import * as moment from 'moment';
 import { View } from '@quenk/wml';
 import { FormControlAttrs, FormControl } from '../form';
-import { FeedbackControlAttrs, GenericFeedbackControl } from '../feedback';
+import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { Event as ControlEvent } from '../';
 /**
  * DATE class name.
@@ -44,57 +44,70 @@ export declare const MONTHS: string[];
 /**
  * Date input.
  */
-export declare class Date extends GenericFeedbackControl<string, DateAttrs> implements FormControl<string, DateAttrs> {
+export declare class Date extends AbstractFeedbackControl<string, DateAttrs> implements FormControl<string, DateAttrs> {
     view: View;
     get: () => string;
     set: (_: string) => this;
     values: {
         root: {
+            wml: {
+                id: string;
+            };
             id: string;
-            class: string;
+            className: string;
+        };
+        control: {
+            wml: {
+                id: string;
+            };
         };
         inline: {
-            class: string;
+            className: string;
         };
         date: {
             months: {
                 label: string;
                 value: string;
             }[];
-            value: moment.Moment;
+            value: moment.Moment | null;
             sep: string;
             format: string;
             fire: () => void;
         };
         month: {
-            id: string;
-            class: string;
+            wml: {
+                id: string;
+            };
+            className: string;
             value: () => string;
-            disabled: boolean;
+            disabled: boolean | null;
             onchange: (e: Event) => void;
         };
         day: {
-            id: string;
-            class: string;
+            wml: {
+                id: string;
+            };
+            className: string;
             value: () => string;
-            disabled: boolean;
+            disabled: boolean | null;
             oninput: (e: KeyboardEvent) => void;
             onkeyup: (e: Event) => void;
         };
         year: {
-            id: string;
-            class: string;
+            wml: {
+                id: string;
+            };
+            className: string;
             value: () => string;
-            disabled: boolean;
+            disabled: boolean | null;
             oninput: (e: KeyboardEvent) => void;
             onkeyup: (e: Event) => void;
         };
         name: string;
         messages: {
-            id: string;
-            success: string;
-            error: string;
-            warning: string;
+            wml: {
+                id: string;
+            };
         };
         label: {
             id: string;

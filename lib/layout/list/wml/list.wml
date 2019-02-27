@@ -1,0 +1,17 @@
+{% import * as list from "../" %}
+
+{% view ListLayoutItem (list.ListLayoutItem) %}
+<div
+  wml:id={{@values.content.wml.id}}
+  id={{@values.content.id}}
+  class={{@values.content.className}}>
+   {{...@children}}
+</div>
+
+{% view ListLayout (list.ListLayout) %}
+<div
+  wml:id={{@values.content.wml.id}}
+  id={{@values.content.id}}
+  class={{@values.content.className}}>
+  {{...@children}}
+</div>

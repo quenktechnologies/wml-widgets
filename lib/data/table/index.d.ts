@@ -1,16 +1,10 @@
-import * as wml from '@quenk/wml';
-import { Attrs } from '@quenk/wml';
-import { AllSelectedEvent } from './AllSelectedEvent';
-import { CellClickedEvent } from './CellClickedEvent';
-import { RowClickedEvent } from './RowClickedEvent';
-import { RowSelectedEvent } from './RowSelectedEvent';
-import { HeadingClickedEvent } from './HeadingClickedEvent';
-import { Table } from './Table';
-export declare const TABLE = "table";
-export { Table, CellClickedEvent, RowClickedEvent, HeadingClickedEvent, AllSelectedEvent };
-export { Cell } from './Cell';
-export declare const ASC_ARROW = "⇧";
-export declare const DESC_ARROW = "⇩";
+import * as views from './wml/table';
+import { Record } from '@quenk/noni/lib/data/record';
+import { Fun, Component, Content } from '@quenk/wml';
+import { WidgetAttrs, HTMLElementAttrs } from '../../';
+export declare const DATA_TABLE = "ww-data-table";
+export declare const ASC_ARROW = "\u21E7";
+export declare const DESC_ARROW = "\u21E9";
 export declare const THEAD = "thead";
 export declare const TBODY = "tbody";
 /**
@@ -23,10 +17,30 @@ export declare type Comparable = string | number | boolean;
  */
 export declare type SortingStrategy = (a: Comparable, b: Comparable) => number;
 /**
- * Column (old name for Column)
- * @deprecated
+ * THead type.
+ *
+ * It should begin with the <thead> and assign the
+ * `wml:id=THEAD` attribute, otherwise
+ * the dynamic features of the Table won't work.
  */
-export interface Column<C, R> {
+export declare type THead<C, R extends Record<C>> = (table: DataTable<C, R>) => (columns: Column<C, R>[]) => Fun;
+/**
+ * TBody type.
+ *
+ * It should begin with the <tbody> tag and assign the `wml:id=TBODY` attribute,
+ * otherwise the dynamic features of the Table won't work.
+ */
+export declare type TBody<C, R extends Record<C>> = (table: DataTable<C, R>) => (data: R[]) => (columns: Column<C, R>[]) => Fun;
+/**
+ * CellFragment type.
+ *
+ * Is a wml function that renders the DOM for a table cell.
+ */
+export declare type CellFragment<C, R extends Record<C>> = (value: C) => (name: string) => (row: R) => Fun;
+/**
+ * Column
+ */
+export interface Column<C, R extends Record<C>> {
     name: string;
     heading: string;
     hidden?: boolean;
@@ -35,183 +49,190 @@ export interface Column<C, R> {
     strategy?: SortingStrategy;
 }
 /**
- * CellFragment is a wml function that renders the DOM for a table cell.
- */
-export declare type CellFragment<C, R> = (datum: C) => (name: string) => (row: R) => wml.Template;
-/**
  * Delegate is the interface that receives Table events.
  */
-export interface Delegate<C, R> {
-    onAllSelected(e: AllSelectedEvent<R>): void;
-    onCellClicked(e: CellClickedEvent<C, R>): void;
+export interface Delegate {
+    onCellClicked(e: CellClickedEvent): void;
     onHeadingClicked(e: HeadingClickedEvent): void;
-    onRowClicked(e: RowClickedEvent<R>): void;
-    onRowSelected(e: RowSelectedEvent<R>): void;
-}
-export interface TableAttrs<C, R> extends Attrs {
-    ww: {
-        class?: string;
-        theadClass?: string;
-        tbodyClass?: string;
-        thClass?: string;
-        trClass?: string;
-        tdClass?: string;
-        selectable?: boolean;
-        columns: Column<C, R>[];
-        data: R[];
-        delegate?: Delegate<C, R>;
-        empty?: wml.Template;
-        thead?: THead<C, R>;
-        tbody?: TBody<C, R>;
-        onAllSelected?: (e: AllSelectedEvent<R>) => void;
-        onCellClicked?: (e: CellClickedEvent<C, R>) => void;
-        onHeadingClicked?: (e: HeadingClickedEvent) => void;
-        onRowClicked?: (e: RowClickedEvent<R>) => void;
-        onRowSelected?: (e: RowSelectedEvent<R>) => void;
-    };
+    onRowClicked(e: RowClickedEvent): void;
 }
 /**
- * THead produces the content of the <thead> section.
- *
- * It should begin with the <thead> and assign the `wml:id=THEAD` attribute, otherwise
- * the dynamic features of the Table won't work.
+ * DataTableAttrs
  */
-export declare type THead<C, R> = (table: Table<C, R>) => (columns: Column<C, R>[]) => wml.Template;
-/**
- * TBody produces the content of the <tbody> section.
- *
- * It should begin with the <tbody> tag and assign the `wml:id=TBODY` attribute,
- * otherwise the dynamic features of the Table won't work.
- */
-export declare type TBody<C, R> = (table: Table<C, R>) => (data: R[]) => (columns: Column<C, R>[]) => wml.Template;
-/**
- * TableValues are the values Table makes available to templates.
- */
-export interface TableValues<C, R> {
+export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs {
     /**
-     * sortedOn indicates the column the table is sorted on.
+     * alternate enables alternating row styling.
      */
-    sortedOn: string;
+    alternate?: boolean;
     /**
-     * data used to build the rows of the table.
+     * hoverable enables hover effect styles.
      */
-    data: R[];
+    hoverable?: boolean;
     /**
-     * columns specs for the table.
+     * bordered enables cell border styles.
      */
+    bordered?: boolean;
+    /**
+     * compact will enable compact table style.
+     */
+    compact?: boolean;
+    theadClassName?: string;
+    tbodyClassName?: string;
+    thClassName?: string;
+    trClassName?: string;
+    tdClassName?: string;
     columns: Column<C, R>[];
+    data: R[];
+    delegate?: Delegate;
+    thead?: THead<C, R>;
+    tbody?: TBody<C, R>;
+    onCellClicked?: (e: CellClickedEvent) => void;
+    onHeadingClicked?: (e: HeadingClickedEvent) => void;
+    onRowClicked?: (e: RowClickedEvent) => void;
+}
+/**
+ * CellClickedEvent triggered when whitespace in a cell is clicked.
+ */
+export declare class CellClickedEvent {
+    column: string;
+    row: number;
+    constructor(column: string, row: number);
+}
+/**
+ * Range of table cells.
+ */
+export declare class Range {
+    elements: HTMLElement[];
+    constructor(elements: HTMLElement[]);
     /**
-     * arrows is a unicode character used to indicate the sort direction.
+     * setContent of the cells in this Range.
      */
-    arrow: string;
-    /**
-     * empty Template to use when the Table has no data.
-     */
-    empty: wml.Template;
-    /**
-     * options for the table.
-     */
-    options: {
-        /**
-         * indicates whether the table should display checkboxes for each row.
-         * @deprecated
-         */
-        selectable: boolean;
-    };
-    /**
-     * table specific values.
-     */
-    table: {
-        /**
-         * id is the wml:id assigned to the <table>.
-         */
-        id: string;
-        /**
-         * class names for the <table>.
-         */
-        class: string;
-        /**
-         * thead specific values.
-         */
-        thead: {
-            /**
-             * id is the wml:id assigned to the <thead>.
-             */
+    setContent(content: Content[]): Range;
+}
+/**
+ * HeadingClicked is triggered when the user clicks on
+ * one of the column headings.
+ */
+export declare class HeadingClickedEvent {
+    column: string;
+    constructor(column: string);
+}
+/**
+ * RowClickedEvent is triggered when the user clicks on whitespace in
+ * the row of a table.
+ */
+export declare class RowClickedEvent {
+    row: number;
+    constructor(row: number);
+}
+/**
+ * DefaultDelegate will handle table events if no Delegate is
+ * specified.
+ *
+ * It passes it's events onto registered callbacks.
+ */
+export declare class DefaultDelegate<C, R extends Record<C>> implements Delegate {
+    table: DataTable<C, R>;
+    constructor(table: DataTable<C, R>);
+    onCellClicked(e: CellClickedEvent): void;
+    onHeadingClicked(e: HeadingClickedEvent): void;
+    onRowClicked(e: RowClickedEvent): void;
+}
+/**
+ * DataTable provides a smarter html table.
+ */
+export declare class DataTable<C, R extends Record<C>> extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
+    view: views.Main<C, R>;
+    delegate: Delegate;
+    values: {
+        table: {
+            wml: {
+                id: string;
+            };
             id: string;
-            /**
-             * class for the <thead> section.
-             */
-            class: string;
-            /**
-             * template for rendering the <thead>
-             */
-            template: THead<C, R>;
-            /**
-             * onCheck is called each time the 'select all' check box is toggle.
-             */
-            onCheck: () => void;
-            /**
-             * th specific values.
-             */
-            th: {
-                /**
-                 * class names for <th>.
-                 */
-                class: string;
-                /**
-                 * onClick is called each time a table heading is clicked.
-                 */
-                onclick: (field: string) => void;
+            className: string;
+            alternate: boolean | undefined;
+            bordered: boolean | undefined;
+            compact: boolean | undefined;
+            hoverable: boolean | undefined;
+            data: R[];
+            get: (column: string) => (row: number) => C;
+            thead: {
+                wml: {
+                    id: string;
+                };
+                className: string | undefined;
+                template: () => THead<C, R>;
+                th: {
+                    className: string | undefined;
+                    content: (col: Column<C, R>) => Text;
+                    onclick: (field: string) => () => void;
+                };
+            };
+            tbody: {
+                id: string;
+                template: () => TBody<C, R>;
+                tr: {
+                    className: string | undefined;
+                    onclick: (row: number) => () => void;
+                };
+                td: {
+                    id: (column: string) => (colNumber: number) => (rowNumber: number) => string;
+                    className: string | undefined;
+                    onclick: (column: string) => (row: number) => () => void;
+                    content: (r: R) => (c: Column<C, R>) => Content[];
+                };
             };
         };
-        /**
-         * tbody specific values.
-         */
-        tbody: {
-            /**
-             * id is the wml:id assigned to the <tbody>.
-             */
-            id: string;
-            /**
-             * template for genrating the <tbody>.
-             */
-            template: TBody<C, R>;
-            /**
-             * tr specific values.
-             */
-            tr: {
-                /**
-                 * class names for the <tr>
-                 */
-                class: string;
-                /**
-                 * onclick is called each time a <tr> is clicked in the <tbody>.
-                 */
-                onclick: (row: R, index: number, data: R[]) => () => void;
-                /**
-                 * onCheck is called when the checkbox for the <tr> is toggled.
-                 */
-                onCheck: (row: R, index: number, data: R[]) => () => void;
-            };
-            /**
-             * td specific values
-             */
-            td: {
-                /**
-                 * id generates the id for a <td>
-                 */
-                id: (column: string, colNumber: number, rowNumber: number) => string;
-                /**
-                 * class names for a <td>
-                 */
-                class: string;
-                /**
-                 * onclick is called when a <td> is clicked on.
-                 */
-                onclick: (value: C, column: string, rowData: R, rowNumber: number) => (e: Event) => void;
-            };
+        sort: {
+            key: string;
+            arrow: string;
+            original: R[];
         };
+        columns: Column<C, R>[];
     };
+    /**
+        sort(name: string): DataTable<C, R> {
+    
+          let columns = this.values.columns;
+  
+          let field = columns.reduce((p, c) =>
+            p ? p : (c.name === name ? c : null));
+  
+          let sortOn: string;
+  
+            let strategy: SortingStrategy;
+    
+            if (!field)
+                throw new Error(`Table#sort: unknown field '${name}'`);
+    
+            sortOn = field.sortAs || name;
+            strategy = field.strategy || stringSort;
+    
+            if (this.values.sortedOn === name) {
+    
+                this.values.data = this.values.data.reverse();
+                this.values.arrow = (this.values.arrow === ASC_ARROW) ? DESC_ARROW : ASC_ARROW;
+    
+            } else {
+    
+                this.values.arrow = DESC_ARROW;
+                this.values.data = this
+                    .originalData
+                    .slice()
+                    .sort((a, b) => strategy(<Comparable>get(sortOn, a), <Comparable>get(sortOn, b)));
+    
+            }
+    
+            this.values.sortedOn = name;
+            this.view.invalidate();
+            return this;
+    
+        }*/
+    /**
+     * setData updates the table with new dataset.
+     */
+    setData(data: R[]): DataTable<C, R>;
 }
 export declare const dateSort: (a: string, b: string) => 0 | 1 | -1;
 export declare const stringSort: (a: string, b: string) => 0 | 1 | -1;

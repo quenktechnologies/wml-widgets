@@ -1,16 +1,21 @@
 import * as views from './wml/text-field';
-import { Template, View } from '@quenk/wml';
-import { concat } from '../../util';
-import { FormControlAttrs, GenericFormControl } from '../form';
-import { selectState } from '../feedback';
-import { Event } from '../';
+import { Fun, View } from '@quenk/wml';
+import { concat, getById } from '../../util';
+import { FormControlAttrs, AbstractFormControl } from '../form';
+import { getId, getClassName } from '../../';
+import { Event, getName } from '../';
 
-const oninput = (f: TextField) => (e: KeyboardEvent) =>
-    f.attrs.ww.onChange(new TextChangedEvent(f.attrs.ww.name,
-        (<HTMLInputElement>e.target).value));
+const oninput = (f: TextField) => (e: KeyboardEvent) => {
+
+    if (f.attrs.ww && f.attrs.ww)
+        f.attrs.ww.onChange(new TextChangedEvent((f.attrs.ww && f.attrs.ww.name) ?
+            f.attrs.ww.name : '',
+            (<HTMLInputElement>e.target).value));
+
+}
 
 const input = (f: TextField) =>
-    f.view.findById<HTMLInputElement>(f.values.control.id);
+    getById<HTMLInputElement>(f.view, f.values.control.wml.id);
 
 ///classNames:begin
 export const TEXT_FIELD = 'form-control';
@@ -20,7 +25,7 @@ export const TEXT_FIELD = 'form-control';
  * TextFieldTemplate describes the template used to render 
  * the TextField.
  */
-export type TextFieldTemplate = (f: TextField) => Template;
+export type TextFieldTemplate = (f: TextField) => Fun;
 
 /**
  * TextFieldAttrs
@@ -72,7 +77,7 @@ export class TextChangedEvent extends Event<string> { }
 /**
  * TextField provides a wrapped native text input control.
  */
-export class TextField extends GenericFormControl<string, TextFieldAttrs> {
+export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
     view: View = new views.Main(this);
 
@@ -84,42 +89,72 @@ export class TextField extends GenericFormControl<string, TextFieldAttrs> {
 
         root: {
 
-            id: 'root',
-            class: concat('form-group', this.attrs.ww.class, selectState(this.attrs.ww))
+            wml: {
+
+                id: 'root'
+
+            },
+
+            id: getId(this.attrs),
+
+            className: concat(TEXT_FIELD, getClassName(this.attrs))
 
         },
         messages: {
 
-            id: 'message',
-            success: this.attrs.ww.success,
-            error: this.attrs.ww.error,
-            warning: this.attrs.ww.warning
+            wml: {
+
+                id: 'message'
+
+            }
 
         },
+
         label: {
 
-            id: this.attrs.ww.name,
-            text: this.attrs.ww.label || ''
+            id: getName(this.attrs),
+
+            text: (this.attrs.ww && this.attrs.ww.label) ? this.attrs.ww.label : ''
 
         },
         control: {
 
-            id: 'control',
-            template: (): TextFieldTemplate => this.attrs.ww.controlTemplate || views.group,
-            class: concat(TEXT_FIELD, this.attrs.ww.class),
-            name: this.attrs.ww.name,
-            type: this.attrs.ww.type || 'text',
-            focus: this.attrs.ww.focus,
-            placeholder: this.attrs.ww.placeholder || '',
-            value: this.attrs.ww.value || '',
-            disabled: (this.attrs.ww.disabled === true) ? true : null,
-            readOnly: (this.attrs.ww.readOnly === true) ? true : null,
-            rows: this.attrs.ww.rows || 1,
-            oninput: this.attrs.ww.onChange ? oninput(this) : () => { }
+            wml: {
+
+                id: 'control'
+
+            },
+
+            template: (): TextFieldTemplate =>
+                (this.attrs.ww && this.attrs.ww.controlTemplate) ?
+                    this.attrs.ww.controlTemplate : views.group,
+
+            name: getName(this.attrs),
+
+            type: 'text',
+
+            focus: (this.attrs.ww && this.attrs.ww.focus) ?
+                this.attrs.ww.focus : null,
+
+            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
+                this.attrs.ww.placeholder : '',
+
+            value: (this.attrs.ww && this.attrs.ww.value) ?
+                this.attrs.ww.value : '',
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : null,
+
+            readOnly: (this.attrs.ww && this.attrs.ww.readOnly) ?
+                true : null,
+
+            rows: (this.attrs.ww && this.attrs.ww.rows) ?
+                this.attrs.ww.rows : 1,
+
+            oninput: (this.attrs.ww && this.attrs.ww.onChange) ?
+                oninput(this) : () => { }
 
         }
 
     };
-
 
 }

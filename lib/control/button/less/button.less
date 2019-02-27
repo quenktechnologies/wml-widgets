@@ -1,10 +1,12 @@
+@import "./variables";
+
 /*
   Button styling.
 */
 .__BUTTON__ {
 
   display: inline-block;
-  font-weight: @btn-font-weight;
+  font-weight: @button-font-weight;
   text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
@@ -13,17 +15,17 @@
   white-space: nowrap;
 
   .buttonDimension(
-  @padding-base-vertical;
-  @padding-base-horizontal;
-  @font-size-base;
-  @line-height-base;
-  @btn-border-radius-base);
+  @button-padding-vertical;
+  @button-padding-horizontal;
+  @button-font-size;
+  @button-line-height;
+  @button-border-radius);
 
   user-select: none;
 
   &:hover, &:focus {
 
-    color: @btn-default-color;
+    color: @button-color;
     text-decoration: none;
 
   }
@@ -36,7 +38,7 @@
 
   &[disabled] {
 
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
     opacity: .65;
     box-shadow: none;
 
@@ -44,42 +46,64 @@
 
   &.__DEFAULT__ {
 
-    .buttonStyle(@btn-default-color, @btn-default-bg, @btn-default-border);
+    .buttonStyle(
+    @button-color;
+    @button-default-background;
+    @button-default-border-color);
 
   }
 
   &.__PRIMARY__ {
 
-    .buttonStyle(@btn-primary-color, @btn-primary-bg, @btn-primary-border);
+    .buttonStyle(
+    @button-primary-color;
+    @button-primary-background;
+    @button-primary-border-color);
 
   }
 
   &.__SUCCESS__ {
 
-    .buttonStyle(@btn-success-color, @btn-success-bg, @btn-success-border);
+    .buttonStyle(
+    @button-success-color;
+    @button-success-background;
+    @button-success-border-color);
 
   }
   &.__INFO__ {
 
-    .buttonStyle(@btn-info-color, @btn-info-bg, @btn-info-border);
+    .buttonStyle(
+    @button-info-color,
+    @button-info-background,
+    @button-info-border-color);
 
   }
 
   &.__WARNING__ {
 
-    .buttonStyle(@btn-warning-color, @btn-warning-bg, @btn-warning-border);
+    .buttonStyle(
+    @button-warning-color,
+    @button-warning-background,
+    @button-warning-border-color);
 
   }
 
   &.__ERROR__ {
 
-    .buttonStyle(@btn-danger-color, @btn-danger-bg, @btn-danger-border);
+    .buttonStyle(
+    @button-error-color, 
+    @button-error-background,
+    @button-error-border-color);
 
   }
 
   &.__LINK__ {
 
-    .buttonLink();
+    .buttonLink(
+      @button-link-color;
+      @button-link-disabled-color;
+      @button-link-hover-color;
+      @button-link-hover-decoration);
 
   }
 
@@ -89,47 +113,47 @@
 
   }
 
-  &.__LARGE__ {
+  &.__EXTRA_SMALL__ {
 
-    .buttonDimension(
-    @padding-large-vertical; 
-    @padding-large-horizontal;
-    @font-size-large;
-    @line-height-large;
-    @btn-border-radius-large);
-
-  }
-
-  &.__EXTRA_LARGE__ {
-
-    .buttonDimension(
-    @padding-large-vertical; 
-    @padding-large-horizontal;
-    @font-size-large;
-    @line-height-large;
-    @btn-border-radius-large);
+   .buttonDimension(
+    @button-extra-small-padding-vertical; 
+    @button-extra-small-padding-horizontal;
+    @button-extra-small-font-size;
+    @button-extra-small-line-height;
+    @button-extra-small-border-radius);
 
   }
 
   &.__SMALL__ {
 
     .buttonDimension(
-    @padding-small-vertical;
-    @padding-small-horizontal;
-    @font-size-small;
-    @line-height-small;
-    @btn-border-radius-small);
+    @button-small-padding-vertical; 
+    @button-small-padding-horizontal;
+    @button-small-font-size;
+    @button-small-line-height;
+    @button-small-border-radius);
 
   }
 
-  &.__EXTRA_SMALL__ {
+  &.__LARGE__ {
 
     .buttonDimension(
-    @padding-xs-vertical;
-    @padding-xs-horizontal;
-    @font-size-small;
-    @line-height-small;
-    @btn-border-radius-small);
+    @button-large-padding-vertical; 
+    @button-large-padding-horizontal;
+    @button-large-font-size;
+    @button-large-line-height;
+    @button-large-border-radius);
+
+  }
+
+  &.__EXTRA_LARGE__ {
+
+    .buttonDimension(
+    @button-extra-large-padding-vertical; 
+    @button-extra-large-padding-horizontal;
+    @button-extra-large-font-size;
+    @button-extra-large-line-height;
+    @button-extra-large-border-radius);
 
   }
 
@@ -282,21 +306,13 @@ buttonLinkBackground styles the background and shadows.
 }
 
 /*
-buttonLinkAttentionState provides styling for button links
-when given attention.
-*/
-.buttonLinkAttentionState() {
-
-  color: @link-hover-color;
-  text-decoration: @link-hover-decoration;
-  background-color: transparent;
-
-}
-
-/*
 buttonLink styles the button to appear like a link.
 */
-.buttonLink() {
+.buttonLink( 
+            @link-color;
+            @link-disabled-color;
+            @link-hover-color;
+            @link-hover-decoration) {
 
   color: @link-color;
   font-weight: normal;
@@ -306,17 +322,17 @@ buttonLink styles the button to appear like a link.
 
   &:hover, &:focus {
 
-    .buttonLinkAttentionState();
+    color: @link-hover-color;
+    text-decoration: @link-hover-decoration;
+    background-color: transparent;
 
   }
 
   &[disabled]:hover, &[disabled]:focus {
 
-    color: @btn-link-disabled-color;
+    color: @link-disabled-color;
     text-decoration: none;
 
   }
 
 }
-
-

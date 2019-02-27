@@ -1,5 +1,8 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, GenericControl, Event } from '../';
+import { Style } from '../../content/style';
+import { Size } from '../../content/size';
+import { ControlAttrs, AbstractControl, Event } from '../';
+export { Style };
 export declare const BUTTON = "ww-button";
 /**
  * ButtonAttrs
@@ -8,11 +11,11 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
     /**
      * size modifier for the button.
      */
-    size?: string;
+    size?: Size;
     /**
      * style assigns one of the supported styles.
      */
-    style?: string;
+    style?: Style;
     /**
      * outline uses an alternative outline styling
      */
@@ -46,17 +49,20 @@ export declare class ButtonClickedEvent<V> extends Event<V> {
 /**
  * Button is an improvement over HTMLButtionElement
  */
-export declare class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
+export declare class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
     view: View;
     values: {
         button: {
+            wml: {
+                id: string;
+            };
             id: string;
-            class: string;
+            className: string;
             type: string;
             name: string;
-            disabled: boolean;
-            onclick: () => void;
-            text: string;
+            disabled: boolean | null;
+            onclick: () => void | undefined;
+            content: () => import("@quenk/wml").Content[];
         };
     };
     /**

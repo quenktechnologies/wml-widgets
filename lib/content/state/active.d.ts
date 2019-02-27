@@ -1,34 +1,30 @@
-import { Maybe } from 'afpl/lib/monad/Maybe';
+import { View } from '@quenk/wml';
 /**
  * ACTIVE
  */
 export declare const ACTIVE = "-active";
 /**
- * Activate
+ * Activate indicates a widget can be an active state.
  */
-export declare type Activate<A extends Activatable> = () => A;
-/**
- * Deactivate
- */
-export declare type Deactivate<A extends Activatable> = () => A;
-/**
- * Activatable indicates a widget can be an active state.
- */
-export interface Activatable {
+export interface Activate {
     /**
      * activate the widget.
      */
-    activate: () => Activatable;
+    activate(): Activate;
     /**
      * deactivate the widget.
      */
-    deactivate: () => Activatable;
+    deactivate(): Activate;
 }
 /**
- * deactivate this nav list item.
+ * activate helper.
+ *
+ * Adds the ACTIVE class.
  */
-export declare const deactivate: <A extends Activatable>(a: A) => (fn: () => Maybe<HTMLElement>) => Deactivate<A>;
+export declare const activate: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
 /**
- * activate this nav list Item.
+ * deactivate helper.
+ *
+ * Removes the ACTIVE class.
  */
-export declare const activate: <A extends Activatable>(a: A) => (fn: () => Maybe<HTMLElement>) => Deactivate<A>;
+export declare const deactivate: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;

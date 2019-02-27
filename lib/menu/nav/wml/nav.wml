@@ -1,0 +1,8 @@
+{% import (Nav) from "../" %}
+
+{% view Main (Nav) %}
+
+<ul id={{@values.root.id}} 
+    class={{@values.root.className}}>
+    {{...@children}}
+</ul>

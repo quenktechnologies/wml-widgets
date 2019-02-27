@@ -1,8 +1,8 @@
 import * as views from './wml/stack';
-//import * as close from '../../content/x/close';
-import { View, Template } from '@quenk/wml';
+import { Fun } from '@quenk/wml';
 import { concat } from '../../util';
-import { ControlAttrs, Event, GenericControl } from '../';
+import { textNode, getId, getClassName } from '../../';
+import { ControlAttrs, Event, AbstractControl } from '../';
 
 ///classNames:begin
 export const STACK = 'ww-stack';
@@ -15,7 +15,7 @@ export const STACK_CLOSE_BUTTON = 'ww-stack__button';
  * ElementTemplate provides a template for rendering a stack element's UI.
  */
 export type ElementTemplate<V> =
-    (s: Stack<V>) => (value: V) => (idx: number) => Template;
+    (s: Stack<V>) => (value: V) => (idx: number) => Fun;
 
 /**
  * StackAttrs
@@ -48,25 +48,26 @@ export class StackChangedEvent<V> extends Event<V[]> { }
  * Stack displays a list of items that can be modified
  * by releasing one or more at a time.
  */
-export class Stack<V> extends GenericControl<V[], StackAttrs<V>> {
+export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
 
-    view: View = new views.Main(this);
+    view: views.Main<V> = new views.Main(this);
 
     values = {
 
         root: {
 
-            id: 'stack',
+            id: getId(this.attrs),
 
-            class: concat(STACK, this.attrs.ww.class),
+            className: concat(STACK, getClassName(this.attrs)),
 
-            value: this.attrs.ww.value ? this.attrs.ww.value : [],
+            value: (this.attrs.ww && this.attrs.ww.value) ?
+                this.attrs.ww.value : [],
 
             fire: () => {
 
-                if (this.attrs.ww.onChange)
+                if (this.attrs.ww && this.attrs.ww.onChange)
                     this.attrs.ww.onChange(new StackChangedEvent<V>(
-                        this.attrs.ww.name,
+                        <string>this.attrs.ww.name,
                         this.values.root.value.slice()));
 
                 this.view.invalidate();
@@ -76,16 +77,18 @@ export class Stack<V> extends GenericControl<V[], StackAttrs<V>> {
         },
         element: {
 
-            class: STACK_ELEMENT,
+            className: STACK_ELEMENT,
 
-            template: (): any => this.attrs.ww.elementTemplate ?
-                this.attrs.ww.elementTemplate(this) : views.content(this),
+            template: (v: V) => (idx: number) =>
+                (this.attrs.ww && this.attrs.ww.elementTemplate) ?
+                    this.attrs.ww.elementTemplate(this)(v)(idx)(this.view) :
+                    views.content(this)(v)(idx)(this.view),
 
-          content: {
+            content: {
 
-            class : STACK_ELEMENT_CONTENT
+                className: STACK_ELEMENT_CONTENT
 
-          },
+            },
 
             close: (index: number | string) => () => {
 
@@ -93,11 +96,14 @@ export class Stack<V> extends GenericControl<V[], StackAttrs<V>> {
                 this.values.root.fire();
 
             },
-            decorator: this.attrs.ww.decorator ? this.attrs.ww.decorator : (v: V) => String(v)
+            decorator: (v: V) =>
+                textNode((this.attrs.ww && this.attrs.ww.decorator) ?
+                    this.attrs.ww.decorator(v) : v + '')
+
         },
         close: {
 
-            class: STACK_CLOSE_BUTTON
+            className: STACK_CLOSE_BUTTON
 
         }
 

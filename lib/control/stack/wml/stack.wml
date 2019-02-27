@@ -1,23 +1,25 @@
-import {Stack} from "../"
+{% import (Stack) from "../" %}
 
-{% fun content [V](Stack[V]) (v:V, _:Number) %}
+{% fun content [V](s:Stack[V]) (v:V) (_:Number) %}
 
-  <div class={{@values.element.content.class}}>{{@values.element.decorator(v)}}</div>
+  <div class={{s.values.element.content.className}}>
+    {{s.values.element.decorator(v)}}
+  </div>
 
 {% endfun %}
 
-{% main [V](Stack[V]) %}
+{% view Main [V](Stack[V]) %}
 
-<ul class={{@values.root.class}}>
+<ul id={{@values.root.id}} class={{@values.root.className}}>
 
   {% for v,index:Number in @values.root.value %}
 
-    <li class={{@values.element.class}}>
+    <li class={{@values.element.className}}>
 
-      {{<(@values.element.template())(v)(index)>}}
+      {{...(@values.element.template(v)(index))}}
 
       <button 
-        class={{@values.close.class}}
+        class={{@values.close.className}}
         onclick={{@values.element.close(index)}}>×</button>
 
     </li>
@@ -25,5 +27,3 @@ import {Stack} from "../"
   {% endfor %}
 
 </ul>
-
-

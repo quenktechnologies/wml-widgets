@@ -1,5 +1,5 @@
 import { View } from '@quenk/wml';
-import { LayoutAttrs, GenericLayout } from '../';
+import { LayoutAttrs, AbstractLayout } from '../';
 /**
  * ACTION_BAR class name. for the ActionBar root.
  */
@@ -17,15 +17,20 @@ export interface ActionBarAttrs extends LayoutAttrs {
  * ActionBar provides a bar across the screen that can be
  * used as a toolbar, navigation menu or something simillar.
  */
-export declare class ActionBar extends GenericLayout<ActionBarAttrs> {
+export declare class ActionBar extends AbstractLayout<ActionBarAttrs> {
     view: View;
     values: {
         root: {
+            wml: {
+                id: string;
+            };
             id: string;
             class: string;
         };
         content: {
-            id: string;
+            wml: {
+                id: string;
+            };
             class: string;
         };
     };

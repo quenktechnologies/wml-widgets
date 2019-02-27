@@ -1,5 +1,7 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, GenericControl, Event } from '../../control';
+import {concat} from '../../util';
+import {getId,getClassName} from '../../';
+import { ControlAttrs, AbstractControl, Event,getName,getDisabled } from '../';
 import { Main } from './wml/switch';
 
 ///classNames:begin
@@ -27,7 +29,7 @@ export class SwitchChangedEvent extends Event<boolean> { }
 /**
  * Switch allows the user to select between one or two values.
  */
-export class Switch extends GenericControl<boolean, SwitchAttrs> {
+export class Switch extends AbstractControl<boolean, SwitchAttrs> {
 
     view: View = new Main(this);
 
@@ -35,28 +37,33 @@ export class Switch extends GenericControl<boolean, SwitchAttrs> {
 
         root: {
 
-            class: SWITCH
+          id: getId(this.attrs),
+
+            className: concat(SWITCH,getClassName(this.attrs))
 
         },
         slider: {
 
-            class: SWITCH_SLIDER
+            className: SWITCH_SLIDER
 
         },
         input: {
 
-            name: this.attrs.ww.name,
-            value: this.attrs.ww.value || null,
-            disabled: this.attrs.ww.disabled ? true : null,
+          name: getName(this.attrs),
+
+          value: (this.attrs.ww && this.attrs.ww.value) ? 
+          this.attrs.ww.value : false,
+
+          disabled: getDisabled(this.attrs),
+
             onChange: () => {
 
-                this.values.input.value = (!this.values.input.value) || null
+                this.values.input.value = (!this.values.input.value) 
 
-                if (this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(
-                        new SwitchChangedEvent(
+                if ((this.attrs.ww && this.attrs.ww.onChange))
+                    this.attrs.ww.onChange(                        new SwitchChangedEvent(
                             this.values.input.name,
-                            this.values.input.value || false));
+                            this.values.input.value));
 
             }
         }

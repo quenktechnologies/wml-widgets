@@ -1,10 +1,9 @@
 import * as views from './wml/button-select';
-import * as style from '../../content/style';
-import * as active from '../../content/state/active';
 import { View } from '@quenk/wml';
-import { Maybe } from 'afpl/lib/monad/Maybe';
+import { Style } from '../../content/style';
 import { concat } from '../../util';
-import { ControlAttrs, Event, GenericControl } from '../';
+import { getId, getClassName } from '../../';
+import { ControlAttrs, Event, AbstractControl } from '../';
 
 ///className:begin
 export const BUTTON_SELECT = 'ww-button-select';
@@ -22,14 +21,14 @@ export interface Option<V> {
     value: V,
 
     /**
-     * title displayed for the button.
+     * text displayed for the button.
      */
-    title: string,
+    text: string,
 
     /**
-     * class allows for a class name to specified on the rendered button.
+     * className to add to the rendered button.
      */
-    class?: string
+    className?: string
 
 }
 
@@ -46,7 +45,7 @@ export interface ButtonSelectAttrs<O, V> extends ControlAttrs<V> {
     /**
      * style in style to use.
      */
-    style?: string,
+    style?: Style,
 
     /**
      * onChange handler.
@@ -76,9 +75,14 @@ export interface ButtonSelectInterface<V> {
         root: {
 
             /**
-             * class of the root element.
+             * id of the root element
              */
-            class: string
+            id: string,
+
+            /**
+             * className of the root element.
+             */
+            className: string
 
         },
 
@@ -92,22 +96,26 @@ export interface ButtonSelectInterface<V> {
              */
             options: Option<V>[],
 
-            /**
-             * isActive tests whether an option's button
-             * should be displayed active or not.
-             */
-            isActive: (v: V) => boolean,
-
-            /**
+            /**            
              * click is applied to the value of an option's value when 
              * it is clicked by the user.
              */
-            click: (v: V) => void,
+            click: (n: number) => void,
 
             /**
-             * getClass for an options' button.
+             * getClassNames for an options' button.
              */
-            getClass: (opt: Option<V>) => string
+            getClassNames: (n: number) => string
+
+            /**
+             * getStyle
+             */
+            getStyle: () => Style,
+
+            /**
+             * getActive
+             */
+            getActive: (n: number) => boolean
 
         }
 
@@ -118,8 +126,7 @@ export interface ButtonSelectInterface<V> {
 /**
  * ButtonSelect
  */
-export class ButtonSelect<V> extends GenericControl<V, ButtonSelectAttrs<V, V>>
-    implements ButtonSelectInterface<V> {
+export class ButtonSelect<V> extends AbstractControl<V, ButtonSelectAttrs<V, V>> {
 
     view: View = new views.Main(this);
 
@@ -127,31 +134,39 @@ export class ButtonSelect<V> extends GenericControl<V, ButtonSelectAttrs<V, V>>
 
         root: {
 
-            class: BUTTON_SELECT
+            id: getId(this.attrs),
+
+            className: concat(BUTTON_SELECT, getClassName(this.attrs))
 
         },
         buttons: {
 
-            value: this.attrs.ww.value,
+            current: -1,
 
-            options: this.attrs.ww.options,
+            options: (this.attrs.ww && this.attrs.ww.options) ?
+                this.attrs.ww.options : [],
 
-            isActive: (v: V) => this.values.buttons.value === v,
 
-            click: (value: V) => {
+            click: (idx: number) => {
 
-                this.values.buttons.value = value;
+                this.values.buttons.current = idx;
 
-                if (this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(new ButtonChangedEvent(this.attrs.ww.name, value));
+                if ((this.attrs.ww && this.attrs.ww.onChange))
+                    this.attrs.ww.onChange(
+                        new ButtonChangedEvent(<string>this.attrs.ww.name,
+                            this.values.buttons.options[idx].value));
 
                 this.view.invalidate();
 
             },
-            getClass: (o: Option<V>) =>
-                concat(BUTTON_SELECT_OPTION, o.class, (this.attrs.ww.style) ?
-                    this.attrs.ww.style :
-                    style.DEFAULT, this.values.buttons.isActive(o.value) ? active.ACTIVE : '')
+            getStyle: () => (this.attrs.ww && this.attrs.ww.style) ?
+                this.attrs.ww.style : Style.Default,
+
+            getActive: (n: number) => this.values.buttons.current === n,
+
+            getClassNames: (n: number) =>
+                concat(BUTTON_SELECT_OPTION,
+                    <string>this.values.buttons.options[n].className)
 
         }
 
@@ -163,8 +178,7 @@ export class ButtonSelect<V> extends GenericControl<V, ButtonSelectAttrs<V, V>>
  * MultiButtonSelect
  */
 export class MultiButtonSelect<V>
-    extends GenericControl<V[], ButtonSelectAttrs<V, V[]>>
-    implements ButtonSelectInterface<V> {
+    extends AbstractControl<V[], ButtonSelectAttrs<V, V[]>> {
 
     view: View = new views.Main(this);
 
@@ -172,48 +186,46 @@ export class MultiButtonSelect<V>
 
         root: {
 
-            class: BUTTON_SELECT
+            id: getId(this.attrs),
+
+            className: concat(BUTTON_SELECT, getClassName(this.attrs))
 
         },
         buttons: {
 
-            value: this.attrs.ww.value || [],
+            values: <number[]>[],
 
-            options: this.attrs.ww.options,
+            options: (this.attrs.ww && this.attrs.ww.options) ?
+                this.attrs.ww.options : [],
 
-            isActive: (v: V) => this.values.buttons.value.indexOf(v) > -1,
 
-            click: (v: V) => {
+            click: (n: number) => {
 
-                this.values.buttons.value =
-                    Maybe
-                        .fromArray(this.values.buttons.value)
-                        .map(value => {
+                let values = this.values.buttons.values;
+                let pos = values.indexOf(n);
 
-                            let pos = value.indexOf(v);
+                if (pos > -1)
+                    values.splice(pos, 1);
+                else
+                    values.push(n);
 
-                            if (pos > -1)
-                                value.splice(pos, 1);
-                            else
-                                value.push(v);
+                if (this.attrs.ww && this.attrs.ww.onChange)
+                    this.attrs.ww.onChange(new ButtonChangedEvent(
+                        <string>this.attrs.ww.name,
+                        values.map(n => this.values.buttons.options[n].value)));
 
-                            if (this.attrs.ww.onChange)
-                                this.attrs.ww.onChange(
-                                    new ButtonChangedEvent(this.attrs.ww.name, value.slice()));
-
-                            this.view.invalidate();
-
-                            return value;
-
-                        })
-                        .orJust(() => [v])
-                        .get();
+              this.view.invalidate();
 
             },
-            getClass: (o: Option<V>) =>
-                concat(BUTTON_SELECT_OPTION, o.class, (this.attrs.ww.style) ?
-                    this.attrs.ww.style :
-                    style.DEFAULT, this.values.buttons.isActive(o.value) ? active.ACTIVE : '')
+
+            getStyle: () => (this.attrs.ww && this.attrs.ww.style) ?
+                this.attrs.ww.style : Style.Default,
+
+            getActive: (n: number) => this.values.buttons.values.indexOf(n) > -1,
+
+            getClassNames: (n: number) =>
+                concat(BUTTON_SELECT_OPTION,
+                    <string>this.values.buttons.options[n].className)
 
         }
 

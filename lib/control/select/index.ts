@@ -1,11 +1,12 @@
 import * as views from './wml/select';
-import { View, Template } from '@quenk/wml';
-import { Menu } from '../menu';
-import { concat } from '../../util';
-import { FeedbackControlAttrs, GenericFeedbackControl } from '../feedback';
+import { Fun } from '@quenk/wml';
+import { Menu } from '../../menu/menu';
+import { concat, getById } from '../../util';
+import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { FormControlAttrs } from '../form';
 import { TermChangedEvent } from '../search';
-import { Event as ControlEvent } from '../';
+import { getId, getClassName } from '../../';
+import { Event as ControlEvent, getName } from '../';
 import { Search } from '../search';
 
 export { TermChangedEvent }
@@ -21,13 +22,13 @@ export const SELECT = 'ww-select';
  * ItemContentTemplate for rending the content of a single search result.
  */
 export type ItemContentTemplate<V>
-    = (s: Select<V>) => (option: V) => (index: number) => Template
+    = (s: Select<V>) => (option: V) => (index: number) => Fun
     ;
 
 /**
  * EmpFun for rendering when there are no results.
  */
-export type NoItemsTemplate<V> = (s: Select<V>) => Template;
+export type NoItemsTemplate<V> = (s: Select<V>) => Fun;
 
 export interface SelectAttrs<V>
     extends FormControlAttrs<V>,
@@ -45,9 +46,9 @@ export interface SelectAttrs<V>
     noItemsTemplate?: NoItemsTemplate<V>,
 
     /**
-      * inputClass is the class list for the input.
+      * inputClassName is the class list for the input.
       */
-    inputClass?: string,
+    inputClassName?: string,
 
     /**
      * placeholder text for the input.
@@ -72,11 +73,6 @@ export interface SelectAttrs<V>
     stringifier?: (v: V) => string
 
     /**
-     * native if true, will have the Select
-     * behave similarly to a native select element.
-     */
-
-    /**
      * onChange handler.
      */
     onChange?: (e: ItemChangedEvent<V>) => void;
@@ -98,64 +94,93 @@ export class ItemChangedEvent<V> extends ControlEvent<V> { }
  * the user to search and select form a list of options.
  */
 export class Select<V>
-    extends GenericFeedbackControl<V, SelectAttrs<V>> {
+    extends AbstractFeedbackControl<V, SelectAttrs<V>> {
 
-    view: View = new views.Main(this);
+    view: views.Main<V> = new views.Main(this);
 
     values = {
 
-        id: {
-
-            root: 'root',
-            input: 'input',
-            menu: 'menu',
-            message: 'mesage',
-
-        },
-        class: {
-
-            root: '',
-            input: ''
-
-        },
         root: {
 
-            id: 'root',
-            class: concat(SELECT, this.attrs.ww.class)
+            wml: {
+
+                id: 'root'
+
+            },
+
+            id: getId(this.attrs),
+
+            className: concat(SELECT, getClassName(this.attrs)),
+
         },
+
+        control: {
+
+            wml: {
+
+                id: 'root'
+
+            }
+
+        },
+
         messages: {
 
-            id: 'message',
-            success: this.attrs.ww.success,
-            error: this.attrs.ww.error,
-            warning: this.attrs.ww.warning
+            wml: {
+
+                id: 'message'
+
+            }
 
         },
+
+        input: {
+
+            wml: {
+
+                id: 'input'
+
+            }
+
+        },
+
         menu: {
 
-            id: 'menu',
+            wml: {
+
+                id: 'menu'
+
+            },
             hide: true,
             options: <V[]>(this.attrs.ww && this.attrs.ww.options) || []
 
+
         },
+
         label: {
 
-            id: this.attrs.ww.name,
-            text: this.attrs.ww.label || ''
+            id: getName(this.attrs),
+
+            text: (this.attrs.ww && this.attrs.ww.label) ?
+                this.attrs.ww.label : ''
 
         },
         search: {
 
-            id: 'search',
+            wml: {
 
-          name: this.attrs.ww.name,
+                id: 'search'
 
-            class: this.attrs.ww.inputClass,
+            },
+            name: getName(this.attrs),
 
-            placeholder: this.attrs.ww.placeholder ?
-                this.attrs.ww.placeholder : null,
+            className: (this.attrs.ww && this.attrs.ww.inputClassName) ?
+                this.attrs.ww.inputClassName : '',
 
-            readOnly: this.attrs.ww && this.attrs.ww.readOnly,
+            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
+                this.attrs.ww.placeholder : '',
+
+            readOnly: (this.attrs.ww && this.attrs.ww.readOnly),
 
             onFocus: () => {
 
@@ -182,7 +207,7 @@ export class Select<V>
                     this.attrs.ww.noItemsTemplate : views.noItemsTemplate,
 
             stringify: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : (v: V) => String(v),
+                this.attrs.ww.stringifier : (v: V) => ('' + v),
 
             click: (index: number | string) => {
 
@@ -192,11 +217,9 @@ export class Select<V>
 
                 if (this.attrs.ww && this.attrs.ww.onChange)
                     this.attrs.ww.onChange(new ItemChangedEvent(
-                        this.attrs.ww.name, selected));
+                        '' + this.attrs.ww.name, selected));
 
-                this
-                    .view
-                    .findById(this.values.search.id)
+                getById<Search>(this.view, this.values.search.wml.id)
                     .map((s: Search) => s.set(this.values.item.stringify(selected)));
 
             }
@@ -207,9 +230,7 @@ export class Select<V>
 
     handleEvent(e: Event): void {
 
-        this
-            .view
-            .findById(this.values.root.id)
+        getById<HTMLElement>(this.view, this.values.root.wml.id)
             .map((root: HTMLElement) => {
 
                 if (!document.body.contains(root))
@@ -224,9 +245,7 @@ export class Select<V>
 
     open(): Select<V> {
 
-        this
-            .view
-            .findById(this.values.id.menu)
+        getById<Menu>(this.view, this.values.menu.wml.id)
             .map((m: Menu) => m.show());
 
         return this;
@@ -235,9 +254,7 @@ export class Select<V>
 
     close(): Select<V> {
 
-        this
-            .view
-            .findById(this.values.id.menu)
+        getById<Menu>(this.view, this.values.menu.wml.id)
             .map((m: Menu) => m.hide());
 
         return this;
@@ -255,10 +272,8 @@ export class Select<V>
         window.removeEventListener('click', this);
         window.addEventListener('click', this);
 
-        this
-            .view
-            .findById(this.values.id.menu)
-            .map((m: Menu) => m.setContent(new views.Results(this)));
+        getById<Menu>(this.view, this.values.menu.wml.id)
+            .map((m: Menu) => m.setContent(views.results(this)(this.view)));
 
         return this;
 

@@ -1,15 +1,8 @@
-import { FeedbackControlAttrs, FeedbackControl, GenericFeedbackControl } from './feedback';
-/**
- * Get
- */
-export declare type Get<V> = () => V;
-/**
- * Set
- */
-export declare type Set<V, A extends FormControlAttrs<V>> = (val: V) => FormControl<V, A>;
 /**
  * The form module deals with controls specifically for accepting user input.
  */
+/** imports */
+import { FeedbackControlAttrs, FeedbackControl, AbstractFeedbackControl } from './feedback';
 /**
  * FormControlAtrrs
  */
@@ -33,8 +26,8 @@ export interface FormControl<V, A extends FormControlAttrs<V>> extends FeedbackC
     set(value: V): FormControl<V, A>;
 }
 /**
- * GenericFormControl provides a base implementation of a
+ * AbstractFormControl provides a base implementation of a
  * FormControl.
  */
-export declare abstract class GenericFormControl<V, A extends FormControlAttrs<V>> extends GenericFeedbackControl<V, A> {
+export declare abstract class AbstractFormControl<V, A extends FormControlAttrs<V>> extends AbstractFeedbackControl<V, A> {
 }

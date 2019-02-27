@@ -1,3 +1,4 @@
+@import "./variables";
 
 .__STACK__ {
 
@@ -8,7 +9,7 @@
   @stack-border-style
   @stack-border-width;
 
-  border-radius: @border-radius-base;
+  border-radius: @stack-border-radius;
   background-clip: padding-box;
   background-color: @stack-background-color;
   list-style-type: none;
@@ -57,6 +58,7 @@
     border:none;
     display: inline-block;
     background-color:transparent;
+    cursor:pointer;
 
   }
 

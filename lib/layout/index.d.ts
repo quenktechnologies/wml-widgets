@@ -1,43 +1,32 @@
-import { Maybe } from 'afpl/lib/monad/Maybe';
 import { Component, View, Content } from '@quenk/wml';
-import { StylableAttrs, WidgetAttrs } from '../';
+import { HTMLElementAttrs, WidgetAttrs } from '../';
 export declare const LAYOUT = "-layout";
-/**
- * SetContent
- */
-export declare type SetContent<L extends Layout> = (content: Content) => L;
-/**
- * RemoveContent
- */
-export declare type RemoveContent<L extends Layout> = () => L;
 /**
  * LayoutAttrs
  */
-export interface LayoutAttrs extends StylableAttrs {
+export interface LayoutAttrs extends HTMLElementAttrs {
 }
 /**
  * Layout is the parent class of all layout widgets.
  *
- * Typically a layout widget is used to display a set of
- * other widgets with little to no functionality on itself beyond
- * styling.
+ * Layouts are used to visually display and line up content.
  */
 export interface Layout {
     /**
      * setContent changes the content value.
      */
-    setContent: (content: Content) => Layout;
+    setContent(content: Content[]): Layout;
     /**
      * removeContent removes existing content.
      */
-    removeContent: () => Layout;
+    removeContent(): Layout;
 }
 /**
- * GenericLayout provides an implementation of Layout.
+ * AbstractLayout provides an implementation of Layout.
  */
-export declare abstract class GenericLayout<A extends LayoutAttrs> extends Component<WidgetAttrs<A>> implements Layout {
+export declare abstract class AbstractLayout<A extends LayoutAttrs> extends Component<WidgetAttrs<A>> implements Layout {
     /**
-     * view for the GenericLayout.
+     * view for the AbstractLayout.
      */
     abstract view: View;
     /**
@@ -45,17 +34,19 @@ export declare abstract class GenericLayout<A extends LayoutAttrs> extends Compo
      */
     abstract values: {
         content: {
-            id: string;
+            wml: {
+                id: string;
+            };
         };
     };
-    setContent: SetContent<this>;
-    removeContent: RemoveContent<this>;
+    setContent(c: Content[]): AbstractLayout<A>;
+    removeContent(): AbstractLayout<A>;
 }
 /**
- * setContent helper.
+ * doSetContent on a Node found in a view.
  */
-export declare const setContent: <L extends Layout>(l: L) => (fn: () => Maybe<HTMLElement>) => SetContent<L>;
+export declare const doSetContent: (view: View, id: string, content: Content[]) => void;
 /**
- * removeContent helper.
+ * doRemoveContent from a View.
  */
-export declare const removeContent: <L extends Layout>(l: L) => (fn: () => Maybe<HTMLElement>) => RemoveContent<L>;
+export declare const doRemoveContent: (view: View, id: string) => void;

@@ -1,0 +1,25 @@
+{% import * as G from ".." %}
+
+{% view GridLayout (G.GridLayout) %}
+ <div 
+   wml:id={{@values.content.wml.id}}
+   id={{@values.content.id}}
+   class={{@values.content.className()}}>
+   {{...@children}}
+ </div>
+
+{% view Row (G.Row) %}
+<div 
+  wml:id={{@values.content.wml.id}}
+  id={{@values.content.id}}
+  class={{@values.content.className()}}>
+  {{...@children}}
+</div>
+
+{% view Column (G.Column) %}
+<div 
+  wml:id={{@values.content.wml.id}}
+  id={{@values.content.id}}
+  class={{@values.content.className()}}>
+  {{...@children}}
+</div>

@@ -1,0 +1,6 @@
+{% import (HorizontalLayout) from "../" %}
+
+{% view Main (HorizontalLayout) %}
+<div class={{@values.root.className}}>
+  {{...@children}}
+</div>

@@ -1,110 +1,22 @@
+@import "./variables";
 
-/**
- * Drawer styling.
- * 
- * Drawer's are fixed positioned to the left of the 
- * screen by default. Any component that is a sibling
- * of a Drawer SHOULD have a "& ~ .__DRAWER__:not(.__HIDDEN__)"
- * rule where the width is reduced by the @drawer-width.
- * 
- * This prevents content from scrolling or showing off-screen.
- */
-.__DRAWER__ { 
+.__DRAWER_LAYOUT__ { 
 
-  width: @drawer-width; 
   height: 100%;
-  position: fixed;
-  display: block;
+  margin: 0;
+  padding: 0; 
+  background-color: @drawer-layout-background-color;
+  color: @drawer-layout-color;
 
-  border-right: @drawer-border-right-width
-  @drawer-border-right-style 
-  @drawer-border-right-color;
+  & > .__DRAWER__ {
 
-  box-shadow: @drawer-box-shadow-offset-x
-  @drawer-box-shadow-offset-y
-  @drawer-box-shadow-blur-radius
-  @drawer-box-shadow-spread-radius
-  @drawer-box-shadow-color;
-
-  z-index: @drawer-z-index;
-  background-color: @drawer-background-color; 
-  transition: width @easing-duration ease;    
-
-  /**
-   * The inner area of the Drawer where content is placed. 
-   * This is absolutely positioned so style it with the parent
-   * in mind.
-   */
-  &>.__DRAWER_CONTENT__ {
-  
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch; 
-    color: @drawer-content-color;
-  
-  }
-
-  /**
-   * Style layouts adjacent to the Drawer.
-   * 
-   * For each we set a transition effect. Do not forget
-   * to create width rules for things like ActionBar, MainLayout etc!
-   */
-  & ~ .__LAYOUT__ {
-
-    transition: all @easing-duration ease;
-
-    /**
-     * For non-positioned siblings, attach a left-margin
-     * equal to the drawer width so that they make way
-     * for it.
-     */
-    &:not(.__POSITIONED__) { 
-   
-      margin-left: @drawer-width; 
-   
-    }
-   
-    /**
-     * Positioned elements we use a left offset
-     * to make way.
-     */
-    &.__POSITIONED__ {
-   
-      left: @drawer-width; 
-   
-    }
+    background-color: @drawer-layout-drawer-background-color;
 
   }
-   
-  /**
-    Styles for the hidden state.
-   */
-  &.__HIDDEN__ { 
 
-    width: 0;
+  & > .__DRAWER__:not(.__HIDDEN__) {
 
-    /**
-     * Remove the left margin on siblings that do not declare "positioned".
-     */
-    & ~ .__LAYOUT__:not(.__POSITIONED__)  { 
-
-      margin-left: 0; 
-
-    }
-
-    /**
-     * Remove the left offset on siblings that are positioned.
-     */
-    &  ~ .__LAYOUT__.__POSITIONED__ {
-
-      left: 0;
-
-    }
+    width: @drawer-layout-drawer-width;
 
   }
 

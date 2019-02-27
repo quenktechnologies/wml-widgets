@@ -2,11 +2,13 @@ import * as views from './wml/multi-select';
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { Event } from '../';
-import { FeedbackControlAttrs, GenericFeedbackControl } from '../feedback';
+import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { FormControlAttrs } from '../form';
 import { TermChangedEvent, ItemChangedEvent } from '../select';
 import { StackChangedEvent, Stack } from '../stack';
 import { Select } from '../select';
+import { getId, getClassName } from '../../';
+import { getName } from '../';
 
 export { TermChangedEvent }
 
@@ -62,38 +64,56 @@ export class ItemsChangedEvent<V> extends Event<V[]> { }
  *     |   <item>              x | 
  *     +-------------------------+
  */
-export class MultiSelect<V> extends GenericFeedbackControl<V[], MultiSelectAttrs<V>> {
+export class MultiSelect<V>
+    extends AbstractFeedbackControl<V[], MultiSelectAttrs<V>> {
 
     view: View = new views.Main(this);
 
     values = {
 
-        id: {
-
-            root: 'root',
-            input: 'button',
-            search: 'search',
-            message: 'message'
-
-        },
-
         root: {
 
-            id: 'root',
-            class: concat(MULTI_SELECT, this.attrs.ww && this.attrs.ww.class)
+            wml: {
+
+                id: 'root'
+
+            },
+
+            id: getId(this.attrs),
+
+            className: concat(MULTI_SELECT, getClassName(this.attrs))
+
+        },
+        control: {
+
+            wml: {
+
+                id: 'root'
+
+            }
 
         },
         label: {
 
-            id: this.attrs.ww.name,
-            text: this.attrs.ww.label || ''
+            wml: {
+
+                id: 'label'
+
+            },
+            text: (this.attrs.ww && this.attrs.ww.label) ?
+                this.attrs.ww.label : ''
 
         },
         search: {
 
-            id: 'search',
-            name: (this.attrs.ww && this.attrs.ww.name) || '',
-            value: '',
+            wml: {
+                id: 'search'
+            },
+            name: (this.attrs.ww && this.attrs.ww.name) ?
+                this.attrs.ww.name : '',
+
+          value:<any> undefined,
+
             onSearch: (evt: TermChangedEvent) => {
 
                 if (this.attrs.ww && this.attrs.ww.onSearch)
@@ -105,23 +125,27 @@ export class MultiSelect<V> extends GenericFeedbackControl<V[], MultiSelectAttrs
         },
         messages: {
 
-            id: 'message',
-            success: this.attrs.ww.success,
-            error: this.attrs.ww.error,
-            warning: this.attrs.ww.warning
+            wml: {
+
+                id: 'message'
+
+            }
 
         },
         stack: {
 
-            id: 'stack',
+            wml: {
 
-            name: this.attrs.ww.name,
+                id: 'stack'
+            },
 
-            value: (this.attrs.ww && this.attrs.ww.value) ? this.attrs.ww.value : [],
+            name: getName(this.attrs),
 
-            decorator: this.attrs.ww.decorator ?
-                this.attrs.ww.decorator :
-                (v: V) => String(v),
+            value: (this.attrs.ww && this.attrs.ww.value) ?
+                this.attrs.ww.value : [],
+
+            decorator: (this.attrs.ww && this.attrs.ww.decorator) ?
+                this.attrs.ww.decorator : (v: V) => String(v),
 
             onChange: (e: StackChangedEvent<V>) => {
 
@@ -140,8 +164,8 @@ export class MultiSelect<V> extends GenericFeedbackControl<V[], MultiSelectAttrs
 
         this
             .view
-            .findById(this.values.search.id)
-            .map((s: Select<V>) => s.update(list));
+            .findById<Select<V>>(this.values.search.wml.id)
+            .map(s => s.update(list));
 
         return this;
 
@@ -154,8 +178,8 @@ export class MultiSelect<V> extends GenericFeedbackControl<V[], MultiSelectAttrs
 
         this
             .view
-            .findById(this.values.stack.id)
-            .map((s: Stack<V>) => s.push(v));
+            .findById<Stack<V>>(this.values.stack.wml.id)
+            .map(s => s.push(v));
 
         return this;
 

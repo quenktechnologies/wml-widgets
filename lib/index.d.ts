@@ -1,17 +1,21 @@
 import { Attrs } from '@quenk/wml';
 /**
- * StylableAttrs suggests a widget can have custom styles
- * applied via the class attribute.
+ * HTMLElementAttrs suggests a widget supports some of the basic
+ * HTML element attributes.
+ *
+ * This may not be the case for all widgets whose attributes
+ * use this interface.
  */
-export interface StylableAttrs {
+export interface HTMLElementAttrs {
     /**
-     * class is typically applied to the root level DOM
-     * of a widget's view.
-     *
-     * Use it to define custom rules for styling specific
-     * widget instances.
+     * id usually applied to the root element of the widget's view.
      */
-    class?: string;
+    id?: string;
+    /**
+     * className usually applied to the root element of
+     * the widget's view.
+     */
+    className?: string;
 }
 /**
  * WidgetAttrs describes the attribute namespace
@@ -23,3 +27,15 @@ export interface WidgetAttrs<A> extends Attrs {
      */
     ww?: A;
 }
+/**
+ * getId from a widget's passed attributes.
+ */
+export declare const getId: (attrs: WidgetAttrs<HTMLElementAttrs>) => string;
+/**
+ * getClassName from a widget's passed attributes.
+ */
+export declare const getClassName: (attrs: WidgetAttrs<HTMLElementAttrs>) => string;
+/**
+ * textNode constructor.
+ */
+export declare const textNode: (str: string) => Text;

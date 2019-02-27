@@ -1,7 +1,6 @@
-import {ButtonGroup} from '../ButtonGroup'
+{% import (ButtonGroup) from "../" %}
 
-{% main (ButtonGroup) %}
-
-<div class={{@values.root.class}}>
-{{@children}}
+{% view Main (ButtonGroup) %}
+<div id={{@values.root.id}} class={{@values.root.className}}>
+  {{...@children}}
 </div>

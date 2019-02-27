@@ -1,64 +1,31 @@
 import { View } from '@quenk/wml';
-import { Maybe } from 'afpl/lib/monad/Maybe';
-import { Control, ControlAttrs, GenericControl } from '../control';
-export declare const NEUTRAL = 0;
-export declare const ERROR = 1;
-export declare const SUCCESS = 2;
-export declare const WARNING = 3;
+import { Control, ControlAttrs, AbstractControl } from '../control';
+import { WidgetAttrs } from '../';
 /**
  * ValidationState
  */
 export declare enum ValidationState {
-    NEUTRAL = 0,
-    ERROR = 1,
-    SUCCESS = 2,
-    WARNING = 3,
+    Neutral = "neutral",
+    Error = "error",
+    Success = "success",
+    Warning = "warning"
 }
 /**
- * Success
+ * Message type.
  */
-export declare type Success<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
+export declare type Message = string;
 /**
- * Warning
- */
-export declare type Warning<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
-/**
- * Error
- */
-export declare type Error<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
-/**
- * Neutral
- */
-export declare type Neutral<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message?: string) => C;
-/**
- * SetMessage
- */
-export declare type SetMessage<V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>> = (message: string) => C;
-/**
- * GetValidationState
- */
-export declare type GetValidationState = () => ValidationState;
-/**
- * FeedbackControlAttrs are the ww attributes common to all FeedbackControls.
- *
- * Some of these may be ignored by implementations.
+ * FeedbackControlAttrs
  */
 export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
     /**
-     * success allows the control to be intialized in the valid state with
-     * a message.
-     */
-    success?: string;
+     *  validationState of the control.
+       */
+    validationState?: ValidationState;
     /**
-     * error allows the control to be intialized in the invalid state with
-     * a message.
+     * message to display to the user.
      */
-    error?: string;
-    /**
-     * warning allows the control to be intilalized in the warn state with
-     * a message.
-     */
-    warning?: string;
+    message?: string;
 }
 /**
  * FeedbackControl is a Control that provides visual hints as to
@@ -68,23 +35,19 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>> extends C
     /**
      * setMessage on the control.
      */
-    setMessage(msg: string): FeedbackControl<V, A>;
+    setMessage(msg: Message): FeedbackControl<V, A>;
     /**
-     * success sets a success message on the FeedbackControl.
+     * removeMessage from the control.
      */
-    success(message?: string): FeedbackControl<V, A>;
+    removeMessage(): FeedbackControl<V, A>;
     /**
-     * error sets an error message on the FeedbackControl.
+     * setValidationState of the control.
      */
-    error(message?: string): FeedbackControl<V, A>;
+    setValidationState(state: ValidationState): FeedbackControl<V, A>;
     /**
-     * warning sets a warning messages on the FeedbackControl.
+     * removeValidationState removes all validation states from the control.
      */
-    warning(message?: string): FeedbackControl<V, A>;
-    /**
-     * neutral clears any validation state on the control.
-     */
-    neutral(): FeedbackControl<V, A>;
+    removeValidationState(): FeedbackControl<V, A>;
     /**
      * getValidationState returns the a value representing the
      * validation state of the control
@@ -92,9 +55,9 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>> extends C
     getValidationState(): ValidationState;
 }
 /**
- * GenericFeedbackControl provides a base implementation of a FeedbackControl.
+ * AbstractFeedbackControl implementaion.
  */
-export declare abstract class GenericFeedbackControl<V, A extends FeedbackControlAttrs<V>> extends GenericControl<V, A> implements FeedbackControl<V, A> {
+export declare abstract class AbstractFeedbackControl<V, A extends FeedbackControlAttrs<V>> extends AbstractControl<V, A> implements FeedbackControl<V, A> {
     /**
      * view of the Control.
      */
@@ -104,61 +67,50 @@ export declare abstract class GenericFeedbackControl<V, A extends FeedbackContro
      */
     abstract values: {
         /**
-         * root element values
+         * control element values
          */
-        root: {
-            /**
-             * id of the root element.
-             */
-            id: string;
+        control: {
+            wml: {
+                id: string;
+            };
         };
         messages: {
-            /**
-             * id of the element that contains feedback messages.
-             */
-            id: string;
+            wml: {
+                id: string;
+            };
         };
     };
-    setMessage: SetMessage<V, A, GenericFeedbackControl<V, A>>;
-    success: Success<V, A, GenericFeedbackControl<V, A>>;
-    warning: Warning<V, A, GenericFeedbackControl<V, A>>;
-    error: Error<V, A, GenericFeedbackControl<V, A>>;
-    neutral: Neutral<V, A, GenericFeedbackControl<V, A>>;
-    getValidationState: GetValidationState;
+    setMessage(msg: Message): AbstractFeedbackControl<V, A>;
+    removeMessage(): AbstractFeedbackControl<V, A>;
+    setValidationState(state: ValidationState): AbstractFeedbackControl<V, A>;
+    removeValidationState(): AbstractFeedbackControl<V, A>;
+    getValidationState(): ValidationState;
 }
-/**
- * setState helper.
- */
-export declare const setState: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => (state: string) => (m?: string) => C;
-/**
- * success helper.
- */
-export declare const success: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Success<V, A, C>;
-/**
- * warning helper.
- */
-export declare const warning: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Warning<V, A, C>;
-/**
- * error helper.
- */
-export declare const error: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Error<V, A, C>;
 /**
  * setMessage helper.
  */
-export declare const setMessage: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => SetMessage<V, A, C>;
+export declare const setMessage: (view: View, id: string, msg: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
 /**
- * neutral clears validation states from a control.
+ * removeMessage
  */
-export declare const neutral: <V, A extends FeedbackControlAttrs<V>, C extends FeedbackControl<V, A>>(c: C) => (fn: () => Maybe<HTMLElement>) => Neutral<V, A, C>;
+export declare const removeMessage: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+/**
+ * setValidationState helper.
+ */
+export declare const setValidationState: (view: View, id: string, state: ValidationState) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+/**
+ * removeValidationState helper.
+ */
+export declare const removeValidationState: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
 /**
  * getValidationState default.
  */
-export declare const getValidationState: (fn: () => Maybe<HTMLElement>) => GetValidationState;
+export declare const getValidationState: (view: View, id: string) => ValidationState;
 /**
- * selectState from an attribute list.
+ * getVSClassNameFromAttrs
  */
-export declare const selectState: (attrs: {
-    success?: string;
-    error?: string;
-    warning?: string;
-}) => "" | "-success" | "-warning" | "-error";
+export declare const getVSClassNameFromAttrs: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => "-success" | "-warning" | "-error" | "";
+/**
+ * getValidationStateClassName
+ */
+export declare const getValidationStateClassName: (state: ValidationState) => "-success" | "-warning" | "-error";

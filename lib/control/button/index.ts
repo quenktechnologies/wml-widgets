@@ -1,11 +1,15 @@
 import * as views from './wml/button';
-import * as style from '../../content/style';
-import * as active from '../../content/state/active';
-import * as orientation from '../../content/orientation';
 import { View } from '@quenk/wml';
-import { concat } from '../../util';
 import { TOOLBAR_COMPAT } from '../toolbar';
-import { ControlAttrs, GenericControl, Event } from '../';
+import { ACTIVE } from '../../content/state/active';
+import { BLOCK } from '../../content/orientation';
+import { DEFAULT, OUTLINE, Style, getStyleClassName } from '../../content/style';
+import {Size,getSizeClassName} from '../../content/size';
+import { concat, getById } from '../../util';
+import { getClassName, getId, textNode } from '../../';
+import { ControlAttrs, AbstractControl, Event } from '../';
+
+export { Style }
 
 ///classNames:begin
 export const BUTTON = 'ww-button';
@@ -19,12 +23,12 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
     /**
      * size modifier for the button.
      */
-    size?: string,
+    size?: Size,
 
     /**
      * style assigns one of the supported styles.
      */
-    style?: string,
+    style?: Style,
 
     /**
      * outline uses an alternative outline styling 
@@ -66,7 +70,7 @@ export class ButtonClickedEvent<V> extends Event<V> { }
 /**
  * Button is an improvement over HTMLButtionElement
  */
-export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
+export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
     view: View = new views.Main(this);
 
@@ -74,20 +78,39 @@ export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
 
         button: {
 
-            id: 'button',
+            wml: {
 
-            class: this.attrs.ww ?
-                concat(BUTTON,
+                id: 'button'
 
-                    TOOLBAR_COMPAT,
-                    this.attrs.ww.style || style.DEFAULT,
-                    this.attrs.ww.size && this.attrs.ww.size,
-                    this.attrs.ww.outline && style.OUTLINE,
-                    this.attrs.ww.block && orientation.BLOCK,
-                    this.attrs.ww.active && active.ACTIVE,
-                    this.attrs.ww.class        ) : BUTTON,
+            },
 
-            type: (this.attrs.ww && this.attrs.ww.type) ? this.attrs.ww.type : 'button',
+            id: getId(this.attrs),
+
+            className: concat(BUTTON,
+
+                getClassName(this.attrs),
+
+                TOOLBAR_COMPAT,
+
+                (this.attrs.ww && this.attrs.ww.style) ?
+                    getStyleClassName(this.attrs.ww.style) :
+                    DEFAULT,
+
+                (this.attrs.ww && this.attrs.ww.size) ?
+                  getSizeClassName(this.attrs.ww.size) : '',
+
+                (this.attrs.ww && this.attrs.ww.outline) ?
+                    OUTLINE : '',
+
+                (this.attrs.ww && this.attrs.ww.block) ?
+                    BLOCK : '',
+
+                (this.attrs.ww && this.attrs.ww.active) ?
+                    ACTIVE : ''),
+
+
+            type: (this.attrs.ww && this.attrs.ww.type) ?
+                this.attrs.ww.type : 'button',
 
             name: (this.attrs.ww && this.attrs.ww.name) ? this.attrs.ww.name : '',
 
@@ -95,10 +118,12 @@ export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
 
             onclick: () => this.attrs.ww &&
                 this.attrs.ww.onClick &&
-                this.attrs.ww.onClick(
-                    new ButtonClickedEvent(this.attrs.ww.name || '', this.attrs.ww.value)),
+                this.attrs.ww.onClick(new ButtonClickedEvent(
+                    (this.attrs.ww && this.attrs.ww.name) ?
+                        this.attrs.ww.name : '', <V>this.attrs.ww.value)),
 
-            text: (this.attrs.ww && this.attrs.ww.text) ? this.attrs.ww.text : ''
+            content: () => (this.attrs.ww && this.attrs.ww.text) ?
+                [textNode(this.attrs.ww.text)] : this.children
 
         }
 
@@ -109,9 +134,7 @@ export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
      */
     disable(): void {
 
-        this
-            .view
-            .findById(this.values.button.id)
+        getById<HTMLButtonElement>(this.view, this.values.button.wml.id)
             .map((b: HTMLButtonElement) => b.setAttribute('disabled', 'disabled'));
 
     }
@@ -121,9 +144,7 @@ export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
      */
     enable(): void {
 
-        this
-            .view
-            .findById(this.values.button.id)
+        getById<HTMLButtonElement>(this.view, this.values.button.wml.id)
             .map((b: HTMLButtonElement) => b.removeAttribute('disabled'));
 
     }
@@ -133,12 +154,9 @@ export class Button<V> extends GenericControl<V, ButtonAttrs<V>> {
      */
     toggle() {
 
-        this
-            .view
-            .findById(this.values.button.id)
+        getById<HTMLButtonElement>(this.view, this.values.button.wml.id)
             .map((b: HTMLButtonElement) => b.hasAttribute('disabled') ?
-                this.enable() :
-                this.disable());
+                this.enable() : this.disable());
 
     }
 

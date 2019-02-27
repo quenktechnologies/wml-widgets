@@ -1,15 +1,14 @@
-import {Button} from "../";
+{% import (Button) from "../" %}
 
-{% main [V](Button[V]) %}
+{% view Main [V](Button[V]) %}
   
 <button
-  wml:id={{@values.button.id}}
+  wml:id={{@values.button.wml.id}}
   id={{@values.button.id}}
   type={{@values.button.type}}
   name={{@values.button.name}}
   disabled={{@values.button.disabled}}
-  class={{@values.button.class}}
+  class={{@values.button.className}}
   onclick={{@values.button.onclick}}>
-  {{@values.button.text}}
-  {{@children}}
+  {{...@values.button.content()}}
 </button>

@@ -1,0 +1,14 @@
+{% import (Link) from "../" %}
+
+{% view Main (Link) %}
+<a 
+  id={{@values.a.id}}
+  class={{@values.a.className}}
+  href={{@values.a.href}}
+  title={{@values.a.title}}
+  disabled={{@values.a.disabled}}
+  onclick={{@values.a.clicked}}>
+
+    {{...@values.a.content}}
+
+</a>

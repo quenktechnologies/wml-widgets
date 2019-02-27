@@ -1,41 +1,19 @@
-import {Message} from "./Message"
+{% import (Message) from "./message" %}
+{% import (textNode) from "../../" %}
 
-{% fun label id:String -> text:String %}
+{% fun label (id:String) (text:String) %}
 
   <label 
     for={{id}} 
     class="control-label">
-    {{text}}
+    {{textNode(text)}}
   </label>
   
 {% endfun %}
 
-{% fun message id:String -> m:Message %}
-
-  {% if m.success %}
+{% fun message (_id:String) (_m:Message) %}
 
     <span
-      wml:id={{id}}
-      class="help-block">{{m.success}}</span>
-
-  {% else if m.error %}
-
-    <span
-      wml:id={{id}}
-      class="help-text">{{m.error}}</span>
-
-  {% else if m.warning %}
-
-    <span
-      wml:id={{id}}
-      class="help-text">{{m.warning}}</span>
-
-  {% else %}
-
-    <span
-      wml:id={{id}}
-      class="help-text"/>
-
-  {% endif %}
+      class="help-block"></span>
 
 {% endfun %}

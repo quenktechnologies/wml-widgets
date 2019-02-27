@@ -1,66 +1,63 @@
-import {label,message} from "../../wml"
-import {TextField}  from "../"
+{% import (textNode) from "../../../" %}
+{% import (label,message) from "../../wml" %}
+{% import (TextField)  from "../" %}
 
-{% export {label, message} from "../../wml" %}
-
-{% fun input (TextField) %}
+{% fun input (t:TextField) %}
 
   <input
-    wml:id="control"
-    name={{@values.control.name}}
-    type={{@values.control.type}}
-    focus={{@values.control.focus}}
-    placeholder={{@values.control.placeholder}}
-    oninput={{@values.control.oninput}} 
-    value={{@values.control.value}}
-    disabled={{@values.control.disabled}}
-    readonly={{@values.control.readOnly}}
-    class={{@values.control.class}} />
+    wml:id={{t.values.control.wml.id}}
+    name={{t.values.control.name}}
+    type={{t.values.control.type}}
+    focus={{t.values.control.focus}}
+    placeholder={{t.values.control.placeholder}}
+    oninput={{t.values.control.oninput}} 
+    value={{t.values.control.value}}
+    disabled={{t.values.control.disabled}}
+    readonly={{t.values.control.readOnly}} />
 
 {% endfun %}
 
-{% fun textarea (TextField) %}
+{% fun textarea (t:TextField) %}
 
   <textarea
-    wml:id="control"
-    name={{@values.control.name}}
-    placeholder={{@values.control.placeholder}}
-    oninput={{@values.control.oninput}} 
-    disabled={{@values.control.disabled}}
-    readonly={{@values.control.readOnly}}
-    rows={{@values.control.rows}}
-    class={{@values.control.class}}>{{@values.control.value}}</textarea>
+    wml:id={{t.values.control.wml.id}}
+    name={{t.values.control.name}}
+    placeholder={{t.values.control.placeholder}}
+    oninput={{t.values.control.oninput}} 
+    disabled={{t.values.control.disabled}}
+    readonly={{t.values.control.readOnly}}
+    rows={{t.values.control.rows}}>{{textNode(t.values.control.value)}}</textarea>
 
 {% endfun %}
 
-{% fun control (TextField) %}
+{% fun control (t:TextField) %}
 
-  {% if @values.control.rows == 1 %}
+  {% if t.values.control.rows == 1 %}
 
-    {{ <input(@)> }}
+    {{...<input(t)> }}
 
   {% else %}
 
-    {{ <textarea(@)> }}
+    {{ ...<textarea(t)> }}
 
   {% endif %}
 
 {% endfun %}
 
-{% fun group (TextField) %}
+{% fun group (t:TextField) %}
 
-   {{ <label(@values.label.id)(@values.label.text)> }}
+   {{ ...<label(t.values.label.id)(t.values.label.text)> }}
 
-   {{ <control(@)> }}
+   {{ ...<control(t)> }}
 
-   {{ <message(@values.messages.id)(@values.messages)> }}
+   {{ ...<message(t.values.messages.wml.id)({})> }}
 
 {% endfun %}
 
-{% main (TextField) %}
+{% view Main (TextField) %}
 
-<div wml:id={{@values.root.id}} class={{@values.root.class}}>
+<div wml:id={{@values.root.id}} class={{@values.root.className}}>
 
-  {{ <(@values.control.template())(@)> }}
+  {{ ...<(@values.control.template())(@)> }}
 
 </div>

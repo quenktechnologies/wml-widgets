@@ -1,10 +1,10 @@
-import {Search} from "../"
+{% import (Search) from "../" %}
 
-{% main (Search) %}
-
+{% view Main (Search) %}
 <input 
-  wml:id={{@values.root.id}}
-  class={{@values.root.class}}
+  wml:id={{@values.root.wml.id}}
+  id={{@values.root.id}}
+  class={{@values.root.className}}
   onkeydown={{@values.root.onkeydown}} 
   onkeyup={{@values.root.onkeyup}} 
   oninput={{@values.root.oninput}}

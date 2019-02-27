@@ -1,5 +1,6 @@
-import { View, Template } from '@quenk/wml';
-import { FeedbackControlAttrs, GenericFeedbackControl } from '../feedback';
+import * as views from './wml/select';
+import { Fun } from '@quenk/wml';
+import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { FormControlAttrs } from '../form';
 import { TermChangedEvent } from '../search';
 import { Event as ControlEvent } from '../';
@@ -10,11 +11,11 @@ export declare const SELECT = "ww-select";
 /**
  * ItemContentTemplate for rending the content of a single search result.
  */
-export declare type ItemContentTemplate<V> = (s: Select<V>) => (option: V) => (index: number) => Template;
+export declare type ItemContentTemplate<V> = (s: Select<V>) => (option: V) => (index: number) => Fun;
 /**
  * EmpFun for rendering when there are no results.
  */
-export declare type NoItemsTemplate<V> = (s: Select<V>) => Template;
+export declare type NoItemsTemplate<V> = (s: Select<V>) => Fun;
 export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttrs<V> {
     /**
      * itemContentTemplate if specified will be used to render each
@@ -26,9 +27,9 @@ export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttr
      */
     noItemsTemplate?: NoItemsTemplate<V>;
     /**
-      * inputClass is the class list for the input.
+      * inputClassName is the class list for the input.
       */
-    inputClass?: string;
+    inputClassName?: string;
     /**
      * placeholder text for the input.
      */
@@ -48,10 +49,6 @@ export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttr
      */
     stringifier?: (v: V) => string;
     /**
-     * native if true, will have the Select
-     * behave similarly to a native select element.
-     */
-    /**
      * onChange handler.
      */
     onChange?: (e: ItemChangedEvent<V>) => void;
@@ -65,31 +62,35 @@ export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttr
  */
 export declare class ItemChangedEvent<V> extends ControlEvent<V> {
 }
-export declare class Select<V> extends GenericFeedbackControl<V, SelectAttrs<V>> {
-    view: View;
+export declare class Select<V> extends AbstractFeedbackControl<V, SelectAttrs<V>> {
+    view: views.Main<V>;
     values: {
-        id: {
-            root: string;
-            input: string;
-            menu: string;
-            message: string;
-        };
-        class: {
-            root: string;
-            input: string;
-        };
         root: {
+            wml: {
+                id: string;
+            };
             id: string;
-            class: string;
+            className: string;
+        };
+        control: {
+            wml: {
+                id: string;
+            };
         };
         messages: {
-            id: string;
-            success: string;
-            error: string;
-            warning: string;
+            wml: {
+                id: string;
+            };
+        };
+        input: {
+            wml: {
+                id: string;
+            };
         };
         menu: {
-            id: string;
+            wml: {
+                id: string;
+            };
             hide: boolean;
             options: V[];
         };
@@ -98,11 +99,13 @@ export declare class Select<V> extends GenericFeedbackControl<V, SelectAttrs<V>>
             text: string;
         };
         search: {
-            id: string;
+            wml: {
+                id: string;
+            };
             name: string;
-            class: string;
+            className: string;
             placeholder: string;
-            readOnly: boolean;
+            readOnly: boolean | undefined;
             onFocus: () => void;
             onSearch: (e: TermChangedEvent) => void;
             onEscape: () => Select<V>;

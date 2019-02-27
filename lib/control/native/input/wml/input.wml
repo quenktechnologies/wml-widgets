@@ -1,7 +1,8 @@
-import {Input} from "../"
+{% import (Input) from "../" %}
 
-{% main (Input) %}
+{% view Main (Input) %}
 <input
+  id={{@values.id}}
   name={{@values.name}}
   type={{@values.type}}
   placeholder={{@values.placeholder}}
@@ -10,5 +11,3 @@ import {Input} from "../"
   disabled={{@values.disabled}}
   readonly={{@values.readOnly}}
   class={{@values.className}} />
-
-

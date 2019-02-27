@@ -1,13 +1,14 @@
 import * as views from './wml/date';
 import * as moment from 'moment';
 import { View } from '@quenk/wml';
-import { concat } from '../../util';
+import { concat, getById } from '../../util';
 import { FormControlAttrs, FormControl } from '../form';
 import {
     FeedbackControlAttrs,
-    GenericFeedbackControl,
-    selectState
+    AbstractFeedbackControl,
+    getVSClassNameFromAttrs
 } from '../feedback';
+import { getId, getClassName } from '../../';
 import { Event as ControlEvent } from '../';
 
 const _prefix = (s: string | number, inc = false): string => {
@@ -85,7 +86,7 @@ export const MONTHS = [
 /**
  * Date input.
  */
-export class Date extends GenericFeedbackControl<string, DateAttrs>
+export class Date extends AbstractFeedbackControl<string, DateAttrs>
     implements FormControl<string, DateAttrs> {
 
     view: View = new views.Main(this);
@@ -98,17 +99,33 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
 
         root: {
 
-            id: 'root',
-            class: concat(
+            wml: {
+
+                id: 'root'
+
+            },
+
+            id: getId(this.attrs),
+
+            className: concat(
                 DATE,
                 'form-group',
-                this.attrs.ww && this.attrs.ww.class,
-                selectState(this.attrs.ww)),
+                getClassName(this.attrs),
+                getVSClassNameFromAttrs(this.attrs)),
+
+        },
+        control: {
+
+            wml: {
+
+                id: 'root'
+
+            }
 
         },
         inline: {
 
-            class: 'form-inline'
+            className: 'form-inline'
         },
         date: {
 
@@ -134,9 +151,13 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
         },
         month: {
 
-            id: 'month',
+            wml: {
 
-            class: concat(DATE_MONTH, 'form-control'),
+                id: 'month'
+
+            },
+
+            className: DATE_MONTH,
 
             value: () => (this.values.date.value && this.values.date.value.isValid()) ?
                 this.values.date.value.format(format.MM) : '',
@@ -146,9 +167,7 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
 
             onchange: (e: Event): void => {
 
-                this
-                    .view
-                    .findById(this.values.day.id)
+                getById<HTMLInputElement>(this.view, this.values.day.wml.id)
                     .map((e: HTMLInputElement) => { e.focus(); })
                     .map(() => {
 
@@ -165,9 +184,13 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
         },
         day: {
 
-            id: 'day',
+            wml: {
 
-            class: concat(DATE_DAY, 'form-control'),
+                id: 'day'
+
+            },
+
+            className: DATE_DAY,
 
             value: () => (this.values.date.value && this.values.date.value.isValid()) ?
                 this.values.date.value.format(format.DD) : '',
@@ -190,9 +213,7 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
                 this.values.date.fire();
 
                 if (value.length === 2)
-                    this
-                        .view
-                        .findById(this.values.year.id)
+                    getById<HTMLInputElement>(this.view, this.values.year.wml.id)
                         .map((e: HTMLInputElement) => e.focus());
 
             }
@@ -200,9 +221,13 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
         },
         year: {
 
-            id: 'year',
+            wml: {
 
-            class: DATE_YEAR,
+                id: 'year'
+
+            },
+
+            className: DATE_YEAR,
 
             value: () => (this.values.date.value && this.values.date.value.isValid()) ?
                 this.values.date.value.format(format.YYYY) : '',
@@ -227,13 +252,11 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
         name: (this.attrs.ww && this.attrs.ww.name) || '<name>',
         messages: {
 
-            id: 'messages',
+            wml: {
 
-            success: (this.attrs.ww && this.attrs.ww.success) || undefined,
+                id: 'messages'
 
-            error: (this.attrs.ww && this.attrs.ww.error) || undefined,
-
-            warning: (this.attrs.ww && this.attrs.ww.warning) || undefined
+            },
 
         },
         label: {
@@ -257,7 +280,7 @@ export class Date extends GenericFeedbackControl<string, DateAttrs>
             this.values.day.value()].filter(d => d);
 
         return (date.length != 3) ?
-            null :
+            <any>null :
             moment(date.join(this.values.date.sep), moment.ISO_8601);
 
     };

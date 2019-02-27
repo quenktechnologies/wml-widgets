@@ -1,4 +1,0 @@
-import {Close} from ".."
-
-{% main (Close) %}
-<span class={{@values.root.class}}/>

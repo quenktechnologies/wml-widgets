@@ -1,5 +1,6 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, Event, GenericControl } from '../';
+import { Style } from '../../content/style';
+import { ControlAttrs, Event, AbstractControl } from '../';
 export declare const BUTTON_SELECT = "ww-button-select";
 export declare const BUTTON_SELECT_OPTION = "ww-button-select__option";
 /**
@@ -11,13 +12,13 @@ export interface Option<V> {
      */
     value: V;
     /**
-     * title displayed for the button.
+     * text displayed for the button.
      */
-    title: string;
+    text: string;
     /**
-     * class allows for a class name to specified on the rendered button.
+     * className to add to the rendered button.
      */
-    class?: string;
+    className?: string;
 }
 /**
  * ButtonSelectAttrs
@@ -30,7 +31,7 @@ export interface ButtonSelectAttrs<O, V> extends ControlAttrs<V> {
     /**
      * style in style to use.
      */
-    style?: string;
+    style?: Style;
     /**
      * onChange handler.
      */
@@ -54,9 +55,13 @@ export interface ButtonSelectInterface<V> {
          */
         root: {
             /**
-             * class of the root element.
+             * id of the root element
              */
-            class: string;
+            id: string;
+            /**
+             * className of the root element.
+             */
+            className: string;
         };
         /**
          * buttons values.
@@ -67,55 +72,62 @@ export interface ButtonSelectInterface<V> {
              */
             options: Option<V>[];
             /**
-             * isActive tests whether an option's button
-             * should be displayed active or not.
-             */
-            isActive: (v: V) => boolean;
-            /**
              * click is applied to the value of an option's value when
              * it is clicked by the user.
              */
-            click: (v: V) => void;
+            click: (n: number) => void;
             /**
-             * getClass for an options' button.
+             * getClassNames for an options' button.
              */
-            getClass: (opt: Option<V>) => string;
+            getClassNames: (n: number) => string;
+            /**
+             * getStyle
+             */
+            getStyle: () => Style;
+            /**
+             * getActive
+             */
+            getActive: (n: number) => boolean;
         };
     };
 }
 /**
  * ButtonSelect
  */
-export declare class ButtonSelect<V> extends GenericControl<V, ButtonSelectAttrs<V, V>> implements ButtonSelectInterface<V> {
+export declare class ButtonSelect<V> extends AbstractControl<V, ButtonSelectAttrs<V, V>> {
     view: View;
     values: {
         root: {
-            class: string;
+            id: string;
+            className: string;
         };
         buttons: {
-            value: V;
+            current: number;
             options: Option<V>[];
-            isActive: (v: V) => boolean;
-            click: (value: V) => void;
-            getClass: (o: Option<V>) => string;
+            click: (idx: number) => void;
+            getStyle: () => Style;
+            getActive: (n: number) => boolean;
+            getClassNames: (n: number) => string;
         };
     };
 }
 /**
  * MultiButtonSelect
  */
-export declare class MultiButtonSelect<V> extends GenericControl<V[], ButtonSelectAttrs<V, V[]>> implements ButtonSelectInterface<V> {
+export declare class MultiButtonSelect<V> extends AbstractControl<V[], ButtonSelectAttrs<V, V[]>> {
     view: View;
     values: {
         root: {
-            class: string;
+            id: string;
+            className: string;
         };
         buttons: {
-            value: V[];
+            values: number[];
             options: Option<V>[];
-            isActive: (v: V) => boolean;
-            click: (v: V) => void;
-            getClass: (o: Option<V>) => string;
+            click: (n: number) => void;
+            getStyle: () => Style;
+            getActive: (n: number) => boolean;
+            getClassNames: (n: number) => string;
         };
     };
 }

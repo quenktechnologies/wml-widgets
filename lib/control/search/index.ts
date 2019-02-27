@@ -1,7 +1,8 @@
 import * as views from './wml/search';
 import { View } from '@quenk/wml';
-import { concat } from '../../util';
-import { ControlAttrs, Event, GenericControl } from '../';
+import { concat, getById } from '../../util';
+import { getId, getClassName } from '../../';
+import { ControlAttrs, Event, AbstractControl } from '../';
 
 /**
  * ESCAPE key code.
@@ -61,7 +62,7 @@ export class TermChangedEvent extends Event<string>{
 /** 
  * Search provides an input that can be used in the ui for a search engine.
  */
-export class Search extends GenericControl<string, SearchAttrs> {
+export class Search extends AbstractControl<string, SearchAttrs> {
 
     view: View = new views.Main(this);
 
@@ -69,33 +70,53 @@ export class Search extends GenericControl<string, SearchAttrs> {
 
         root: {
 
-            id: 'input',
+          wml: {
 
-            class: concat(SEARCH, this.attrs.ww && this.attrs.ww.class),
+            id: 'root'
 
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) || '',
+          },
+
+            id: getId(this.attrs),
+
+            className: concat(SEARCH, getClassName(this.attrs)),
+
+            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
+                this.attrs.ww.placeholder : '',
 
             readOnly: (this.attrs.ww && this.attrs.ww.readOnly) || null,
 
-            value: (this.attrs.ww && this.attrs.ww.value) || '',
+            value: (this.attrs.ww && this.attrs.ww.value) ?
+                this.attrs.ww.value : '',
 
             onfocus: (e: KeyboardEvent) => {
 
-                this.attrs.ww && this.attrs.ww.onFocus();
-                (<HTMLInputElement>e.target).value = (<HTMLInputElement>e.target).value;
+                let target = <HTMLInputElement>e.target;
+
+                if (this.attrs.ww && this.attrs.ww.onFocus)
+                    this.attrs.ww.onFocus();
+
+                target.value = target.value;
 
             },
             onkeydown: (e: KeyboardEvent) => {
 
-                (e.keyCode === ESCAPE) ?
-                    this.attrs.ww &&
-                    this.attrs.ww.onEscape &&
-                    this.attrs.ww.onEscape() :
-                    this.attrs.ww &&
-                    this.attrs.ww.onSearch &&
-                    this.attrs.ww.onSearch(new TermChangedEvent(
-                        this.attrs.ww.name,
-                        (<HTMLInputElement>e.target).value))
+                if (e.keyCode === ESCAPE) {
+
+                    if (this.attrs.ww && this.attrs.ww.onEscape)
+                        this.attrs.ww.onEscape();
+
+                } else {
+
+                    if (this.attrs.ww && this.attrs.ww.onSearch) {
+
+                        let name = '' + this.attrs.ww.name;
+                        let value = (<HTMLInputElement>e.target).value;
+
+                        this.attrs.ww.onSearch(new TermChangedEvent(name, value));
+
+                    }
+
+                }
 
             },
             onkeyup: (e: KeyboardEvent) => {
@@ -118,9 +139,7 @@ export class Search extends GenericControl<string, SearchAttrs> {
 
     set(value: string): Search {
 
-        this
-            .view
-            .findById(this.values.root.id)
+        getById<HTMLInputElement>(this.view, this.values.root.wml.id)
             .map((e: HTMLInputElement) => { e.value = value });
 
         return this;
@@ -129,9 +148,7 @@ export class Search extends GenericControl<string, SearchAttrs> {
 
     get(): string {
 
-        return this
-            .view
-            .findById(this.values.root.id)
+        return getById<HTMLInputElement>(this.view, this.values.root.wml.id)
             .map((e: HTMLInputElement) => e.value)
             .get();
 

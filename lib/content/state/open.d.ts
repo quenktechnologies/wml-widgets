@@ -1,4 +1,4 @@
-import { Maybe } from 'afpl/lib/monad/Maybe';
+import { Maybe } from '@quenk/noni/lib/data/maybe';
 /**
  * OPEN state.
  */

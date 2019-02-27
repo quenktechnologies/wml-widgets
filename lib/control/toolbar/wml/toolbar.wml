@@ -1,5 +1,8 @@
-import {Toolbar} from ".."
+{% import (Toolbar) from ".." %}
 
-{% main (Toolbar) %}
-
-<div class={{@values.root.class}}>{{@children}}</div>
+{% view Main (Toolbar) %}
+<div 
+ id={{@values.root.id}}
+ class={{@values.root.className}}>
+ {{...@children}}
+</div>

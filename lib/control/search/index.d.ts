@@ -1,5 +1,5 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, Event, GenericControl } from '../';
+import { ControlAttrs, Event, AbstractControl } from '../';
 /**
  * ESCAPE key code.
  */
@@ -43,14 +43,17 @@ export declare class TermChangedEvent extends Event<string> {
 /**
  * Search provides an input that can be used in the ui for a search engine.
  */
-export declare class Search extends GenericControl<string, SearchAttrs> {
+export declare class Search extends AbstractControl<string, SearchAttrs> {
     view: View;
     values: {
         root: {
+            wml: {
+                id: string;
+            };
             id: string;
-            class: string;
+            className: string;
             placeholder: string;
-            readOnly: boolean;
+            readOnly: boolean | null;
             value: string;
             onfocus: (e: KeyboardEvent) => void;
             onkeydown: (e: KeyboardEvent) => void;

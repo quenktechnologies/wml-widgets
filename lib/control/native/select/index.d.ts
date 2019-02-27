@@ -1,5 +1,5 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, Event, GenericControl } from '../../';
+import { ControlAttrs, Event, AbstractControl } from '../../';
 export declare const NATIVE_SELECT = "ww-native-select";
 /**
  * Option provides needed information for the Select to generate its
@@ -40,17 +40,19 @@ export declare class SelectionChangedEvent<V> extends Event<V> {
 export declare class Values<V> {
     self: Select<V>;
     options: Option<V>[];
+    id: string;
     onchange: (e: KeyboardEvent) => void;
     selected: number;
     className: string;
+    name: string;
     instruction: string;
-    constructor(self: Select<V>, options: Option<V>[], onchange?: (e: KeyboardEvent) => void, selected?: number, className?: string, instruction?: string);
+    constructor(self: Select<V>, options: Option<V>[], id?: string, onchange?: (e: KeyboardEvent) => void, selected?: number, className?: string, name?: string, instruction?: string);
 }
 /**
  * Select provides a native <select> element with it's
  * event(s) converted to control events.
  */
-export declare class Select<V> extends GenericControl<V, SelectAttrs<V>> {
+export declare class Select<V> extends AbstractControl<V, SelectAttrs<V>> {
     view: View;
     values: Values<V>;
 }

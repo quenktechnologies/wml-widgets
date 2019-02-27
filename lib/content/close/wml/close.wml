@@ -1,0 +1,4 @@
+{% import (Close) from ".." %}
+
+{% view Main (Close) %}
+<span id={{@values.root.id}} class={{@values.root.className}}/>

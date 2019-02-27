@@ -1,4 +1,0 @@
-import {Caret} from "../"
-
-{% main (Caret) %}
-<span class={{@values.root.class}}/>

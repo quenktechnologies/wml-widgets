@@ -1,7 +1,8 @@
 import * as views from './wml/select';
 import { View } from '@quenk/wml';
 import { concat } from '../../../util';
-import { ControlAttrs, Event, GenericControl } from '../../';
+import { ControlAttrs, Event, AbstractControl, getName } from '../../';
+import { getId, getClassName } from '../../../';
 
 ///classNames:begin
 export const NATIVE_SELECT = 'ww-native-select';
@@ -54,11 +55,13 @@ export class SelectionChangedEvent<V> extends Event<V> { }
 export class Values<V> {
 
     constructor(
-        public self: Select<V>,
-        public options: Option<V>[],
+        public self : Select<V>,
+        public options : Option < V > [],
+        public id = getId(self.attrs),
         public onchange = dispatchChange(self),
         public selected = -1,
-        public className = concat(NATIVE_SELECT, self.attrs.ww.class),
+        public className = concat(NATIVE_SELECT, getClassName(self.attrs)),
+        public name = getName(self.attrs),
         public instruction = 'Select one.') { }
 
 }
@@ -67,11 +70,12 @@ export class Values<V> {
  * Select provides a native <select> element with it's
  * event(s) converted to control events.
  */
-export class Select<V> extends GenericControl<V, SelectAttrs<V>> {
+export class Select<V> extends AbstractControl<V, SelectAttrs<V>> {
 
     view: View = new views.Main(this);
 
-    values: Values<V> = new Values(this, this.attrs.ww.options);
+    values: Values<V> = new Values(this, (this.attrs.ww && this.attrs.ww.options) ?
+        this.attrs.ww.options : []);
 
 }
 
@@ -83,7 +87,8 @@ export const dispatchChange = <V>(self: Select<V>) => (e: KeyboardEvent) => {
     let value = Number((<HTMLInputElement>e.target).value);
 
     if (self.attrs.ww && self.attrs.ww.onChange)
-        self.attrs.ww.onChange(new SelectionChangedEvent(self.attrs.ww.name,
+    self.attrs.ww.onChange(new SelectionChangedEvent(
+      (self.attrs.ww && self.attrs.ww.name) ? self.attrs.ww.name : '',
             self.values.options[value].value));
 
     self.values.selected = value;

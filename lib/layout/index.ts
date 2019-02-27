@@ -1,104 +1,101 @@
-import { Maybe } from 'afpl/lib/monad/Maybe';
+import { Maybe } from '@quenk/noni/lib/data/maybe';
 import { Component, View, Content } from '@quenk/wml';
-import { StylableAttrs, WidgetAttrs } from '../';
-
-const _get = <A extends LayoutAttrs>(gen: GenericLayout<A>) => () =>
-    gen
-        .view
-        .findById<HTMLElement>(gen.values.content.id);
+import { warnMissing } from '../util';
+import { HTMLElementAttrs, WidgetAttrs } from '../';
 
 ///classNames:begin
-export const LAYOUT='-layout';
+export const LAYOUT = '-layout';
 ///classNames:end
-
-/**
- * SetContent
- */
-export type SetContent<L extends Layout>
-    = (content: Content) => L
-    ;
-
-/**
- * RemoveContent
- */
-export type RemoveContent<L extends Layout>
-    = () => L
-    ;
 
 /**
  * LayoutAttrs
  */
-export interface LayoutAttrs extends StylableAttrs { }
+export interface LayoutAttrs extends HTMLElementAttrs { }
 
 /**
  * Layout is the parent class of all layout widgets.
  *
- * Typically a layout widget is used to display a set of
- * other widgets with little to no functionality on itself beyond
- * styling.
+ * Layouts are used to visually display and line up content.
  */
 export interface Layout {
 
     /**
      * setContent changes the content value.
      */
-    setContent: (content: Content) => Layout;
+    setContent(content: Content[]): Layout;
 
     /**
      * removeContent removes existing content. 
      */
-    removeContent: () => Layout;
+    removeContent(): Layout;
 
 }
 
 /**
- * GenericLayout provides an implementation of Layout.
+ * AbstractLayout provides an implementation of Layout.
  */
-export abstract class GenericLayout<A extends LayoutAttrs>
-    extends Component<WidgetAttrs<A>>
-    implements Layout {
+export abstract class AbstractLayout<A extends LayoutAttrs>
+    extends Component<WidgetAttrs<A>> implements Layout {
 
     /**
-     * view for the GenericLayout.
+     * view for the AbstractLayout.
      */
     abstract view: View;
 
     /**
      * values available to the View's template.
      */
-    abstract values: { content: { id: string } }
+    abstract values: { content: { wml: { id: string } } }
 
-    setContent: SetContent<this> = setContent(this)(_get(this));
+    setContent(c: Content[]): AbstractLayout<A> {
 
-    removeContent: RemoveContent<this> =        removeContent(this)(_get(this));
+        doSetContent(this.view, this.values.content.wml.id, c);
+        return this;
+
+    }
+
+    removeContent(): AbstractLayout<A> {
+
+        doRemoveContent(this.view, this.values.content.wml.id);
+        return this;
+
+    }
 
 }
 
 /**
- * setContent helper.
+ * doSetContent on a Node found in a view.
  */
-export const setContent = <L extends Layout>
-    (l: L) => (fn: () => Maybe<HTMLElement>): SetContent<L> => (content: Content) =>
-        fn()
-            .map(e => {
+export const doSetContent = (view: View, id: string, content: Content[]) => {
 
-                while (e.firstChild)
-                    e.removeChild(e.firstChild);
+    let maybeRoot: Maybe<Node> = view.findById(id);
 
-                e.appendChild(content);
+    if (maybeRoot.isNothing())
+        return warnMissing(view, id);
 
-            })
-            .map(() => l)
-            .orJust(() => l)
-            .get();
+    let n = maybeRoot.get();
+
+    while (n.firstChild)
+        n.removeChild(n.firstChild);
+
+  for(let i=0; i<content.length; i++)
+    n.appendChild(content[i]);
+
+}
 
 /**
- * removeContent helper.
+ * doRemoveContent from a View.
  */
-export const removeContent = <L extends Layout>
-    (l: L) => (fn: () => Maybe<HTMLElement>): RemoveContent<L> => () =>
-        fn()
-            .map(e => { while (e.firstChild) e.removeChild(e.firstChild); })
-            .map(() => l)
-            .orJust(() => l)
-            .get();
+export const doRemoveContent = (view: View, id: string) => {
+
+    let maybeNode: Maybe<Node> = view.findById(id);
+
+    if (maybeNode.isNothing())
+        return warnMissing(view, id);
+
+    let n = maybeNode.get();
+
+    while (n.firstChild)
+        n.removeChild(n.firstChild);
+
+}

@@ -1,0 +1,9 @@
+{% import (MenuHeader) from "../" %}
+
+{% view Main (MenuHeader) %}
+
+<span id={{@values.span.id}} class={{@values.span.className}}>
+
+  {{...@values.text}}
+
+</span>

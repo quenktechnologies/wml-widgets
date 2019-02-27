@@ -1,6 +1,6 @@
 import { View } from '@quenk/wml';
 import { Event } from '../';
-import { FeedbackControlAttrs, GenericFeedbackControl } from '../feedback';
+import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { FormControlAttrs } from '../form';
 import { TermChangedEvent, ItemChangedEvent } from '../select';
 import { StackChangedEvent } from '../stack';
@@ -47,38 +47,45 @@ export declare class ItemsChangedEvent<V> extends Event<V[]> {
  *     |   <item>              x |
  *     +-------------------------+
  */
-export declare class MultiSelect<V> extends GenericFeedbackControl<V[], MultiSelectAttrs<V>> {
+export declare class MultiSelect<V> extends AbstractFeedbackControl<V[], MultiSelectAttrs<V>> {
     view: View;
     values: {
-        id: {
-            root: string;
-            input: string;
-            search: string;
-            message: string;
-        };
         root: {
+            wml: {
+                id: string;
+            };
             id: string;
-            class: string;
+            className: string;
+        };
+        control: {
+            wml: {
+                id: string;
+            };
         };
         label: {
-            id: string;
+            wml: {
+                id: string;
+            };
             text: string;
         };
         search: {
-            id: string;
+            wml: {
+                id: string;
+            };
             name: string;
-            value: string;
+            value: any;
             onSearch: (evt: TermChangedEvent) => void;
             onChange: ({ value }: ItemChangedEvent<V>) => MultiSelect<V>;
         };
         messages: {
-            id: string;
-            success: string;
-            error: string;
-            warning: string;
+            wml: {
+                id: string;
+            };
         };
         stack: {
-            id: string;
+            wml: {
+                id: string;
+            };
             name: string;
             value: V[];
             decorator: (m: V) => string;

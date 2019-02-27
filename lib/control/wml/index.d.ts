@@ -1,4 +1,4 @@
-import * as ___wml from '@quenk/wml';
-import { Message } from './Message';
-export declare const label: (id: string) => (text: string) => (___view: ___wml.View) => Node;
-export declare const message: (id: string) => (m: Message) => (___view: ___wml.View) => Node;
+import * as __wml from '@quenk/wml';
+import { Message } from './message';
+export declare const label: (id: string) => (text: string) => (__this: __wml.Registry) => __wml.Content[];
+export declare const message: (_id: string) => (_m: Message) => (__this: __wml.Registry) => __wml.Content[];

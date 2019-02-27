@@ -1,8 +1,8 @@
-import {Checkbox} from "../"
+{% import (Checkbox) from "../" %}
 
-{% main (Checkbox) %}
+{% view Main (Checkbox) %}
 
-<div class={{@values.root.class}}>
+<div id={{@values.root.id}} class={{@values.root.className}}>
 
   <label>
 
@@ -10,7 +10,7 @@ import {Checkbox} from "../"
       type="checkbox"
       name={{@values.input.name}}
       checked={{@values.input.value}}
-      onchange={{@values.input.onChange}}/> {{@children}}
+      onchange={{@values.input.onChange}}/> {{...@children}}
 
   </label>
 

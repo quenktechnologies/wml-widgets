@@ -1,5 +1,6 @@
-import { View, Template } from '@quenk/wml';
-import { ControlAttrs, Event, GenericControl } from '../';
+import * as views from './wml/stack';
+import { Fun } from '@quenk/wml';
+import { ControlAttrs, Event, AbstractControl } from '../';
 export declare const STACK = "ww-stack";
 export declare const STACK_ELEMENT = "ww-stack__element";
 export declare const STACK_ELEMENT_CONTENT = "ww-stack__element__content";
@@ -7,7 +8,7 @@ export declare const STACK_CLOSE_BUTTON = "ww-stack__button";
 /**
  * ElementTemplate provides a template for rendering a stack element's UI.
  */
-export declare type ElementTemplate<V> = (s: Stack<V>) => (value: V) => (idx: number) => Template;
+export declare type ElementTemplate<V> = (s: Stack<V>) => (value: V) => (idx: number) => Fun;
 /**
  * StackAttrs
  */
@@ -34,26 +35,26 @@ export declare class StackChangedEvent<V> extends Event<V[]> {
  * Stack displays a list of items that can be modified
  * by releasing one or more at a time.
  */
-export declare class Stack<V> extends GenericControl<V[], StackAttrs<V>> {
-    view: View;
+export declare class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
+    view: views.Main<V>;
     values: {
         root: {
             id: string;
-            class: string;
+            className: string;
             value: V[];
             fire: () => void;
         };
         element: {
-            class: string;
-            template: () => any;
+            className: string;
+            template: (v: V) => (idx: number) => import("@quenk/wml").Content[];
             content: {
-                class: string;
+                className: string;
             };
             close: (index: string | number) => () => void;
-            decorator: (v: V) => string;
+            decorator: (v: V) => Text;
         };
         close: {
-            class: string;
+            className: string;
         };
     };
     /**

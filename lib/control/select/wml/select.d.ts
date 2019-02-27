@@ -1,10 +1,25 @@
-import * as ___wml from '@quenk/wml';
+import * as __wml from '@quenk/wml';
 import { Select } from '../';
-export declare const itemContentTemplate: <V>(___context: Select<V>) => (option: V) => (_index: number) => (___view: ___wml.View) => ___wml.Content;
-export declare const noItemsTemplate: <V>(___context: Select<V>) => (___view: ___wml.View) => ___wml.Content;
-export declare class Results<V> extends ___wml.AppView<Select<V>> {
-    constructor(___context: Select<V>);
-}
-export declare class Main<V> extends ___wml.AppView<Select<V>> {
-    constructor(___context: Select<V>);
+import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
+export declare const itemContentTemplate: <V>(s: Select<V>) => (option: V) => (_index: number) => (__this: __wml.Registry) => __wml.Content[];
+export declare const noItemsTemplate: <V>(_: Select<V>) => (__this: __wml.Registry) => __wml.Content[];
+export declare const results: <V>(s: Select<V>) => (__this: __wml.Registry) => __wml.Content[];
+export declare class Main<V> implements __wml.View {
+    constructor(__context: Select<V>);
+    ids: {
+        [key: string]: __wml.WMLElement;
+    };
+    groups: {
+        [key: string]: __wml.WMLElement[];
+    };
+    widgets: __wml.Widget[];
+    tree: __wml.Content;
+    template: __wml.Template;
+    register(e: __wml.WMLElement, attrs: __wml.Attributes<any>): __wml.WMLElement;
+    node(tag: string, attrs: __wml.Attributes<any>, children: __wml.Content[]): HTMLElement;
+    widget<A extends __wml.Attrs, W extends __wml.WidgetConstructor<A>>(C: W, attrs: A, children: __wml.Content[]): __wml.Content;
+    findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
+    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    invalidate(): void;
+    render(): __wml.Content;
 }

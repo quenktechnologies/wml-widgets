@@ -1,9 +1,0 @@
-import {PanelBody} from ".."
-
-{% main (PanelBody) %}
-
-<div 
-  wml:id={{@values.content.id}}
-  class={{@values.content.class}}> 
-  {{@children}}
-</div>

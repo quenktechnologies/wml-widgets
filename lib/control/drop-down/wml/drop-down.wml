@@ -1,17 +1,17 @@
-import {Button} from "../../button"
-import { Caret } from "../../../content/x/caret"
-import {DropDown} from "../"
+{% import (Button) from "../../button" %}
+{% import ( Caret) from "../../../content/caret" %}
+{% import (DropDown) from "../" %}
 
-{% fun button (DropDown) %}
+{% fun button (d:DropDown) %}
 
   <Button 
-    ww:class={{@values.button.class}}
-    ww:onClick={{@values.toggle.onClick}}
-    ww:text={{@values.button.text}}/>
+    ww:class={{d.values.button.className}}
+    ww:onClick={{d.values.toggle.onClick}}
+    ww:text={{d.values.button.text}}/>
 
   <Button
-    ww:class={{@values.toggle.class}}
-    ww:onClick={{@values.toggle.onClick}}>
+    ww:class={{d.values.toggle.className}}
+    ww:onClick={{d.values.toggle.onClick}}>
 
     <Caret/>
 
@@ -19,19 +19,19 @@ import {DropDown} from "../"
 
 {% endfun %}
 
-{% main (DropDown) %}
+{% view Main (DropDown) %}
 
 <div 
-  wml:id={{@values.root.id}} 
-  class={{@values.root.class}}>
+  wml:id={{@values.root.wml.id}} 
+  class={{@values.root.className}}>
 
-  {{<(@values.button.template())(@)>}}
+  {{...<(@values.button.template())(@)>}}
 
   <div
-    wml:id={{@values.content.id}}
-    class={{@values.content.class}}>
+    wml:id={{@values.content.wml.id}}
+    class={{@values.content.className}}>
 
-      {{@values.content.render()}}
+      {{...@values.content.render()}}
 
   </div>
 

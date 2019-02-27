@@ -1,208 +1,78 @@
-import {concat} from "../../../util"
-import {get} from "property-seek"
-import {Fragment} from "../../../layout/fragment"
-import {ACTIVE} from "../../../content/state/active"
-import {Column, Table as Table} from ".."
+{% import (Record) from "@quenk/noni/lib/data/record" %}
+{% import (TableLayout) from "../../../layout/table" %}
+{% import (Column, DataTable) from "../" %}
 
-{% fun thead[C,R] (Table[C,R]) (columns:Column[C,R][]) %}
+{% fun thead[C,R:Record[C]] (t:DataTable[C,R]) (columns:Column[C,R][]) %}
 
-  <thead wml:id={{@values.table.thead.id}}>{{<heads(@)(columns)>}}</thead>
+  <thead 
+   wml:id={{t.values.table.thead.wml.id}}
+   class={{t.values.table.thead.className}}>
 
-{% endfun %}
+    <tr>
 
-{% fun heads[C,R](Table[C,R])(columns:Column[C,R][]) %}
+      {% for field in columns %}
 
-  <tr>
+        <th 
+         class={{t.values.table.thead.th.className}}
+         onclick={{t.values.table.thead.th.onclick(field.name)}}>
 
-    {% if @values.options.selectable %}
+            {{t.values.table.thead.th.content(field)}}
 
-      {{ <allSelectedCheckbox(@)> }}
-
-      {{ <headings(@)(columns)> }}
-
-    {% else %}
-
-      {{ <headings(@)(columns)> }}
-
-    {% endif %}
-
-  </tr>
-
-{% endfun %}
-
-{% fun allSelectedCheckbox[C,R] (Table[C,R]) %}
-
-  <th>
- 
-    <input 
-      type="checkbox"
-      onclick={{@values.table.thead.onCheck}}/>
- 
-   </th>
-
-{% endfun %}
-
-{% fun headings[C,R](Table[C,R])(columns:Column[C,R][]) %}
-
-  {% for field:Column[C,R] in columns %}
-
-    {% if field.sortAs %}
-
-      <th 
-       class={{concat(@values.table.thead.th.class, 
-         if(@values.sortedOn == field.name) then 
-           ACTIVE 
-         else '')}}
-            onclick={{@values.table.thead.th.onclick(field.name)}}>
-
-        {{field.heading}}
-
-       {% if (@values.sortedOn == field.name)  %}
-
-        {{@values.arrow}}
-
-       {% else %}
-
-        {{''}}
-
-       {% endif %}
-                
         </th>
 
-       {% else %}
+      {% endfor %}
 
-          <th 
-            class={{concat(@values.table.thead.th.class,
-              if(@values.sortedOn == field.name) then 
-                ACTIVE 
-              else '')}}
-            onclick={{@values.table.thead.th.onclick(field.name)}}>
+    </tr>
 
-            {{field.heading}}
-
-            {{ if (@values.sortedOn == field.name) then @values.arrow else ''}}
-
-          </th>
-
-       {% endif %}
-
-    {% endfor %}
+  </thead>
 
 {% endfun %}
 
-{% fun tbody[C,R] (Table[C,R]) (data:R[], columns:Column[C,R][]) %}
+{% fun tbody[C,R:Record[C]] (t:DataTable[C,R]) (data:R[]) (columns:Column[C,R][]) %}
 
-  <tbody wml:id={{@values.table.tbody.id}}>
-    {{<rows(@)(data)(columns)> }}
-  </tbody>
+  <tbody wml:id={{t.values.table.tbody.id}}>
 
-{% endfun %}
-
-{% fun rows[C,R](Table[C,R])(data:R[],columns:Column[C,R][]) %}
-
-    {% for rowData:R,index:Number in data %}
+    {% for rowData:R,rowIdx:Number in data %}
 
       <tr 
-        class={{@values.table.tbody.tr.class}}
-        onclick={{@values.table.tbody.tr.onclick(rowData,index,data)}}>
+        class={{t.values.table.tbody.tr.className}}
+        onclick={{t.values.table.tbody.tr.onclick(rowIdx)}}>
 
-        {{ <cells(@)(rowData)(index)(columns)> }}
-
-      </tr>
-
-    {% endfor %}
-
-{% endfun %}
-
-{% fun cells[C,R](Table[C,R])(rowData:R, rowNumber:Number, columns:Column[C,R][]) %}
-
-  {% if @values.options.selectable %}
-
-    {{<rowSelectCheckbox(@)(rowData)(rowNumber)>}}
-
-  {% else %}
-
-    {{ '' }}
-          
-  {% endif %}
-
-  {% for field:Column[C,R],index:Number in columns %}
+        {% for field:Column[C,R],cellIdx:Number in columns %}
         
-    <td 
-      wml:id={{@values.table.tbody.td.id(field.name, index, rowNumber)}}
-      class={{@values.table.tbody.td.class}}
-      onclick={{@values.table.tbody.td.onclick(get(field.name,rowData),field.name, rowData, rowNumber)}}>
+          <td 
+            wml:id={{t.values.table.tbody.td.id(field.name)(cellIdx)(rowIdx)}}
+            class={{t.values.table.tbody.td.className}}
+            onclick={{t.values.table.tbody.td.onclick(field.name)(rowIdx)}}>
+              
+              {{...t.values.table.tbody.td.content(rowData)(field)}}
 
-      {% if field.fragment %}
+          </td>
 
-        {{ <field.fragment(get(field.name,rowData))(field.name)(rowData)> }}
-
-      {% else %}
-
-        {{ get(field.name,rowData) }}
-
-      {% endif %}
-
-    </td>
+        {% endfor %}
+      
+      </tr>
 
   {% endfor %}
 
-{% endfun %}
-
-{% fun rowSelectCheckbox[C,R] (Table[C,R]) (row:R,index:Number) %}
-
-    {% if @values.options.selectable %}
-
-      <td>
-            
-        <input 
-          type="checkbox"
-          onclick={{@values.table.tbody.tr.onCheck(row, index, @values.data)}}/>
-          
-      </td>
-
-    {% else %}
-
-      {{''}}
-
-    {% endif %}
+</tbody>
 
 {% endfun %}
 
-{% fun table [C,R](Table[C,R]) %}
+{% view Main [C,R:Record[C]](DataTable[C,R]) %}
+<TableLayout
+    wml:id={{@values.table.wml.id}}
+    ww:id={{@values.table.id}}
+    ww:class={{@values.table.className}}
+    ww:alternate={{@values.table.alternate}}
+    ww:bordered={{@values.table.bordered}}
+    ww:compact={{@values.table.compact}}
+    ww:hoverable={{@values.table.hoverable}}>
 
-  <table 
-    wml:id={{@values.table.id}}
-    class={{@values.table.class}}>
-
-    {{ <(@values.table.thead.template)(@)(@values.columns)> }}
+    {{ ... <(@values.table.thead.template())(@)(@values.columns)> }}
         
-    {{ <(@values.table.tbody.template)(@)(@values.data)(@values.columns)> }}
+    {{
+       ...<(@values.table.tbody.template())(@)(@values.table.data)(@values.columns)>
+    }}
 
-  </table>
-
-{% endfun %}
-
-{% main [C,R](Table[C,R]) %}
-
-  <Fragment>
-
-    {% if (@values.data.length == 0) %}
-
-      {% if @values.empty %}
-
-        {{ <(@values.empty)> }}
-
-      {% else %}
-
-        {{ <table(@)> }}
-
-      {% endif %}
-
-    {% else %}
-
-        {{ <table(@)> }}
-
-    {% endif %}
-
-  </Fragment>
+</TableLayout>

@@ -1,5 +1,5 @@
 import { View } from '@quenk/wml';
-import { ControlAttrs, Event, GenericControl } from '../../';
+import { ControlAttrs, Event, AbstractControl } from '../../';
 export declare const NATIVE_INPUT = "ww-native-input";
 /**
  * InputAttrs
@@ -32,21 +32,26 @@ export declare class TextChangedEvent extends Event<string> {
  */
 export declare class Values {
     self: Input;
+    wml: {
+        id: string;
+    };
     id: string;
     className: string;
     name: string;
     type: string;
     placeholder: string;
     value: string;
-    disabled: boolean;
-    readOnly: boolean;
+    disabled: boolean | null;
+    readOnly: boolean | null;
     oninput: (e: KeyboardEvent) => void;
-    constructor(self: Input, id?: string, className?: string, name?: string, type?: string, placeholder?: string, value?: string, disabled?: boolean, readOnly?: boolean, oninput?: (e: KeyboardEvent) => void);
+    constructor(self: Input, wml?: {
+        id: string;
+    }, id?: string, className?: string, name?: string, type?: string, placeholder?: string, value?: string, disabled?: boolean | null, readOnly?: boolean | null, oninput?: (e: KeyboardEvent) => void);
 }
 /**
  * Input provides a wrapped native text input control.
  */
-export declare class Input extends GenericControl<string, InputAttrs> {
+export declare class Input extends AbstractControl<string, InputAttrs> {
     view: View;
     values: Values;
 }
