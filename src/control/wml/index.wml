@@ -1,0 +1,19 @@
+{% import (Message) from "./message" %}
+{% import (textNode) from "../../" %}
+
+{% fun label (id:String) (text:String) %}
+
+  <label 
+    for={{id}} 
+    class="control-label">
+    {{textNode(text)}}
+  </label>
+  
+{% endfun %}
+
+{% fun message (_id:String) (_m:Message) %}
+
+    <span
+      class="help-block"></span>
+
+{% endfun %}
