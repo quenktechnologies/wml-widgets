@@ -1,0 +1,43 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Select) from "../../../../../../lib/control/select" %}
+{% import (SelectPage, Result) from "../" %}
+
+{% view Main (SelectPage) %}
+
+<Demo>
+
+  <Demo>
+
+    <p>You selected: <b wml:id={{@values.autocomplete.name}}>(nothing)</b>.</p>
+
+    <p>
+      <Select 
+       wml:id={{@values.autocomplete.id}}
+       ww:name={{@values.autocomplete.name}}
+       ww:stringifier={{\r:Result -> r.value }}
+       ww:onSearch={{@values.autocomplete.onSearch}}
+       ww:onChange={{@values.autocomplete.onChange}} />
+    
+     </p>
+
+   </Demo>
+
+    <Demo>
+
+      <p>You selected: <b wml:id={{@values.native.name}}>(nothing)</b>.</p>
+
+      <p>
+        <Select 
+          wml:id={{@values.native.id}}
+          ww:name={{@values.native.name}}
+          ww:readOnly=true
+          ww:stringifier={{\r:Result -> r.value }}
+          ww:options={{@values.native.options}}
+          ww:onSearch={{@values.native.onSearch}}
+          ww:onChange={{@values.native.onChange}} />
+      </p>
+
+    </Demo>
+
+</Demo>
+

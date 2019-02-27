@@ -1,0 +1,60 @@
+{% import (Search) from "../../search" %}
+{% import (Menu) from "../../../menu/menu" %}
+{% import (Item) from "../../../menu/item" %}
+{% import (Link) from "../../../content/link" %}
+{% import (textNode) from "../../../" %}
+{% import (Select) from "../" %}
+
+{% fun itemContentTemplate [V] (s:Select[V]) (option:V) (_index:Number) %}
+  {{ textNode(s.values.item.stringify(option)) }}  
+{% endfun %}
+
+{% fun noItemsTemplate [V] (_:Select[V]) %}
+  <b>No results to display.</b>
+{% endfun %}
+
+{% fun results [V] (s:Select[V]) %}
+
+    {% for option,index:Number in s.values.menu.options %}
+
+      <Item ww:name={{''+index}}>
+
+          <Link 
+            ww:onClick={{\->s.values.item.click(index)}}>
+
+            {{ ...<(s.values.item.itemContentTemplate())(s)(option)(index)> }}
+
+          </Link>
+
+      </Item>
+
+    {% else %}
+
+      {{...<(s.values.item.noItemsTemplate())(s)>}}
+
+    {% endfor %}
+
+{% endfun %}
+
+{% view Main [V](Select[V]) %}
+
+<div id={{@values.root.id}} class={{@values.root.className}}>
+
+  <Search
+    wml:id={{@values.search.wml.id}}
+    ww:name={{@values.search.name}}
+    ww:class={{@values.search.className}}
+    ww:placeholder={{@values.search.placeholder}} 
+    ww:readOnly={{@values.search.readOnly}}
+    ww:onEscape={{@values.search.onEscape}}
+    ww:onFocus={{@values.search.onFocus}}
+    ww:onSearch={{@values.search.onSearch}} />
+
+  <Menu 
+    wml:id={{@values.menu.wml.id}}
+    ww:hidden=true />
+
+    <span      
+      class="help-block"></span>
+
+</div>
