@@ -1,4 +1,5 @@
 import { Component } from '@quenk/wml';
+import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
 import { WidgetAttrs, HTMLElementAttrs } from '../';
 
 /**
@@ -63,3 +64,21 @@ export class Event<V> {
 export abstract class AbstractControl<V, A extends ControlAttrs<V>>
     extends Component<WidgetAttrs<A>>
     implements Control<V, A> { }
+
+/**
+ * getName
+ */
+export const getName = <V>(attrs: WidgetAttrs<ControlAttrs<V>>) =>
+    (attrs.ww && attrs.ww.name) ? attrs.ww.name : '';
+
+/**
+ * getDisabled
+ */
+export const getDisabled = <V>(attrs: WidgetAttrs<ControlAttrs<V>>) =>
+  (attrs.ww && attrs.ww.disabled) ? attrs.ww.disabled : <boolean><any>undefined;
+
+/**
+ * getValue
+ */
+export const getValue = <V>(attrs: WidgetAttrs<ControlAttrs<V>>): Maybe<V> =>
+    (attrs.ww && attrs.ww.value) ? just(attrs.ww.value) : nothing();
