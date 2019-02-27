@@ -1,4 +1,5 @@
-import { Maybe } from 'afpl/lib/monad/Maybe';
+import { View } from '@quenk/wml';
+import { getById } from '../../util';
 
 ///classNames:begin
 /**
@@ -8,54 +9,39 @@ export const ACTIVE = '-active';
 ///classNames:end
 
 /**
- * Activate
+ * Activate indicates a widget can be an active state.
  */
-export type Activate<A extends Activatable> = () => A;
-
-/**
- * Deactivate
- */
-export type Deactivate<A extends Activatable> = () => A;
-
-/**
- * Activatable indicates a widget can be an active state.
- */
-export interface Activatable {
+export interface Activate {
 
     /**
      * activate the widget.
      */
-    activate: () => Activatable;
+    activate(): Activate
 
     /**
      * deactivate the widget.
      */
-    deactivate: () => Activatable;
+    deactivate(): Activate
 
 }
 
 /**
- * deactivate this nav list item.
+ * activate helper.
+ *
+ * Adds the ACTIVE class.
  */
-export const deactivate = <A extends Activatable>(a: A) => (fn: () => Maybe<HTMLElement>)
-    : Deactivate<A> => () =>
-        fn()
-            .map((e: HTMLElement) => e.classList.remove(ACTIVE))
-            .map(() => a)
-            .orJust(() => a)
-            .get();
+export const activate = (view: View, id: string) =>
+    getById<HTMLElement>(view, id)
+        .map((e: HTMLElement) => {
+            e.classList.remove(ACTIVE);
+            e.classList.add(ACTIVE);
+        });
 
 /**
- * activate this nav list Item.
+ * deactivate helper.
+ *
+ * Removes the ACTIVE class.
  */
-export const activate = <A extends Activatable>(a: A) => (fn: () => Maybe<HTMLElement>)
-    : Deactivate<A> => () =>
-        fn()
-            .map((e: HTMLElement) => {
-                e.classList.remove(ACTIVE);
-                e.classList.add(ACTIVE);
-            })
-            .map(() => a)
-            .orJust(() => a)
-            .get();
-
+export const deactivate = (view: View, id: string) =>
+    getById<HTMLElement>(view, id)
+        .map((e: HTMLElement) => e.classList.remove(ACTIVE));

@@ -1,0 +1,4 @@
+{% import (Caret) from "../" %}
+
+{% view Main (Caret) %}
+<span id={{@values.root.id}} class={{@values.root.className}}/>

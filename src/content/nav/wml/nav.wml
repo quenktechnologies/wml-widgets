@@ -1,6 +1,0 @@
-import {Nav} from "../"
-
-{% main (Nav) %}
-
-<ul class={{@values.root.class}}>{{@children}}</ul>
-

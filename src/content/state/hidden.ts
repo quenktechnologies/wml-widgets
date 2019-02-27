@@ -1,111 +1,131 @@
-import { Maybe } from 'afpl/lib/monad/Maybe';
+import { View } from '@quenk/wml';
+import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { warnMissing } from '../../util';
 
 ///classNames:begin
 /**
  * HIDDEN means an element should not be visible but not removed
  * from the DOM.
  */
-export const HIDDEN = '-hidden';
+export const HIDDEN = '-ww-hidden';
 ///classNames:end
 
 /**
- * IsHidden
- */
-export type IsHidden = () => boolean;
-
-/**
- * Hide
- */
-export type Hide<H extends Hidable> = () => H;
-
-/**
- * Show
- */
-export type Show<H extends Hidable> = () => H;
-
-/**
- * Toggle
- */
-export type Toggle<H extends Hidable> = () => H;
-
-/**
- * Hidable represents some Widget that can be hidden.
+ * Hidable is widget that has a Hidden mode.
  *
- * Switching between visible and hidden state is expected to
- * be done in CSS using the '__HIDDEN__' class name.
+ * This is usually implemented by styling around the occurance of the 
+ * HIDDEN class name.
  */
 export interface Hidable {
 
     /**
      * isHidden indicates the DOM for the widget is hidden.
      */
-    isHidden: () => boolean;
+    isHidden(): boolean;
 
     /**
      * hide the DOM of the widget.
      */
-    hide: () => Hidable;
+    hide(): Hidable;
 
     /**
      * show the DOM of the widget.
      */
-    show: () => Hidable;
+    show(): Hidable;
 
     /**
      * toggle between show and hide states
      */
-    toggle: () => Hidable;
+    toggle(): Hidable;
 
 }
 
 /**
-  * visible queries whether the Hidable is visible or not.
-  *
-  * It retrieves an HTMLElement by id and checks whether
-  * it does not have a hidden class.
-  */
-export const isHidden = (fn: () => Maybe<HTMLElement>) => (): boolean =>
-    fn()
-        .map((e: HTMLElement) => e.classList.contains(HIDDEN))
-        .orJust(() => false)
-        .get();
-
-/**
- * hide the Hidable.
+ * isHidden helper.
  *
- * This is acheived by adding a 'hidden' class name
- * to an HTMLElement retrieved by id. 
+ * Retrieves an HTMLElement by id and checks whether
+ * it has the hidden class attached.
  */
-export const hide = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
-    : Hide<H> => () =>
-        fn()
-            .map((e: HTMLElement) => { e.classList.remove(HIDDEN); e.classList.add(HIDDEN); })
-            .map(() => h)
-            .orJust(() => h)
-            .get();
+export const isHidden = (view: View, id: string): boolean => {
+
+    let m: Maybe<HTMLElement> = view.findById(id);
+
+    if (m.isNothing()) {
+
+        warnMissing(view, id);
+        return true;
+
+    } else {
+
+        return m.get().classList.contains(HIDDEN);
+
+    }
+
+}
 
 /**
- * show the Hidable
+ * hide helper.
  *
- * This is acheived by removing a 'hidden' class name
- * to an HTMLElement retrieved by id. 
+ * Attempts to add HIDDEN to the target elements class name.
  */
-export const show = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
-    : Show<H> => () =>
-        Maybe
-            .fromBoolean(h.isHidden())
-            .map(() => fn().map((e: HTMLElement) => e.classList.remove(HIDDEN)))
-            .map(() => h)
-            .orJust(() => h)
-            .get();
+export const hide = (view: View, id: string) => {
+
+    let m: Maybe<HTMLElement> = view.findById(id);
+
+    if (m.isNothing()) {
+
+        return warnMissing(view, id);
+
+    } else {
+
+        let e = m.get();
+
+        e.classList.remove(HIDDEN);
+        e.classList.add(HIDDEN);
+
+    }
+
+}
 
 /**
- * toggle the visibility of the Hidable.
+ * show helper.
+ * 
+ * Attempts to remove the HIDDEN class name from the target element.
  */
-export const toggle = <H extends Hidable>(h: H) => (fn: () => Maybe<HTMLElement>)
-    : Toggle<H> => () =>
-        fn()
-            .map((e: HTMLElement) => e.classList.toggle(HIDDEN))
-            .map(() => h)
-            .orJust(() => h)
-            .get();
+export const show = (view: View, id: string) => {
+
+    let m: Maybe<HTMLElement> = view.findById(id);
+
+    if (m.isNothing()) {
+
+        return warnMissing(view, id);
+
+    } else {
+
+        m.get().classList.remove(HIDDEN);
+
+    }
+
+}
+
+/**
+ * toggle helper.
+ *
+ * Attempts to toggle the HIDDEN class name from the target element
+ * classList.
+ */
+export const toggle = (view: View, id: string) => {
+
+    let m: Maybe<HTMLElement> = view.findById(id);
+
+    if (m.isNothing()) {
+
+        return warnMissing(view, id);
+
+    } else {
+
+        m.get().classList.toggle(HIDDEN);
+
+    }
+
+}
