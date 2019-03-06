@@ -257,6 +257,9 @@
 }
 .ww-list-layout {
   margin-bottom: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 .ww-list-layout__item {
   position: relative;
