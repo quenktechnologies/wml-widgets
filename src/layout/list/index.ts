@@ -1,7 +1,13 @@
 import * as views from './wml/list';
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
-import { ACTIVE, Activate, activate, deactivate } from '../../content/state/active';
+import {
+    ACTIVE,
+    Activate,
+    activate,
+    deactivate,
+    isActive
+} from '../../content/state/active';
 import { LAYOUT, LayoutAttrs, AbstractLayout } from '../';
 
 ///classNames:begin
@@ -20,9 +26,19 @@ export interface ListLayoutAttrs extends LayoutAttrs { }
 export interface ListLayoutItemAttrs extends LayoutAttrs {
 
     /**
+     * name of the item.
+     */
+    name?: string,
+
+    /**
      * active highlight.
      */
-    active: boolean
+    active: boolean,
+
+    /**
+     * onClick handler.
+     */
+    onClick?: (name: string) => void
 
 }
 
@@ -47,9 +63,25 @@ export class ListLayoutItem extends AbstractLayout<ListLayoutItemAttrs>
             id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
 
             className: concat(LIST_LAYOUT_ITEM,
-                (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : '')
+                (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : ''),
+
+            name: (this.attrs.ww && this.attrs.ww.name) ? this.attrs.ww.name : '',
+
+            onclick: () => {
+
+                if (this.attrs.ww && this.attrs.ww.onClick)
+                    this.attrs.ww.onClick(this.attrs.ww &&
+                        this.attrs.ww.name || '');
+
+            }
 
         }
+
+    }
+
+    isActive(): boolean {
+
+        return isActive(this.view, this.values.content.wml.id);
 
     }
 
@@ -63,6 +95,17 @@ export class ListLayoutItem extends AbstractLayout<ListLayoutItemAttrs>
     deactivate(): ListLayoutItem {
 
         deactivate(this.view, this.values.content.wml.id);
+        return this;
+
+    }
+
+    toggleActive(): ListLayoutItem {
+
+        if (this.isActive())
+            this.deactivate();
+        else
+            this.activate();
+
         return this;
 
     }

@@ -45,3 +45,14 @@ export const activate = (view: View, id: string) =>
 export const deactivate = (view: View, id: string) =>
     getById<HTMLElement>(view, id)
         .map((e: HTMLElement) => e.classList.remove(ACTIVE));
+
+/**
+ * isActive helpder
+ * 
+ * Queries whether the ACTIVE class is present.
+ */
+export const isActive = (view:View, id:string) : boolean =>
+  getById<HTMLElement>(view, id)
+    .map((e:HTMLElement) => e.classList.contains(ACTIVE))
+    .orJust(()=> false)
+.get();

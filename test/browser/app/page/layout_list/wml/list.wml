@@ -10,7 +10,11 @@
 
     {% for yes,key of @items %}
 
-      <ListLayoutItem ww:active={{yes}}>
+      <ListLayoutItem 
+        wml:id={{key}} 
+        ww:name={{key}}
+        ww:active={{yes}} 
+        ww:onClick={{@click}}>
 
         <p>{{document.createTextNode(key)}}</p>
 
