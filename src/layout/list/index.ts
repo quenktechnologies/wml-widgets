@@ -33,7 +33,7 @@ export interface ListLayoutItemAttrs extends LayoutAttrs {
     /**
      * active highlight.
      */
-    active: boolean,
+    active?: boolean,
 
     /**
      * onClick handler.
