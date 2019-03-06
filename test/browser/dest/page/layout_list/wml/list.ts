@@ -69,7 +69,7 @@ export class Main  implements __wml.View {
         ...__forOf (__context.items, (yes , key , _$$all) => 
        ([
 
-        __this.widget(ListLayoutItem, {html : {  } ,wml : {  } ,ww : { 'active' : yes  } }, [
+        __this.widget(ListLayoutItem, {html : {  } ,wml : { 'id' : key  } ,ww : { 'name' : key ,'active' : yes ,'onClick' : __context.click  } }, [
 
         __this.node('p', {html : {  } ,wml : {  } }, [
 

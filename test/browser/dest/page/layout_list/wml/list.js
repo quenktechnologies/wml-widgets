@@ -35,7 +35,7 @@ var Main = /** @class */ (function () {
             return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                 __this.widget(list_1.ListLayout, { html: {}, wml: {} }, __forOf(__context.items, function (yes, key, _$$all) {
                     return ([
-                        __this.widget(list_1.ListLayoutItem, { html: {}, wml: {}, ww: { 'active': yes } }, [
+                        __this.widget(list_1.ListLayoutItem, { html: {}, wml: { 'id': key }, ww: { 'name': key, 'active': yes, 'onClick': __context.click } }, [
                             __this.node('p', { html: {}, wml: {} }, [
                                 document.createTextNode(key)
                             ])
