@@ -13,9 +13,17 @@ export interface ListLayoutAttrs extends LayoutAttrs {
  */
 export interface ListLayoutItemAttrs extends LayoutAttrs {
     /**
+     * name of the item.
+     */
+    name?: string;
+    /**
      * active highlight.
      */
     active: boolean;
+    /**
+     * onClick handler.
+     */
+    onClick?: (name: string) => void;
 }
 /**
  * ListLayoutItem
@@ -29,10 +37,14 @@ export declare class ListLayoutItem extends AbstractLayout<ListLayoutItemAttrs> 
             };
             id: string;
             className: string;
+            name: string;
+            onclick: () => void;
         };
     };
+    isActive(): boolean;
     activate(): ListLayoutItem;
     deactivate(): ListLayoutItem;
+    toggleActive(): ListLayoutItem;
 }
 /**
  * ListLayout is used to create a vertical list of content.

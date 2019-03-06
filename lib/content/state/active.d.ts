@@ -28,3 +28,9 @@ export declare const activate: (view: View, id: string) => import("@quenk/noni/l
  * Removes the ACTIVE class.
  */
 export declare const deactivate: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+/**
+ * isActive helpder
+ *
+ * Queries whether the ACTIVE class is present.
+ */
+export declare const isActive: (view: View, id: string) => boolean;
