@@ -357,6 +357,12 @@
   align-content: flex-start;
   justify-content: space-between;
 }
+.ww-horizontal-layout.-left {
+  justify-content: flex-start;
+}
+.ww-horizontal-layout.-right {
+  justify-content: flex-end;
+}
 .ww-table-layout {
   background: transparent;
   width: 100%;
@@ -689,7 +695,7 @@
   background-image: none;
   cursor: not-allowed;
 }
-.ww-menu > __RIGHT__ {
+.ww-menu > -right {
   left: auto;
 }
 .ww-caret {
