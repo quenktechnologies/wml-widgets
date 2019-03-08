@@ -30,4 +30,14 @@ export const CLEARFIX = '-clearfix';
  * JUSTIFIED content.
  */
 export const JUSTIFIED = '-justified';
+
+/**
+ * LEFT indicates content floated or positioned to the left.
+ */
+export const LEFT = '-left';
+
+/**
+ * RIGHT indicates content floated or positioned to the right.
+ */
+export const RIGHT = '-right';
 ///classNames:end

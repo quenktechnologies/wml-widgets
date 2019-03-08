@@ -1,16 +1,36 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/horizontal';
+import { LEFT, RIGHT } from '../../content/orientation';
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { WidgetAttrs, HTMLElementAttrs, getClassName } from '../../';
 
 ///classNames:begin
 export const HORIZONTAL_LAYOUT = 'ww-horizontal-layout';
 ///classNames:end
 
 /**
+ * HorizontalLayoutOrientation
+ */
+export enum HorizontalLayoutOrientation {
+
+    Left = 'left',
+
+    Right = 'right'
+
+}
+
+/**
  * HorizontalLayoutAttrs
  */
-export interface HorizontalLayoutAttrs extends HTMLElementAttrs { }
+export interface HorizontalLayoutAttrs extends HTMLElementAttrs {
+
+    /**
+     * orientation of the items in the layout.
+     * Either left or right
+     */
+    orientation?: HorizontalLayoutOrientation
+
+}
 
 /**
  * HorizontalLayout uses the css flexbox to provide a container
@@ -28,11 +48,16 @@ export class HorizontalLayout extends
             id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
 
             className: concat(HORIZONTAL_LAYOUT,
-                (this.attrs.ww && this.attrs.ww.className) ?
-                    this.attrs.ww.className : '')
+                getClassName(this.attrs),
+                getOrientation(this.attrs))
 
         }
 
     }
 
 }
+
+const getOrientation = (attrs: WidgetAttrs<HorizontalLayoutAttrs>) =>
+    (attrs.ww && attrs.ww.orientation) ?
+        attrs.ww.orientation === HorizontalLayoutOrientation.Right ?
+            RIGHT : LEFT : '';

@@ -31,6 +31,14 @@ export declare const CLEARFIX = "-clearfix";
  */
 export declare const JUSTIFIED = "-justified";
 /**
+ * LEFT indicates content floated or positioned to the left.
+ */
+export declare const LEFT = "-left";
+/**
+ * RIGHT indicates content floated or positioned to the right.
+ */
+export declare const RIGHT = "-right";
+/**
  * DEFAULT style.
  */
 export declare const DEFAULT = "-default";
