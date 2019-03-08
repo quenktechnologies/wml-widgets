@@ -336,7 +336,7 @@
      */
 }
 .ww-action-bar .ww-action-bar__content > * {
-  line-height: 0;
+  line-height: 1.42857143;
 }
 .ww-action-bar :empty {
   padding: 0;
