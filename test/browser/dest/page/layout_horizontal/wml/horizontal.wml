@@ -1,20 +1,43 @@
 {% import (Demo) from "../../../widgets/demo" %}
-{% import (HorizontalLayout) from "../../../../../../lib/layout/horizontal" %}
+{% import (
+      HorizontalLayoutOrientation, 
+      HorizontalLayout
+      ) from "../../../../../../lib/layout/horizontal" %}
 {% import (HorizontalLayoutPage) from "../" %}
 
 {% view Main (HorizontalLayoutPage) %}
  
 <Demo>
 
-  <HorizontalLayout>
+  <Demo>
+
+    <HorizontalLayout>
     
-    <textarea>Area 1</textarea>
+      <textarea>Area 1</textarea>
 
-    <textarea>Area 2</textarea>
+      <textarea>Area 2</textarea>
 
-    <textarea>Area 3</textarea>
+      <textarea>Area 3</textarea>
 
-  </Horizontal>
+    </Horizontal>
+
+  </Demo>
+
+  <Demo>
+
+    <HorizontalLayout ww:orientation={{HorizontalLayoutOrientation.Left}}>
+      This is oriented to the left.
+    </HorizontalLayout>
+
+  </Demo>
+
+  <Demo>
+
+    <HorizontalLayout ww:orientation={{HorizontalLayoutOrientation.Right}}>
+      This is oriented to the right.
+    </HorizontalLayout>
+
+  </Demo>
 
 </Demo>
 

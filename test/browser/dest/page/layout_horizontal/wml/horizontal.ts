@@ -1,7 +1,7 @@
 import * as __wml from '@quenk/wml';
 
 import {Demo} from '../../../widgets/demo'; ;
-import {HorizontalLayout} from '../../../../../../lib/layout/horizontal'; ;
+import {HorizontalLayoutOrientation,HorizontalLayout} from '../../../../../../lib/layout/horizontal'; ;
 import {HorizontalLayoutPage} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -64,6 +64,8 @@ export class Main  implements __wml.View {
 
            return __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
+        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+
         __this.widget(HorizontalLayout, {html : {  } ,wml : {  } }, [
 
         __this.node('textarea', {html : {  } ,wml : {  } }, [
@@ -77,6 +79,25 @@ __this.node('textarea', {html : {  } ,wml : {  } }, [
 __this.node('textarea', {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`Area 3`)
+     ])
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(HorizontalLayout, {html : {  } ,wml : {  } ,ww : { 'orientation' : HorizontalLayoutOrientation.Left  } }, [
+
+        document.createTextNode(`
+      This is oriented to the left.
+    `)
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(HorizontalLayout, {html : {  } ,wml : {  } ,ww : { 'orientation' : HorizontalLayoutOrientation.Right  } }, [
+
+        document.createTextNode(`
+      This is oriented to the right.
+    `)
      ])
      ])
      ]);

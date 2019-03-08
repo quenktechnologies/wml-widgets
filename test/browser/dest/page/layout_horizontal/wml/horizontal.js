@@ -33,15 +33,27 @@ var Main = /** @class */ (function () {
         this.tree = document.createElement('div');
         this.template = function (__this) {
             return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(horizontal_1.HorizontalLayout, { html: {}, wml: {} }, [
-                    __this.node('textarea', { html: {}, wml: {} }, [
-                        document.createTextNode("Area 1")
-                    ]),
-                    __this.node('textarea', { html: {}, wml: {} }, [
-                        document.createTextNode("Area 2")
-                    ]),
-                    __this.node('textarea', { html: {}, wml: {} }, [
-                        document.createTextNode("Area 3")
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(horizontal_1.HorizontalLayout, { html: {}, wml: {} }, [
+                        __this.node('textarea', { html: {}, wml: {} }, [
+                            document.createTextNode("Area 1")
+                        ]),
+                        __this.node('textarea', { html: {}, wml: {} }, [
+                            document.createTextNode("Area 2")
+                        ]),
+                        __this.node('textarea', { html: {}, wml: {} }, [
+                            document.createTextNode("Area 3")
+                        ])
+                    ])
+                ]),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(horizontal_1.HorizontalLayout, { html: {}, wml: {}, ww: { 'orientation': horizontal_1.HorizontalLayoutOrientation.Left } }, [
+                        document.createTextNode("\n      This is oriented to the left.\n    ")
+                    ])
+                ]),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(horizontal_1.HorizontalLayout, { html: {}, wml: {}, ww: { 'orientation': horizontal_1.HorizontalLayoutOrientation.Right } }, [
+                        document.createTextNode("\n      This is oriented to the right.\n    ")
                     ])
                 ])
             ]);
