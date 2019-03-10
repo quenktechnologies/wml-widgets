@@ -3,8 +3,8 @@
 .__NAV__ {
 
   list-style-type: none;
-  padding-left: @nav-padding-left;
-  padding-right: @nav-padding-right;
+  padding: @nav-padding-vertical @nav-padding-horizontal;
+  margin: @nav-margin-vertical @nav-margin-horizontal;
 
   & > .__ITEM__ {
 
@@ -25,8 +25,8 @@
  */
 .__NAV__ > .__ITEM__ {
 
-  margin-top: @nav-item-margin-top;
-  margin-bottom: @nav-item-margin-bottom;
+  margin-top: @nav-item-margin-vertical;
+  margin-bottom: @nav-item-margin-vertical;
 
   & > .__NAV__ {
 
@@ -36,7 +36,7 @@
 
   & > a {
 
-    padding: @nav-item-vertical-padding @nav-item-horizontal-padding;
+    padding: @nav-item-padding-vertical @nav-item-padding-horizontal;
     display: block;
     color: inherit;
     text-decoration: inherit;

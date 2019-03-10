@@ -1,0 +1,75 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Nav) from "../../../../../../lib/menu/nav" %}
+{% import (Item) from "../../../../../../lib/menu/item" %}
+{% import (Link) from "../../../../../../lib/content/link" %}
+{% import (NavPage) from "../" %}
+
+{% view Main (NavPage) %}
+
+<Demo>
+
+  <Demo>
+
+    <h3>This is a horizontal nav.</h3>
+
+    <Nav>
+
+      <Item>
+        
+        <Link
+         ww:text="Home"/>
+
+      </Item>
+
+      <Item>
+        
+        <Link
+         ww:disabled=true
+         ww:text="Users"/>
+            
+      </Item>
+
+      <Item>
+
+        <Link
+        ww:text="Logout"/>
+          
+      </Item>
+
+    </Nav>
+
+  </Demo>
+
+  <Demo>
+
+    <h3>This is a vertical nav.</h3>
+
+    <Nav ww:vertical=true>
+
+      <Item>
+        
+        <Link
+         ww:text="Home"/>
+
+      </Item>
+
+      <Item>
+        
+        <Link
+         ww:disabled=true
+         ww:text="Users"/>
+            
+      </Item>
+
+      <Item>
+
+        <Link
+        ww:text="Logout"/>
+          
+      </Item>
+
+    </Nav>
+
+  </Demo>
+
+</Demo>

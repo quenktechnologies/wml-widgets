@@ -22,5 +22,6 @@ exports.pages = {
     'layout_tab': require('./page/layout_tab').default,
     'layout_table': require('./page/layout_table').default,
     'menu_menu': require('./page/menu_menu').default,
+    'menu_nav': require('./page/menu_nav').default,
 };
 //# sourceMappingURL=pages.js.map
