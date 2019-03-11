@@ -7,8 +7,9 @@ import { Event, getName } from '../';
 
 const oninput = (f: TextField) => (e: KeyboardEvent) => {
 
-    if (f.attrs.ww && f.attrs.ww)
-        f.attrs.ww.onChange(new TextChangedEvent((f.attrs.ww && f.attrs.ww.name) ?
+    if (f.attrs.ww && f.attrs.ww && f.attrs.ww.onChange)
+    f.attrs.ww.onChange(
+      new TextChangedEvent((f.attrs.ww && f.attrs.ww.name) ?
             f.attrs.ww.name : '',
             (<HTMLInputElement>e.target).value));
 
@@ -65,7 +66,7 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
     /**
      * onChange handler
      */
-    onChange(e: TextChangedEvent): void
+    onChange?(e: TextChangedEvent): void
 
 }
 
