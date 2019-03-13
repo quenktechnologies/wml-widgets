@@ -1,4 +1,5 @@
 {% import (Demo) from "../../../widgets/demo" %}
+{% import (ValidationState) from "../../../../../../lib/control/feedback" %}
 {% import (TextField) from "../../../../../../lib/control/text-field" %}
 {% import (TextFieldPage) from "../" %}
 
@@ -9,12 +10,13 @@
     <Demo>
 
       <p>The value of the input is:</p>
-      <p wml:id="content">Nothing</p>
+      <p><b wml:id="content">Nothing</b></p>
 
       <p>
         <TextField 
           wml:id="text"
           ww:name="text"
+          ww:message="This is the help message"
           ww:onChange={{@onChange}} />
       </p>
 
@@ -27,7 +29,10 @@
       </p>
       <p>
         <TextField 
-          ww:name="text"
+          wml:id="success"
+          ww:name="success"
+          ww:validationState={{ValidationState.Success}}
+          ww:label="This is a success label"
           ww:success="This textfield has a success"
           ww:onChange={{@onChange}} />
       </p>
@@ -42,7 +47,10 @@
 
       <p>
         <TextField 
-          ww:name="text"
+          wml:id="warning"
+          ww:name="warning"
+          ww:validationState={{ValidationState.Warning}}
+          ww:label="This is a warning label"
           ww:warning="This textfield has a warning."
           ww:onChange={{@onChange}} />
       </p>
@@ -56,11 +64,13 @@
         </p>
         <p>
           <TextField 
-            ww:name="text"
+            wml:id="error"
+            ww:name="error"
+            ww:validationState={{ValidationState.Error}}
+            ww:label="This is an error label"
             ww:error="This textfield has an error."
             ww:onChange={{@onChange}} />
         </p>
-
 
   </Demo>
 
@@ -71,7 +81,8 @@
       <p>
         <TextField 
           ww:name="text"
-          ww:rows=3
+          ww:rows=5
+          ww:label="This is a textarea label"
           ww:onChange={{@onChange}} />
       </p>
 

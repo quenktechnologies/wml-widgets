@@ -1,5 +1,6 @@
 import * as __wml from '@quenk/wml';
 
+import {ValidationState} from '../../../../../../lib/control/feedback'; ;
 import {TextInput} from '../../../../../../lib/control/text-input'; ;
 import {Demo} from '../../../widgets/demo'; ;
 import {TextInputPage} from '../'; 
@@ -78,7 +79,7 @@ document.createTextNode(`.`)
 __this.node('p', {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`As you type `),
-__this.node('span', {html : {  } ,wml : { 'id' : `txt`  } }, [
+__this.node('b', {html : {  } ,wml : { 'id' : `txt`  } }, [
 
         document.createTextNode(`this`)
      ]),
@@ -94,8 +95,38 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + `: `)),
+document.createTextNode((v + ` neutral: `)),
 __this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v  } }, [
+
+        
+     ])
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + ` error: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'validationState' : ValidationState.Error  } }, [
+
+        
+     ])
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + ` warning: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'validationState' : ValidationState.Warning  } }, [
+
+        
+     ])
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + ` success: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'validationState' : ValidationState.Success  } }, [
 
         
      ])
@@ -111,6 +142,71 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
       Block:
       `),
 __this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'block' : true   } }, [
+
+        
+     ])
+     ])
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(` Textarea: `)
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        ...__forIn (__context.sizes, (v , _$$i, _$$all)=> 
+([
+
+        __this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + ` neutral: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'rows' : 5 ,'size' : v  } }, [
+
+        
+     ])
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + ` error: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'validationState' : ValidationState.Error  } }, [
+
+        
+     ])
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + ` warning: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'validationState' : ValidationState.Warning  } }, [
+
+        
+     ])
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + ` success: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'validationState' : ValidationState.Success  } }, [
+
+        
+     ])
+     ])
+     ]), 
+()=> ([]))
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+      Block:
+      `),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  } }, [
 
         
      ])

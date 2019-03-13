@@ -1,32 +1,25 @@
 import * as views from './wml/text-field';
-import { Fun, View } from '@quenk/wml';
+import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { View } from '@quenk/wml';
 import { concat, getById } from '../../util';
+import {
+    ValidationState,
+    Message,
+    getValidationStateClassName,
+    setValidationState,
+    removeValidationState
+} from '../feedback';
 import { FormControlAttrs, AbstractFormControl } from '../form';
+import { TextChangedEvent, TextInput } from '../text-input';
+import { Help } from '../help';
 import { getId, getClassName } from '../../';
-import { Event, getName } from '../';
+import { getName } from '../';
 
-const oninput = (f: TextField) => (e: KeyboardEvent) => {
-
-    if (f.attrs.ww && f.attrs.ww && f.attrs.ww.onChange)
-    f.attrs.ww.onChange(
-      new TextChangedEvent((f.attrs.ww && f.attrs.ww.name) ?
-            f.attrs.ww.name : '',
-            (<HTMLInputElement>e.target).value));
-
-}
-
-const input = (f: TextField) =>
-    getById<HTMLInputElement>(f.view, f.values.control.wml.id);
+export { TextChangedEvent }
 
 ///classNames:begin
-export const TEXT_FIELD = 'form-control';
+export const TEXT_FIELD = 'ww-text-field';
 ///classNames:end
-
-/**
- * TextFieldTemplate describes the template used to render 
- * the TextField.
- */
-export type TextFieldTemplate = (f: TextField) => Fun;
 
 /**
  * TextFieldAttrs
@@ -59,21 +52,11 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
     focus?: boolean,
 
     /**
-     * controlTemplate is a template for rendering the control.
-     */
-    controlTemplate?: TextFieldTemplate,
-
-    /**
      * onChange handler
      */
     onChange?(e: TextChangedEvent): void
 
 }
-
-/**
- * TextChangedEvent 
- */
-export class TextChangedEvent extends Event<string> { }
 
 /**
  * TextField provides a wrapped native text input control.
@@ -96,9 +79,13 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             },
 
-            id: getId(this.attrs),
+            className: concat(TEXT_FIELD,
 
-            className: concat(TEXT_FIELD, getClassName(this.attrs))
+                getClassName(this.attrs),
+
+                getValidationStateClassName(getVState(this))
+
+            )
 
         },
         messages: {
@@ -107,7 +94,9 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
                 id: 'message'
 
-            }
+            },
+            text: (this.attrs.ww && this.attrs.ww.message) ?
+                this.attrs.ww.message : '',
 
         },
 
@@ -115,7 +104,9 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             id: getName(this.attrs),
 
-            text: (this.attrs.ww && this.attrs.ww.label) ? this.attrs.ww.label : ''
+            text: (this.attrs.ww && this.attrs.ww.label) ?
+                this.attrs.ww.label : '',
+
 
         },
         control: {
@@ -126,16 +117,14 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             },
 
-            template: (): TextFieldTemplate =>
-                (this.attrs.ww && this.attrs.ww.controlTemplate) ?
-                    this.attrs.ww.controlTemplate : views.group,
+            id: getId(this.attrs),
 
             name: getName(this.attrs),
 
             type: 'text',
 
             focus: (this.attrs.ww && this.attrs.ww.focus) ?
-                this.attrs.ww.focus : null,
+                this.attrs.ww.focus : undefined,
 
             placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
                 this.attrs.ww.placeholder : '',
@@ -143,19 +132,86 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
             value: (this.attrs.ww && this.attrs.ww.value) ?
                 this.attrs.ww.value : '',
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : null,
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : undefined,
 
             readOnly: (this.attrs.ww && this.attrs.ww.readOnly) ?
-                true : null,
+                true : undefined,
 
             rows: (this.attrs.ww && this.attrs.ww.rows) ?
                 this.attrs.ww.rows : 1,
 
+            validationState: getVState(this),
+
             oninput: (this.attrs.ww && this.attrs.ww.onChange) ?
-                oninput(this) : () => { }
+                oninput(this) : () => { },
+
+            onChange: (this.attrs.ww && this.attrs.ww.onChange) ?
+                this.attrs.ww.onChange : () => { }
 
         }
 
     };
 
+    setMessage(msg: Message): TextField {
+
+        getHelp(this).map(h => h.setMessage(msg));
+
+        return this;
+
+    }
+
+    removeMessage(): TextField {
+
+        getHelp(this).map(h => h.removeMessage());
+        return this;
+
+    }
+
+    setValidationState(state: ValidationState): TextField {
+
+        getInput(this).map(i => i.setValidationState(state));
+        setValidationState(this.view, this.values.root.wml.id, state);
+        return this;
+
+    }
+
+    removeValidationState(): TextField {
+
+        getInput(this).map(i => i.removeValidationState());
+        removeValidationState(this.view, this.values.root.wml.id);
+        return this;
+
+    }
+
+    getValidationState(): ValidationState {
+
+        return getInput(this).map(i => i.getValidationState()).get();
+
+    }
+
 }
+
+
+const getHelp = (t: TextField): Maybe<Help> =>
+    getById(t.view, t.values.messages.wml.id);
+
+const getInput = (t: TextField): Maybe<TextInput> =>
+    getById(t.view, t.values.control.wml.id);
+
+const getVState = (t: TextField): ValidationState =>
+    (t.attrs.ww && t.attrs.ww.validationState) ?
+        t.attrs.ww.validationState :
+        ValidationState.Neutral
+
+const oninput = (f: TextField) => (e: KeyboardEvent) => {
+
+    if (f.attrs.ww && f.attrs.ww && f.attrs.ww.onChange)
+        f.attrs.ww.onChange(
+            new TextChangedEvent((f.attrs.ww && f.attrs.ww.name) ?
+                f.attrs.ww.name : '',
+                (<HTMLInputElement>e.target).value));
+
+}
+
+const input = (f: TextField) =>
+    getById<HTMLInputElement>(f.view, f.values.control.wml.id);

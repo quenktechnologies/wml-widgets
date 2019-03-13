@@ -3,9 +3,12 @@ import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
 import { Size, getSizeClassName } from '../../content/size';
-import { AbstractFeedbackControl } from '../feedback';
+import { 
+  FeedbackControlAttrs,
+  AbstractFeedbackControl,
+  getValidationStateClassName } from '../feedback';
 import { getId, getClassName } from '../../';
-import { ControlAttrs, Event, getName } from '../';
+import {  Event, getName } from '../';
 
 ///classNames:begin
 export const TEXT_INPUT = 'ww-text-input';
@@ -14,7 +17,7 @@ export const TEXT_INPUT = 'ww-text-input';
 /**
  * TextInputAttrs
  */
-export interface TextInputAttrs extends ControlAttrs<string> {
+export interface TextInputAttrs extends FeedbackControlAttrs<string> {
 
     /**
      * placeholder sets placeholder text for the control.
@@ -31,10 +34,17 @@ export interface TextInputAttrs extends ControlAttrs<string> {
      */
     size?: Size,
 
-  /**
-   * block orientation flag.
-   */
-  block?: boolean,
+    /**
+     * block orientation flag.
+     */
+    block?: boolean,
+
+    /**
+     * rows
+     * 
+     * Setting this to anything more than 1 will result in a <textarea>
+     */
+    rows?: number,
 
     /**
      * readOnly indicates the TextInput is read only.
@@ -63,7 +73,8 @@ export class TextChangedEvent extends Event<string> { }
  */
 export class TextInput extends AbstractFeedbackControl<string, TextInputAttrs> {
 
-    view: View = new views.Main(this);
+    view: View = (this.attrs.ww && this.attrs.ww.rows && this.attrs.ww.rows > 1) ?
+        new views.Textarea(this) : new views.Input(this);
 
     values = {
 
@@ -86,16 +97,19 @@ export class TextInput extends AbstractFeedbackControl<string, TextInputAttrs> {
         },
         id: getId(this.attrs),
 
-      className: concat(TEXT_INPUT,
+        className: concat(TEXT_INPUT,
 
-        getClassName(this.attrs),
+            getClassName(this.attrs),
 
             (this.attrs.ww && this.attrs.ww.size) ?
-        getSizeClassName(this.attrs.ww.size) : '',
+                getSizeClassName(this.attrs.ww.size) : '',
 
-        (this.attrs.ww && this.attrs.ww.block) ?
-        BLOCK: ''
-      ),
+          (this.attrs.ww && this.attrs.ww.validationState) ?
+          getValidationStateClassName(this.attrs.ww.validationState) : '',
+
+            (this.attrs.ww && this.attrs.ww.block) ?
+                BLOCK : ''
+        ),
 
         name: getName(this.attrs),
 
@@ -107,6 +121,9 @@ export class TextInput extends AbstractFeedbackControl<string, TextInputAttrs> {
 
         value: (this.attrs.ww && this.attrs.ww.value) ?
             this.attrs.ww.value : '',
+
+        rows: (this.attrs.ww && this.attrs.ww.rows) ?
+            this.attrs.ww.rows : 1,
 
         disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
             true : null,

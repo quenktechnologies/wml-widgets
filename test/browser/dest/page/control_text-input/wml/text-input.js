@@ -1,5 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var feedback_1 = require("../../../../../../lib/control/feedback");
+;
 var text_input_1 = require("../../../../../../lib/control/text-input");
 ;
 var demo_1 = require("../../../widgets/demo");
@@ -41,7 +43,7 @@ var Main = /** @class */ (function () {
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
                         document.createTextNode("As you type "),
-                        __this.node('span', { html: {}, wml: { 'id': "txt" } }, [
+                        __this.node('b', { html: {}, wml: { 'id': "txt" } }, [
                             document.createTextNode("this")
                         ]),
                         document.createTextNode(" changes.")
@@ -51,8 +53,23 @@ var Main = /** @class */ (function () {
                     return ([
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + ": ")),
+                            document.createTextNode((v + " neutral: ")),
                             __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v } }, [])
+                        ]),
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + " error: ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'validationState': feedback_1.ValidationState.Error } }, [])
+                        ]),
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + " warning: ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'validationState': feedback_1.ValidationState.Warning } }, [])
+                        ]),
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + " success: ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'validationState': feedback_1.ValidationState.Success } }, [])
                         ])
                     ]);
                 }, function () { return ([]); }).slice()),
@@ -60,6 +77,39 @@ var Main = /** @class */ (function () {
                     __this.node('p', { html: {}, wml: {} }, [
                         document.createTextNode("\n      Block:\n      "),
                         __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'block': true } }, [])
+                    ])
+                ]),
+                __this.node('p', { html: {}, wml: {} }, [
+                    document.createTextNode(" Textarea: ")
+                ]),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __forIn(__context.sizes, function (v, _$$i, _$$all) {
+                    return ([
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + " neutral: ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } }, [])
+                        ]),
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + " error: ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'validationState': feedback_1.ValidationState.Error } }, [])
+                        ]),
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + " warning: ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'validationState': feedback_1.ValidationState.Warning } }, [])
+                        ]),
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + " success: ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'validationState': feedback_1.ValidationState.Success } }, [])
+                        ])
+                    ]);
+                }, function () { return ([]); }).slice()),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("\n      Block:\n      "),
+                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } }, [])
                     ])
                 ])
             ]);

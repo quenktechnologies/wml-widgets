@@ -1,6 +1,7 @@
 import * as __wml from '@quenk/wml';
 
 import {Demo} from '../../../widgets/demo'; ;
+import {ValidationState} from '../../../../../../lib/control/feedback'; ;
 import {TextField} from '../../../../../../lib/control/text-field'; ;
 import {TextFieldPage} from '../'; 
 //@ts-ignore: 6192
@@ -70,13 +71,16 @@ export class Main  implements __wml.View {
 
         document.createTextNode(`The value of the input is:`)
      ]),
-__this.node('p', {html : {  } ,wml : { 'id' : `content`  } }, [
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        __this.node('b', {html : {  } ,wml : { 'id' : `content`  } }, [
 
         document.createTextNode(`Nothing`)
+     ])
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(TextField, {html : {  } ,wml : { 'id' : `text`  } ,ww : { 'name' : `text` ,'onChange' : __context.onChange  } }, [
+        __this.widget(TextField, {html : {  } ,wml : { 'id' : `text`  } ,ww : { 'name' : `text` ,'message' : `This is the help message` ,'onChange' : __context.onChange  } }, [
 
         
      ])
@@ -93,7 +97,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(TextField, {html : {  } ,wml : {  } ,ww : { 'name' : `text` ,'success' : `This textfield has a success` ,'onChange' : __context.onChange  } }, [
+        __this.widget(TextField, {html : {  } ,wml : { 'id' : `success`  } ,ww : { 'name' : `success` ,'validationState' : ValidationState.Success ,'label' : `This is a success label` ,'success' : `This textfield has a success` ,'onChange' : __context.onChange  } }, [
 
         
      ])
@@ -110,7 +114,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(TextField, {html : {  } ,wml : {  } ,ww : { 'name' : `text` ,'warning' : `This textfield has a warning.` ,'onChange' : __context.onChange  } }, [
+        __this.widget(TextField, {html : {  } ,wml : { 'id' : `warning`  } ,ww : { 'name' : `warning` ,'validationState' : ValidationState.Warning ,'label' : `This is a warning label` ,'warning' : `This textfield has a warning.` ,'onChange' : __context.onChange  } }, [
 
         
      ])
@@ -127,7 +131,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(TextField, {html : {  } ,wml : {  } ,ww : { 'name' : `text` ,'error' : `This textfield has an error.` ,'onChange' : __context.onChange  } }, [
+        __this.widget(TextField, {html : {  } ,wml : { 'id' : `error`  } ,ww : { 'name' : `error` ,'validationState' : ValidationState.Error ,'label' : `This is an error label` ,'error' : `This textfield has an error.` ,'onChange' : __context.onChange  } }, [
 
         
      ])
@@ -141,7 +145,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(TextField, {html : {  } ,wml : {  } ,ww : { 'name' : `text` ,'rows' : 3 ,'onChange' : __context.onChange  } }, [
+        __this.widget(TextField, {html : {  } ,wml : {  } ,ww : { 'name' : `text` ,'rows' : 5 ,'label' : `This is a textarea label` ,'onChange' : __context.onChange  } }, [
 
         
      ])

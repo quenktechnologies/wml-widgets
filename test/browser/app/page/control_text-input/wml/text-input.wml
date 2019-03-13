@@ -1,3 +1,4 @@
+{% import (ValidationState) from "../../../../../../lib/control/feedback" %}
 {% import (TextInput) from "../../../../../../lib/control/text-input" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (TextInputPage) from "../" %}
@@ -7,7 +8,7 @@
 
   <Demo>
     <p>This is a text input: <TextInput ww:onChange={{@onChange}}/>.</p>
-    <p>As you type <span wml:id="txt">this</span> changes.</p>
+    <p>As you type <b wml:id="txt">this</b> changes.</p>
   </Demo>
 
   <Demo>
@@ -15,8 +16,32 @@
     {% for v in @sizes %}
 
       <p>
-        Size {{document.createTextNode(v+": ")}}
+        Size {{document.createTextNode(v+" neutral: ")}}
         <TextInput ww:onChange={{@onChange}} ww:size={{v}} />
+      </p>
+
+      <p>
+        Size {{document.createTextNode(v+" error: ")}}
+        <TextInput 
+          ww:onChange={{@onChange}} 
+          ww:size={{v}}
+          ww:validationState={{ValidationState.Error}} />
+      </p>
+
+      <p>
+        Size {{document.createTextNode(v+" warning: ")}}
+        <TextInput 
+          ww:onChange={{@onChange}} 
+          ww:size={{v}}
+          ww:validationState={{ValidationState.Warning}} />
+      </p>
+
+      <p>
+        Size {{document.createTextNode(v+" success: ")}}
+        <TextInput 
+          ww:onChange={{@onChange}} 
+          ww:size={{v}}
+          ww:validationState={{ValidationState.Success}} />
       </p>
 
     {% endfor %}
@@ -28,6 +53,60 @@
     <p>
       Block:
       <TextInput ww:onChange={{@onChange}} ww:block=true />
+    </p>
+
+  </Demo>
+
+  <p> Textarea: </p>
+
+  <Demo>
+
+    {% for v in @sizes %}
+
+      <p>
+        Size {{document.createTextNode(v+" neutral: ")}}
+        <TextInput 
+          ww:onChange={{@onChange}} 
+          ww:rows=5
+          ww:size={{v}} />
+      </p>
+
+      <p>
+        Size {{document.createTextNode(v+" error: ")}}
+        <TextInput 
+          ww:onChange={{@onChange}} 
+          ww:size={{v}}
+          ww:rows=5
+          ww:validationState={{ValidationState.Error}} />
+      </p>
+
+      <p>
+        Size {{document.createTextNode(v+" warning: ")}}
+        <TextInput 
+          ww:onChange={{@onChange}} 
+          ww:size={{v}}
+          ww:rows=5
+          ww:validationState={{ValidationState.Warning}} />
+      </p>
+
+      <p>
+        Size {{document.createTextNode(v+" success: ")}}
+        <TextInput 
+          ww:onChange={{@onChange}} 
+          ww:size={{v}}
+          ww:rows=5
+          ww:validationState={{ValidationState.Success}} />
+      </p>
+
+    {% endfor %}
+
+  </Demo>
+
+  <Demo>
+
+    <p>
+      Block:
+      <TextInput ww:onChange={{@onChange}} ww:block=true ww:rows=5 />
     </p>
 
   </Demo>

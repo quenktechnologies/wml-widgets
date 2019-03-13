@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var demo_1 = require("../../../widgets/demo");
 ;
+var feedback_1 = require("../../../../../../lib/control/feedback");
+;
 var text_field_1 = require("../../../../../../lib/control/text-field");
 ;
 //@ts-ignore: 6192
@@ -37,11 +39,13 @@ var Main = /** @class */ (function () {
                     __this.node('p', { html: {}, wml: {} }, [
                         document.createTextNode("The value of the input is:")
                     ]),
-                    __this.node('p', { html: {}, wml: { 'id': "content" } }, [
-                        document.createTextNode("Nothing")
+                    __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('b', { html: {}, wml: { 'id': "content" } }, [
+                            document.createTextNode("Nothing")
+                        ])
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(text_field_1.TextField, { html: {}, wml: { 'id': "text" }, ww: { 'name': "text", 'onChange': __context.onChange } }, [])
+                        __this.widget(text_field_1.TextField, { html: {}, wml: { 'id': "text" }, ww: { 'name': "text", 'message': "This is the help message", 'onChange': __context.onChange } }, [])
                     ])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
@@ -51,7 +55,7 @@ var Main = /** @class */ (function () {
                         ])
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(text_field_1.TextField, { html: {}, wml: {}, ww: { 'name': "text", 'success': "This textfield has a success", 'onChange': __context.onChange } }, [])
+                        __this.widget(text_field_1.TextField, { html: {}, wml: { 'id': "success" }, ww: { 'name': "success", 'validationState': feedback_1.ValidationState.Success, 'label': "This is a success label", 'success': "This textfield has a success", 'onChange': __context.onChange } }, [])
                     ])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
@@ -61,7 +65,7 @@ var Main = /** @class */ (function () {
                         ])
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(text_field_1.TextField, { html: {}, wml: {}, ww: { 'name': "text", 'warning': "This textfield has a warning.", 'onChange': __context.onChange } }, [])
+                        __this.widget(text_field_1.TextField, { html: {}, wml: { 'id': "warning" }, ww: { 'name': "warning", 'validationState': feedback_1.ValidationState.Warning, 'label': "This is a warning label", 'warning': "This textfield has a warning.", 'onChange': __context.onChange } }, [])
                     ])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
@@ -71,7 +75,7 @@ var Main = /** @class */ (function () {
                         ])
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(text_field_1.TextField, { html: {}, wml: {}, ww: { 'name': "text", 'error': "This textfield has an error.", 'onChange': __context.onChange } }, [])
+                        __this.widget(text_field_1.TextField, { html: {}, wml: { 'id': "error" }, ww: { 'name': "error", 'validationState': feedback_1.ValidationState.Error, 'label': "This is an error label", 'error': "This textfield has an error.", 'onChange': __context.onChange } }, [])
                     ])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
@@ -79,7 +83,7 @@ var Main = /** @class */ (function () {
                         document.createTextNode("The one uses rows to render a text area:")
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(text_field_1.TextField, { html: {}, wml: {}, ww: { 'name': "text", 'rows': 3, 'onChange': __context.onChange } }, [])
+                        __this.widget(text_field_1.TextField, { html: {}, wml: {}, ww: { 'name': "text", 'rows': 5, 'label': "This is a textarea label", 'onChange': __context.onChange } }, [])
                     ])
                 ])
             ]);
