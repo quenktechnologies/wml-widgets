@@ -20,7 +20,6 @@ export class ButtonPage {
         Style.Error
       ],
       sizes: <Size[]>[
-
         Size.ExtraSmall,
         Size.Small,
         Size.Medium,

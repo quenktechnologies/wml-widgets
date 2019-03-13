@@ -1,0 +1,35 @@
+{% import (TextInput) from "../../../../../../lib/control/text-input" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (TextInputPage) from "../" %}
+
+{% view Main (TextInputPage) %}
+<Demo>
+
+  <Demo>
+    <p>This is a text input: <TextInput ww:onChange={{@onChange}}/>.</p>
+    <p>As you type <span wml:id="txt">this</span> changes.</p>
+  </Demo>
+
+  <Demo>
+
+    {% for v in @sizes %}
+
+      <p>
+        Size {{document.createTextNode(v+": ")}}
+        <TextInput ww:onChange={{@onChange}} ww:size={{v}} />
+      </p>
+
+    {% endfor %}
+
+  </Demo>
+
+  <Demo>
+
+    <p>
+      Block:
+      <TextInput ww:onChange={{@onChange}} ww:block=true />
+    </p>
+
+  </Demo>
+
+</Demo>

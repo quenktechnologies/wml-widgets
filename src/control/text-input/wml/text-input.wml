@@ -1,0 +1,14 @@
+{% import (TextInput) from "../" %}
+
+{% view Main (TextInput) %}
+<input
+  wml:id={{@values.control.wml.id}}
+  id={{@values.id}}
+  name={{@values.name}}
+  type={{@values.type}}
+  placeholder={{@values.placeholder}}
+  oninput={{@values.oninput}} 
+  value={{@values.value}}
+  disabled={{@values.disabled}}
+  readonly={{@values.readOnly}}
+  class={{@values.className}} />

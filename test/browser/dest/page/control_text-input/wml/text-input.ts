@@ -1,10 +1,8 @@
 import * as __wml from '@quenk/wml';
 
+import {TextInput} from '../../../../../../lib/control/text-input'; ;
 import {Demo} from '../../../widgets/demo'; ;
-import {Nav} from '../../../../../../lib/menu/nav'; ;
-import {Item} from '../../../../../../lib/menu/item'; ;
-import {Link} from '../../../../../../lib/content/link'; ;
-import {NavPage} from '../'; 
+import {TextInputPage} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -60,7 +58,7 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export class Main  implements __wml.View {
 
-   constructor(__context: NavPage  ) {
+   constructor(__context: TextInputPage  ) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -68,63 +66,52 @@ export class Main  implements __wml.View {
 
         __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.node('h3', {html : {  } ,wml : {  } }, [
+        __this.node('p', {html : {  } ,wml : {  } }, [
 
-        document.createTextNode(`This is a horizontal nav.`)
-     ]),
-__this.widget(Nav, {html : {  } ,wml : {  } }, [
-
-        __this.widget(Item, {html : {  } ,wml : {  } }, [
-
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'text' : `Home`  } }, [
+        document.createTextNode(`This is a text input: `),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange  } }, [
 
         
      ])
      ]),
-__this.widget(Item, {html : {  } ,wml : {  } }, [
+__this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'disabled' : true  ,'text' : `Users`  } }, [
+        document.createTextNode(`As you type `),
+__this.node('span', {html : {  } ,wml : { 'id' : `txt`  } }, [
 
-        
-     ])
+        document.createTextNode(`this`)
      ]),
-__this.widget(Item, {html : {  } ,wml : {  } }, [
-
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'text' : `Logout`  } }, [
-
-        
-     ])
-     ])
+document.createTextNode(` changes.`)
      ])
      ]),
 __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.node('h3', {html : {  } ,wml : {  } }, [
+        ...__forIn (__context.sizes, (v , _$$i, _$$all)=> 
+([
 
-        document.createTextNode(`This is a vertical nav.`)
-     ]),
-__this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
+        __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(Item, {html : {  } ,wml : {  } }, [
-
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'text' : `Home`  } }, [
-
-        
-     ])
-     ]),
-__this.widget(Item, {html : {  } ,wml : {  } }, [
-
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'disabled' : true  ,'text' : `Users`  } }, [
+        document.createTextNode(`
+        Size `),
+document.createTextNode((v + `: `)),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v  } }, [
 
         
      ])
+     ])
+     ]), 
+()=> ([]))
      ]),
-__this.widget(Item, {html : {  } ,wml : {  } }, [
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'text' : `Logout`  } }, [
+        __this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`
+      Block:
+      `),
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'block' : true   } }, [
 
         
-     ])
      ])
      ])
      ])

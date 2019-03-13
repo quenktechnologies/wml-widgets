@@ -12,6 +12,7 @@ export const pages:{[key:string]:any} = {
 'control_switch' : require('./page/control_switch').default,
 'control_tab-bar' : require('./page/control_tab-bar').default,
 'control_text-field' : require('./page/control_text-field').default,
+'control_text-input' : require('./page/control_text-input').default,
 'data_table' : require('./page/data_table').default,
 'layout_grid' : require('./page/layout_grid').default,
 'layout_horizontal' : require('./page/layout_horizontal').default,

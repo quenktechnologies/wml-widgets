@@ -1,12 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var text_input_1 = require("../../../../../../lib/control/text-input");
+;
 var demo_1 = require("../../../widgets/demo");
-;
-var nav_1 = require("../../../../../../lib/menu/nav");
-;
-var item_1 = require("../../../../../../lib/menu/item");
-;
-var link_1 = require("../../../../../../lib/content/link");
 ;
 //@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
@@ -38,35 +34,31 @@ var Main = /** @class */ (function () {
         this.template = function (__this) {
             return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
-                        document.createTextNode("This is a horizontal nav.")
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("This is a text input: "),
+                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange } }, [])
                     ]),
-                    __this.widget(nav_1.Nav, { html: {}, wml: {} }, [
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Home" } }, [])
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("As you type "),
+                        __this.node('span', { html: {}, wml: { 'id': "txt" } }, [
+                            document.createTextNode("this")
                         ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'disabled': true, 'text': "Users" } }, [])
-                        ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Logout" } }, [])
-                        ])
+                        document.createTextNode(" changes.")
                     ])
                 ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
-                        document.createTextNode("This is a vertical nav.")
-                    ]),
-                    __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, [
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Home" } }, [])
-                        ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'disabled': true, 'text': "Users" } }, [])
-                        ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Logout" } }, [])
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __forIn(__context.sizes, function (v, _$$i, _$$all) {
+                    return ([
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode("\n        Size "),
+                            document.createTextNode((v + ": ")),
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v } }, [])
                         ])
+                    ]);
+                }, function () { return ([]); }).slice()),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("\n      Block:\n      "),
+                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'block': true } }, [])
                     ])
                 ])
             ]);
@@ -157,4 +149,4 @@ var Main = /** @class */ (function () {
     return Main;
 }());
 exports.Main = Main;
-//# sourceMappingURL=nav.js.map
+//# sourceMappingURL=text-input.js.map
