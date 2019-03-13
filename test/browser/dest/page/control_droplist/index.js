@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var views = require("./wml/native-select");
-var NativeSelectPage = /** @class */ (function () {
-    function NativeSelectPage() {
+var views = require("./wml/droplist");
+var size_1 = require("../../../../../lib/content/size");
+var DroplistPage = /** @class */ (function () {
+    function DroplistPage() {
         var _this = this;
         this.view = new views.Main(this);
         this.values = {
@@ -10,6 +11,13 @@ var NativeSelectPage = /** @class */ (function () {
                 { title: 'Asus', value: 'Asus' },
                 { title: 'MSI', value: 'MSI' },
                 { title: 'Gigabyte', value: 'Gigabyte' }
+            ],
+            sizes: [
+                size_1.Size.ExtraSmall,
+                size_1.Size.Small,
+                size_1.Size.Medium,
+                size_1.Size.Large,
+                size_1.Size.ExtraLarge
             ]
         };
         this.onChange = function (_a) {
@@ -24,8 +32,8 @@ var NativeSelectPage = /** @class */ (function () {
             });
         };
     }
-    return NativeSelectPage;
+    return DroplistPage;
 }());
-exports.NativeSelectPage = NativeSelectPage;
-exports.default = new NativeSelectPage();
+exports.DroplistPage = DroplistPage;
+exports.default = new DroplistPage();
 //# sourceMappingURL=index.js.map

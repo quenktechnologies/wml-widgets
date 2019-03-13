@@ -6,7 +6,7 @@
 <Demo>
 
   <Demo>
-    <p>This is a text input: <TextInput ww:onChange={{@onChange}}/></p>
+    <p>This is a text input: <TextInput ww:onChange={{@onChange}}/>.</p>
     <p>As you type <span wml:id="txt">this</span> changes.</p>
   </Demo>
 

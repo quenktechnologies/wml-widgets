@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var demo_1 = require("../../../widgets/demo");
 ;
-var select_1 = require("../../../../../../lib/control/native/select");
+var droplist_1 = require("../../../../../../lib/control/droplist");
 ;
 //@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
@@ -33,15 +33,36 @@ var Main = /** @class */ (function () {
         this.tree = document.createElement('div');
         this.template = function (__this) {
             return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.node('p', { html: {}, wml: {} }, [
-                    document.createTextNode("You selected: "),
-                    __this.node('b', { html: {}, wml: { 'id': "select-content" } }, [
-                        document.createTextNode("(None)")
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("You selected: "),
+                        __this.node('b', { html: {}, wml: { 'id': "select-content" } }, [
+                            document.createTextNode("(None)")
+                        ]),
+                        document.createTextNode(".")
                     ]),
-                    document.createTextNode(".")
+                    __this.node('p', { html: {}, wml: {} }, [
+                        __this.widget(droplist_1.Droplist, { html: {}, wml: { 'id': "select" }, ww: { 'name': "select", 'options': __context.values.options, 'onChange': __context.onChange } }, [])
+                    ])
                 ]),
-                __this.node('p', { html: {}, wml: {} }, [
-                    __this.widget(select_1.Select, { html: {}, wml: { 'id': "select" }, ww: { 'name': "select", 'options': __context.values.options, 'onChange': __context.onChange } }, [])
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __forIn(__context.values.sizes, function (v, _$$i, _$$all) {
+                    return ([
+                        __this.node('p', { html: {}, wml: {} }, [
+                            document.createTextNode(" Size "),
+                            document.createTextNode((v + ": "))
+                        ]),
+                        __this.node('p', { html: {}, wml: {} }, [
+                            __this.widget(droplist_1.Droplist, { html: {}, wml: {}, ww: { 'name': "select", 'size': v, 'options': __context.values.options, 'onChange': __context.onChange } }, [])
+                        ])
+                    ]);
+                }, function () { return ([]); }).slice()),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("Block: ")
+                    ]),
+                    __this.node('p', { html: {}, wml: {} }, [
+                        __this.widget(droplist_1.Droplist, { html: {}, wml: {}, ww: { 'name': "select", 'block': true, 'options': __context.values.options, 'onChange': __context.onChange } }, [])
+                    ])
                 ])
             ]);
         };
@@ -131,4 +152,4 @@ var Main = /** @class */ (function () {
     return Main;
 }());
 exports.Main = Main;
-//# sourceMappingURL=native-select.js.map
+//# sourceMappingURL=droplist.js.map

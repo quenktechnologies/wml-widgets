@@ -36,7 +36,8 @@ var Main = /** @class */ (function () {
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('p', { html: {}, wml: {} }, [
                         document.createTextNode("This is a text input: "),
-                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange } }, [])
+                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange } }, []),
+                        document.createTextNode(".")
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
                         document.createTextNode("As you type "),

@@ -1,8 +1,9 @@
 import * as wml from '@quenk/wml';
-import * as views from './wml/native-select'
-import { Option, SelectionChangedEvent } from '../../../../../lib/control/native/select';
+import * as views from './wml/droplist'
+import { Option, SelectionChangedEvent } from '../../../../../lib/control/droplist';
+import { Size } from '../../../../../lib/content/size';
 
-export class NativeSelectPage {
+export class DroplistPage {
 
     view: wml.View = new views.Main(this);
 
@@ -11,7 +12,17 @@ export class NativeSelectPage {
         options: <Option<string>[]>[
             { title: 'Asus', value: 'Asus' },
             { title: 'MSI', value: 'MSI' },
-            { title: 'Gigabyte', value: 'Gigabyte' }]
+          { title: 'Gigabyte', value: 'Gigabyte' }],
+
+      sizes:     <Size[]>[
+        Size.ExtraSmall,
+        Size.Small,
+        Size.Medium,
+        Size.Large,
+        Size.ExtraLarge
+    ]
+
+
 
     };
 
@@ -20,7 +31,7 @@ export class NativeSelectPage {
 
             this
                 .view
-            .findById<HTMLElement>(`${name}-content`)
+                .findById<HTMLElement>(`${name}-content`)
                 .map((e: HTMLElement) => {
 
                     while (e.lastChild)
@@ -34,4 +45,4 @@ export class NativeSelectPage {
 
 }
 
-export default new NativeSelectPage()
+export default new DroplistPage()

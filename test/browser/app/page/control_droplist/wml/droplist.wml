@@ -1,0 +1,51 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Droplist) from "../../../../../../lib/control/droplist" %}
+{% import (DroplistPage) from "../" %}
+
+{% view Main (DroplistPage) %}
+
+<Demo>
+
+  <Demo>
+      <p>You selected: <b wml:id="select-content">(None)</b>.</p>
+
+      <p>
+        <Droplist
+          wml:id="select"
+          ww:name="select"
+          ww:options={{@values.options}}
+          ww:onChange={{@onChange}} />
+      </p>
+  </Demo>
+
+  <Demo>
+
+    {% for v in @values.sizes %}
+
+      <p> Size {{document.createTextNode(v+": ")}}</p>
+      <p>
+        <Droplist
+          ww:name="select"
+          ww:size={{v}}
+          ww:options={{@values.options}}
+          ww:onChange={{@onChange}} />
+      </p>
+
+    {% endfor %}
+
+  </Demo>
+
+  <Demo>
+
+      <p>Block: </p>
+      <p>
+        <Droplist
+          ww:name="select"
+          ww:block=true
+          ww:options={{@values.options}}
+          ww:onChange={{@onChange}} />
+      </p>
+
+  </Demo>
+
+</Demo>

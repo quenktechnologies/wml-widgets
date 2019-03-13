@@ -216,7 +216,6 @@ export const getValidationState = (view: View, id: string): ValidationState =>
         })
         .get();
 
-
 /**
  * getVSClassNameFromAttrs
  */

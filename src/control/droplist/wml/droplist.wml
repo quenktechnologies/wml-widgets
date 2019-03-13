@@ -1,7 +1,7 @@
-{% import (textNode) from "../../../../" %}
-{% import (Select) from "../" %}
+{% import (textNode) from "../../../" %}
+{% import (Droplist) from "../" %}
 
-{% view Main [V](Select[V]) %}
+{% view Main [V](Droplist[V]) %}
 <select
   class={{@values.className}}
   onchange={{@values.onchange}}

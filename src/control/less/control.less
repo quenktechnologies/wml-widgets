@@ -2,8 +2,6 @@
 
 .control() {
 
-  display: block;
-  width: auto;
   height: @control-height;
   padding: @control-padding-vertical @control-padding-horizontal;
   font-size: @control-font-size;
@@ -21,8 +19,10 @@
 
   // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
+
     border: 0;
     background-color: transparent;
+
   }
 
   // Disabled and read-only inputs
@@ -33,6 +33,7 @@
   &[disabled],
   &[readonly],
   fieldset[disabled] & {
+
     background-color: @control-disabled-background;
     opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
   }

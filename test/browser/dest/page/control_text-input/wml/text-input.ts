@@ -72,7 +72,8 @@ export class Main  implements __wml.View {
 __this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange  } }, [
 
         
-     ])
+     ]),
+document.createTextNode(`.`)
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 

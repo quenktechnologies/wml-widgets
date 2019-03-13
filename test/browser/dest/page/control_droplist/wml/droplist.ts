@@ -1,8 +1,8 @@
 import * as __wml from '@quenk/wml';
 
 import {Demo} from '../../../widgets/demo'; ;
-import {Select} from '../../../../../../lib/control/native/select'; ;
-import {NativeSelectPage} from '../'; 
+import {Droplist} from '../../../../../../lib/control/droplist'; ;
+import {DroplistPage} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -58,11 +58,13 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export class Main  implements __wml.View {
 
-   constructor(__context: NativeSelectPage  ) {
+   constructor(__context: DroplistPage  ) {
 
        this.template = (__this:__wml.Registry) => {
 
            return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
         __this.node('p', {html : {  } ,wml : {  } }, [
 
@@ -75,9 +77,44 @@ document.createTextNode(`.`)
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(Select, {html : {  } ,wml : { 'id' : `select`  } ,ww : { 'name' : `select` ,'options' : __context.values.options  ,'onChange' : __context.onChange  } }, [
+        __this.widget(Droplist, {html : {  } ,wml : { 'id' : `select`  } ,ww : { 'name' : `select` ,'options' : __context.values.options  ,'onChange' : __context.onChange  } }, [
 
         
+     ])
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        ...__forIn (__context.values.sizes , (v , _$$i, _$$all)=> 
+([
+
+        __this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(` Size `),
+document.createTextNode((v + `: `))
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        __this.widget(Droplist, {html : {  } ,wml : {  } ,ww : { 'name' : `select` ,'size' : v ,'options' : __context.values.options  ,'onChange' : __context.onChange  } }, [
+
+        
+     ])
+     ])
+     ]), 
+()=> ([]))
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`Block: `)
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        __this.widget(Droplist, {html : {  } ,wml : {  } ,ww : { 'name' : `select` ,'block' : true  ,'options' : __context.values.options  ,'onChange' : __context.onChange  } }, [
+
+        
+     ])
      ])
      ])
      ]);
