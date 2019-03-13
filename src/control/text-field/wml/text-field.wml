@@ -20,6 +20,7 @@
       ww:onChange={{@values.control.onChange}} 
       ww:block=true
       ww:validationState={{@values.control.validationState}}
+      ww:type={{@values.control.type}}
       ww:value={{@values.control.value}}
       ww:rows={{@values.control.rows}}
       ww:disabled={{@values.control.disabled}}

@@ -80,7 +80,8 @@
 
       <p>
         <TextField 
-          ww:name="text"
+          wml:id="area"
+          ww:name="area"
           ww:rows=5
           ww:label="This is a textarea label"
           ww:onChange={{@onChange}} />

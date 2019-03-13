@@ -69,7 +69,7 @@ export class Main  implements __wml.View {
 
         
      ]),
-__this.widget(TextInput, {html : {  } ,wml : { 'id' : __context.values.control .wml .id   } ,ww : { 'id' : __context.values.control .id  ,'name' : __context.values.control .name  ,'focus' : __context.values.control .focus  ,'placeholder' : __context.values.control .placeholder  ,'onChange' : __context.values.control .onChange  ,'block' : true  ,'validationState' : __context.values.control .validationState  ,'value' : __context.values.control .value  ,'rows' : __context.values.control .rows  ,'disabled' : __context.values.control .disabled  ,'readOnly' : __context.values.control .readOnly   } }, [
+__this.widget(TextInput, {html : {  } ,wml : { 'id' : __context.values.control .wml .id   } ,ww : { 'id' : __context.values.control .id  ,'name' : __context.values.control .name  ,'focus' : __context.values.control .focus  ,'placeholder' : __context.values.control .placeholder  ,'onChange' : __context.values.control .onChange  ,'block' : true  ,'validationState' : __context.values.control .validationState  ,'type' : __context.values.control .type  ,'value' : __context.values.control .value  ,'rows' : __context.values.control .rows  ,'disabled' : __context.values.control .disabled  ,'readOnly' : __context.values.control .readOnly   } }, [
 
         
      ]),

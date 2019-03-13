@@ -180,20 +180,21 @@ export const removeMessage = (view: View, id: string) =>
 /** 
  * setValidationState helper.
  */
-export const setValidationState = 
-  (view: View, id: string, state: ValidationState) : void =>  {
+export const setValidationState =
+    (view: View, id: string, state: ValidationState): void => {
 
-    removeValidationState(view, id);
+        removeValidationState(view, id);
 
-    getById<HTMLElement>(view, id)
-      .map(e => e.classList.add(getValidationStateClassName(state)))
+      if(state !== ValidationState.Neutral)
+        getById<HTMLElement>(view, id)
+            .map(e => e.classList.add(getValidationStateClassName(state)))
 
-  }
+    }
 
 /**
  * removeValidationState helper.
  */
-    export const removeValidationState = (view: View, id: string) : void => {
+export const removeValidationState = (view: View, id: string): void => {
     getById<HTMLElement>(view, id)
         .map((h: HTMLElement) => {
 
@@ -202,8 +203,8 @@ export const setValidationState =
             h.classList.remove(style.WARNING);
 
         });
-    
-    }
+
+}
 
 /**
  * getValidationState default.

@@ -145,7 +145,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
      ]),
 __this.node('p', {html : {  } ,wml : {  } }, [
 
-        __this.widget(TextField, {html : {  } ,wml : {  } ,ww : { 'name' : `text` ,'rows' : 5 ,'label' : `This is a textarea label` ,'onChange' : __context.onChange  } }, [
+        __this.widget(TextField, {html : {  } ,wml : { 'id' : `area`  } ,ww : { 'name' : `area` ,'rows' : 5 ,'label' : `This is a textarea label` ,'onChange' : __context.onChange  } }, [
 
         
      ])

@@ -83,7 +83,7 @@ var Main = /** @class */ (function () {
                         document.createTextNode("The one uses rows to render a text area:")
                     ]),
                     __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(text_field_1.TextField, { html: {}, wml: {}, ww: { 'name': "text", 'rows': 5, 'label': "This is a textarea label", 'onChange': __context.onChange } }, [])
+                        __this.widget(text_field_1.TextField, { html: {}, wml: { 'id': "area" }, ww: { 'name': "area", 'rows': 5, 'label': "This is a textarea label", 'onChange': __context.onChange } }, [])
                     ])
                 ])
             ]);
