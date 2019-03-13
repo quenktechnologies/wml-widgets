@@ -1,7 +1,8 @@
 import * as __wml from '@quenk/wml';
 
-import {textNode} from '../../../'; ;
-import {label,message} from '../../wml'; ;
+import {Label} from '../../label'; ;
+import {Help} from '../../help'; ;
+import {TextInput} from '../../text-input'; ;
 import {TextField} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -56,74 +57,26 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-export const input = 
-
-(t: TextField   )=> (__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        __this.node('input', {html : { 'name' : t.values.control .name  ,'type' : t.values.control .type  ,'focus' : t.values.control .focus  ,'placeholder' : t.values.control .placeholder  ,'oninput' : t.values.control .oninput  ,'value' : t.values.control .value  ,'disabled' : t.values.control .disabled  ,'readonly' : t.values.control .readOnly   } ,wml : { 'id' : t.values.control .wml .id   } }, [
-
-        
-     ])
-     ];
-
-};;
-export const textarea = 
-
-(t: TextField   )=> (__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        __this.node('textarea', {html : { 'name' : t.values.control .name  ,'placeholder' : t.values.control .placeholder  ,'oninput' : t.values.control .oninput  ,'disabled' : t.values.control .disabled  ,'readonly' : t.values.control .readOnly  ,'rows' : t.values.control .rows   } ,wml : { 'id' : t.values.control .wml .id   } }, [
-
-        textNode(t.values.control .value )
-     ])
-     ];
-
-};;
-export const control = 
-
-(t: TextField   )=> (__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        ...(__if((t.values.control .rows  === 1),
-   ()=> ([
-
-        ... (input (t)(__this))
-     ]),
-   ()=> ([
-
-        ... (textarea (t)(__this))
-     ]))) 
-     ];
-
-};;
-export const group = 
-
-(t: TextField   )=> (__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        ... (label (t.values.label .id )(t.values.label .text )(__this)),
-... (control (t)(__this)),
-... (message (t.values.messages .wml .id )({
- 
-      
-     })(__this))
-     ];
-
-};;
 export class Main  implements __wml.View {
 
    constructor(__context: TextField  ) {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('div', {html : { 'class' : __context.values.root .className   } ,wml : { 'id' : __context.values.root .id   } }, [
+           return __this.node('div', {html : { 'class' : __context.values.root .className   } ,wml : { 'id' : __context.values.root .wml .id   } }, [
 
-        ... (__context.values.control .template () (__context)(__this))
+        __this.widget(Label, {html : {  } ,wml : {  } ,ww : { 'for' : __context.values.control .id  ,'text' : __context.values.label .text   } }, [
+
+        
+     ]),
+__this.widget(TextInput, {html : {  } ,wml : { 'id' : __context.values.control .wml .id   } ,ww : { 'id' : __context.values.control .id  ,'name' : __context.values.control .name  ,'focus' : __context.values.control .focus  ,'placeholder' : __context.values.control .placeholder  ,'onChange' : __context.values.control .onChange  ,'block' : true  ,'validationState' : __context.values.control .validationState  ,'value' : __context.values.control .value  ,'rows' : __context.values.control .rows  ,'disabled' : __context.values.control .disabled  ,'readOnly' : __context.values.control .readOnly   } }, [
+
+        
+     ]),
+__this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml .id   } ,ww : { 'text' : __context.values.messages .text   } }, [
+
+        
+     ])
      ]);
 
        }

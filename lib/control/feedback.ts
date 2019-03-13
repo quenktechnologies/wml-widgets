@@ -180,14 +180,20 @@ export const removeMessage = (view: View, id: string) =>
 /** 
  * setValidationState helper.
  */
-export const setValidationState = (view: View, id: string, state: ValidationState) =>
+export const setValidationState = 
+  (view: View, id: string, state: ValidationState) : void =>  {
+
+    removeValidationState(view, id);
+
     getById<HTMLElement>(view, id)
-        .map(e => e.classList.add(state))
+      .map(e => e.classList.add(getValidationStateClassName(state)))
+
+  }
 
 /**
  * removeValidationState helper.
  */
-export const removeValidationState = (view: View, id: string) =>
+    export const removeValidationState = (view: View, id: string) : void => {
     getById<HTMLElement>(view, id)
         .map((h: HTMLElement) => {
 
@@ -196,6 +202,8 @@ export const removeValidationState = (view: View, id: string) =>
             h.classList.remove(style.WARNING);
 
         });
+    
+    }
 
 /**
  * getValidationState default.
@@ -216,14 +224,13 @@ export const getValidationState = (view: View, id: string): ValidationState =>
         })
         .get();
 
-
 /**
  * getVSClassNameFromAttrs
  */
 export const getVSClassNameFromAttrs =
-  <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) =>
-    (attrs.ww && attrs.ww.validationState) ?
-        getValidationStateClassName(attrs.ww.validationState) : ''
+    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) =>
+        (attrs.ww && attrs.ww.validationState) ?
+            getValidationStateClassName(attrs.ww.validationState) : ''
 
 /**
  * getValidationStateClassName
@@ -237,6 +244,6 @@ export const getValidationStateClassName = (state: ValidationState) => {
     else if (state === ValidationState.Error)
         return style.ERROR;
     else
-        return style.WARNING
+        return ''
 
 }

@@ -1,12 +1,9 @@
-import { Fun, View } from '@quenk/wml';
+import { View } from '@quenk/wml';
+import { ValidationState, Message } from '../feedback';
 import { FormControlAttrs, AbstractFormControl } from '../form';
-import { Event } from '../';
-export declare const TEXT_FIELD = "form-control";
-/**
- * TextFieldTemplate describes the template used to render
- * the TextField.
- */
-export declare type TextFieldTemplate = (f: TextField) => Fun;
+import { TextChangedEvent } from '../text-input';
+export { TextChangedEvent };
+export declare const TEXT_FIELD = "ww-text-field";
 /**
  * TextFieldAttrs
  */
@@ -32,18 +29,9 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
      */
     focus?: boolean;
     /**
-     * controlTemplate is a template for rendering the control.
-     */
-    controlTemplate?: TextFieldTemplate;
-    /**
      * onChange handler
      */
-    onChange(e: TextChangedEvent): void;
-}
-/**
- * TextChangedEvent
- */
-export declare class TextChangedEvent extends Event<string> {
+    onChange?(e: TextChangedEvent): void;
 }
 /**
  * TextField provides a wrapped native text input control.
@@ -57,13 +45,13 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             wml: {
                 id: string;
             };
-            id: string;
             className: string;
         };
         messages: {
             wml: {
                 id: string;
             };
+            text: string;
         };
         label: {
             id: string;
@@ -73,16 +61,23 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             wml: {
                 id: string;
             };
-            template: () => TextFieldTemplate;
+            id: string;
             name: string;
             type: string;
-            focus: boolean | null;
+            focus: boolean | undefined;
             placeholder: string;
             value: string;
-            disabled: boolean | null;
-            readOnly: boolean | null;
+            disabled: boolean | undefined;
+            readOnly: boolean | undefined;
             rows: number;
+            validationState: ValidationState;
             oninput: (e: KeyboardEvent) => void;
+            onChange: (e: TextChangedEvent) => void;
         };
     };
+    setMessage(msg: Message): TextField;
+    removeMessage(): TextField;
+    setValidationState(state: ValidationState): TextField;
+    removeValidationState(): TextField;
+    getValidationState(): ValidationState;
 }

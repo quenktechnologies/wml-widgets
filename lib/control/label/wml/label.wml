@@ -1,0 +1,6 @@
+{% import (Label) from "../" %}
+
+{% view Main (Label) %}
+<label for={{@values.label.for}} class={{@values.label.className}}>
+  {{...@values.label.text}}
+</label>

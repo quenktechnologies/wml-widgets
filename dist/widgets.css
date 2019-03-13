@@ -563,8 +563,8 @@
 }
 .ww-nav {
   list-style-type: none;
-  padding-left: 0;
-  padding-right: 0;
+  padding: 0 0;
+  margin: 0 0;
 }
 .ww-nav > .ww-menu-item {
   float: left;
@@ -1343,12 +1343,10 @@ buttonLink styles the button to appear like a link.
   margin-bottom: 0.5em;
 }
 /**
- * .ww-native-select styling.
+ * ww-text-input styling.
  */
-.ww-native-select {
-  display: block;
-  width: auto;
-  height: 22px;
+.ww-text-input {
+  height: 36px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -1359,36 +1357,78 @@ buttonLink styles the button to appear like a link.
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 12em;
 }
-.ww-native-select:focus {
+.ww-text-input::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.ww-text-input[disabled],
+fieldset[disabled] .ww-text-input {
+  cursor: not-allowed;
+}
+textarea.ww-text-input {
+  height: auto;
+}
+.ww-text-input:focus {
   border-color: #66afe9;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.ww-native-select::-ms-expand {
-  border: 0;
-  background-color: transparent;
+.ww-text-input.-error {
+  border-color: #d9534f;
 }
-.ww-native-select[disabled],
-.ww-native-select[readonly],
-fieldset[disabled] .ww-native-select {
-  background-color: #777;
-  opacity: 1;
+.ww-text-input.-warning {
+  border-color: #f0ad4e;
 }
-.ww-native-select[disabled],
-fieldset[disabled] .ww-native-select {
-  cursor: not-allowed;
+.ww-text-input.-success {
+  border-color: #5cb85c;
 }
-textarea.ww-native-select {
-  height: auto;
+.ww-text-input.-extra-small {
+  width: 3em;
+}
+.ww-text-input.-small {
+  width: 5em;
+}
+.ww-text-input.-medium {
+  width: 12em;
+}
+.ww-text-input.-large {
+  width: 28em;
+}
+.ww-text-input.-extra-large {
+  width: 40em;
+}
+.ww-text-input.-block {
+  display: block;
+  width: 100%;
+}
+.ww-text-input.-block + .ww-text-input.-block {
+  margin-top: 0.5em;
+}
+/* 
+textInputDim styles the dimendefines the sizing of a button.
+@w        - Width
+@pv       - Vertical padding.
+@ph       - Horizontal padding.
+@font     - Font size.
+@lh       - Line height.
+@br       - Border radius.
+*/
+.ww-text-field.-error {
+  color: #d9534f;
+}
+.ww-text-field.-warning {
+  color: #f0ad4e;
+}
+.ww-text-field.-success {
+  color: #5cb85c;
 }
 /**
- * ww-native-input styling.
+ * .ww-droplist styling.
  */
-.ww-native-input {
-  display: block;
-  width: auto;
-  height: 22px;
+.ww-droplist {
+  height: 36px;
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
@@ -1399,26 +1439,58 @@ textarea.ww-native-select {
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 12em;
 }
-.ww-native-input:focus {
+.ww-droplist::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.ww-droplist[disabled],
+fieldset[disabled] .ww-droplist {
+  cursor: not-allowed;
+}
+textarea.ww-droplist {
+  height: auto;
+}
+.ww-droplist:focus {
   border-color: #66afe9;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.ww-native-input::-ms-expand {
-  border: 0;
-  background-color: transparent;
+.ww-droplist.-error {
+  border-color: #d9534f;
 }
-.ww-native-input[disabled],
-.ww-native-input[readonly],
-fieldset[disabled] .ww-native-input {
-  background-color: #777;
-  opacity: 1;
+.ww-droplist.-warning {
+  border-color: #f0ad4e;
 }
-.ww-native-input[disabled],
-fieldset[disabled] .ww-native-input {
-  cursor: not-allowed;
+.ww-droplist.-success {
+  border-color: #5cb85c;
 }
-textarea.ww-native-input {
-  height: auto;
+.ww-droplist.-extra-small {
+  width: 3em;
+}
+.ww-droplist.-small {
+  width: 5em;
+}
+.ww-droplist.-medium {
+  width: 12em;
+}
+.ww-droplist.-large {
+  width: 28em;
+}
+.ww-droplist.-extra-large {
+  width: 40em;
+}
+.ww-droplist.-block {
+  display: block;
+  width: 100%;
+}
+.ww-droplist.-block + .ww-droplist.-block {
+  margin-top: 0.5em;
+}
+.ww-label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
 }

@@ -2,8 +2,6 @@
 
 .control() {
 
-  display: block;
-  width: auto;
   height: @control-height;
   padding: @control-padding-vertical @control-padding-horizontal;
   font-size: @control-font-size;
@@ -16,30 +14,17 @@
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 
-  // Customize the `:focus` state to imitate native WebKit styles.
-  .form-control-focus(@control-focus-border-color);
-
-  // Unstyle the caret on `<select>`s in IE10+.
   &::-ms-expand {
+
     border: 0;
     background-color: transparent;
+
   }
 
-  // Disabled and read-only inputs
-  //
-  // HTML5 says that controls under a fieldset > legend:first-child won't be
-  // disabled if the fieldset is disabled. Due to implementation difficulty, we
-  // don't honor that edge case; we style them as disabled anyway.
-  &[disabled],
-  &[readonly],
-  fieldset[disabled] & {
-    background-color: @control-disabled-background;
-    opacity: 1; // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655
-  }
+  &[disabled], fieldset[disabled] & {
 
-  &[disabled],
-  fieldset[disabled] & {
     cursor: not-allowed;
+
   }
 
   // Reset height for `textarea`s
@@ -47,15 +32,38 @@
     height: auto;
   }
 
+  &:focus {
+
+    .controlFocus(@control-focus-border-color);
+
+  }
+
+  &.__ERROR__ {
+
+    border-color: @control-error-border-color;
+
+  }
+
+  &.__WARNING__ {
+
+    border-color: @control-warning-border-color;
+
+  }
+
+  &.__SUCCESS__{
+
+    border-color: @control-success-border-color;
+
+  }
+
 }
 
-.form-control-focus(@color) {
-  @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
-  &:focus {
+.controlFocus(@color) {
+
+    @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+
     border-color: @color;
     outline: 0;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @color-rgba;
-  }
+
 }
-
-

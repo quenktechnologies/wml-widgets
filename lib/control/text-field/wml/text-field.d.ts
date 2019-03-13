@@ -1,10 +1,6 @@
 import * as __wml from '@quenk/wml';
 import { TextField } from '../';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-export declare const input: (t: TextField) => (__this: __wml.Registry) => __wml.Content[];
-export declare const textarea: (t: TextField) => (__this: __wml.Registry) => __wml.Content[];
-export declare const control: (t: TextField) => (__this: __wml.Registry) => __wml.Content[];
-export declare const group: (t: TextField) => (__this: __wml.Registry) => __wml.Content[];
 export declare class Main implements __wml.View {
     constructor(__context: TextField);
     ids: {

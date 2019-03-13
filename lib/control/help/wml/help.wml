@@ -1,0 +1,9 @@
+{% import (Help) from "../" %}
+
+{% view Main (Help) %}
+<span 
+  wml:id={{@values.help.wml.id}}
+  id={{@values.help.id}}
+  class={{@values.help.className}}>
+  {{...@values.help.text}}
+</span>

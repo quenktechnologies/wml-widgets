@@ -97,11 +97,11 @@ export declare const removeMessage: (view: View, id: string) => import("@quenk/n
 /**
  * setValidationState helper.
  */
-export declare const setValidationState: (view: View, id: string, state: ValidationState) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+export declare const setValidationState: (view: View, id: string, state: ValidationState) => void;
 /**
  * removeValidationState helper.
  */
-export declare const removeValidationState: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+export declare const removeValidationState: (view: View, id: string) => void;
 /**
  * getValidationState default.
  */
@@ -113,4 +113,4 @@ export declare const getVSClassNameFromAttrs: <V>(attrs: WidgetAttrs<FeedbackCon
 /**
  * getValidationStateClassName
  */
-export declare const getValidationStateClassName: (state: ValidationState) => "-success" | "-warning" | "-error";
+export declare const getValidationStateClassName: (state: ValidationState) => "-success" | "-warning" | "-error" | "";

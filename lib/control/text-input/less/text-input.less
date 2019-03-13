@@ -1,0 +1,111 @@
+@import "../../less/control";
+@import "./variables";
+
+/**
+ * __TEXT_INPUT__ styling.
+ */
+.__TEXT_INPUT__ {
+
+  .control(); //use the standard control feel.
+
+  .textInputDim(
+   @text-input-medium-width;
+   @text-input-medium-padding-vertical; 
+   @text-input-medium-padding-horizontal;
+   @text-input-medium-font-size;
+   @text-input-medium-line-height;
+   @text-input-medium-border-radius);
+
+  &.__EXTRA_SMALL__ {
+
+   .textInputDim(
+    @text-input-extra-small-width;
+    @text-input-extra-small-padding-vertical; 
+    @text-input-extra-small-padding-horizontal;
+    @text-input-extra-small-font-size;
+    @text-input-extra-small-line-height;
+    @text-input-extra-small-border-radius);
+
+  }
+
+  &.__SMALL__ {
+
+   .textInputDim(
+    @text-input-small-width;
+    @text-input-small-padding-vertical; 
+    @text-input-small-padding-horizontal;
+    @text-input-small-font-size;
+    @text-input-small-line-height;
+    @text-input-small-border-radius);
+
+  }
+
+  &.__MEDIUM__ {
+
+   .textInputDim(
+    @text-input-medium-width;
+    @text-input-medium-padding-vertical; 
+    @text-input-medium-padding-horizontal;
+    @text-input-medium-font-size;
+    @text-input-medium-line-height;
+    @text-input-medium-border-radius);
+
+  }
+
+  &.__LARGE__ {
+
+   .textInputDim(
+    @text-input-large-width;
+    @text-input-large-padding-vertical; 
+    @text-input-large-padding-horizontal;
+    @text-input-large-font-size;
+    @text-input-large-line-height;
+    @text-input-large-border-radius);
+
+  }
+
+  &.__EXTRA_LARGE__ {
+
+    .textInputDim(
+    @text-input-extra-large-width;
+    @text-input-extra-large-padding-vertical; 
+    @text-input-extra-large-padding-horizontal;
+    @text-input-extra-large-font-size;
+    @text-input-extra-large-line-height;
+    @text-input-extra-large-border-radius);
+
+  }
+
+  &.__BLOCK__ {
+
+    display: block;
+    width: 100%;
+
+    & + & {
+
+      margin-top: .5em;
+
+    }
+
+ }
+
+}
+
+/* 
+textInputDim styles the dimendefines the sizing of a button.
+@w        - Width
+@pv       - Vertical padding.
+@ph       - Horizontal padding.
+@font     - Font size.
+@lh       - Line height.
+@br       - Border radius.
+*/
+.textInputDim(@w;@pv; @ph; @font; @lh; @br) {
+
+  width:@w;
+ // padding: @pv @ph;
+ //  font-size: @font;
+ //  line-height: @lh;
+ //  border-radius: @br;
+
+}

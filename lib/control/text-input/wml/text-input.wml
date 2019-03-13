@@ -1,0 +1,27 @@
+{% import (TextInput) from "../" %}
+
+{% view Textarea (TextInput) %}
+<textarea
+  wml:id={{@values.control.wml.id}}
+  id={{@values.id}}
+  name={{@values.name}}
+  type={{@values.type}}
+  placeholder={{@values.placeholder}}
+  oninput={{@values.oninput}} 
+  value={{@values.value}}
+  disabled={{@values.disabled}}
+  readonly={{@values.readOnly}}
+  class={{@values.className}} >{{document.createTextNode(@values.value)}}</textarea>
+
+{% view Input (TextInput) %}
+<input
+  wml:id={{@values.control.wml.id}}
+  id={{@values.id}}
+  name={{@values.name}}
+  type={{@values.type}}
+  placeholder={{@values.placeholder}}
+  oninput={{@values.oninput}} 
+  value={{@values.value}}
+  disabled={{@values.disabled}}
+  readonly={{@values.readOnly}}
+  class={{@values.className}} />

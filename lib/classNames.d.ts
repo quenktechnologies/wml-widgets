@@ -156,12 +156,15 @@ export declare const STACK = "ww-stack";
 export declare const STACK_ELEMENT = "ww-stack__element";
 export declare const STACK_ELEMENT_CONTENT = "ww-stack__element__content";
 export declare const STACK_CLOSE_BUTTON = "ww-stack__button";
+export declare const TEXT_INPUT = "ww-text-input";
 export declare const TOOLBAR = "ww-toolbar";
 export declare const TOOLBAR_COMPAT = "-toolbar-compat";
+export declare const DROPLIST = "ww-droplist";
 export declare const BUTTON_GROUP = "ww-button-group";
-export declare const TEXT_FIELD = "form-control";
+export declare const TEXT_FIELD = "ww-text-field";
 export declare const SWITCH = "ww-switch";
 export declare const SWITCH_SLIDER = "ww-switch__slider";
+export declare const LABEL = "ww-label";
 /**
  * TAB
  */
@@ -174,6 +177,7 @@ export declare const SELECT = "ww-select";
 export declare const DROP_DOWN = "ww-drop-down-menu";
 export declare const DROP_DOWN_TOGGLE = "ww-drop-down-menu__toggle";
 export declare const DROP_DOWN_CONTENT = "ww-drop-down__content";
+export declare const HELP = "ww-help";
 /**
  * DATE class name.
  */
@@ -191,6 +195,4 @@ export declare const DATE_MONTH: string;
  */
 export declare const DATE_YEAR: string;
 export declare const MULTI_SELECT = "ww-multi-select";
-export declare const NATIVE_SELECT = "ww-native-select";
-export declare const NATIVE_INPUT = "ww-native-input";
 export declare const CHECKBOX = "ww-checkbox";
