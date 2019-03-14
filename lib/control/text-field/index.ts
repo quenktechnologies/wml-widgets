@@ -121,7 +121,8 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             name: getName(this.attrs),
 
-            type: 'text',
+          type: (this.attrs.ww && this.attrs.ww.type) ?
+          this.attrs.ww.type : 'text',
 
             focus: (this.attrs.ww && this.attrs.ww.focus) ?
                 this.attrs.ww.focus : undefined,

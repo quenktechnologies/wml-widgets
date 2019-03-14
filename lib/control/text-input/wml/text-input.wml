@@ -5,7 +5,6 @@
   wml:id={{@values.control.wml.id}}
   id={{@values.id}}
   name={{@values.name}}
-  type={{@values.type}}
   placeholder={{@values.placeholder}}
   oninput={{@values.oninput}} 
   value={{@values.value}}
