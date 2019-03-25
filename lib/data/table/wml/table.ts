@@ -115,7 +115,7 @@ export class Main <C  ,R extends Record <C  >   >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(TableLayout, {html : {  } ,wml : { 'id' : __context.values.table .wml .id   } ,ww : { 'id' : __context.values.table .id  ,'class' : __context.values.table .className  ,'alternate' : __context.values.table .alternate  ,'bordered' : __context.values.table .bordered  ,'compact' : __context.values.table .compact  ,'hoverable' : __context.values.table .hoverable   } }, [
+           return __this.widget(TableLayout, {html : {  } ,wml : { 'id' : __context.values.table .wml .id   } ,ww : { 'id' : __context.values.table .id  ,'className' : __context.values.table .className  ,'alternate' : __context.values.table .alternate  ,'bordered' : __context.values.table .bordered  ,'compact' : __context.values.table .compact  ,'hoverable' : __context.values.table .hoverable   } }, [
 
         ... (__context.values.table .thead .template () (__context)(__context.values.columns )(__this)),
 ... (__context.values.table .tbody .template () (__context)(__context.values.table .data )(__context.values.columns )(__this))

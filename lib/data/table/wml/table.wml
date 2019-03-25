@@ -63,7 +63,7 @@
 <TableLayout
     wml:id={{@values.table.wml.id}}
     ww:id={{@values.table.id}}
-    ww:class={{@values.table.className}}
+    ww:className={{@values.table.className}}
     ww:alternate={{@values.table.alternate}}
     ww:bordered={{@values.table.bordered}}
     ww:compact={{@values.table.compact}}
