@@ -299,7 +299,7 @@ export const DATE_MONTH = `${DATE}__month`;
 /**
  * DATE_YEAR class name.
  */
-export const DATE_YEAR = `${DATE}__year form-control`;
+export const DATE_YEAR = `${DATE}__year`;
 ///classNames:end
 ///classNames:begin
 export const MULTI_SELECT = 'ww-multi-select';

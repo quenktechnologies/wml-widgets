@@ -46,7 +46,7 @@ export const DATE_MONTH = `${DATE}__month`;
 /**
  * DATE_YEAR class name.
  */
-export const DATE_YEAR = `${DATE}__year form-control`;
+export const DATE_YEAR = `${DATE}__year`;
 ///classNames:end
 
 /**
@@ -120,7 +120,8 @@ export class Date extends AbstractFeedbackControl<string, DateAttrs>
 
                 id: 'root'
 
-            }
+            },
+          id: getId(this.attrs)
 
         },
         inline: {

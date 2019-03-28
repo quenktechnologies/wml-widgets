@@ -1,6 +1,5 @@
 import * as __wml from '@quenk/wml';
 
-import {label} from '../../wml'; ;
 import {Date} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -63,9 +62,6 @@ export class Main  implements __wml.View {
 
            return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : {  } }, [
 
-        ... (label (__context.values.label .id )(__context.values.label .text )(__this)),
-__this.node('div', {html : { 'class' : __context.values.inline .className   } ,wml : {  } }, [
-
         __this.node('select', {html : { 'name' : __context.values.month .wml .id  ,'onchange' : __context.values.month .onchange  ,'disabled' : __context.values.month .disabled  ,'class' : __context.values.month .className   } ,wml : { 'id' : __context.values.month .wml .id   } }, [
 
         __this.node('option', {html : { 'selected' : true  ,'value' : `` ,'disabled' : true   } ,wml : {  } }, [
@@ -89,7 +85,6 @@ __this.node('input', {html : { 'name' : __context.values.day .wml .id  ,'oninput
 __this.node('input', {html : { 'name' : __context.values.year .wml .id  ,'oninput' : __context.values.year .oninput  ,'onkeyup' : __context.values.year .onkeyup  ,'value' : __context.values.year .value () ,'disabled' : __context.values.year .disabled  ,'class' : __context.values.year .className  ,'placeholder' : `YYYY` ,'size' : `4`  } ,wml : { 'id' : __context.values.year .wml .id   } }, [
 
         
-     ])
      ])
      ]);
 

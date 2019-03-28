@@ -60,6 +60,7 @@ export declare class Date extends AbstractFeedbackControl<string, DateAttrs> imp
             wml: {
                 id: string;
             };
+            id: string;
         };
         inline: {
             className: string;
