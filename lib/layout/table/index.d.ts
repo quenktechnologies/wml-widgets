@@ -34,16 +34,24 @@ export interface TableRowAttrs extends HTMLElementAttrs {
     /**
      * onclick handler
      */
-    onclick: EventListener;
+    onclick?: EventListener;
 }
 /**
  * TableCellAttrs
  */
 export interface TableCellAttrs extends HTMLElementAttrs {
     /**
+     * colspan attribute
+     */
+    colspan?: number;
+    /**
+     * rowspan attribute
+     */
+    rowspan?: number;
+    /**
      * onclick handler
      */
-    onclick: EventListener;
+    onclick?: EventListener;
 }
 /**
  * TableHeadingAttrs
@@ -136,6 +144,8 @@ export declare class TableCell extends Component<WidgetAttrs<TableCellAttrs>> {
     values: {
         id: string;
         className: string;
+        colspan: number;
+        rowspan: number;
         onclick: EventListener | undefined;
     };
 }

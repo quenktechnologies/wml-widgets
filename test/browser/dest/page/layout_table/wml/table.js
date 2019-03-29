@@ -97,6 +97,11 @@ exports.content = function () { return function (__this) {
                 __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
                     document.createTextNode("Active")
                 ])
+            ]),
+            __this.widget(table_1.TableRow, { html: {}, wml: {} }, [
+                __this.widget(table_1.TableCell, { html: {}, wml: {}, ww: { 'rowspan': 2, 'colspan': 5 } }, [
+                    document.createTextNode("This spans 2 rows 5 columns.")
+                ])
             ])
         ]),
         __this.widget(table_1.TableFooter, { html: {}, wml: {} }, [

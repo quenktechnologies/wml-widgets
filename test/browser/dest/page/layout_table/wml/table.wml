@@ -68,6 +68,12 @@
 
     </TableRow>
 
+    <TableRow>
+
+      <TableCell ww:rowspan=2 ww:colspan=5>This spans 2 rows 5 columns.</TableCell>
+
+    </TableRow>
+
   </TableBody>
 
   <TableFooter>

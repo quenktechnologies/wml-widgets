@@ -870,7 +870,7 @@ export class TableCell  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('td', {html : { 'id' : __context.values.id  ,'class' : __context.values.className  ,'onclick' : __context.values.onclick   } ,wml : {  } }, [
+           return __this.node('td', {html : { 'id' : __context.values.id  ,'class' : __context.values.className  ,'colspan' : String(__context.values.colspan ) ,'rowspan' : String(__context.values.rowspan ) ,'onclick' : __context.values.onclick   } ,wml : {  } }, [
 
         ... (__context.children)
      ]);

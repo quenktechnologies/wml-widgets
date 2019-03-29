@@ -25,6 +25,8 @@
 <td 
  id={{@values.id}} 
  class={{@values.className}}
+ colspan={{String(@values.colspan)}}
+ rowspan={{String(@values.rowspan)}}
  onclick={{@values.onclick}}>{{...@children}}</td>
 
 {% view TableWindow (table.TableWindow) %}

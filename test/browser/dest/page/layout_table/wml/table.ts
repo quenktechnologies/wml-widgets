@@ -158,6 +158,13 @@ __this.widget(TableCell, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`Active`)
      ])
+     ]),
+__this.widget(TableRow, {html : {  } ,wml : {  } }, [
+
+        __this.widget(TableCell, {html : {  } ,wml : {  } ,ww : { 'rowspan' : 2 ,'colspan' : 5  } }, [
+
+        document.createTextNode(`This spans 2 rows 5 columns.`)
+     ])
      ])
      ]),
 __this.widget(TableFooter, {html : {  } ,wml : {  } }, [
