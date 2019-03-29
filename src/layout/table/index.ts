@@ -46,7 +46,7 @@ export interface TableRowAttrs extends HTMLElementAttrs {
     /**
      * onclick handler
      */
-    onclick: EventListener
+    onclick?: EventListener
 
 }
 
@@ -56,9 +56,19 @@ export interface TableRowAttrs extends HTMLElementAttrs {
 export interface TableCellAttrs extends HTMLElementAttrs {
 
     /**
+     * colspan attribute
+     */
+    colspan?: number,
+
+    /**
+     * rowspan attribute
+     */
+    rowspan?: number,
+
+    /**
      * onclick handler
      */
-    onclick: EventListener
+    onclick?: EventListener
 
 }
 
@@ -203,6 +213,12 @@ export class TableCell extends Component<WidgetAttrs<TableCellAttrs>> {
 
         className: concat(TABLE_CELL, getClassName(this.attrs)),
 
+        colspan: (this.attrs.ww && this.attrs.ww.colspan) ?
+            this.attrs.ww.colspan : 1,
+
+        rowspan: (this.attrs.ww && this.attrs.ww.rowspan) ?
+            this.attrs.ww.rowspan : 1,
+
         onclick: (this.attrs.ww && this.attrs.ww.onclick) ?
             this.attrs.ww.onclick : undefined
 
@@ -236,18 +252,18 @@ export class TableLayout extends Component<WidgetAttrs<TableLayoutAttrs>> {
 
     values = {
 
-            wml: {
+        wml: {
 
-                id: 'table'
+            id: 'table'
 
-            },
-            id: getId(this.attrs),
+        },
+        id: getId(this.attrs),
 
-            className: concat(TABLE_LAYOUT, getClassName(this.attrs),
-                (this.attrs.ww && this.attrs.ww.alternate) ? ALTERNATE : '',
-                (this.attrs.ww && this.attrs.ww.bordered) ? BORDERED : '',
-                (this.attrs.ww && this.attrs.ww.compact) ? COMPACT : '',
-                (this.attrs.ww && this.attrs.ww.hoverable) ? HOVERABLE : ''),
+        className: concat(TABLE_LAYOUT, getClassName(this.attrs),
+            (this.attrs.ww && this.attrs.ww.alternate) ? ALTERNATE : '',
+            (this.attrs.ww && this.attrs.ww.bordered) ? BORDERED : '',
+            (this.attrs.ww && this.attrs.ww.compact) ? COMPACT : '',
+            (this.attrs.ww && this.attrs.ww.hoverable) ? HOVERABLE : ''),
 
     }
 
