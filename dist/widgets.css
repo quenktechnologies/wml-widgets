@@ -96,7 +96,7 @@
   margin: 0px 0px;
   position: relative;
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 720px) {
   .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column {
     float: left;
   }
@@ -804,7 +804,7 @@ button.close {
   width: 1%;
   float: none;
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 720px) {
   .ww-tab-bar.-justified > li {
     display: block;
     width: auto;
@@ -814,7 +814,7 @@ button.close {
   margin-bottom: 0;
   text-align: center;
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 720px) {
   .ww-tab-bar.-justified > li > a {
     margin-bottom: 5px;
   }

@@ -3,12 +3,20 @@ import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
 import { Size, getSizeClassName } from '../../content/size';
-import { 
-  FeedbackControlAttrs,
-  AbstractFeedbackControl,
-  getValidationStateClassName } from '../feedback';
+import {
+    FeedbackControlAttrs,
+    AbstractFeedbackControl,
+    getValidationStateClassName
+} from '../feedback';
+import {
+    FocusableAttrs,
+    Focusable,
+    FocusGainedEvent,
+  FocusLostEvent,
+  focus
+} from '../focus';
 import { getId, getClassName } from '../../';
-import {  Event, getName } from '../';
+import { Event, getName } from '../';
 
 ///classNames:begin
 export const TEXT_INPUT = 'ww-text-input';
@@ -17,7 +25,8 @@ export const TEXT_INPUT = 'ww-text-input';
 /**
  * TextInputAttrs
  */
-export interface TextInputAttrs extends FeedbackControlAttrs<string> {
+export interface TextInputAttrs
+    extends FeedbackControlAttrs<string>, FocusableAttrs {
 
     /**
      * placeholder sets placeholder text for the control.
@@ -71,7 +80,10 @@ export class TextChangedEvent extends Event<string> { }
 /**
  * TextInput provides some extra styling to the native input.
  */
-export class TextInput extends AbstractFeedbackControl<string, TextInputAttrs> {
+export class TextInput
+extends
+AbstractFeedbackControl<string, TextInputAttrs>
+  implements Focusable {
 
     view: View = (this.attrs.ww && this.attrs.ww.rows && this.attrs.ww.rows > 1) ?
         new views.Textarea(this) : new views.Input(this);
@@ -104,8 +116,8 @@ export class TextInput extends AbstractFeedbackControl<string, TextInputAttrs> {
             (this.attrs.ww && this.attrs.ww.size) ?
                 getSizeClassName(this.attrs.ww.size) : '',
 
-          (this.attrs.ww && this.attrs.ww.validationState) ?
-          getValidationStateClassName(this.attrs.ww.validationState) : '',
+            (this.attrs.ww && this.attrs.ww.validationState) ?
+                getValidationStateClassName(this.attrs.ww.validationState) : '',
 
             (this.attrs.ww && this.attrs.ww.block) ?
                 BLOCK : ''
@@ -131,7 +143,31 @@ export class TextInput extends AbstractFeedbackControl<string, TextInputAttrs> {
         readOnly: (this.attrs.ww && this.attrs.ww.readOnly === true) ?
             true : null,
 
-        oninput: dispatchInput(this)
+        oninput: dispatchInput(this),
+
+        focus: (this.attrs.ww && this.attrs.ww.focus) ? true : undefined,
+
+        onfocus: () => {
+
+            if (this.attrs.ww && this.attrs.ww.onFocusGained)
+            this.attrs.ww.onFocusGained(
+              new FocusGainedEvent(getName(this.attrs)))
+
+        },
+
+        onblur: () => {
+
+            if (this.attrs.ww && this.attrs.ww.onFocusLost)
+            this.attrs.ww.onFocusLost(
+              new FocusLostEvent(getName(this.attrs)))
+
+        }
+
+    }
+
+    focus() {
+
+      return focus(this.view, this.values.control.wml.id)
 
     }
 
