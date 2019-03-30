@@ -92,90 +92,90 @@
 .ww-grid-layout .ww-grid-layout__row:after {
   clear: both;
 }
-.ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column {
+.ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column {
   min-height: 1px;
   padding-left: 1rem;
   padding-right: 1rem;
   margin: 0px 0px;
   position: relative;
 }
-.ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column > .ww-grid-layout__row {
+.ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column > .ww-grid-layout__row {
   margin-top: 0px;
 }
 @media screen and (min-width: 720px) {
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column {
     float: left;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span1 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span1 {
     width: 8.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span2 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span2 {
     width: 16.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span3 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span3 {
     width: 25%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span4 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span4 {
     width: 33.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span5 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span5 {
     width: 41.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span6 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span6 {
     width: 50%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span7 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span7 {
     width: 58.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span8 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span8 {
     width: 66.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span9 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span9 {
     width: 75%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span10 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span10 {
     width: 83.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span11 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span11 {
     width: 91.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-span12 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-span12 {
     width: 100%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset1 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset1 {
     margin-left: 8.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset2 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset2 {
     margin-left: 16.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset3 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset3 {
     margin-left: 25%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset4 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset4 {
     margin-left: 33.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset5 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset5 {
     margin-left: 41.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset6 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset6 {
     margin-left: 50%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset7 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset7 {
     margin-left: 58.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset8 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset8 {
     margin-left: 66.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset9 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset9 {
     margin-left: 75%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset10 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset10 {
     margin-left: 83.33333333%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset11 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset11 {
     margin-left: 91.66666667%;
   }
-  .ww-grid-layout .ww-grid-layout__row.ww-grid-layout__column.-offset12 {
+  .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column.-offset12 {
     margin-left: 100%;
   }
 }
