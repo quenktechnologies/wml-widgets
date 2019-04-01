@@ -1,7 +1,7 @@
 import * as views from './wml/table';
 import { get } from '@quenk/noni/lib/data/record/path';
 import { Record } from '@quenk/noni/lib/data/record';
-import {  Fun, Component, Content } from '@quenk/wml';
+import { Fun, Component, Content } from '@quenk/wml';
 import { concat } from '../../util';
 import {
     WidgetAttrs,
@@ -322,15 +322,25 @@ export class DataTable<C, R extends Record<C>>
 
                     content: (r: R) => (c: Column<C, R>) => {
 
-                        let value = get(c.name, r).get();
+                        let maybeValue = get(c.name, r);
 
-                        if (c.fragment) {
+                        if (maybeValue.isNothing()) {
 
-                            return c.fragment(value)(c.name)(r)(this.view);
+                            return [textNode('')];
 
                         } else {
 
-                            return [textNode('' + value)];
+                            let value = maybeValue.get();
+
+                            if (c.fragment) {
+
+                                return c.fragment(value)(c.name)(r)(this.view);
+
+                            } else {
+
+                                return [textNode('' + value)];
+
+                            }
 
                         }
 
