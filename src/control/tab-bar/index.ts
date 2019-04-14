@@ -6,7 +6,7 @@ import { concat, getById } from '../../util';
 import {
     WidgetAttrs,
     HTMLElementAttrs,
-    textNode,
+    text,
     getId,
     getClassName
 } from '../../';
@@ -110,7 +110,7 @@ export class Tab extends AbstractControl<void, TabAttrs> {
             },
 
             content: (this.attrs.ww && this.attrs.ww.text) ?
-                [textNode(this.attrs.ww.text)] : this.children,
+                [text(this.attrs.ww.text)] : this.children,
 
             clicked: (e: Event): void => {
 

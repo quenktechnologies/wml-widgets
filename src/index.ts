@@ -48,6 +48,6 @@ export const getClassName = (attrs: WidgetAttrs<HTMLElementAttrs>) =>
     (attrs.ww && attrs.ww.className) ? attrs.ww.className : '';
 
 /**
- * textNode constructor.
+ * text constructor.
  */
-export const textNode = (str:string)=> document.createTextNode(str);
+export const text = (str:string)=> document.createTextNode(str);

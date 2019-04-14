@@ -2,7 +2,7 @@ import * as hidden from '../../content/state/hidden';
 import * as headerViews from './wml/header';
 import { View, Component, Content } from '@quenk/wml';
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs, textNode, getId, getClassName } from '../../';
+import { WidgetAttrs, HTMLElementAttrs, text, getId, getClassName } from '../../';
 import { Main } from './wml/menu';
 
 ///classNames:begin
@@ -51,7 +51,7 @@ export class HeaderItem extends Component<WidgetAttrs<HeaderAttrs>> {
             className: concat(MENU_HEADER_ITEM, getClassName(this.attrs)),
 
             content: (this.attrs.ww && this.attrs.ww.text) ?
-                [textNode(this.attrs.ww.text)] : this.children
+                [text(this.attrs.ww.text)] : this.children
 
         }
 
