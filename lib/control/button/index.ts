@@ -6,7 +6,7 @@ import { BLOCK } from '../../content/orientation';
 import { DEFAULT, OUTLINE, Style, getStyleClassName } from '../../content/style';
 import {Size,getSizeClassName} from '../../content/size';
 import { concat, getById } from '../../util';
-import { getClassName, getId, textNode } from '../../';
+import { getClassName, getId, text } from '../../';
 import { ControlAttrs, AbstractControl, Event } from '../';
 
 export { Style }
@@ -123,7 +123,7 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
                         this.attrs.ww.name : '', <V>this.attrs.ww.value)),
 
             content: () => (this.attrs.ww && this.attrs.ww.text) ?
-                [textNode(this.attrs.ww.text)] : this.children
+                [text(this.attrs.ww.text)] : this.children
 
         }
 

@@ -1,12 +1,12 @@
 {% import (Message) from "./message" %}
-{% import (textNode) from "../../" %}
+{% import (text) from "../../" %}
 
-{% fun label (id:String) (text:String) %}
+{% fun label (id:String) (t:String) %}
 
   <label 
     for={{id}} 
     class="control-label">
-    {{textNode(text)}}
+    {{text(t)}}
   </label>
   
 {% endfun %}

@@ -36,6 +36,6 @@ export declare const getId: (attrs: WidgetAttrs<HTMLElementAttrs>) => string;
  */
 export declare const getClassName: (attrs: WidgetAttrs<HTMLElementAttrs>) => string;
 /**
- * textNode constructor.
+ * text constructor.
  */
-export declare const textNode: (str: string) => Text;
+export declare const text: (str: string) => Text;

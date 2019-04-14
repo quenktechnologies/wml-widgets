@@ -1,4 +1,4 @@
-{% import (textNode) from "../../../" %}
+{% import (text) from "../../../" %}
 {% import (Droplist) from "../" %}
 
 {% view Main [V](Droplist[V]) %}
@@ -7,11 +7,11 @@
   onchange={{@values.onchange}}
   value={{@values.selected}}>
 
-  <option disabled="true" selected>{{textNode(@values.instruction)}}</option>
+  <option disabled="true" selected>{{text(@values.instruction)}}</option>
   
   {% for opt,index:Number in @values.options %}
 
-    <option value={{""+index}}>{{textNode(opt.title)}}</option>
+    <option value={{""+index}}>{{text(opt.title)}}</option>
 
   {% endfor %}
 

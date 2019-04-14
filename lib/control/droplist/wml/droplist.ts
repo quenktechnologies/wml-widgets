@@ -1,6 +1,6 @@
 import * as __wml from '@quenk/wml';
 
-import {textNode} from '../../../'; ;
+import {text} from '../../../'; ;
 import {Droplist} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -65,14 +65,14 @@ export class Main <V  >  implements __wml.View {
 
         __this.node('option', {html : { 'disabled' : `true` ,'selected' : true   } ,wml : {  } }, [
 
-        textNode(__context.values.instruction )
+        text(__context.values.instruction )
      ]),
 ...__forIn (__context.values.options , (opt , index: number   , _$$all)=> 
 ([
 
         __this.node('option', {html : { 'value' : (`` + index)  } ,wml : {  } }, [
 
-        textNode(opt.title)
+        text(opt.title)
      ])
      ]), 
 ()=> ([]))

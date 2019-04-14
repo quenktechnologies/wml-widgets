@@ -4,7 +4,7 @@ import {Search} from '../../search'; ;
 import {Menu} from '../../../menu/menu'; ;
 import {Item} from '../../../menu/item'; ;
 import {Link} from '../../../content/link'; ;
-import {textNode} from '../../../'; ;
+import {text} from '../../../'; ;
 import {Select} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -65,7 +65,7 @@ export const itemContentTemplate =
 
    return [
 
-        textNode(s.values.item .stringify (option))
+        text(s.values.item .stringify (option))
      ];
 
 };;

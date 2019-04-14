@@ -1,7 +1,7 @@
 import * as __wml from '@quenk/wml';
 
 import {Message} from './message'; ;
-import {textNode} from '../../'; 
+import {text} from '../../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -57,13 +57,13 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export const label = 
 
-(id: string   )=> (text: string   )=> (__this:__wml.Registry) : __wml.Content[] => {
+(id: string   )=> (t: string   )=> (__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
         __this.node('label', {html : { 'for' : id ,'class' : `control-label`  } ,wml : {  } }, [
 
-        textNode(text)
+        text(t)
      ])
      ];
 

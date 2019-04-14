@@ -2,7 +2,7 @@ import * as views from './wml/tab';
 import { Fun, Content, Component } from '@quenk/wml';
 import { fromNullable } from '@quenk/noni/lib/data/maybe';
 import { concat } from '../../util';
-import { WidgetAttrs, textNode, getId, getClassName } from '../../';
+import { WidgetAttrs, text, getId, getClassName } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
 import { LAYOUT, LayoutAttrs, Layout } from '../';
 
@@ -139,7 +139,7 @@ export class TabLayout extends Component<WidgetAttrs<TabLayoutAttrs>>
                     return t.tabFun(this)(this.view);
 
                 if (t.text)
-                    return [textNode(t.text)];
+                    return [text(t.text)];
 
                 return [];
 

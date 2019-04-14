@@ -45,6 +45,7 @@ export interface Column<C, R extends Record<C>> {
     heading: string;
     hidden?: boolean;
     sortAs?: string;
+    apply?: (c: C) => C;
     fragment?: CellFragment<C, R>;
     strategy?: SortingStrategy;
 }

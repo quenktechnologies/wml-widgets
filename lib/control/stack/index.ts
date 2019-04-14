@@ -1,7 +1,7 @@
 import * as views from './wml/stack';
 import { Fun } from '@quenk/wml';
 import { concat } from '../../util';
-import { textNode, getId, getClassName } from '../../';
+import { text, getId, getClassName } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
 
 ///classNames:begin
@@ -97,7 +97,7 @@ export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
 
             },
             decorator: (v: V) =>
-                textNode((this.attrs.ww && this.attrs.ww.decorator) ?
+                text((this.attrs.ww && this.attrs.ww.decorator) ?
                     this.attrs.ww.decorator(v) : v + '')
 
         },

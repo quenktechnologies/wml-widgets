@@ -8,7 +8,7 @@ import {
     HTMLElementAttrs,
     getId,
     getClassName,
-    textNode
+    text
 } from '../../';
 
 ///classNames:begin
@@ -77,6 +77,8 @@ export interface Column<C, R extends Record<C>> {
     hidden?: boolean;
 
     sortAs?: string;
+
+    apply?: (c: C) => C,
 
     fragment?: CellFragment<C, R>
 
@@ -284,7 +286,7 @@ export class DataTable<C, R extends Record<C>>
 
                     className: this.attrs.ww && this.attrs.ww.thClassName,
 
-                    content: (col: Column<C, R>) => textNode(col.heading),
+                    content: (col: Column<C, R>) => text(col.heading),
 
                     onclick: (field: string) => () => {
                         this.delegate.onHeadingClicked(new HeadingClickedEvent(field))
@@ -326,11 +328,12 @@ export class DataTable<C, R extends Record<C>>
 
                         if (maybeValue.isNothing()) {
 
-                            return [textNode('')];
+                            return [text('')];
 
                         } else {
 
-                            let value = maybeValue.get();
+                            let value = c.apply ?
+                                c.apply(maybeValue.get()) : maybeValue.get();
 
                             if (c.fragment) {
 
@@ -338,7 +341,7 @@ export class DataTable<C, R extends Record<C>>
 
                             } else {
 
-                                return [textNode('' + value)];
+                                return [text('' + value)];
 
                             }
 
