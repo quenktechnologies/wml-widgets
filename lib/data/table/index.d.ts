@@ -41,13 +41,29 @@ export declare type CellFragment<C, R extends Record<C>> = (value: C) => (name: 
  * Column
  */
 export interface Column<C, R extends Record<C>> {
+    /**
+     * name of the property to retreive the value from.
+     *
+     * Can be a path.
+     */
     name: string;
+    /**
+     * heading displayed for the column.
+     */
     heading: string;
-    hidden?: boolean;
-    sortAs?: string;
+    /**
+     * className to add to the cell.
+     */
+    className?: string;
+    /**
+     * apply a function to the column value before displaying.
+     */
     apply?: (c: C) => C;
+    /**
+     * fragment can be specified to customised the rendering of the cell
+     * content.
+     */
     fragment?: CellFragment<C, R>;
-    strategy?: SortingStrategy;
 }
 /**
  * Delegate is the interface that receives Table events.
@@ -179,7 +195,7 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
                 };
                 td: {
                     id: (column: string) => (colNumber: number) => (rowNumber: number) => string;
-                    className: string | undefined;
+                    className: (c: Column<C, R>) => string;
                     onclick: (column: string) => (row: number) => () => void;
                     content: (r: R) => (c: Column<C, R>) => Content[];
                 };

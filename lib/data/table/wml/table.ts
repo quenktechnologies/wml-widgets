@@ -96,7 +96,7 @@ export const tbody =
         ...__forIn (columns, (field: Column <C  ,R  >   , cellIdx: number   , _$$all)=> 
 ([
 
-        __this.node('td', {html : { 'class' : t.values.table .tbody .td .className  ,'onclick' : t.values.table .tbody .td .onclick (field.name)(rowIdx)  } ,wml : { 'id' : t.values.table .tbody .td .id (field.name)(cellIdx)(rowIdx)  } }, [
+        __this.node('td', {html : { 'class' : t.values.table .tbody .td .className (field) ,'onclick' : t.values.table .tbody .td .onclick (field.name)(rowIdx)  } ,wml : { 'id' : t.values.table .tbody .td .id (field.name)(cellIdx)(rowIdx)  } }, [
 
         ... (t.values.table .tbody .td .content (rowData)(field))
      ])
