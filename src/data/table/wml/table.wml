@@ -42,7 +42,7 @@
         
           <td 
             wml:id={{t.values.table.tbody.td.id(field.name)(cellIdx)(rowIdx)}}
-            class={{t.values.table.tbody.td.className}}
+            class={{t.values.table.tbody.td.className(field)}}
             onclick={{t.values.table.tbody.td.onclick(field.name)(rowIdx)}}>
               
               {{...t.values.table.tbody.td.content(rowData)(field)}}

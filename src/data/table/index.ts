@@ -70,19 +70,33 @@ export type CellFragment<C, R extends Record<C>>
  */
 export interface Column<C, R extends Record<C>> {
 
+    /**
+     * name of the property to retreive the value from.
+     *
+     * Can be a path.
+     */
     name: string;
 
+    /**
+     * heading displayed for the column.
+     */
     heading: string;
 
-    hidden?: boolean;
+    /**
+     * className to add to the cell.
+     */
+    className?: string;
 
-    sortAs?: string;
-
+    /**
+     * apply a function to the column value before displaying.
+     */
     apply?: (c: C) => C,
 
+    /**
+     * fragment can be specified to customised the rendering of the cell 
+     * content.
+     */
     fragment?: CellFragment<C, R>
-
-    strategy?: SortingStrategy
 
 }
 
@@ -316,7 +330,10 @@ export class DataTable<C, R extends Record<C>>
 
                     id: idTD,
 
-                    className: this.attrs.ww && this.attrs.ww.tdClassName,
+                    className: (c: Column<C, R>) =>
+                        concat(c.className ? c.className : '',
+                            (this.attrs.ww && this.attrs.ww.tdClassName) ?
+                                this.attrs.ww.tdClassName : ''),
 
                     onclick: (column: string) => (row: number) => () =>
                         this.delegate.onCellClicked(
