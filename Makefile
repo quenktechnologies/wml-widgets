@@ -21,7 +21,7 @@ lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml) src/classNames.ts
 	$(TSC) --sourceMap --project $@ 
 	touch $@ 
 
-src/classNames.ts: $(shell $(FIND) src -name \*.less)
+src/classNames.ts: $(shell $(FIND) src -name \*.less -o -name \*.ts)
 	mkdir -p lib
 	grep -rsl "///classNames:begin" src | \
 	xargs sed -n "/\/\/\/classNames:begin/,/\/\/\/classNames:end/p" \

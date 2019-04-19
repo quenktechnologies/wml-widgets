@@ -32,3 +32,7 @@ export declare const LEFT = "-left";
  * RIGHT indicates content floated or positioned to the right.
  */
 export declare const RIGHT = "-right";
+/**
+ * HORIZONTAL indicates a horizontal alignment.
+ */
+export declare const HORIZONTAL = "-horizontal";

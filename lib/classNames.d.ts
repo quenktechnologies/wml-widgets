@@ -39,6 +39,10 @@ export declare const LEFT = "-left";
  */
 export declare const RIGHT = "-right";
 /**
+ * HORIZONTAL indicates a horizontal alignment.
+ */
+export declare const HORIZONTAL = "-horizontal";
+/**
  * DEFAULT style.
  */
 export declare const DEFAULT = "-default";
@@ -102,6 +106,9 @@ export declare const MENU_HEADER_ITEM = "ww-menu__header-item";
  * MENU_HEADER
  */
 export declare const MENU_HEADER = "ww-menu-header";
+export declare const DESCRIPTION_LIST = "ww-description-list";
+export declare const DESCRIPTION_LIST_TITLE = "ww-description-list__title";
+export declare const DESCRIPTION_LIST_DATA = "ww-description-list__data";
 /**
  * DRAWER_LAYOUT
  */

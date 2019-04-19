@@ -40,4 +40,9 @@ export const LEFT = '-left';
  * RIGHT indicates content floated or positioned to the right.
  */
 export const RIGHT = '-right';
+
+/**
+ * HORIZONTAL indicates a horizontal alignment.
+ */
+export const HORIZONTAL = '-horizontal';
 ///classNames:end

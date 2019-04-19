@@ -487,6 +487,38 @@
 .ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr:last-child > td {
   border-bottom: 0;
 }
+.ww-description-list {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.ww-description-list > dt {
+  line-height: 1.42857143;
+  font-weight: bold;
+}
+.ww-description-list > dd {
+  line-height: 1.42857143;
+  margin-left: 0;
+}
+.ww-description-list.-horizontal > dd:before,
+.ww-description-list.-horizontal > dd:after {
+  content: " ";
+  display: table;
+}
+.ww-description-list.-horizontal > dd:after {
+  clear: both;
+}
+@media screen and (min-width: 720px) {
+  .ww-description-list.-horizontal > dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+  }
+}
+.ww-description-list.-horizontal > dd {
+  margin-left: 180px;
+}
 /**
  * Drawer styling.
  * 

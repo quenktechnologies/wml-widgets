@@ -1,0 +1,10 @@
+{% import * as data from "../" %}
+
+{% view DescriptionList (data.DescriptionList) %}
+<dl id={{@values.id}} class={{@values.className}} >{{...@children}}</dl>
+
+{% view Title (data.Title) %}
+<dt id={{@values.id}} class={{@values.className}}>{{...@children}}</dt>
+
+{% view Data (data.Data) %}
+<dd id={{@values.id}} class={{@values.className}}>{{...@children}}</dd>

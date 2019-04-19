@@ -50,6 +50,11 @@ export const LEFT = '-left';
  * RIGHT indicates content floated or positioned to the right.
  */
 export const RIGHT = '-right';
+
+/**
+ * HORIZONTAL indicates a horizontal alignment.
+ */
+export const HORIZONTAL = '-horizontal';
 ///classNames:end
 ///classNames:begin
 /**
@@ -148,6 +153,11 @@ export const MENU_HEADER_ITEM = 'ww-menu__header-item';
  * MENU_HEADER
  */
 export const MENU_HEADER = 'ww-menu-header';
+///classNames:end
+///classNames:begin
+export const DESCRIPTION_LIST = 'ww-description-list';
+export const DESCRIPTION_LIST_TITLE = 'ww-description-list__title';
+export const DESCRIPTION_LIST_DATA = 'ww-description-list__data';
 ///classNames:end
 ///classNames:begin
 /**
