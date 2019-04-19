@@ -2,6 +2,7 @@ import * as __wml from '@quenk/wml';
 
 import {Button} from '../../button'; ;
 import {Caret} from '../../../content/caret'; ;
+import {text} from '../../../'; ;
 import {DropDown} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -62,13 +63,10 @@ export const button =
 
    return [
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'class' : d.values.button .className  ,'onClick' : d.values.toggle .onClick  ,'text' : d.values.button .text   } }, [
+        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'class' : d.values.button .className  ,'onClick' : d.values.button .onClick   } }, [
 
-        
-     ]),
-__this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'class' : d.values.toggle .className  ,'onClick' : d.values.toggle .onClick   } }, [
-
-        __this.widget(Caret, {html : {  } ,wml : {  } }, [
+        text ((d.values.button .text  + ` `)),
+__this.widget(Caret, {html : {  } ,wml : {  } }, [
 
         
      ])

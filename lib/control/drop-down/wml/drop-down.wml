@@ -1,17 +1,15 @@
 {% import (Button) from "../../button" %}
-{% import ( Caret) from "../../../content/caret" %}
+{% import (Caret) from "../../../content/caret" %}
+{% import (text) from "../../../" %}
 {% import (DropDown) from "../" %}
 
 {% fun button (d:DropDown) %}
 
   <Button 
     ww:class={{d.values.button.className}}
-    ww:onClick={{d.values.toggle.onClick}}
-    ww:text={{d.values.button.text}}/>
+    ww:onClick={{d.values.button.onClick}}>
 
-  <Button
-    ww:class={{d.values.toggle.className}}
-    ww:onClick={{d.values.toggle.onClick}}>
+    {{d.values.button.text + " " | text }}
 
     <Caret/>
 

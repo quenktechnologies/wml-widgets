@@ -57,9 +57,6 @@ export declare class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>> 
             text: string;
             className: string;
             template: () => ButtonTemplate;
-        };
-        toggle: {
-            className: string;
             onClick: () => void;
         };
         content: {
@@ -69,6 +66,7 @@ export declare class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>> 
             className: string;
             autoClose: boolean;
             render: () => import("@quenk/wml").Content[];
+            hide: () => DropDown;
         };
     };
     isHidden(): boolean;
