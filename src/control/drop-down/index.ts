@@ -82,33 +82,43 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
             text: (this.attrs.ww && this.attrs.ww.buttonText) ?
                 this.attrs.ww.buttonText : '',
 
-            className: style.DEFAULT,
+            className: concat(DROP_DOWN_TOGGLE, style.DEFAULT),
 
             template: (): ButtonTemplate =>
                 (this.attrs.ww && this.attrs.ww.buttonTemplate) ?
                     this.attrs.ww.buttonTemplate : views.button,
 
-        },
-
-        toggle: {
-
-            className: concat(DROP_DOWN_TOGGLE, style.PRIMARY),
-
             onClick: () => {
 
-                getById<HTMLElement>(this.view, this.values.root.wml.id)
-                    .map((e: HTMLElement) => {
+                let mayRoot =
+                    getById<HTMLElement>(this.view, this.values.root.wml.id);
 
-                        if (this.values.content.autoClose) {
-                            for (let i = 0; i < e.children.length; i++) {
-                                e.children[i].removeEventListener('click', this.hide);
-                                e.children[i].addEventListener('click', this.hide);
-                            }
+                if (mayRoot.isJust()) {
+
+                    let e: HTMLElement = mayRoot.get();
+
+                    if (this.values.content.autoClose) {
+
+                        let hide = this.values.content.hide;
+
+                        //intercept clicks on button and content sections
+                        for (let i = 0; i < e.children.length; i++) {
+
+                            //prevent doubling up handlers.
+                          e.children[i]
+                            .                                removeEventListener('click', hide);
+
+                            e.children[i].addEventListener('click', hide);
+
                         }
 
-                    })
-                    .map(this.toggle)
-                    .map(() => window.addEventListener('click', this))
+                    }
+
+                    this.toggle();
+
+                    window.addEventListener('click', this);
+
+                }
 
             }
 
@@ -125,7 +135,9 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
             autoClose: (this.attrs.ww && this.attrs.ww.autoClose === false) ?
                 false : true,
 
-            render: () => this.children
+            render: () => this.children,
+
+            hide: () => this.hide()
 
         }
 

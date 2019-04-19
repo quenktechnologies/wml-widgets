@@ -3,11 +3,11 @@
 .__DROP_DOWN__ {
 
   position: relative;
-  display: inline-block; // Remove the rounded corners if any.
+  display: inline-block; 
 
-  & > .__BUTTON__:not(:first-child):not(:last-child):not(.__DROP_DOWN_TOGGLE__) {
+  & + & {
 
-    border-radius: 0;
+    margin-left: @drop-down-sibling-margin-left;
 
   }
 
@@ -16,43 +16,6 @@
     position: relative;
     float: left;
  
-  }
-
-  // Set corners individual because sometimes a
-  // single button can be in a .__DROP_DOWN__ and 
-  // we need :first-child and :last-child to both match
-  & > .__BUTTON__:first-child {
-
-    margin-left: 0;
-    
-    &:not(:last-child):not(.__DROP_DOWN_TOGGLE__) {
-
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-      
-    }
-
-  }
-  
-  // Need .__DROP_DOWN_TOGGLE__ since :last-child doesn't apply, 
-  // given that a .dropdown-menu is used immediately after it
-  & > .__BUTTON__:last-child:not(:first-child),
-  & > .__DROP_DOWN_TOGGLE__:not(:first-child) {
-
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-
-  }
-
-  & > .__DROP_DOWN__:first-child:not(:last-child) {
-    > .__BUTTON__:last-child,
-    > .__DROP_DOWN_TOGGLE__ {
-
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-
-    }
-
   }
 
   // On active and open, don't show outline
@@ -91,7 +54,7 @@
     position: absolute;
     top: 100%;
     z-index: 2000;
-    text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+    text-align: left; 
     background-color: @drop-down-background;
     border: 1px solid @drop-down-border-color;
     border-radius: @drop-down-border-radius;
@@ -103,7 +66,7 @@
 
   & > .__DROP_DOWN_CONTENT__.__HIDDEN__ {
 
-    display:none;
+    display: none;
 
   }
 
