@@ -1,17 +1,568 @@
+.__TABLE__ {
+  background: transparent;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.__TABLE__ > caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+  text-align: left;
+}
+.__TABLE__ th {
+  text-align: left;
+}
+.__TABLE__ > thead > tr > th,
+.__TABLE__ > thead > tr > td,
+.__TABLE__ > tbody > tr > th,
+.__TABLE__ > tbody > tr > td,
+.__TABLE__ > tfoot > tr > th,
+.__TABLE__ > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.__TABLE__ > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+.__TABLE__ > caption + thead > tr:first-child > th,
+.__TABLE__ > caption + thead > tr:first-child > td,
+.__TABLE__ > colgroup + thead > tr:first-child > th,
+.__TABLE__ > colgroup + thead > tr:first-child > td,
+.__TABLE__ > thead:first-child > tr:first-child > th,
+.__TABLE__ > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.__TABLE__ > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+.__TABLE__.-compact > thead > tr > th,
+.__TABLE__.-compact > thead > tr > td,
+.__TABLE__.-compact > tbody > tr > th,
+.__TABLE__.-compact > tbody > tr > td,
+.__TABLE__.-compact > tfoot > tr > th,
+.__TABLE__.-compact > tfoot > tr > td {
+  padding: 2px;
+}
+.__TABLE__.-bordered {
+  border: 1px solid #ddd;
+}
+.__TABLE__.-bordered > thead > tr > th,
+.__TABLE__.-bordered > thead > tr > td .__TABLE__.-bordered > tbody > tr > th,
+.__TABLE__.-bordered > tbody > tr > td,
+.__TABLE__.-bordered > tfoot > tr > th,
+.__TABLE__.-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+.__TABLE__.-bordered > thead > tr > th,
+.__TABLE__.-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+.__TABLE__.-alternate > tbody > tr:nth-of-type(odd) {
+  background-color: #e3e3e3;
+}
+.__TABLE__.-hoverable > tbody > tr:hover {
+  color: #fff;
+  background-color: #337ab7;
+}
 /**
- * span generates modifier classes for column row span.
- *
- * @param {int} @step  - The current step.
- * @param {int} @total - The total number of columns.
+ * ww-table-window restricts a table to the width of the viewport 
+ * triggering scrolling
  */
+.ww-table-window {
+  overflow-x: auto;
+  width: 100%;
+  margin-bottom: 15px;
+  overflow-y: hidden;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border: 1px solid #ddd;
+}
+.ww-table-window > .__TABLE__ {
+  margin-bottom: 0;
+}
+.ww-table-window > .__TABLE__ > thead > tr > th,
+.ww-table-window > .__TABLE__ > thead > tr > td,
+.ww-table-window > .__TABLE__ > tbody > tr > th,
+.ww-table-window > .__TABLE__ > tbody > tr > td,
+.ww-table-window > .__TABLE__ > tfoot > tr > th,
+.ww-table-window > .__TABLE__ > tfoot > tr > td {
+  white-space: nowrap;
+}
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered {
+  border: 0;
+}
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > thead > tr > th:first-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > thead > tr > td:first-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tbody > tr > th:first-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tbody > tr > td:first-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tfoot > tr > th:first-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > thead > tr > th:last-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > thead > tr > td:last-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tbody > tr > th:last-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tbody > tr > td:last-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tfoot > tr > th:last-child,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tfoot > tr > td:last-child {
+  border-left: 0;
+}
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tbody > tr:last-child > th,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tbody > tr:last-child > td,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tfoot > tr:last-child > th,
+.ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tfoot > tr:last-child > td {
+  border-bottom: 0;
+}
 /**
- * offset generates a left margin offset for a step in the
- * offset scale.
- *
- * Uses a left-margin.
- * @param {int} @step - The offset step.
- * @parm  {int} @total - Total number of columns
+ * Default style pallete.
  */
+.ww-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px dashed;
+  border-top: 4px solid \9;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+.close {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: 0.2;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.5;
+}
+button.close {
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
+}
+/**
+ * MenuIcon styling.
+ *
+ * We style some spans to look like the dashes in the 'menu'.
+ */
+.ww-menu-icon {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  /**
+   * Style the individual dashes, we expect 3.
+   */
+}
+.ww-menu-icon > .ww-menu-icon__dash {
+  width: 1.5em;
+  height: 0.25em;
+  display: block;
+  background-color: #fff;
+  /**
+     * The second dash receives the margins to space out the 
+     * icon properly.
+     */
+}
+.ww-menu-icon > .ww-menu-icon__dash:nth-child(2) {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+/**
+ * Drawer styling.
+ * 
+ * Drawer's are fixed positioned to the left of the 
+ * screen by default. Any component that is a sibling
+ * of a Drawer SHOULD have a "& ~ .ww-drawer:not(.-ww-hidden)"
+ * rule where the width is reduced by the @drawer-width.
+ * 
+ * This prevents content from scrolling or showing off-screen.
+ */
+.ww-drawer {
+  width: 15em;
+  height: 100%;
+  position: fixed;
+  display: block;
+  color: #fff;
+  border-right: 1px solid #343434;
+  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
+  z-index: 9;
+  background-color: #1a1a1a;
+  transition: width 0.5s ease;
+  /**
+   * The inner area of the Drawer where content is placed. 
+   * This is absolutely positioned so style it with the parent
+   * in mind.
+   */
+  /**
+   * Style layouts adjacent to the Drawer.
+   * 
+   * For each we set a transition effect. Do not forget
+   * to create width rules for things like ActionBar, MainLayout etc!
+   */
+  /**
+    Styles for the hidden state.
+   */
+}
+.ww-drawer > .ww-drawer__content {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.ww-drawer ~ .-layout {
+  transition: all 0.5s ease;
+  /**
+     * For non-positioned siblings, attach a left-margin
+     * equal to the drawer width so that they make way
+     * for it.
+     */
+  /**
+     * Positioned elements we use a left offset
+     * to make way.
+     */
+}
+.ww-drawer ~ .-layout:not(.-positioned) {
+  margin-left: 15em;
+}
+.ww-drawer ~ .-layout.-positioned {
+  left: 15em;
+}
+.ww-drawer.-ww-hidden {
+  width: 0;
+  /**
+     * Remove the left margin on siblings that do not declare "positioned".
+     */
+  /**
+     * Remove the left offset on siblings that are positioned.
+     */
+}
+.ww-drawer.-ww-hidden ~ .-layout:not(.-positioned) {
+  margin-left: 0;
+}
+.ww-drawer.-ww-hidden ~ .-layout.-positioned {
+  left: 0;
+}
+.__BREADCRUMB__ {
+  padding: 0px 0px;
+  margin: 0.5em 0em;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 0.25rem;
+}
+.__BREADCRUMB__ > li {
+  display: inline-block;
+}
+.__BREADCRUMB__ > li + li:before {
+  content: "/\00a0";
+  padding: 0 5px;
+  color: #ccc;
+}
+.__BREADCRUMB__ > .-active {
+  color: #777777;
+}
+.ww-nav {
+  list-style-type: none;
+  padding: 0 0;
+  margin: 0 0;
+}
+.ww-nav > .ww-menu-item {
+  float: left;
+}
+.ww-nav.-vertical > .ww-menu-item {
+  float: none;
+}
+/*
+  Nav styles for child Item widgets.
+ */
+.ww-nav > .ww-menu-item {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.ww-nav > .ww-menu-item > .ww-nav {
+  margin-left: 0;
+}
+.ww-nav > .ww-menu-item > a {
+  padding: 0.7em 1em;
+  display: block;
+  color: inherit;
+  text-decoration: inherit;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 0.15em;
+}
+.ww-nav > .ww-menu-item > a:hover {
+  background-color: #31708f;
+}
+.ww-nav > .ww-menu-item > a.-active {
+  background-color: #31708f;
+}
+.ww-nav > .ww-menu-item > a.__NO_HOVER__:hover,
+.ww-nav > .ww-menu-item > a.__NO_HOVER__.-active {
+  background-color: inherit;
+}
+.ww-menu-item.-divider {
+  height: 1px;
+  margin: -0.28571429 0;
+  overflow: hidden;
+  background-color: #e5e5e5;
+}
+.ww-menu {
+  min-width: 10em;
+  display: block;
+  z-index: 2000;
+  padding: 5px 0px;
+  list-style: none;
+  font-size: 14px;
+  text-align: left;
+  background: #f1f1f1;
+}
+.ww-menu > li > a {
+  display: block;
+  padding: 3px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.42857143;
+  color: #333;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.ww-menu > li > a:hover,
+.ww-menu > li > a:focus {
+  text-decoration: none;
+  color: #262626;
+  background-color: #f5f5f5;
+}
+.ww-menu > li > h1,
+.ww-menu h2,
+.ww-menu h3,
+.ww-menu h4,
+.ww-menu h5,
+.ww-menu h6 {
+  display: block;
+  padding: 3px 20px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.42857143;
+  color: #9d9d9d;
+  white-space: nowrap;
+}
+.ww-menu.-ww-hidden {
+  display: none;
+}
+.ww-menu > .-active > a,
+.ww-menu > .-active > a:hover,
+.ww-menu > .-active > a:focus {
+  color: #fff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #337ab7;
+}
+.ww-menu > .__DISABLED__ > a,
+.ww-menu > .__DISABLED__ > a:hover,
+.ww-menu > .__DISABLED__ > a:focus {
+  color: #777;
+}
+.ww-menu > .__DISABLED__ > a:hover,
+.ww-menu > .__DISABLED__ > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  background-image: none;
+  cursor: not-allowed;
+}
+.ww-menu > -right {
+  left: auto;
+}
+.ww-menu-header {
+  padding: 0.7em 1em;
+  color: grey;
+  font-weight: bolder;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.ww-description-list {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.ww-description-list > dt {
+  line-height: 1.42857143;
+  font-weight: bold;
+}
+.ww-description-list > dd {
+  line-height: 1.42857143;
+  margin-left: 0;
+}
+.ww-description-list.-horizontal > dd:before,
+.ww-description-list.-horizontal > dd:after {
+  content: " ";
+  display: table;
+}
+.ww-description-list.-horizontal > dd:after {
+  clear: both;
+}
+@media screen and (min-width: 720px) {
+  .ww-description-list.-horizontal > dt {
+    float: left;
+    width: 160px;
+    clear: left;
+    text-align: right;
+    text-overflow: ellipsis;
+  }
+}
+.ww-description-list.-horizontal > dd {
+  margin-left: 180px;
+}
+.ww-drawer-layout {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: inherit;
+  color: #333333;
+}
+.ww-drawer-layout > .ww-drawer {
+  background-color: #1a1a1a;
+}
+.ww-drawer-layout > .ww-drawer:not(.-ww-hidden) {
+  width: 15em;
+}
+.ww-tab-layout > .ww-tab-bar {
+  margin-bottom: 1em;
+}
+.ww-table-layout {
+  background: transparent;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.ww-table-layout > caption {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #777;
+  text-align: left;
+}
+.ww-table-layout th {
+  text-align: left;
+}
+.ww-table-layout > thead > tr > th,
+.ww-table-layout > thead > tr > td,
+.ww-table-layout > tbody > tr > th,
+.ww-table-layout > tbody > tr > td,
+.ww-table-layout > tfoot > tr > th,
+.ww-table-layout > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.ww-table-layout > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+.ww-table-layout > caption + thead > tr:first-child > th,
+.ww-table-layout > caption + thead > tr:first-child > td,
+.ww-table-layout > colgroup + thead > tr:first-child > th,
+.ww-table-layout > colgroup + thead > tr:first-child > td,
+.ww-table-layout > thead:first-child > tr:first-child > th,
+.ww-table-layout > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.ww-table-layout > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+.ww-table-layout.-compact > thead > tr > th,
+.ww-table-layout.-compact > thead > tr > td,
+.ww-table-layout.-compact > tbody > tr > th,
+.ww-table-layout.-compact > tbody > tr > td,
+.ww-table-layout.-compact > tfoot > tr > th,
+.ww-table-layout.-compact > tfoot > tr > td {
+  padding: 2px;
+}
+.ww-table-layout.-bordered {
+  border: 1px solid #ddd;
+}
+.ww-table-layout.-bordered > thead > tr > th,
+.ww-table-layout.-bordered > thead > tr > td .ww-table-layout.-bordered > tbody > tr > th,
+.ww-table-layout.-bordered > tbody > tr > td,
+.ww-table-layout.-bordered > tfoot > tr > th,
+.ww-table-layout.-bordered > tfoot > tr > td {
+  border: 1px solid #ddd;
+}
+.ww-table-layout.-bordered > thead > tr > th,
+.ww-table-layout.-bordered > thead > tr > td {
+  border-bottom-width: 2px;
+}
+.ww-table-layout.-alternate > tbody > tr:nth-of-type(odd) {
+  background-color: #e3e3e3;
+}
+.ww-table-layout.-hoverable > tbody > tr:hover {
+  color: #fff;
+  background-color: #337ab7;
+}
+/**
+ * ww-table-window restricts a table to the width of the viewport 
+ * triggering scrolling
+ */
+.ww-table-window {
+  overflow-x: auto;
+  width: 100%;
+  overflow-y: hidden;
+  border: 1px solid #ddd;
+}
+.ww-table-window > .ww-table-layout {
+  margin-bottom: 0;
+}
+.ww-table-window > .ww-table-layout > thead > tr > th,
+.ww-table-window > .ww-table-layout > thead > tr > td,
+.ww-table-window > .ww-table-layout > tbody > tr > th,
+.ww-table-window > .ww-table-layout > tbody > tr > td,
+.ww-table-window > .ww-table-layout > tfoot > tr > th,
+.ww-table-window > .ww-table-layout > tfoot > tr > td {
+  white-space: nowrap;
+}
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered {
+  border: 0;
+}
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > th:first-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > td:first-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > th:first-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > td:first-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > th:first-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > td:first-child {
+  border-left: 0;
+}
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > th:last-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > td:last-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > th:last-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > td:last-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > th:last-child,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > td:last-child {
+  border-left: 0;
+}
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr:last-child > th,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr:last-child > td,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr:last-child > th,
+.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr:last-child > td {
+  border-bottom: 0;
+}
 /** 
   Number of columns in the grid system.
 */
@@ -44,6 +595,20 @@
  */
 /**
  * Set the space at the top of a row nested in a column.
+ */
+/**
+ * offset generates a left margin offset for a step in the
+ * offset scale.
+ *
+ * Uses a left-margin.
+ * @param {int} @step - The offset step.
+ * @parm  {int} @total - Total number of columns
+ */
+/**
+ * span generates modifier classes for column row span.
+ *
+ * @param {int} @step  - The current step.
+ * @param {int} @total - The total number of columns.
  */
 /**
  * The wml-widgets non-flex based grid layout framework.
@@ -179,9 +744,20 @@
     margin-left: 100%;
   }
 }
-/**
- * Default style pallete.
- */
+.ww-horizontal-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  align-content: flex-start;
+  justify-content: space-between;
+}
+.ww-horizontal-layout.-left {
+  justify-content: flex-start;
+}
+.ww-horizontal-layout.-right {
+  justify-content: flex-end;
+}
 .ww-panel {
   margin-bottom: 20px;
   background-color: #fff;
@@ -261,6 +837,14 @@
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
 }
+.ww-main-layout {
+  width: auto;
+  height: auto;
+  overflow-x: auto;
+  overflow-y: auto;
+  background-color: inherit;
+  padding: 60px 0px;
+}
 .ww-list-layout {
   margin-bottom: 20px;
   list-style-type: none;
@@ -304,19 +888,6 @@
   background-color: #337ab7;
   border-color: #337ab7;
 }
-.ww-drawer-layout {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  background-color: inherit;
-  color: #333333;
-}
-.ww-drawer-layout > .ww-drawer {
-  background-color: #1a1a1a;
-}
-.ww-drawer-layout > .ww-drawer:not(.-ww-hidden) {
-  width: 15em;
-}
 .ww-action-bar {
   width: 100%;
   height: auto;
@@ -346,516 +917,6 @@
 }
 .ww-action-bar :empty {
   padding: 0;
-}
-.ww-main-layout {
-  width: auto;
-  height: auto;
-  overflow-x: auto;
-  overflow-y: auto;
-  background-color: inherit;
-  padding: 60px 0px;
-}
-.ww-horizontal-layout {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: baseline;
-  align-content: flex-start;
-  justify-content: space-between;
-}
-.ww-horizontal-layout.-left {
-  justify-content: flex-start;
-}
-.ww-horizontal-layout.-right {
-  justify-content: flex-end;
-}
-.ww-table-layout {
-  background: transparent;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-.ww-table-layout > caption {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  color: #777;
-  text-align: left;
-}
-.ww-table-layout th {
-  text-align: left;
-}
-.ww-table-layout > thead > tr > th,
-.ww-table-layout > thead > tr > td,
-.ww-table-layout > tbody > tr > th,
-.ww-table-layout > tbody > tr > td,
-.ww-table-layout > tfoot > tr > th,
-.ww-table-layout > tfoot > tr > td {
-  padding: 8px;
-  line-height: 1.42857143;
-  vertical-align: top;
-  border-top: 1px solid #ddd;
-}
-.ww-table-layout > thead > tr > th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #ddd;
-}
-.ww-table-layout > caption + thead > tr:first-child > th,
-.ww-table-layout > caption + thead > tr:first-child > td,
-.ww-table-layout > colgroup + thead > tr:first-child > th,
-.ww-table-layout > colgroup + thead > tr:first-child > td,
-.ww-table-layout > thead:first-child > tr:first-child > th,
-.ww-table-layout > thead:first-child > tr:first-child > td {
-  border-top: 0;
-}
-.ww-table-layout > tbody + tbody {
-  border-top: 2px solid #ddd;
-}
-.ww-table-layout.-compact > thead > tr > th,
-.ww-table-layout.-compact > thead > tr > td,
-.ww-table-layout.-compact > tbody > tr > th,
-.ww-table-layout.-compact > tbody > tr > td,
-.ww-table-layout.-compact > tfoot > tr > th,
-.ww-table-layout.-compact > tfoot > tr > td {
-  padding: 2px;
-}
-.ww-table-layout.-bordered {
-  border: 1px solid #ddd;
-}
-.ww-table-layout.-bordered > thead > tr > th,
-.ww-table-layout.-bordered > thead > tr > td .ww-table-layout.-bordered > tbody > tr > th,
-.ww-table-layout.-bordered > tbody > tr > td,
-.ww-table-layout.-bordered > tfoot > tr > th,
-.ww-table-layout.-bordered > tfoot > tr > td {
-  border: 1px solid #ddd;
-}
-.ww-table-layout.-bordered > thead > tr > th,
-.ww-table-layout.-bordered > thead > tr > td {
-  border-bottom-width: 2px;
-}
-.ww-table-layout.-alternate > tbody > tr:nth-of-type(odd) {
-  background-color: #e3e3e3;
-}
-.ww-table-layout.-hoverable > tbody > tr:hover {
-  color: #fff;
-  background-color: #337ab7;
-}
-/**
- * ww-table-window restricts a table to the width of the viewport 
- * triggering scrolling
- */
-.ww-table-window {
-  overflow-x: auto;
-  width: 100%;
-  overflow-y: hidden;
-  border: 1px solid #ddd;
-}
-.ww-table-window > .ww-table-layout {
-  margin-bottom: 0;
-}
-.ww-table-window > .ww-table-layout > thead > tr > th,
-.ww-table-window > .ww-table-layout > thead > tr > td,
-.ww-table-window > .ww-table-layout > tbody > tr > th,
-.ww-table-window > .ww-table-layout > tbody > tr > td,
-.ww-table-window > .ww-table-layout > tfoot > tr > th,
-.ww-table-window > .ww-table-layout > tfoot > tr > td {
-  white-space: nowrap;
-}
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered {
-  border: 0;
-}
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > th:first-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > td:first-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > th:first-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > td:first-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > th:first-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > td:first-child {
-  border-left: 0;
-}
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > th:last-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > thead > tr > td:last-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > th:last-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr > td:last-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > th:last-child,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr > td:last-child {
-  border-left: 0;
-}
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr:last-child > th,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tbody > tr:last-child > td,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr:last-child > th,
-.ww-table-window > .ww-table-layout > .ww-table-layout.-bordered > tfoot > tr:last-child > td {
-  border-bottom: 0;
-}
-.ww-description-list {
-  margin-top: 0;
-  margin-bottom: 20px;
-}
-.ww-description-list > dt {
-  line-height: 1.42857143;
-  font-weight: bold;
-}
-.ww-description-list > dd {
-  line-height: 1.42857143;
-  margin-left: 0;
-}
-.ww-description-list.-horizontal > dd:before,
-.ww-description-list.-horizontal > dd:after {
-  content: " ";
-  display: table;
-}
-.ww-description-list.-horizontal > dd:after {
-  clear: both;
-}
-@media screen and (min-width: 720px) {
-  .ww-description-list.-horizontal > dt {
-    float: left;
-    width: 160px;
-    clear: left;
-    text-align: right;
-    text-overflow: ellipsis;
-  }
-}
-.ww-description-list.-horizontal > dd {
-  margin-left: 180px;
-}
-/**
- * Drawer styling.
- * 
- * Drawer's are fixed positioned to the left of the 
- * screen by default. Any component that is a sibling
- * of a Drawer SHOULD have a "& ~ .ww-drawer:not(.-ww-hidden)"
- * rule where the width is reduced by the @drawer-width.
- * 
- * This prevents content from scrolling or showing off-screen.
- */
-.ww-drawer {
-  width: 15em;
-  height: 100%;
-  position: fixed;
-  display: block;
-  color: #fff;
-  border-right: 1px solid #343434;
-  box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.2);
-  z-index: 9;
-  background-color: #1a1a1a;
-  transition: width 0.5s ease;
-  /**
-   * The inner area of the Drawer where content is placed. 
-   * This is absolutely positioned so style it with the parent
-   * in mind.
-   */
-  /**
-   * Style layouts adjacent to the Drawer.
-   * 
-   * For each we set a transition effect. Do not forget
-   * to create width rules for things like ActionBar, MainLayout etc!
-   */
-  /**
-    Styles for the hidden state.
-   */
-}
-.ww-drawer > .ww-drawer__content {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  overflow-x: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.ww-drawer ~ .-layout {
-  transition: all 0.5s ease;
-  /**
-     * For non-positioned siblings, attach a left-margin
-     * equal to the drawer width so that they make way
-     * for it.
-     */
-  /**
-     * Positioned elements we use a left offset
-     * to make way.
-     */
-}
-.ww-drawer ~ .-layout:not(.-positioned) {
-  margin-left: 15em;
-}
-.ww-drawer ~ .-layout.-positioned {
-  left: 15em;
-}
-.ww-drawer.-ww-hidden {
-  width: 0;
-  /**
-     * Remove the left margin on siblings that do not declare "positioned".
-     */
-  /**
-     * Remove the left offset on siblings that are positioned.
-     */
-}
-.ww-drawer.-ww-hidden ~ .-layout:not(.-positioned) {
-  margin-left: 0;
-}
-.ww-drawer.-ww-hidden ~ .-layout.-positioned {
-  left: 0;
-}
-.ww-nav {
-  list-style-type: none;
-  padding: 0 0;
-  margin: 0 0;
-}
-.ww-nav > .ww-menu-item {
-  float: left;
-}
-.ww-nav.-vertical > .ww-menu-item {
-  float: none;
-}
-/*
-  Nav styles for child Item widgets.
- */
-.ww-nav > .ww-menu-item {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-}
-.ww-nav > .ww-menu-item > .ww-nav {
-  margin-left: 0;
-}
-.ww-nav > .ww-menu-item > a {
-  padding: 0.7em 1em;
-  display: block;
-  color: inherit;
-  text-decoration: inherit;
-  text-transform: uppercase;
-  font-weight: bolder;
-  letter-spacing: 0.15em;
-}
-.ww-nav > .ww-menu-item > a:hover {
-  background-color: #31708f;
-}
-.ww-nav > .ww-menu-item > a.-active {
-  background-color: #31708f;
-}
-.ww-nav > .ww-menu-item > a.__NO_HOVER__:hover,
-.ww-nav > .ww-menu-item > a.__NO_HOVER__.-active {
-  background-color: inherit;
-}
-.__BREADCRUMB__ {
-  padding: 0px 0px;
-  margin: 0.5em 0em;
-  list-style: none;
-  background-color: transparent;
-  border-radius: 0.25rem;
-}
-.__BREADCRUMB__ > li {
-  display: inline-block;
-}
-.__BREADCRUMB__ > li + li:before {
-  content: "/\00a0";
-  padding: 0 5px;
-  color: #ccc;
-}
-.__BREADCRUMB__ > .-active {
-  color: #777777;
-}
-.ww-menu-header {
-  padding: 0.7em 1em;
-  color: grey;
-  font-weight: bolder;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-}
-.ww-menu-item.-divider {
-  height: 1px;
-  margin: -0.28571429 0;
-  overflow: hidden;
-  background-color: #e5e5e5;
-}
-.ww-menu {
-  min-width: 10em;
-  display: block;
-  z-index: 2000;
-  padding: 5px 0px;
-  list-style: none;
-  font-size: 14px;
-  text-align: left;
-  background: #f1f1f1;
-}
-.ww-menu > li > a {
-  display: block;
-  padding: 3px 20px;
-  clear: both;
-  font-weight: normal;
-  line-height: 1.42857143;
-  color: #333;
-  white-space: nowrap;
-  text-decoration: none;
-}
-.ww-menu > li > a:hover,
-.ww-menu > li > a:focus {
-  text-decoration: none;
-  color: #262626;
-  background-color: #f5f5f5;
-}
-.ww-menu > li > h1,
-.ww-menu h2,
-.ww-menu h3,
-.ww-menu h4,
-.ww-menu h5,
-.ww-menu h6 {
-  display: block;
-  padding: 3px 20px;
-  margin: 0;
-  font-size: 12px;
-  line-height: 1.42857143;
-  color: #9d9d9d;
-  white-space: nowrap;
-}
-.ww-menu.-ww-hidden {
-  display: none;
-}
-.ww-menu > .-active > a,
-.ww-menu > .-active > a:hover,
-.ww-menu > .-active > a:focus {
-  color: #fff;
-  text-decoration: none;
-  outline: 0;
-  background-color: #337ab7;
-}
-.ww-menu > .__DISABLED__ > a,
-.ww-menu > .__DISABLED__ > a:hover,
-.ww-menu > .__DISABLED__ > a:focus {
-  color: #777;
-}
-.ww-menu > .__DISABLED__ > a:hover,
-.ww-menu > .__DISABLED__ > a:focus {
-  text-decoration: none;
-  background-color: transparent;
-  background-image: none;
-  cursor: not-allowed;
-}
-.ww-menu > -right {
-  left: auto;
-}
-.ww-caret {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  margin-left: 2px;
-  vertical-align: middle;
-  border-top: 4px dashed;
-  border-top: 4px solid \9;
-  border-right: 4px solid transparent;
-  border-left: 4px solid transparent;
-}
-.close {
-  float: right;
-  font-size: 21px;
-  font-weight: bold;
-  line-height: 1;
-  color: #000;
-  text-shadow: 0 1px 0 #fff;
-  opacity: 0.2;
-}
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  opacity: 0.5;
-}
-button.close {
-  padding: 0;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-  -webkit-appearance: none;
-}
-/**
- * MenuIcon styling.
- *
- * We style some spans to look like the dashes in the 'menu'.
- */
-.ww-menu-icon {
-  display: inline-block;
-  background-color: transparent;
-  border: none;
-  /**
-   * Style the individual dashes, we expect 3.
-   */
-}
-.ww-menu-icon > .ww-menu-icon__dash {
-  width: 1.5em;
-  height: 0.25em;
-  display: block;
-  background-color: #fff;
-  /**
-     * The second dash receives the margins to space out the 
-     * icon properly.
-     */
-}
-.ww-menu-icon > .ww-menu-icon__dash:nth-child(2) {
-  margin-top: 0.25em;
-  margin-bottom: 0.25em;
-}
-.ww-tab {
-  float: left;
-  margin-bottom: -1px;
-  position: relative;
-  display: block;
-}
-.ww-tab > a {
-  display: block;
-  padding: 15px 10px;
-  margin-right: 2px;
-  line-height: 1.42857143;
-  border: 1px solid transparent;
-  border-radius: 4px 4px 0 0;
-}
-.ww-tab > a:hover {
-  border-color: #eee #eee #ddd;
-}
-.ww-tab.-active > a,
-.ww-tab.-active > a:hover,
-.ww-tab.-active:focus {
-  color: #555;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-bottom-color: transparent;
-  cursor: default;
-}
-.ww-tab-bar {
-  margin-bottom: 0;
-  padding-left: 0;
-  border-bottom: 1px solid #ddd;
-}
-.ww-tab-bar:before,
-.ww-tab-bar:after {
-  content: " ";
-  display: table;
-}
-.ww-tab-bar:after {
-  clear: both;
-}
-.ww-tab-bar.-justified {
-  width: 100%;
-}
-.ww-tab-bar.-justified > li {
-  display: table-cell;
-  width: 1%;
-  float: none;
-}
-@media screen and (min-width: 720px) {
-  .ww-tab-bar.-justified > li {
-    display: block;
-    width: auto;
-  }
-}
-.ww-tab-bar.-justified > li > a {
-  margin-bottom: 0;
-  text-align: center;
-}
-@media screen and (min-width: 720px) {
-  .ww-tab-bar.-justified > li > a {
-    margin-bottom: 5px;
-  }
 }
 /*
   Button styling.
@@ -1231,108 +1292,6 @@ buttonLinkBackground styles the background and shadows.
 /*
 buttonLink styles the button to appear like a link.
 */
-.ww-button-group,
-.ww-button-group.-vertical {
-  position: relative;
-  display: inline-block;
-}
-.ww-button-group > .ww-button,
-.ww-button-group.-vertical > .ww-button {
-  position: relative;
-  float: left;
-}
-.ww-button-group .ww-button + .ww-button,
-.ww-button-group .ww-button + .ww-button-group,
-.ww-button-group .ww-button-group + .ww-button,
-.ww-button-group .ww-button-group + .ww-button-group {
-  margin-left: -1px;
-}
-.ww-button-group > .ww-button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-  border-radius: 0;
-}
-.ww-button-group > .ww-button:first-child {
-  margin-left: 0;
-}
-.ww-button-group > .ww-button:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
-.ww-button-group > .ww-button:last-child:not(:first-child) {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-}
-.ww-button-group > .ww-button-group {
-  float: left;
-}
-.ww-button-group > .ww-button-group:not(:first-child):not(:last-child) > .ww-button {
-  border-radius: 0;
-}
-.ww-button-group > .ww-button-group:first-child:not(:last-child) > .ww-button:last-child {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
-.ww-button-group > .ww-button-group:last-child:not(:first-child) > .ww-button:first-child {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-}
-/**
-  Toolbar styling.
-
-  Intended for styling button groups and other things that may want to
-  be in a Toolbar.
-  
-  In order to benifit from the below styling, those controls must 
-  have the -toolbar-compat class in their classlist.
-*/
-.ww-toolbar {
-  margin-left: -5px;
-}
-.ww-toolbar > .-toolbar-compat {
-  float: left;
-}
-.ww-toolbar > .-toolbar-compat {
-  margin-left: 5px;
-}
-.ww-switch {
-  width: 4em;
-  height: 2em;
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-}
-.ww-switch > input {
-  display: none;
-}
-.ww-switch > .ww-switch__slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  border: 1px solid #ccc;
-  border-radius: 1em;
-  transition-duration: 0.4s;
-}
-.ww-switch > .ww-switch__slider:before {
-  width: 40%;
-  height: 80%;
-  top: 10%;
-  left: 10%;
-  position: absolute;
-  content: "";
-  background-color: #fff;
-  transition-duration: 0.4s;
-  border: 1px solid #1a1a1a;
-  border-radius: 50%;
-}
-.ww-switch > input:checked + .ww-switch__slider {
-  background-color: #2196F3;
-}
-.ww-switch > input:checked + .ww-switch__slider:before {
-  left: 50%;
-}
 .ww-stack {
   width: auto;
   padding: 0 0;
@@ -1371,12 +1330,6 @@ buttonLink styles the button to appear like a link.
   display: inline-block;
   background-color: transparent;
   cursor: pointer;
-}
-.ww-select {
-  margin-bottom: 2px;
-}
-.ww-multi-select > .ww-select {
-  margin-bottom: 0.5em;
 }
 /**
  * ww-text-input styling.
@@ -1451,6 +1404,132 @@ textInputDim styles the dimendefines the sizing of a button.
 @lh       - Line height.
 @br       - Border radius.
 */
+/**
+  Toolbar styling.
+
+  Intended for styling button groups and other things that may want to
+  be in a Toolbar.
+  
+  In order to benifit from the below styling, those controls must 
+  have the -toolbar-compat class in their classlist.
+*/
+.ww-toolbar {
+  margin-left: -5px;
+}
+.ww-toolbar > .-toolbar-compat {
+  float: left;
+}
+.ww-toolbar > .-toolbar-compat {
+  margin-left: 5px;
+}
+/**
+ * .ww-droplist styling.
+ */
+.ww-droplist {
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 12em;
+}
+.ww-droplist::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.ww-droplist[disabled],
+fieldset[disabled] .ww-droplist {
+  cursor: not-allowed;
+}
+textarea.ww-droplist {
+  height: auto;
+}
+.ww-droplist:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.ww-droplist.-error {
+  border-color: #d9534f;
+}
+.ww-droplist.-warning {
+  border-color: #f0ad4e;
+}
+.ww-droplist.-success {
+  border-color: #5cb85c;
+}
+.ww-droplist.-extra-small {
+  width: 3em;
+}
+.ww-droplist.-small {
+  width: 5em;
+}
+.ww-droplist.-medium {
+  width: 12em;
+}
+.ww-droplist.-large {
+  width: 28em;
+}
+.ww-droplist.-extra-large {
+  width: 40em;
+}
+.ww-droplist.-block {
+  display: block;
+  width: 100%;
+}
+.ww-droplist.-block + .ww-droplist.-block {
+  margin-top: 0.5em;
+}
+.ww-button-group,
+.ww-button-group.-vertical {
+  position: relative;
+  display: inline-block;
+}
+.ww-button-group > .ww-button,
+.ww-button-group.-vertical > .ww-button {
+  position: relative;
+  float: left;
+}
+.ww-button-group .ww-button + .ww-button,
+.ww-button-group .ww-button + .ww-button-group,
+.ww-button-group .ww-button-group + .ww-button,
+.ww-button-group .ww-button-group + .ww-button-group {
+  margin-left: -1px;
+}
+.ww-button-group > .ww-button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+.ww-button-group > .ww-button:first-child {
+  margin-left: 0;
+}
+.ww-button-group > .ww-button:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.ww-button-group > .ww-button:last-child:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.ww-button-group > .ww-button-group {
+  float: left;
+}
+.ww-button-group > .ww-button-group:not(:first-child):not(:last-child) > .ww-button {
+  border-radius: 0;
+}
+.ww-button-group > .ww-button-group:first-child:not(:last-child) > .ww-button:last-child {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.ww-button-group > .ww-button-group:last-child:not(:first-child) > .ww-button:first-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
 .ww-text-field.-error {
   color: #d9534f;
 }
@@ -1459,6 +1538,175 @@ textInputDim styles the dimendefines the sizing of a button.
 }
 .ww-text-field.-success {
   color: #5cb85c;
+}
+.ww-switch {
+  width: 4em;
+  height: 2em;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.ww-switch > input {
+  display: none;
+}
+.ww-switch > .ww-switch__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border: 1px solid #ccc;
+  border-radius: 1em;
+  transition-duration: 0.4s;
+}
+.ww-switch > .ww-switch__slider:before {
+  width: 40%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  position: absolute;
+  content: "";
+  background-color: #fff;
+  transition-duration: 0.4s;
+  border: 1px solid #1a1a1a;
+  border-radius: 50%;
+}
+.ww-switch > input:checked + .ww-switch__slider {
+  background-color: #2196F3;
+}
+.ww-switch > input:checked + .ww-switch__slider:before {
+  left: 50%;
+}
+.ww-label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.ww-tab {
+  float: left;
+  margin-bottom: -1px;
+  position: relative;
+  display: block;
+}
+.ww-tab > a {
+  display: block;
+  padding: 15px 10px;
+  margin-right: 2px;
+  line-height: 1.42857143;
+  border: 1px solid transparent;
+  border-radius: 4px 4px 0 0;
+}
+.ww-tab > a:hover {
+  border-color: #eee #eee #ddd;
+}
+.ww-tab.-active > a,
+.ww-tab.-active > a:hover,
+.ww-tab.-active:focus {
+  color: #555;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+  cursor: default;
+}
+.ww-tab-bar {
+  margin-bottom: 0;
+  padding-left: 0;
+  border-bottom: 1px solid #ddd;
+}
+.ww-tab-bar:before,
+.ww-tab-bar:after {
+  content: " ";
+  display: table;
+}
+.ww-tab-bar:after {
+  clear: both;
+}
+.ww-tab-bar.-justified {
+  width: 100%;
+}
+.ww-tab-bar.-justified > li {
+  display: table-cell;
+  width: 1%;
+  float: none;
+}
+@media screen and (min-width: 720px) {
+  .ww-tab-bar.-justified > li {
+    display: block;
+    width: auto;
+  }
+}
+.ww-tab-bar.-justified > li > a {
+  margin-bottom: 0;
+  text-align: center;
+}
+@media screen and (min-width: 720px) {
+  .ww-tab-bar.-justified > li > a {
+    margin-bottom: 5px;
+  }
+}
+.ww-select {
+  margin-bottom: 2px;
+}
+.ww-drop-down-menu {
+  position: relative;
+  display: inline-block;
+}
+.ww-drop-down-menu > .ww-button:not(:first-child):not(:last-child):not(.ww-drop-down-menu__toggle) {
+  border-radius: 0;
+}
+.ww-drop-down-menu > .ww-button {
+  position: relative;
+  float: left;
+}
+.ww-drop-down-menu > .ww-button:first-child {
+  margin-left: 0;
+}
+.ww-drop-down-menu > .ww-button:first-child:not(:last-child):not(.ww-drop-down-menu__toggle) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.ww-drop-down-menu > .ww-button:last-child:not(:first-child),
+.ww-drop-down-menu > .ww-drop-down-menu__toggle:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.ww-drop-down-menu > .ww-drop-down-menu:first-child:not(:last-child) > .ww-button:last-child,
+.ww-drop-down-menu > .ww-drop-down-menu:first-child:not(:last-child) > .ww-drop-down-menu__toggle {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.ww-drop-down-menu .ww-drop-down-menu__toggle:active {
+  outline: 0;
+}
+.ww-drop-down-menu > .ww-button + .ww-drop-down-menu__toggle {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.ww-drop-down-menu > .ww-button + .ww-drop-down-menu__toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.ww-drop-down-menu > .ww-button + .ww-button {
+  margin-left: -1px;
+}
+.ww-drop-down-menu > .ww-drop-down__content {
+  min-width: 10em;
+  display: block;
+  position: absolute;
+  top: 100%;
+  z-index: 2000;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+}
+.ww-drop-down-menu > .ww-drop-down__content.-ww-hidden {
+  display: none;
 }
 .ww-date > .ww-date__month {
   height: 36px;
@@ -1577,73 +1825,9 @@ textarea.ww-date > .ww-date__year {
 .ww-date > .ww-date__year.-success {
   border-color: #5cb85c;
 }
-/**
- * .ww-droplist styling.
- */
-.ww-droplist {
-  height: 36px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
+.ww-multi-select > .ww-select {
+  margin-bottom: 0.5em;
+}
+.__SEARCH__[readonly] {
   background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  width: 12em;
-}
-.ww-droplist::-ms-expand {
-  border: 0;
-  background-color: transparent;
-}
-.ww-droplist[disabled],
-fieldset[disabled] .ww-droplist {
-  cursor: not-allowed;
-}
-textarea.ww-droplist {
-  height: auto;
-}
-.ww-droplist:focus {
-  border-color: #66afe9;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.ww-droplist.-error {
-  border-color: #d9534f;
-}
-.ww-droplist.-warning {
-  border-color: #f0ad4e;
-}
-.ww-droplist.-success {
-  border-color: #5cb85c;
-}
-.ww-droplist.-extra-small {
-  width: 3em;
-}
-.ww-droplist.-small {
-  width: 5em;
-}
-.ww-droplist.-medium {
-  width: 12em;
-}
-.ww-droplist.-large {
-  width: 28em;
-}
-.ww-droplist.-extra-large {
-  width: 40em;
-}
-.ww-droplist.-block {
-  display: block;
-  width: 100%;
-}
-.ww-droplist.-block + .ww-droplist.-block {
-  margin-top: 0.5em;
-}
-.ww-label {
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
 }
