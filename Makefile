@@ -21,7 +21,8 @@ lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml) src/classNames.ts
 	$(TSC) --sourceMap --project $@ 
 	touch $@ 
 
-src/classNames.ts: $(shell $(FIND) src -name \*.less -o -name \*.ts)
+src/classNames.ts: $(shell $(FIND) \
+                   src -name \*.less -o -name \*.ts -not -name classNames.ts)
 	mkdir -p lib
 	grep -rsl "///classNames:begin" src | \
 	xargs sed -n "/\/\/\/classNames:begin/,/\/\/\/classNames:end/p" \
@@ -31,12 +32,17 @@ dist: dist/widgets.css
 	touch $@
 
 # build a css file you an include on a page to have the css for all widgets.
-dist/widgets.css: $(shell $(FIND) src -name \*.less) lib
+dist/widgets.css: widgets.less lib
 	mkdir -p dist
 	$(LESSC) --source-map-less-inline \
 	 --js-vars="./lib/classNames" \
 	--include-path=$(LESS_INCLUDE_PATHS) \
-	--npm-import src/widgets.less > $@
+	--npm-import widgets.less > $@
+	
+widgets.less: $(shell $(FIND) src -name \*.less)
+	echo "" > $@
+	$(foreach f,$^,\
+	echo '@import "./$(f)";' >> $@ && ) true
 
 test: test/browser
 	touch $@
