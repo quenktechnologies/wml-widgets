@@ -11,6 +11,10 @@ export declare const MULTI_SELECT = "ww-multi-select";
  */
 export interface MultiSelectAttrs<V> extends FormControlAttrs<V[]>, FeedbackControlAttrs<V[]> {
     /**
+     * block flag
+     */
+    block?: boolean;
+    /**
      * onSearch receives events from the SearchControl.
      */
     onSearch?: (s: TermChangedEvent) => void;
@@ -74,6 +78,7 @@ export declare class MultiSelect<V> extends AbstractFeedbackControl<V[], MultiSe
             };
             name: string;
             value: any;
+            block: boolean;
             onSearch: (evt: TermChangedEvent) => void;
             onChange: ({ value }: ItemChangedEvent<V>) => MultiSelect<V>;
         };

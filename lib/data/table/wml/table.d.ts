@@ -3,7 +3,7 @@ import { Record } from '@quenk/noni/lib/data/record';
 import { Column, DataTable } from '../';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
 export declare const thead: <C, R extends Record<C>>(t: DataTable<C, R>) => (columns: Column<C, R>[]) => (__this: __wml.Registry) => __wml.Content[];
-export declare const tbody: <C, R extends Record<C>>(t: DataTable<C, R>) => (data: R[]) => (columns: Column<C, R>[]) => (__this: __wml.Registry) => __wml.Content[];
+export declare const tbody: <C, R extends Record<C>>(t: DataTable<C, R>) => (columns: Column<C, R>[]) => (data: R[]) => (__this: __wml.Registry) => __wml.Content[];
 export declare class Main<C, R extends Record<C>> implements __wml.View {
     constructor(__context: DataTable<C, R>);
     ids: {

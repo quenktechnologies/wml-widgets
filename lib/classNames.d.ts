@@ -206,4 +206,5 @@ export declare const DATE_MONTH: string;
  */
 export declare const DATE_YEAR: string;
 export declare const MULTI_SELECT = "ww-multi-select";
+export declare const SEARCH = "ww-search";
 export declare const CHECKBOX = "ww-checkbox";

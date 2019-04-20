@@ -23,6 +23,11 @@ export interface MultiSelectAttrs<V> extends
     FormControlAttrs<V[]>,
     FeedbackControlAttrs<V[]> {
 
+      /**
+       * block flag
+       */
+      block?: boolean,
+
     /**
      * onSearch receives events from the SearchControl.
      */
@@ -113,6 +118,9 @@ export class MultiSelect<V>
                 this.attrs.ww.name : '',
 
           value:<any> undefined,
+
+          block: (this.attrs.ww && this.attrs.ww.block) ?
+          this.attrs.ww.block : false,
 
             onSearch: (evt: TermChangedEvent) => {
 

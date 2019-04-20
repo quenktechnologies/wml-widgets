@@ -4,7 +4,7 @@ import { ControlAttrs, Event, AbstractControl } from '../';
  * ESCAPE key code.
  */
 export declare const ESCAPE = 27;
-export declare const SEARCH = "ww-search form-control";
+export declare const SEARCH = "ww-search";
 /**
  * SearchAttrs
  */
@@ -29,6 +29,10 @@ export interface SearchAttrs extends ControlAttrs<string> {
      * readOnly
      */
     readOnly?: boolean;
+    /**
+     * block flag
+     */
+    block?: boolean;
     /**
      * value
      */

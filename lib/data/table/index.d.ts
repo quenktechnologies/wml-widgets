@@ -5,40 +5,25 @@ import { WidgetAttrs, HTMLElementAttrs } from '../../';
 export declare const DATA_TABLE = "ww-data-table";
 export declare const ASC_ARROW = "\u21E7";
 export declare const DESC_ARROW = "\u21E9";
-export declare const THEAD = "thead";
-export declare const TBODY = "tbody";
 /**
- * Comparable represents those types that we know how to compare.
- */
-export declare type Comparable = string | number | boolean;
-/**
- * SortingStrategy is a function that can indicate the rank of
- * a to b.
- */
-export declare type SortingStrategy = (a: Comparable, b: Comparable) => number;
-/**
- * THead type.
- *
- * It should begin with the <thead> and assign the
- * `wml:id=THEAD` attribute, otherwise
- * the dynamic features of the Table won't work.
+ * THead template function type.
  */
 export declare type THead<C, R extends Record<C>> = (table: DataTable<C, R>) => (columns: Column<C, R>[]) => Fun;
 /**
- * TBody type.
- *
- * It should begin with the <tbody> tag and assign the `wml:id=TBODY` attribute,
- * otherwise the dynamic features of the Table won't work.
+ * TBody template function type.
  */
-export declare type TBody<C, R extends Record<C>> = (table: DataTable<C, R>) => (data: R[]) => (columns: Column<C, R>[]) => Fun;
+export declare type TBody<C, R extends Record<C>> = (table: DataTable<C, R>) => (columns: Column<C, R>[]) => (data: R[]) => Fun;
+/**
+ * HeadingFragment type.
+ */
+export declare type HeadingFragment<C, R extends Record<C>> = (column: Column<C, R>) => Fun;
 /**
  * CellFragment type.
- *
- * Is a wml function that renders the DOM for a table cell.
  */
 export declare type CellFragment<C, R extends Record<C>> = (value: C) => (name: string) => (row: R) => Fun;
 /**
- * Column
+ * Column provides the information a DataTable needs to render the cells
+ * of a column in each row.
  */
 export interface Column<C, R extends Record<C>> {
     /**
@@ -60,18 +45,16 @@ export interface Column<C, R extends Record<C>> {
      */
     apply?: (c: C) => C;
     /**
-     * fragment can be specified to customised the rendering of the cell
-     * content.
+     *
+     * headingFragment can be specified to customise the rending
+     * of the heading content.
      */
-    fragment?: CellFragment<C, R>;
-}
-/**
- * Delegate is the interface that receives Table events.
- */
-export interface Delegate {
-    onCellClicked(e: CellClickedEvent): void;
-    onHeadingClicked(e: HeadingClickedEvent): void;
-    onRowClicked(e: RowClickedEvent): void;
+    headingFragment?: HeadingFragment<C, R>;
+    /**
+     * cellFragment can be specified to customise the rendering
+     * of the cell content.
+     */
+    cellFragment?: CellFragment<C, R>;
 }
 /**
  * DataTableAttrs
@@ -93,38 +76,54 @@ export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs
      * compact will enable compact table style.
      */
     compact?: boolean;
-    theadClassName?: string;
-    tbodyClassName?: string;
-    thClassName?: string;
-    trClassName?: string;
-    tdClassName?: string;
-    columns: Column<C, R>[];
-    data: R[];
-    delegate?: Delegate;
-    thead?: THead<C, R>;
-    tbody?: TBody<C, R>;
-    onCellClicked?: (e: CellClickedEvent) => void;
-    onHeadingClicked?: (e: HeadingClickedEvent) => void;
-    onRowClicked?: (e: RowClickedEvent) => void;
-}
-/**
- * CellClickedEvent triggered when whitespace in a cell is clicked.
- */
-export declare class CellClickedEvent {
-    column: string;
-    row: number;
-    constructor(column: string, row: number);
-}
-/**
- * Range of table cells.
- */
-export declare class Range {
-    elements: HTMLElement[];
-    constructor(elements: HTMLElement[]);
     /**
-     * setContent of the cells in this Range.
+     * theadClassName is a class name to append to the <thead> section.
      */
-    setContent(content: Content[]): Range;
+    theadClassName?: string;
+    /**
+     * tbodyClassName is a class name to append to the <tbody> section.
+     */
+    tbodyClassName?: string;
+    /**
+     * thClassName is a class name to append to each <th> element.
+     */
+    thClassName?: string;
+    /**
+     * trClassName is a class name to append to each <tr> element.
+     */
+    trClassName?: string;
+    /**
+     * tdClassName is a class name to append to each <td> element.
+     */
+    tdClassName?: string;
+    /**
+     * columns list used to structure the table.
+     */
+    columns: Column<C, R>[];
+    /**
+     * data list used to populate table data.
+     */
+    data: R[];
+    /**
+     * thead if specified, will be used to render the <thead> section.
+     */
+    thead?: THead<C, R>;
+    /**
+     * tbody if specified will be used to render the <tbody> section.
+     */
+    tbody?: TBody<C, R>;
+    /**
+     * onCellClicked event handler.
+     */
+    onCellClicked?: (e: CellClickedEvent) => void;
+    /**
+     * onHeadingClicked event handler.
+     */
+    onHeadingClicked?: (e: HeadingClickedEvent) => void;
+    /**
+     * onRowClicked event handler.
+     */
+    onRowClicked?: (e: RowClickedEvent) => void;
 }
 /**
  * HeadingClicked is triggered when the user clicks on
@@ -143,12 +142,28 @@ export declare class RowClickedEvent {
     constructor(row: number);
 }
 /**
- * DefaultDelegate will handle table events if no Delegate is
- * specified.
- *
- * It passes it's events onto registered callbacks.
+ * CellClickedEvent triggered when a cell or its contents is clicked.
  */
-export declare class DefaultDelegate<C, R extends Record<C>> implements Delegate {
+export declare class CellClickedEvent {
+    name: string;
+    row: number;
+    constructor(name: string, row: number);
+}
+/**
+ * Range of table cells.
+ */
+export declare class Range {
+    elements: HTMLElement[];
+    constructor(elements: HTMLElement[]);
+    /**
+     * setContent of the cells in this Range.
+     */
+    setContent(content: Content[]): Range;
+}
+/**
+ * @private
+ */
+export declare class Delegate<C, R extends Record<C>> {
     table: DataTable<C, R>;
     constructor(table: DataTable<C, R>);
     onCellClicked(e: CellClickedEvent): void;
@@ -160,7 +175,7 @@ export declare class DefaultDelegate<C, R extends Record<C>> implements Delegate
  */
 export declare class DataTable<C, R extends Record<C>> extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
     view: views.Main<C, R>;
-    delegate: Delegate;
+    delegate: Delegate<C, R>;
     values: {
         table: {
             wml: {
@@ -182,7 +197,7 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
                 template: () => THead<C, R>;
                 th: {
                     className: string | undefined;
-                    content: (col: Column<C, R>) => Text;
+                    content: (col: Column<C, R>) => Content[];
                     onclick: (field: string) => () => void;
                 };
             };
@@ -201,57 +216,10 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
                 };
             };
         };
-        sort: {
-            key: string;
-            arrow: string;
-            original: R[];
-        };
         columns: Column<C, R>[];
     };
-    /**
-        sort(name: string): DataTable<C, R> {
-    
-          let columns = this.values.columns;
-  
-          let field = columns.reduce((p, c) =>
-            p ? p : (c.name === name ? c : null));
-  
-          let sortOn: string;
-  
-            let strategy: SortingStrategy;
-    
-            if (!field)
-                throw new Error(`Table#sort: unknown field '${name}'`);
-    
-            sortOn = field.sortAs || name;
-            strategy = field.strategy || stringSort;
-    
-            if (this.values.sortedOn === name) {
-    
-                this.values.data = this.values.data.reverse();
-                this.values.arrow = (this.values.arrow === ASC_ARROW) ? DESC_ARROW : ASC_ARROW;
-    
-            } else {
-    
-                this.values.arrow = DESC_ARROW;
-                this.values.data = this
-                    .originalData
-                    .slice()
-                    .sort((a, b) => strategy(<Comparable>get(sortOn, a), <Comparable>get(sortOn, b)));
-    
-            }
-    
-            this.values.sortedOn = name;
-            this.view.invalidate();
-            return this;
-    
-        }*/
     /**
      * setData updates the table with new dataset.
      */
     setData(data: R[]): DataTable<C, R>;
 }
-export declare const dateSort: (a: string, b: string) => 0 | 1 | -1;
-export declare const stringSort: (a: string, b: string) => 0 | 1 | -1;
-export declare const naturalSort: (a?: any, b?: any) => 0 | 1 | -1;
-export declare const numberSort: (a: any, b: any) => 0 | 1 | -1;

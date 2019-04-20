@@ -16,7 +16,7 @@
          class={{t.values.table.thead.th.className}}
          onclick={{t.values.table.thead.th.onclick(field.name)}}>
 
-            {{t.values.table.thead.th.content(field)}}
+            {{...t.values.table.thead.th.content(field)}}
 
         </th>
 
@@ -28,7 +28,7 @@
 
 {% endfun %}
 
-{% fun tbody[C,R:Record[C]] (t:DataTable[C,R]) (data:R[]) (columns:Column[C,R][]) %}
+{% fun tbody[C,R:Record[C]] (t:DataTable[C,R]) (columns:Column[C,R][]) (data:R[]) %}
 
   <tbody wml:id={{t.values.table.tbody.id}}>
 
@@ -72,7 +72,7 @@
     {{ ... <(@values.table.thead.template())(@)(@values.columns)> }}
         
     {{
-       ...<(@values.table.tbody.template())(@)(@values.table.data)(@values.columns)>
+       ...<(@values.table.tbody.template())(@)(@values.columns)(@values.table.data)>
     }}
 
 </TableLayout>

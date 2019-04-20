@@ -71,7 +71,7 @@ export const thead =
 
         __this.node('th', {html : { 'class' : t.values.table .thead .th .className  ,'onclick' : t.values.table .thead .th .onclick (field.name)  } ,wml : {  } }, [
 
-        t.values.table .thead .th .content (field)
+        ... (t.values.table .thead .th .content (field))
      ])
      ]), 
 ()=> ([]))
@@ -82,7 +82,7 @@ export const thead =
 };;
 export const tbody = 
 
-<C  ,R extends Record <C  >   > (t: DataTable <C  ,R  >   )=> (data: R  [] )=> (columns: Column <C  ,R  >  [] )=> (__this:__wml.Registry) : __wml.Content[] => {
+<C  ,R extends Record <C  >   > (t: DataTable <C  ,R  >   )=> (columns: Column <C  ,R  >  [] )=> (data: R  [] )=> (__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
@@ -118,7 +118,7 @@ export class Main <C  ,R extends Record <C  >   >  implements __wml.View {
            return __this.widget(TableLayout, {html : {  } ,wml : { 'id' : __context.values.table .wml .id   } ,ww : { 'id' : __context.values.table .id  ,'className' : __context.values.table .className  ,'alternate' : __context.values.table .alternate  ,'bordered' : __context.values.table .bordered  ,'compact' : __context.values.table .compact  ,'hoverable' : __context.values.table .hoverable   } }, [
 
         ... (__context.values.table .thead .template () (__context)(__context.values.columns )(__this)),
-... (__context.values.table .tbody .template () (__context)(__context.values.table .data )(__context.values.columns )(__this))
+... (__context.values.table .tbody .template () (__context)(__context.values.columns )(__context.values.table .data )(__this))
      ]);
 
        }

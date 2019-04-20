@@ -39,6 +39,10 @@ export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttr
      */
     readOnly?: boolean;
     /**
+     * block
+     */
+    block?: boolean;
+    /**
      * options to initialize the dropdown list with.
      * These options are displayed by default when
      * the input gains focused.
@@ -105,6 +109,7 @@ export declare class Select<V> extends AbstractFeedbackControl<V, SelectAttrs<V>
             name: string;
             className: string;
             placeholder: string;
+            block: boolean;
             readOnly: boolean | undefined;
             onFocus: () => void;
             onSearch: (e: TermChangedEvent) => void;

@@ -332,7 +332,11 @@ button.close {
   list-style: none;
   font-size: 14px;
   text-align: left;
-  background: #f1f1f1;
+  background-color: #f1f1f1;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
 }
 .ww-menu > li > a {
   display: block;
@@ -1784,6 +1788,13 @@ textarea.ww-droplist {
 .ww-select {
   margin-bottom: 2px;
 }
+.ww-select.-block {
+  display: block;
+  width: 100%;
+}
+.ww-select.-block + .ww-select.-block {
+  margin-top: 0.5em;
+}
 .ww-drop-down-menu {
   position: relative;
   display: inline-block;
@@ -1945,6 +1956,51 @@ textarea.ww-date > .ww-date__year {
 .ww-multi-select > .ww-select {
   margin-bottom: 0.5em;
 }
-.__SEARCH__[readonly] {
+.ww-search {
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
   background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.ww-search::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.ww-search[disabled],
+fieldset[disabled] .ww-search {
+  cursor: not-allowed;
+}
+textarea.ww-search {
+  height: auto;
+}
+.ww-search:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.ww-search.-error {
+  border-color: #d9534f;
+}
+.ww-search.-warning {
+  border-color: #f0ad4e;
+}
+.ww-search.-success {
+  border-color: #5cb85c;
+}
+.ww-search[readonly] {
+  background-color: #fff;
+}
+.ww-search.-block {
+  display: block;
+  width: 100%;
+}
+.ww-search.-block + .ww-search.-block {
+  margin-top: 0.5em;
 }
