@@ -321,5 +321,8 @@ export const DATE_YEAR = `${DATE}__year`;
 export const MULTI_SELECT = 'ww-multi-select';
 ///classNames:end
 ///classNames:begin
+export const SEARCH = 'ww-search';
+///classNames:end
+///classNames:begin
 export const CHECKBOX = 'ww-checkbox';
 ///classNames:end

@@ -60,6 +60,11 @@ export interface SelectAttrs<V>
      */
     readOnly?: boolean,
 
+      /**
+       * block 
+       */
+      block?: boolean,
+
     /**
      * options to initialize the dropdown list with.
      * These options are displayed by default when
@@ -179,6 +184,9 @@ export class Select<V>
 
             placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
                 this.attrs.ww.placeholder : '',
+
+          block: (this.attrs.ww && this.attrs.ww.block) ?
+          this.attrs.ww.block : false,
 
             readOnly: (this.attrs.ww && this.attrs.ww.readOnly),
 

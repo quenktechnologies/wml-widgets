@@ -1,7 +1,27 @@
+@import "../../less/control";
 @import "./variables";
 
-.__SEARCH__[readonly] {
+.__SEARCH__ {
+  
+  .control();
 
-  background-color: @search-background;
+  &[readonly] {
+
+    background-color: @search-read-only-background;
+
+  }
+
+  &.__BLOCK__ {
+
+    display: block;
+    width: 100%;
+
+    & + & {
+
+      margin-top: @search-sibling-margin-top;
+
+    }
+
+ }
 
 }
