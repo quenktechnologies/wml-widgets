@@ -249,6 +249,12 @@ export const STACK_CLOSE_BUTTON = 'ww-stack__button';
 export const TEXT_INPUT = 'ww-text-input';
 ///classNames:end
 ///classNames:begin
+export const DATE_FIELD = 'ww-date-field';
+export const DATE_FIELD_DAY = `${DATE_FIELD}__day`;
+export const DATE_FIELD_MONTH = `${DATE_FIELD}__month`;
+export const DATE_FIELD_YEAR = `${DATE_FIELD}__year`;
+///classNames:end
+///classNames:begin
 export const TOOLBAR = 'ww-toolbar';
 export const TOOLBAR_COMPAT = '-toolbar-compat';
 ///classNames:end
