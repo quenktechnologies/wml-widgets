@@ -16,14 +16,6 @@ export interface FormControlAttrs<V> extends FeedbackControlAttrs<V> {
  * FormControl generates events based on user input.
  */
 export interface FormControl<V, A extends FormControlAttrs<V>> extends FeedbackControl<V, A> {
-    /**
-     * get provides the current value of a FormControlear;make
-     */
-    get(): V;
-    /**
-     * set the current value of a FormControl.
-     */
-    set(value: V): FormControl<V, A>;
 }
 /**
  * AbstractFormControl provides a base implementation of a

@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var views = require("./wml/date");
-var DatePage = /** @class */ (function () {
-    function DatePage() {
+var views = require("./wml/date-field");
+var DateFieldPage = /** @class */ (function () {
+    function DateFieldPage() {
         var _this = this;
         this.view = new views.Main(this);
         this.onChange = function (_a) {
@@ -17,8 +17,8 @@ var DatePage = /** @class */ (function () {
             });
         };
     }
-    return DatePage;
+    return DateFieldPage;
 }());
-exports.DatePage = DatePage;
-exports.default = new DatePage();
+exports.DateFieldPage = DateFieldPage;
+exports.default = new DateFieldPage();
 //# sourceMappingURL=index.js.map

@@ -1,8 +1,8 @@
 import * as wml from '@quenk/wml';
-import * as views from './wml/date'
-import { DateChangedEvent } from '../../../../../lib/control/date';
+import * as views from './wml/date-field'
+import { DateChangedEvent } from '../../../../../lib/control/date-field';
 
-export class DatePage {
+export class DateFieldPage {
 
     view: wml.View = new views.Main(this);
 
@@ -27,4 +27,4 @@ export class DatePage {
 
 }
 
-export default new DatePage();
+export default new DateFieldPage();

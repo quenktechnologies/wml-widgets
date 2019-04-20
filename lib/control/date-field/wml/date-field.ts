@@ -1,8 +1,9 @@
 import * as __wml from '@quenk/wml';
 
-import {Demo} from '../../../widgets/demo'; ;
-import {Date} from '../../../../../../lib/control/date'; ;
-import {DatePage} from '../'; 
+import {Label} from '../../label'; ;
+import {Help} from '../../help'; ;
+import {text} from '../../../'; ;
+import {DateField} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -58,27 +59,39 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export class Main  implements __wml.View {
 
-   constructor(__context: DatePage  ) {
+   constructor(__context: DateField  ) {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : {  } }, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        ...(__if((__context.values.label .text  !== null),
+   ()=> ([
 
-        document.createTextNode(`The date is : `),
-__this.node('b', {html : {  } ,wml : { 'id' : `selected`  } }, [
-
-        document.createTextNode(`(None selected)`)
-     ]),
-document.createTextNode(`.`)
-     ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
-
-        __this.widget(Date, {html : {  } ,wml : { 'id' : `date`  } ,ww : { 'name' : `date` ,'onChange' : __context.onChange  } }, [
+        __this.widget(Label, {html : {  } ,wml : {  } ,ww : { 'for' : __context.values.control .id  ,'text' : __context.values.label .text   } }, [
 
         
      ])
+     ]),
+   ()=> ([
+
+        text (``)
+     ]))) ,
+__this.node('input', {html : { 'name' : __context.values.day .wml .id  ,'oninput' : __context.values.day .oninput  ,'onkeyup' : __context.values.day .onkeyup  ,'type' : `number` ,'value' : __context.values.day .value  ,'disabled' : __context.values.day .disabled  ,'class' : __context.values.day .className  ,'min' : `1` ,'max' : `31` ,'size' : `2` ,'placeholder' : `DD`  } ,wml : { 'id' : __context.values.day .wml .id   } }, [
+
+        
+     ]),
+__this.node('input', {html : { 'name' : __context.values.month .wml .id  ,'class' : __context.values.month .className  ,'oninput' : __context.values.month .oninput  ,'onkeyup' : __context.values.month .onkeyup  ,'type' : `number` ,'disabled' : __context.values.month .disabled  ,'value' : __context.values.month .value  ,'min' : `1` ,'max' : `12` ,'size' : `2` ,'placeholder' : `MM`  } ,wml : { 'id' : __context.values.month .wml .id   } }, [
+
+        
+     ]),
+__this.node('input', {html : { 'name' : __context.values.year .wml .id  ,'type' : `number` ,'oninput' : __context.values.year .oninput  ,'onkeyup' : __context.values.year .onkeyup  ,'value' : __context.values.year .value  ,'disabled' : __context.values.year .disabled  ,'class' : __context.values.year .className  ,'placeholder' : `YYYY` ,'min' : `0000` ,'max' : `9999` ,'size' : `4`  } ,wml : { 'id' : __context.values.year .wml .id   } }, [
+
+        
+     ]),
+__this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml .id   } ,ww : { 'text' : __context.values.messages .text   } }, [
+
+        
      ])
      ]);
 

@@ -3,7 +3,7 @@ export const pages:{[key:string]:any} = {
 'control_button-group' : require('./page/control_button-group').default,
 'control_button-select' : require('./page/control_button-select').default,
 'control_checkbox' : require('./page/control_checkbox').default,
-'control_date' : require('./page/control_date').default,
+'control_date-field' : require('./page/control_date-field').default,
 'control_drop-down' : require('./page/control_drop-down').default,
 'control_droplist' : require('./page/control_droplist').default,
 'control_multi-select' : require('./page/control_multi-select').default,
