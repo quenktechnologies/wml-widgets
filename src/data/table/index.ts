@@ -70,9 +70,9 @@ export interface Column<C, R extends Record<C>> {
     className?: string;
 
     /**
-     * apply a function to the column value before displaying.
+     * format can be specified to transform a cell value to a string for display.
      */
-    apply?: (c: C) => C,
+    format?: (c: C) => string,
 
     /**
      *
@@ -377,14 +377,16 @@ export class DataTable<C, R extends Record<C>>
 
                         } else {
 
-                            let value = c.apply ?
-                                c.apply(maybeValue.get()) : maybeValue.get();
+                          let value = maybeValue.get();
 
                             if (c.cellFragment) {
 
                                 return c.cellFragment(value)(c.name)(r)(this.view);
 
                             } else {
+
+                              if(c.format)
+                                return [text(c.format(value))];
 
                                 return [text('' + value)];
 
