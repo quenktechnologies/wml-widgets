@@ -1,0 +1,16 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (PropertyList) from "../../../../../../lib/data/property-list" %}
+
+{% import (PropertyListPage) from "../" %}
+
+{% view Main (PropertyListPage) %}
+ 
+<Demo>
+
+  <Demo>
+
+    <PropertyList ww:fields={{@fields}} ww:data={{@data}} />
+
+  </Demo>
+
+</Demo>

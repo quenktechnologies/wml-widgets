@@ -2,6 +2,9 @@
 export const DATA_TABLE = 'ww-data-table';
 ///classNames:end
 ///classNames:begin
+export const PROPERTY_LIST = 'ww-property-list';
+///classNames:end
+///classNames:begin
 export const EXTRA_SMALL = '-extra-small';
 export const SMALL = '-small';
 export const MEDIUM = '-medium';
