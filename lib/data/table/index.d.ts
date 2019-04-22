@@ -41,9 +41,9 @@ export interface Column<C, R extends Record<C>> {
      */
     className?: string;
     /**
-     * apply a function to the column value before displaying.
+     * format can be specified to transform a cell value to a string for display.
      */
-    apply?: (c: C) => C;
+    format?: (c: C) => string;
     /**
      *
      * headingFragment can be specified to customise the rending

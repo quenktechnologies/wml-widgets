@@ -1,4 +1,5 @@
 export declare const DATA_TABLE = "ww-data-table";
+export declare const PROPERTY_LIST = "ww-property-list";
 export declare const EXTRA_SMALL = "-extra-small";
 export declare const SMALL = "-small";
 export declare const MEDIUM = "-medium";
