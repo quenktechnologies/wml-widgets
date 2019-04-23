@@ -1,0 +1,29 @@
+@import "./variables";
+
+.__BREADCRUMB__ {
+
+  padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+  margin: @breadcrumb-margin-vertical @breadcrumb-margin-horizontal;
+  list-style: none;
+  background-color: @breadcrumb-background-color;
+  border-radius: @breadcrumb-border-radius;
+
+  > li {
+
+    display: inline-block;
+
+    + li:before {
+      content: "@{breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
+      padding: 0 5px;
+      color: @breadcrumb-color;
+
+    }
+  }
+
+  > .__ACTIVE__ {
+
+    color: @breadcrumb-active-color;
+
+  }
+
+}

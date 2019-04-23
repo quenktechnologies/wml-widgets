@@ -1,0 +1,11 @@
+@import "./variables";
+
+.screen-not-small(@rules) {
+
+  @media screen and (min-width: @screen-medium) {
+
+    @rules();
+
+  }
+
+}

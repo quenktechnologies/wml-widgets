@@ -1,0 +1,65 @@
+@import "../../less/control";
+@import "./variables";
+
+.__DATE_FIELD__ {
+
+  & > .__DATE_FIELD_DAY__ {
+
+   .control();
+    margin-right: .5em;
+
+  }
+
+  & > .__DATE_FIELD_MONTH__ {
+
+   .control();
+    margin-right: .5em;
+
+  }
+
+  & > .__DATE_FIELD_YEAR__ {
+
+    .control();
+
+  }
+
+  &.__ERROR__ {
+    
+    & > .__DATE_FIELD_DAY__, 
+    & > .__DATE_FIELD_MONTH__,
+    & > .__DATE_FIELD_YEAR__ {
+ 
+      border-color: @date-field-error-color;
+      color: @date-field-error-color;
+
+    }
+
+  }
+
+  &.__WARNING__ {
+
+    & > .__DATE_FIELD_DAY__, 
+    & > .__DATE_FIELD_MONTH__,
+    & > .__DATE_FIELD_YEAR__ {
+ 
+      border-color: @date-field-warning-color;
+      color: @date-field-warning-color;
+
+    }
+
+  }
+
+  &.__SUCCESS__ {
+    
+    & > .__DATE_FIELD_DAY__, 
+    & > .__DATE_FIELD_MONTH__,
+    & > .__DATE_FIELD_YEAR__ {
+ 
+      border-color: @date-field-success-color;
+      color: @date-field-success-color;
+
+    }
+
+  }
+
+}

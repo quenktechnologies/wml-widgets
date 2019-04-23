@@ -1,0 +1,20 @@
+@import "./variables";
+
+.__SELECT__ {
+
+  margin-bottom: @select-margin-bottom; 
+  
+  &.__BLOCK__ {
+
+    display: block;
+    width: 100%;
+
+    & + & {
+
+      margin-top: @select-sibling-margin-top;
+
+    }
+
+ }
+
+}

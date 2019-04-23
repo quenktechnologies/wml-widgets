@@ -11,7 +11,7 @@ FIND?=find
 # Entry point for the less compiler.
 LESS_INCLUDE_PATHS=node_modules
 
-./ : dist lib test
+./ : lib dist less test
 	touch $@
 
 lib:  $(shell $(FIND) src -name \*.ts -o -name \*.wml) src/classNames.ts
@@ -43,6 +43,13 @@ widgets.less: $(shell $(FIND) src -name \*.less)
 	echo "" > $@
 	$(foreach f,$^,\
 	echo '@import "./$(f)";' >> $@ && ) true
+
+less: $(shell $(FIND) ./src -name \*.less)
+	mkdir -p $@
+	@$(foreach f,$?, cp -u --parents $(f) $@ && ) true
+	mv $@/src lesssrc
+	rm -R $@
+	mv lesssrc $@
 
 test: test/browser
 	touch $@

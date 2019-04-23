@@ -1,0 +1,30 @@
+@import "./variables";
+
+/**
+  Toolbar styling.
+
+  Intended for styling button groups and other things that may want to
+  be in a Toolbar.
+  
+  In order to benifit from the below styling, those controls must 
+  have the __TOOLBAR_COMPAT__ class in their classlist.
+*/
+.__TOOLBAR__ {
+
+  margin-left: @toolbar-margin-left;
+
+  &:extend(.__CLEARFIX__ all);
+
+  & > .__TOOLBAR_COMPAT__ {
+
+    float: @toolbar-compat-float;
+
+  }
+
+  & > .__TOOLBAR_COMPAT__ {
+
+    margin-left: @toolbar-compat-left-margin;
+
+  }
+
+}
