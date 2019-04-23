@@ -1,4 +1,7 @@
 {% import (Close) from ".." %}
 
 {% view Main (Close) %}
-<span id={{@values.root.id}} class={{@values.root.className}}/>
+<span
+  id={{@values.id}} 
+  class={{@values.className}}
+  onclick={{@values.onClick}}>×</span>

@@ -1,5 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var alert_1 = require("../../../../../../lib/dialog/alert");
+;
+var demo_1 = require("../../../widgets/demo");
+;
 //@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
@@ -28,8 +32,21 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.node('span', { html: { 'id': __context.values.id, 'class': __context.values.className, 'onclick': __context.values.onClick }, wml: {} }, [
-                document.createTextNode("\u00D7")
+            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.node('h1', { html: {}, wml: {} }, [
+                        document.createTextNode("Alerts")
+                    ]),
+                    __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('h2', { html: {}, wml: {} }, [
+                            document.createTextNode("Styles")
+                        ])
+                    ].concat(__forIn(__context.values.styles, function (v, _$$i, _$$all) {
+                        return ([
+                            __this.widget(alert_1.Alert, { html: {}, wml: {}, ww: { 'style': v, 'closable': true, 'text': __context.values.capitalize(v) } }, [])
+                        ]);
+                    }, function () { return ([]); })))
+                ])
             ]);
         };
     }
@@ -118,4 +135,4 @@ var Main = /** @class */ (function () {
     return Main;
 }());
 exports.Main = Main;
-//# sourceMappingURL=close.js.map
+//# sourceMappingURL=alert.js.map

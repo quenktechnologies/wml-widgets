@@ -5,6 +5,10 @@ export declare const CLOSE = "ww-close";
  * CloseAttrs
  */
 export interface CloseAttrs extends HTMLElementAttrs {
+    /**
+     * onClick handler
+     */
+    onClick: () => void;
 }
 /**
  * Close
@@ -12,9 +16,8 @@ export interface CloseAttrs extends HTMLElementAttrs {
 export declare class Close extends Component<WidgetAttrs<CloseAttrs>> {
     view: View;
     values: {
-        root: {
-            id: string;
-            className: string;
-        };
+        id: string;
+        className: string;
+        onClick: () => void;
     };
 }

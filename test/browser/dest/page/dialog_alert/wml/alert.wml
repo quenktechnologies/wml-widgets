@@ -1,0 +1,29 @@
+{% import (Alert) from "../../../../../../lib/dialog/alert" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (AlertPage) from "../" %}
+
+{% view Main (AlertPage) %}
+<Demo>
+
+  <Demo>
+
+      <h1>Alerts</h2>
+
+      <p>
+
+        <h2>Styles</h2>
+
+        {% for v in @values.styles %}
+
+          <Alert 
+            ww:style={{v}}
+            ww:closable=true
+            ww:text={{v|@values.capitalize}} />
+
+        {% endfor %}
+
+      </p>
+
+   </Demo>
+
+</Demo>

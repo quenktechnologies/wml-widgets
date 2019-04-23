@@ -159,6 +159,7 @@ export declare const ACTION_BAR = "ww-action-bar";
  */
 export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
 export declare const LAYOUT = "-layout";
+export declare const ALERT = "ww-alert";
 export declare const BUTTON = "ww-button";
 export declare const STACK = "ww-stack";
 export declare const STACK_ELEMENT = "ww-stack__element";

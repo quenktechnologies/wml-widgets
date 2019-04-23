@@ -1,6 +1,8 @@
 import * as __wml from '@quenk/wml';
 
-import {Close} from '..'; 
+import {Alert} from '../../../../../../lib/dialog/alert'; ;
+import {Demo} from '../../../widgets/demo'; ;
+import {AlertPage} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -56,13 +58,35 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export class Main  implements __wml.View {
 
-   constructor(__context: Close  ) {
+   constructor(__context: AlertPage  ) {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('span', {html : { 'id' : __context.values.id  ,'class' : __context.values.className  ,'onclick' : __context.values.onClick   } ,wml : {  } }, [
+           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        document.createTextNode(`×`)
+        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.node('h1', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`Alerts`)
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        __this.node('h2', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`Styles`)
+     ]),
+...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
+([
+
+        __this.widget(Alert, {html : {  } ,wml : {  } ,ww : { 'style' : v ,'closable' : true  ,'text' : __context.values.capitalize  (v)  } }, [
+
+        
+     ])
+     ]), 
+()=> ([]))
+     ])
+     ])
      ]);
 
        }

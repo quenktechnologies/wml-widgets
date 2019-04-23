@@ -15,6 +15,7 @@ export const pages:{[key:string]:any} = {
 'control_text-input' : require('./page/control_text-input').default,
 'data_property-list' : require('./page/data_property-list').default,
 'data_table' : require('./page/data_table').default,
+'dialog_alert' : require('./page/dialog_alert').default,
 'layout_description-list' : require('./page/layout_description-list').default,
 'layout_grid' : require('./page/layout_grid').default,
 'layout_horizontal' : require('./page/layout_horizontal').default,

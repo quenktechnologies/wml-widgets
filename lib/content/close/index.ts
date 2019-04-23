@@ -10,7 +10,14 @@ export const CLOSE = 'ww-close';
 /**
  * CloseAttrs
  */
-export interface CloseAttrs extends HTMLElementAttrs { }
+export interface CloseAttrs extends HTMLElementAttrs {
+
+  /**
+   * onClick handler
+   */
+  onClick: ()=> void
+
+}
 
 /**
  * Close
@@ -21,15 +28,14 @@ export class Close extends Component<WidgetAttrs<CloseAttrs>> {
 
     values = {
 
-        root: {
-
             id: (this.attrs.ww && this.attrs.ww.id) ?
                 this.attrs.ww.id : '',
 
             className: concat(CLOSE, (this.attrs.ww && this.attrs.ww.className) ?
-                this.attrs.ww.className : '')
+              this.attrs.ww.className : ''),
 
-        }
+      onClick:(this.attrs.ww && this.attrs.ww.onClick) ?
+      this.attrs.ww.onClick : ()=>{}
 
     }
 

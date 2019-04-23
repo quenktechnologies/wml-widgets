@@ -132,7 +132,7 @@
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
-.close {
+.ww-close {
   float: right;
   font-size: 21px;
   font-weight: bold;
@@ -141,14 +141,14 @@
   text-shadow: 0 1px 0 #fff;
   opacity: 0.2;
 }
-.close:hover,
-.close:focus {
+.ww-close:hover,
+.ww-close:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.5;
 }
-button.close {
+button.ww-close {
   padding: 0;
   cursor: pointer;
   background: transparent;
@@ -921,6 +921,54 @@ button.close {
 }
 .ww-action-bar :empty {
   padding: 0;
+}
+.ww-alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.ww-alert > p,
+.ww-alert > ul {
+  margin-bottom: 0;
+}
+.ww-alert > p + p {
+  margin-top: 5px;
+}
+.ww-alert .ww-close {
+  position: relative;
+  top: -2px;
+  color: inherit;
+}
+.ww-alert.-default {
+  background-color: #fff;
+  border-color: #ccc;
+  color: inherit;
+}
+.ww-alert.-primary {
+  background-color: #337ab7;
+  border-color: #2d6da3;
+  color: #fff;
+}
+.ww-alert.-success {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  color: #fff;
+}
+.ww-alert.-info {
+  background-color: #5bc0de;
+  border-color: #46b8da;
+  color: #fff;
+}
+.ww-alert.-warning {
+  background-color: #f0ad4e;
+  border-color: #eea236;
+  color: #fff;
+}
+.ww-alert.-error {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+  color: #fff;
 }
 /*
   Button styling.

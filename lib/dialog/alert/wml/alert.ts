@@ -1,6 +1,8 @@
 import * as __wml from '@quenk/wml';
 
-import {Close} from '..'; 
+import {Close} from '../../../content/close'; ;
+import {text} from '../../../'; ;
+import {Alert} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -56,13 +58,25 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export class Main  implements __wml.View {
 
-   constructor(__context: Close  ) {
+   constructor(__context: Alert  ) {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('span', {html : { 'id' : __context.values.id  ,'class' : __context.values.className  ,'onclick' : __context.values.onClick   } ,wml : {  } }, [
+           return __this.node('div', {html : { 'id' : __context.values.id  ,'class' : __context.values.className   } ,wml : { 'id' : __context.values.wml .id   } }, [
 
-        document.createTextNode(`×`)
+        ... (__context.values.content ),
+...(__if(__context.values.closable ,
+   ()=> ([
+
+        __this.widget(Close, {html : {  } ,wml : {  } ,ww : { 'onClick' : () => __context.close()  } }, [
+
+        
+     ])
+     ]),
+   ()=> ([
+
+        text (``)
+     ]))) 
      ]);
 
        }
