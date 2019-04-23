@@ -107,6 +107,7 @@ export declare const MENU_HEADER_ITEM = "ww-menu__header-item";
  * MENU_HEADER
  */
 export declare const MENU_HEADER = "ww-menu-header";
+export declare const CALLOUT = "ww-callout";
 export declare const DESCRIPTION_LIST = "ww-description-list";
 export declare const DESCRIPTION_LIST_TITLE = "ww-description-list__title";
 export declare const DESCRIPTION_LIST_DATA = "ww-description-list__data";
@@ -150,6 +151,8 @@ export declare const PANEL_FOOTER = "ww-panel__footer";
 export declare const MAIN_LAYOUT = "ww-main-layout";
 export declare const LIST_LAYOUT = "ww-list-layout";
 export declare const LIST_LAYOUT_ITEM = "ww-list-layout__item";
+export declare const METER = "ww-meter";
+export declare const METER_BAR = "ww-meter__bar";
 /**
  * ACTION_BAR class name. for the ActionBar root.
  */

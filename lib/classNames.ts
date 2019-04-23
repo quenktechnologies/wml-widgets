@@ -158,6 +158,9 @@ export const MENU_HEADER_ITEM = 'ww-menu__header-item';
 export const MENU_HEADER = 'ww-menu-header';
 ///classNames:end
 ///classNames:begin
+export const CALLOUT = 'ww-callout';
+///classNames:end
+///classNames:begin
 export const DESCRIPTION_LIST = 'ww-description-list';
 export const DESCRIPTION_LIST_TITLE = 'ww-description-list__title';
 export const DESCRIPTION_LIST_DATA = 'ww-description-list__data';
@@ -222,6 +225,10 @@ export const MAIN_LAYOUT = 'ww-main-layout';
 ///classNames:begin
 export const LIST_LAYOUT = 'ww-list-layout';
 export const LIST_LAYOUT_ITEM = 'ww-list-layout__item';
+///classNames:end
+///classNames:begin
+export const METER = 'ww-meter';
+export const METER_BAR = 'ww-meter__bar';
 ///classNames:end
 ///classNames:begin
 
