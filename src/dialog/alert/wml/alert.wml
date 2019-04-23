@@ -1,0 +1,23 @@
+{% import (Close) from "../../../content/close" %}
+{% import (text) from "../../../" %}
+{% import (Alert) from "../" %}
+
+{% view Main (Alert) %}
+<div 
+  wml:id={{@values.wml.id}}
+  id={{@values.id}}
+  class={{@values.className}}>
+
+  {{...@values.content}}
+
+  {% if @values.closable %}
+
+    <Close ww:onClick={{\->@close()}} />
+
+  {% else %}
+
+    {{ '' | text }}
+
+  {% endif %}
+  
+</div>

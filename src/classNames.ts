@@ -240,6 +240,9 @@ export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 export const LAYOUT = '-layout';
 ///classNames:end
 ///classNames:begin
+export const ALERT = 'ww-alert';
+///classNames:end
+///classNames:begin
 export const BUTTON = 'ww-button';
 ///classNames:end
 ///classNames:begin
