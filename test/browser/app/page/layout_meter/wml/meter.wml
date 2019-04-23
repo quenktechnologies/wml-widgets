@@ -1,0 +1,46 @@
+{% import (Meter,MeterBar) from "../../../../../../lib/layout/meter" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (MeterPage) from "../" %}
+
+{% view Main (MeterPage) %}
+<Demo>
+
+  <h1>Meter</h2>
+
+  <Demo>
+
+    <h2>Single</h2>
+
+    <p>
+    
+      <button onclick={{@values.dec}}>-</button>
+
+      <button onclick={{@values.inc}}>+</button>
+      
+    </p>
+
+    <Meter><MeterBar wml:id="single" ww:value=75 ww:color="yellow"/></Meter>
+
+  </Demo>
+
+  <Demo>
+
+      <p>
+
+        <h2>Combined</h2>
+
+        <Meter>
+          
+          {% for v in @values.bars %}
+
+            <MeterBar ww:value={{v.value}} ww:color={{v.color}}/>
+
+          {% endfor %}
+
+        </Meter>
+
+      </p>
+
+   </Demo>
+
+</Demo>

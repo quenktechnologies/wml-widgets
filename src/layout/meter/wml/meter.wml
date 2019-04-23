@@ -1,0 +1,7 @@
+{% import * as m from "../" %}
+
+{% view Meter (m.Meter) %}
+<div id={{@values.id}} class={{@values.className}}>{{...@children}}</div>
+
+{% view MeterBar (m.MeterBar) %}
+<div id={{@values.id}} class={{@values.className}} style={{@values.style()}} />

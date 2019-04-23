@@ -227,6 +227,10 @@ export const LIST_LAYOUT = 'ww-list-layout';
 export const LIST_LAYOUT_ITEM = 'ww-list-layout__item';
 ///classNames:end
 ///classNames:begin
+export const METER = 'ww-meter';
+export const METER_BAR = 'ww-meter__bar';
+///classNames:end
+///classNames:begin
 
 /**
  * ACTION_BAR class name. for the ActionBar root.
