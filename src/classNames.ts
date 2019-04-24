@@ -5,6 +5,11 @@ export const DATA_TABLE = 'ww-data-table';
 export const PROPERTY_LIST = 'ww-property-list';
 ///classNames:end
 ///classNames:begin
+export const MEDIA_DESCRIPTION = 'ww-media-description';
+export const MEDIA_DESCRIPTION_MEDIA = 'ww-media-description__media';
+export const MEDIA_DESCRIPTION_DESCRIPTION = 'ww-media-description__description';
+///classNames:end
+///classNames:begin
 export const EXTRA_SMALL = '-extra-small';
 export const SMALL = '-small';
 export const MEDIUM = '-medium';
@@ -58,6 +63,10 @@ export const RIGHT = '-right';
  * HORIZONTAL indicates a horizontal alignment.
  */
 export const HORIZONTAL = '-horizontal';
+
+export const MIDDLE = '-middle';
+
+export const BOTTOM = '-bottom';
 ///classNames:end
 ///classNames:begin
 /**

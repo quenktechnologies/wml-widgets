@@ -45,4 +45,8 @@ export const RIGHT = '-right';
  * HORIZONTAL indicates a horizontal alignment.
  */
 export const HORIZONTAL = '-horizontal';
+
+export const MIDDLE = '-middle';
+
+export const BOTTOM = '-bottom';
 ///classNames:end
