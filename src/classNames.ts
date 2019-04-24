@@ -5,6 +5,10 @@ export const DATA_TABLE = 'ww-data-table';
 export const PROPERTY_LIST = 'ww-property-list';
 ///classNames:end
 ///classNames:begin
+export const THUMBNAIL = 'ww-thumbnail';
+export const THUMBNAIL_CAPTION = 'ww-thumbnail__caption';
+///classNames:end
+///classNames:begin
 export const MEDIA_DESCRIPTION = 'ww-media-description';
 export const MEDIA_DESCRIPTION_MEDIA = 'ww-media-description__media';
 export const MEDIA_DESCRIPTION_DESCRIPTION = 'ww-media-description__description';
