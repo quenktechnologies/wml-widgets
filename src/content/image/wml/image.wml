@@ -1,0 +1,8 @@
+{% import (Image) from "../" %}
+
+{% view Main (Image) %}
+<img
+ id={{@values.id}} 
+ class={{@values.className}}
+ src={{@values.src}}
+ alt={{@values.alt}} />
