@@ -1,0 +1,125 @@
+{% import (Thumbnail,Caption) from "../../../../../../lib/content/thumbnail" %}
+{% import (GridLayout, Row, Column) from "../../../../../../lib/layout/grid" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (ThumbnailPage) from "../" %}
+
+{% view Main (ThumbnailPage) %}
+<Demo>
+
+  <h1>Thumbnail</h2>
+
+  <GridLayout>
+
+    <Row>
+
+      <Column ww:span=4>
+
+        <Thumbnail>
+
+          <img 
+            alt="placeholder"
+            src="https://via.placeholder.com/171x180" 
+            style="width:100%;height:100%;display:block"/>
+
+        </Thumbnail>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Thumbnail ww:onClick={{@values.onClick}}>
+
+           <img 
+            alt="placeholder"
+            src="https://via.placeholder.com/171x180" 
+            style="width:100%;height:100%;display:block"/>
+
+        </Thumbnail>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Thumbnail ww:href="#">
+
+           <img 
+            alt="placeholder"
+            src="https://via.placeholder.com/171x180" 
+            style="width:100%;height:100%;display:block"/>
+
+        </Thumbnail>
+
+      </Column>
+
+    </Row>
+
+    <Row>
+
+      <Column ww:span=4>
+
+        <Thumbnail>
+
+           <img 
+            alt="placeholder"
+            src="https://via.placeholder.com/171x180" 
+            style="width:100%;height:100%;display:block"/>
+
+          <Caption> 
+        
+            <h4>Caption</h4> 
+        
+            <p>Describes the thumbnail in minor detail.</p>
+
+          </Caption>
+
+        </Thumbnail>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Thumbnail ww:onClick={{@values.onClick}}>
+
+           <img 
+            alt="placeholder"
+            src="https://via.placeholder.com/171x180" 
+            style="width:100%;height:100%;display:block"/>
+
+          <Caption> 
+        
+            <h4>Caption</h4> 
+        
+            <p>Describes the thumbnail in minor detail.</p>
+
+          </Caption>
+
+        </Thumbnail>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Thumbnail ww:href="#">
+
+           <img 
+            alt="placeholder"
+            src="https://via.placeholder.com/171x180" 
+            style="width:100%;height:100%;display:block"/>
+
+          <Caption> 
+        
+            <h4>Caption</h4> 
+        
+            <p>Describes the thumbnail in minor detail.</p>
+
+          </Caption>
+
+        </Thumbnail>
+
+      </Column>
+
+    </Row>
+
+  </GridLayout>
+
+</Demo>

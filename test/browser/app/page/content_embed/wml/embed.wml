@@ -1,0 +1,49 @@
+{% import (GridLayout,Row,Column) from "../../../../../../lib/layout/grid" %}
+{% import (Embed) from "../../../../../../lib/content/embed" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (EmbedPage) from "../" %}
+
+{% view Main (EmbedPage) %}
+<Demo>
+
+  <h1>Embed</h2>
+
+  <GridLayout>
+
+    <Row>
+
+      <Column ww:span=4>
+
+        <Embed ww:className="-aspect-ratio-16x9">
+
+          <iframe src={{@values.jojo}} allow={{@values.allow}}/>
+
+        </Embed>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Embed ww:className="-aspect-ratio-4x3">
+
+          <iframe src={{@values.win}} allow={{@values.allow}}/>
+
+        </Embed>
+
+      </Column>
+
+      <Column ww:span=4>
+
+        <Embed ww:className="-aspect-ratio-16x9">
+
+          <iframe src={{@values.max}} allow={{@values.allow}}/>
+
+        </Embed>
+
+      </Column>
+
+    </Row>
+
+  </GridLayout>
+
+</Demo>

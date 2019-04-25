@@ -1,0 +1,12 @@
+{% import (Tag) from "../" %}
+
+{% view Main (Tag) %}
+<span 
+  wml:id={{@values.wml.id}}
+  id={{@values.id}}
+  class={{@values.className}}
+  onclick={{@values.onclick}}>
+
+  {{...@values.content}}
+  
+</span>

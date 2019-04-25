@@ -9,6 +9,12 @@ export const THUMBNAIL = 'ww-thumbnail';
 export const THUMBNAIL_CAPTION = 'ww-thumbnail__caption';
 ///classNames:end
 ///classNames:begin
+export const EMBED = 'ww-embed';
+///classNames:end
+///classNames:begin
+export const IMAGE = 'ww-image';
+///classNames:end
+///classNames:begin
 export const MEDIA_DESCRIPTION = 'ww-media-description';
 export const MEDIA_DESCRIPTION_MEDIA = 'ww-media-description__media';
 export const MEDIA_DESCRIPTION_DESCRIPTION = 'ww-media-description__description';
@@ -142,6 +148,13 @@ export const CLOSE = 'ww-close';
 ///classNames:begin
 export const MENU_ICON = 'ww-menu-icon';
 export const MENU_ICON_DASH = 'ww-menu-icon__dash';
+///classNames:end
+///classNames:begin
+export const ASPECT_RATIO_16_X_9 = '-aspect-ratio-16x9';
+export const ASPECT_RATIO_4_X_3 = '-aspect-ratio-4x3';
+///classNames:end
+///classNames:begin
+export const TAG = 'ww-tag';
 ///classNames:end
 ///classNames:begin
 export const DRAWER = 'ww-drawer';

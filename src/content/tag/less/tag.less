@@ -1,0 +1,92 @@
+@import "./variables";
+
+.__TAG__ {
+
+  display: inline;
+  padding: @tag-padding-vertical @tag-padding-horizontal;
+  font-size: @tag-font-size;
+  font-weight: @tag-font-weight;
+  line-height: @tag-line-height;
+  color: @tag-color;
+  text-align: @tag-text-align;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: @tag-border-radius;
+
+  & + & {
+
+    margin-left: @tag-sibling-margin-left;
+
+  }
+
+  a& {
+
+    &:hover, &:focus {
+
+      color: @tag-link-hover-color;
+      text-decoration: none;
+      cursor: pointer;
+
+    }
+
+  }
+
+  &:empty {
+
+    display: none;
+
+  }
+
+  &.__DEFAULT__ {
+
+    .tagVariant(@tag-default-background-color);
+
+  }
+
+  &.__PRIMARY__ {
+
+    .tagVariant(@tag-primary-background-color);
+
+  }
+
+  &.__SUCCESS__ {
+
+    .tagVariant(@tag-success-background-color);
+
+  }
+
+  &.__INFO__ {
+
+    .tagVariant(@tag-info-background-color);
+
+  }
+
+  &.__WARNING__ {
+
+    .tagVariant(@tag-warning-background-color);
+
+  }
+
+  &.__ERROR__ {
+
+    .tagVariant(@tag-error-background-color);
+
+  }
+
+}
+
+.tagVariant(@color) {
+
+  background-color: @color;
+
+  &[href] {
+             
+    &:hover, &:focus {
+
+      background-color: darken(@color, 10%);
+                              
+    }
+                                
+  }
+                              
+}
