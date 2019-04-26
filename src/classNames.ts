@@ -146,6 +146,9 @@ export const LINK = 'ww-link';
 export const CLOSE = 'ww-close';
 ///classNames:end
 ///classNames:begin
+export const OVERLAY = 'ww-overlay';
+///classNames:end
+///classNames:begin
 export const MENU_ICON = 'ww-menu-icon';
 export const MENU_ICON_DASH = 'ww-menu-icon__dash';
 ///classNames:end
@@ -274,6 +277,14 @@ export const LAYOUT = '-layout';
 ///classNames:end
 ///classNames:begin
 export const ALERT = 'ww-alert';
+///classNames:end
+///classNames:begin
+export const MODAL = 'ww-modal';
+export const MODAL_POSITION = 'ww-modal__position';
+export const MODAL_CONTENT = 'ww-modal__content';
+export const MODAL_HEADER = 'ww-modal__header';
+export const MODAL_BODY = 'ww-modal__body';
+export const MODAL_FOOTER = 'ww-modal__footer';
 ///classNames:end
 ///classNames:begin
 export const BUTTON = 'ww-button';

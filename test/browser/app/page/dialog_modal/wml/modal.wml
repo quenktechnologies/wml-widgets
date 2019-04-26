@@ -1,0 +1,33 @@
+{% import (Modal,ModalHeader,ModalBody,ModalFooter)
+from "../../../../../../lib/dialog/modal" %}
+
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (ModalPage) from "../" %}
+
+{% view Main (ModalPage) %}
+<Demo>
+
+  <h1>Modals</h2>
+
+  <p><button onclick={{@values.open}} >Open</button></p>
+
+</Demo>
+
+{% view Open (ModalPage) %}
+<Modal wml:id="open">
+
+  <ModalHeader>Open</ModalHeader>
+
+  <ModalBody>
+  
+    <p>Click this <button onclick={{@values.close}}>button</button> to close.</p>
+
+  </ModalBody>
+
+  <ModalFooter>
+
+    <button onclick={{@values.close}}>cancel</button>
+
+  </ModalFooter>
+
+</Modal>

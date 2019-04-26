@@ -1,0 +1,8 @@
+{% import (Overlay) from "../" %}
+
+{% view Main (Overlay) %}
+<div
+  wml:id={{@values.wml.id}}
+  id={{@values.id}}
+  class={{@values.className}}
+  onclick={{@values.onclick}}/>
