@@ -1,0 +1,12 @@
+{% import (Overlay) from "../../../../../../lib/content/overlay" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (OverlayPage) from "../" %}
+
+{% view Main (OverlayPage) %}
+<Demo>
+
+  <h1>Overlay</h2>
+
+  <Overlay wml:id="overlay" ww:onClick={{@values.onClick}} />
+
+</Demo>

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.pages = {
     'content_embed': require('./page/content_embed').default,
     'content_media-description': require('./page/content_media-description').default,
+    'content_overlay': require('./page/content_overlay').default,
     'content_tag': require('./page/content_tag').default,
     'content_thumbnail': require('./page/content_thumbnail').default,
     'control_button': require('./page/control_button').default,
@@ -22,6 +23,7 @@ exports.pages = {
     'data_property-list': require('./page/data_property-list').default,
     'data_table': require('./page/data_table').default,
     'dialog_alert': require('./page/dialog_alert').default,
+    'dialog_modal': require('./page/dialog_modal').default,
     'layout_callout': require('./page/layout_callout').default,
     'layout_description-list': require('./page/layout_description-list').default,
     'layout_grid': require('./page/layout_grid').default,

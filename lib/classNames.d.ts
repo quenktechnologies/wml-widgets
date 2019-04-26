@@ -1,5 +1,12 @@
 export declare const DATA_TABLE = "ww-data-table";
 export declare const PROPERTY_LIST = "ww-property-list";
+export declare const THUMBNAIL = "ww-thumbnail";
+export declare const THUMBNAIL_CAPTION = "ww-thumbnail__caption";
+export declare const EMBED = "ww-embed";
+export declare const IMAGE = "ww-image";
+export declare const MEDIA_DESCRIPTION = "ww-media-description";
+export declare const MEDIA_DESCRIPTION_MEDIA = "ww-media-description__media";
+export declare const MEDIA_DESCRIPTION_DESCRIPTION = "ww-media-description__description";
 export declare const EXTRA_SMALL = "-extra-small";
 export declare const SMALL = "-small";
 export declare const MEDIUM = "-medium";
@@ -43,6 +50,8 @@ export declare const RIGHT = "-right";
  * HORIZONTAL indicates a horizontal alignment.
  */
 export declare const HORIZONTAL = "-horizontal";
+export declare const MIDDLE = "-middle";
+export declare const BOTTOM = "-bottom";
 /**
  * DEFAULT style.
  */
@@ -90,8 +99,12 @@ export declare const HIDDEN = "-ww-hidden";
  */
 export declare const LINK = "ww-link";
 export declare const CLOSE = "ww-close";
+export declare const OVERLAY = "ww-overlay";
 export declare const MENU_ICON = "ww-menu-icon";
 export declare const MENU_ICON_DASH = "ww-menu-icon__dash";
+export declare const ASPECT_RATIO_16_X_9 = "-aspect-ratio-16x9";
+export declare const ASPECT_RATIO_4_X_3 = "-aspect-ratio-4x3";
+export declare const TAG = "ww-tag";
 export declare const DRAWER = "ww-drawer";
 export declare const DRAWER_CONTENT = "ww-drawer__content";
 export declare const BREADCRUMB_MENU = "ww-breadcrumb-menu";
@@ -163,6 +176,12 @@ export declare const ACTION_BAR = "ww-action-bar";
 export declare const ACTION_BAR_CONTENT = "ww-action-bar__content";
 export declare const LAYOUT = "-layout";
 export declare const ALERT = "ww-alert";
+export declare const MODAL = "ww-modal";
+export declare const MODAL_POSITION = "ww-modal__position";
+export declare const MODAL_CONTENT = "ww-modal__content";
+export declare const MODAL_HEADER = "ww-modal__header";
+export declare const MODAL_BODY = "ww-modal__body";
+export declare const MODAL_FOOTER = "ww-modal__footer";
 export declare const BUTTON = "ww-button";
 export declare const STACK = "ww-stack";
 export declare const STACK_ELEMENT = "ww-stack__element";

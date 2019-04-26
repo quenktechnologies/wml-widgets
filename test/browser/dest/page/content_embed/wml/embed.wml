@@ -14,7 +14,7 @@
 
       <Column ww:span=4>
 
-        <Embed ww:className="-aspect-ratio-4x3">
+        <Embed ww:className="-aspect-ratio-16x9">
 
           <iframe src={{@values.jojo}} allow={{@values.allow}}/>
 
@@ -24,7 +24,7 @@
 
       <Column ww:span=4>
 
-        <Embed ww:className="-aspect-ratio-16x9">
+        <Embed ww:className="-aspect-ratio-4x3">
 
           <iframe src={{@values.win}} allow={{@values.allow}}/>
 

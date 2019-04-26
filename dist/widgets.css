@@ -118,6 +118,89 @@
 .ww-table-window > .__TABLE__ > .__TABLE__.-bordered > tfoot > tr:last-child > td {
   border-bottom: 0;
 }
+.ww-thumbnail {
+  display: block;
+  padding: 4px;
+  margin-bottom: 20px;
+  line-height: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  transition: border 0.2s ease-in-out;
+}
+.ww-thumbnail > img {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ww-thumbnail.ww-thumbnail__caption {
+  padding: 9px;
+  color: inherit;
+}
+a.ww-thumbnail {
+  text-decoration: none;
+  color: inherit;
+}
+.ww-embed {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.ww-embed > div,
+.ww-embed > iframe,
+.ww-embed > embed,
+.ww-embed > object,
+.ww-embed > video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  border: 0;
+}
+.ww-embed.-aspect-ratio-16x9 {
+  padding-bottom: 56.25%;
+}
+.ww-embed.-aspect-ratio-4x3 {
+  padding-bottom: 75%;
+}
+.ww-image {
+  max-width: 100%;
+  height: auto;
+}
+.ww-image.-block {
+  display: block;
+}
+.ww-media-description {
+  margin-top: 15px;
+}
+.ww-media-description:first-child {
+  margin-top: 0;
+}
+.ww-media-description,
+.ww-media-description > .ww-media-description__description {
+  zoom: 1;
+  overflow: hidden;
+}
+.ww-media-description > .ww-media-description__description {
+  width: 10000px;
+}
+.ww-media-description > .ww-media-description__media {
+  padding-right: 10px;
+}
+.ww-media-description > .ww-media-description__media,
+.ww-media-description > .ww-media-description__description {
+  display: table-cell;
+  vertical-align: top;
+}
+.ww-media-description > .ww-media-description__media.-middle {
+  vertical-align: middle;
+}
+.ww-media-description > .ww-media-description__media.-bottom {
+  vertical-align: bottom;
+}
 /**
  * Default style pallete.
  */
@@ -155,6 +238,16 @@ button.ww-close {
   border: 0;
   -webkit-appearance: none;
 }
+.ww-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1999;
+  background-color: #555;
+  opacity: 0.5;
+}
 /**
  * MenuIcon styling.
  *
@@ -181,6 +274,72 @@ button.ww-close {
 .ww-menu-icon > .ww-menu-icon__dash:nth-child(2) {
   margin-top: 0.25em;
   margin-bottom: 0.25em;
+}
+.ww-tag {
+  display: inline;
+  padding: 0.2em 0.6em;
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+.ww-tag + .ww-tag {
+  margin-left: 0.2em;
+}
+a.ww-tag:hover,
+a.ww-tag:focus {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+.ww-tag:empty {
+  display: none;
+}
+.ww-tag.-default {
+  background-color: #ddd;
+}
+.ww-tag.-default[href]:hover,
+.ww-tag.-default[href]:focus {
+  background-color: #c4c4c4;
+}
+.ww-tag.-primary {
+  background-color: #337ab7;
+}
+.ww-tag.-primary[href]:hover,
+.ww-tag.-primary[href]:focus {
+  background-color: #285f8f;
+}
+.ww-tag.-success {
+  background-color: #5cb85c;
+}
+.ww-tag.-success[href]:hover,
+.ww-tag.-success[href]:focus {
+  background-color: #449d44;
+}
+.ww-tag.-info {
+  background-color: #5bc0de;
+}
+.ww-tag.-info[href]:hover,
+.ww-tag.-info[href]:focus {
+  background-color: #31b0d5;
+}
+.ww-tag.-warning {
+  background-color: #f0ad4e;
+}
+.ww-tag.-warning[href]:hover,
+.ww-tag.-warning[href]:focus {
+  background-color: #ec971f;
+}
+.ww-tag.-error {
+  background-color: #d9534f;
+}
+.ww-tag.-error[href]:hover,
+.ww-tag.-error[href]:focus {
+  background-color: #c9302c;
 }
 /**
  * Drawer styling.
@@ -1014,6 +1173,51 @@ button.ww-close {
   background-color: #d9534f;
   border-color: #d43f3a;
   color: #fff;
+}
+.ww-modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+}
+.ww-modal > .ww-modal__position {
+  position: relative;
+  width: 280px;
+  margin: 10px auto;
+}
+@media screen and (min-width: 720px) {
+  .ww-modal > .ww-modal__position {
+    width: 600px;
+    margin: 30px auto;
+  }
+}
+.ww-modal .ww-modal__content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+.ww-modal .ww-modal__content > .ww-modal__header {
+  padding: 15px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.ww-modal .ww-modal__content > .ww-modal__body {
+  position: relative;
+  padding: 15px;
+}
+.ww-modal .ww-modal__content > .ww-modal__footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px solid #e5e5e5;
 }
 /*
   Button styling.

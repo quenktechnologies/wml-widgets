@@ -41,12 +41,12 @@ var Main = /** @class */ (function () {
                 __this.widget(grid_1.GridLayout, { html: {}, wml: {} }, [
                     __this.widget(grid_1.Row, { html: {}, wml: {} }, [
                         __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(embed_1.Embed, { html: {}, wml: {}, ww: { 'className': "-aspect-ratio-4x3" } }, [
+                            __this.widget(embed_1.Embed, { html: {}, wml: {}, ww: { 'className': "-aspect-ratio-16x9" } }, [
                                 __this.node('iframe', { html: { 'src': __context.values.jojo, 'allow': __context.values.allow }, wml: {} }, [])
                             ])
                         ]),
                         __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(embed_1.Embed, { html: {}, wml: {}, ww: { 'className': "-aspect-ratio-16x9" } }, [
+                            __this.widget(embed_1.Embed, { html: {}, wml: {}, ww: { 'className': "-aspect-ratio-4x3" } }, [
                                 __this.node('iframe', { html: { 'src': __context.values.win, 'allow': __context.values.allow }, wml: {} }, [])
                             ])
                         ]),

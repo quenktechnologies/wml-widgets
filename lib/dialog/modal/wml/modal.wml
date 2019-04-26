@@ -1,0 +1,37 @@
+{% import * as m from "../" %}
+
+{% view Modal (m.Modal) %}
+<div
+  wml:id={{@values.wml.id}}
+  id={{@values.id}}
+  class={{@values.className}}>
+
+  <div class={{@values.position.className}}>
+  
+    <div class={{@values.content.className}}>
+  
+      {{...@children}}
+    
+    </div>
+
+  </div>
+
+</div>
+
+{% view ModalHeader (m.ModalHeader) %}
+<div
+  wml:id={{@values.wml.id}}
+  id={{@values.id}}
+  class={{@values.className}}>{{...@children}}</div>
+
+{% view ModalBody (m.ModalBody) %}
+<div
+  wml:id={{@values.wml.id}}
+  id={{@values.id}}
+  class={{@values.className}}>{{...@children}}</div>
+
+{% view ModalFooter (m.ModalFooter) %}
+<div
+  wml:id={{@values.wml.id}}
+  id={{@values.id}}
+  class={{@values.className}}>{{...@children}}</div>

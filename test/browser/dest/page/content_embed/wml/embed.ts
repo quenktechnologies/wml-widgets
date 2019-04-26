@@ -75,7 +75,7 @@ __this.widget(GridLayout, {html : {  } ,wml : {  } }, [
 
         __this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
 
-        __this.widget(Embed, {html : {  } ,wml : {  } ,ww : { 'className' : `-aspect-ratio-4x3`  } }, [
+        __this.widget(Embed, {html : {  } ,wml : {  } ,ww : { 'className' : `-aspect-ratio-16x9`  } }, [
 
         __this.node('iframe', {html : { 'src' : __context.values.jojo  ,'allow' : __context.values.allow   } ,wml : {  } }, [
 
@@ -85,7 +85,7 @@ __this.widget(GridLayout, {html : {  } ,wml : {  } }, [
      ]),
 __this.widget(Column, {html : {  } ,wml : {  } ,ww : { 'span' : 4  } }, [
 
-        __this.widget(Embed, {html : {  } ,wml : {  } ,ww : { 'className' : `-aspect-ratio-16x9`  } }, [
+        __this.widget(Embed, {html : {  } ,wml : {  } ,ww : { 'className' : `-aspect-ratio-4x3`  } }, [
 
         __this.node('iframe', {html : { 'src' : __context.values.win  ,'allow' : __context.values.allow   } ,wml : {  } }, [
 

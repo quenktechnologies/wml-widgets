@@ -5,6 +5,21 @@ export const DATA_TABLE = 'ww-data-table';
 export const PROPERTY_LIST = 'ww-property-list';
 ///classNames:end
 ///classNames:begin
+export const THUMBNAIL = 'ww-thumbnail';
+export const THUMBNAIL_CAPTION = 'ww-thumbnail__caption';
+///classNames:end
+///classNames:begin
+export const EMBED = 'ww-embed';
+///classNames:end
+///classNames:begin
+export const IMAGE = 'ww-image';
+///classNames:end
+///classNames:begin
+export const MEDIA_DESCRIPTION = 'ww-media-description';
+export const MEDIA_DESCRIPTION_MEDIA = 'ww-media-description__media';
+export const MEDIA_DESCRIPTION_DESCRIPTION = 'ww-media-description__description';
+///classNames:end
+///classNames:begin
 export const EXTRA_SMALL = '-extra-small';
 export const SMALL = '-small';
 export const MEDIUM = '-medium';
@@ -58,6 +73,10 @@ export const RIGHT = '-right';
  * HORIZONTAL indicates a horizontal alignment.
  */
 export const HORIZONTAL = '-horizontal';
+
+export const MIDDLE = '-middle';
+
+export const BOTTOM = '-bottom';
 ///classNames:end
 ///classNames:begin
 /**
@@ -127,8 +146,18 @@ export const LINK = 'ww-link';
 export const CLOSE = 'ww-close';
 ///classNames:end
 ///classNames:begin
+export const OVERLAY = 'ww-overlay';
+///classNames:end
+///classNames:begin
 export const MENU_ICON = 'ww-menu-icon';
 export const MENU_ICON_DASH = 'ww-menu-icon__dash';
+///classNames:end
+///classNames:begin
+export const ASPECT_RATIO_16_X_9 = '-aspect-ratio-16x9';
+export const ASPECT_RATIO_4_X_3 = '-aspect-ratio-4x3';
+///classNames:end
+///classNames:begin
+export const TAG = 'ww-tag';
 ///classNames:end
 ///classNames:begin
 export const DRAWER = 'ww-drawer';
@@ -248,6 +277,14 @@ export const LAYOUT = '-layout';
 ///classNames:end
 ///classNames:begin
 export const ALERT = 'ww-alert';
+///classNames:end
+///classNames:begin
+export const MODAL = 'ww-modal';
+export const MODAL_POSITION = 'ww-modal__position';
+export const MODAL_CONTENT = 'ww-modal__content';
+export const MODAL_HEADER = 'ww-modal__header';
+export const MODAL_BODY = 'ww-modal__body';
+export const MODAL_FOOTER = 'ww-modal__footer';
 ///classNames:end
 ///classNames:begin
 export const BUTTON = 'ww-button';

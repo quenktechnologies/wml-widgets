@@ -36,3 +36,5 @@ export declare const RIGHT = "-right";
  * HORIZONTAL indicates a horizontal alignment.
  */
 export declare const HORIZONTAL = "-horizontal";
+export declare const MIDDLE = "-middle";
+export declare const BOTTOM = "-bottom";
