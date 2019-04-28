@@ -8,7 +8,8 @@ import {
     FeedbackControlAttrs,
     ValidationState,
     AbstractFeedbackControl,
-    getVSClassNameFromAttrs
+    getVSClassNameFromAttrs,
+  getMessage
 } from '../feedback';
 import { WidgetAttrs, getId, getClassName } from '../../';
 import { Event as ControlEvent } from '../';
@@ -173,8 +174,7 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
                 id: 'messages'
 
             },
-            text: (this.attrs.ww && this.attrs.ww.message) ?
-                this.attrs.ww.message : '',
+          text: getMessage(this.attrs)
 
         },
         label: {

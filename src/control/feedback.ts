@@ -28,13 +28,28 @@ export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
 
     /**
      *  validationState of the control.
-       */
+     */
     validationState?: ValidationState,
 
     /**
      * message to display to the user.
      */
     message?: string,
+
+    /**
+     * error message
+     */
+    error?: string,
+
+    /**
+     * success message
+     */
+    success?: string,
+
+    /**
+     * warning message
+     */
+    warning?: string
 
 }
 
@@ -185,9 +200,9 @@ export const setValidationState =
 
         removeValidationState(view, id);
 
-      if(state !== ValidationState.Neutral)
-        getById<HTMLElement>(view, id)
-            .map(e => e.classList.add(getValidationStateClassName(state)))
+        if (state !== ValidationState.Neutral)
+            getById<HTMLElement>(view, id)
+                .map(e => e.classList.add(getValidationStateClassName(state)))
 
     }
 
@@ -229,9 +244,53 @@ export const getValidationState = (view: View, id: string): ValidationState =>
  * getVSClassNameFromAttrs
  */
 export const getVSClassNameFromAttrs =
-    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) =>
-        (attrs.ww && attrs.ww.validationState) ?
-            getValidationStateClassName(attrs.ww.validationState) : ''
+    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => {
+
+        if (attrs.ww) {
+
+            if (attrs.ww.validationState)
+                return getValidationStateClassName(attrs.ww.validationState);
+
+            if (attrs.ww.error && (attrs.ww.error != ''))
+                return style.ERROR;
+
+            if (attrs.ww.warning && (attrs.ww.warning != ''))
+                return style.WARNING;
+
+            if (attrs.ww.success && (attrs.ww.success != ''))
+                return style.SUCCESS;
+
+        }
+
+        return '';
+
+    }
+
+/**
+ * getMessage
+ */
+export const getMessage =
+    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => {
+
+        if (attrs.ww) {
+
+            if (attrs.ww.error && (attrs.ww.error != ''))
+                return attrs.ww.error;
+
+            if (attrs.ww.warning && (attrs.ww.warning != ''))
+                return attrs.ww.warning;
+
+            if (attrs.ww.success && (attrs.ww.success != ''))
+                return attrs.ww.success;
+
+            if (attrs.ww.message && (attrs.ww.message != ''))
+                return attrs.ww.message;
+
+        }
+
+      return '';
+
+    }
 
 /**
  * getValidationStateClassName

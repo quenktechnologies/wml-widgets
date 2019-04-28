@@ -6,6 +6,7 @@ import {
     ValidationState,
     Message,
     getValidationStateClassName,
+  getMessage,
     setValidationState,
     removeValidationState
 } from '../feedback';
@@ -95,8 +96,7 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
                 id: 'message'
 
             },
-            text: (this.attrs.ww && this.attrs.ww.message) ?
-                this.attrs.ww.message : '',
+          text: getMessage(this.attrs)
 
         },
 

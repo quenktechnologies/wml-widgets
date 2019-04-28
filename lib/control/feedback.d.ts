@@ -20,12 +20,24 @@ export declare type Message = string;
 export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
     /**
      *  validationState of the control.
-       */
+     */
     validationState?: ValidationState;
     /**
      * message to display to the user.
      */
     message?: string;
+    /**
+     * error message
+     */
+    error?: string;
+    /**
+     * success message
+     */
+    success?: string;
+    /**
+     * warning message
+     */
+    warning?: string;
 }
 /**
  * FeedbackControl is a Control that provides visual hints as to
@@ -110,6 +122,10 @@ export declare const getValidationState: (view: View, id: string) => ValidationS
  * getVSClassNameFromAttrs
  */
 export declare const getVSClassNameFromAttrs: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => "-success" | "-warning" | "-error" | "";
+/**
+ * getMessage
+ */
+export declare const getMessage: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => string;
 /**
  * getValidationStateClassName
  */
