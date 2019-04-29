@@ -70,6 +70,7 @@
     @button-success-border-color);
 
   }
+
   &.__INFO__ {
 
     .buttonStyle(
@@ -165,17 +166,17 @@
     // Vertically space out multiple block buttons
     & + & {
 
-      margin-top: 5px;
+      margin-top: @button-sibling-spacing;
 
     }
 
   }
 
-}
+  & + & {
 
-.__BUTTON__ + .__BUTTON__ {
+    margin-left: @button-sibling-spacing;
 
-  margin-left: @button-sibiling-spacing;
+  }
 
 }
 

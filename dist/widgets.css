@@ -1433,7 +1433,7 @@ a.ww-tag:focus {
   margin-top: 5px;
 }
 .ww-button + .ww-button {
-  margin-left: 0.5em;
+  margin-left: 5px;
 }
 /* 
 buttonDimension defines the sizing of a button.
