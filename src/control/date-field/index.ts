@@ -229,7 +229,7 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
             this.attrs.ww.onChange(
                 new DateChangedEvent(
                     this.values.name,
-                    value.format('ll')));
+                    value.format('YYYY-MM-DD')));
 
     }
 
