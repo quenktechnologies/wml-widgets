@@ -1588,6 +1588,27 @@ textInputDim styles the dimendefines the sizing of a button.
 .ww-date-field {
   margin-bottom: 0.5em;
 }
+.ww-date-field.-error {
+  color: #d9534f;
+}
+.ww-date-field.-error input {
+  border-color: #d9534f;
+  color: #d9534f;
+}
+.ww-date-field.-warning {
+  color: #f0ad4e;
+}
+.ww-date-field.-warning input {
+  border-color: #f0ad4e;
+  color: #f0ad4e;
+}
+.ww-date-field.-success {
+  color: #5cb85c;
+}
+.ww-date-field.-success input {
+  border-color: #5cb85c;
+  color: #5cb85c;
+}
 .ww-date-field > .ww-date-field__controls {
   width: 100%;
   display: inline-flex;
@@ -1897,6 +1918,10 @@ textarea.ww-droplist {
   border-color: #5cb85c;
   color: #5cb85c;
 }
+/**
+ * Provides validity state styles for any input appearing 
+ * under the target element.
+ */
 .ww-switch {
   width: 4em;
   height: 2em;
