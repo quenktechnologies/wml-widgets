@@ -2057,6 +2057,8 @@ textarea.ww-droplist {
   display: none;
 }
 .ww-help {
+  min-height: 0.9em;
+  display: block;
   margin-top: 0.25rem;
   font-size: 90%;
 }
