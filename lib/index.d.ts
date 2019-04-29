@@ -38,4 +38,4 @@ export declare const getClassName: (attrs: WidgetAttrs<HTMLElementAttrs>) => str
 /**
  * text constructor.
  */
-export declare const text: (str: string) => Text;
+export declare const text: (str: any) => Text;
