@@ -1585,6 +1585,9 @@ textInputDim styles the dimendefines the sizing of a button.
 @lh       - Line height.
 @br       - Border radius.
 */
+.ww-date-field {
+  margin-bottom: 0.5em;
+}
 .ww-date-field > .ww-date-field__controls {
   width: 100%;
   display: inline-flex;
@@ -1869,6 +1872,9 @@ textarea.ww-droplist {
 .ww-button-group > .ww-button-group:last-child:not(:first-child) > .ww-button:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+}
+.ww-text-field {
+  margin-bottom: 0.5em;
 }
 .ww-text-field.-error {
   color: #d9534f;
