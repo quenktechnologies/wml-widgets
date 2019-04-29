@@ -27,35 +27,37 @@ export type Message = string;
 export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
 
     /**
-     *  validationState of the control.
-     */
-    validationState?: ValidationState,
-
-    /**
      * message to display to the user.
      */
-    message?: string,
+    message?: Message,
 
     /**
-     * error message
+     * error message to display to the user.
      */
-    error?: string,
+    error?: Message,
 
     /**
-     * success message
+     * success message to display to the user.
      */
-    success?: string,
+    success?: Message,
 
     /**
-     * warning message
+     * warning message to display to the user.
      */
-    warning?: string
+    warning?: Message
 
 }
 
 /**
- * FeedbackControl is a Control that provides visual hints as to 
- * the validity of the value entered in the Control.
+ * FeedbackControl is a Control that can provide visual hints to users about
+ * the validity of the data they input.
+ *
+ * A FeedbackControl can has the following validity states:
+ *
+ * Neutral (Default)
+ * Error
+ * Warning
+ * Success.
  */
 export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
     extends Control<V, A> {
@@ -81,7 +83,7 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
     removeValidationState(): FeedbackControl<V, A>;
 
     /**
-     * getValidationState returns the a value representing the 
+     * getValidationState returns a value representing the 
      * validation state of the control
      */
     getValidationState(): ValidationState;
@@ -89,7 +91,9 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
 }
 
 /**
- * AbstractFeedbackControl implementaion.
+ * AbstractFeedbackControl
+ *
+ * Provides a default implementaion of the interface methods.
  */
 export abstract class AbstractFeedbackControl<V, A extends FeedbackControlAttrs<V>>
     extends AbstractControl<V, A> implements FeedbackControl<V, A>  {
@@ -104,9 +108,6 @@ export abstract class AbstractFeedbackControl<V, A extends FeedbackControlAttrs<
      */
     abstract values: {
 
-        /**
-         * control element values
-         */
         control: {
 
             wml: {
@@ -202,7 +203,7 @@ export const setValidationState =
 
         if (state !== ValidationState.Neutral)
             getById<HTMLElement>(view, id)
-                .map(e => e.classList.add(getValidationStateClassName(state)))
+                .map(e => e.classList.add(validationState2ClassName(state)))
 
     }
 
@@ -222,7 +223,8 @@ export const removeValidationState = (view: View, id: string): void => {
 }
 
 /**
- * getValidationState default.
+ * getValidationState calculates the ValidationState of an HTMLElement
+ * (identified by id) by analysing its class list.
  */
 export const getValidationState = (view: View, id: string): ValidationState =>
     getById<HTMLElement>(view, id)
@@ -241,15 +243,13 @@ export const getValidationState = (view: View, id: string): ValidationState =>
         .get();
 
 /**
- * getVSClassNameFromAttrs
+ * getValidityClassName provides the applicable style class by checking
+ * the validity properties of FeedbackControAttrs.
  */
-export const getVSClassNameFromAttrs =
-    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => {
+export const getValidityClassName =
+    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>): string => {
 
         if (attrs.ww) {
-
-            if (attrs.ww.validationState)
-                return getValidationStateClassName(attrs.ww.validationState);
 
             if (attrs.ww.error && (attrs.ww.error != ''))
                 return style.ERROR;
@@ -288,14 +288,15 @@ export const getMessage =
 
         }
 
-      return '';
+        return '';
 
     }
 
 /**
- * getValidationStateClassName
+ * validationState2ClassName transforms a ValidationState into 
+ * the corresponding class name (if any).
  */
-export const getValidationStateClassName = (state: ValidationState) => {
+export const validationState2ClassName = (state: ValidationState): string => {
 
     if (state === ValidationState.Success)
         return style.SUCCESS;

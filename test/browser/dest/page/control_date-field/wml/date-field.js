@@ -41,7 +41,7 @@ var Main = /** @class */ (function () {
                     document.createTextNode(".")
                 ]),
                 __this.node('p', { html: {}, wml: {} }, [
-                    __this.widget(date_field_1.DateField, { html: {}, wml: { 'id': "date" }, ww: { 'name': "date", 'onChange': __context.onChange } }, [])
+                    __this.widget(date_field_1.DateField, { html: {}, wml: { 'id': "date" }, ww: { 'name': "date", 'date': "Date Label", 'message': "Enter the date in the format DD MM YYYY", 'onChange': __context.onChange } }, [])
                 ])
             ]);
         };

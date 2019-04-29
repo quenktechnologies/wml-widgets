@@ -1,6 +1,5 @@
 import * as __wml from '@quenk/wml';
 
-import {ValidationState} from '../../../../../../lib/control/feedback'; ;
 import {TextInput} from '../../../../../../lib/control/text-input'; ;
 import {Demo} from '../../../widgets/demo'; ;
 import {TextInputPage} from '../'; 
@@ -106,7 +105,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
         document.createTextNode(`
         Size `),
 document.createTextNode((v + ` error: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'validationState' : ValidationState.Error  } }, [
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : `-error`  } }, [
 
         
      ])
@@ -116,7 +115,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
         document.createTextNode(`
         Size `),
 document.createTextNode((v + ` warning: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'validationState' : ValidationState.Warning  } }, [
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : `-warning`  } }, [
 
         
      ])
@@ -126,7 +125,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
         document.createTextNode(`
         Size `),
 document.createTextNode((v + ` success: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'validationState' : ValidationState.Success  } }, [
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : `-success`  } }, [
 
         
      ])
@@ -171,7 +170,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
         document.createTextNode(`
         Size `),
 document.createTextNode((v + ` error: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'validationState' : ValidationState.Error  } }, [
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : `-error`  } }, [
 
         
      ])
@@ -181,7 +180,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
         document.createTextNode(`
         Size `),
 document.createTextNode((v + ` warning: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'validationState' : ValidationState.Warning  } }, [
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : `-warning`  } }, [
 
         
      ])
@@ -191,7 +190,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
         document.createTextNode(`
         Size `),
 document.createTextNode((v + ` success: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'validationState' : ValidationState.Success  } }, [
+__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : `-success`  } }, [
 
         
      ])

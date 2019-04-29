@@ -1,13 +1,12 @@
 import { View } from '@quenk/wml';
 import { Size } from '../../content/size';
-import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { FocusableAttrs, Focusable } from '../focus';
-import { Event } from '../';
+import { ControlAttrs, AbstractControl, Event } from '../';
 export declare const TEXT_INPUT = "ww-text-input";
 /**
  * TextInputAttrs
  */
-export interface TextInputAttrs extends FeedbackControlAttrs<string>, FocusableAttrs {
+export interface TextInputAttrs extends ControlAttrs<string>, FocusableAttrs {
     /**
      * placeholder sets placeholder text for the control.
      */
@@ -51,15 +50,10 @@ export declare class TextChangedEvent extends Event<string> {
 /**
  * TextInput provides some extra styling to the native input.
  */
-export declare class TextInput extends AbstractFeedbackControl<string, TextInputAttrs> implements Focusable {
+export declare class TextInput extends AbstractControl<string, TextInputAttrs> implements Focusable {
     view: View;
     values: {
         control: {
-            wml: {
-                id: string;
-            };
-        };
-        messages: {
             wml: {
                 id: string;
             };

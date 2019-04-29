@@ -300,6 +300,7 @@ export const TEXT_INPUT = 'ww-text-input';
 ///classNames:end
 ///classNames:begin
 export const DATE_FIELD = 'ww-date-field';
+export const DATE_FIELD_CONTROLS = 'ww-date-field__controls';
 export const DATE_FIELD_DAY = `${DATE_FIELD}__day`;
 export const DATE_FIELD_MONTH = `${DATE_FIELD}__month`;
 export const DATE_FIELD_YEAR = `${DATE_FIELD}__year`;
@@ -345,27 +346,6 @@ export const DROP_DOWN_CONTENT = 'ww-drop-down__content';
 ///classNames:end
 ///classNames:begin
 export const HELP = 'ww-help';
-///classNames:end
-///classNames:begin
-/**
- * DATE class name.
- */
-export const DATE = 'ww-date';
-
-/**
- * DATE_DAY class name.
- */
-export const DATE_DAY = `${DATE}__day`;
-
-/**
- * DATE_MONTH class name.
- */
-export const DATE_MONTH = `${DATE}__month`;
-
-/**
- * DATE_YEAR class name.
- */
-export const DATE_YEAR = `${DATE}__year`;
 ///classNames:end
 ///classNames:begin
 export const MULTI_SELECT = 'ww-multi-select';

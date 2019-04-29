@@ -19,29 +19,32 @@ export declare type Message = string;
  */
 export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
     /**
-     *  validationState of the control.
-     */
-    validationState?: ValidationState;
-    /**
      * message to display to the user.
      */
-    message?: string;
+    message?: Message;
     /**
-     * error message
+     * error message to display to the user.
      */
-    error?: string;
+    error?: Message;
     /**
-     * success message
+     * success message to display to the user.
      */
-    success?: string;
+    success?: Message;
     /**
-     * warning message
+     * warning message to display to the user.
      */
-    warning?: string;
+    warning?: Message;
 }
 /**
- * FeedbackControl is a Control that provides visual hints as to
- * the validity of the value entered in the Control.
+ * FeedbackControl is a Control that can provide visual hints to users about
+ * the validity of the data they input.
+ *
+ * A FeedbackControl can has the following validity states:
+ *
+ * Neutral (Default)
+ * Error
+ * Warning
+ * Success.
  */
 export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>> extends Control<V, A> {
     /**
@@ -61,13 +64,15 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>> extends C
      */
     removeValidationState(): FeedbackControl<V, A>;
     /**
-     * getValidationState returns the a value representing the
+     * getValidationState returns a value representing the
      * validation state of the control
      */
     getValidationState(): ValidationState;
 }
 /**
- * AbstractFeedbackControl implementaion.
+ * AbstractFeedbackControl
+ *
+ * Provides a default implementaion of the interface methods.
  */
 export declare abstract class AbstractFeedbackControl<V, A extends FeedbackControlAttrs<V>> extends AbstractControl<V, A> implements FeedbackControl<V, A> {
     /**
@@ -78,9 +83,6 @@ export declare abstract class AbstractFeedbackControl<V, A extends FeedbackContr
      * values provided to the view template.
      */
     abstract values: {
-        /**
-         * control element values
-         */
         control: {
             wml: {
                 id: string;
@@ -115,18 +117,21 @@ export declare const setValidationState: (view: View, id: string, state: Validat
  */
 export declare const removeValidationState: (view: View, id: string) => void;
 /**
- * getValidationState default.
+ * getValidationState calculates the ValidationState of an HTMLElement
+ * (identified by id) by analysing its class list.
  */
 export declare const getValidationState: (view: View, id: string) => ValidationState;
 /**
- * getVSClassNameFromAttrs
+ * getValidityClassName provides the applicable style class by checking
+ * the validity properties of FeedbackControAttrs.
  */
-export declare const getVSClassNameFromAttrs: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => "-success" | "-warning" | "-error" | "";
+export declare const getValidityClassName: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => string;
 /**
  * getMessage
  */
 export declare const getMessage: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => string;
 /**
- * getValidationStateClassName
+ * validationState2ClassName transforms a ValidationState into
+ * the corresponding class name (if any).
  */
-export declare const getValidationStateClassName: (state: ValidationState) => "-success" | "-warning" | "-error" | "";
+export declare const validationState2ClassName: (state: ValidationState) => string;

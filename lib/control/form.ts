@@ -3,6 +3,7 @@
  */
 
 /** imports */
+import { WidgetAttrs} from '../';
 import {
     FeedbackControlAttrs,
     FeedbackControl,
@@ -25,9 +26,7 @@ export interface FormControlAttrs<V> extends FeedbackControlAttrs<V> {
  * FormControl generates events based on user input.
  */
 export interface FormControl<V, A extends FormControlAttrs<V>>
-    extends FeedbackControl<V, A> {
-
-}
+    extends FeedbackControl<V, A> {}
 
 /**
  * AbstractFormControl provides a base implementation of a
@@ -35,3 +34,10 @@ export interface FormControl<V, A extends FormControlAttrs<V>>
  */
 export abstract class AbstractFormControl<V, A extends FormControlAttrs<V>>
     extends AbstractFeedbackControl<V, A> { }
+
+/**
+ * getLabel extracts the label value from FromControlAttrs.
+ */
+export const getLabel = <V>(attrs: WidgetAttrs<FormControlAttrs<V>>) : string => 
+ (attrs.ww && attrs.ww.label) ?
+                attrs.ww.label : '';

@@ -1,5 +1,5 @@
 import { View } from '@quenk/wml';
-import { ValidationState, Message } from '../feedback';
+import { Message } from '../feedback';
 import { FormControlAttrs, AbstractFormControl } from '../form';
 import { TextChangedEvent } from '../text-input';
 export { TextChangedEvent };
@@ -38,8 +38,6 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
  */
 export declare class TextField extends AbstractFormControl<string, TextFieldAttrs> {
     view: View;
-    get: () => string;
-    set: (v: string) => this;
     values: {
         root: {
             wml: {
@@ -70,14 +68,10 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             disabled: boolean | undefined;
             readOnly: boolean | undefined;
             rows: number;
-            validationState: ValidationState;
             oninput: (e: KeyboardEvent) => void;
             onChange: (e: TextChangedEvent) => void;
         };
     };
     setMessage(msg: Message): TextField;
     removeMessage(): TextField;
-    setValidationState(state: ValidationState): TextField;
-    removeValidationState(): TextField;
-    getValidationState(): ValidationState;
 }

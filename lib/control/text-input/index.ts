@@ -4,11 +4,6 @@ import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
 import { Size, getSizeClassName } from '../../content/size';
 import {
-    FeedbackControlAttrs,
-    AbstractFeedbackControl,
-    getValidationStateClassName
-} from '../feedback';
-import {
     FocusableAttrs,
     Focusable,
     FocusGainedEvent,
@@ -16,7 +11,7 @@ import {
   focus
 } from '../focus';
 import { getId, getClassName } from '../../';
-import { Event, getName } from '../';
+import { ControlAttrs, AbstractControl, Event, getName } from '../';
 
 ///classNames:begin
 export const TEXT_INPUT = 'ww-text-input';
@@ -26,7 +21,8 @@ export const TEXT_INPUT = 'ww-text-input';
  * TextInputAttrs
  */
 export interface TextInputAttrs
-    extends FeedbackControlAttrs<string>, FocusableAttrs {
+extends
+ControlAttrs<string>, FocusableAttrs {
 
     /**
      * placeholder sets placeholder text for the control.
@@ -82,7 +78,7 @@ export class TextChangedEvent extends Event<string> { }
  */
 export class TextInput
 extends
-AbstractFeedbackControl<string, TextInputAttrs>
+AbstractControl<string, TextInputAttrs>
   implements Focusable {
 
     view: View = (this.attrs.ww && this.attrs.ww.rows && this.attrs.ww.rows > 1) ?
@@ -98,15 +94,6 @@ AbstractFeedbackControl<string, TextInputAttrs>
 
             }
         },
-        messages: {
-
-            wml: {
-
-                id: '<N/A>'
-
-            }
-
-        },
         id: getId(this.attrs),
 
         className: concat(TEXT_INPUT,
@@ -116,10 +103,7 @@ AbstractFeedbackControl<string, TextInputAttrs>
             (this.attrs.ww && this.attrs.ww.size) ?
                 getSizeClassName(this.attrs.ww.size) : '',
 
-            (this.attrs.ww && this.attrs.ww.validationState) ?
-                getValidationStateClassName(this.attrs.ww.validationState) : '',
-
-            (this.attrs.ww && this.attrs.ww.block) ?
+                   (this.attrs.ww && this.attrs.ww.block) ?
                 BLOCK : ''
         ),
 

@@ -1585,7 +1585,11 @@ textInputDim styles the dimendefines the sizing of a button.
 @lh       - Line height.
 @br       - Border radius.
 */
-.ww-date-field > .ww-date-field__day {
+.ww-date-field > .ww-date-field__controls {
+  width: 100%;
+  display: inline-flex;
+}
+.ww-date-field > .ww-date-field__controls > .ww-date-field__day {
   height: 36px;
   padding: 6px 12px;
   font-size: 14px;
@@ -1597,34 +1601,41 @@ textInputDim styles the dimendefines the sizing of a button.
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 20%;
   margin-right: 0.5em;
+  display: inline-block;
 }
-.ww-date-field > .ww-date-field__day::-ms-expand {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__day::-ms-expand {
   border: 0;
   background-color: transparent;
 }
-.ww-date-field > .ww-date-field__day[disabled],
-fieldset[disabled] .ww-date-field > .ww-date-field__day {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__day[disabled],
+fieldset[disabled] .ww-date-field > .ww-date-field__controls > .ww-date-field__day {
   cursor: not-allowed;
 }
-textarea.ww-date-field > .ww-date-field__day {
+textarea.ww-date-field > .ww-date-field__controls > .ww-date-field__day {
   height: auto;
 }
-.ww-date-field > .ww-date-field__day:focus {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__day:focus {
   border-color: #66afe9;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.ww-date-field > .ww-date-field__day.-error {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__day.-error {
   border-color: #d9534f;
 }
-.ww-date-field > .ww-date-field__day.-warning {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__day.-warning {
   border-color: #f0ad4e;
 }
-.ww-date-field > .ww-date-field__day.-success {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__day.-success {
   border-color: #5cb85c;
 }
-.ww-date-field > .ww-date-field__month {
+@media screen and (min-width: 720px) {
+  .ww-date-field > .ww-date-field__controls > .ww-date-field__day {
+    width: 4.5em;
+  }
+}
+.ww-date-field > .ww-date-field__controls > .ww-date-field__month {
   height: 36px;
   padding: 6px 12px;
   font-size: 14px;
@@ -1636,34 +1647,41 @@ textarea.ww-date-field > .ww-date-field__day {
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 20%;
   margin-right: 0.5em;
+  display: inline-block;
 }
-.ww-date-field > .ww-date-field__month::-ms-expand {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__month::-ms-expand {
   border: 0;
   background-color: transparent;
 }
-.ww-date-field > .ww-date-field__month[disabled],
-fieldset[disabled] .ww-date-field > .ww-date-field__month {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__month[disabled],
+fieldset[disabled] .ww-date-field > .ww-date-field__controls > .ww-date-field__month {
   cursor: not-allowed;
 }
-textarea.ww-date-field > .ww-date-field__month {
+textarea.ww-date-field > .ww-date-field__controls > .ww-date-field__month {
   height: auto;
 }
-.ww-date-field > .ww-date-field__month:focus {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__month:focus {
   border-color: #66afe9;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.ww-date-field > .ww-date-field__month.-error {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__month.-error {
   border-color: #d9534f;
 }
-.ww-date-field > .ww-date-field__month.-warning {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__month.-warning {
   border-color: #f0ad4e;
 }
-.ww-date-field > .ww-date-field__month.-success {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__month.-success {
   border-color: #5cb85c;
 }
-.ww-date-field > .ww-date-field__year {
+@media screen and (min-width: 720px) {
+  .ww-date-field > .ww-date-field__controls > .ww-date-field__month {
+    width: 4.5em;
+  }
+}
+.ww-date-field > .ww-date-field__controls > .ww-date-field__year {
   height: 36px;
   padding: 6px 12px;
   font-size: 14px;
@@ -1675,47 +1693,54 @@ textarea.ww-date-field > .ww-date-field__month {
   border-radius: 4px;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 30%;
+  display: inline-block;
 }
-.ww-date-field > .ww-date-field__year::-ms-expand {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__year::-ms-expand {
   border: 0;
   background-color: transparent;
 }
-.ww-date-field > .ww-date-field__year[disabled],
-fieldset[disabled] .ww-date-field > .ww-date-field__year {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__year[disabled],
+fieldset[disabled] .ww-date-field > .ww-date-field__controls > .ww-date-field__year {
   cursor: not-allowed;
 }
-textarea.ww-date-field > .ww-date-field__year {
+textarea.ww-date-field > .ww-date-field__controls > .ww-date-field__year {
   height: auto;
 }
-.ww-date-field > .ww-date-field__year:focus {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__year:focus {
   border-color: #66afe9;
   outline: 0;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
 }
-.ww-date-field > .ww-date-field__year.-error {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__year.-error {
   border-color: #d9534f;
 }
-.ww-date-field > .ww-date-field__year.-warning {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__year.-warning {
   border-color: #f0ad4e;
 }
-.ww-date-field > .ww-date-field__year.-success {
+.ww-date-field > .ww-date-field__controls > .ww-date-field__year.-success {
   border-color: #5cb85c;
 }
-.ww-date-field.-error > .ww-date-field__day,
-.ww-date-field.-error > .ww-date-field__month,
-.ww-date-field.-error > .ww-date-field__year {
+@media screen and (min-width: 720px) {
+  .ww-date-field > .ww-date-field__controls > .ww-date-field__year {
+    width: 6em;
+  }
+}
+.ww-date-field.-error > .ww-date-field__controls > .ww-date-field__day,
+.ww-date-field.-error > .ww-date-field__controls > .ww-date-field__month,
+.ww-date-field.-error > .ww-date-field__controls > .ww-date-field__year {
   border-color: #d9534f;
   color: #d9534f;
 }
-.ww-date-field.-warning > .ww-date-field__day,
-.ww-date-field.-warning > .ww-date-field__month,
-.ww-date-field.-warning > .ww-date-field__year {
+.ww-date-field.-warning > .ww-date-field__controls > .ww-date-field__day,
+.ww-date-field.-warning > .ww-date-field__controls > .ww-date-field__month,
+.ww-date-field.-warning > .ww-date-field__controls > .ww-date-field__year {
   border-color: #f0ad4e;
   color: #f0ad4e;
 }
-.ww-date-field.-success > .ww-date-field__day,
-.ww-date-field.-success > .ww-date-field__month,
-.ww-date-field.-success > .ww-date-field__year {
+.ww-date-field.-success > .ww-date-field__controls > .ww-date-field__day,
+.ww-date-field.-success > .ww-date-field__controls > .ww-date-field__month,
+.ww-date-field.-success > .ww-date-field__controls > .ww-date-field__year {
   border-color: #5cb85c;
   color: #5cb85c;
 }
@@ -1848,10 +1873,22 @@ textarea.ww-droplist {
 .ww-text-field.-error {
   color: #d9534f;
 }
+.ww-text-field.-error input {
+  border-color: #d9534f;
+  color: #d9534f;
+}
 .ww-text-field.-warning {
   color: #f0ad4e;
 }
+.ww-text-field.-warning input {
+  border-color: #f0ad4e;
+  color: #f0ad4e;
+}
 .ww-text-field.-success {
+  color: #5cb85c;
+}
+.ww-text-field.-success input {
+  border-color: #5cb85c;
   color: #5cb85c;
 }
 .ww-switch {
@@ -2013,122 +2050,9 @@ textarea.ww-droplist {
 .ww-drop-down-menu > .ww-drop-down__content.-ww-hidden {
   display: none;
 }
-.ww-date > .ww-date__month {
-  height: 36px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  width: 6em;
-  margin-right: 0.5em;
-}
-.ww-date > .ww-date__month::-ms-expand {
-  border: 0;
-  background-color: transparent;
-}
-.ww-date > .ww-date__month[disabled],
-fieldset[disabled] .ww-date > .ww-date__month {
-  cursor: not-allowed;
-}
-textarea.ww-date > .ww-date__month {
-  height: auto;
-}
-.ww-date > .ww-date__month:focus {
-  border-color: #66afe9;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.ww-date > .ww-date__month.-error {
-  border-color: #d9534f;
-}
-.ww-date > .ww-date__month.-warning {
-  border-color: #f0ad4e;
-}
-.ww-date > .ww-date__month.-success {
-  border-color: #5cb85c;
-}
-.ww-date > .ww-date__day {
-  height: 36px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  margin-right: 0.5em;
-}
-.ww-date > .ww-date__day::-ms-expand {
-  border: 0;
-  background-color: transparent;
-}
-.ww-date > .ww-date__day[disabled],
-fieldset[disabled] .ww-date > .ww-date__day {
-  cursor: not-allowed;
-}
-textarea.ww-date > .ww-date__day {
-  height: auto;
-}
-.ww-date > .ww-date__day:focus {
-  border-color: #66afe9;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.ww-date > .ww-date__day.-error {
-  border-color: #d9534f;
-}
-.ww-date > .ww-date__day.-warning {
-  border-color: #f0ad4e;
-}
-.ww-date > .ww-date__day.-success {
-  border-color: #5cb85c;
-}
-.ww-date > .ww-date__year {
-  height: 36px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-}
-.ww-date > .ww-date__year::-ms-expand {
-  border: 0;
-  background-color: transparent;
-}
-.ww-date > .ww-date__year[disabled],
-fieldset[disabled] .ww-date > .ww-date__year {
-  cursor: not-allowed;
-}
-textarea.ww-date > .ww-date__year {
-  height: auto;
-}
-.ww-date > .ww-date__year:focus {
-  border-color: #66afe9;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.ww-date > .ww-date__year.-error {
-  border-color: #d9534f;
-}
-.ww-date > .ww-date__year.-warning {
-  border-color: #f0ad4e;
-}
-.ww-date > .ww-date__year.-success {
-  border-color: #5cb85c;
+.ww-help {
+  margin-top: 0.25rem;
+  font-size: 90%;
 }
 .ww-multi-select > .ww-select {
   margin-bottom: 0.5em;

@@ -1,7 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var feedback_1 = require("../../../../../../lib/control/feedback");
-;
 var text_input_1 = require("../../../../../../lib/control/text-input");
 ;
 var demo_1 = require("../../../widgets/demo");
@@ -59,17 +57,17 @@ var Main = /** @class */ (function () {
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
                             document.createTextNode((v + " error: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'validationState': feedback_1.ValidationState.Error } }, [])
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'className': "-error" } }, [])
                         ]),
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
                             document.createTextNode((v + " warning: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'validationState': feedback_1.ValidationState.Warning } }, [])
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'className': "-warning" } }, [])
                         ]),
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
                             document.createTextNode((v + " success: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'validationState': feedback_1.ValidationState.Success } }, [])
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'className': "-success" } }, [])
                         ])
                     ]);
                 }, function () { return ([]); }).slice()),
@@ -92,17 +90,17 @@ var Main = /** @class */ (function () {
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
                             document.createTextNode((v + " error: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'validationState': feedback_1.ValidationState.Error } }, [])
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-error" } }, [])
                         ]),
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
                             document.createTextNode((v + " warning: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'validationState': feedback_1.ValidationState.Warning } }, [])
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-warning" } }, [])
                         ]),
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
                             document.createTextNode((v + " success: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'validationState': feedback_1.ValidationState.Success } }, [])
+                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-success" } }, [])
                         ])
                     ]);
                 }, function () { return ([]); }).slice()),

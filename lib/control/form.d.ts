@@ -2,6 +2,7 @@
  * The form module deals with controls specifically for accepting user input.
  */
 /** imports */
+import { WidgetAttrs } from '../';
 import { FeedbackControlAttrs, FeedbackControl, AbstractFeedbackControl } from './feedback';
 /**
  * FormControlAtrrs
@@ -23,3 +24,7 @@ export interface FormControl<V, A extends FormControlAttrs<V>> extends FeedbackC
  */
 export declare abstract class AbstractFormControl<V, A extends FormControlAttrs<V>> extends AbstractFeedbackControl<V, A> {
 }
+/**
+ * getLabel extracts the label value from FromControlAttrs.
+ */
+export declare const getLabel: <V>(attrs: WidgetAttrs<FormControlAttrs<V>>) => string;

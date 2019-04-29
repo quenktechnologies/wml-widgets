@@ -4,6 +4,7 @@ import { FormControlAttrs, FormControl } from '../form';
 import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { Event as ControlEvent } from '../';
 export declare const DATE_FIELD = "ww-date-field";
+export declare const DATE_FIELD_CONTROLS = "ww-date-field__controls";
 export declare const DATE_FIELD_DAY: string;
 export declare const DATE_FIELD_MONTH: string;
 export declare const DATE_FIELD_YEAR: string;
@@ -40,6 +41,9 @@ export declare class DateField extends AbstractFeedbackControl<string, DateField
                 id: string;
             };
             id: string;
+        };
+        controls: {
+            className: string;
         };
         day: {
             wml: {

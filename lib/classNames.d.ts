@@ -189,6 +189,7 @@ export declare const STACK_ELEMENT_CONTENT = "ww-stack__element__content";
 export declare const STACK_CLOSE_BUTTON = "ww-stack__button";
 export declare const TEXT_INPUT = "ww-text-input";
 export declare const DATE_FIELD = "ww-date-field";
+export declare const DATE_FIELD_CONTROLS = "ww-date-field__controls";
 export declare const DATE_FIELD_DAY: string;
 export declare const DATE_FIELD_MONTH: string;
 export declare const DATE_FIELD_YEAR: string;
@@ -213,22 +214,6 @@ export declare const DROP_DOWN = "ww-drop-down-menu";
 export declare const DROP_DOWN_TOGGLE = "ww-drop-down-menu__toggle";
 export declare const DROP_DOWN_CONTENT = "ww-drop-down__content";
 export declare const HELP = "ww-help";
-/**
- * DATE class name.
- */
-export declare const DATE = "ww-date";
-/**
- * DATE_DAY class name.
- */
-export declare const DATE_DAY: string;
-/**
- * DATE_MONTH class name.
- */
-export declare const DATE_MONTH: string;
-/**
- * DATE_YEAR class name.
- */
-export declare const DATE_YEAR: string;
 export declare const MULTI_SELECT = "ww-multi-select";
 export declare const SEARCH = "ww-search";
 export declare const CHECKBOX = "ww-checkbox";
