@@ -11,6 +11,8 @@
     <DateField
       wml:id="date"
       ww:name="date"
+      ww:date="Date Label"
+      ww:message="Enter the date in the format DD MM YYYY"
       ww:onChange={{@onChange}} />
   </p>
 

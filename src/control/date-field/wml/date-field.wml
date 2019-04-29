@@ -1,37 +1,30 @@
 {% import (Label) from "../../label" %}
 {% import (Help) from "../../help" %}
-{% import (text) from "../../../" %}
 {% import (DateField) from "../" %}
 
 {% view Main (DateField) %}
 
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
-  {% if @values.label.text != null %}
- 
    <Label
     ww:for={{@values.control.id}}
     ww:text={{@values.label.text}} />
 
-  {% else %}
+   <div class={{@values.controls.className}}>
 
-    {{ '' | text }}
-
-  {% endif %}
- 
-   <input
-    wml:id={{@values.day.wml.id}}
-    name={{@values.day.wml.id}}
-    oninput={{@values.day.oninput}} 
-    onkeyup={{@values.day.onkeyup}}
-    type="number"
-    value={{@values.day.value}}
-    disabled={{@values.day.disabled}}
-    class={{@values.day.className}}
-    min="1"
-    max="31"
-    size="2"
-    placeholder="DD" />
+    <input
+      wml:id={{@values.day.wml.id}}
+      name={{@values.day.wml.id}}
+      oninput={{@values.day.oninput}} 
+      onkeyup={{@values.day.onkeyup}}
+      type="number"
+      value={{@values.day.value}}
+      disabled={{@values.day.disabled}}
+      class={{@values.day.className}}
+      min="1"
+      max="31"
+      size="2"
+      placeholder="DD" />
 
     <input
       wml:id={{@values.month.wml.id}}
@@ -60,6 +53,8 @@
       min="0000"
       max="9999"
       size="4" />
+
+    </div>
 
   <Help 
     wml:id={{@values.messages.wml.id}}

@@ -11,20 +11,18 @@
    ww:for={{@values.control.id}}
    ww:text={{@values.label.text}} />
  
-    <TextInput
-      wml:id={{@values.control.wml.id}}
-      ww:id={{@values.control.id}}
-      ww:name={{@values.control.name}}
-      ww:focus={{@values.control.focus}}
-      ww:placeholder={{@values.control.placeholder}}
-      ww:onChange={{@values.control.onChange}} 
-      ww:block=true
-      ww:validationState={{@values.control.validationState}}
-      ww:type={{@values.control.type}}
-      ww:value={{@values.control.value}}
-      ww:rows={{@values.control.rows}}
-      ww:disabled={{@values.control.disabled}}
-      ww:readOnly={{@values.control.readOnly}} />
+  <TextInput
+    ww:id={{@values.control.id}}
+    ww:name={{@values.control.name}}
+    ww:focus={{@values.control.focus}}
+    ww:placeholder={{@values.control.placeholder}}
+    ww:onChange={{@values.control.onChange}} 
+    ww:block=true
+    ww:type={{@values.control.type}}
+    ww:value={{@values.control.value}}
+    ww:rows={{@values.control.rows}}
+    ww:disabled={{@values.control.disabled}}
+    ww:readOnly={{@values.control.readOnly}} />
  
   <Help 
     wml:id={{@values.messages.wml.id}}

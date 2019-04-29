@@ -8,14 +8,15 @@ import {
     FeedbackControlAttrs,
     ValidationState,
     AbstractFeedbackControl,
-    getVSClassNameFromAttrs,
-  getMessage
+    getValidityClassName,
+    getMessage
 } from '../feedback';
 import { WidgetAttrs, getId, getClassName } from '../../';
 import { Event as ControlEvent } from '../';
 
 ///classNames:begin
 export const DATE_FIELD = 'ww-date-field';
+export const DATE_FIELD_CONTROLS = 'ww-date-field__controls';
 export const DATE_FIELD_DAY = `${DATE_FIELD}__day`;
 export const DATE_FIELD_MONTH = `${DATE_FIELD}__month`;
 export const DATE_FIELD_YEAR = `${DATE_FIELD}__year`;
@@ -63,7 +64,7 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
             className: concat(
                 DATE_FIELD,
                 getClassName(this.attrs),
-                getVSClassNameFromAttrs(this.attrs)),
+                getValidityClassName(this.attrs)),
 
         },
         control: {
@@ -74,6 +75,11 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
 
             },
             id: getId(this.attrs)
+
+        },
+        controls: {
+
+            className: DATE_FIELD_CONTROLS
 
         },
         day: {
@@ -174,7 +180,7 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
                 id: 'messages'
 
             },
-          text: getMessage(this.attrs)
+            text: getMessage(this.attrs)
 
         },
         label: {
@@ -294,6 +300,9 @@ const getCurrentValue = (self: DateField): Maybe<moment.Moment> => {
     let year = mYear.get().value;
     let month = mMonth.get().value;
     let day = mDay.get().value;
+
+    if ((year.length < 4) || (month.length < 2) || (day.length < 2))
+        return nothing();
 
     return just(moment(`${year}-${month}-${day}`, moment.ISO_8601));
 
