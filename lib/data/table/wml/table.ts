@@ -98,7 +98,7 @@ export const tbody =
 
         __this.node('td', {html : { 'class' : t.values.table .tbody .td .className (field) ,'onclick' : t.values.table .tbody .td .onclick (field.name)(rowIdx)  } ,wml : { 'id' : t.values.table .tbody .td .id (field.name)(cellIdx)(rowIdx)  } }, [
 
-        ... (t.values.table .tbody .td .content (rowData)(field))
+        ... (t.values.table .tbody .td .content (rowIdx)(rowData)(field))
      ])
      ]), 
 ()=> ([]))

@@ -43,7 +43,7 @@ export type HeadingFragment<C, R extends Record<C>>
  * CellFragment type.
  */
 export type CellFragment<C, R extends Record<C>>
-    = (value: C) => (name: string) => (row: R) => Fun
+    = (value: C) => (idx: number) => (row: R) => Fun
     ;
 
 /**
@@ -62,12 +62,12 @@ export interface Column<C, R extends Record<C>> {
     /**
      * heading displayed for the column.
      */
-  heading: string;
+    heading: string;
 
-  /**
-   * headingClassName
-   */
-  headingClassName?: string,
+    /**
+     * headingClassName
+     */
+    headingClassName?: string,
 
     /**
      * cellClassName
@@ -324,10 +324,10 @@ export class DataTable<C, R extends Record<C>>
 
                 th: {
 
-                  className: (c: Column<C, R>) =>
-                  concat((this.attrs.ww && this.attrs.ww.thClassName) ?
-                    this.attrs.ww.thClassName : '',
-                    String(c.headingClassName)),
+                    className: (c: Column<C, R>) =>
+                        concat((this.attrs.ww && this.attrs.ww.thClassName) ?
+                            this.attrs.ww.thClassName : '',
+                            String(c.headingClassName)),
 
                     content: (col: Column<C, R>) => (col.headingFragment) ?
                         col.headingFragment(col)(this.view) :
@@ -375,7 +375,7 @@ export class DataTable<C, R extends Record<C>>
                         this.delegate.onCellClicked(
                             new CellClickedEvent(column, row)),
 
-                    content: (r: R) => (c: Column<C, R>) => {
+                  content: (idx:number) => (r: R) => (c: Column<C, R>) => {
 
                         let maybeValue = get(c.name, r);
 
@@ -385,16 +385,16 @@ export class DataTable<C, R extends Record<C>>
 
                         } else {
 
-                          let value = maybeValue.get();
+                            let value = maybeValue.get();
 
                             if (c.cellFragment) {
 
-                                return c.cellFragment(value)(c.name)(r)(this.view);
+                                return c.cellFragment(value)(idx)(r)(this.view);
 
                             } else {
 
-                              if(c.format)
-                                return [text(c.format(value))];
+                                if (c.format)
+                                    return [text(c.format(value))];
 
                                 return [text('' + value)];
 

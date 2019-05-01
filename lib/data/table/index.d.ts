@@ -20,7 +20,7 @@ export declare type HeadingFragment<C, R extends Record<C>> = (column: Column<C,
 /**
  * CellFragment type.
  */
-export declare type CellFragment<C, R extends Record<C>> = (value: C) => (name: string) => (row: R) => Fun;
+export declare type CellFragment<C, R extends Record<C>> = (value: C) => (idx: number) => (row: R) => Fun;
 /**
  * Column provides the information a DataTable needs to render the cells
  * of a column in each row.
@@ -216,7 +216,7 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
                     id: (column: string) => (colNumber: number) => (rowNumber: number) => string;
                     className: (c: Column<C, R>) => string;
                     onclick: (column: string) => (row: number) => () => void;
-                    content: (r: R) => (c: Column<C, R>) => Content[];
+                    content: (idx: number) => (r: R) => (c: Column<C, R>) => Content[];
                 };
             };
         };

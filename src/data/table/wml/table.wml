@@ -45,7 +45,7 @@
             class={{t.values.table.tbody.td.className(field)}}
             onclick={{t.values.table.tbody.td.onclick(field.name)(rowIdx)}}>
               
-              {{...t.values.table.tbody.td.content(rowData)(field)}}
+              {{...t.values.table.tbody.td.content(rowIdx)(rowData)(field)}}
 
           </td>
 
