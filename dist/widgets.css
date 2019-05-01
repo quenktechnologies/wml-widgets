@@ -490,7 +490,7 @@ a.ww-tag:focus {
     float: left;
     width: 160px;
     clear: left;
-    text-align: right;
+    text-align: left;
     text-overflow: ellipsis;
   }
 }

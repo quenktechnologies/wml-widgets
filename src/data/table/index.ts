@@ -62,12 +62,17 @@ export interface Column<C, R extends Record<C>> {
     /**
      * heading displayed for the column.
      */
-    heading: string;
+  heading: string;
+
+  /**
+   * headingClassName
+   */
+  headingClassName?: string,
 
     /**
-     * className to add to the cell.
+     * cellClassName
      */
-    className?: string;
+    cellClassName?: string,
 
     /**
      * format can be specified to transform a cell value to a string for display.
@@ -319,7 +324,10 @@ export class DataTable<C, R extends Record<C>>
 
                 th: {
 
-                    className: this.attrs.ww && this.attrs.ww.thClassName,
+                  className: (c: Column<C, R>) =>
+                  concat((this.attrs.ww && this.attrs.ww.thClassName) ?
+                    this.attrs.ww.thClassName : '',
+                    String(c.headingClassName)),
 
                     content: (col: Column<C, R>) => (col.headingFragment) ?
                         col.headingFragment(col)(this.view) :
@@ -359,7 +367,7 @@ export class DataTable<C, R extends Record<C>>
                     id: idTD,
 
                     className: (c: Column<C, R>) =>
-                        concat(c.className ? c.className : '',
+                        concat(c.cellClassName ? c.cellClassName : '',
                             (this.attrs.ww && this.attrs.ww.tdClassName) ?
                                 this.attrs.ww.tdClassName : ''),
 

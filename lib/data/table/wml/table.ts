@@ -69,7 +69,7 @@ export const thead =
         ...__forIn (columns, (field , _$$i, _$$all)=> 
 ([
 
-        __this.node('th', {html : { 'class' : t.values.table .thead .th .className  ,'onclick' : t.values.table .thead .th .onclick (field.name)  } ,wml : {  } }, [
+        __this.node('th', {html : { 'class' : t.values.table .thead .th .className (field) ,'onclick' : t.values.table .thead .th .onclick (field.name)  } ,wml : {  } }, [
 
         ... (t.values.table .thead .th .content (field))
      ])

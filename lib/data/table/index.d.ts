@@ -37,9 +37,13 @@ export interface Column<C, R extends Record<C>> {
      */
     heading: string;
     /**
-     * className to add to the cell.
+     * headingClassName
      */
-    className?: string;
+    headingClassName?: string;
+    /**
+     * cellClassName
+     */
+    cellClassName?: string;
     /**
      * format can be specified to transform a cell value to a string for display.
      */
@@ -196,7 +200,7 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
                 className: string | undefined;
                 template: () => THead<C, R>;
                 th: {
-                    className: string | undefined;
+                    className: (c: Column<C, R>) => string;
                     content: (col: Column<C, R>) => Content[];
                     onclick: (field: string) => () => void;
                 };

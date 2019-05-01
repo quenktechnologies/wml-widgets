@@ -13,7 +13,7 @@
       {% for field in columns %}
 
         <th 
-         class={{t.values.table.thead.th.className}}
+         class={{t.values.table.thead.th.className(field)}}
          onclick={{t.values.table.thead.th.onclick(field.name)}}>
 
             {{...t.values.table.thead.th.content(field)}}
