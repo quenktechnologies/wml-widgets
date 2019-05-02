@@ -22,6 +22,11 @@ export type ButtonTemplate = (b: DropDown) => Fun;
  */
 export interface DropDownMenuAttrs extends HTMLElementAttrs {
 
+  /**
+   * buttonClassName
+   */
+  buttonClassName?: string,
+
     /**
      * buttonText for the button.
      */
@@ -82,7 +87,9 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
             text: (this.attrs.ww && this.attrs.ww.buttonText) ?
                 this.attrs.ww.buttonText : '',
 
-            className: concat(DROP_DOWN_TOGGLE, style.DEFAULT),
+          className: concat(DROP_DOWN_TOGGLE, 
+            style.DEFAULT, (this.attrs.ww && this.attrs.ww.buttonClassName)?
+          this.attrs.ww.buttonClassName : ''),
 
             template: (): ButtonTemplate =>
                 (this.attrs.ww && this.attrs.ww.buttonTemplate) ?
@@ -105,8 +112,8 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
                         for (let i = 0; i < e.children.length; i++) {
 
                             //prevent doubling up handlers.
-                          e.children[i]
-                            .                                removeEventListener('click', hide);
+                            e.children[i]
+                                .removeEventListener('click', hide);
 
                             e.children[i].addEventListener('click', hide);
 

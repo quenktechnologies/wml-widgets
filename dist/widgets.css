@@ -2078,7 +2078,7 @@ textarea.ww-droplist {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box;
 }
-.ww-drop-down-menu > .ww-drop-down__content > .MENU {
+.ww-drop-down-menu > .ww-drop-down__content > .ww-menu {
   background-color: transparent;
   border: none;
   box-shadow: none;

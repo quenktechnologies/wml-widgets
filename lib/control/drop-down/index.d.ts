@@ -13,6 +13,10 @@ export declare type ButtonTemplate = (b: DropDown) => Fun;
  */
 export interface DropDownMenuAttrs extends HTMLElementAttrs {
     /**
+     * buttonClassName
+     */
+    buttonClassName?: string;
+    /**
      * buttonText for the button.
      */
     buttonText?: string;
