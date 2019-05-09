@@ -42,7 +42,7 @@ dist/widgets.css: widgets.less lib
 widgets.less: $(shell $(FIND) src -name \*.less)
 	echo "" > $@
 	$(foreach f,$^,\
-	echo '@import "./$(f)";' >> $@ && ) true
+	echo '@import "./$(subst src,lib,$(f))";' >> $@ && ) true
 
 test: test/browser
 	touch $@
