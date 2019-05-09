@@ -9,7 +9,8 @@
   "scripts": {},
   "files": [
     "lib",
-    "dist"
+    "dist",
+    "widgets.less"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
