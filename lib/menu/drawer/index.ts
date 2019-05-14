@@ -1,5 +1,6 @@
 import * as wml from '@quenk/wml';
 import {
+    HIDDEN,
     Hidable,
     isHidden,
     hide,
@@ -7,6 +8,7 @@ import {
     toggle
 } from '../../content/state/hidden';
 import { LayoutAttrs, AbstractLayout } from '../../layout';
+import { concat } from '../../util';
 import { Main } from './wml/drawer';
 
 ///classNames:begin
@@ -18,6 +20,11 @@ export const DRAWER_CONTENT = 'ww-drawer__content';
  * DrawerAttrs
  */
 export interface DrawerAttrs extends LayoutAttrs {
+
+    /**
+     * hidden if true, will hide the drawer.
+     */
+    hidden?: boolean,
 
     /**
      * content for the Drawer.
@@ -47,7 +54,8 @@ export class Drawer extends AbstractLayout<DrawerAttrs> implements Hidable {
 
             id: this.attrs.ww && this.attrs.ww.id,
 
-            className: DRAWER,
+            className: concat(DRAWER, (this.attrs.ww && this.attrs.ww.hidden) ?
+                HIDDEN : ''),
 
             wml: {
 

@@ -63,7 +63,7 @@ export class DrawerLayout  implements __wml.View {
 
            return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : { 'id' : __context.values.root .wml .id   } }, [
 
-        __this.widget(Drawer, {html : {  } ,wml : { 'id' : __context.values.drawer .wml .id   } ,ww : { 'content' : __context.values.drawer .content   } }, [
+        __this.widget(Drawer, {html : {  } ,wml : { 'id' : __context.values.drawer .wml .id   } ,ww : { 'hidden' : __context.values.drawer .hidden  ,'content' : __context.values.drawer .content   } }, [
 
         
      ]),

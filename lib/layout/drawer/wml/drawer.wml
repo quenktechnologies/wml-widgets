@@ -10,6 +10,7 @@
 
   <Drawer
     wml:id={{@values.drawer.wml.id}}
+    ww:hidden={{@values.drawer.hidden}}
     ww:content={{@values.drawer.content}}/>
 
     {{...@values.content.value}}

@@ -8,6 +8,10 @@ export declare const DRAWER_CONTENT = "ww-drawer__content";
  */
 export interface DrawerAttrs extends LayoutAttrs {
     /**
+     * hidden if true, will hide the drawer.
+     */
+    hidden?: boolean;
+    /**
      * content for the Drawer.
      *
      * Will be used if no children specified.

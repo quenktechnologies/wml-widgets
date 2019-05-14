@@ -1,11 +1,11 @@
 import * as views from './wml/drawer';
 import { View, Content, Component } from '@quenk/wml';
 import { Maybe } from '@quenk/noni/lib/data/maybe';
-import {    Hidable} from '../../content/state/hidden';
-import { Drawer} from '../../menu/drawer';
+import { Hidable } from '../../content/state/hidden';
+import { Drawer } from '../../menu/drawer';
 import { concat, warnMissing } from '../../util';
 import { WidgetAttrs } from '../../';
-import { LAYOUT, LayoutAttrs, Layout  } from '../';
+import { LAYOUT, LayoutAttrs, Layout } from '../';
 
 ///classNames:begin
 /**
@@ -18,6 +18,11 @@ export const DRAWER_LAYOUT = 'ww-drawer-layout';
  * DrawerLayoutAttrs
  */
 export interface DrawerLayoutAttrs extends LayoutAttrs {
+
+    /**
+     * drawerHidden if true will hide the Drawer.
+     */
+    drawerHidden?: boolean,
 
     /**
      * drawerContent used to populate the Drawer.
@@ -102,6 +107,9 @@ export class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttrs>>
                 id: 'drawer'
 
             },
+
+            hidden: (this.attrs.ww && this.attrs.ww.drawerHidden) ?
+                this.attrs.ww.drawerHidden : false,
 
             content: (this.attrs.ww && this.attrs.ww.drawerContent) ?
                 this.attrs.ww.drawerContent : []

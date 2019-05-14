@@ -11,6 +11,10 @@ export declare const DRAWER_LAYOUT = "ww-drawer-layout";
  */
 export interface DrawerLayoutAttrs extends LayoutAttrs {
     /**
+     * drawerHidden if true will hide the Drawer.
+     */
+    drawerHidden?: boolean;
+    /**
      * drawerContent used to populate the Drawer.
      */
     drawerContent?: Content[];
@@ -76,6 +80,7 @@ export declare class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttr
             wml: {
                 id: string;
             };
+            hidden: boolean;
             content: Content[];
         };
         content: {
