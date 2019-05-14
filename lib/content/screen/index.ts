@@ -6,4 +6,4 @@ export const SCREEN_MEDIUM = '720px';
  * standard for considering a screen small.
  */
 export const screenNotSmall = (w: Window): boolean =>
-    w.matchMedia(`(min-width: ${SCREEN_SMALL})`).matches;
+    w.matchMedia(`(min-width: ${SCREEN_MEDIUM})`).matches;
