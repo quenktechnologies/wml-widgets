@@ -1,6 +1,11 @@
 import * as views from './wml/drawer';
 import { View, Content, Component } from '@quenk/wml';
 import { Maybe } from '@quenk/noni/lib/data/maybe';
+import {
+    hide,
+    show,
+    toggle
+} from '../../content/state/hidden';
 import { Hidable } from '../../content/state/hidden';
 import { Drawer } from '../../menu/drawer';
 import { concat, warnMissing } from '../../util';
@@ -140,8 +145,12 @@ export class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttrs>>
 
         let m = getDrawer(this);
 
-        if (m.isJust())
+        if (m.isJust()) {
+
             m.get().hide();
+            hide(this.view, this.values.root.wml.id);
+
+        }
 
         return this;
 
@@ -151,8 +160,13 @@ export class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttrs>>
 
         let m = getDrawer(this);
 
-        if (m.isJust())
+        if (m.isJust()) {
+
             m.get().show();
+            show(this.view, this.values.root.wml.id);
+
+
+        }
 
         return this;
 
@@ -162,8 +176,12 @@ export class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttrs>>
 
         let m = getDrawer(this);
 
-        if (m.isJust())
+        if (m.isJust()) {
+
             m.get().toggle();
+            toggle(this.view, this.values.root.wml.id);
+
+        }
 
         return this;
 
