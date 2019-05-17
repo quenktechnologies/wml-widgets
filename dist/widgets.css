@@ -2050,7 +2050,6 @@ textarea.ww-droplist {
 }
 .ww-drop-down-menu > .ww-button {
   position: relative;
-  float: left;
 }
 .ww-drop-down-menu .ww-drop-down-menu__toggle:active {
   outline: 0;
