@@ -63,7 +63,7 @@ export const button =
 
    return [
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'class' : d.values.button .className  ,'onClick' : d.values.button .onClick   } }, [
+        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'class' : d.values.button .className  ,'style' : d.values.button .style  ,'onClick' : d.values.button .onClick   } }, [
 
         text ((d.values.button .text  + ` `)),
 __this.widget(Caret, {html : {  } ,wml : {  } }, [

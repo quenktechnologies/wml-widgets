@@ -1,5 +1,7 @@
 import * as hidden from '../../content/state/hidden';
+import * as style from '../../content/style';
 import { View, Fun, Component } from '@quenk/wml';
+import { Style } from '../../content/style';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 export declare const DROP_DOWN = "ww-drop-down-menu";
 export declare const DROP_DOWN_TOGGLE = "ww-drop-down-menu__toggle";
@@ -20,6 +22,10 @@ export interface DropDownMenuAttrs extends HTMLElementAttrs {
      * buttonText for the button.
      */
     buttonText?: string;
+    /**
+     * buttonStyle for the button.
+     */
+    buttonStyle?: Style;
     /**
      * buttonTemplate for rendering the button.
      */
@@ -59,6 +65,7 @@ export declare class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>> 
         };
         button: {
             text: string;
+            style: style.Style;
             className: string;
             template: () => ButtonTemplate;
             onClick: () => void;

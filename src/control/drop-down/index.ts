@@ -2,9 +2,9 @@ import * as views from './wml/drop-down';
 import * as hidden from '../../content/state/hidden';
 import * as style from '../../content/style';
 import { View, Fun, Component } from '@quenk/wml';
+import { Style } from '../../content/style';
 import { concat, getById } from '../../util';
 import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
-
 
 ///classNames:begin
 export const DROP_DOWN = 'ww-drop-down-menu';
@@ -22,15 +22,20 @@ export type ButtonTemplate = (b: DropDown) => Fun;
  */
 export interface DropDownMenuAttrs extends HTMLElementAttrs {
 
-  /**
-   * buttonClassName
-   */
-  buttonClassName?: string,
+    /**
+     * buttonClassName
+     */
+    buttonClassName?: string,
 
     /**
      * buttonText for the button.
      */
     buttonText?: string,
+
+    /**
+     * buttonStyle for the button.
+     */
+    buttonStyle?: Style,
 
     /**
      * buttonTemplate for rendering the button.
@@ -87,9 +92,12 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
             text: (this.attrs.ww && this.attrs.ww.buttonText) ?
                 this.attrs.ww.buttonText : '',
 
-          className: concat(DROP_DOWN_TOGGLE, 
-            style.DEFAULT, (this.attrs.ww && this.attrs.ww.buttonClassName)?
-          this.attrs.ww.buttonClassName : ''),
+            style: (this.attrs.ww && this.attrs.ww.buttonStyle) ?
+                this.attrs.ww.buttonStyle : Style.Default,
+
+            className: concat(DROP_DOWN_TOGGLE,
+                style.DEFAULT, (this.attrs.ww && this.attrs.ww.buttonClassName) ?
+                    this.attrs.ww.buttonClassName : ''),
 
             template: (): ButtonTemplate =>
                 (this.attrs.ww && this.attrs.ww.buttonTemplate) ?
