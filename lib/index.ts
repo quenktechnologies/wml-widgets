@@ -1,4 +1,4 @@
-import { Type} from '@quenk/noni/lib/data/type';
+import { Type } from '@quenk/noni/lib/data/type';
 import { Attrs } from '@quenk/wml';
 
 /**
@@ -51,4 +51,5 @@ export const getClassName = (attrs: WidgetAttrs<HTMLElementAttrs>) =>
 /**
  * text constructor.
  */
-export const text = (str:Type)=> document.createTextNode(String(str));
+export const text = (str: Type) =>
+    document.createTextNode(String((str == null) ? '' : str));
