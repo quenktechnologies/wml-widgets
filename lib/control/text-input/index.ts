@@ -7,8 +7,8 @@ import {
     FocusableAttrs,
     Focusable,
     FocusGainedEvent,
-  FocusLostEvent,
-  focus
+    FocusLostEvent,
+    focus
 } from '../focus';
 import { getId, getClassName } from '../../';
 import { ControlAttrs, AbstractControl, Event, getName } from '../';
@@ -21,8 +21,8 @@ export const TEXT_INPUT = 'ww-text-input';
  * TextInputAttrs
  */
 export interface TextInputAttrs
-extends
-ControlAttrs<string>, FocusableAttrs {
+    extends
+    ControlAttrs<string>, FocusableAttrs {
 
     /**
      * placeholder sets placeholder text for the control.
@@ -77,9 +77,9 @@ export class TextChangedEvent extends Event<string> { }
  * TextInput provides some extra styling to the native input.
  */
 export class TextInput
-extends
-AbstractControl<string, TextInputAttrs>
-  implements Focusable {
+    extends
+    AbstractControl<string, TextInputAttrs>
+    implements Focusable {
 
     view: View = (this.attrs.ww && this.attrs.ww.rows && this.attrs.ww.rows > 1) ?
         new views.Textarea(this) : new views.Input(this);
@@ -103,7 +103,7 @@ AbstractControl<string, TextInputAttrs>
             (this.attrs.ww && this.attrs.ww.size) ?
                 getSizeClassName(this.attrs.ww.size) : '',
 
-                   (this.attrs.ww && this.attrs.ww.block) ?
+            (this.attrs.ww && this.attrs.ww.block) ?
                 BLOCK : ''
         ),
 
@@ -134,16 +134,16 @@ AbstractControl<string, TextInputAttrs>
         onfocus: () => {
 
             if (this.attrs.ww && this.attrs.ww.onFocusGained)
-            this.attrs.ww.onFocusGained(
-              new FocusGainedEvent(getName(this.attrs)))
+                this.attrs.ww.onFocusGained(
+                    new FocusGainedEvent(getName(this.attrs)))
 
         },
 
         onblur: () => {
 
             if (this.attrs.ww && this.attrs.ww.onFocusLost)
-            this.attrs.ww.onFocusLost(
-              new FocusLostEvent(getName(this.attrs)))
+                this.attrs.ww.onFocusLost(
+                    new FocusLostEvent(getName(this.attrs)))
 
         }
 
@@ -151,7 +151,7 @@ AbstractControl<string, TextInputAttrs>
 
     focus() {
 
-      return focus(this.view, this.values.control.wml.id)
+        return focus(this.view, this.values.control.wml.id)
 
     }
 
