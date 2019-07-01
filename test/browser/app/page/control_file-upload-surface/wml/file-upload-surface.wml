@@ -1,0 +1,10 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (FileUploadSurface) from "../../../../../../lib/control/file-upload-surface" %}
+{% import (FileUploadSurfacePage) from "../" %}
+
+{% view Main (FileUploadSurfacePage) %}
+<Demo>
+
+  <FileUploadSurface/>
+
+</Demo>

@@ -1,0 +1,20 @@
+{% import (text) from "../../../" %}
+{% import (FileInput) from "../../file-input" %}
+{% import (FileUploadSurface) from "../" %}
+
+{% view FileUploadSurfaceView (FileUploadSurface) %}
+<div id={{@values.id}} class={{@values.className}}>
+
+    <FileInput
+      ww:className={{@values.input.className}} 
+      ww:name={{@values.input.name}}
+      ww:accept={{@values.input.accept}} 
+      ww:onChange={{@values.input.onChange}} />
+
+    <div class={{@values.text.className}}>
+
+      <h3>{{@values.text.value | text}}</h3>
+    
+    </div>
+
+</div>

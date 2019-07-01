@@ -296,6 +296,9 @@ export const STACK_ELEMENT_CONTENT = 'ww-stack__element__content';
 export const STACK_CLOSE_BUTTON = 'ww-stack__button';
 ///classNames:end
 ///classNames:begin
+export const FILE_INPUT = 'ww-file-input';
+///classNames:end
+///classNames:begin
 export const TEXT_INPUT = 'ww-text-input';
 ///classNames:end
 ///classNames:begin
@@ -335,6 +338,11 @@ export const TAB = 'ww-tab';
  * TAB_BAR 
  */
 export const TAB_BAR = 'ww-tab-bar';
+///classNames:end
+///classNames:begin
+export const FILE_UPLOAD_SURFACE = 'ww-file-upload-surface';
+export const FILE_UPLOAD_SURFACE_INPUT = 'ww-file-upload-surface__input';
+export const FILE_UPLOAD_SURFACE_TEXT = 'ww-file-upload-surface__text';
 ///classNames:end
 ///classNames:begin
 export const SELECT = 'ww-select';

@@ -10,6 +10,7 @@
   value={{@values.value}}
   disabled={{@values.disabled}}
   readonly={{@values.readOnly}}
+  rows={{@values.rows}}
   class={{@values.className}} >{{document.createTextNode(@values.value)}}</textarea>
 
 {% view Input (TextInput) %}

@@ -1513,6 +1513,30 @@ buttonLink styles the button to appear like a link.
   background-color: transparent;
   cursor: pointer;
 }
+.ww-file-upload-surface {
+  margin-top: 20px;
+  border: 4px dashed #1FB264;
+  position: relative;
+}
+.ww-file-upload-surface > .ww-file-upload-surface__input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+.ww-file-upload-surface > .ww-file-upload-surface__text {
+  text-align: center;
+}
+.ww-file-upload-surface > .ww-file-upload-surface__text > h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #15824B;
+  padding: 60px 0;
+}
 /**
  * ww-text-input styling.
  */
@@ -2030,6 +2054,33 @@ textarea.ww-droplist {
   .ww-tab-bar.-justified > li > a {
     margin-bottom: 5px;
   }
+}
+.ww-file-upload-surface {
+  margin: 0px 0px;
+  border: 4px dashed #c0c0c0;
+  position: relative;
+  background: transparent;
+}
+.ww-file-upload-surface > .ww-file-upload-surface__input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+.ww-file-upload-surface > .ww-file-upload-surface__text {
+  text-align: center;
+}
+.ww-file-upload-surface > .ww-file-upload-surface__text > h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #443c3c;
+  padding: 60px 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .ww-select {
   margin-bottom: 2px;

@@ -11,6 +11,7 @@ export const pages:{[key:string]:any} = {
 'control_date-field' : require('./page/control_date-field').default,
 'control_drop-down' : require('./page/control_drop-down').default,
 'control_droplist' : require('./page/control_droplist').default,
+'control_file-upload-surface' : require('./page/control_file-upload-surface').default,
 'control_multi-select' : require('./page/control_multi-select').default,
 'control_select' : require('./page/control_select').default,
 'control_stack' : require('./page/control_stack').default,

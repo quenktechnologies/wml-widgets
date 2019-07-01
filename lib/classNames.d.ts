@@ -187,6 +187,7 @@ export declare const STACK = "ww-stack";
 export declare const STACK_ELEMENT = "ww-stack__element";
 export declare const STACK_ELEMENT_CONTENT = "ww-stack__element__content";
 export declare const STACK_CLOSE_BUTTON = "ww-stack__button";
+export declare const FILE_INPUT = "ww-file-input";
 export declare const TEXT_INPUT = "ww-text-input";
 export declare const DATE_FIELD = "ww-date-field";
 export declare const DATE_FIELD_CONTROLS = "ww-date-field__controls";
@@ -209,6 +210,9 @@ export declare const TAB = "ww-tab";
  * TAB_BAR
  */
 export declare const TAB_BAR = "ww-tab-bar";
+export declare const FILE_UPLOAD_SURFACE = "ww-file-upload-surface";
+export declare const FILE_UPLOAD_SURFACE_INPUT = "ww-file-upload-surface__input";
+export declare const FILE_UPLOAD_SURFACE_TEXT = "ww-file-upload-surface__text";
 export declare const SELECT = "ww-select";
 export declare const DROP_DOWN = "ww-drop-down-menu";
 export declare const DROP_DOWN_TOGGLE = "ww-drop-down-menu__toggle";
