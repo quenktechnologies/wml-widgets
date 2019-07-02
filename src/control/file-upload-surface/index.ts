@@ -5,6 +5,8 @@ import { getClassName, getId } from '../../';
 import { AbstractControl, getName } from '../';
 import { FileUploadSurfaceView } from './wml/file-upload-surface';
 
+export { FileChangedEvent }
+
 export const INSTRUCTION_TEXT = 'Choose a file';
 
 ///classNames:begin
@@ -35,6 +37,27 @@ export class FileUploadSurface
 
         className: concat(FILE_UPLOAD_SURFACE, getClassName(this.attrs)),
 
+        stop: (e: Event) => {
+
+            e.stopPropagation();
+            e.preventDefault();
+
+        },
+
+        drop: (e: DragEvent) => {
+
+            e.stopPropagation();
+            e.preventDefault();
+
+            let name = (this.attrs.ww && this.attrs.ww.name) ?
+                this.attrs.ww.name : '';
+
+            if (e.dataTransfer && e.dataTransfer.files.length > 0)
+                this.values.input.onChange(
+                    new FileChangedEvent(name, e.dataTransfer.files[0]));
+
+        },
+
         input: {
 
             className: FILE_UPLOAD_SURFACE_INPUT,
@@ -50,7 +73,7 @@ export class FileUploadSurface
 
                 if (this.attrs.ww && this.attrs.ww.onChange)
                     this.attrs.ww.onChange(e);
-                console.error('invalids');
+
                 this.view.invalidate();
 
             }

@@ -3,7 +3,12 @@
 {% import (FileUploadSurface) from "../" %}
 
 {% view FileUploadSurfaceView (FileUploadSurface) %}
-<div id={{@values.id}} class={{@values.className}}>
+<div 
+  id={{@values.id}} 
+  class={{@values.className}}
+  ondragenter={{@values.stop}}
+  ondragover={{@values.stop}}
+  ondrop={{@values.drop}}>
 
     <FileInput
       ww:className={{@values.input.className}} 

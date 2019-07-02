@@ -62,7 +62,7 @@ export class FileUploadSurfaceView  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('div', {html : { 'id' : __context.values.id  ,'class' : __context.values.className   } ,wml : {  } }, [
+           return __this.node('div', {html : { 'id' : __context.values.id  ,'class' : __context.values.className  ,'ondragenter' : __context.values.stop  ,'ondragover' : __context.values.stop  ,'ondrop' : __context.values.drop   } ,wml : {  } }, [
 
         __this.widget(FileInput, {html : {  } ,wml : {  } ,ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'accept' : __context.values.input .accept  ,'onChange' : __context.values.input .onChange   } }, [
 

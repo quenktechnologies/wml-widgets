@@ -1,6 +1,7 @@
 import { View } from '@quenk/wml';
 import { FileInputAttrs, FileChangedEvent } from '../file-input';
 import { AbstractControl } from '../';
+export { FileChangedEvent };
 export declare const INSTRUCTION_TEXT = "Choose a file";
 export declare const FILE_UPLOAD_SURFACE = "ww-file-upload-surface";
 export declare const FILE_UPLOAD_SURFACE_INPUT = "ww-file-upload-surface__input";
@@ -20,6 +21,8 @@ export declare class FileUploadSurface extends AbstractControl<File, FileUploadS
     values: {
         id: string;
         className: string;
+        stop: (e: Event) => void;
+        drop: (e: DragEvent) => void;
         input: {
             className: string;
             name: string;
