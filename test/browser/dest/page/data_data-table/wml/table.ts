@@ -122,12 +122,27 @@ __this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'compact' : true  ,'da
      ]),
 __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.widget(TableWindow, {html : {  } ,wml : {  } }, [
+        __this.node('h3', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`Windowed`)
+     ]),
+__this.widget(TableWindow, {html : {  } ,wml : {  } }, [
 
         __this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
 
         
      ])
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.node('h3', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`HeadingClickedEvent used for sorts.`)
+     ]),
+__this.widget(DataTable, {html : {  } ,wml : { 'id' : `sortable`  } ,ww : { 'data' : __context.values.users  ,'columns' : __context.values.columns  ,'onHeadingClicked' : __context.values.sort   } }, [
+
+        
      ])
      ])
      ]);

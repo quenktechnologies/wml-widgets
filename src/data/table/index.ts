@@ -1,5 +1,14 @@
 import * as views from './wml/table';
-import { get } from '@quenk/noni/lib/data/record/path';
+import { Type } from '@quenk/noni/lib/data/type';
+import {
+    Sorter,
+    date as dateSort,
+    string as stringSort,
+    number as numberSort,
+    natural as naturalSort
+} from '@quenk/noni/lib/data/array/sort';
+import { nothing, just } from '@quenk/noni/lib/data/maybe';
+import { get, getDefault } from '@quenk/noni/lib/data/record/path';
 import { Record } from '@quenk/noni/lib/data/record';
 import { Fun, Component, Content } from '@quenk/wml';
 import { concat } from '../../util';
@@ -14,9 +23,6 @@ import {
 ///classNames:begin
 export const DATA_TABLE = 'ww-data-table';
 ///classNames:end
-
-export const ASC_ARROW = '\u21e7';
-export const DESC_ARROW = '\u21e9';
 
 /**
  * THead template function type.
@@ -46,6 +52,14 @@ export type CellFragment<C, R extends Record<C>>
     = (value: C) => (idx: number) => (row: R) => Fun
     ;
 
+/**
+ * SortStrategy is a function that can be used to sort data or a 
+ * string refernece to one.
+ */
+export type SortStrategy<C>
+    = string
+    | Sorter<C>
+    ;
 /**
  * Column provides the information a DataTable needs to render the cells
  * of a column in each row.
@@ -80,7 +94,6 @@ export interface Column<C, R extends Record<C>> {
     format?: (c: C) => string,
 
     /**
-     *
      * headingFragment can be specified to customise the rending
      * of the heading content.
      */
@@ -90,7 +103,20 @@ export interface Column<C, R extends Record<C>> {
      * cellFragment can be specified to customise the rendering
      * of the cell content.
      */
-    cellFragment?: CellFragment<C, R>
+    cellFragment?: CellFragment<C, R>,
+
+    /**
+     * sortOn can be used to indicate the column should be sorted 
+     * by another value.
+     */
+    sortOn?: string,
+
+    /**
+     * sortAs indicates how to sort on the column.
+     *
+     * Defaults to string.
+     */
+    sortAs?: string
 
 }
 
@@ -181,6 +207,17 @@ export interface DataTableAttrs<C, R extends Record<C>>
      */
     onRowClicked?: (e: RowClickedEvent) => void,
 
+    /**
+     * onChange is applied each time the internal representation
+     * of the data is changed.
+     */
+    onChange?: (e: DataChangedEvent<R>) => void,
+
+    /**
+     * onSort is applied each time the data is sorted.
+     */
+    onSort?: (e: DataSortedEvent<R>) => void
+
 }
 
 /**
@@ -212,6 +249,27 @@ export class CellClickedEvent {
 
 }
 
+/**
+ * DataChangedEvent generated when the internal representation of the data
+ * changes.
+ */
+export class DataChangedEvent<R> {
+
+    constructor(public data: R[]) { }
+
+}
+
+/**
+ * DataSortedEvent is generated when the internal representation of the
+ * data has been sorted.
+ * It provides a copy of the sorted data, the column name
+ * and the direction (1 for ascending, -1 for descending).
+ */
+export class DataSortedEvent<R> {
+
+    constructor(public data: R[], public column: string, public dir: number) { }
+
+}
 /**
  * Range of table cells.
  */
@@ -273,7 +331,8 @@ export class Delegate<C, R extends Record<C>>  {
 }
 
 /**
- * DataTable provides a smarter html table.
+ * DataTable can be used for displaying sortable
+ * tabular data.
  */
 export class DataTable<C, R extends Record<C>>
     extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
@@ -303,10 +362,15 @@ export class DataTable<C, R extends Record<C>>
 
             hoverable: (this.attrs.ww && this.attrs.ww.hoverable),
 
-            data: (this.attrs.ww && this.attrs.ww.data) ? this.attrs.ww.data : [],
+            data: (this.attrs.ww && this.attrs.ww.data) ?
+                this.attrs.ww.data.slice() : [],
 
-            get: (column: string) => (row: number) =>
-                get(column, <Record<C>>this.values.table.data[row]).get(),
+            dir: 0,
+
+            sortedOn: '',
+
+            pristine: (this.attrs.ww && this.attrs.ww.data) ?
+                this.attrs.ww.data.slice() : [],
 
             thead: {
 
@@ -375,7 +439,7 @@ export class DataTable<C, R extends Record<C>>
                         this.delegate.onCellClicked(
                             new CellClickedEvent(column, row)),
 
-                  content: (idx:number) => (r: R) => (c: Column<C, R>) => {
+                    content: (idx: number) => (r: R) => (c: Column<C, R>) => {
 
                         let maybeValue = get(c.name, r);
 
@@ -415,12 +479,98 @@ export class DataTable<C, R extends Record<C>>
     }
 
     /**
+     * @private
+     */
+    fireChange(): void {
+
+        if (this.attrs.ww && this.attrs.ww.onChange)
+            this.attrs.ww.onChange(new DataChangedEvent(
+                this.values.table.data.slice()));
+
+    }
+
+    /**
+     * @private
+     */
+    fireSort(): void {
+
+        if (this.attrs.ww && this.attrs.ww.onSort)
+            this.attrs.ww.onSort(
+                new DataSortedEvent(
+                    this.values.table.data,
+                    this.values.table.sortedOn,
+                    this.values.table.dir));
+
+    }
+
+    /**
      * setData updates the table with new dataset.
      */
     setData(data: R[]): DataTable<C, R> {
 
-        this.values.table.data = data;
+        this.values.table.data = data.slice();
+        this.values.table.pristine = data.slice();
+        this.fireChange();
         this.view.invalidate();
+        return this;
+
+    }
+
+    /**
+     * sort the data on the colum specified.
+     *
+     * Sorting is always done using the original data
+     * or the data from setData().
+     */
+    sort(name: string): DataTable<C, R> {
+
+        let columns = this.values.columns;
+
+        let mField = columns.reduce((p, c) =>
+            p.isJust() ? p : (c.name === name) ? just(c) : p, nothing());
+
+        if (mField.isNothing()) return this;
+
+        let field = <Column<C, R>>mField.get();
+        let sortOn = field.sortOn || name;
+        let strategy = getStrategy(sortOn);
+
+        this.values.table.sortedOn = name;
+        this.values.table.dir = 1;
+
+        this.values.table.data =
+            this
+                .values
+                .table
+                .pristine
+                .slice()
+                .sort((a, b) => strategy(getAny(sortOn, a), getAny(sortOn, b)));
+
+        this.fireSort();
+
+        this.fireChange();
+
+        this.view.invalidate();
+
+        return this;
+
+    }
+
+    /**
+     * reverse sort the data displayed.
+     */
+    reverse(): DataTable<C, R> {
+
+        this.values.table.data = this.values.table.data.reverse();
+
+        this.values.table.dir = -1;
+
+        this.fireSort();
+
+        this.fireChange();
+
+        this.view.invalidate();
+
         return this;
 
     }
@@ -429,3 +579,21 @@ export class DataTable<C, R extends Record<C>>
 
 const idTD = (column: string) => (colNumber: number) => (rowNumber: number) =>
     `${column}${colNumber},${rowNumber}`;
+
+const getAny = <C>(path: string, src: Record<C>) =>
+    getDefault(path, src, undefined);
+
+const getStrategy = (s: SortStrategy<Type>): Sorter<Type> => {
+
+    if (typeof s === 'function')
+        return s;
+    else if (s === 'date')
+        return dateSort;
+    else if (s === 'number')
+        return numberSort;
+    else if (s === 'string')
+        return stringSort
+    else (s === 'natural')
+    return naturalSort;
+
+}

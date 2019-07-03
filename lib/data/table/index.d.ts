@@ -1,10 +1,9 @@
 import * as views from './wml/table';
+import { Sorter } from '@quenk/noni/lib/data/array/sort';
 import { Record } from '@quenk/noni/lib/data/record';
 import { Fun, Component, Content } from '@quenk/wml';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 export declare const DATA_TABLE = "ww-data-table";
-export declare const ASC_ARROW = "\u21E7";
-export declare const DESC_ARROW = "\u21E9";
 /**
  * THead template function type.
  */
@@ -21,6 +20,11 @@ export declare type HeadingFragment<C, R extends Record<C>> = (column: Column<C,
  * CellFragment type.
  */
 export declare type CellFragment<C, R extends Record<C>> = (value: C) => (idx: number) => (row: R) => Fun;
+/**
+ * SortStrategy is a function that can be used to sort data or a
+ * string refernece to one.
+ */
+export declare type SortStrategy<C> = string | Sorter<C>;
 /**
  * Column provides the information a DataTable needs to render the cells
  * of a column in each row.
@@ -49,7 +53,6 @@ export interface Column<C, R extends Record<C>> {
      */
     format?: (c: C) => string;
     /**
-     *
      * headingFragment can be specified to customise the rending
      * of the heading content.
      */
@@ -59,6 +62,17 @@ export interface Column<C, R extends Record<C>> {
      * of the cell content.
      */
     cellFragment?: CellFragment<C, R>;
+    /**
+     * sortOn can be used to indicate the column should be sorted
+     * by another value.
+     */
+    sortOn?: string;
+    /**
+     * sortAs indicates how to sort on the column.
+     *
+     * Defaults to string.
+     */
+    sortAs?: string;
 }
 /**
  * DataTableAttrs
@@ -128,6 +142,15 @@ export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs
      * onRowClicked event handler.
      */
     onRowClicked?: (e: RowClickedEvent) => void;
+    /**
+     * onChange is applied each time the internal representation
+     * of the data is changed.
+     */
+    onChange?: (e: DataChangedEvent<R>) => void;
+    /**
+     * onSort is applied each time the data is sorted.
+     */
+    onSort?: (e: DataSortedEvent<R>) => void;
 }
 /**
  * HeadingClicked is triggered when the user clicks on
@@ -154,6 +177,26 @@ export declare class CellClickedEvent {
     constructor(name: string, row: number);
 }
 /**
+ * DataChangedEvent generated when the internal representation of the data
+ * changes.
+ */
+export declare class DataChangedEvent<R> {
+    data: R[];
+    constructor(data: R[]);
+}
+/**
+ * DataSortedEvent is generated when the internal representation of the
+ * data has been sorted.
+ * It provides a copy of the sorted data, the column name
+ * and the direction (1 for ascending, -1 for descending).
+ */
+export declare class DataSortedEvent<R> {
+    data: R[];
+    column: string;
+    dir: number;
+    constructor(data: R[], column: string, dir: number);
+}
+/**
  * Range of table cells.
  */
 export declare class Range {
@@ -175,7 +218,8 @@ export declare class Delegate<C, R extends Record<C>> {
     onRowClicked(e: RowClickedEvent): void;
 }
 /**
- * DataTable provides a smarter html table.
+ * DataTable can be used for displaying sortable
+ * tabular data.
  */
 export declare class DataTable<C, R extends Record<C>> extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
     view: views.Main<C, R>;
@@ -192,7 +236,9 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
             compact: boolean | undefined;
             hoverable: boolean | undefined;
             data: R[];
-            get: (column: string) => (row: number) => C;
+            dir: number;
+            sortedOn: string;
+            pristine: R[];
             thead: {
                 wml: {
                     id: string;
@@ -223,7 +269,26 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
         columns: Column<C, R>[];
     };
     /**
+     * @private
+     */
+    fireChange(): void;
+    /**
+     * @private
+     */
+    fireSort(): void;
+    /**
      * setData updates the table with new dataset.
      */
     setData(data: R[]): DataTable<C, R>;
+    /**
+     * sort the data on the colum specified.
+     *
+     * Sorting is always done using the original data
+     * or the data from setData().
+     */
+    sort(name: string): DataTable<C, R>;
+    /**
+     * reverse sort the data displayed.
+     */
+    reverse(): DataTable<C, R>;
 }

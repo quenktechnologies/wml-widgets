@@ -63,6 +63,8 @@
 
   <Demo>
 
+    <h3>Windowed</h3>
+
     <TableWindow>
 
       <DataTable
@@ -70,6 +72,18 @@
         ww:columns={{@values.columns}} />
 
     </TableWindow>
+
+  </Demo>
+
+  <Demo>
+
+    <h3>HeadingClickedEvent used for sorts.</h3>
+
+      <DataTable
+        wml:id="sortable"
+        ww:data={{@values.users}}
+        ww:columns={{@values.columns}}
+        ww:onHeadingClicked={{@values.sort}}/>
 
   </Demo>
 
