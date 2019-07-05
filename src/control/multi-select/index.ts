@@ -1,14 +1,13 @@
 import * as views from './wml/multi-select';
 import { View } from '@quenk/wml';
-import { concat } from '../../util';
-import { Event } from '../';
+import { BLOCK } from '../../content/orientation';
 import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
 import { FormControlAttrs } from '../form';
-import { TermChangedEvent, ItemChangedEvent } from '../select';
+import { TermChangedEvent, ItemChangedEvent, Select } from '../select';
 import { StackChangedEvent, Stack } from '../stack';
-import { Select } from '../select';
+import { concat } from '../../util';
 import { getId, getClassName } from '../../';
-import { getName } from '../';
+import { Event, getName } from '../';
 
 export { TermChangedEvent }
 
@@ -23,10 +22,10 @@ export interface MultiSelectAttrs<V> extends
     FormControlAttrs<V[]>,
     FeedbackControlAttrs<V[]> {
 
-      /**
-       * block flag
-       */
-      block?: boolean,
+    /**
+     * block flag
+     */
+    block?: boolean,
 
     /**
      * onSearch receives events from the SearchControl.
@@ -86,7 +85,9 @@ export class MultiSelect<V>
 
             id: getId(this.attrs),
 
-            className: concat(MULTI_SELECT, getClassName(this.attrs))
+            className: concat(MULTI_SELECT,
+                getClassName(this.attrs),
+                (this.attrs.ww && this.attrs.ww.block) ? BLOCK : '')
 
         },
         control: {
@@ -117,10 +118,10 @@ export class MultiSelect<V>
             name: (this.attrs.ww && this.attrs.ww.name) ?
                 this.attrs.ww.name : '',
 
-          value:<any> undefined,
+            value: <any>undefined,
 
-          block: (this.attrs.ww && this.attrs.ww.block) ?
-          this.attrs.ww.block : false,
+            block: (this.attrs.ww && this.attrs.ww.block) ?
+                this.attrs.ww.block : false,
 
             onSearch: (evt: TermChangedEvent) => {
 

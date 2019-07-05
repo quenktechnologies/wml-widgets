@@ -39,5 +39,19 @@
 
     </Demo>
 
+    <Demo>
+
+      <h3>Block</h3>
+
+        <Select 
+          wml:id="block"
+          ww:name="block"
+          ww:block=true
+          ww:stringifier={{\r:Result -> r.value }}
+          ww:options={{@values.native.options}}
+          ww:onSearch={{@values.native.onSearch}} />
+
+    </Demo>
+
 </Demo>
 

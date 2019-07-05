@@ -2,7 +2,7 @@
 
 .__TAG__ {
 
-  display: inline;
+  display: inline-block;
   padding: @tag-padding-vertical @tag-padding-horizontal;
   font-size: @tag-font-size;
   font-weight: @tag-font-weight;
@@ -12,6 +12,14 @@
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: @tag-border-radius;
+
+  &::after {
+
+    content: "";
+    clear: both;
+    display: table;
+
+  }
 
   & + & {
 
@@ -39,54 +47,73 @@
 
   &.__DEFAULT__ {
 
-    .tagVariant(@tag-default-background-color);
+    .tagVariant(
+    @tag-default-color;
+    @tag-default-background-color;
+    @tag-default-border-color);
 
   }
 
   &.__PRIMARY__ {
 
-    .tagVariant(@tag-primary-background-color);
+    .tagVariant(
+    @tag-primary-color;
+    @tag-primary-background-color;
+    @tag-primary-border-color);
 
   }
 
   &.__SUCCESS__ {
 
-    .tagVariant(@tag-success-background-color);
+    .tagVariant(
+    @tag-success-color;
+    @tag-success-background-color;
+    @tag-success-border-color);
 
   }
 
   &.__INFO__ {
 
-    .tagVariant(@tag-info-background-color);
+    .tagVariant(@tag-info-color;
+    @tag-info-background-color;
+    @tag-info-border-color);
 
   }
 
   &.__WARNING__ {
 
-    .tagVariant(@tag-warning-background-color);
+    .tagVariant(@tag-warning-color;
+    @tag-warning-background-color;
+    @tag-warning-border-color);
 
   }
 
   &.__ERROR__ {
 
-    .tagVariant(@tag-error-background-color);
+    .tagVariant(@tag-error-color;
+    @tag-error-background-color;
+    @tag-error-border-color);
 
   }
 
 }
 
-.tagVariant(@color) {
+.tagVariant(@color; @background; @border) {
 
-  background-color: @color;
+  color: @color;
+  background-color: @background;
+  border: 1px solid @border;
 
-  &[href] {
-             
-    &:hover, &:focus {
+  &:hover {
+       
+    background-color: darken(@background, 10%);
 
-      background-color: darken(@color, 10%);
+  }
+  
+  &[href] :focus {
+
+    background-color: darken(@background, 10%);
                               
-    }
-                                
   }
                               
 }

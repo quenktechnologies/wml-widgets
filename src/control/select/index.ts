@@ -1,5 +1,6 @@
 import * as views from './wml/select';
 import { Fun } from '@quenk/wml';
+import { BLOCK } from '../../content/orientation';
 import { Menu } from '../../menu/menu';
 import { concat, getById } from '../../util';
 import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
@@ -60,10 +61,10 @@ export interface SelectAttrs<V>
      */
     readOnly?: boolean,
 
-      /**
-       * block 
-       */
-      block?: boolean,
+    /**
+     * block 
+     */
+    block?: boolean,
 
     /**
      * options to initialize the dropdown list with.
@@ -115,7 +116,9 @@ export class Select<V>
 
             id: getId(this.attrs),
 
-            className: concat(SELECT, getClassName(this.attrs)),
+            className: concat(SELECT,
+                getClassName(this.attrs),
+                (this.attrs.ww && this.attrs.ww.block) ? BLOCK : ''),
 
         },
 
@@ -185,8 +188,8 @@ export class Select<V>
             placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
                 this.attrs.ww.placeholder : '',
 
-          block: (this.attrs.ww && this.attrs.ww.block) ?
-          this.attrs.ww.block : false,
+            block: (this.attrs.ww && this.attrs.ww.block) ?
+                this.attrs.ww.block : false,
 
             readOnly: (this.attrs.ww && this.attrs.ww.readOnly),
 

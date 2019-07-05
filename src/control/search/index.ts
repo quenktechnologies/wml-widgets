@@ -1,6 +1,6 @@
 import * as views from './wml/search';
 import { View } from '@quenk/wml';
-import {BLOCK} from '../../content/orientation';
+import { BLOCK } from '../../content/orientation';
 import { concat, getById } from '../../util';
 import { getId, getClassName } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
@@ -42,12 +42,12 @@ export interface SearchAttrs extends ControlAttrs<string> {
     /**
      * readOnly 
      */
-  readOnly?: boolean,
+    readOnly?: boolean,
 
-  /**
-   * block flag
-   */
-  block?: boolean,
+    /**
+     * block flag
+     */
+    block?: boolean,
 
     /**
      * value
@@ -84,9 +84,9 @@ export class Search extends AbstractControl<string, SearchAttrs> {
 
             id: getId(this.attrs),
 
-          className: concat(SEARCH,
-            getClassName(this.attrs),
-            (this.attrs.ww && this.attrs.ww.block) ? BLOCK : ''         ),
+            className: concat(SEARCH,
+                getClassName(this.attrs),
+                (this.attrs.ww && this.attrs.ww.block) ? BLOCK : ''),
 
             placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
                 this.attrs.ww.placeholder : '',

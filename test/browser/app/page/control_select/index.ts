@@ -22,7 +22,7 @@ const results = [
 const onSearch = (page: SelectPage) => (id: string) => ({ value }: TermChangedEvent) =>
     page
         .view
-    .findById<Select<Result>>(id)
+        .findById<Select<Result>>(id)
         .map((s: Select<Result>) => {
 
             let hit = results.filter(c =>
@@ -35,7 +35,7 @@ const onSearch = (page: SelectPage) => (id: string) => ({ value }: TermChangedEv
 
 const onChange = (page: SelectPage) => ({ name, value }: ItemChangedEvent<Result>) =>
 
-  page.view.findById<HTMLElement>(name)
+    page.view.findById<HTMLElement>(name)
         .map((e: HTMLElement) => {
 
             while (e.lastChild)
@@ -52,7 +52,7 @@ export interface Result {
 
 }
 
-export class SelectPage  {
+export class SelectPage {
 
     view: wml.View = new views.Main(this);
 
@@ -73,6 +73,12 @@ export class SelectPage  {
             options: results,
             onSearch: onSearch(this)('native'),
             onChange: onChange(this)
+
+        },
+        block: {
+
+            options: results,
+            onSearch: onSearch(this)('searc'),
 
         }
 

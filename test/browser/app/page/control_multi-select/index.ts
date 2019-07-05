@@ -28,8 +28,6 @@ export class MultiSelectPage {
 
     values = {
 
-        id: 'search',
-
         name: 'search',
 
         text: () => this.values.selected.map(m => m.label).join(','),
@@ -40,15 +38,15 @@ export class MultiSelectPage {
 
     };
 
-  onSearch = ({ value }: TermChangedEvent) => {
+    onSearch = ({ name, value }: TermChangedEvent) => {
 
-    this
-      .view
-      .findById<MultiSelect<Result>>(this.values.id)
-      .map((s: MultiSelect<Result>) =>
-            s.update(options.filter(s => s.value.toLowerCase().startsWith(value.toLowerCase()))))
- 
-  }
+        this
+            .view
+            .findById<MultiSelect<Result>>(name)
+            .map((s: MultiSelect<Result>) =>
+                s.update(options.filter(s => s.value.toLowerCase().startsWith(value.toLowerCase()))))
+
+    }
 
     onChange = ({ value }: ItemsChangedEvent<Result>) => {
 

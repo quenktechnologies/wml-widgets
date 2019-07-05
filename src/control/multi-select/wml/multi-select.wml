@@ -10,6 +10,7 @@
     wml:id={{@values.search.wml.id}}
     ww:name={{@values.search.name}}
     ww:value={{@values.search.value}}
+    ww:block={{@values.search.block}}
     ww:stringifier={{@values.stack.decorator}}
     ww:onSearch={{@values.search.onSearch}}
     ww:onChange={{@values.search.onChange}} />

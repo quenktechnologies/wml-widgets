@@ -6,16 +6,38 @@
  
 <Demo>
 
-  <p>You selected: <b wml:id="text">{{document.createTextNode(@values.text())}}</b>.</p>
+  <Demo>
+
+    <h3>Inline</h3>
+
+    <p>You selected: <b wml:id="text">{{document.createTextNode(@values.text())}}</b>.</p>
 
       <p>
+
         <MultiSelect
-          wml:id={{@values.id}}
-          ww:name={{@values.name}}
+          wml:id="search"
+          ww:name="search"
           ww:value={{@values.selected}}
           ww:decorator={{\r:Result -> r.label}}
           ww:onChange={{@onChange}}
           ww:onSearch={{@onSearch}} />
+
       </p>
+
+  </Demo>
+
+  <Demo>
+
+    <h3>Block</h3>
+
+    <MultiSelect
+     wml:id="search2"
+     ww:name="search2"
+     ww:value={{@values.selected}}
+     ww:decorator={{\r:Result -> r.label}}
+     ww:block=true
+     ww:onSearch={{@onSearch}} />
+
+  </Demo>
 
 </Demo>

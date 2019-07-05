@@ -43,7 +43,8 @@
   <Search
     wml:id={{@values.search.wml.id}}
     ww:name={{@values.search.name}}
-    ww:class={{@values.search.className}}
+    ww:className={{@values.search.className}}
+    ww:block={{@values.search.block}}
     ww:placeholder={{@values.search.placeholder}} 
     ww:readOnly={{@values.search.readOnly}}
     ww:onEscape={{@values.search.onEscape}}
@@ -52,6 +53,7 @@
 
   <Menu 
     wml:id={{@values.menu.wml.id}}
+    ww:block={{@values.search.block}}
     ww:hidden=true />
 
     <span      

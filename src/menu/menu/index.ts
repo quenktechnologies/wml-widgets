@@ -2,6 +2,7 @@ import * as hidden from '../../content/state/hidden';
 import * as headerViews from './wml/header';
 import { View, Component, Content } from '@quenk/wml';
 import { concat } from '../../util';
+import { BLOCK } from '../../content/orientation';
 import { WidgetAttrs, HTMLElementAttrs, text, getId, getClassName } from '../../';
 import { Main } from './wml/menu';
 
@@ -21,7 +22,12 @@ export interface MenuAttrs extends HTMLElementAttrs {
     /**
      * hidden indicates the menu should be hidden.
      */
-    hidden?: boolean
+    hidden?: boolean,
+
+    /**
+     * block display
+     */
+    block?: boolean
 
 }
 
@@ -81,7 +87,8 @@ export class Menu extends Component<WidgetAttrs<MenuAttrs>>
             id: getId(this.attrs),
 
             className: concat(MENU, getClassName(this.attrs),
-                (this.attrs.ww && this.attrs.ww.hidden) ? hidden.HIDDEN : '')
+                (this.attrs.ww && this.attrs.ww.hidden) ? hidden.HIDDEN : '',
+                (this.attrs.ww && this.attrs.ww.block) ? BLOCK : '')
 
         },
         menu: {

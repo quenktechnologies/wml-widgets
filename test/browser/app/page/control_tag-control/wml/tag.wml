@@ -1,0 +1,30 @@
+{% import (Tag) from "../../../../../../lib/control/tag" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (TagPage) from "../" %}
+
+{% view Main (TagPage) %}
+<Demo>
+
+  <Demo>
+
+      <h1>Tag</h2>
+
+      <p>
+
+        <h2>Styles</h2>
+
+        {% for v in @values.styles %}
+
+          <Tag 
+            ww:style={{v}}
+            ww:text={{v|@values.capitalize}}
+            ww:value={{v}}
+            ww:onDismiss={{@values.onDismiss}}/>
+
+        {% endfor %}
+
+      </p>
+
+   </Demo>
+
+</Demo>

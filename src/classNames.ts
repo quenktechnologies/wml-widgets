@@ -362,5 +362,10 @@ export const MULTI_SELECT = 'ww-multi-select';
 export const SEARCH = 'ww-search';
 ///classNames:end
 ///classNames:begin
+export const TAG_CONTROL = 'ww-tag-control';
+export const TAG_CONTROL_TEXT = 'ww-tag-control__text';
+export const TAG_CONTROL_DISMISS = 'ww-tag-control__dismiss';
+///classNames:end
+///classNames:begin
 export const CHECKBOX = 'ww-checkbox';
 ///classNames:end
