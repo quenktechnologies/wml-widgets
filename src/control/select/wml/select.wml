@@ -1,62 +1,47 @@
 {% import (Search) from "../../search" %}
-{% import (Menu) from "../../../menu/menu" %}
-{% import (Item) from "../../../menu/item" %}
-{% import (Link) from "../../../content/link" %}
-{% import (text) from "../../../" %}
+{% import (Label) from "../../label" %}
+{% import (Help) from "../../help" %}
+{% import (ResultsMenu) from "../../results-menu" %}
+{% import (Tag) from "../../tag" %}
 {% import (Select) from "../" %}
-
-{% fun itemContentTemplate [V] (s:Select[V]) (option:V) (_index:Number) %}
-  {{ text(s.values.item.stringify(option)) }}  
-{% endfun %}
-
-{% fun noItemsTemplate [V] (_:Select[V]) %}
-  <b>No results to display.</b>
-{% endfun %}
-
-{% fun results [V] (s:Select[V]) %}
-
-    {% for option,index:Number in s.values.menu.options %}
-
-      <Item ww:name={{''+index}}>
-
-          <Link 
-            ww:onClick={{\->s.values.item.click(index)}}>
-
-            {{ ...<(s.values.item.itemContentTemplate())(s)(option)(index)> }}
-
-          </Link>
-
-      </Item>
-
-    {% else %}
-
-      {{...<(s.values.item.noItemsTemplate())(s)>}}
-
-    {% endfor %}
-
-{% endfun %}
 
 {% view Main [V](Select[V]) %}
 
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
-  <Search
-    wml:id={{@values.search.wml.id}}
-    ww:name={{@values.search.name}}
-    ww:className={{@values.search.className}}
-    ww:block={{@values.search.block}}
-    ww:placeholder={{@values.search.placeholder}} 
-    ww:readOnly={{@values.search.readOnly}}
-    ww:onEscape={{@values.search.onEscape}}
-    ww:onFocus={{@values.search.onFocus}}
-    ww:onSearch={{@values.search.onSearch}} />
+  <Label
+   ww:for={{@values.root.id}}
+   ww:text={{@values.label.text}} />
 
-  <Menu 
-    wml:id={{@values.menu.wml.id}}
-    ww:block={{@values.search.block}}
-    ww:hidden=true />
+   {% if @values.tag.isSet() %}
+   
+     <Tag
+      ww:text={{@values.tag.getText()}}
+      ww:className={{@values.tag.className}}
+      ww:onDismiss={{@values.tag.dismiss}} />
 
-    <span      
-      class="help-block"></span>
+    {% else %}
+    
+      <Search
+        wml:id={{@values.search.wml.id}}
+        ww:name={{@values.search.name}}
+        ww:className={{@values.search.className}}
+        ww:block={{@values.search.block}}
+        ww:placeholder={{@values.search.placeholder}} 
+        ww:readOnly={{@values.search.readOnly}}
+        ww:onEscape={{@values.search.onEscape}}
+        ww:onSearch={{@values.search.onSearch}} />
+
+    {% endif %}
+
+    <ResultsMenu 
+      wml:id={{@values.menu.wml.id}} 
+      ww:block={{@values.menu.block}}
+      ww:onSelect={{@values.menu.onSelect}}
+      ww:stringifier={{@values.menu.stringifier}} />
+
+    <Help 
+      wml:id={{@values.messages.wml.id}}
+      ww:text={{@values.messages.text}} />
 
 </div>

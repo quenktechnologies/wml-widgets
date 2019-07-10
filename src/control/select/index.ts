@@ -1,50 +1,48 @@
 import * as views from './wml/select';
-import { Fun } from '@quenk/wml';
+import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
 import { BLOCK } from '../../content/orientation';
-import { Menu } from '../../menu/menu';
 import { concat, getById } from '../../util';
-import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
-import { FormControlAttrs } from '../form';
+import {
+    Message,
+    getValidityClassName,
+    getMessage,
+} from '../feedback';
+import { FormControlAttrs, AbstractFormControl, getLabel } from '../form';
 import { TermChangedEvent } from '../search';
-import { getId, getClassName } from '../../';
+import { WidgetAttrs, getId, getClassName } from '../../';
 import { Event as ControlEvent, getName } from '../';
-import { Search } from '../search';
+import {
+    Stringifier,
+    ItemTemplate,
+    NoItemsTemplate,
+    ResultsMenu,
+    ItemSelectedEvent
+} from '../results-menu';
+import { Help } from '../help';
 
-export { TermChangedEvent }
-
-export const ESCAPE = 27;
-export const INPUT_ID = 'input';
+export { Stringifier, ItemTemplate, ResultsMenu, TermChangedEvent }
 
 ///classNames:begin
 export const SELECT = 'ww-select';
 ///classNames:end
 
 /**
- * ItemContentTemplate for rending the content of a single search result.
+ * CommonSelectAttrs
  */
-export type ItemContentTemplate<V>
-    = (s: Select<V>) => (option: V) => (index: number) => Fun
-    ;
-
-/**
- * EmpFun for rendering when there are no results.
- */
-export type NoItemsTemplate<V> = (s: Select<V>) => Fun;
-
-export interface SelectAttrs<V>
-    extends FormControlAttrs<V>,
-    FeedbackControlAttrs<V> {
+export interface CommonSelectAttrs<V>
+    extends
+    FormControlAttrs<V> {
 
     /**
-     * itemContentTemplate if specified will be used to render each
+     * itemTemplate if specified will be used to render each
      * result item.
      */
-    itemContentTemplate?: ItemContentTemplate<V>,
+    itemTemplate?: ItemTemplate<V>,
 
     /**
      * noItemsTemplate for rendering the lack of search results.
      */
-    noItemsTemplate?: NoItemsTemplate<V>,
+    noItemsTemplate?: NoItemsTemplate,
 
     /**
       * inputClassName is the class list for the input.
@@ -76,12 +74,7 @@ export interface SelectAttrs<V>
     /**
      * stringifier turns the value to a string.
      */
-    stringifier?: (v: V) => string
-
-    /**
-     * onChange handler.
-     */
-    onChange?: (e: ItemChangedEvent<V>) => void;
+    stringifier?: Stringifier<V>,
 
     /**
      * onSearch handler.
@@ -91,173 +84,243 @@ export interface SelectAttrs<V>
 }
 
 /**
+ * SelectAttrs
+ */
+export interface SelectAttrs<V> extends CommonSelectAttrs<V> {
+
+    /**
+     * onChange handler.
+     */
+    onChange?: (e: ItemChangedEvent<V>) => void;
+
+    /**
+     * onUnset handler.
+     */
+    onUnset?: (e: ItemUnsetEvent) => void
+
+}
+
+/**
  * ItemChangedEvent
  */
 export class ItemChangedEvent<V> extends ControlEvent<V> { }
 
-/* *
- * Autocomplate provides an input with a dropdown menu that allows
- * the user to search and select form a list of options.
+/**
+ * ItemUnsetEvent
+ */
+export class ItemUnsetEvent extends ControlEvent<undefined> {
+
+    constructor(public name: string) {
+
+        super(name, undefined);
+
+    }
+
+}
+
+/**
+ * RootSection
+ */
+export class RootSection<V> {
+
+    constructor(public attrs: WidgetAttrs<CommonSelectAttrs<V>>) { }
+
+    public wml = { id: 'root' };
+
+    public id = getId(this.attrs);
+
+    public className = concat(SELECT,
+        getClassName(this.attrs),
+        getValidityClassName(this.attrs),
+        (this.attrs.ww && this.attrs.ww.block) ? BLOCK : '');
+
+}
+
+/**
+ * ControlSection
+ */
+export class ControlSection {
+
+    constructor() { }
+
+    public wml = { id: 'root' };
+
+}
+
+/**
+ * MessagesSection
+ */
+export class MessagesSection<V> {
+
+    constructor(public attrs: WidgetAttrs<CommonSelectAttrs<V>>) { }
+
+    public wml = { id: 'message' };
+
+    public text = getMessage(this.attrs)
+
+}
+
+/**
+ * LabelSection
+ */
+export class LabelSection<V> {
+
+    constructor(public attrs: WidgetAttrs<CommonSelectAttrs<V>>) { }
+
+    public id = getName(this.attrs);
+
+    public text = getLabel(this.attrs);
+
+}
+
+/**
+ * InputSection
+ */
+export class InputSection<V> {
+
+    constructor(public attrs: WidgetAttrs<CommonSelectAttrs<V>>) { }
+
+    public wml = { id: 'input' };
+
+}
+
+/**
+ * SearchSection
+ */
+export class SearchSection<V> {
+
+    constructor(
+        public attrs: WidgetAttrs<CommonSelectAttrs<V>>,
+        public close: () => void) { }
+
+    public wml = { id: 'search' };
+
+    public name = getName(this.attrs);
+
+    public className = (this.attrs.ww && this.attrs.ww.inputClassName) ?
+        this.attrs.ww.inputClassName : '';
+
+    public placeholder = (this.attrs.ww && this.attrs.ww.placeholder) ?
+        this.attrs.ww.placeholder : '';
+
+    public block = (this.attrs.ww && this.attrs.ww.block) ?
+        this.attrs.ww.block : false;
+
+    public value = (this.attrs.ww && this.attrs.ww.value) ?
+        this.attrs.ww.value : undefined;
+
+    public readOnly = (this.attrs.ww && this.attrs.ww.readOnly);
+
+    public onSearch = (this.attrs.ww && this.attrs.ww.onSearch) ?
+        this.attrs.ww.onSearch : () => { };
+
+    public onEscape = () => this.close();
+
+}
+
+/**
+ * MenuSection
+ */
+export class MenuSection<V> {
+
+    constructor(
+        public attrs: WidgetAttrs<CommonSelectAttrs<V>>,
+        public onSelect: (e: ItemSelectedEvent<V>) => void) { }
+
+    public wml = { id: 'menu' };
+
+    public block = (this.attrs.ww && this.attrs.ww.block) ?
+        this.attrs.ww.block : false;
+
+    public options = <V[]>(this.attrs.ww && this.attrs.ww.options) || [];
+
+    public itemTemplate = (this.attrs.ww && this.attrs.ww.itemTemplate) ?
+        this.attrs.ww.itemTemplate : undefined;
+
+    public noItemsTemplate = (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
+        this.attrs.ww.noItemsTemplate : undefined;
+
+    public stringifier = (this.attrs.ww && this.attrs.ww.stringifier) ?
+        this.attrs.ww.stringifier : undefined;
+
+}
+
+/**
+ * Select provides an control for selecting an item from a
+ * list.
  */
 export class Select<V>
-    extends AbstractFeedbackControl<V, SelectAttrs<V>> {
+    extends
+    AbstractFormControl<V, SelectAttrs<V>> {
 
     view: views.Main<V> = new views.Main(this);
 
     values = {
 
-        root: {
+        root: new RootSection(this.attrs),
 
-            wml: {
+        control: new ControlSection(),
 
-                id: 'root'
+        messages: new MessagesSection(this.attrs),
+
+        label: new LabelSection(this.attrs),
+
+        input: new InputSection(this.attrs),
+
+        search: new SearchSection(this.attrs, () => this.close()),
+
+        tag: {
+
+            className: getValidityClassName(this.attrs),
+
+            value: <Maybe<V>>((this.attrs.ww && (this.attrs.ww.value != undefined)) ?
+                just(this.attrs.ww.value) : nothing()),
+
+            isSet: () => this.values.tag.value.isJust(),
+
+            getText: () => {
+
+                if (this.attrs.ww && this.attrs.ww.stringifier)
+                    return this.attrs.ww.stringifier(this.values.tag.value.get());
+
+                return '';
 
             },
 
-            id: getId(this.attrs),
+            dismiss: () => {
 
-            className: concat(SELECT,
-                getClassName(this.attrs),
-                (this.attrs.ww && this.attrs.ww.block) ? BLOCK : ''),
+                this.values.tag.value = nothing();
 
-        },
+                if (this.attrs.ww && this.attrs.ww.onUnset)
+                    this.attrs.ww.onUnset(
+                        new ItemUnsetEvent(this.attrs.ww.name + ''));
 
-        control: {
-
-            wml: {
-
-                id: 'root'
+                this.view.invalidate();
 
             }
 
         },
 
-        messages: {
+        menu: new MenuSection(this.attrs, (e: ItemSelectedEvent<V>) => {
 
-            wml: {
+            this.close();
 
-                id: 'message'
+            this.values.tag.value = just(e.value);
 
-            }
+            if (this.attrs.ww && this.attrs.ww.onChange)
+                this.attrs.ww.onChange(new ItemChangedEvent(
+                    '' + this.attrs.ww.name, e.value));
 
-        },
+            this.view.invalidate();
 
-        input: {
+        })
 
-            wml: {
-
-                id: 'input'
-
-            }
-
-        },
-
-        menu: {
-
-            wml: {
-
-                id: 'menu'
-
-            },
-            hide: true,
-            options: <V[]>(this.attrs.ww && this.attrs.ww.options) || []
-
-
-        },
-
-        label: {
-
-            id: getName(this.attrs),
-
-            text: (this.attrs.ww && this.attrs.ww.label) ?
-                this.attrs.ww.label : ''
-
-        },
-        search: {
-
-            wml: {
-
-                id: 'search'
-
-            },
-            name: getName(this.attrs),
-
-            className: (this.attrs.ww && this.attrs.ww.inputClassName) ?
-                this.attrs.ww.inputClassName : '',
-
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-                this.attrs.ww.placeholder : '',
-
-            block: (this.attrs.ww && this.attrs.ww.block) ?
-                this.attrs.ww.block : false,
-
-            readOnly: (this.attrs.ww && this.attrs.ww.readOnly),
-
-            onFocus: () => {
-
-                if (this.values.menu.options.length > 0)
-                    this.update(this.values.menu.options);
-
-            },
-
-            onSearch: (this.attrs.ww && this.attrs.ww.onSearch) ?
-                this.attrs.ww.onSearch : () => { },
-
-            onEscape: () => this.close(),
-
-
-        },
-        item: {
-
-            itemContentTemplate: (): ItemContentTemplate<V> =>
-                (this.attrs.ww && this.attrs.ww.itemContentTemplate) ?
-                    this.attrs.ww.itemContentTemplate : views.itemContentTemplate,
-
-            noItemsTemplate: (): NoItemsTemplate<V> =>
-                (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                    this.attrs.ww.noItemsTemplate : views.noItemsTemplate,
-
-            stringify: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : (v: V) => ('' + v),
-
-            click: (index: number | string) => {
-
-                let selected = this.values.menu.options[Number(index)];
-
-                this.close();
-
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(new ItemChangedEvent(
-                        '' + this.attrs.ww.name, selected));
-
-                getById<Search>(this.view, this.values.search.wml.id)
-                    .map((s: Search) => s.set(this.values.item.stringify(selected)));
-
-            }
-
-        }
-
-    }
-
-    handleEvent(e: Event): void {
-
-        getById<HTMLElement>(this.view, this.values.root.wml.id)
-            .map((root: HTMLElement) => {
-
-                if (!document.body.contains(root))
-                    document.removeEventListener('click', this);
-
-                if ((!root.contains(<Node>e.target)))
-                    this.close();
-
-            });
-
-    }
+    };
 
     open(): Select<V> {
 
-        getById<Menu>(this.view, this.values.menu.wml.id)
-            .map((m: Menu) => m.show());
+        getById<ResultsMenu<V>>(this.view, this.values.menu.wml.id)
+            .map((m: ResultsMenu<V>) => m.open());
 
         return this;
 
@@ -265,9 +328,25 @@ export class Select<V>
 
     close(): Select<V> {
 
-        getById<Menu>(this.view, this.values.menu.wml.id)
-            .map((m: Menu) => m.hide());
+        getById<ResultsMenu<V>>(this.view, this.values.menu.wml.id)
+            .map((m: ResultsMenu<V>) => m.close());
 
+        return this;
+
+    }
+
+    setMessage(msg: Message): Select<V> {
+
+        this.values.messages.text = msg;
+        getHelp(this).map(h => h.setMessage(msg));
+        return this;
+
+    }
+
+    removeMessage(): Select<V> {
+
+        this.values.messages.text = '';
+        getHelp(this).map(h => h.removeMessage());
         return this;
 
     }
@@ -278,13 +357,10 @@ export class Select<V>
      */
     update(results: V[]): Select<V> {
 
-        this.values.menu.options = results;
+        let mMenu = getById<ResultsMenu<V>>(this.view, this.values.menu.wml.id);
 
-        window.removeEventListener('click', this);
-        window.addEventListener('click', this);
-
-        getById<Menu>(this.view, this.values.menu.wml.id)
-            .map((m: Menu) => m.setContent(views.results(this)(this.view)));
+        if (mMenu.isJust())
+            mMenu.get().update(results);
 
         return this;
 
@@ -292,3 +368,5 @@ export class Select<V>
 
 }
 
+const getHelp = <V>(t: Select<V>): Maybe<Help> =>
+    getById(t.view, t.values.messages.wml.id);
