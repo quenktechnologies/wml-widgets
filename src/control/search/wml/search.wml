@@ -1,14 +1,27 @@
+{% import (ResultsMenu) from "../../results-menu" %}
 {% import (Search) from "../" %}
 
-{% view Main (Search) %}
-<input 
-  wml:id={{@values.root.wml.id}}
+{% view Main[V] (Search[V]) %}
+<div 
+  wml:id={{@values.root.wml.id}} 
   id={{@values.root.id}}
-  class={{@values.root.className}}
-  onkeydown={{@values.root.onkeydown}} 
-  onkeyup={{@values.root.onkeyup}} 
-  oninput={{@values.root.oninput}}
-  onfocus={{@values.root.onfocus}}
-  placeholder={{@values.root.placeholder}}
-  readOnly={{@values.root.readOnly}}
-  value={{@values.root.value}} />
+  class={{@values.root.className}}>
+
+  <input 
+    wml:id={{@values.input.wml.id}}
+    class={{@values.input.className}}
+    onkeydown={{@values.input.onkeydown}} 
+    onkeyup={{@values.input.onkeyup}} 
+    oninput={{@values.input.oninput}}
+    onfocus={{@values.input.onfocus}}
+    placeholder={{@values.input.placeholder}}
+    readOnly={{@values.input.readOnly}}
+    value={{@values.input.value}} />
+
+    <ResultsMenu 
+      wml:id={{@values.menu.wml.id}} 
+      ww:block={{@values.menu.block}}
+      ww:onSelect={{@values.menu.onSelect}}
+      ww:stringifier={{@values.menu.stringifier}} />
+
+</div>
