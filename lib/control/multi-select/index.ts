@@ -1,32 +1,67 @@
 import * as views from './wml/multi-select';
-import { View } from '@quenk/wml';
-import { concat } from '../../util';
-import { Event } from '../';
-import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
-import { FormControlAttrs } from '../form';
-import { TermChangedEvent, ItemChangedEvent } from '../select';
-import { StackChangedEvent, Stack } from '../stack';
-import { Select } from '../select';
+import { View, Maybe } from '@quenk/wml';
+import { getBlockClassName } from '../../content/orientation';
+import { FormControlAttrs, AbstractFormControl, getLabel, setMessage, removeMessage } from '../form';
+import {
+    Stringifier,
+    TermChangedEvent,
+    ItemSelectedEvent,
+    NoItemsTemplate,
+    ItemTemplate,
+    Input,
+    updateMenu,
+    openMenu,
+    closeMenu
+} from '../search';
+import { concat, getById } from '../../util';
 import { getId, getClassName } from '../../';
-import { getName } from '../';
+import { Event as ControlEvent, getName } from '../';
+import { getMessage, getValidityClassName, Message } from '../feedback';
+import { DismissEvent } from '../tag';
+import { ACTIVE } from '../../content/state/active';
 
-export { TermChangedEvent }
+export { NoItemsTemplate, ItemTemplate, TermChangedEvent }
 
 ///classNames:begin
 export const MULTI_SELECT = 'ww-multi-select';
+export const MULTI_SELECT_CONTENT = 'ww-multi-select__content';
+export const MULTI_SELECT_INPUT = 'ww-multi-select__input';
+export const MULTI_SELECT_TAG = 'ww-multi-select__tag';
 ///classNames:end
 
-/**
- * MultiSelectAttrs
- */
-export interface MultiSelectAttrs<V> extends
-    FormControlAttrs<V[]>,
-    FeedbackControlAttrs<V[]> {
+export const DEFAULT_INPUT_WIDTH = 50;
+export const DEFAULT_FONT_INCREMENT = 7;
 
-      /**
-       * block flag
-       */
-      block?: boolean,
+/**
+ * MutliselectAttrs
+ */
+export interface MutliselectAttrs<V> extends FormControlAttrs<V[]> {
+
+    /**
+     * block flag
+     */
+    block?: boolean,
+
+    /**
+     * inputWidth indicates how wide the invisible input should be initially.
+     */
+    inputWidth?: number,
+
+    /**
+     * fontIncrement is used when expanding the input as the user types.
+     */
+    fontIncrement?: number,
+
+    /**
+     * itemTemplate if specified will be used to render each
+     * result item.
+     */
+    itemTemplate?: ItemTemplate<V>,
+
+    /**
+     * noItemsTemplate for rendering the lack of search results.
+     */
+    noItemsTemplate?: NoItemsTemplate,
 
     /**
      * onSearch receives events from the SearchControl.
@@ -39,42 +74,27 @@ export interface MultiSelectAttrs<V> extends
     onChange?: (e: ItemsChangedEvent<V>) => void,
 
     /**
-     * decorator is to the Stack control.
+     * stringifier 
      */
-    decorator?: (m: V) => string
+    stringifier?: Stringifier<V>
 
 }
 
 /**
  * ItemsChangedEvent
  */
-export class ItemsChangedEvent<V> extends Event<V[]> { }
+export class ItemsChangedEvent<V> extends ControlEvent<V[]> { }
 
 /**
- * MultiSelect provides a control for allowing a user to select
- * multiple items from a list.
- *
- * It use a stack to display the selected items.
- *
- *     +=========================+
- *     |  <select>               |
- *     +=========================+
- *     +-------------------------+
- *     |   <item>              x | 
- *     +-------------------------+
- *     +-------------------------+
- *     |   <item>              x | 
- *     +-------------------------+
- *     +-------------------------+
- *     |   <item>              x | 
- *     +-------------------------+
+ * MultiSelect 
  */
 export class MultiSelect<V>
-    extends AbstractFeedbackControl<V[], MultiSelectAttrs<V>> {
+    extends AbstractFormControl<V[], MutliselectAttrs<V>> {
 
     view: View = new views.Main(this);
 
     values = {
+
 
         root: {
 
@@ -86,7 +106,10 @@ export class MultiSelect<V>
 
             id: getId(this.attrs),
 
-            className: concat(MULTI_SELECT, getClassName(this.attrs))
+            className: concat(MULTI_SELECT,
+                getClassName(this.attrs),
+                getValidityClassName(this.attrs),
+                getBlockClassName(this.attrs))
 
         },
         control: {
@@ -105,8 +128,7 @@ export class MultiSelect<V>
                 id: 'label'
 
             },
-            text: (this.attrs.ww && this.attrs.ww.label) ?
-                this.attrs.ww.label : ''
+            text: getLabel(this.attrs)
 
         },
         search: {
@@ -114,13 +136,14 @@ export class MultiSelect<V>
             wml: {
                 id: 'search'
             },
-            name: (this.attrs.ww && this.attrs.ww.name) ?
-                this.attrs.ww.name : '',
 
-          value:<any> undefined,
+            block: this.attrs.ww && this.attrs.ww.block || undefined,
 
-          block: (this.attrs.ww && this.attrs.ww.block) ?
-          this.attrs.ww.block : false,
+            itemTemplate: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
+                this.attrs.ww.itemTemplate : undefined,
+
+            noItemsTemplate: (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
+                this.attrs.ww.noItemsTemplate : undefined,
 
             onSearch: (evt: TermChangedEvent) => {
 
@@ -128,7 +151,13 @@ export class MultiSelect<V>
                     this.attrs.ww.onSearch(evt);
 
             },
-            onChange: ({ value }: ItemChangedEvent<V>) => this.push(value)
+            onSelect: ({ value }: ItemSelectedEvent<V>) => {
+
+                this.push(value);
+                this.fireChange();
+                this.redraw();
+
+            }
 
         },
         messages: {
@@ -137,60 +166,205 @@ export class MultiSelect<V>
 
                 id: 'message'
 
+            },
+            text: getMessage(this.attrs)
+
+        },
+        content: {
+
+            className: MULTI_SELECT_CONTENT,
+
+            onfocus: () => this.focus()
+
+        },
+        tags: {
+
+            className: concat(MULTI_SELECT_TAG,
+                getValidityClassName(this.attrs)),
+
+            value: <V[]>[],
+
+            has: () => this.values.tags.value.length > 0,
+
+            getText: (this.attrs.ww && this.attrs.ww.stringifier) ?
+                this.attrs.ww.stringifier : (v: V) => String(v),
+
+            onDismiss: (e: DismissEvent) => {
+
+                let idx = Number(e.name);
+
+                this.values.tags.value.splice(idx, 1);
+
+                this.fireChange();
+
+                this.redraw();
+
             }
 
         },
-        stack: {
+        input: {
 
             wml: {
 
-                id: 'stack'
+                id: 'input'
+
             },
+
+            className: MULTI_SELECT_INPUT,
 
             name: getName(this.attrs),
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : [],
+            inputWidth: (this.attrs.ww && this.attrs.ww.inputWidth) ?
+                this.attrs.ww.inputWidth : DEFAULT_INPUT_WIDTH,
 
-            decorator: (this.attrs.ww && this.attrs.ww.decorator) ?
-                this.attrs.ww.decorator : (v: V) => String(v),
+            fontIncrement: (this.attrs.ww && this.attrs.ww.fontIncrement) ?
+                this.attrs.ww.fontIncrement : DEFAULT_FONT_INCREMENT,
 
-            onChange: (e: StackChangedEvent<V>) => {
+            onSearch: (e: TermChangedEvent) => {
 
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(e);
+                this.grow(e.value.length + 1);
+
+                if (this.attrs.ww && this.attrs.ww.onSearch)
+                    this.attrs.ww.onSearch(e);
 
             }
 
+        },
+        menu: {
+
+            wml: { id: 'menu' },
+
+            name: getName(this.attrs),
+
+            block: true,
+
+            onSelect: (e: ItemSelectedEvent<V>) => {
+
+                this.close();
+
+                this.values.tags.value.push(e.value);
+
+                this.fireChange();
+
+                this.redraw();
+
+            },
+            itemTemplate: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
+                this.attrs.ww.itemTemplate : undefined,
+
+            noItemsTemplate: (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
+                this.attrs.ww.noItemsTemplate : undefined,
+
+            stringifier: (this.attrs.ww && this.attrs.ww.stringifier) ?
+                this.attrs.ww.stringifier : undefined
+
         }
+
     };
 
     /**
-     * update the list of available options displayed to the user.
+     * @private
      */
-    update(list: V[]): MultiSelect<V> {
+    fireChange(): void {
 
-        this
-            .view
-            .findById<Select<V>>(this.values.search.wml.id)
-            .map(s => s.update(list));
+        if (this.attrs.ww && this.attrs.ww.onChange)
+            this.attrs.ww.onChange(new ItemsChangedEvent(
+                getName(this.attrs), this.values.tags.value.slice()));
+
+    }
+
+    /**
+     * @private
+     */
+    grow(n: number): void {
+
+        let mInput = getById<Input>(this.view, this.values.input.wml.id);
+
+        if (mInput.isNothing()) return;
+
+        let i = mInput.get();
+
+        let mDom = getById<HTMLInputElement>(i.view, i.values.wml.id);
+
+        if (mDom.isNothing()) return;
+
+        let dom = mDom.get();
+
+        dom.style.width = `${n * this.values.input.fontIncrement}px`;
+
+    }
+
+    /**
+     * @private
+     */
+    redraw(): MultiSelect<V> {
+
+        this.view.invalidate();
+        this.focus();
+        return this;
+
+    }
+
+    setMessage(msg: Message): MultiSelect<V> {
+
+        setMessage(this.view, this.values.messages.wml.id, msg);
+        return this;
+
+    }
+
+    removeMessage(): MultiSelect<V> {
+
+        removeMessage(this.view, this.values.messages.wml.id);
+        return this;
+
+    }
+
+    update(results: V[]): MultiSelect<V> {
+
+        updateMenu(this.view, this.values.menu.wml.id, results);
+        return this;
+
+    }
+
+    open(): MultiSelect<V> {
+
+        openMenu(this.view, this.values.menu.wml.id);
+        return this;
+
+    }
+
+    close(): MultiSelect<V> {
+
+        closeMenu(this.view, this.values.menu.wml.id);
+        return this;
+
+    }
+
+    focus(): MultiSelect<V> {
+
+        getInput(this).map(i => i.focus());
+
+        getRoot(this).map(e => e.classList.add(ACTIVE));
 
         return this;
 
     }
 
     /**
-     * push a value onto the stack.
+     * push a value onto the end of the internal stack.
      */
-    push(v: V): MultiSelect<V> {
+    push(value: V): MultiSelect<V> {
 
-        this
-            .view
-            .findById<Stack<V>>(this.values.stack.wml.id)
-            .map(s => s.push(v));
-
+        this.values.tags.value.push(value);
+        this.fireChange();
         return this;
 
     }
 
 }
+
+const getInput = <V>(m: MultiSelect<V>): Maybe<Input> =>
+    getById<Input>(m.view, m.values.input.wml.id);
+
+const getRoot = <V>(m: MultiSelect<V>): Maybe<HTMLElement> =>
+    getById<HTMLElement>(m.view, m.values.root.wml.id);

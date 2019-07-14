@@ -1,7 +1,11 @@
 import * as __wml from '@quenk/wml';
 
-import {Select} from '../../select'; ;
-import {Stack} from '../../stack'; ;
+import {Label} from '../../label'; ;
+import {Help} from '../../help'; ;
+import {Tag} from '../../tag'; ;
+import {Input} from '../../search'; ;
+import {ResultsMenu} from '../../results-menu'; ;
+import {text} from '../../../'; ;
 import {MultiSelect} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -64,11 +68,39 @@ export class Main <V  >  implements __wml.View {
 
            return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : {  } }, [
 
-        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.search .wml .id   } ,ww : { 'name' : __context.values.search .name  ,'value' : __context.values.search .value  ,'stringifier' : __context.values.stack .decorator  ,'onSearch' : __context.values.search .onSearch  ,'onChange' : __context.values.search .onChange   } }, [
+        __this.widget(Label, {html : {  } ,wml : {  } ,ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   } }, [
 
         
      ]),
-__this.widget(Stack, {html : {  } ,wml : { 'id' : __context.values.stack .wml .id   } ,ww : { 'name' : __context.values.stack .name  ,'value' : __context.values.stack .value  ,'decorator' : __context.values.stack .decorator  ,'onChange' : __context.values.stack .onChange   } }, [
+__this.node('div', {html : { 'onclick' : __context.values.content .onfocus  ,'class' : __context.values.content .className   } ,wml : {  } }, [
+
+        ...(__if(__context.values.tags .has (),
+   ()=> ([
+
+        ...__forIn (__context.values.tags .value , (value , idx , _$$all)=> 
+([
+
+        __this.widget(Tag, {html : {  } ,wml : {  } ,ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   } }, [
+
+        
+     ])
+     ]), 
+()=> ([]))
+     ]),
+   ()=> ([
+
+        text (``)
+     ]))) ,
+__this.widget(Input, {html : {  } ,wml : { 'id' : __context.values.input .wml .id   } ,ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'onSearch' : __context.values.input .onSearch   } }, [
+
+        
+     ])
+     ]),
+__this.widget(ResultsMenu, {html : {  } ,wml : { 'id' : __context.values.menu .wml .id   } ,ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemsTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   } }, [
+
+        
+     ]),
+__this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml .id   } ,ww : { 'text' : __context.values.messages .text   } }, [
 
         
      ])

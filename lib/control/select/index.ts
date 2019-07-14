@@ -1,49 +1,58 @@
 import * as views from './wml/select';
-import { Fun } from '@quenk/wml';
-import { Menu } from '../../menu/menu';
+import { View } from '@quenk/wml';
+import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
+import { getBlockClassName } from '../../content/orientation';
 import { concat, getById } from '../../util';
-import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
-import { FormControlAttrs } from '../form';
-import { TermChangedEvent } from '../search';
-import { getId, getClassName } from '../../';
+import {
+    Message,
+    getValidityClassName,
+    getMessage,
+} from '../feedback';
+import {
+    FormControlAttrs,
+    AbstractFormControl,
+    getLabel,
+    removeMessage,
+    setMessage
+} from '../form';
+import { WidgetAttrs, getId, getClassName } from '../../';
 import { Event as ControlEvent, getName } from '../';
-import { Search } from '../search';
+import {
+    TermChangedEvent,
+    ItemSelectedEvent,
+    Stringifier,
+    NoItemsTemplate,
+    ItemTemplate,
+    Search
+} from '../search';
 
-export { TermChangedEvent }
-
-export const ESCAPE = 27;
-export const INPUT_ID = 'input';
+export {
+    Stringifier,
+    ItemTemplate,
+    NoItemsTemplate,
+    TermChangedEvent,
+    ItemSelectedEvent
+}
 
 ///classNames:begin
 export const SELECT = 'ww-select';
 ///classNames:end
 
 /**
- * ItemContentTemplate for rending the content of a single search result.
+ * CommonSelectAttrs
  */
-export type ItemContentTemplate<V>
-    = (s: Select<V>) => (option: V) => (index: number) => Fun
-    ;
-
-/**
- * EmpFun for rendering when there are no results.
- */
-export type NoItemsTemplate<V> = (s: Select<V>) => Fun;
-
-export interface SelectAttrs<V>
-    extends FormControlAttrs<V>,
-    FeedbackControlAttrs<V> {
+export interface CommonSelectAttrs<V> extends FormControlAttrs<V> {
 
     /**
-     * itemContentTemplate if specified will be used to render each
+     * itemTemplate if specified will be used to render each
      * result item.
      */
-    itemContentTemplate?: ItemContentTemplate<V>,
+    itemTemplate?: ItemTemplate<V>,
 
     /**
      * noItemsTemplate for rendering the lack of search results.
      */
-    noItemsTemplate?: NoItemsTemplate<V>,
+    noItemsTemplate?: NoItemsTemplate,
 
     /**
       * inputClassName is the class list for the input.
@@ -60,27 +69,15 @@ export interface SelectAttrs<V>
      */
     readOnly?: boolean,
 
-      /**
-       * block 
-       */
-      block?: boolean,
-
     /**
-     * options to initialize the dropdown list with.
-     * These options are displayed by default when
-     * the input gains focused.
+     * block 
      */
-    options?: V[],
+    block?: boolean,
 
     /**
      * stringifier turns the value to a string.
      */
-    stringifier?: (v: V) => string
-
-    /**
-     * onChange handler.
-     */
-    onChange?: (e: ItemChangedEvent<V>) => void;
+    stringifier?: Stringifier<V>,
 
     /**
      * onSearch handler.
@@ -90,181 +87,247 @@ export interface SelectAttrs<V>
 }
 
 /**
+ * SelectAttrs
+ */
+export interface SelectAttrs<V> extends CommonSelectAttrs<V> {
+
+    /**
+     * onChange handler.
+     */
+    onChange?: (e: ItemChangedEvent<V>) => void;
+
+    /**
+     * onUnset handler.
+     */
+    onUnset?: (e: ItemUnsetEvent) => void
+
+}
+
+/**
  * ItemChangedEvent
  */
 export class ItemChangedEvent<V> extends ControlEvent<V> { }
 
-/* *
- * Autocomplate provides an input with a dropdown menu that allows
- * the user to search and select form a list of options.
+/**
+ * ItemUnsetEvent
+ */
+export class ItemUnsetEvent extends ControlEvent<undefined> {
+
+    constructor(public name: string) {
+
+        super(name, undefined);
+
+    }
+
+}
+
+/**
+ * RootSection
+ */
+export class RootSection<V> {
+
+    constructor(public attrs: WidgetAttrs<CommonSelectAttrs<V>>) { }
+
+    public wml = { id: 'root' };
+
+    public id = getId(this.attrs);
+
+    public className = concat(SELECT,
+        getClassName(this.attrs),
+        getValidityClassName(this.attrs),
+        getBlockClassName(this.attrs));
+
+}
+
+/**
+ * ControlSection
+ */
+export class ControlSection {
+
+    constructor() { }
+
+    public wml = { id: 'root' };
+
+}
+
+/**
+ * MessagesSection
+ */
+export class MessagesSection<V> {
+
+    constructor(public attrs: WidgetAttrs<FormControlAttrs<V>>) { }
+
+    public wml = { id: 'message' };
+
+    public text = getMessage(this.attrs)
+
+}
+
+/**
+ * LabelSection
+ */
+export class LabelSection<V> {
+
+    constructor(public attrs: WidgetAttrs<FormControlAttrs<V>>) { }
+
+    public id = getName(this.attrs);
+
+    public text = getLabel(this.attrs);
+
+}
+
+/**
+ * InputSection
+ */
+export class InputSection {
+
+    constructor(public attrs: WidgetAttrs<object>) { }
+
+    public wml = { id: 'input' };
+
+}
+
+/**
+ * SearchSection
+ */
+export class SearchSection<V> {
+
+    constructor(
+        public attrs: WidgetAttrs<CommonSelectAttrs<V>>,
+        public close: () => void,
+        public onSelect: (e: ItemSelectedEvent<V>) => void) { }
+
+    public wml = { id: 'search' };
+
+    public name = getName(this.attrs);
+
+    public className = (this.attrs.ww && this.attrs.ww.inputClassName) ?
+        this.attrs.ww.inputClassName : '';
+
+    public placeholder = (this.attrs.ww && this.attrs.ww.placeholder) ?
+        this.attrs.ww.placeholder : '';
+
+    public block = (this.attrs.ww && this.attrs.ww.block) ?
+        this.attrs.ww.block : false;
+
+    public value = (this.attrs.ww && this.attrs.ww.value) ?
+        this.attrs.ww.value : undefined;
+
+    public readOnly = (this.attrs.ww && this.attrs.ww.readOnly);
+
+    public itemTemplate = (this.attrs.ww && this.attrs.ww.itemTemplate) ?
+        this.attrs.ww.itemTemplate : undefined;
+
+    public noItemsTemplate = (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
+        this.attrs.ww.noItemsTemplate : undefined;
+
+    public stringifier = (this.attrs.ww && this.attrs.ww.stringifier) ?
+        this.attrs.ww.stringifier : undefined;
+
+    public onSearch = (this.attrs.ww && this.attrs.ww.onSearch) ?
+        this.attrs.ww.onSearch : () => { };
+
+}
+
+/**
+ * Select provides an control for selecting an item from a
+ * list.
  */
 export class Select<V>
-    extends AbstractFeedbackControl<V, SelectAttrs<V>> {
+    extends
+    AbstractFormControl<V, SelectAttrs<V>> {
 
     view: views.Main<V> = new views.Main(this);
 
     values = {
 
-        root: {
+        root: new RootSection(this.attrs),
 
-            wml: {
+        control: new ControlSection(),
 
-                id: 'root'
+        messages: new MessagesSection(this.attrs),
 
-            },
+        label: new LabelSection(this.attrs),
 
-            id: getId(this.attrs),
+        input: new InputSection(this.attrs),
 
-            className: concat(SELECT, getClassName(this.attrs)),
-
-        },
-
-        control: {
-
-            wml: {
-
-                id: 'root'
-
-            }
-
-        },
-
-        messages: {
-
-            wml: {
-
-                id: 'message'
-
-            }
-
-        },
-
-        input: {
-
-            wml: {
-
-                id: 'input'
-
-            }
-
-        },
-
-        menu: {
-
-            wml: {
-
-                id: 'menu'
-
-            },
-            hide: true,
-            options: <V[]>(this.attrs.ww && this.attrs.ww.options) || []
-
-
-        },
-
-        label: {
-
-            id: getName(this.attrs),
-
-            text: (this.attrs.ww && this.attrs.ww.label) ?
-                this.attrs.ww.label : ''
-
-        },
-        search: {
-
-            wml: {
-
-                id: 'search'
-
-            },
-            name: getName(this.attrs),
-
-            className: (this.attrs.ww && this.attrs.ww.inputClassName) ?
-                this.attrs.ww.inputClassName : '',
-
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-                this.attrs.ww.placeholder : '',
-
-          block: (this.attrs.ww && this.attrs.ww.block) ?
-          this.attrs.ww.block : false,
-
-            readOnly: (this.attrs.ww && this.attrs.ww.readOnly),
-
-            onFocus: () => {
-
-                if (this.values.menu.options.length > 0)
-                    this.update(this.values.menu.options);
-
-            },
-
-            onSearch: (this.attrs.ww && this.attrs.ww.onSearch) ?
-                this.attrs.ww.onSearch : () => { },
-
-            onEscape: () => this.close(),
-
-
-        },
-        item: {
-
-            itemContentTemplate: (): ItemContentTemplate<V> =>
-                (this.attrs.ww && this.attrs.ww.itemContentTemplate) ?
-                    this.attrs.ww.itemContentTemplate : views.itemContentTemplate,
-
-            noItemsTemplate: (): NoItemsTemplate<V> =>
-                (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                    this.attrs.ww.noItemsTemplate : views.noItemsTemplate,
-
-            stringify: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : (v: V) => ('' + v),
-
-            click: (index: number | string) => {
-
-                let selected = this.values.menu.options[Number(index)];
+        search: new SearchSection(this.attrs, () => this.close(),
+            (e: ItemSelectedEvent<V>) => {
 
                 this.close();
 
+                this.values.tag.value = just(e.value);
+
                 if (this.attrs.ww && this.attrs.ww.onChange)
                     this.attrs.ww.onChange(new ItemChangedEvent(
-                        '' + this.attrs.ww.name, selected));
+                        '' + this.attrs.ww.name, e.value));
 
-                getById<Search>(this.view, this.values.search.wml.id)
-                    .map((s: Search) => s.set(this.values.item.stringify(selected)));
+                this.view.invalidate();
+
+            }),
+
+        tag: {
+
+            className: getValidityClassName(this.attrs),
+
+            value: <Maybe<V>>((this.attrs.ww &&
+                (this.attrs.ww.value != undefined)) ?
+                just(this.attrs.ww.value) : nothing()),
+
+            isSet: () => this.values.tag.value.isJust(),
+
+            getText: () => {
+
+                if (this.attrs.ww && this.attrs.ww.stringifier)
+                    return this.attrs.ww.stringifier(
+                        this.values.tag.value.get());
+
+                return '';
+
+            },
+
+            dismiss: () => {
+
+                this.values.tag.value = nothing();
+
+                if (this.attrs.ww && this.attrs.ww.onUnset)
+                    this.attrs.ww.onUnset(
+                        new ItemUnsetEvent(this.attrs.ww.name + ''));
+
+                this.view.invalidate();
 
             }
 
         }
 
-    }
-
-    handleEvent(e: Event): void {
-
-        getById<HTMLElement>(this.view, this.values.root.wml.id)
-            .map((root: HTMLElement) => {
-
-                if (!document.body.contains(root))
-                    document.removeEventListener('click', this);
-
-                if ((!root.contains(<Node>e.target)))
-                    this.close();
-
-            });
-
-    }
+    };
 
     open(): Select<V> {
 
-        getById<Menu>(this.view, this.values.menu.wml.id)
-            .map((m: Menu) => m.show());
-
+        open(this.view, this.values.search.wml.id);
         return this;
 
     }
 
     close(): Select<V> {
 
-        getById<Menu>(this.view, this.values.menu.wml.id)
-            .map((m: Menu) => m.hide());
+        close(this.view, this.values.search.wml.id);
+        return this;
 
+    }
+
+    setMessage(msg: Message): Select<V> {
+
+        this.values.messages.text = msg;
+        setMessage(this.view, this.values.messages.wml.id, msg);
+        return this;
+
+    }
+
+    removeMessage(): Select<V> {
+
+        this.values.messages.text = '';
+        removeMessage(this.view, this.values.messages.wml.id);
         return this;
 
     }
@@ -275,17 +338,47 @@ export class Select<V>
      */
     update(results: V[]): Select<V> {
 
-        this.values.menu.options = results;
-
-        window.removeEventListener('click', this);
-        window.addEventListener('click', this);
-
-        getById<Menu>(this.view, this.values.menu.wml.id)
-            .map((m: Menu) => m.setContent(views.results(this)(this.view)));
-
+        update(this.view, this.values.search.wml.id, results);
         return this;
 
     }
 
 }
 
+/**
+ * open helper.
+ *
+ * Invokes the open method on the Search widget.
+ */
+export const open = <V>(view: View, id: string) => {
+
+    getById<Search<V>>(view, id)
+        .map((m: Search<V>) => m.open());
+
+}
+
+/**
+ * close helper.
+ *
+ * Invokes the close method on the Search widget.
+ */
+export const close = <V>(view: View, id: string) => {
+
+    getById<Search<V>>(view, id)
+        .map((m: Search<V>) => m.close());
+
+}
+
+/**
+ * update helper.
+ *
+ * Invokes the update method on the Search widget.
+ */
+export const update = <V>(view: View, id: string, results: V[]) => {
+
+    let mSearch = getById<Search<V>>(view, id);
+
+    if (mSearch.isJust())
+        mSearch.get().update(results);
+
+}

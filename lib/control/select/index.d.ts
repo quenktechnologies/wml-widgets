@@ -1,31 +1,26 @@
 import * as views from './wml/select';
-import { Fun } from '@quenk/wml';
-import { FeedbackControlAttrs, AbstractFeedbackControl } from '../feedback';
-import { FormControlAttrs } from '../form';
-import { TermChangedEvent } from '../search';
+import { View } from '@quenk/wml';
+import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { Message } from '../feedback';
+import { FormControlAttrs, AbstractFormControl } from '../form';
+import { WidgetAttrs } from '../../';
 import { Event as ControlEvent } from '../';
-export { TermChangedEvent };
-export declare const ESCAPE = 27;
-export declare const INPUT_ID = "input";
+import { TermChangedEvent, ItemSelectedEvent, Stringifier, NoItemsTemplate, ItemTemplate } from '../search';
+export { Stringifier, ItemTemplate, NoItemsTemplate, TermChangedEvent, ItemSelectedEvent };
 export declare const SELECT = "ww-select";
 /**
- * ItemContentTemplate for rending the content of a single search result.
+ * CommonSelectAttrs
  */
-export declare type ItemContentTemplate<V> = (s: Select<V>) => (option: V) => (index: number) => Fun;
-/**
- * EmpFun for rendering when there are no results.
- */
-export declare type NoItemsTemplate<V> = (s: Select<V>) => Fun;
-export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttrs<V> {
+export interface CommonSelectAttrs<V> extends FormControlAttrs<V> {
     /**
-     * itemContentTemplate if specified will be used to render each
+     * itemTemplate if specified will be used to render each
      * result item.
      */
-    itemContentTemplate?: ItemContentTemplate<V>;
+    itemTemplate?: ItemTemplate<V>;
     /**
      * noItemsTemplate for rendering the lack of search results.
      */
-    noItemsTemplate?: NoItemsTemplate<V>;
+    noItemsTemplate?: NoItemsTemplate;
     /**
       * inputClassName is the class list for the input.
       */
@@ -43,91 +38,158 @@ export interface SelectAttrs<V> extends FormControlAttrs<V>, FeedbackControlAttr
      */
     block?: boolean;
     /**
-     * options to initialize the dropdown list with.
-     * These options are displayed by default when
-     * the input gains focused.
-     */
-    options?: V[];
-    /**
      * stringifier turns the value to a string.
      */
-    stringifier?: (v: V) => string;
-    /**
-     * onChange handler.
-     */
-    onChange?: (e: ItemChangedEvent<V>) => void;
+    stringifier?: Stringifier<V>;
     /**
      * onSearch handler.
      */
     onSearch?: (e: TermChangedEvent) => void;
 }
 /**
+ * SelectAttrs
+ */
+export interface SelectAttrs<V> extends CommonSelectAttrs<V> {
+    /**
+     * onChange handler.
+     */
+    onChange?: (e: ItemChangedEvent<V>) => void;
+    /**
+     * onUnset handler.
+     */
+    onUnset?: (e: ItemUnsetEvent) => void;
+}
+/**
  * ItemChangedEvent
  */
 export declare class ItemChangedEvent<V> extends ControlEvent<V> {
 }
-export declare class Select<V> extends AbstractFeedbackControl<V, SelectAttrs<V>> {
+/**
+ * ItemUnsetEvent
+ */
+export declare class ItemUnsetEvent extends ControlEvent<undefined> {
+    name: string;
+    constructor(name: string);
+}
+/**
+ * RootSection
+ */
+export declare class RootSection<V> {
+    attrs: WidgetAttrs<CommonSelectAttrs<V>>;
+    constructor(attrs: WidgetAttrs<CommonSelectAttrs<V>>);
+    wml: {
+        id: string;
+    };
+    id: string;
+    className: string;
+}
+/**
+ * ControlSection
+ */
+export declare class ControlSection {
+    constructor();
+    wml: {
+        id: string;
+    };
+}
+/**
+ * MessagesSection
+ */
+export declare class MessagesSection<V> {
+    attrs: WidgetAttrs<FormControlAttrs<V>>;
+    constructor(attrs: WidgetAttrs<FormControlAttrs<V>>);
+    wml: {
+        id: string;
+    };
+    text: string;
+}
+/**
+ * LabelSection
+ */
+export declare class LabelSection<V> {
+    attrs: WidgetAttrs<FormControlAttrs<V>>;
+    constructor(attrs: WidgetAttrs<FormControlAttrs<V>>);
+    id: string;
+    text: string;
+}
+/**
+ * InputSection
+ */
+export declare class InputSection {
+    attrs: WidgetAttrs<object>;
+    constructor(attrs: WidgetAttrs<object>);
+    wml: {
+        id: string;
+    };
+}
+/**
+ * SearchSection
+ */
+export declare class SearchSection<V> {
+    attrs: WidgetAttrs<CommonSelectAttrs<V>>;
+    close: () => void;
+    onSelect: (e: ItemSelectedEvent<V>) => void;
+    constructor(attrs: WidgetAttrs<CommonSelectAttrs<V>>, close: () => void, onSelect: (e: ItemSelectedEvent<V>) => void);
+    wml: {
+        id: string;
+    };
+    name: string;
+    className: string;
+    placeholder: string;
+    block: boolean;
+    value: V | undefined;
+    readOnly: boolean | undefined;
+    itemTemplate: ItemTemplate<V> | undefined;
+    noItemsTemplate: import("@quenk/wml").Fun | undefined;
+    stringifier: Stringifier<V> | undefined;
+    onSearch: (e: TermChangedEvent) => void;
+}
+/**
+ * Select provides an control for selecting an item from a
+ * list.
+ */
+export declare class Select<V> extends AbstractFormControl<V, SelectAttrs<V>> {
     view: views.Main<V>;
     values: {
-        root: {
-            wml: {
-                id: string;
-            };
-            id: string;
+        root: RootSection<V>;
+        control: ControlSection;
+        messages: MessagesSection<V>;
+        label: LabelSection<V>;
+        input: InputSection;
+        search: SearchSection<V>;
+        tag: {
             className: string;
-        };
-        control: {
-            wml: {
-                id: string;
-            };
-        };
-        messages: {
-            wml: {
-                id: string;
-            };
-        };
-        input: {
-            wml: {
-                id: string;
-            };
-        };
-        menu: {
-            wml: {
-                id: string;
-            };
-            hide: boolean;
-            options: V[];
-        };
-        label: {
-            id: string;
-            text: string;
-        };
-        search: {
-            wml: {
-                id: string;
-            };
-            name: string;
-            className: string;
-            placeholder: string;
-            block: boolean;
-            readOnly: boolean | undefined;
-            onFocus: () => void;
-            onSearch: (e: TermChangedEvent) => void;
-            onEscape: () => Select<V>;
-        };
-        item: {
-            itemContentTemplate: () => ItemContentTemplate<V>;
-            noItemsTemplate: () => NoItemsTemplate<V>;
-            stringify: (v: V) => string;
-            click: (index: string | number) => void;
+            value: Maybe<V>;
+            isSet: () => boolean;
+            getText: () => string;
+            dismiss: () => void;
         };
     };
-    handleEvent(e: Event): void;
     open(): Select<V>;
     close(): Select<V>;
+    setMessage(msg: Message): Select<V>;
+    removeMessage(): Select<V>;
     /**
      * update the Select with new item options to
      * present to the user.
      */
     update(results: V[]): Select<V>;
 }
+/**
+ * open helper.
+ *
+ * Invokes the open method on the Search widget.
+ */
+export declare const open: <V>(view: View, id: string) => void;
+/**
+ * close helper.
+ *
+ * Invokes the close method on the Search widget.
+ */
+export declare const close: <V>(view: View, id: string) => void;
+/**
+ * update helper.
+ *
+ * Invokes the update method on the Search widget.
+ */
+export declare const update: <V>(view: View, id: string, results: V[]) => void;

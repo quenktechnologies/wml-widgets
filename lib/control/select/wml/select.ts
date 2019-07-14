@@ -1,10 +1,9 @@
 import * as __wml from '@quenk/wml';
 
 import {Search} from '../../search'; ;
-import {Menu} from '../../../menu/menu'; ;
-import {Item} from '../../../menu/item'; ;
-import {Link} from '../../../content/link'; ;
-import {text} from '../../../'; ;
+import {Label} from '../../label'; ;
+import {Help} from '../../help'; ;
+import {Tag} from '../../tag'; ;
 import {Select} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -59,53 +58,6 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
-export const itemContentTemplate = 
-
-<V  > (s: Select <V  >   )=> (option: V   )=> (_index: number   )=> (__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        text(s.values.item .stringify (option))
-     ];
-
-};;
-export const noItemsTemplate = 
-
-<V  > (_: Select <V  >   )=> (__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        __this.node('b', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`No results to display.`)
-     ])
-     ];
-
-};;
-export const results = 
-
-<V  > (s: Select <V  >   )=> (__this:__wml.Registry) : __wml.Content[] => {
-
-   return [
-
-        ...__forIn (s.values.menu .options , (option , index: number   , _$$all)=> 
-([
-
-        __this.widget(Item, {html : {  } ,wml : {  } ,ww : { 'name' : (`` + index)  } }, [
-
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'onClick' : () => s.values.item .click (index)  } }, [
-
-        ... (s.values.item .itemContentTemplate () (s)(option)(index)(__this))
-     ])
-     ])
-     ]), 
-()=> ([
-
-        ... (s.values.item .noItemsTemplate () (s)(__this))
-     ]))
-     ];
-
-};;
 export class Main <V  >  implements __wml.View {
 
    constructor(__context: Select <V  >  ) {
@@ -114,15 +66,26 @@ export class Main <V  >  implements __wml.View {
 
            return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : {  } }, [
 
-        __this.widget(Search, {html : {  } ,wml : { 'id' : __context.values.search .wml .id   } ,ww : { 'name' : __context.values.search .name  ,'class' : __context.values.search .className  ,'placeholder' : __context.values.search .placeholder  ,'readOnly' : __context.values.search .readOnly  ,'onEscape' : __context.values.search .onEscape  ,'onFocus' : __context.values.search .onFocus  ,'onSearch' : __context.values.search .onSearch   } }, [
+        __this.widget(Label, {html : {  } ,wml : {  } ,ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   } }, [
 
         
      ]),
-__this.widget(Menu, {html : {  } ,wml : { 'id' : __context.values.menu .wml .id   } ,ww : { 'hidden' : true   } }, [
+...(__if(__context.values.tag .isSet (),
+   ()=> ([
+
+        __this.widget(Tag, {html : {  } ,wml : {  } ,ww : { 'text' : __context.values.tag .getText () ,'className' : __context.values.tag .className  ,'onDismiss' : __context.values.tag .dismiss   } }, [
 
         
+     ])
      ]),
-__this.node('span', {html : { 'class' : `help-block`  } ,wml : {  } }, [
+   ()=> ([
+
+        __this.widget(Search, {html : {  } ,wml : { 'id' : __context.values.search .wml .id   } ,ww : { 'name' : __context.values.search .name  ,'className' : __context.values.search .className  ,'block' : __context.values.search .block  ,'placeholder' : __context.values.search .placeholder  ,'readOnly' : __context.values.search .readOnly  ,'itemTemplate' : __context.values.search .itemTemplate  ,'noItemsTemplate' : __context.values.search .noItemsTemplate  ,'stringifier' : __context.values.search .stringifier  ,'onSearch' : __context.values.search .onSearch  ,'onSelect' : __context.values.search .onSelect   } }, [
+
+        
+     ])
+     ]))) ,
+__this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml .id   } ,ww : { 'text' : __context.values.messages .text   } }, [
 
         
      ])

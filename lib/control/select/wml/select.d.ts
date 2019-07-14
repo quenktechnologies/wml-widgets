@@ -1,9 +1,6 @@
 import * as __wml from '@quenk/wml';
 import { Select } from '../';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-export declare const itemContentTemplate: <V>(s: Select<V>) => (option: V) => (_index: number) => (__this: __wml.Registry) => __wml.Content[];
-export declare const noItemsTemplate: <V>(_: Select<V>) => (__this: __wml.Registry) => __wml.Content[];
-export declare const results: <V>(s: Select<V>) => (__this: __wml.Registry) => __wml.Content[];
 export declare class Main<V> implements __wml.View {
     constructor(__context: Select<V>);
     ids: {

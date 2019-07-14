@@ -1,7 +1,3 @@
-import { Component } from '@quenk/wml';
-import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
-import { WidgetAttrs, HTMLElementAttrs } from '../';
-
 /**
  * This module provides the parent interfaces for most of the 
  * widgets considered 'controls'.
@@ -15,6 +11,10 @@ import { WidgetAttrs, HTMLElementAttrs } from '../';
  * as the user preforms a supported action and event is generated
  * each and every time and some handler is applied to the event.
  */
+/** @imports */
+import { Component } from '@quenk/wml';
+import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
+import { WidgetAttrs, HTMLElementAttrs } from '../';
 
 /**
  * ControlAttrs
@@ -63,7 +63,7 @@ export class Event<V> {
  */
 export abstract class AbstractControl<V, A extends ControlAttrs<V>>
     extends Component<WidgetAttrs<A>>
-    implements Control<V, A> {}
+    implements Control<V, A> { }
 
 /**
  * getName

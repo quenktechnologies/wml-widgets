@@ -1,0 +1,65 @@
+{% import (Search) from "../../search" %}
+{% import (Stack) from "../../stack" %}
+{% import (Label) from "../../label" %}
+{% import (Help) from "../../help" %}
+{% import (StackSelect) from "../" %}
+
+{% view Main [V](StackSelect[V]) %}
+
+<div id={{@values.root.id}} class={{@values.root.className}}>
+
+  {% if @values.root.dir == -1 %}
+
+    <Label
+      ww:for={{@values.root.id}}
+      ww:text={{@values.label.text}} />
+
+    <Search
+      wml:id={{@values.search.wml.id}}
+      ww:name={{@values.search.name}}
+      ww:value={{@values.search.value}}
+      ww:block={{@values.search.block}}
+      ww:stringifier={{@values.stack.decorator}}
+      ww:onSearch={{@values.search.onSearch}}
+      ww:onSelect={{@values.search.onSelect}} />
+
+    <Stack
+      wml:id={{@values.stack.wml.id}}
+      ww:name={{@values.stack.name}}
+      ww:value={{@values.stack.value}}
+      ww:decorator={{@values.stack.decorator}}
+      ww:onChange={{@values.stack.onChange}} />
+
+    <Help 
+      wml:id={{@values.messages.wml.id}}
+      ww:text={{@values.messages.text}} />
+
+  {% else %}
+
+    <Label
+      ww:for={{@values.root.id}}
+      ww:text={{@values.label.text}} />
+
+    <Stack
+      wml:id={{@values.stack.wml.id}}
+      ww:name={{@values.stack.name}}
+      ww:value={{@values.stack.value}}
+      ww:decorator={{@values.stack.decorator}}
+      ww:onChange={{@values.stack.onChange}} />
+
+    <Search
+      wml:id={{@values.search.wml.id}}
+      ww:name={{@values.search.name}}
+      ww:value={{@values.search.value}}
+      ww:block={{@values.search.block}}
+      ww:stringifier={{@values.stack.decorator}}
+      ww:onSearch={{@values.search.onSearch}}
+      ww:onSelect={{@values.search.onSelect}} />
+
+    <Help 
+      wml:id={{@values.messages.wml.id}}
+      ww:text={{@values.messages.text}} />
+
+  {% endif %}
+
+</div>

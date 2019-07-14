@@ -1,0 +1,29 @@
+{% import * as t from "../../../content/tag" %}
+{% import (text) from "../../../" %}
+{% import (Close) from "../../../content/close" %}
+{% import (Tag) from "../" %}
+
+{% view Main (Tag) %}
+
+<t.Tag
+  ww:id={{@values.id}}
+  ww:className={{@values.className}}
+  ww:style={{@values.style}}>
+
+  {% if @values.text.value != ""  %}
+
+    <span class={{@values.text.className}}>{{@values.text.value | text}}</span> 
+  
+  {% else %}
+
+    {{ "" | text }}
+
+  {% endif %}
+
+  {{ ...@children }}
+
+  <Close 
+    ww:class={{@values.dismiss.className}} 
+    ww:onClick={{@values.dismiss.onClick}} />
+
+</t.Tag>

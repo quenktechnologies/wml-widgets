@@ -1,0 +1,72 @@
+@import "./variables";
+
+.__TYPEAHEAD__ {
+
+  margin-bottom: @typeahead-margin-bottom; 
+  display: inline-block;
+
+  &.__ERROR__ {
+
+    color: @typeahead-error-color;
+
+    & input {
+
+      border-color: @typeahead-error-border-color;
+      color: @typeahead-error-color;
+
+    }
+
+  }
+
+  &.__WARNING__ {
+
+    color: @typeahead-warning-color;
+
+    & input {
+
+      border-color: @typeahead-warning-border-color;
+      color: @typeahead-warning-color;
+
+    }
+
+  }
+
+  &.__SUCCESS__ {
+
+    color: @typeahead-success-color;
+
+    & input {
+
+      border-color: @typeahead-success-border-color;
+      color: @typeahead-success-color;
+
+    }
+
+  }
+
+  & > .__LABEL__, & > .__HELP__ {
+
+    display: block;
+
+  }
+
+  & > .__MENU__ {
+
+    position: absolute;
+
+  }
+  
+  &.__BLOCK__ {
+
+    display: block;
+    width: 100%;
+
+    & + & {
+
+      margin-top: @typeahead-sibling-margin-top;
+
+    }
+
+ }
+
+}

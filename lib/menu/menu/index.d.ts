@@ -13,6 +13,10 @@ export interface MenuAttrs extends HTMLElementAttrs {
      * hidden indicates the menu should be hidden.
      */
     hidden?: boolean;
+    /**
+     * block display
+     */
+    block?: boolean;
 }
 /**
  * HeaderAttrs
