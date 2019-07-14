@@ -1,3 +1,5 @@
+import { WidgetAttrs } from '../';
+
 ///classNames:begin
 /**
  * VERTICAL indicates an element is vertical rendererd.
@@ -50,3 +52,10 @@ export const MIDDLE = '-middle';
 
 export const BOTTOM = '-bottom';
 ///classNames:end
+
+/**
+ * getBlockClassName provides the __BLOCK__ class name if the attribute
+ * value is set to true.
+ */
+export const getBlockClassName = (attrs: WidgetAttrs<{ block?: boolean }>) =>
+    (attrs.ww && (attrs.ww.block === true)) ? BLOCK : '';

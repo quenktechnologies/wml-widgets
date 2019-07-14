@@ -2,7 +2,7 @@ import * as __wml from '@quenk/wml';
 
 import {Demo} from '../../../widgets/demo'; ;
 import {MultiSelect} from '../../../../../../lib/control/multi-select'; ;
-import {MultiSelectPage,Result} from '../'; 
+import {MultiSelectPage} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -64,18 +64,37 @@ export class Main  implements __wml.View {
 
            return __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        document.createTextNode(`You selected: `),
-__this.node('b', {html : {  } ,wml : { 'id' : `text`  } }, [
+        __this.widget(MultiSelect, {html : {  } ,wml : { 'id' : __context.values.normal .id   } ,ww : { 'name' : __context.values.normal .name  ,'label' : __context.values.normal .label  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   } }, [
 
-        document.createTextNode(__context.values.text ())
+        
+     ])
      ]),
-document.createTextNode(`.`)
-     ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.widget(MultiSelect, {html : {  } ,wml : { 'id' : __context.values.id   } ,ww : { 'name' : __context.values.name  ,'value' : __context.values.selected  ,'decorator' : (r: Result   ) => r.label ,'onChange' : __context.onChange ,'onSearch' : __context.onSearch  } }, [
+        __this.widget(MultiSelect, {html : {  } ,wml : { 'id' : __context.values.success .id   } ,ww : { 'name' : __context.values.success .name  ,'label' : __context.values.success .label  ,'success' : __context.values.success .message  ,'stringifier' : __context.values.success .stringifier  ,'onSearch' : __context.values.success .onSearch  ,'onChange' : __context.values.success .onChange   } }, [
+
+        
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(MultiSelect, {html : {  } ,wml : { 'id' : __context.values.warning .id   } ,ww : { 'name' : __context.values.warning .name  ,'label' : __context.values.warning .label  ,'warning' : __context.values.warning .message  ,'stringifier' : __context.values.warning .stringifier  ,'onSearch' : __context.values.warning .onSearch  ,'onChange' : __context.values.warning .onChange   } }, [
+
+        
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(MultiSelect, {html : {  } ,wml : { 'id' : __context.values.error .id   } ,ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   } }, [
+
+        
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(MultiSelect, {html : {  } ,wml : { 'id' : __context.values.block .id   } ,ww : { 'name' : __context.values.block .name  ,'label' : __context.values.block .label  ,'block' : true  ,'stringifier' : __context.values.block .stringifier  ,'onSearch' : __context.values.block .onSearch  ,'onChange' : __context.values.block .onChange   } }, [
 
         
      ])

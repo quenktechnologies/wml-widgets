@@ -3,7 +3,7 @@
 {% import (Close) from "../../../content/close" %}
 {% import (Tag) from "../" %}
 
-{% view Main[V] (Tag[V]) %}
+{% view Main (Tag) %}
 
 <t.Tag
   ww:id={{@values.id}}

@@ -1,0 +1,40 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Search) from "../../../../../../lib/control/search" %}
+{% import (SearchPage) from "../" %}
+
+{% view Main (SearchPage) %}
+
+<Demo>
+
+  <Demo>
+
+    <p>
+    
+      <Search 
+        wml:id={{@values.id}}
+        ww:name={{@values.name}}
+        ww:stringifier={{@values.stringifier}}
+        ww:onSearch={{@values.onSearch}}
+        ww:onSelect={{@values.onSelect}} />
+
+    </p>
+
+  </Demo>
+  
+  <Demo>
+
+    <p>
+
+      <Search 
+        wml:id={{@values.id2}}
+        ww:name={{@values.name2}}
+        ww:block=true
+        ww:stringifier={{@values.stringifier}}
+        ww:onSearch={{@values.onSearch}}
+        ww:onSelect={{@values.onSelect}} />
+
+    </p>
+
+  </Demo>
+
+</Demo>

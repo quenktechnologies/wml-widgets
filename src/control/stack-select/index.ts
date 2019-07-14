@@ -4,10 +4,10 @@ import { BLOCK } from '../../content/orientation';
 import { FormControlAttrs, AbstractFormControl, getLabel, setMessage, removeMessage } from '../form';
 import {
     TermChangedEvent,
-    Search,
     ItemSelectedEvent
 } from '../search';
 import { StackChangedEvent, Stack } from '../stack';
+import { update } from '../select';
 import { concat } from '../../util';
 import { getId, getClassName } from '../../';
 import { Event, getName } from '../';
@@ -196,11 +196,7 @@ export class StackSelect<V>
      */
     update(list: V[]): StackSelect<V> {
 
-        this
-            .view
-            .findById<Search<V>>(this.values.search.wml.id)
-            .map(s => s.update(list));
-
+        update(this.view, this.values.search.wml.id, list);
         return this;
 
     }

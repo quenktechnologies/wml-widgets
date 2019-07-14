@@ -1,6 +1,6 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (Select) from "../../../../../../lib/control/select" %}
-{% import (SelectPage, Result) from "../" %}
+{% import (SelectPage) from "../" %}
 
 {% view Main (SelectPage) %}
 
@@ -8,36 +8,67 @@
 
   <Demo>
 
-    <p>You selected: <b wml:id={{@values.autocomplete.name}}>(nothing)</b>.</p>
+    <Select 
+     wml:id={{@values.normal.id}}
+     ww:name={{@values.normal.name}}
+     ww:label={{@values.normal.label}}
+     ww:value={{@values.normal.value}}
+     ww:stringifier={{@values.normal.stringifier}}
+     ww:onSearch={{@values.normal.onSearch}}
+     ww:onChange={{@values.normal.onChange}} />
 
-    <p>
-      <Select 
-       wml:id={{@values.autocomplete.id}}
-       ww:name={{@values.autocomplete.name}}
-       ww:stringifier={{\r:Result -> r.value }}
-       ww:onSearch={{@values.autocomplete.onSearch}}
-       ww:onChange={{@values.autocomplete.onChange}} />
-    
-     </p>
+  </Demo>
 
-   </Demo>
+  <Demo>
 
-    <Demo>
+    <Select 
+     wml:id={{@values.success.id}}
+     ww:name={{@values.success.name}}
+     ww:label={{@values.success.label}}
+     ww:success={{@values.success.message}}
+     ww:stringifier={{@values.success.stringifier}}
+     ww:onSearch={{@values.success.onSearch}}
+     ww:onChange={{@values.success.onChange}} />
 
-      <p>You selected: <b wml:id={{@values.native.name}}>(nothing)</b>.</p>
+  </Demo>
 
-      <p>
-        <Select 
-          wml:id={{@values.native.id}}
-          ww:name={{@values.native.name}}
-          ww:readOnly=true
-          ww:stringifier={{\r:Result -> r.value }}
-          ww:options={{@values.native.options}}
-          ww:onSearch={{@values.native.onSearch}}
-          ww:onChange={{@values.native.onChange}} />
-      </p>
+  <Demo>
 
-    </Demo>
+    <Select 
+     wml:id={{@values.warning.id}}
+     ww:name={{@values.warning.name}}
+     ww:label={{@values.warning.label}}
+     ww:warning={{@values.warning.message}}
+     ww:stringifier={{@values.warning.stringifier}}
+     ww:onSearch={{@values.warning.onSearch}}
+     ww:onChange={{@values.warning.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <Select 
+     wml:id={{@values.error.id}}
+     ww:name={{@values.error.name}}
+     ww:label={{@values.error.label}}
+     ww:error={{@values.error.message}}
+     ww:stringifier={{@values.error.stringifier}}
+     ww:onSearch={{@values.error.onSearch}}
+     ww:onChange={{@values.error.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <Select 
+     wml:id={{@values.block.id}}
+     ww:name={{@values.block.name}}
+     ww:label={{@values.block.label}}
+     ww:block={{true}}
+     ww:stringifier={{@values.block.stringifier}}
+     ww:onSearch={{@values.block.onSearch}}
+     ww:onChange={{@values.block.onChange}} />
+
+  </Demo>
 
 </Demo>
-

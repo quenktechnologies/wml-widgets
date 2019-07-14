@@ -1,0 +1,73 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (StackSelect) from "../../../../../../lib/control/stack-select" %}
+{% import (StackSelectPage) from "../" %}
+
+{% view Main (StackSelectPage) %}
+ 
+<Demo>
+
+  <Demo>
+
+    <StackSelect 
+     wml:id={{@values.asc.id}}
+     ww:name={{@values.asc.name}}
+     ww:label={{@values.asc.label}}
+     ww:stringifier={{@values.asc.stringifier}}
+     ww:onSearch={{@values.asc.onSearch}}
+     ww:onChange={{@values.asc.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <StackSelect 
+     wml:id={{@values.desc.id}}
+     ww:name={{@values.desc.name}}
+     ww:label={{@values.desc.label}}
+     ww:dir={{-1}}
+     ww:stringifier={{@values.desc.stringifier}}
+     ww:onSearch={{@values.desc.onSearch}}
+     ww:onChange={{@values.desc.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <StackSelect 
+     wml:id={{@values.success.id}}
+     ww:name={{@values.success.name}}
+     ww:label={{@values.success.label}}
+     ww:success={{@values.success.message}}
+     ww:stringifier={{@values.success.stringifier}}
+     ww:onSearch={{@values.success.onSearch}}
+     ww:onChange={{@values.success.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <StackSelect 
+     wml:id={{@values.warning.id}}
+     ww:name={{@values.warning.name}}
+     ww:label={{@values.warning.label}}
+     ww:warning={{@values.warning.message}}
+     ww:stringifier={{@values.warning.stringifier}}
+     ww:onSearch={{@values.warning.onSearch}}
+     ww:onChange={{@values.warning.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <StackSelect 
+     wml:id={{@values.error.id}}
+     ww:name={{@values.error.name}}
+     ww:label={{@values.error.label}}
+     ww:error={{@values.error.message}}
+     ww:stringifier={{@values.error.stringifier}}
+     ww:onSearch={{@values.error.onSearch}}
+     ww:onChange={{@values.error.onChange}} />
+
+  </Demo>
+
+</Demo>

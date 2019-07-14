@@ -14,7 +14,7 @@ export const TAG_CONTROL_DISMISS = 'ww-tag-control__dismiss';
 /**
  * TagAttrs
  */
-export interface TagAttrs<V> extends ControlAttrs<V> {
+export interface TagAttrs extends ControlAttrs<void> {
 
     /**
      * style of the tag.
@@ -30,14 +30,18 @@ export interface TagAttrs<V> extends ControlAttrs<V> {
      * onDismiss is applied when the user clicks the close
      * button on tag.
      */
-    onDismiss?: (e: DismissEvent<V>) => void
+    onDismiss?: (e: DismissEvent) => void
 
 }
 
 /**
  * DismissEvent is generated when the close button us clicked.
  */
-export class DismissEvent<V> extends Event<V> { }
+export class DismissEvent extends Event<void> {
+
+    constructor(public name: string) { super(name, undefined); }
+
+}
 
 /**
  * Tag displays some text in a dismissable tag.
@@ -46,7 +50,7 @@ export class DismissEvent<V> extends Event<V> { }
  * module is that this one is primarily meant to be used as a control
  * or as part of a more complicated control.
  */
-export class Tag<V> extends AbstractControl<V, TagAttrs<V>> {
+export class Tag extends AbstractControl<void, TagAttrs> {
 
     view: View = new Main(this);
 
@@ -73,12 +77,9 @@ export class Tag<V> extends AbstractControl<V, TagAttrs<V>> {
 
             onClick: () => {
 
-                if (this.attrs.ww &&
-                    this.attrs.ww.onDismiss &&
-                    this.attrs.ww.value)
+                if (this.attrs.ww && this.attrs.ww.onDismiss)
                     this.attrs.ww.onDismiss(new DismissEvent(
-                        this.attrs.ww && this.attrs.ww.name || '',
-                        this.attrs.ww.value));
+                        this.attrs.ww && this.attrs.ww.name || ''));
 
             }
 

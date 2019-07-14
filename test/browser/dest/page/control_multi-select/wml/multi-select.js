@@ -33,15 +33,20 @@ var Main = /** @class */ (function () {
         this.tree = document.createElement('div');
         this.template = function (__this) {
             return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.node('p', { html: {}, wml: {} }, [
-                    document.createTextNode("You selected: "),
-                    __this.node('b', { html: {}, wml: { 'id': "text" } }, [
-                        document.createTextNode(__context.values.text())
-                    ]),
-                    document.createTextNode(".")
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.normal.id }, ww: { 'name': __context.values.normal.name, 'label': __context.values.normal.label, 'stringifier': __context.values.normal.stringifier, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } }, [])
                 ]),
-                __this.node('p', { html: {}, wml: {} }, [
-                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.id }, ww: { 'name': __context.values.name, 'value': __context.values.selected, 'decorator': function (r) { return r.label; }, 'onChange': __context.onChange, 'onSearch': __context.onSearch } }, [])
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.success.id }, ww: { 'name': __context.values.success.name, 'label': __context.values.success.label, 'success': __context.values.success.message, 'stringifier': __context.values.success.stringifier, 'onSearch': __context.values.success.onSearch, 'onChange': __context.values.success.onChange } }, [])
+                ]),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.warning.id }, ww: { 'name': __context.values.warning.name, 'label': __context.values.warning.label, 'warning': __context.values.warning.message, 'stringifier': __context.values.warning.stringifier, 'onSearch': __context.values.warning.onSearch, 'onChange': __context.values.warning.onChange } }, [])
+                ]),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.error.id }, ww: { 'name': __context.values.error.name, 'label': __context.values.error.label, 'error': __context.values.error.message, 'stringifier': __context.values.error.stringifier, 'onSearch': __context.values.error.onSearch, 'onChange': __context.values.error.onChange } }, [])
+                ]),
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.block.id }, ww: { 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange } }, [])
                 ])
             ]);
         };

@@ -2,7 +2,7 @@ import * as __wml from '@quenk/wml';
 
 import {Demo} from '../../../widgets/demo'; ;
 import {Select} from '../../../../../../lib/control/select'; ;
-import {SelectPage,Result} from '../'; 
+import {SelectPage} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -66,40 +66,37 @@ export class Main  implements __wml.View {
 
         __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`You selected: `),
-__this.node('b', {html : {  } ,wml : { 'id' : __context.values.autocomplete .name   } }, [
-
-        document.createTextNode(`(nothing)`)
-     ]),
-document.createTextNode(`.`)
-     ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
-
-        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.autocomplete .id   } ,ww : { 'name' : __context.values.autocomplete .name  ,'stringifier' : (r: Result   ) => r.value ,'onSearch' : __context.values.autocomplete .onSearch  ,'onChange' : __context.values.autocomplete .onChange   } }, [
+        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.normal .id   } ,ww : { 'name' : __context.values.normal .name  ,'label' : __context.values.normal .label  ,'value' : __context.values.normal .value  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   } }, [
 
         
-     ])
      ])
      ]),
 __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`You selected: `),
-__this.node('b', {html : {  } ,wml : { 'id' : __context.values.native .name   } }, [
-
-        document.createTextNode(`(nothing)`)
-     ]),
-document.createTextNode(`.`)
-     ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
-
-        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.native .id   } ,ww : { 'name' : __context.values.native .name  ,'readOnly' : true  ,'stringifier' : (r: Result   ) => r.value ,'options' : __context.values.native .options  ,'onSearch' : __context.values.native .onSearch  ,'onChange' : __context.values.native .onChange   } }, [
+        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.success .id   } ,ww : { 'name' : __context.values.success .name  ,'label' : __context.values.success .label  ,'success' : __context.values.success .message  ,'stringifier' : __context.values.success .stringifier  ,'onSearch' : __context.values.success .onSearch  ,'onChange' : __context.values.success .onChange   } }, [
 
         
      ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.warning .id   } ,ww : { 'name' : __context.values.warning .name  ,'label' : __context.values.warning .label  ,'warning' : __context.values.warning .message  ,'stringifier' : __context.values.warning .stringifier  ,'onSearch' : __context.values.warning .onSearch  ,'onChange' : __context.values.warning .onChange   } }, [
+
+        
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.error .id   } ,ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   } }, [
+
+        
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.widget(Select, {html : {  } ,wml : { 'id' : __context.values.block .id   } ,ww : { 'name' : __context.values.block .name  ,'label' : __context.values.block .label  ,'block' : true  ,'stringifier' : __context.values.block .stringifier  ,'onSearch' : __context.values.block .onSearch  ,'onChange' : __context.values.block .onChange   } }, [
+
+        
      ])
      ])
      ]);

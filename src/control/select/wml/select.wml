@@ -1,7 +1,6 @@
 {% import (Search) from "../../search" %}
 {% import (Label) from "../../label" %}
 {% import (Help) from "../../help" %}
-{% import (ResultsMenu) from "../../results-menu" %}
 {% import (Tag) from "../../tag" %}
 {% import (Select) from "../" %}
 
@@ -29,16 +28,13 @@
         ww:block={{@values.search.block}}
         ww:placeholder={{@values.search.placeholder}} 
         ww:readOnly={{@values.search.readOnly}}
-        ww:onEscape={{@values.search.onEscape}}
-        ww:onSearch={{@values.search.onSearch}} />
+        ww:itemTemplate={{@values.search.itemTemplate}}
+        ww:noItemsTemplate={{@values.search.noItemsTemplate}}
+        ww:stringifier={{@values.search.stringifier}}
+        ww:onSearch={{@values.search.onSearch}}
+        ww:onSelect={{@values.search.onSelect}} />
 
     {% endif %}
-
-    <ResultsMenu 
-      wml:id={{@values.menu.wml.id}} 
-      ww:block={{@values.menu.block}}
-      ww:onSelect={{@values.menu.onSelect}}
-      ww:stringifier={{@values.menu.stringifier}} />
 
     <Help 
       wml:id={{@values.messages.wml.id}}

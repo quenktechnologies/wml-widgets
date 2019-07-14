@@ -1,26 +1,11 @@
 import * as wml from '@quenk/wml';
-import * as views from './wml/multi-select'
-import { MultiSelect, TermChangedEvent, ItemsChangedEvent }
-    from '../../../../../lib/control/multi-select';
-
-export interface Result {
-
-    label: string,
-    value: string
-
-}
-
-const options = [
-    { label: 'Asus', value: 'Asus' },
-    { label: 'MSI', value: 'MSI' },
-    { label: 'Gigabyte', value: 'Gigabyte' },
-    { label: 'Gigas', value: 'Gigas' },
-    { label: 'AsusTek', value: 'AsusTek' },
-    { label: 'Asusuga', value: 'Asusuga' },
-    { label: 'Qualcomm', value: 'Qualcomm' },
-    { label: 'Qualitative', value: 'Qualitatve' },
-    { label: 'Asunder', value: 'Asunder' }
-];
+import * as views from './wml/multi-select';
+import {
+    MultiSelect,
+    ItemsChangedEvent,
+    TermChangedEvent
+} from '../../../../../lib/control/multi-select';
+import { Result, results } from '../../fixtures/data/results';
 
 export class MultiSelectPage {
 
@@ -28,35 +13,88 @@ export class MultiSelectPage {
 
     values = {
 
-        id: 'search',
+        normal: {
 
-        name: 'search',
+            id: 'normal',
+            name: 'normal',
+            label: 'Normal',
+            value: results[2],
+            stringifier: (r: Result) => r.value,
+            onSearch: onSearch(this),
+            onChange: onChange(this),
 
-        text: () => this.values.selected.map(m => m.label).join(','),
+        },
+        success: {
 
-        selected: (<Result[]>[]),
+            id: 'success',
+            name: 'success',
+            label: 'Success',
+            stringifier: (r: Result) => r.value,
+            message: 'This has a success message.',
+            onSearch: onSearch(this),
+            onChange: onChange(this),
 
-        options
+        },
+        warning: {
 
-    };
+            id: 'warning',
+            name: 'warning',
+            label: 'Warning',
+            stringifier: (r: Result) => r.value,
+            message: 'This has a warning message.',
+            onSearch: onSearch(this),
+            onChange: onChange(this),
 
-  onSearch = ({ value }: TermChangedEvent) => {
+        },
 
-    this
-      .view
-      .findById<MultiSelect<Result>>(this.values.id)
-      .map((s: MultiSelect<Result>) =>
-            s.update(options.filter(s => s.value.toLowerCase().startsWith(value.toLowerCase()))))
- 
-  }
+        error: {
 
-    onChange = ({ value }: ItemsChangedEvent<Result>) => {
+            id: 'error',
+            name: 'error',
+            label: 'Error',
+            stringifier: (r: Result) => r.value,
+            message: 'This has a error message.',
+            onSearch: onSearch(this),
+            onChange: onChange(this),
 
-        this.values.selected = value;
-        this.view.invalidate();
+        },
+        block: {
+
+            id: 'block',
+            name: 'block',
+            label: 'Block',
+            stringifier: (r: Result) => r.value,
+            onSearch: onSearch(this),
+            onChange: onChange(this),
+
+        },
 
     }
 
 }
+
+const onSearch = (page: MultiSelectPage) => ({ name, value }: TermChangedEvent) =>
+    page
+        .view
+        .findById<MultiSelect<Result>>(name)
+        .map((s: MultiSelect<Result>) => {
+
+            let hit = results.filter(c =>
+                c.value.toLowerCase().startsWith(value) ? true : false);
+
+            s.update(hit);
+
+        });
+
+const onChange =
+    (page: MultiSelectPage) => ({ name, value }: ItemsChangedEvent<Result>) =>
+        page
+            .view
+            .findById<MultiSelect<Result>>(name)
+            .map(t => {
+
+                t.setMessage(`Count: ${value.length}`);
+
+            });
 
 export default new MultiSelectPage();

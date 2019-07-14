@@ -3,26 +3,86 @@ import * as views from './wml/select';
 import {
     Select,
     ItemChangedEvent,
+    ItemUnsetEvent,
     TermChangedEvent
 } from '../../../../../lib/control/select';
+import { Result, results } from '../../fixtures/data/results';
 
-const results = [
-    { label: 'Asus', value: 'Asus' },
-    { label: 'MSI', value: 'MSI' },
-    { label: 'Gigabyte', value: 'Gigabyte' },
-    { label: 'Gigas', value: 'Gigas' },
-    { label: 'AsusTek', value: 'AsusTek' },
-    { label: 'Asusuga', value: 'Asusuga' },
-    { label: 'Qualcomm', value: 'Qualcomm' },
-    { label: 'Qualitative', value: 'Qualitatve' },
-    { label: 'Kirpalani\'s', value: 'Kirpalani\'s' },
-    { label: 'Asunder', value: 'Asunder' }
-];
+export class SelectPage {
 
-const onSearch = (page: SelectPage) => (id: string) => ({ value }: TermChangedEvent) =>
+    view: wml.View = new views.Main(this);
+
+    values = {
+
+        normal: {
+
+            id: 'normal',
+            name: 'normal',
+            label: 'Normal',
+            value: results[2],
+            stringifier: (r: Result) => r.value,
+            onSearch: doSearch(this),
+            onChange: doChange(this),
+            onUnset: doUnset(this)
+
+        },
+        block: {
+
+            id: 'block',
+            name: 'block',
+            label: 'Block',
+            stringifier: (r: Result) => r.value,
+            onSearch: doSearch(this),
+            onChange: doChange(this),
+            onUnset: doUnset(this)
+
+        },
+        success: {
+
+            id: 'success',
+            name: 'success',
+            label: 'Success',
+            stringifier: (r: Result) => r.value,
+            message: 'This has a success message.',
+            onSearch: doSearch(this),
+            onChange: doChange(this),
+            onUnset: doUnset(this)
+
+        },
+        warning: {
+
+            id: 'warning',
+            name: 'warning',
+            label: 'Warning',
+            stringifier: (r: Result) => r.value,
+            message: 'This has a warning message.',
+            onSearch: doSearch(this),
+            onChange: doChange(this),
+            onUnset: doUnset(this)
+
+        },
+
+        error: {
+
+            id: 'error',
+            name: 'error',
+            label: 'Error',
+            stringifier: (r: Result) => r.value,
+            message: 'This has a error message.',
+            onSearch: doSearch(this),
+            onChange: doChange(this),
+            onUnset: doUnset(this)
+
+        },
+
+    }
+
+}
+
+const doSearch = (page: SelectPage) => ({ name, value }: TermChangedEvent) =>
     page
         .view
-    .findById<Select<Result>>(id)
+        .findById<Select<Result>>(name)
         .map((s: Select<Result>) => {
 
             let hit = results.filter(c =>
@@ -32,52 +92,27 @@ const onSearch = (page: SelectPage) => (id: string) => ({ value }: TermChangedEv
 
         });
 
+const doChange =
+    (page: SelectPage) => ({ name, value }: ItemChangedEvent<Result>) =>
+        page
+            .view
+            .findById<Select<Result>>(name)
+            .map(t => {
 
-const onChange = (page: SelectPage) => ({ name, value }: ItemChangedEvent<Result>) =>
+                t.setMessage(`Selected: ${value.value}`);
 
-  page.view.findById<HTMLElement>(name)
-        .map((e: HTMLElement) => {
+            });
 
-            while (e.lastChild)
-                e.removeChild(e.lastChild);
+const doUnset =
+    (page: SelectPage) => ({ name }: ItemUnsetEvent) =>
+        page
+            .view
+            .findById<Select<Result>>(name)
+            .map(t => {
 
-            e.appendChild(document.createTextNode(value.value));
+                t.setMessage('');
 
-        });
+            });
 
-export interface Result {
-
-    label: string,
-    value: string
-
-}
-
-export class SelectPage  {
-
-    view: wml.View = new views.Main(this);
-
-    values = {
-
-        autocomplete: {
-
-            id: 'autocomplete',
-            name: 'autocompleteName',
-            onSearch: onSearch(this)('autocomplete'),
-            onChange: onChange(this)
-
-        },
-        native: {
-
-            id: 'native',
-            name: 'nativeName',
-            options: results,
-            onSearch: onSearch(this)('native'),
-            onChange: onChange(this)
-
-        }
-
-    }
-
-}
 
 export default new SelectPage();

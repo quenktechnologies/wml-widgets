@@ -287,6 +287,9 @@ export const MODAL_BODY = 'ww-modal__body';
 export const MODAL_FOOTER = 'ww-modal__footer';
 ///classNames:end
 ///classNames:begin
+export const STACK_SELECT = 'ww-stack-select';
+///classNames:end
+///classNames:begin
 export const BUTTON = 'ww-button';
 ///classNames:end
 ///classNames:begin
@@ -357,9 +360,13 @@ export const HELP = 'ww-help';
 ///classNames:end
 ///classNames:begin
 export const MULTI_SELECT = 'ww-multi-select';
+export const MULTI_SELECT_CONTENT = 'ww-multi-select__content';
+export const MULTI_SELECT_INPUT = 'ww-multi-select__input';
+export const MULTI_SELECT_TAG = 'ww-multi-select__tag';
 ///classNames:end
 ///classNames:begin
 export const SEARCH = 'ww-search';
+export const SEARCH_INPUT = 'ww-search__input';
 ///classNames:end
 ///classNames:begin
 export const TAG_CONTROL = 'ww-tag-control';
@@ -368,4 +375,7 @@ export const TAG_CONTROL_DISMISS = 'ww-tag-control__dismiss';
 ///classNames:end
 ///classNames:begin
 export const CHECKBOX = 'ww-checkbox';
+///classNames:end
+///classNames:begin
+export const TYPEAHEAD = 'ww-typeahead';
 ///classNames:end
