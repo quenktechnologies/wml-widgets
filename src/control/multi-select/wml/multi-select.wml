@@ -1,25 +1,59 @@
-{% import (Select) from "../../select" %}
-{% import (Stack) from "../../stack" %}
+{% import (Label) from "../../label" %}
+{% import (Help) from "../../help" %}
+{% import (Tag) from "../../tag" %}
+{% import (Input) from "../../search" %}
+{% import (ResultsMenu) from "../../results-menu" %}
+{% import (text) from "../../../" %}
 {% import (MultiSelect) from "../" %}
 
-{% view  Main [V](MultiSelect[V]) %}
-
+{% view Main [V](MultiSelect[V]) %}
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
-  <Select
-    wml:id={{@values.search.wml.id}}
-    ww:name={{@values.search.name}}
-    ww:value={{@values.search.value}}
-    ww:block={{@values.search.block}}
-    ww:stringifier={{@values.stack.decorator}}
-    ww:onSearch={{@values.search.onSearch}}
-    ww:onChange={{@values.search.onChange}} />
+  <Label
+   ww:for={{@values.root.id}}
+   ww:text={{@values.label.text}} />
 
-  <Stack
-    wml:id={{@values.stack.wml.id}}
-    ww:name={{@values.stack.name}}
-    ww:value={{@values.stack.value}}
-    ww:decorator={{@values.stack.decorator}}
-    ww:onChange={{@values.stack.onChange}} />
+  <div 
+  onclick={{@values.content.onfocus}}
+  class={{@values.content.className}}>
+
+    {% if @values.tags.has() %}
+
+      {% for value,idx in @values.tags.value %}
+
+        <Tag
+          ww:name={{String(idx)}}
+          ww:text={{@values.tags.getText(value)}}
+          ww:className={{@values.tags.className}}
+          ww:onDismiss={{@values.tags.onDismiss}} />
+
+      {% endfor %}
+
+    {% else %} 
+      
+      {{ "" | text }}
+      
+    {% endif %}
+
+    <Input 
+      wml:id={{@values.input.wml.id}} 
+      ww:className={{@values.input.className}} 
+      ww:name={{@values.input.name}}
+      ww:onSearch={{@values.input.onSearch}} />
+
+
+    </div>
+
+    <ResultsMenu 
+      wml:id={{@values.menu.wml.id}} 
+      ww:block={{@values.menu.block}}
+      ww:onSelect={{@values.menu.onSelect}}
+      ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
+      ww:itemsTemplate={{@values.menu.itemTemplate}}
+      ww:stringifier={{@values.menu.stringifier}} />
+
+    <Help 
+      wml:id={{@values.messages.wml.id}}
+      ww:text={{@values.messages.text}} />
 
 </div>

@@ -1,6 +1,6 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (MultiSelect) from "../../../../../../lib/control/multi-select" %}
-{% import (MultiSelectPage, Result) from "../" %}
+{% import (MultiSelectPage) from "../" %}
 
 {% view Main (MultiSelectPage) %}
  
@@ -8,36 +8,68 @@
 
   <Demo>
 
-    <h3>Inline</h3>
-
-    <p>You selected: <b wml:id="text">{{document.createTextNode(@values.text())}}</b>.</p>
-
-      <p>
-
-        <MultiSelect
-          wml:id="search"
-          ww:name="search"
-          ww:value={{@values.selected}}
-          ww:decorator={{\r:Result -> r.label}}
-          ww:onChange={{@onChange}}
-          ww:onSearch={{@onSearch}} />
-
-      </p>
+    <MultiSelect 
+     wml:id={{@values.normal.id}}
+     ww:name={{@values.normal.name}}
+     ww:label={{@values.normal.label}}
+     ww:stringifier={{@values.normal.stringifier}}
+     ww:onSearch={{@values.normal.onSearch}}
+     ww:onChange={{@values.normal.onChange}} />
 
   </Demo>
 
   <Demo>
 
-    <h3>Block</h3>
-
-    <MultiSelect
-     wml:id="search2"
-     ww:name="search2"
-     ww:value={{@values.selected}}
-     ww:decorator={{\r:Result -> r.label}}
-     ww:block=true
-     ww:onSearch={{@onSearch}} />
+    <MultiSelect 
+     wml:id={{@values.success.id}}
+     ww:name={{@values.success.name}}
+     ww:label={{@values.success.label}}
+     ww:success={{@values.success.message}}
+     ww:stringifier={{@values.success.stringifier}}
+     ww:onSearch={{@values.success.onSearch}}
+     ww:onChange={{@values.success.onChange}} />
 
   </Demo>
+
+  <Demo>
+
+    <MultiSelect 
+     wml:id={{@values.warning.id}}
+     ww:name={{@values.warning.name}}
+     ww:label={{@values.warning.label}}
+     ww:warning={{@values.warning.message}}
+     ww:stringifier={{@values.warning.stringifier}}
+     ww:onSearch={{@values.warning.onSearch}}
+     ww:onChange={{@values.warning.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <MultiSelect 
+     wml:id={{@values.error.id}}
+     ww:name={{@values.error.name}}
+     ww:label={{@values.error.label}}
+     ww:error={{@values.error.message}}
+     ww:stringifier={{@values.error.stringifier}}
+     ww:onSearch={{@values.error.onSearch}}
+     ww:onChange={{@values.error.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <MultiSelect 
+     wml:id={{@values.block.id}}
+     ww:name={{@values.block.name}}
+     ww:label={{@values.block.label}}
+     ww:block=true
+     ww:stringifier={{@values.block.stringifier}}
+     ww:onSearch={{@values.block.onSearch}}
+     ww:onChange={{@values.block.onChange}} />
+
+  </Demo>
+
+
 
 </Demo>

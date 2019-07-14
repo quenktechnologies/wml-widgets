@@ -1,0 +1,41 @@
+{% import (text) from "../../../" %}
+{% import (Link) from "../../../content/link" %}
+{% import (Menu) from "../../../menu/menu" %}
+{% import (Item) from "../../../menu/item" %}
+{% import (ResultsMenu) from "../" %}
+
+{% fun itemTemplate [V] (r:ResultsMenu[V]) (option:V) (_index:Number) %}
+  {{ text(r.values.item.stringifier(option)) }}  
+{% endfun %}
+
+{% fun noItemsTemplate () %}
+  <b>No results to display.</b>
+{% endfun %}
+
+{% view Main[V] (ResultsMenu[V]) %}
+  <Menu 
+    wml:id={{@values.wml.id}}
+    ww:name={{@values.name}}
+    ww:block={{@values.block}}
+    ww:hidden={{@values.hidden}}>
+
+      {% for result,index:Number in @values.results %}
+
+        <Item ww:name={{''+index}}>
+
+            <Link 
+              ww:onClick={{\->@values.item.click(index)}}>
+
+              {{ ...<(@values.item.template())(result)(index)> }}
+
+            </Link>
+
+        </Item>
+
+      {% else %}
+
+        {{...<(@values.item.noItemsTemplate)>}}
+
+      {% endfor %}
+
+  </Menu>

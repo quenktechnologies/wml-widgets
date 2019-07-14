@@ -1,5 +1,20 @@
 {% import (ResultsMenu) from "../../results-menu" %}
-{% import (Search) from "../" %}
+{% import (Input, Search) from "../" %}
+
+{% view InputView (Input) %}
+  <input 
+    wml:id={{@values.wml.id}}
+    class={{@values.className}}
+    onkeydown={{@values.onkeydown}} 
+    onkeyup={{@values.onkeyup}} 
+    oninput={{@values.oninput}}
+    onfocus={{@values.onfocus}}
+    onblur={{@values.onblur}}
+    autocomplete={{@values.autocomplete}}
+    size={{@values.size}}
+    placeholder={{@values.placeholder}}
+    readOnly={{@values.readOnly}}
+    value={{@values.value}} />
 
 {% view Main[V] (Search[V]) %}
 <div 
@@ -7,21 +22,23 @@
   id={{@values.root.id}}
   class={{@values.root.className}}>
 
-  <input 
+  <Input
     wml:id={{@values.input.wml.id}}
-    class={{@values.input.className}}
-    onkeydown={{@values.input.onkeydown}} 
-    onkeyup={{@values.input.onkeyup}} 
-    oninput={{@values.input.oninput}}
-    onfocus={{@values.input.onfocus}}
-    placeholder={{@values.input.placeholder}}
-    readOnly={{@values.input.readOnly}}
-    value={{@values.input.value}} />
+    ww:name={{@values.input.name}}
+    ww:onFocus={{@values.input.onFocus}}
+    ww:onSearch={{@values.input.onSearch}}
+    ww:onEscape={{@values.input.onEscape}}
+    ww:onBlur={{@values.input.onBlur}}
+    ww:placeholder={{@values.input.placeholder}}
+    ww:readOnly={{@values.input.readOnly}}
+    ww:value={{@values.input.value}} />
 
-    <ResultsMenu 
-      wml:id={{@values.menu.wml.id}} 
-      ww:block={{@values.menu.block}}
-      ww:onSelect={{@values.menu.onSelect}}
-      ww:stringifier={{@values.menu.stringifier}} />
+   <ResultsMenu 
+    wml:id={{@values.menu.wml.id}} 
+    ww:block={{@values.menu.block}}
+    ww:onSelect={{@values.menu.onSelect}}
+    ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
+    ww:itemsTemplate={{@values.menu.itemTemplate}}
+    ww:stringifier={{@values.menu.stringifier}} />
 
 </div>
