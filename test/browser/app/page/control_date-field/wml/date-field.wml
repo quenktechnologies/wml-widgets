@@ -5,15 +5,42 @@
 {% view Main (DateFieldPage) %}
 <Demo>
 
-  <p>The date is : <b wml:id="selected">(None selected)</b>.</p>
+  {% for spec of @values.formats %}
 
-  <p>
-    <DateField
-      wml:id="date"
-      ww:name="date"
-      ww:date="Date Label"
-      ww:message="Enter the date in the format DD MM YYYY"
-      ww:onChange={{@onChange}} />
-  </p>
+    <Demo>
+
+      <p>
+        <DateField
+          wml:id={{spec.id}}
+          ww:name={{spec.name}}
+          ww:label={{spec.label}}
+          ww:format={{spec.format}}
+          ww:message={{spec.message}}
+          ww:onChange={{spec.onChange}} />
+      </p>
+
+    </Demo>
+
+  {% endfor %}
+
+  {% for spec of @values.states %}
+
+    <Demo>
+
+      <p>
+        <DateField
+          wml:id={{spec.id}}
+          ww:name={{spec.name}}
+          ww:label={{spec.label}}
+          ww:success={{spec.success}}
+          ww:warning={{spec.warning}}
+          ww:error={{spec.error}}
+          ww:block={{spec.block}}
+          ww:onChange={{spec.onChange}} />
+      </p>
+
+    </Demo>
+
+  {% endfor %}
 
  </Demo>

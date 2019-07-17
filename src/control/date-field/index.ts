@@ -2,31 +2,202 @@ import * as views from './wml/date-field';
 import * as moment from 'moment';
 import { View } from '@quenk/wml';
 import { Maybe, nothing, just } from '@quenk/noni/lib/data/maybe';
-import { concat, getById } from '../../util';
-import { FormControlAttrs, FormControl } from '../form';
+import { concat, debounce } from '../../util';
 import {
-    FeedbackControlAttrs,
-    ValidationState,
-    AbstractFeedbackControl,
     getValidityClassName,
-    getMessage
-} from '../feedback';
+    getMessage,
+    Message
+}
+    from '../feedback';
+import {
+
+    FormControlAttrs,
+    AbstractFormControl,
+    setMessage,
+    removeMessage
+} from '../form';
 import { WidgetAttrs, getId, getClassName } from '../../';
-import { Event as ControlEvent } from '../';
+import { Event as ControlEvent, getName } from '../';
+import { getBlockClassName } from '../../content/orientation';
 
 ///classNames:begin
 export const DATE_FIELD = 'ww-date-field';
-export const DATE_FIELD_CONTROLS = 'ww-date-field__controls';
-export const DATE_FIELD_DAY = `${DATE_FIELD}__day`;
-export const DATE_FIELD_MONTH = `${DATE_FIELD}__month`;
-export const DATE_FIELD_YEAR = `${DATE_FIELD}__year`;
+export const DATE_FIELD_INPUT = 'ww-date-field__input';
 ///classNames:end
+
+export const DEFAULT_INPUT_FORMAT = moment.ISO_8601;
+export const DEFAULT_INPUT_PLACEHOLDER = 'YYYY-MM-DD';
+export const DEFAULT_INPUT_DISPLAY = 'YYYY-MM-DD';
+export const VALUE_FORMAT = 'YYYY-MM-DD';
+export const DELAY = 200;
+export const TODAY = 'today';
+export const NOW = 'now';
+export const YESTERDAY = 'yesterday';
+
+export const iso8601Formats = [
+
+    'YYYY-MM-DD',
+    'YYYY-MM-D',
+    'YYYY-M-DD',
+    'YYYY-M-D',
+    'YY-MM-DD',
+    'YY-MM-D',
+    'YY-M-DD',
+    'YY-M-D',
+
+    'YYYY/MM/DD',
+    'YYYY/MM/D',
+    'YYYY/M/DD',
+    'YYYY/M/D',
+    'YY/MM/DD',
+    'YY/MM/D',
+    'YY/M/DD',
+    'YY/M/D',
+
+    'YYYY MM DD',
+    'YYYY MM D',
+    'YYYY M DD',
+    'YYYY M D',
+    'YY MM DD',
+    'YY MM D',
+    'YY M DD',
+    'YY M D',
+
+    'YYYYMMDD',
+    'YYYYMMD',
+    'YYYYMDD',
+    'YYYYMD',
+    'YYMMDD',
+    'YYMMD',
+    'YYMDD',
+    'YYMD',
+
+];
+
+export const commonFormats = [
+
+    'DD-MM-YYYY',
+    'D-MM-YYYY',
+    'DD-M-YYYY',
+    'D-M-YYYY',
+    'DD-MM-YY',
+    'D-MM-YY',
+    'DD-M-YY',
+    'D-M-YY',
+
+    'DD/MM/YYYY',
+    'D/MM/YYYY',
+    'DD/M/YYYY',
+    'D/M/YYYY',
+    'DD/MM/YY',
+    'D/MM/YY',
+    'DD/M/YY',
+    'D/M/YY',
+
+    'DD MM YYYY',
+    'D MM YYYY',
+    'DD M YYYY',
+    'D M YYYY',
+    'DD MM YY',
+    'D MM YY',
+    'DD M YY',
+    'D M YY',
+
+    'DDMMYYYY',
+    'DMMYYYY',
+    'DDMYYYY',
+    'DMYYYY',
+    'DDMMYY',
+    'DMMYY',
+    'DDMYY',
+    'DMYY',
+
+];
+
+export const usFormats = [
+
+    'MM-DD-YYYY',
+    'MM-D-YYYY',
+    'M-DD-YYYY',
+    'M-D-YYYY',
+    'MM-DD-YY',
+    'MM-D-YY',
+    'M-DD-YY',
+    'M-D-YY',
+
+    'MM/DD/YYYY',
+    'MM/D/YYYY',
+    'M/DD/YYYY',
+    'M/D/YYYY',
+    'MM/DD/YY',
+    'MM/D/YY',
+    'M/DD/YY',
+    'M/D/YY',
+
+    'MM DD YYYY',
+    'MM D YYYY',
+    'M DD YYYY',
+    'M D YYYY',
+    'MM DD YY',
+    'MM D YY',
+    'M DD YY',
+    'M D YY',
+
+    'MMDDYYYY',
+    'MMDYYYY',
+    'MDDYYYY',
+    'MDYYYY',
+    'MMDDYY',
+    'MMDYY',
+    'MDDYY',
+    'MDYY',
+
+];
+
+/**
+ * Format is used to determine what format input should be parsed as.
+ */
+export enum Format {
+
+    ISO8601 = 1,
+
+    COMMON = 2,
+
+    USA = 3
+
+}
+
+/**
+ * ISO8601Date type.
+ */
+export type ISO8601Date = string;
 
 /**
  * DateFieldAttrs
  */
-export interface DateFieldAttrs
-    extends FormControlAttrs<string>, FeedbackControlAttrs<string> {
+export interface DateFieldAttrs extends FormControlAttrs<ISO8601Date> {
+
+    /**
+     * placeholder
+     */
+    placeholder?: string,
+
+    /**
+     * block 
+     */
+    block?: boolean,
+
+    /**
+     * format specifies what formats will be allowed for date input.
+     */
+    format?: Format,
+
+    /**
+     * display format used to display the value of the field when set.
+     *
+     * Must be one of moment's supported formats.
+     */
+    display?: string,
 
     /**
      * onChange handler.
@@ -35,17 +206,27 @@ export interface DateFieldAttrs
 
 }
 
-/**
- * DateChangedEvent is generated when the date has 
- * been changed to a valid date.
- */
-export class DateChangedEvent extends ControlEvent<string> { }
 
 /**
- * DateField
+ * DateChangedEvent is generated when a valid date has been entered.
+ *
+ * The value is a truncated ISO8601 string consisting of the date part alone.
  */
-export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
-    implements FormControl<string, DateFieldAttrs> {
+export class DateChangedEvent extends ControlEvent<ISO8601Date> { }
+
+/**
+ * DateField provides a text field for entering dates.
+ *
+ * It will only fire change events when the date input matches one 
+ * of the 3 format sets (ISO8601,Common,US).
+ *
+ * If the user removes focus and the entry is not valid, it will be ignored
+ * and no change event will be fired. Once a valid date has been entered,
+ * the value displayed can be formated using the format specified in the 
+ * "display" attribute. This does not affect the actual value provided
+ * to onChange handlers.
+ */
+export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> {
 
     view: View = new views.Main(this);
 
@@ -53,126 +234,32 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
 
         root: {
 
-            wml: {
-
-                id: 'root'
-
-            },
+            wml: { id: 'root' },
 
             id: getId(this.attrs),
 
             className: concat(
                 DATE_FIELD,
                 getClassName(this.attrs),
+                getBlockClassName(this.attrs),
                 getValidityClassName(this.attrs)),
 
         },
         control: {
 
-            wml: {
-
-                id: 'root'
-
-            },
+            wml: { id: 'input' },
             id: getId(this.attrs)
 
         },
-        controls: {
 
-            className: DATE_FIELD_CONTROLS
+        label: {
 
-        },
-        day: {
+            id: (this.attrs.ww && this.attrs.ww.name) || '',
 
-            wml: {
-
-                id: 'day'
-
-            },
-
-            className: DATE_FIELD_DAY,
-
-            value: getDay(this.attrs),
-
-            disabled: (this.attrs.ww &&
-                this.attrs.ww.disabled === true) ?
-                true : null,
-
-            oninput: (e: KeyboardEvent) => {
-
-                (<HTMLInputElement>e.target).oninput = null;
-                this.values.day.onkeyup(e);
-
-            },
-            onkeyup: (e: Event): void => {
-
-                let value = (<HTMLInputElement>e.target).value;
-
-                this.values.day.value = value;
-                this.update();
-
-            }
+            text: (this.attrs.ww && this.attrs.ww.label) || ''
 
         },
-        month: {
 
-            wml: {
-
-                id: 'month'
-
-            },
-
-            className: DATE_FIELD_MONTH,
-
-            value: getMonth(this.attrs),
-
-            disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
-                true : null,
-
-            oninput: (e: KeyboardEvent) => {
-
-                (<HTMLInputElement>e.target).oninput = null;
-                this.values.year.onkeyup(e);
-
-            },
-            onkeyup: (e: Event): void => {
-
-                this.values.month.value = (<HTMLInputElement>e.target).value;
-                this.update();
-
-            }
-
-        },
-        year: {
-
-            wml: {
-
-                id: 'year'
-
-            },
-
-            className: DATE_FIELD_YEAR,
-
-            value: getYear(this.attrs),
-
-            disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
-                true : null,
-
-            oninput: (e: KeyboardEvent) => {
-
-                (<HTMLInputElement>e.target).oninput = null;
-                this.values.year.onkeyup(e);
-
-            },
-            onkeyup: (e: Event): void => {
-
-                this.values.year.value = (<HTMLInputElement>e.target).value;
-                this.update();
-
-            }
-
-        },
-        name: (this.attrs.ww && this.attrs.ww.name) || '<name>',
         messages: {
 
             wml: {
@@ -183,11 +270,66 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
             text: getMessage(this.attrs)
 
         },
-        label: {
 
-            id: (this.attrs.ww && this.attrs.ww.name) || '',
+        input: {
 
-            text: (this.attrs.ww && this.attrs.ww.label) || ''
+            wml: { id: 'input' },
+
+            className: DATE_FIELD_INPUT,
+
+            name: getName(this.attrs),
+
+            format: getFormat(this.attrs),
+
+            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
+                this.attrs.ww.placeholder : '',
+
+            display: getDisplay(this.attrs),
+
+            moment: <Maybe<moment.Moment>>((this.attrs.ww && this.attrs.ww.value) ?
+                just(parseDate(getValue(this.attrs), getFormat(this.attrs))) :
+                nothing()),
+
+            value: () => (this.values.input.moment.isJust() &&
+                this.values.input.moment.get().isValid()) ?
+                this.values.input.moment.get().format(this.values.input.display) : '',
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
+                true : null,
+
+            onfocus: (e: KeyboardEvent) => {
+
+                (<HTMLInputElement>e.target).select();
+
+            },
+
+            oninput: (e: KeyboardEvent) => {
+
+                (<HTMLInputElement>e.target).oninput = null;
+                this.values.input.onkeyup(e);
+
+            },
+
+            onkeyup: debounce((e: Event): void => {
+
+                let value = (<HTMLInputElement>e.target).value;
+                let m = parseDate(value, this.values.input.format);
+
+                if (m.isValid()) {
+
+                    this.values.input.moment = just(m);
+
+                    this.fireChange();
+
+                }
+
+            }, DELAY),
+
+            onblur: () => {
+
+                this.view.invalidate();
+
+            }
 
         }
 
@@ -196,114 +338,86 @@ export class DateField extends AbstractFeedbackControl<string, DateFieldAttrs>
     /**
      * @private
      */
-    update() {
+    fireChange(): void {
 
-        let mayM = getCurrentValue(this);
+        if (this.values.input.moment.isJust()) {
 
-        if (mayM.isJust()) {
+            let m = this.values.input.moment.get();
 
-            let m = mayM.get();
-
-            if (!m.isValid()) {
-
-                this.setValidationState(ValidationState.Error);
-
-            } else {
-
-                this.removeValidationState();
-
-            }
-
-            this.fire(m);
+            if (m.isValid() && (this.attrs.ww && this.attrs.ww.onChange))
+                this.attrs.ww.onChange(new DateChangedEvent(
+                    this.attrs.ww.name || '', m.format(VALUE_FORMAT)));
 
         }
 
     }
 
-    /**
-     * @private
-     */
-    fire(value: moment.Moment): void {
+    setMessage(msg: Message): DateField {
 
-        if (this.attrs.ww && this.attrs.ww.onChange)
-            this.attrs.ww.onChange(
-                new DateChangedEvent(
-                    this.values.name,
-                    value.format('YYYY-MM-DD')));
+        this.values.messages.text = msg;
+        setMessage(this.view, this.values.messages.wml.id, msg);
+        return this;
+
+    }
+
+    removeMessage(): DateField {
+
+        this.values.messages.text = '';
+        removeMessage(this.view, this.values.messages.wml.id);
+        return this;
+
+    }
+
+
+
+}
+
+
+const parseDate = (d: string, formats: string[]) => {
+
+    let str = d.toLowerCase();
+
+    if ((str === TODAY) || (str === NOW)) {
+
+        return moment.utc();
+
+    } else if (str === YESTERDAY) {
+
+        return moment.utc().subtract(1, 'd');
+
+    } else {
+
+        return moment.utc(d, formats, true);
 
     }
 
 }
 
-const getDate = (attrs: WidgetAttrs<DateFieldAttrs>): Maybe<moment.Moment> => {
+const getValue = (attrs: WidgetAttrs<DateFieldAttrs>): string =>
+    (attrs.ww && attrs.ww.value) ? attrs.ww.value : '';
 
-    if (attrs.ww && attrs.ww.value) {
+const getFormat = (attrs: WidgetAttrs<DateFieldAttrs>): string[] => {
 
-        let m = moment(attrs.ww.value, moment.ISO_8601);
+    if (attrs.ww && attrs.ww.format) {
 
-        if (m.isValid())
-            return just(m);
+        switch (attrs.ww.format) {
+
+            case 2:
+                return commonFormats;
+
+            case 3:
+                return usFormats;
+
+            default:
+                break;
+
+        }
 
     }
 
-    return nothing();
+    return iso8601Formats;
 
 }
 
-const getDay = (attrs: WidgetAttrs<DateFieldAttrs>): string => {
-
-    let mayDate = getDate(attrs);
-
-    if (mayDate.isNothing())
-        return '';
-
-    return '' + mayDate.get().date();
-
-}
-
-const getMonth = (attrs: WidgetAttrs<DateFieldAttrs>): string => {
-
-    let mayDate = getDate(attrs);
-
-    if (mayDate.isNothing())
-        return '';
-
-    return '' + (mayDate.get().month() + 1);
-
-}
-
-const getYear = (attrs: WidgetAttrs<DateFieldAttrs>): string => {
-
-    let mayDate = getDate(attrs);
-
-    if (mayDate.isNothing())
-        return '';
-
-    return '' + mayDate.get().year();
-
-}
-
-const getCurrentValue = (self: DateField): Maybe<moment.Moment> => {
-
-    let mDay = getById<HTMLInputElement>(self.view, self.values.day.wml.id);
-
-    if (mDay.isNothing()) return nothing();
-
-    let mMonth = getById<HTMLInputElement>(self.view, self.values.month.wml.id);
-
-    if (mMonth.isNothing()) return nothing();
-
-    let mYear = getById<HTMLInputElement>(self.view, self.values.year.wml.id);
-
-    if (mYear.isNothing()) return nothing();
-
-    let year = mYear.get().value;
-    let month = mMonth.get().value;
-    let day = mDay.get().value;
-
-    if ((year.length < 4) || (month.length < 2) || (day.length < 2))
-        return nothing();
-
-    return just(moment(`${year}-${month}-${day}`, moment.ISO_8601));
-
-}
+const getDisplay = (attrs: WidgetAttrs<DateFieldAttrs>): string =>
+    (attrs.ww && attrs.ww.display) ? attrs.ww.display : DEFAULT_INPUT_DISPLAY;

@@ -64,22 +64,36 @@ export class Main  implements __wml.View {
 
            return __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
+        ...__forOf (__context.values.formats , (spec , _$$k, _$$all) => 
+       ([
+
+        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+
         __this.node('p', {html : {  } ,wml : {  } }, [
 
-        document.createTextNode(`The date is : `),
-__this.node('b', {html : {  } ,wml : { 'id' : `selected`  } }, [
-
-        document.createTextNode(`(None selected)`)
-     ]),
-document.createTextNode(`.`)
-     ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
-
-        __this.widget(DateField, {html : {  } ,wml : { 'id' : `date`  } ,ww : { 'name' : `date` ,'date' : `Date Label` ,'message' : `Enter the date in the format DD MM YYYY` ,'onChange' : __context.onChange  } }, [
+        __this.widget(DateField, {html : {  } ,wml : { 'id' : spec.id  } ,ww : { 'name' : spec.name ,'label' : spec.label ,'format' : spec.format ,'message' : spec.message ,'onChange' : spec.onChange  } }, [
 
         
      ])
      ])
+     ])
+     ]), 
+    ()=> ([])),
+...__forOf (__context.values.states , (spec , _$$k, _$$all) => 
+       ([
+
+        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.node('p', {html : {  } ,wml : {  } }, [
+
+        __this.widget(DateField, {html : {  } ,wml : { 'id' : spec.id  } ,ww : { 'name' : spec.name ,'label' : spec.label ,'success' : spec.success ,'warning' : spec.warning ,'error' : spec.error ,'block' : spec.block ,'onChange' : spec.onChange  } }, [
+
+        
+     ])
+     ])
+     ])
+     ]), 
+    ()=> ([]))
      ]);
 
        }

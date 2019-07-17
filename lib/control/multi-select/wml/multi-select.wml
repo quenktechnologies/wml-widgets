@@ -14,8 +14,8 @@
    ww:text={{@values.label.text}} />
 
   <div 
-  onclick={{@values.content.onfocus}}
-  class={{@values.content.className}}>
+    onclick={{@values.content.onfocus}}
+    class={{@values.content.className}}>
 
     {% if @values.tags.has() %}
 
@@ -40,7 +40,6 @@
       ww:className={{@values.input.className}} 
       ww:name={{@values.input.name}}
       ww:onSearch={{@values.input.onSearch}} />
-
 
     </div>
 

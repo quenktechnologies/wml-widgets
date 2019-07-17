@@ -7,54 +7,20 @@
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
    <Label
-    ww:for={{@values.control.id}}
+    ww:for={{@values.root.id}}
     ww:text={{@values.label.text}} />
 
-   <div class={{@values.controls.className}}>
-
     <input
-      wml:id={{@values.day.wml.id}}
-      name={{@values.day.wml.id}}
-      oninput={{@values.day.oninput}} 
-      onkeyup={{@values.day.onkeyup}}
-      type="number"
-      value={{@values.day.value}}
-      disabled={{@values.day.disabled}}
-      class={{@values.day.className}}
-      min="1"
-      max="31"
-      size="2"
-      placeholder="DD" />
-
-    <input
-      wml:id={{@values.month.wml.id}}
-      name={{@values.month.wml.id}}
-      class={{@values.month.className}} 
-      oninput={{@values.month.oninput}} 
-      onkeyup={{@values.month.onkeyup}} 
-      type="number"
-      disabled={{@values.month.disabled}}
-      value={{@values.month.value}}
-      min="1"
-      max="12"
-      size="2" 
-      placeholder="MM" />
-
-    <input 
-      wml:id={{@values.year.wml.id}}
-      name={{@values.year.wml.id}}
-      type="number"
-      oninput={{@values.year.oninput}} 
-      onkeyup={{@values.year.onkeyup}}
-      value={{@values.year.value}}
-      disabled={{@values.year.disabled}}
-      class={{@values.year.className}}
-      placeholder="YYYY"
-      min="0000"
-      max="9999"
-      size="4" />
-
-    </div>
+      wml:id={{@values.input.wml.id}}
+      name={{@values.input.wml.id}}
+      onfocus={{@values.input.onfocus}}
+      oninput={{@values.input.oninput}} 
+      onkeyup={{@values.input.onkeyup}}
+      onblur={{@values.input.onblur}}
+      value={{@values.input.value()}}
+      disabled={{@values.input.disabled}}
+      class={{@values.input.className}}
+      placeholder={{@values.input.placeholder}} />
 
   <Help 
     wml:id={{@values.messages.wml.id}}

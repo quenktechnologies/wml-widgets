@@ -1,104 +1,42 @@
 @import "../../less/control";
-@import "../../../content/screen/less/screen";
 @import "../../text-field/less/text-field";
 @import "./variables";
 
 .__DATE_FIELD__ {
 
   margin-bottom: @date-field-margin-bottom;
+  display: inline-block;
 
-  .textFieldVariants();
+  & > .__DATE_FIELD_INPUT__ {
 
-  & > .__DATE_FIELD_CONTROLS__ {
-
+    .control();
     width: 100%;
-    display: inline-flex;
+    display: block;
 
   }
 
-  & > .__DATE_FIELD_CONTROLS__ > .__DATE_FIELD_DAY__ {
+  &.__ERROR__ {
 
-    .control();
-    width: 20%;
-
-    .screen-not-small({
-
-      width: 4.5em;
-
-    });
-
-    margin-right: .5em;
-    display: inline-block;
+      .textFieldVariant(@date-field-error-color);
 
   }
 
-  & > .__DATE_FIELD_CONTROLS__ > .__DATE_FIELD_MONTH__ {
+  &.__WARNING__ {
 
-    .control();
-    width: 20%;
-
-    .screen-not-small({
-
-      width: 4.5em;
-
-    });
-
-    margin-right: .5em;
-    display: inline-block;
+      .textFieldVariant(@date-field-warning-color);
 
   }
 
-  & > .__DATE_FIELD_CONTROLS__ > .__DATE_FIELD_YEAR__ {
+  &.__SUCCESS__ {
 
-    .control();
-    width: 30%;
-
-    .screen-not-small({
-
-      width: 6em;
-
-    });
-
-    display: inline-block;
+      .textFieldVariant(@date-field-success-color);
 
   }
 
-  &.__ERROR__ > .__DATE_FIELD_CONTROLS__ {
+  &.__BLOCK__ {
 
-    & > .__DATE_FIELD_DAY__, 
-    & > .__DATE_FIELD_MONTH__,
-    & > .__DATE_FIELD_YEAR__ {
-
-      border-color: @date-field-error-color;
-      color: @date-field-error-color;
-
-    }
-
-  }
-
-  &.__WARNING__ > .__DATE_FIELD_CONTROLS__ {
-
-    & > .__DATE_FIELD_DAY__, 
-    & > .__DATE_FIELD_MONTH__,
-    & > .__DATE_FIELD_YEAR__ {
-
-      border-color: @date-field-warning-color;
-      color: @date-field-warning-color;
-
-    }
-
-  }
-
-  &.__SUCCESS__ > .__DATE_FIELD_CONTROLS__ {
-
-    & > .__DATE_FIELD_DAY__, 
-    & > .__DATE_FIELD_MONTH__,
-    & > .__DATE_FIELD_YEAR__ {
-
-      border-color: @date-field-success-color;
-      color: @date-field-success-color;
-
-    }
+    display: block;
+    width: 100%;
 
   }
 

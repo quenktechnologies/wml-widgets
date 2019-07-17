@@ -306,10 +306,7 @@ export const TEXT_INPUT = 'ww-text-input';
 ///classNames:end
 ///classNames:begin
 export const DATE_FIELD = 'ww-date-field';
-export const DATE_FIELD_CONTROLS = 'ww-date-field__controls';
-export const DATE_FIELD_DAY = `${DATE_FIELD}__day`;
-export const DATE_FIELD_MONTH = `${DATE_FIELD}__month`;
-export const DATE_FIELD_YEAR = `${DATE_FIELD}__year`;
+export const DATE_FIELD_INPUT = 'ww-date-field__input';
 ///classNames:end
 ///classNames:begin
 export const TOOLBAR = 'ww-toolbar';

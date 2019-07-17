@@ -4,53 +4,39 @@
 
   margin-bottom: @text-field-margin-bottom;
 
-  .textFieldVariants();
-
-}
-
-/**
- * Provides validity state styles for any input appearing 
- * under the target element.
- */
-.textFieldVariants() {
 
   &.__ERROR__ {
 
-    color: @text-field-error-color;
-
-    & input {
-
-      border-color: @text-field-error-border-color;
-      color: @text-field-error-color;
-
-    }
+     .textFieldVariant(@text-field-error-color);
 
   }
 
   &.__WARNING__ {
 
-    color: @text-field-warning-color;
-
-    & input {
-
-      border-color: @text-field-warning-border-color;
-      color: @text-field-warning-color;
-
-    }
+    .textFieldVariant(@text-field-warning-color);
 
   }
 
   &.__SUCCESS__ {
 
-    color: @text-field-success-color;
+    .textFieldVariant(@text-field-success-color);
+
+  }
+
+}
+
+/**
+ * Changes the border and text color of text fields to the color specified.
+ */
+.textFieldVariant(@color) {
+
+    color: @color;
 
     & input {
 
-      border-color: @text-field-success-border-color;
-      color: @text-field-success-color;
+      border-color: @color;
+      color: @color;
 
     }
-
-  }
 
 }
