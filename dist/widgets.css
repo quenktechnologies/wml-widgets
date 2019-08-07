@@ -1754,70 +1754,6 @@ textarea.ww-date-field > .ww-date-field__input {
 .ww-toolbar > .-toolbar-compat {
   margin-left: 5px;
 }
-/**
- * .ww-droplist styling.
- */
-.ww-droplist {
-  height: 36px;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  width: 12em;
-}
-.ww-droplist::-ms-expand {
-  border: 0;
-  background-color: transparent;
-}
-.ww-droplist[disabled],
-fieldset[disabled] .ww-droplist {
-  cursor: not-allowed;
-}
-textarea.ww-droplist {
-  height: auto;
-}
-.ww-droplist:focus {
-  border-color: #66afe9;
-  outline: 0;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
-.ww-droplist.-error {
-  border-color: #d9534f;
-}
-.ww-droplist.-warning {
-  border-color: #f0ad4e;
-}
-.ww-droplist.-success {
-  border-color: #5cb85c;
-}
-.ww-droplist.-extra-small {
-  width: 3em;
-}
-.ww-droplist.-small {
-  width: 5em;
-}
-.ww-droplist.-medium {
-  width: 12em;
-}
-.ww-droplist.-large {
-  width: 28em;
-}
-.ww-droplist.-extra-large {
-  width: 40em;
-}
-.ww-droplist.-block {
-  display: block;
-  width: 100%;
-}
-.ww-droplist.-block + .ww-droplist.-block {
-  margin-top: 0.5em;
-}
 .ww-button-group,
 .ww-button-group.-vertical {
   position: relative;
@@ -2023,6 +1959,53 @@ textarea.ww-droplist {
   padding: 60px 15px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.ww-display-field {
+  height: 36px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.ww-display-field::-ms-expand {
+  border: 0;
+  background-color: transparent;
+}
+.ww-display-field[disabled],
+fieldset[disabled] .ww-display-field {
+  cursor: not-allowed;
+}
+textarea.ww-display-field {
+  height: auto;
+}
+.ww-display-field:focus {
+  border-color: #66afe9;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+.ww-display-field.-error {
+  border-color: #d9534f;
+}
+.ww-display-field.-warning {
+  border-color: #f0ad4e;
+}
+.ww-display-field.-success {
+  border-color: #5cb85c;
+}
+.ww-display-field.-block {
+  display: block;
 }
 .ww-select {
   margin-bottom: 0.5em;
@@ -2261,6 +2244,48 @@ textarea.ww-search > input {
 }
 .ww-tag-control .ww-tag-control__dismiss {
   float: right;
+}
+.ww-drop-list {
+  margin-bottom: 0.5em;
+  display: inline-block;
+  position: relative;
+}
+.ww-drop-list > .ww-menu {
+  position: absolute;
+}
+.ww-drop-list.-error {
+  color: #d9534f;
+}
+.ww-drop-list.-error > .ww-display-field {
+  border-color: #d9534f;
+  color: #d9534f;
+}
+.ww-drop-list.-warning {
+  color: #f0ad4e;
+}
+.ww-drop-list.-warning > .ww-display-field {
+  border-color: #f0ad4e;
+  color: #f0ad4e;
+}
+.ww-drop-list.-success {
+  color: #5cb85c;
+}
+.ww-drop-list.-success > .ww-display-field {
+  border-color: #5cb85c;
+  color: #5cb85c;
+}
+.ww-drop-list.-block {
+  display: block;
+  width: 100%;
+}
+.ww-drop-list.-block + .ww-drop-list.-block {
+  margin-top: 0.5em;
+}
+.ww-drop-list.-block > .ww-menu {
+  width: 100%;
+}
+.ww-drop-list.-block > .ww-display-field {
+  width: 100%;
 }
 .ww-typeahead {
   margin-bottom: 0.5em;
