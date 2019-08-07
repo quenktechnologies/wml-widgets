@@ -1,0 +1,94 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (DropList) from "../../../../../../lib/control/drop-list" %}
+{% import (DropListPage) from "../" %}
+
+{% view Main (DropListPage) %}
+
+<Demo>
+
+  <Demo>
+
+    <b>Normal</b>
+
+    <p>
+    
+      <DropList 
+       wml:id={{@values.normal.name}}
+       ww:name={{@values.normal.name}}
+       ww:value={{@values.normal.value}}
+       ww:options={{@values.normal.options}}
+       ww:onSelect={{@values.normal.onSelect}} />
+
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <b>Success</b>
+
+    <p>
+
+      <DropList 
+      wml:id={{@values.success.id}}
+      ww:className="-success"
+      ww:name={{@values.success.name}}
+      ww:options={{@values.success.options}}
+      ww:onSelect={{@values.success.onSelect}} />
+
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <b>Warning</b>
+
+    <p>
+
+      <DropList 
+      wml:id={{@values.warning.id}}
+      ww:className="-warning"
+      ww:name={{@values.warning.name}}
+      ww:options={{@values.warning.options}}
+      ww:onSelect={{@values.warning.onSelect}} />
+
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <b>Error</b>
+
+    <p>
+    
+      <DropList 
+      wml:id={{@values.error.id}}
+      ww:className="-error"
+      ww:name={{@values.error.name}}
+      ww:options={{@values.error.options}}
+      ww:onSelect={{@values.error.onSelect}} />
+
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <p>
+    
+      <b>Block</b>
+
+      <DropList 
+      wml:id={{@values.block.id}}
+      ww:className="-block"
+      ww:name={{@values.block.name}}
+      ww:block={{true}}
+      ww:onSelect={{@values.block.onSelect}} />
+
+    </p>
+
+  </Demo>
+
+</Demo>

@@ -313,9 +313,6 @@ export const TOOLBAR = 'ww-toolbar';
 export const TOOLBAR_COMPAT = '-toolbar-compat';
 ///classNames:end
 ///classNames:begin
-export const DROPLIST = 'ww-droplist';
-///classNames:end
-///classNames:begin
 export const BUTTON_GROUP = 'ww-button-group';
 ///classNames:end
 ///classNames:begin
@@ -327,6 +324,9 @@ export const SWITCH_SLIDER = 'ww-switch__slider';
 ///classNames:end
 ///classNames:begin
 export const LABEL = 'ww-label';
+///classNames:end
+///classNames:begin
+export const DROP_LIST_FIELD = 'ww-drop-list-field';
 ///classNames:end
 ///classNames:begin
 /**
@@ -343,6 +343,10 @@ export const TAB_BAR = 'ww-tab-bar';
 export const FILE_UPLOAD_SURFACE = 'ww-file-upload-surface';
 export const FILE_UPLOAD_SURFACE_INPUT = 'ww-file-upload-surface__input';
 export const FILE_UPLOAD_SURFACE_TEXT = 'ww-file-upload-surface__text';
+///classNames:end
+///classNames:begin
+export const DISPLAY_FIELD = 'ww-display-field';
+export const DISPLAY_FIELD_CONTENT = 'ww-display-field__content';
 ///classNames:end
 ///classNames:begin
 export const SELECT = 'ww-select';
@@ -369,6 +373,9 @@ export const SEARCH_INPUT = 'ww-search__input';
 export const TAG_CONTROL = 'ww-tag-control';
 export const TAG_CONTROL_TEXT = 'ww-tag-control__text';
 export const TAG_CONTROL_DISMISS = 'ww-tag-control__dismiss';
+///classNames:end
+///classNames:begin
+export const DROP_LIST = 'ww-drop-list';
 ///classNames:end
 ///classNames:begin
 export const CHECKBOX = 'ww-checkbox';

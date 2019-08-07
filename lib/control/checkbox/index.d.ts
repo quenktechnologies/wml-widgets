@@ -33,7 +33,7 @@ export declare class Checkbox extends AbstractControl<boolean, CheckboxAttrs> {
         };
         input: {
             name: string;
-            value: boolean | null;
+            value: true | null;
             onChange: () => void;
         };
     };

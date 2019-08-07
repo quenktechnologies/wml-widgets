@@ -1,0 +1,77 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (DropListField) from "../../../../../../lib/control/drop-list-field" %}
+{% import (DropListFieldPage) from "../" %}
+
+{% view Main (DropListFieldPage) %}
+
+<Demo>
+
+  <Demo>
+
+    <b>Normal</b>
+
+    <p>
+    
+      <DropListField 
+       wml:id={{@values.normal.name}}
+       ww:name={{@values.normal.name}}
+       ww:value={{@values.normal.value}}
+       ww:options={{@values.normal.options}}
+       ww:onChange={{@values.normal.onChange}} />
+
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <b>Success</b>
+
+    <p>
+
+      <DropListField 
+      wml:id={{@values.success.id}}
+      ww:className="-success"
+      ww:name={{@values.success.name}}
+      ww:options={{@values.success.options}}
+      ww:onChange={{@values.success.onChange}} />
+
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <b>Warning</b>
+
+    <p>
+
+      <DropListField 
+      wml:id={{@values.warning.id}}
+      ww:className="-warning"
+      ww:name={{@values.warning.name}}
+      ww:options={{@values.warning.options}}
+      ww:onChange={{@values.warning.onChange}} />
+
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <b>Error</b>
+
+    <p>
+    
+      <DropListField 
+      wml:id={{@values.error.id}}
+      ww:className="-error"
+      ww:name={{@values.error.name}}
+      ww:options={{@values.error.options}}
+      ww:onChange={{@values.error.onChange}} />
+
+    </p>
+
+  </Demo>
+
+</Demo>

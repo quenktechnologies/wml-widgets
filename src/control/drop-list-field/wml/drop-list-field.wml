@@ -1,0 +1,30 @@
+{% import (Label) from "../../label" %}
+{% import (Help) from "../../help" %}
+{% import (DropList) from "../../drop-list" %}
+{% import (DropListField)  from "../" %}
+
+{% view Main[V] (DropListField[V]) %}
+
+<div wml:id={{@values.root.wml.id}} id={{@values.root.id}} class={{@values.root.className}}>
+
+  <Label
+   ww:for={{@values.root.id}}
+   ww:text={{@values.label.text}} />
+
+  <DropList 
+   ww:className={{@values.control.className}}
+   ww:name={{@values.control.name}}
+   ww:placeholder={{@values.control.placeholder}}
+   ww:block={{@values.control.block}}
+   ww:value={{@values.control.value}}
+   ww:options={{@values.control.options}}
+   ww:onSelect={{@values.control.onSelect}}
+   ww:noItemsTemplate={{@values.control.noItemsTemplate}}
+   ww:itemsTemplate={{@values.control.itemTemplate}}
+   ww:stringifier={{@values.control.stringifier}} />
+ 
+  <Help 
+    wml:id={{@values.messages.wml.id}}
+    ww:text={{@values.messages.text}} />
+
+</div>

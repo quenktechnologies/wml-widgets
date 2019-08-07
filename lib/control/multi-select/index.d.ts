@@ -82,7 +82,7 @@ export declare class MultiSelect<V> extends AbstractFormControl<V[], Mutliselect
             wml: {
                 id: string;
             };
-            block: boolean | undefined;
+            block: true | undefined;
             itemTemplate: ItemTemplate<V> | undefined;
             noItemsTemplate: import("@quenk/wml").Fun | undefined;
             onSearch: (evt: TermChangedEvent) => void;

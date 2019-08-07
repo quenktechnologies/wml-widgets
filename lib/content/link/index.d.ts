@@ -65,7 +65,7 @@ export declare class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
     values: {
         a: {
             id: string;
-            disabled: boolean | null;
+            disabled: true | null;
             className: string;
             title: string | null;
             name: string | null;
