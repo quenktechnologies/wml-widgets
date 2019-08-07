@@ -1,7 +1,7 @@
 import { View } from '@quenk/wml';
-import {concat} from '../../util';
-import {getId,getClassName} from '../../';
-import { ControlAttrs, AbstractControl, Event,getName,getDisabled } from '../';
+import { concat } from '../../util';
+import { getId, getClassName } from '../../';
+import { ControlAttrs, AbstractControl, Event, getName, getDisabled } from '../';
 import { Main } from './wml/switch';
 
 ///classNames:begin
@@ -37,9 +37,9 @@ export class Switch extends AbstractControl<boolean, SwitchAttrs> {
 
         root: {
 
-          id: getId(this.attrs),
+            id: getId(this.attrs),
 
-            className: concat(SWITCH,getClassName(this.attrs))
+            className: concat(SWITCH, getClassName(this.attrs))
 
         },
         slider: {
@@ -49,21 +49,23 @@ export class Switch extends AbstractControl<boolean, SwitchAttrs> {
         },
         input: {
 
-          name: getName(this.attrs),
+            name: getName(this.attrs),
 
-          value: (this.attrs.ww && this.attrs.ww.value) ? 
-          this.attrs.ww.value : false,
+            value: (this.attrs.ww && this.attrs.ww.value) ?
+                this.attrs.ww.value : false,
 
-          disabled: getDisabled(this.attrs),
+            checked: () => this.values.input ? true : undefined,
+
+            disabled: getDisabled(this.attrs),
 
             onChange: () => {
 
-                this.values.input.value = (!this.values.input.value) 
+                this.values.input.value = (!this.values.input.value)
 
                 if ((this.attrs.ww && this.attrs.ww.onChange))
-                    this.attrs.ww.onChange(                        new SwitchChangedEvent(
-                            this.values.input.name,
-                            this.values.input.value));
+                    this.attrs.ww.onChange(new SwitchChangedEvent(
+                        this.values.input.name,
+                        this.values.input.value));
 
             }
         }

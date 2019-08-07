@@ -32,6 +32,7 @@ export declare class Switch extends AbstractControl<boolean, SwitchAttrs> {
         input: {
             name: string;
             value: boolean;
+            checked: () => true | undefined;
             disabled: boolean;
             onChange: () => void;
         };
