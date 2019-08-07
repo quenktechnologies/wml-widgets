@@ -1,0 +1,24 @@
+{% import (Caret) from "../../../content/caret" %}
+{% import (ResultsMenu) from "../../results-menu" %}
+{% import (DisplayField) from "../../display-field" %}
+{% import (text) from "../../../" %}
+{% import (DropList) from "../" %}
+
+{% view Main [V](DropList[V]) %}
+
+<div id={{@values.id}} class={{@values.className}}>
+  
+  <DisplayField ww:onClick={{@values.display.onClick}}>
+    {{@values.display.placeholder()| text}} <Caret/>
+  </DisplayField>
+
+  <ResultsMenu 
+   wml:id={{@values.menu.wml.id}} 
+   ww:block={{@values.menu.block}}
+   ww:name={{@values.menu.name}}
+   ww:onSelect={{@values.menu.onSelect}}
+   ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
+   ww:itemsTemplate={{@values.menu.itemTemplate}}
+   ww:stringifier={{@values.menu.stringifier}} />
+
+</div>
