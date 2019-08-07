@@ -105,7 +105,7 @@ export declare class ButtonSelect<V> extends AbstractControl<V, ButtonSelectAttr
             current: number;
             options: Option<V>[];
             click: (idx: number) => void;
-            getStyle: () => Style;
+            getStyle: () => Style.Default | Style;
             getActive: (n: number) => boolean;
             getClassNames: (n: number) => string;
         };
@@ -125,7 +125,7 @@ export declare class MultiButtonSelect<V> extends AbstractControl<V[], ButtonSel
             values: number[];
             options: Option<V>[];
             click: (n: number) => void;
-            getStyle: () => Style;
+            getStyle: () => Style.Default | Style;
             getActive: (n: number) => boolean;
             getClassNames: (n: number) => string;
         };

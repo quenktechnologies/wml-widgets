@@ -1,8 +1,8 @@
 import * as __wml from '@quenk/wml';
-import { Droplist } from '../';
+import { DisplayField } from '../';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-export declare class Main<V> implements __wml.View {
-    constructor(__context: Droplist<V>);
+export declare class Main implements __wml.View {
+    constructor(__context: DisplayField);
     ids: {
         [key: string]: __wml.WMLElement;
     };

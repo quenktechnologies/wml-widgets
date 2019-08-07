@@ -62,7 +62,7 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             id: string;
             name: string;
             type: string;
-            focus: boolean | undefined;
+            focus: true | undefined;
             placeholder: string;
             value: string;
             disabled: boolean | undefined;

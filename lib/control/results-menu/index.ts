@@ -4,7 +4,7 @@ import { Menu, MenuAttrs } from '../../menu/menu';
 import { WidgetAttrs } from '../../';
 import { getById } from '../../util';
 import { Event as ControlEvent } from '../';
-import { Main, itemTemplate, noItemsTemplate } from './wml/menu';
+import { Main, itemTemplate, noItemsTemplate } from './wml/results-menu';
 
 /**
  * ItemTemplate used to render each item in the results.

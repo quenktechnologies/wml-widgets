@@ -46,7 +46,7 @@ export declare class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
         };
         element: {
             className: string;
-            template: (v: V) => (idx: number) => import("@quenk/wml").Content[];
+            template: (v: V) => (idx: number) => any;
             content: {
                 className: string;
             };

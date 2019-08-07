@@ -1,7 +1,9 @@
 import * as __wml from '@quenk/wml';
 
-import {text} from '../../../'; ;
-import {Droplist} from '../'; 
+import {Label} from '../../label'; ;
+import {Help} from '../../help'; ;
+import {DropList} from '../../drop-list'; ;
+import {DropListField} from '../'; 
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -57,25 +59,24 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export class Main <V  >  implements __wml.View {
 
-   constructor(__context: Droplist <V  >  ) {
+   constructor(__context: DropListField <V  >  ) {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('select', {html : { 'class' : __context.values.className  ,'onchange' : __context.values.onchange  ,'value' : __context.values.selected   } ,wml : {  } }, [
+           return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : { 'id' : __context.values.root .wml .id   } }, [
 
-        __this.node('option', {html : { 'disabled' : `true` ,'selected' : true   } ,wml : {  } }, [
+        __this.widget(Label, {html : {  } ,wml : {  } ,ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   } }, [
 
-        text(__context.values.instruction )
+        
      ]),
-...__forIn (__context.values.options , (opt , index: number   , _$$all)=> 
-([
+__this.widget(DropList, {html : {  } ,wml : {  } ,ww : { 'className' : __context.values.control .className  ,'name' : __context.values.control .name  ,'placeholder' : __context.values.control .placeholder  ,'block' : __context.values.control .block  ,'value' : __context.values.control .value  ,'options' : __context.values.control .options  ,'onSelect' : __context.values.control .onSelect  ,'noItemsTemplate' : __context.values.control .noItemsTemplate  ,'itemsTemplate' : __context.values.control .itemTemplate  ,'stringifier' : __context.values.control .stringifier   } }, [
 
-        __this.node('option', {html : { 'value' : (`` + index)  } ,wml : {  } }, [
+        
+     ]),
+__this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml .id   } ,ww : { 'text' : __context.values.messages .text   } }, [
 
-        text(opt.title)
+        
      ])
-     ]), 
-()=> ([]))
      ]);
 
        }

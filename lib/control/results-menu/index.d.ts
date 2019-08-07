@@ -64,7 +64,7 @@ export declare class ResultsMenu<V> extends Component<WidgetAttrs<ResultsMenuAtt
         block: boolean;
         hidden: boolean;
         item: {
-            stringifier: (v: V) => any;
+            stringifier: Stringifier<V>;
             click: (index: number) => void;
             template: () => ItemTemplate<V>;
             noItemsTemplate: () => Fun;

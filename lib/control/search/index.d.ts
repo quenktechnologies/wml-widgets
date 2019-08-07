@@ -116,7 +116,7 @@ export declare class Input extends AbstractControl<string, InputAttrs<string>> {
         };
         className: string;
         placeholder: string;
-        readOnly: boolean | undefined;
+        readOnly: true | undefined;
         autocomplete: string;
         size: string;
         value: string;
@@ -159,7 +159,7 @@ export declare class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
             };
             name: string;
             placeholder: string;
-            readOnly: boolean | undefined;
+            readOnly: true | undefined;
             value: string;
             onFocus: ((e: FocusGainedEvent) => void) | undefined;
             onSearch: ((e: TermChangedEvent) => void) | undefined;
