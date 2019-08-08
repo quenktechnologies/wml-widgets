@@ -54,7 +54,7 @@ export class Switch extends AbstractControl<boolean, SwitchAttrs> {
             value: (this.attrs.ww && this.attrs.ww.value) ?
                 this.attrs.ww.value : false,
 
-            checked: () => this.values.input ? true : undefined,
+            checked: () => this.values.input.value ? true : undefined,
 
             disabled: getDisabled(this.attrs),
 

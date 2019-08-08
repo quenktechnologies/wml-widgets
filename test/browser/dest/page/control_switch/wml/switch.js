@@ -33,15 +33,25 @@ var Main = /** @class */ (function () {
         this.tree = document.createElement('div');
         this.template = function (__this) {
             return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.node('p', { html: {}, wml: {} }, [
-                    document.createTextNode("The switch is "),
-                    __this.node('b', { html: {}, wml: { 'id': "content" } }, [
-                        document.createTextNode("untouched")
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("The switch is already set.")
                     ]),
-                    document.createTextNode(".")
+                    __this.node('p', { html: {}, wml: {} }, [
+                        __this.widget(switch_1.Switch, { html: {}, wml: {}, ww: { 'name': "switch", 'value': true } }, [])
+                    ])
                 ]),
-                __this.node('p', { html: {}, wml: {} }, [
-                    __this.widget(switch_1.Switch, { html: {}, wml: {}, ww: { 'name': "switch", 'onChange': __context.onChange } }, [])
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, [
+                        document.createTextNode("The switch is "),
+                        __this.node('b', { html: {}, wml: { 'id': "content" } }, [
+                            document.createTextNode("untouched")
+                        ]),
+                        document.createTextNode(".")
+                    ]),
+                    __this.node('p', { html: {}, wml: {} }, [
+                        __this.widget(switch_1.Switch, { html: {}, wml: {}, ww: { 'name': "switch", 'onChange': __context.onChange } }, [])
+                    ])
                 ])
             ]);
         };

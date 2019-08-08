@@ -6,7 +6,7 @@
   <input 
   type="checkbox"
   name={{@values.input.name}}
-  checked={{@values.input.checked}}
+  checked={{@values.input.checked()}}
   disabled={{@values.input.disabled}}
   onchange={{@values.input.onChange}}/>
 

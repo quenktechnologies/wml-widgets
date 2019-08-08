@@ -6,6 +6,20 @@
  
 <Demo>
 
+  <Demo>
+
+    <p>The switch is already set.</p>
+
+    <p>
+      <Switch 
+        ww:name="switch"
+        ww:value={{true}}/>
+    </p>
+
+  </Demo>
+
+  <Demo>
+
     <p>The switch is <b wml:id="content">untouched</b>.</p>
 
     <p>
@@ -13,5 +27,7 @@
         ww:name="switch"
         ww:onChange={{@onChange}} />
     </p>
+
+  </Demo>
 
 </Demo>

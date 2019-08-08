@@ -64,6 +64,22 @@ export class Main  implements __wml.View {
 
            return __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
+        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+
+        __this.node('p', {html : {  } ,wml : {  } }, [
+
+        document.createTextNode(`The switch is already set.`)
+     ]),
+__this.node('p', {html : {  } ,wml : {  } }, [
+
+        __this.widget(Switch, {html : {  } ,wml : {  } ,ww : { 'name' : `switch` ,'value' : true   } }, [
+
+        
+     ])
+     ])
+     ]),
+__this.widget(Demo, {html : {  } ,wml : {  } }, [
+
         __this.node('p', {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`The switch is `),
@@ -78,6 +94,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
         __this.widget(Switch, {html : {  } ,wml : {  } ,ww : { 'name' : `switch` ,'onChange' : __context.onChange  } }, [
 
         
+     ])
      ])
      ])
      ]);
