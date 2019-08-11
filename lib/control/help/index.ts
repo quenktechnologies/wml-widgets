@@ -41,11 +41,11 @@ export class Help extends Component<WidgetAttrs<HelpAttrs>> {
 
         help: {
 
-          wml: {
+            wml: {
 
-            id: 'help'
+                id: 'help'
 
-          },
+            },
             id: (this.attrs.ww && this.attrs.ww.id) ?
                 this.attrs.ww.id : '',
 

@@ -97,16 +97,16 @@ a.ww-thumbnail {
 }
 .ww-close {
   float: right;
-  font-size: 1em;
+  font-size: 1.5em;
   font-weight: bold;
   line-height: 1;
-  color: #fff;
+  color: #000;
   text-shadow: 0 1px 0 #848;
   opacity: 0.6;
 }
 .ww-close:hover,
 .ww-close:focus {
-  color: #fff;
+  color: #000;
   text-decoration: none;
   cursor: pointer;
   opacity: 1;
@@ -1797,6 +1797,15 @@ textarea.ww-date-field > .ww-date-field__input {
 .ww-button-group > .ww-button-group:last-child:not(:first-child) > .ww-button:first-child {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
+}
+.ww-close-button {
+  padding: 0;
+  margin-left: auto;
+  background-color: transparent;
+  border: 0;
+  font-weight: 700;
+  float: right;
+  line-height: 1;
 }
 .ww-text-field {
   margin-bottom: 0.5em;
