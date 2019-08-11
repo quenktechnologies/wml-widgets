@@ -1,0 +1,28 @@
+{% import (TextField) from "../../../../../../lib/control/text-field" %}
+{% import (Prompt) from "../../../../../../lib/dialog/prompt" %}
+{% import (text) from "../../../../../../lib" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (PromptPage) from "../" %}
+
+{% view Main (PromptPage) %}
+<Demo>
+
+  <h1>Prompt</h2>
+
+  <p>{{@values.value|text}}</p>
+  <p><button onclick={{@values.open}}>Open</button></p>
+
+</Demo>
+
+{% view Open (PromptPage) %}
+<Prompt 
+  wml:id="open"
+  ww:title={{@values.title}}
+  ww:onSave={{@values.onSave}}
+  ww:onCancel={{@values.onCancel}}>
+ 
+  <TextField 
+    ww:value={{@values.value}} 
+    ww:onChange={{@values.onChange}} />
+
+</Prompt>

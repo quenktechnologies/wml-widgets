@@ -1,0 +1,23 @@
+{% import (Inform) from "../../../../../../lib/dialog/inform" %}
+{% import (text) from "../../../../../../lib" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (InformPage) from "../" %}
+
+{% view Main (InformPage) %}
+<Demo>
+
+  <h1>Inform</h2>
+
+  <p><button onclick={{@values.open}}>Open</button></p>
+
+</Demo>
+
+{% view Open (InformPage) %}
+<Inform 
+  wml:id="open"
+  ww:title={{@values.title}}
+  ww:onClose={{@values.onClose}}>
+ 
+  {{@values.message | text}}
+
+</Inform>

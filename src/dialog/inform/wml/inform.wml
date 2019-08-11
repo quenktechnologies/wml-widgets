@@ -1,0 +1,33 @@
+{% import (Button) from "../../../control/button" %}
+{% import (CloseButton) from "../../../control/close-button" %}
+{% import (text) from "../../../" %}
+{% import (Modal,ModalHeader,ModalBody,ModalFooter) from "../../modal" %}
+{% import (Inform) from "../" %}
+
+{% view Main (Inform) %}
+<Modal wml:id={{@values.wml.id}} ww:className={{@values.className}}>
+
+  <ModalHeader>
+  
+    <CloseButton ww:onClick={{@values.footer.ok.onClick}} />
+
+    {{@values.header.title|text}} 
+    
+  </ModalHeader>
+
+  <ModalBody>
+
+    {{...@children}}
+
+  </ModalBody>
+
+  <ModalFooter>
+
+    <Button
+      ww:text={{@values.footer.ok.text}}
+      ww:className={{@values.footer.ok.className}}
+      ww:onClick={{@values.footer.ok.onClick}} />
+
+  </ModalFooter>
+
+</Modal>

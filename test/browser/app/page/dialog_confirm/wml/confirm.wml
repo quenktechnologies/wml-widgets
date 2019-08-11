@@ -1,0 +1,24 @@
+{% import (Confirm) from "../../../../../../lib/dialog/confirm" %}
+{% import (text) from "../../../../../../lib" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (ConfirmPage) from "../" %}
+
+{% view Main (ConfirmPage) %}
+<Demo>
+
+  <h1>Confirm</h2>
+
+  <p><button onclick={{@values.open}}>Open</button></p>
+
+</Demo>
+
+{% view Open (ConfirmPage) %}
+<Confirm 
+  wml:id="open"
+  ww:title={{@values.title}}
+  ww:onNo={{@values.onNo}}
+  ww:onYes={{@values.onYes}}>
+ 
+  {{@values.message | text}}
+
+</Confirm>
