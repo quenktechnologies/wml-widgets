@@ -1,0 +1,12 @@
+{% import (Close) from "../../../content/close" %}
+{% import (CloseButton) from "../" %}
+
+{% view Main (CloseButton) %}
+<button 
+  id={{@values.id}} 
+  class={{@values.className}} 
+  onclick={{@values.onclick}}>
+
+  <Close/>
+
+</button>

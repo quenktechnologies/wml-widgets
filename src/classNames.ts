@@ -287,6 +287,20 @@ export const MODAL_BODY = 'ww-modal__body';
 export const MODAL_FOOTER = 'ww-modal__footer';
 ///classNames:end
 ///classNames:begin
+export const INFORM = 'ww-inform';
+export const INFORM_OK = 'ww-inform__ok';
+///classNames:end
+///classNames:begin
+export const CONFIRM = 'ww-confirm';
+export const CONFIRM_NO = 'ww-confirm__no';
+export const CONFIRM_YES = 'ww-prompt__yes';
+///classNames:end
+///classNames:begin
+export const PROMPT = 'ww-prompt';
+export const PROMPT_CLOSE = 'ww-prompt__close';
+export const PROMPT_SAVE = 'ww-prompt__save';
+///classNames:end
+///classNames:begin
 export const STACK_SELECT = 'ww-stack-select';
 ///classNames:end
 ///classNames:begin
@@ -314,6 +328,9 @@ export const TOOLBAR_COMPAT = '-toolbar-compat';
 ///classNames:end
 ///classNames:begin
 export const BUTTON_GROUP = 'ww-button-group';
+///classNames:end
+///classNames:begin
+export const CLOSE_BUTTON = 'ww-close-button';
 ///classNames:end
 ///classNames:begin
 export const TEXT_FIELD = 'ww-text-field';
