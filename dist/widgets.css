@@ -1059,30 +1059,48 @@ a.ww-tag:focus {
   border-color: #ccc;
   color: inherit;
 }
+.ww-alert.-default hr {
+  border-color: #b3b3b3;
+}
 .ww-alert.-primary {
   background-color: #337ab7;
   border-color: #2d6da3;
   color: #fff;
+}
+.ww-alert.-primary hr {
+  border-color: #22527b;
 }
 .ww-alert.-success {
   background-color: #5cb85c;
   border-color: #4cae4c;
   color: #fff;
 }
+.ww-alert.-success hr {
+  border-color: #3d8b3d;
+}
 .ww-alert.-info {
   background-color: #5bc0de;
   border-color: #46b8da;
   color: #fff;
+}
+.ww-alert.-info hr {
+  border-color: #28a1c5;
 }
 .ww-alert.-warning {
   background-color: #f0ad4e;
   border-color: #eea236;
   color: #fff;
 }
+.ww-alert.-warning hr {
+  border-color: #df8a13;
+}
 .ww-alert.-error {
   background-color: #d9534f;
   border-color: #d43f3a;
   color: #fff;
+}
+.ww-alert.-error hr {
+  border-color: #b52b27;
 }
 .ww-modal {
   overflow-x: hidden;
