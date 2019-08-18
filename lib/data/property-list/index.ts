@@ -86,7 +86,7 @@ export class PropertyList<D, R extends Record<D>>
                 let mData = get(f.name, this.values.data.value);
 
                 if (mData.isNothing())
-                    return [text('')];
+                    return [text('-')];
 
                 let d = mData.get();
 
