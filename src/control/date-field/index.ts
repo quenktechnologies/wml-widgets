@@ -206,7 +206,6 @@ export interface DateFieldAttrs extends FormControlAttrs<ISO8601Date> {
 
 }
 
-
 /**
  * DateChangedEvent is generated when a valid date has been entered.
  *
@@ -281,8 +280,7 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
             format: getFormat(this.attrs),
 
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-                this.attrs.ww.placeholder : '',
+            placeholder: getPlaceholder(this.attrs),
 
             display: getDisplay(this.attrs),
 
@@ -368,10 +366,7 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
     }
 
-
-
 }
-
 
 const parseDate = (d: string, formats: string[]) => {
 
@@ -416,6 +411,32 @@ const getFormat = (attrs: WidgetAttrs<DateFieldAttrs>): string[] => {
     }
 
     return iso8601Formats;
+
+}
+
+const getPlaceholder = (attrs: WidgetAttrs<DateFieldAttrs>): string => {
+
+    if (attrs.ww && attrs.ww.placeholder)
+        return attrs.ww.placeholder;
+
+    if (attrs.ww && attrs.ww.format) {
+
+        switch (attrs.ww.format) {
+
+            case 2:
+                return 'DD-MM-YYYY';
+
+            case 3:
+                return 'MM-DD-YYYY';
+
+            default:
+                return 'YYYY-MM-DD';
+
+        }
+
+    }
+
+    return '';
 
 }
 
