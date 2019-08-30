@@ -1,0 +1,17 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Paginator) from "../../../../../../lib/control/paginator" %}
+{% import (text) from "../../../../../../lib" %}
+
+{% import (PaginatorPage) from "../" %}
+
+{% view Main (PaginatorPage) %}
+<Demo>
+
+  <Paginator 
+    ww:total={{@values.total}}
+    ww:current={{@values.current}} 
+    ww:onChange={{@values.onChange}} />
+
+  <p>{{@values.message | text}}</p>
+
+</Demo>

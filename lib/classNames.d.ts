@@ -217,6 +217,12 @@ export declare const TAB = "ww-tab";
  * TAB_BAR
  */
 export declare const TAB_BAR = "ww-tab-bar";
+export declare const PAGINATOR = "ww-paginator";
+export declare const PAGINATOR_FIRST = "ww-paginator__first";
+export declare const PAGINATOR_PREVIOUS = "ww-paginator__previous";
+export declare const PAGINATOR_POSITION = "ww-paginator__position";
+export declare const PAGINATOR_NEXT = "ww-paginator__next";
+export declare const PAGINATOR_LAST = "ww-paginator__last";
 export declare const FILE_UPLOAD_SURFACE = "ww-file-upload-surface";
 export declare const FILE_UPLOAD_SURFACE_INPUT = "ww-file-upload-surface__input";
 export declare const FILE_UPLOAD_SURFACE_TEXT = "ww-file-upload-surface__text";

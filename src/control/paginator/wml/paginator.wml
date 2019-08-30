@@ -1,0 +1,70 @@
+{% import (text) from "../../../" %}
+{% import (Paginator) from "../" %}
+
+{% view Main (Paginator) %}
+
+<ul id={{@values.id}} class={{@values.className}}>
+
+  <li class={{@values.first.className}}>
+    
+    {% if @values.first.isDisabled() %}
+
+      <span/>
+
+    {% else %}
+  
+      <a href="#" onclick={{@values.first.onclick}}/>
+      
+    {% endif %}
+
+  </li>
+
+  <li class={{@values.previous.className}}>
+    
+    {% if @values.previous.isDisabled() %}
+
+      <span/>
+
+    {% else %}
+  
+      <a href="#" onclick={{@values.previous.onclick}}/>
+      
+    {% endif %}
+
+  </li>
+
+  <li class={{@values.position.className}}>
+  
+    <span>Page <input value={{@values.current.asString()}}/> of {{@values.total | text }} </span>
+    
+  </li>
+
+  <li class={{@values.next.className}}>
+    
+    {% if @values.next.isDisabled() %}
+
+      <span/>
+
+    {% else %}
+  
+      <a href="#" onclick={{@values.next.onclick}}/>
+      
+    {% endif %}
+
+  </li>
+
+  <li class={{@values.last.className}}>
+    
+    {% if @values.last.isDisabled() %}
+
+      <span/>
+
+    {% else %}
+  
+      <a href="#" onclick={{@values.last.onclick}}/>
+      
+    {% endif %}
+
+  </li>
+
+</ul>

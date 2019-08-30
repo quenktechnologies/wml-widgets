@@ -17,6 +17,7 @@ exports.pages = {
     'control_drop-list-field': require('./page/control_drop-list-field').default,
     'control_file-upload-surface': require('./page/control_file-upload-surface').default,
     'control_multi-select': require('./page/control_multi-select').default,
+    'control_paginator': require('./page/control_paginator').default,
     'control_search': require('./page/control_search').default,
     'control_select': require('./page/control_select').default,
     'control_stack': require('./page/control_stack').default,

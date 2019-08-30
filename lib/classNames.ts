@@ -357,6 +357,14 @@ export const TAB = 'ww-tab';
 export const TAB_BAR = 'ww-tab-bar';
 ///classNames:end
 ///classNames:begin
+export const PAGINATOR = 'ww-paginator';
+export const PAGINATOR_FIRST = 'ww-paginator__first';
+export const PAGINATOR_PREVIOUS = 'ww-paginator__previous';
+export const PAGINATOR_POSITION = 'ww-paginator__position';
+export const PAGINATOR_NEXT = 'ww-paginator__next';
+export const PAGINATOR_LAST = 'ww-paginator__last';
+///classNames:end
+///classNames:begin
 export const FILE_UPLOAD_SURFACE = 'ww-file-upload-surface';
 export const FILE_UPLOAD_SURFACE_INPUT = 'ww-file-upload-surface__input';
 export const FILE_UPLOAD_SURFACE_TEXT = 'ww-file-upload-surface__text';
