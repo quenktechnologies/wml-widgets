@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var demo_1 = require("../../../widgets/demo");
 ;
@@ -37,65 +44,65 @@ var Main = /** @class */ (function () {
                     __this.node('h1', { html: {}, wml: {} }, [
                         document.createTextNode("Buttons")
                     ]),
-                    __this.node('p', { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, __spreadArrays([
                         __this.node('h2', { html: {}, wml: {} }, [
                             document.createTextNode("Style")
                         ])
-                    ].concat(__forIn(__context.values.styles, function (v, _$$i, _$$all) {
+                    ], __forIn(__context.values.styles, function (v, _$$i, _$$all) {
                         return ([
                             __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': v, 'style': v, 'text': __context.values.capitalize(v) } }, [])
                         ]);
                     }, function () { return ([]); })))
                 ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays([
                     __this.node('h2', { html: {}, wml: {} }, [
                         document.createTextNode("Outline")
                     ])
-                ].concat(__forIn(__context.values.styles, function (style, _$$i, _$$all) {
+                ], __forIn(__context.values.styles, function (style, _$$i, _$$all) {
                     return ([
                         __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'style': style, 'outline': true, 'text': __context.values.capitalize(style) } }, [])
                     ]);
                 }, function () { return ([]); }))),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('p', { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, __spreadArrays([
                         __this.node('h2', { html: {}, wml: {} }, [
                             document.createTextNode("Active")
                         ])
-                    ].concat(__forIn(__context.values.styles, function (v, _$$i, _$$all) {
+                    ], __forIn(__context.values.styles, function (v, _$$i, _$$all) {
                         return ([
                             __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) } }, [])
                         ]);
                     }, function () { return ([]); })))
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('p', { html: {}, wml: {} }, [
+                    __this.node('p', { html: {}, wml: {} }, __spreadArrays([
                         __this.node('h2', { html: {}, wml: {} }, [
                             document.createTextNode("Disabled")
                         ])
-                    ].concat(__forIn(__context.values.styles, function (v, _$$i, _$$all) {
+                    ], __forIn(__context.values.styles, function (v, _$$i, _$$all) {
                         return ([
                             __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) } }, [])
                         ]);
                     }, function () { return ([]); })))
                 ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays([
                     __this.node('h2', { html: {}, wml: {} }, [
                         document.createTextNode("Size")
                     ])
-                ].concat(__forIn(__context.values.styles, function (style, _$$i, _$$all) {
+                ], __forIn(__context.values.styles, function (style, _$$i, _$$all) {
                     return ([
-                        __this.node('p', { html: {}, wml: {} }, __forIn(__context.values.sizes, function (size, _$$i, _$$all) {
+                        __this.node('p', { html: {}, wml: {} }, __spreadArrays(__forIn(__context.values.sizes, function (size, _$$i, _$$all) {
                             return ([
                                 __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) } }, [])
                             ]);
-                        }, function () { return ([]); }).slice())
+                        }, function () { return ([]); })))
                     ]);
                 }, function () { return ([]); }))),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays([
                     __this.node('h2', { html: {}, wml: {} }, [
                         document.createTextNode("Block")
                     ])
-                ].concat(__forIn(__context.values.styles, function (style, _$$i, _$$all) {
+                ], __forIn(__context.values.styles, function (style, _$$i, _$$all) {
                     return ([
                         __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'style': style, 'block': true, 'text': __context.values.capitalize(style) } }, [])
                     ]);

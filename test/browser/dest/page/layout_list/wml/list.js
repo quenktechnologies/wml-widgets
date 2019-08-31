@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var demo_1 = require("../../../widgets/demo");
 ;
@@ -33,7 +40,7 @@ var Main = /** @class */ (function () {
         this.tree = document.createElement('div');
         this.template = function (__this) {
             return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(list_1.ListLayout, { html: {}, wml: {} }, __forOf(__context.items, function (yes, key, _$$all) {
+                __this.widget(list_1.ListLayout, { html: {}, wml: {} }, __spreadArrays(__forOf(__context.items, function (yes, key, _$$all) {
                     return ([
                         __this.widget(list_1.ListLayoutItem, { html: {}, wml: { 'id': key }, ww: { 'name': key, 'active': yes, 'onClick': __context.click } }, [
                             __this.node('p', { html: {}, wml: {} }, [
@@ -41,7 +48,7 @@ var Main = /** @class */ (function () {
                             ])
                         ])
                     ]);
-                }, function () { return ([]); }).slice())
+                }, function () { return ([]); })))
             ]);
         };
     }

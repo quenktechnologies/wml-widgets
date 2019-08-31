@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 ;
 var nav_1 = require("../../../../lib/menu/nav");
@@ -36,21 +43,21 @@ var Navigation = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, [
+            return __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, __spreadArrays([
                 __this.widget(item_1.Item, { html: {}, wml: {} }, [
                     __this.widget(link_1.Link, { html: {}, wml: { 'group': "links" }, ww: { 'active': (__context.page === "home"), 'name': "home", 'href': "#", 'onClick': __context.navigate, 'text': "Home" } }, [])
                 ])
-            ].concat(__forOf(__context.pages, function (items, section, _$$all) {
+            ], __forOf(__context.pages, function (items, section, _$$all) {
                 return ([
                     __this.widget(item_1.Item, { html: {}, wml: {} }, [
                         __this.widget(header_1.MenuHeader, { html: {}, wml: {}, ww: { 'text': section } }, []),
-                        __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, __forOf(items, function (_, name, _$$all) {
+                        __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, __spreadArrays(__forOf(items, function (_, name, _$$all) {
                             return ([
                                 __this.widget(item_1.Item, { html: {}, wml: {} }, [
                                     __this.widget(link_1.Link, { html: {}, wml: { 'group': "links" }, ww: { 'name': name, 'href': ("#/" + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name } }, [])
                                 ])
                             ]);
-                        }, function () { return ([]); }).slice())
+                        }, function () { return ([]); })))
                     ])
                 ]);
             }, function () { return ([]); })));

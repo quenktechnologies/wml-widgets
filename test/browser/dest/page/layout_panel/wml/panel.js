@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var grid_1 = require("../../../../../../lib/layout/grid");
 ;
@@ -34,7 +41,7 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(grid_1.GridLayout, { html: {}, wml: {} }, __forIn(style_1.styles, function (style, _$$i, _$$all) {
+            return __this.widget(grid_1.GridLayout, { html: {}, wml: {} }, __spreadArrays(__forIn(style_1.styles, function (style, _$$i, _$$all) {
                 return ([
                     __this.widget(grid_1.Row, { html: {}, wml: {} }, [
                         __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
@@ -69,7 +76,7 @@ var Main = /** @class */ (function () {
                         ])
                     ])
                 ]);
-            }, function () { return ([]); }).slice());
+            }, function () { return ([]); })));
         };
     }
     Main.prototype.register = function (e, attrs) {

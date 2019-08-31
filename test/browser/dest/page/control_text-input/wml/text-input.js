@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var text_input_1 = require("../../../../../../lib/control/text-input");
 ;
@@ -47,7 +54,7 @@ var Main = /** @class */ (function () {
                         document.createTextNode(" changes.")
                     ])
                 ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __forIn(__context.sizes, function (v, _$$i, _$$all) {
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
                     return ([
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
@@ -70,7 +77,7 @@ var Main = /** @class */ (function () {
                             __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'className': "-success" } }, [])
                         ])
                     ]);
-                }, function () { return ([]); }).slice()),
+                }, function () { return ([]); }))),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('p', { html: {}, wml: {} }, [
                         document.createTextNode("\n      Block:\n      "),
@@ -80,7 +87,7 @@ var Main = /** @class */ (function () {
                 __this.node('p', { html: {}, wml: {} }, [
                     document.createTextNode(" Textarea: ")
                 ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __forIn(__context.sizes, function (v, _$$i, _$$all) {
+                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
                     return ([
                         __this.node('p', { html: {}, wml: {} }, [
                             document.createTextNode("\n        Size "),
@@ -103,7 +110,7 @@ var Main = /** @class */ (function () {
                             __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-success" } }, [])
                         ])
                     ]);
-                }, function () { return ([]); }).slice()),
+                }, function () { return ([]); }))),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('p', { html: {}, wml: {} }, [
                         document.createTextNode("\n      Block:\n      "),

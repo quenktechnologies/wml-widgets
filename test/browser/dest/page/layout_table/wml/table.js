@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var demo_1 = require("../../../widgets/demo");
 ;
@@ -138,35 +145,35 @@ var Main = /** @class */ (function () {
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Normal")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {} }, (exports.content()(__this)).slice())
+                    __this.widget(table_1.TableLayout, { html: {}, wml: {} }, __spreadArrays((exports.content()(__this))))
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode(" Alternate")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'alternate': true } }, (exports.content()(__this)).slice())
+                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'alternate': true } }, __spreadArrays((exports.content()(__this))))
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Bordered")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'bordered': true } }, (exports.content()(__this)).slice())
+                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'bordered': true } }, __spreadArrays((exports.content()(__this))))
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Hoverable")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'hoverable': true } }, (exports.content()(__this)).slice())
+                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'hoverable': true } }, __spreadArrays((exports.content()(__this))))
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Compact")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'compact': true } }, (exports.content()(__this)).slice())
+                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'compact': true } }, __spreadArrays((exports.content()(__this))))
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.widget(table_1.TableWindow, { html: {}, wml: {} }, [
-                        __this.widget(table_1.TableLayout, { html: {}, wml: {} }, (exports.content()(__this)).slice())
+                        __this.widget(table_1.TableLayout, { html: {}, wml: {} }, __spreadArrays((exports.content()(__this))))
                     ])
                 ])
             ]);

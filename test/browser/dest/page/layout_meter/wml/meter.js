@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var meter_1 = require("../../../../../../lib/layout/meter");
 ;
@@ -57,11 +64,11 @@ var Main = /** @class */ (function () {
                         __this.node('h2', { html: {}, wml: {} }, [
                             document.createTextNode("Combined")
                         ]),
-                        __this.widget(meter_1.Meter, { html: {}, wml: {} }, __forIn(__context.values.bars, function (v, _$$i, _$$all) {
+                        __this.widget(meter_1.Meter, { html: {}, wml: {} }, __spreadArrays(__forIn(__context.values.bars, function (v, _$$i, _$$all) {
                             return ([
                                 __this.widget(meter_1.MeterBar, { html: {}, wml: {}, ww: { 'value': v.value, 'color': v.color } }, [])
                             ]);
-                        }, function () { return ([]); }).slice())
+                        }, function () { return ([]); })))
                     ])
                 ])
             ]);

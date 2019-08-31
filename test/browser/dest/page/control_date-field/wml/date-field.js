@@ -1,4 +1,11 @@
 "use strict";
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 var demo_1 = require("../../../widgets/demo");
 ;
@@ -32,7 +39,7 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, __forOf(__context.values.formats, function (spec, _$$k, _$$all) {
+            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays(__forOf(__context.values.formats, function (spec, _$$k, _$$all) {
                 return ([
                     __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                         __this.node('p', { html: {}, wml: {} }, [
@@ -40,7 +47,7 @@ var Main = /** @class */ (function () {
                         ])
                     ])
                 ]);
-            }, function () { return ([]); }).concat(__forOf(__context.values.states, function (spec, _$$k, _$$all) {
+            }, function () { return ([]); }), __forOf(__context.values.states, function (spec, _$$k, _$$all) {
                 return ([
                     __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                         __this.node('p', { html: {}, wml: {} }, [
