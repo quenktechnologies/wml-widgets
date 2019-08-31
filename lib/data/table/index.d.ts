@@ -1,55 +1,178 @@
-import * as views from './wml/table';
-import { Sorter } from '@quenk/noni/lib/data/array/sort';
+import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
-import { Fun, Component, Content } from '@quenk/wml';
+import { Sorter } from '@quenk/noni/lib/data/array/sort';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 export declare const DATA_TABLE = "ww-data-table";
+export declare const DATA_TABLE_HEAD = "ww-data-table__head";
+export declare const DATA_TABLE_HEADING = "ww-data-table__heading";
+export declare const DATA_TABLE_BODY = "ww-data-table__body";
+export declare const DATA_TABLE_CELL = "ww-data-table__cell";
+export declare const ASC = "-asc";
+export declare const DESC = "-desc";
 /**
- * THead template function type.
+ * Path type.
+ *
+ * Refers to path notation.
  */
-export declare type THead<C, R extends Record<C>> = (table: DataTable<C, R>) => (columns: Column<C, R>[]) => Fun;
+export declare type Path = string;
 /**
- * TBody template function type.
+ * SortAlias type.
+ *
+ * This is a path that should be used instead of the name field when
+ * retrieving a column's sort target.
  */
-export declare type TBody<C, R extends Record<C>> = (table: DataTable<C, R>) => (columns: Column<C, R>[]) => (data: R[]) => Fun;
+export declare type SortAlias = string;
 /**
- * HeadingFragment type.
+ * SortKey stores the column id and direction data has been sorted by.
  */
-export declare type HeadingFragment<C, R extends Record<C>> = (column: Column<C, R>) => Fun;
-/**
- * CellFragment type.
- */
-export declare type CellFragment<C, R extends Record<C>> = (value: C) => (idx: number) => (row: R) => Fun;
+export declare type SortKey = [number, -1 | 1];
 /**
  * SortStrategy is a function that can be used to sort data or a
  * string refernece to one.
  */
 export declare type SortStrategy<C> = string | Sorter<C>;
 /**
+ * HeadFragment type.
+ */
+export declare type HeadFragment<C, R extends Record<C>> = (c: HeadContext<C, R>) => Content;
+/**
+ * HeadingFragment type.
+ */
+export declare type HeadingFragment<C, R extends Record<C>> = (c: HeadingContext<C, R>) => Content;
+/**
+ * BodyFragment type.
+ */
+export declare type BodyFragment<C, R extends Record<C>> = (c: BodyContext<C, R>) => Content;
+/**
+ * CellFragment type.
+ */
+export declare type CellFragment<C, R extends Record<C>> = (c: CellContext<C, R>) => Content;
+/**
+ * HeadContext
+ */
+export interface HeadContext<C, R extends Record<C>> {
+    /**
+     * className for the <thead>
+     */
+    className: string;
+    /**
+     * columns used to generate the headings.
+     */
+    columns: Column<C, R>[];
+    /**
+     * data supplied to the table.
+     */
+    data: R[];
+    /**
+     * heading generates the heading cell from a column spec.
+     */
+    heading: (c: Column<C, R>) => (n: number) => Content;
+}
+/**
+ * HeadingContext
+ */
+export interface HeadingContext<C, R extends Record<C>> {
+    /**
+     * className
+     */
+    className: string;
+    /**
+     * column used to generate the heading.
+     */
+    column: Column<C, R>;
+    /**
+     * columns used to generate the headings.
+     */
+    columns: Column<C, R>[];
+    /**
+     * data supplied to the table.
+     */
+    data: R[];
+    /**
+     * onclick handler
+     */
+    onclick: (e: Event) => void;
+}
+/**
+ * BodyContext
+ */
+export interface BodyContext<C, R extends Record<C>> {
+    /**
+     * className for the <tbody>
+     */
+    className: string;
+    /**
+     * columns used to generate the body cells.
+     */
+    columns: Column<C, R>[];
+    /**
+     * data supplied to the table.
+     */
+    data: R[];
+    /**
+     * cell generates a cell from a column spec.
+     */
+    cell: (c: Column<C, R>) => (idx: number) => (row: number) => Content;
+}
+/**
+ * CellContext
+ */
+export interface CellContext<C, R extends Record<C>> {
+    /**
+     * className
+     */
+    className: string;
+    /**
+     * column indicates the index of the column used to render the cell.
+     */
+    column: number;
+    /**
+     * row indicates the row of data the cell value belongs to.
+     */
+    row: number;
+    /**
+     * value for the cell.
+     */
+    value: C;
+    /**
+     * datum is the entire record of data the cell value comes from.
+     */
+    datum: R;
+    /**
+     * format turns a cell value into a string.
+     */
+    format: (c: C) => string;
+    /**
+     * onclick handler
+     */
+    onclick: (e: Event) => void;
+}
+/**
  * Column provides the information a DataTable needs to render the cells
  * of a column in each row.
  */
 export interface Column<C, R extends Record<C>> {
     /**
-     * name of the property to retreive the value from.
+     * name of the property to use for this column.
      *
-     * Can be a path.
+     * Can be a name or path expression.
      */
-    name: string;
+    name: Path;
     /**
      * heading displayed for the column.
      */
     heading: string;
     /**
-     * headingClassName
+     * headingClassName will be appended to the column's class list.
      */
     headingClassName?: string;
     /**
-     * cellClassName
+     * cellClassName will be appended to each cell's class list.
      */
     cellClassName?: string;
     /**
-     * format can be specified to transform a cell value to a string for display.
+     * format can be specified to transform the stringified value of each cell
+     * before display.
      */
     format?: (c: C) => string;
     /**
@@ -63,57 +186,68 @@ export interface Column<C, R extends Record<C>> {
      */
     cellFragment?: CellFragment<C, R>;
     /**
-     * sortOn can be used to indicate the column should be sorted
-     * by another value.
+     * alias specifies the path that should be used when sorting by this column.
      */
-    sortOn?: string;
+    alias?: SortAlias;
     /**
-     * sortAs indicates how to sort on the column.
+     * sort indicates how to sort by the column.
      *
-     * Defaults to string.
+     * If this is specified, sorting by the column will be enabled.
      */
-    sortAs?: string;
+    sort?: SortStrategy<C>;
 }
 /**
  * DataTableAttrs
  */
 export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs {
     /**
-     * alternate enables alternating row styling.
+     * headClassName
      */
-    alternate?: boolean;
+    headClassName?: string;
     /**
-     * hoverable enables hover effect styles.
+     * headFragment if specified, will be used to render the <thead> section
+     * and its contents.
      */
-    hoverable?: boolean;
+    headFragment?: HeadFragment<C, R>;
     /**
-     * bordered enables cell border styles.
+     * headingClassName
      */
-    bordered?: boolean;
+    headingClassName?: string;
     /**
-     * compact will enable compact table style.
+     * headingFragment can be specified to customise the rending
+     * of the heading content.
      */
-    compact?: boolean;
+    headingFragment?: HeadingFragment<C, R>;
     /**
-     * theadClassName is a class name to append to the <thead> section.
+     * onHeadingClicked event handler.
      */
-    theadClassName?: string;
+    onHeadingClicked?: (e: HeadingClickedEvent) => void;
     /**
-     * tbodyClassName is a class name to append to the <tbody> section.
+     * bodyClassName
      */
-    tbodyClassName?: string;
+    bodyClassName?: string;
     /**
-     * thClassName is a class name to append to each <th> element.
+     * bodyFragment if specified, will be used to render the <tbody> section
+     * and its contents.
      */
-    thClassName?: string;
+    bodyFragment?: BodyFragment<C, R>;
     /**
-     * trClassName is a class name to append to each <tr> element.
+     * cellClassName
      */
-    trClassName?: string;
+    cellClassName?: string;
     /**
-     * tdClassName is a class name to append to each <td> element.
+     * cellFragment can be specified to customise the rendering
+     * of the cell content.
      */
-    tdClassName?: string;
+    cellFragment?: CellFragment<C, R>;
+    /**
+     * onCellClicked event handler.
+     */
+    onCellClicked?: (e: CellClickedEvent) => void;
+    /**
+     * sortKey can be specified to indicate the data has been presorted.
+     */
+    sortKey?: SortKey;
     /**
      * columns list used to structure the table.
      */
@@ -121,60 +255,29 @@ export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs
     /**
      * data list used to populate table data.
      */
-    data: R[];
+    data?: R[];
     /**
-     * thead if specified, will be used to render the <thead> section.
-     */
-    thead?: THead<C, R>;
-    /**
-     * tbody if specified will be used to render the <tbody> section.
-     */
-    tbody?: TBody<C, R>;
-    /**
-     * onCellClicked event handler.
-     */
-    onCellClicked?: (e: CellClickedEvent) => void;
-    /**
-     * onHeadingClicked event handler.
-     */
-    onHeadingClicked?: (e: HeadingClickedEvent) => void;
-    /**
-     * onRowClicked event handler.
-     */
-    onRowClicked?: (e: RowClickedEvent) => void;
-    /**
-     * onChange is applied each time the internal representation
-     * of the data is changed.
+     * onChange handler.
+     *
+     * Fired whenever the internal data representation changes.
      */
     onChange?: (e: DataChangedEvent<R>) => void;
-    /**
-     * onSort is applied each time the data is sorted.
-     */
-    onSort?: (e: DataSortedEvent<R>) => void;
 }
 /**
  * HeadingClicked is triggered when the user clicks on
  * one of the column headings.
  */
 export declare class HeadingClickedEvent {
-    column: string;
-    constructor(column: string);
+    column: number;
+    constructor(column: number);
 }
 /**
- * RowClickedEvent is triggered when the user clicks on whitespace in
- * the row of a table.
- */
-export declare class RowClickedEvent {
-    row: number;
-    constructor(row: number);
-}
-/**
- * CellClickedEvent triggered when a cell or its contents is clicked.
+ * CellClickedEvent triggered when a cell is clicked on.
  */
 export declare class CellClickedEvent {
-    name: string;
+    column: number;
     row: number;
-    constructor(name: string, row: number);
+    constructor(column: number, row: number);
 }
 /**
  * DataChangedEvent generated when the internal representation of the data
@@ -185,110 +288,96 @@ export declare class DataChangedEvent<R> {
     constructor(data: R[]);
 }
 /**
- * DataSortedEvent is generated when the internal representation of the
- * data has been sorted.
- * It provides a copy of the sorted data, the column name
- * and the direction (1 for ascending, -1 for descending).
+ * NewHeadContext
  */
-export declare class DataSortedEvent<R> {
-    data: R[];
-    column: string;
-    dir: number;
-    constructor(data: R[], column: string, dir: number);
-}
-/**
- * Range of table cells.
- */
-export declare class Range {
-    elements: HTMLElement[];
-    constructor(elements: HTMLElement[]);
-    /**
-     * setContent of the cells in this Range.
-     */
-    setContent(content: Content[]): Range;
-}
-/**
- * @private
- */
-export declare class Delegate<C, R extends Record<C>> {
+export declare class NewHeadContext<C, R extends Record<C>> {
     table: DataTable<C, R>;
     constructor(table: DataTable<C, R>);
-    onCellClicked(e: CellClickedEvent): void;
-    onHeadingClicked(e: HeadingClickedEvent): void;
-    onRowClicked(e: RowClickedEvent): void;
+    className: string;
+    columns: Column<C, R>[];
+    data: R[];
+    heading: (c: Column<C, R>) => (i: number) => Content;
+}
+/**
+ * NewHeadingContext
+ */
+export declare class NewHeadingContext<C, R extends Record<C>> {
+    table: DataTable<C, R>;
+    column: Column<C, R>;
+    index: number;
+    constructor(table: DataTable<C, R>, column: Column<C, R>, index: number);
+    className: string;
+    columns: Column<C, R>[];
+    data: R[];
+    onclick: (_: Event) => void;
+}
+/**
+ * NewBodyContext
+ */
+export declare class NewBodyContext<C, R extends Record<C>> {
+    table: DataTable<C, R>;
+    constructor(table: DataTable<C, R>);
+    className: string;
+    columns: Column<C, R>[];
+    data: R[];
+    cell: (c: Column<C, R>) => (id: number) => (row: number) => Content;
+}
+/**
+ * NewCellContext
+ */
+export declare class NewCellContext<C, R extends Record<C>> {
+    table: DataTable<C, R>;
+    spec: Column<C, R>;
+    column: number;
+    row: number;
+    constructor(table: DataTable<C, R>, spec: Column<C, R>, column: number, row: number);
+    className: string;
+    value: C;
+    datum: R;
+    format: (c: C) => string;
+    onclick: () => void;
 }
 /**
  * DataTable can be used for displaying sortable
  * tabular data.
  */
 export declare class DataTable<C, R extends Record<C>> extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
-    view: views.Main<C, R>;
-    delegate: Delegate<C, R>;
+    view: View;
     values: {
-        table: {
-            wml: {
-                id: string;
-            };
+        wml: {
             id: string;
-            className: string;
-            alternate: boolean | undefined;
-            bordered: boolean | undefined;
-            compact: boolean | undefined;
-            hoverable: boolean | undefined;
-            data: R[];
-            dir: number;
-            sortedOn: string;
-            pristine: R[];
-            thead: {
-                wml: {
-                    id: string;
-                };
-                className: string | undefined;
-                template: () => THead<C, R>;
-                th: {
-                    className: (c: Column<C, R>) => string;
-                    content: (col: Column<C, R>) => Content[];
-                    onclick: (field: string) => () => void;
-                };
-            };
-            tbody: {
-                id: string;
-                template: () => TBody<C, R>;
-                tr: {
-                    className: string | undefined;
-                    onclick: (row: number) => () => void;
-                };
-                td: {
-                    id: (column: string) => (colNumber: number) => (rowNumber: number) => string;
-                    className: (c: Column<C, R>) => string;
-                    onclick: (column: string) => (row: number) => () => void;
-                    content: (idx: number) => (r: R) => (c: Column<C, R>) => Content[];
-                };
-            };
         };
+        id: string;
+        className: string;
+        sortKey: [number, 1 | -1];
+        dataset: R[][];
         columns: Column<C, R>[];
+        thead: () => Content;
+        tbody: () => Content;
     };
     /**
      * @private
      */
     fireChange(): void;
     /**
-     * @private
+     * update the data displayed with a new data.
      */
-    fireSort(): void;
+    update(data: R[]): DataTable<C, R>;
     /**
-     * setData updates the table with new dataset.
+     * setSortKey changes the internal sort key.
      */
-    setData(data: R[]): DataTable<C, R>;
+    setSortKey(key: SortKey): DataTable<C, R>;
     /**
-     * sort the data on the colum specified.
+     * sort the table data by the column id specified.
      *
-     * Sorting is always done using the original data
-     * or the data from setData().
+     * The data can only be sorted by one column at a time and that column
+     * must specify the "sort" key.
+     *
+     * This method causes a repaint.
      */
-    sort(name: string): DataTable<C, R>;
+    sort(id: number): DataTable<C, R>;
     /**
-     * reverse sort the data displayed.
+     * reverse the direction of the sorted data.
      */
     reverse(): DataTable<C, R>;
 }

@@ -1,3 +1,9 @@
+.ww-data-table > thead > tr > th.-asc:after {
+  content: "\25B2";
+}
+.ww-data-table > thead > tr > th.-desc:after {
+  content: "\25BC";
+}
 .ww-thumbnail {
   display: block;
   padding: 4px;

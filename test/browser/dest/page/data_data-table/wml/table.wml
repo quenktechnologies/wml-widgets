@@ -22,7 +22,7 @@
     <h3>Alternate</h3>
 
     <DataTable
-      ww:alternate=true
+      ww:className="-alternate"
       ww:data={{@values.users}}
       ww:columns={{@values.columns}} />
 
@@ -33,7 +33,7 @@
     <h3>Bordered</h3>
 
     <DataTable
-      ww:bordered=true
+      ww:className="-bordered"
       ww:data={{@values.users}}
       ww:columns={{@values.columns}} />
 
@@ -44,7 +44,7 @@
     <h3>Hoverable</h3>
 
     <DataTable
-      ww:hoverable=true
+      ww:className="-hoverable"
       ww:data={{@values.users}}
       ww:columns={{@values.columns}} />
 
@@ -55,7 +55,7 @@
     <h3>Compact</h3>
 
     <DataTable
-      ww:compact=true
+      ww:className="-compact"
       ww:data={{@values.users}}
       ww:columns={{@values.columns}} />
 
@@ -77,13 +77,12 @@
 
   <Demo>
 
-    <h3>HeadingClickedEvent used for sorts.</h3>
+    <h3>Sortable</h3>
 
       <DataTable
         wml:id="sortable"
         ww:data={{@values.users}}
-        ww:columns={{@values.columns}}
-        ww:onHeadingClicked={{@values.sort}}/>
+        ww:columns={{@values.sortColumns}} />
 
   </Demo>
 

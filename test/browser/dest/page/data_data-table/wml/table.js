@@ -45,25 +45,25 @@ var Main = /** @class */ (function () {
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Alternate")
                     ]),
-                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'alternate': true, 'data': __context.values.users, 'columns': __context.values.columns } }, [])
+                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'className': "-alternate", 'data': __context.values.users, 'columns': __context.values.columns } }, [])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Bordered")
                     ]),
-                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'bordered': true, 'data': __context.values.users, 'columns': __context.values.columns } }, [])
+                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'className': "-bordered", 'data': __context.values.users, 'columns': __context.values.columns } }, [])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Hoverable")
                     ]),
-                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'hoverable': true, 'data': __context.values.users, 'columns': __context.values.columns } }, [])
+                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'className': "-hoverable", 'data': __context.values.users, 'columns': __context.values.columns } }, [])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Compact")
                     ]),
-                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'compact': true, 'data': __context.values.users, 'columns': __context.values.columns } }, [])
+                    __this.widget(table_1.DataTable, { html: {}, wml: {}, ww: { 'className': "-compact", 'data': __context.values.users, 'columns': __context.values.columns } }, [])
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
@@ -75,9 +75,9 @@ var Main = /** @class */ (function () {
                 ]),
                 __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
                     __this.node('h3', { html: {}, wml: {} }, [
-                        document.createTextNode("HeadingClickedEvent used for sorts.")
+                        document.createTextNode("Sortable")
                     ]),
-                    __this.widget(table_1.DataTable, { html: {}, wml: { 'id': "sortable" }, ww: { 'data': __context.values.users, 'columns': __context.values.columns, 'onHeadingClicked': __context.values.sort } }, [])
+                    __this.widget(table_1.DataTable, { html: {}, wml: { 'id': "sortable" }, ww: { 'data': __context.values.users, 'columns': __context.values.sortColumns } }, [])
                 ])
             ]);
         };

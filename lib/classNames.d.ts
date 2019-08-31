@@ -1,4 +1,10 @@
 export declare const DATA_TABLE = "ww-data-table";
+export declare const DATA_TABLE_HEAD = "ww-data-table__head";
+export declare const DATA_TABLE_HEADING = "ww-data-table__heading";
+export declare const DATA_TABLE_BODY = "ww-data-table__body";
+export declare const DATA_TABLE_CELL = "ww-data-table__cell";
+export declare const ASC = "-asc";
+export declare const DESC = "-desc";
 export declare const PROPERTY_LIST = "ww-property-list";
 export declare const THUMBNAIL = "ww-thumbnail";
 export declare const THUMBNAIL_CAPTION = "ww-thumbnail__caption";

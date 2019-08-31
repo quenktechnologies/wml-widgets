@@ -9,28 +9,20 @@ var columns = [
     { name: 'email', heading: 'Email' },
     { name: 'balance', heading: 'Balance' },
 ];
+var sortColumns = [
+    { name: 'index', heading: '#', sort: 'yes' },
+    { name: 'name', heading: 'Name', sort: 'yes' },
+    { name: 'gender', heading: 'Gender', sort: 'yes' },
+    { name: 'email', heading: 'Email', sort: 'yes' },
+    { name: 'balance', heading: 'Balance', sort: 'yes' },
+];
 var DataTablePage = /** @class */ (function () {
     function DataTablePage() {
-        var _this = this;
         this.view = new table_1.Main(this);
         this.values = {
             users: data_1.users,
             columns: columns,
-            sortedOn: [],
-            sort: function (e) {
-                var mTable = _this.view.findById('sortable');
-                if (mTable.isJust()) {
-                    var t = mTable.get();
-                    if (_this.values.sortedOn.indexOf(e.column) > -1) {
-                        t.reverse();
-                        _this.values.sortedOn = [];
-                    }
-                    else {
-                        t.sort(e.column);
-                        _this.values.sortedOn = [e.column];
-                    }
-                }
-            }
+            sortColumns: sortColumns
         };
     }
     return DataTablePage;
