@@ -376,8 +376,4 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
      * This method causes a repaint.
      */
     sort(id: number): DataTable<C, R>;
-    /**
-     * reverse the direction of the sorted data.
-     */
-    reverse(): DataTable<C, R>;
 }

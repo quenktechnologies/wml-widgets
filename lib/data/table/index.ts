@@ -428,14 +428,7 @@ export class NewHeadingContext<C, R extends Record<C>> {
 
     onclick = (_: Event) => {
 
-        if (this.column.sort) {
-
-            if (this.table.values.sortKey[0] === this.index)
-                this.table.reverse();
-            else
-                this.table.sort(this.index);
-
-        }
+        this.table.sort(this.index);
 
         if (this.table.attrs.ww && this.table.attrs.ww.onHeadingClicked)
             this.table.attrs.ww.onHeadingClicked(
@@ -579,32 +572,26 @@ export class DataTable<C, R extends Record<C>>
 
         if (!spec.sort) return this;
 
-        let strategy = getSortStrategy(spec.sort);
+        if (this.values.sortKey[0] === id) {
 
-        let alias = spec.alias ? spec.alias : spec.name;
+            this.values.dataset[0] = this.values.dataset[0].reverse();
 
-        this.values.sortKey = [id, -1];
+            this.values.sortKey =
+                <SortKey>[this.values.sortKey[0], this.values.sortKey[1] * -1];
 
-        this.values.dataset[0] =
-            doSort(this.values.dataset[1].slice(), strategy, alias);
 
-        this.fireChange();
+        } else {
 
-        this.view.invalidate();
+            let strategy = getSortStrategy(spec.sort);
 
-        return this;
+            let alias = spec.alias ? spec.alias : spec.name;
 
-    }
+            this.values.sortKey = [id, -1];
 
-    /**
-     * reverse the direction of the sorted data.
-     */
-    reverse(): DataTable<C, R> {
+            this.values.dataset[0] =
+                doSort(this.values.dataset[1].slice(), strategy, alias);
 
-        this.values.dataset[0] = this.values.dataset[0].reverse();
-
-        this.values.sortKey =
-            <SortKey>[this.values.sortKey[0], this.values.sortKey[1] * -1];
+        }
 
         this.fireChange();
 
