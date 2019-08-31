@@ -1,78 +1,74 @@
 {% import (Record) from "@quenk/noni/lib/data/record" %}
 {% import (TableLayout) from "../../../layout/table" %}
-{% import (Column, DataTable) from "../" %}
+{% import (text) from "../../../" %}
+{% import (
+   HeadContext,
+   HeadingContext,
+   BodyContext, 
+   CellContext,
+   Column, 
+   DataTable) from "../" %}
 
-{% fun thead[C,R:Record[C]] (t:DataTable[C,R]) (columns:Column[C,R][]) %}
+{% view HeadView[C,R:Record[C]] (HeadContext[C,R]) %}
+<thead class={{@className}}>
 
-  <thead 
-   wml:id={{t.values.table.thead.wml.id}}
-   class={{t.values.table.thead.className}}>
+  <tr>
+
+    {% for col,idx in @columns %}
+
+      {{@heading(col)(idx)}}
+
+    {% endfor %}
+
+  </tr>
+
+</thead>
+
+{% view HeadingView[C,R:Record[C]] (HeadingContext[C,R]) %}
+<th
+  class={{@className}}
+  onclick={{@onclick}}>
+  
+  {{@column.heading | text}}
+
+</th>
+
+{% view BodyView[C,R:Record[C]] (BodyContext[C,R]) %}
+<tbody class={{@className}}>
+
+  {% for _, row:Number in @data %}
 
     <tr>
 
-      {% for field in columns %}
+      {% for col:Column[C,R], idx:Number in @columns %}
 
-        <th 
-         class={{t.values.table.thead.th.className(field)}}
-         onclick={{t.values.table.thead.th.onclick(field.name)}}>
-
-            {{...t.values.table.thead.th.content(field)}}
-
-        </th>
+        {{ @cell(col)(idx)(row) }}
 
       {% endfor %}
-
-    </tr>
-
-  </thead>
-
-{% endfun %}
-
-{% fun tbody[C,R:Record[C]] (t:DataTable[C,R]) (columns:Column[C,R][]) (data:R[]) %}
-
-  <tbody wml:id={{t.values.table.tbody.id}}>
-
-    {% for rowData:R,rowIdx:Number in data %}
-
-      <tr 
-        class={{t.values.table.tbody.tr.className}}
-        onclick={{t.values.table.tbody.tr.onclick(rowIdx)}}>
-
-        {% for field:Column[C,R],cellIdx:Number in columns %}
-        
-          <td 
-            wml:id={{t.values.table.tbody.td.id(field.name)(cellIdx)(rowIdx)}}
-            class={{t.values.table.tbody.td.className(field)}}
-            onclick={{t.values.table.tbody.td.onclick(field.name)(rowIdx)}}>
-              
-              {{...t.values.table.tbody.td.content(rowIdx)(rowData)(field)}}
-
-          </td>
-
-        {% endfor %}
       
-      </tr>
+    </tr>
 
   {% endfor %}
 
 </tbody>
 
-{% endfun %}
+{% view CellView[C,R:Record[C]] (CellContext[C,R]) %}
+<td 
+  class={{@className}}
+  onclick={{@onclick}}>
+
+  {{@format(@value) | text }}
+
+</td>
 
 {% view Main [C,R:Record[C]](DataTable[C,R]) %}
 <TableLayout
-    wml:id={{@values.table.wml.id}}
-    ww:id={{@values.table.id}}
-    ww:className={{@values.table.className}}
-    ww:alternate={{@values.table.alternate}}
-    ww:bordered={{@values.table.bordered}}
-    ww:compact={{@values.table.compact}}
-    ww:hoverable={{@values.table.hoverable}}>
+    wml:id={{@values.wml.id}}
+    ww:id={{@values.id}}
+    ww:className={{@values.className}}>
 
-    {{ ... <(@values.table.thead.template())(@)(@values.columns)> }}
-        
-    {{
-       ...<(@values.table.tbody.template())(@)(@values.columns)(@values.table.data)>
-    }}
+    {{ @values.thead() }}
+    
+    {{ @values.tbody() }}
 
 </TableLayout>

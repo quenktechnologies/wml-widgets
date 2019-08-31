@@ -1,5 +1,11 @@
 ///classNames:begin
 export const DATA_TABLE = 'ww-data-table';
+export const DATA_TABLE_HEAD = 'ww-data-table__head';
+export const DATA_TABLE_HEADING = 'ww-data-table__heading';
+export const DATA_TABLE_BODY = 'ww-data-table__body';
+export const DATA_TABLE_CELL = 'ww-data-table__cell';
+export const ASC = '-asc';
+export const DESC = '-desc';
 ///classNames:end
 ///classNames:begin
 export const PROPERTY_LIST = 'ww-property-list';
