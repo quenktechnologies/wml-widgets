@@ -61,28 +61,28 @@ export type SortStrategy<C>
  * HeadFragment type.
  */
 export type HeadFragment<C, R extends Record<C>>
-    = (c: HeadContext<C, R>) => Content
+    = (c: HeadContext<C, R>) => View
     ;
 
 /**
  * HeadingFragment type.
  */
 export type HeadingFragment<C, R extends Record<C>>
-    = (c: HeadingContext<C, R>) => Content
+    = (c: HeadingContext<C, R>) => View
     ;
 
 /**
  * BodyFragment type.
  */
 export type BodyFragment<C, R extends Record<C>>
-    = (c: BodyContext<C, R>) => Content
+    = (c: BodyContext<C, R>) => View
     ;
 
 /**
  * CellFragment type.
  */
 export type CellFragment<C, R extends Record<C>>
-    = (c: CellContext<C, R>) => Content
+    = (c: CellContext<C, R>) => View
     ;
 
 /**
@@ -403,7 +403,8 @@ export class NewHeadContext<C, R extends Record<C>> {
     data = this.table.values.dataset[0];
 
     heading = (c: Column<C, R>) => (i: number) =>
-        getHeadingFragment(this.table)(new NewHeadingContext(this.table, c, i));
+        (getHeadingFragment(this.table)(new NewHeadingContext(this.table, c, i)))
+            .render();
 
 }
 
@@ -453,7 +454,8 @@ export class NewBodyContext<C, R extends Record<C>> {
     data = this.table.values.dataset[0];
 
     cell = (c: Column<C, R>) => (id: number) => (row: number) =>
-        getCellFragment(this.table)(new NewCellContext(this.table, c, id, row));
+        (getCellFragment(this.table)(new NewCellContext(this.table, c, id, row)))
+            .render();
 
 }
 
@@ -516,10 +518,10 @@ export class DataTable<C, R extends Record<C>>
             this.attrs.ww.columns : [],
 
         thead: (): Content =>
-            getHeadFragment(this)(new NewHeadContext(this)),
+            (getHeadFragment(this)(new NewHeadContext(this))).render(),
 
         tbody: (): Content =>
-            getBodyFragment(this)(new NewBodyContext(this))
+            (getBodyFragment(this)(new NewBodyContext(this))).render()
 
     }
 
@@ -609,7 +611,7 @@ const getHeadFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
         defaultHeadFragment;
 
 const defaultHeadFragment = <C, R extends Record<C>>
-    (c: HeadContext<C, R>) => new views.HeadView(c).render();
+    (c: HeadContext<C, R>) => new views.HeadView(c);
 
 const getHeadingFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
     (table.attrs.ww && table.attrs.ww.headingFragment) ?
@@ -617,7 +619,7 @@ const getHeadingFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
         defaultHeadingFragment;
 
 const defaultHeadingFragment = <C, R extends Record<C>>
-    (c: HeadingContext<C, R>) => new views.HeadingView(c).render();
+    (c: HeadingContext<C, R>) => new views.HeadingView(c);
 
 const getBodyFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
     (table.attrs.ww && table.attrs.ww.bodyFragment) ?
@@ -625,7 +627,7 @@ const getBodyFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
         defaultBodyFragment;
 
 const defaultBodyFragment = <C, R extends Record<C>>
-    (c: BodyContext<C, R>) => new views.BodyView(c).render();
+    (c: BodyContext<C, R>) => new views.BodyView(c);
 
 const getCellFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
     (table.attrs.ww && table.attrs.ww.cellFragment) ?
@@ -633,7 +635,7 @@ const getCellFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
         defaultCellFragment;
 
 const defaultCellFragment = <C, R extends Record<C>>
-    (c: CellContext<C, R>) => new views.CellView(c).render();
+    (c: CellContext<C, R>) => new views.CellView(c);
 
 const getSortStrategy = (s: SortStrategy<Type>): Sorter<Type> => {
 

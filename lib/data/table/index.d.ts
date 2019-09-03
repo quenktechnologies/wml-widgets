@@ -34,19 +34,19 @@ export declare type SortStrategy<C> = string | Sorter<C>;
 /**
  * HeadFragment type.
  */
-export declare type HeadFragment<C, R extends Record<C>> = (c: HeadContext<C, R>) => Content;
+export declare type HeadFragment<C, R extends Record<C>> = (c: HeadContext<C, R>) => View;
 /**
  * HeadingFragment type.
  */
-export declare type HeadingFragment<C, R extends Record<C>> = (c: HeadingContext<C, R>) => Content;
+export declare type HeadingFragment<C, R extends Record<C>> = (c: HeadingContext<C, R>) => View;
 /**
  * BodyFragment type.
  */
-export declare type BodyFragment<C, R extends Record<C>> = (c: BodyContext<C, R>) => Content;
+export declare type BodyFragment<C, R extends Record<C>> = (c: BodyContext<C, R>) => View;
 /**
  * CellFragment type.
  */
-export declare type CellFragment<C, R extends Record<C>> = (c: CellContext<C, R>) => Content;
+export declare type CellFragment<C, R extends Record<C>> = (c: CellContext<C, R>) => View;
 /**
  * HeadContext
  */
