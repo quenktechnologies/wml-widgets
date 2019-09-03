@@ -403,7 +403,7 @@ export class NewHeadContext<C, R extends Record<C>> {
     data = this.table.values.dataset[0];
 
     heading = (c: Column<C, R>) => (i: number) =>
-        (getHeadingFragment(this.table)(new NewHeadingContext(this.table, c, i)))
+        (getHeadingFragment(this.table, c)(new NewHeadingContext(this.table, c, i)))
             .render();
 
 }
@@ -454,7 +454,7 @@ export class NewBodyContext<C, R extends Record<C>> {
     data = this.table.values.dataset[0];
 
     cell = (c: Column<C, R>) => (id: number) => (row: number) =>
-        (getCellFragment(this.table)(new NewCellContext(this.table, c, id, row)))
+        (getCellFragment(this.table, c)(new NewCellContext(this.table, c, id, row)))
             .render();
 
 }
@@ -613,10 +613,12 @@ const getHeadFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
 const defaultHeadFragment = <C, R extends Record<C>>
     (c: HeadContext<C, R>) => new views.HeadView(c);
 
-const getHeadingFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
-    (table.attrs.ww && table.attrs.ww.headingFragment) ?
-        table.attrs.ww.headingFragment :
-        defaultHeadingFragment;
+const getHeadingFragment = <C, R extends Record<C>>
+    (table: DataTable<C, R>, c: Column<C, R>) =>
+    c.headingFragment ? c.headingFragment :
+        (table.attrs.ww && table.attrs.ww.headingFragment) ?
+            table.attrs.ww.headingFragment :
+            defaultHeadingFragment;
 
 const defaultHeadingFragment = <C, R extends Record<C>>
     (c: HeadingContext<C, R>) => new views.HeadingView(c);
@@ -629,10 +631,12 @@ const getBodyFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
 const defaultBodyFragment = <C, R extends Record<C>>
     (c: BodyContext<C, R>) => new views.BodyView(c);
 
-const getCellFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
-    (table.attrs.ww && table.attrs.ww.cellFragment) ?
-        table.attrs.ww.cellFragment :
-        defaultCellFragment;
+const getCellFragment = <C, R extends Record<C>>
+    (table: DataTable<C, R>, c: Column<C, R>) =>
+    c.cellFragment ? c.cellFragment :
+        (table.attrs.ww && table.attrs.ww.cellFragment) ?
+            table.attrs.ww.cellFragment :
+            defaultCellFragment;
 
 const defaultCellFragment = <C, R extends Record<C>>
     (c: CellContext<C, R>) => new views.CellView(c);
