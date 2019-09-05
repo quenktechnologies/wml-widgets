@@ -1,15 +1,7 @@
 import * as views from './wml/table';
 import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
-import { Type } from '@quenk/noni/lib/data/type';
-import { unsafeGet, getDefault } from '@quenk/noni/lib/data/record/path';
-import {
-    Sorter,
-    date as dateSort,
-    string as stringSort,
-    number as numberSort,
-    natural as naturalSort
-} from '@quenk/noni/lib/data/array/sort';
+import { unsafeGet } from '@quenk/noni/lib/data/record/path';
 import { concat } from '../../util';
 import {
     WidgetAttrs,
@@ -17,6 +9,11 @@ import {
     getId,
     getClassName
 } from '../../';
+import { sortById, Dataset, SortKey } from './column/sort';
+import { Column } from './column';
+import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent } from './event';
+
+export { Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent }
 
 ///classNames:begin
 export const DATA_TABLE = 'ww-data-table';
@@ -34,28 +31,6 @@ export const DESC = '-desc';
  * Refers to path notation.
  */
 export type Path = string;
-
-/**
- * SortAlias type.
- *
- * This is a path that should be used instead of the name field when
- * retrieving a column's sort target.
- */
-export type SortAlias = string;
-
-/**
- * SortKey stores the column id and direction data has been sorted by.
- */
-export type SortKey = [number, -1 | 1]
-
-/**
- * SortStrategy is a function that can be used to sort data or a 
- * string refernece to one.
- */
-export type SortStrategy<C>
-    = string
-    | Sorter<C>
-    ;
 
 /**
  * HeadFragment type.
@@ -210,65 +185,6 @@ export interface CellContext<C, R extends Record<C>> {
      * onclick handler
      */
     onclick: (e: Event) => void
-}
-
-/**
- * Column provides the information a DataTable needs to render the cells
- * of a column in each row.
- */
-export interface Column<C, R extends Record<C>> {
-
-    /**
-     * name of the property to use for this column.
-     *
-     * Can be a name or path expression.
-     */
-    name: Path,
-
-    /**
-     * heading displayed for the column.
-     */
-    heading: string,
-
-    /**
-     * headingClassName will be appended to the column's class list.
-     */
-    headingClassName?: string,
-
-    /**
-     * cellClassName will be appended to each cell's class list.
-     */
-    cellClassName?: string,
-
-    /**
-     * format can be specified to transform the stringified value of each cell
-     * before display.
-     */
-    format?: (c: C) => string,
-
-    /**
-     * headingFragment can be specified to customise the rending
-     * of the heading content.
-     */
-    headingFragment?: HeadingFragment<C, R>,
-
-    /**
-     * cellFragment can be specified to customise the rendering
-     * of the cell content.
-     */
-    cellFragment?: CellFragment<C, R>,
-
-    /**
-     * alias specifies the path that should be used when sorting by this column.
-     */
-    alias?: SortAlias,
-
-    /**
-     * sort indicates how to sort by the column.
-     *
-     * If this is specified, sorting by the column will be enabled.
-     */
-    sort?: SortStrategy<C>
 
 }
 
@@ -334,6 +250,13 @@ export interface DataTableAttrs<C, R extends Record<C>>
     onCellClicked?: (e: CellClickedEvent) => void,
 
     /**
+     * sortable indicates whether sorting is enabled for the table.
+     *
+     * Default false.
+     */
+    sortable?: boolean,
+
+    /**
      * sortKey can be specified to indicate the data has been presorted.
      */
     sortKey?: SortKey,
@@ -341,7 +264,7 @@ export interface DataTableAttrs<C, R extends Record<C>>
     /**
      * columns list used to structure the table.
      */
-    columns: Column<C, R>[],
+    columns?: Column<C, R>[],
 
     /**
      * data list used to populate table data.
@@ -354,37 +277,6 @@ export interface DataTableAttrs<C, R extends Record<C>>
      * Fired whenever the internal data representation changes.
      */
     onChange?: (e: DataChangedEvent<R>) => void
-
-}
-
-/**
- * HeadingClicked is triggered when the user clicks on 
- * one of the column headings.
- */
-export class HeadingClickedEvent {
-
-    constructor(public column: number) { }
-
-}
-
-/**
- * CellClickedEvent triggered when a cell is clicked on.
- */
-export class CellClickedEvent {
-
-    constructor(
-        public column: number,
-        public row: number) { }
-
-}
-
-/**
- * DataChangedEvent generated when the internal representation of the data
- * changes.
- */
-export class DataChangedEvent<R> {
-
-    constructor(public data: R[]) { }
 
 }
 
@@ -429,7 +321,11 @@ export class NewHeadingContext<C, R extends Record<C>> {
 
     onclick = (_: Event) => {
 
-        this.table.sort(this.index);
+        if (this.table.values.sortable)
+            this.table.sort(this.index);
+
+        if (this.column.onHeadingClicked)
+            this.column.onHeadingClicked(new HeadingClickedEvent(this.index));
 
         if (this.table.attrs.ww && this.table.attrs.ww.onHeadingClicked)
             this.table.attrs.ww.onHeadingClicked(
@@ -483,6 +379,9 @@ export class NewCellContext<C, R extends Record<C>> {
 
     onclick = () => {
 
+        if (this.spec.onCellClicked)
+            this.spec.onCellClicked(new CellClickedEvent(this.column, this.row));
+
         if (this.table.attrs.ww && this.table.attrs.ww.onCellClicked)
             this.table.attrs.ww.onCellClicked(
                 new CellClickedEvent(this.column, this.row));
@@ -507,12 +406,15 @@ export class DataTable<C, R extends Record<C>>
 
         className: concat(DATA_TABLE, getClassName(this.attrs)),
 
+        sortable: (this.attrs.ww && this.attrs.ww.sortable) ?
+            this.attrs.ww.sortable : false,
+
         sortKey: <SortKey>((this.attrs.ww && this.attrs.ww.sortKey) ?
             this.attrs.ww.sortKey : [-1, 1]),
 
-        dataset: (this.attrs.ww && this.attrs.ww.data) ?
+        dataset: <Dataset<R>>((this.attrs.ww && this.attrs.ww.data) ?
             [this.attrs.ww.data.slice(), this.attrs.ww.data.slice()] :
-            [[], []],
+            [[], []]),
 
         columns: (this.attrs.ww && this.attrs.ww.columns) ?
             this.attrs.ww.columns : [],
@@ -554,6 +456,7 @@ export class DataTable<C, R extends Record<C>>
     setSortKey(key: SortKey): DataTable<C, R> {
 
         this.values.sortKey = key;
+        this.view.invalidate();
         return this;
 
     }
@@ -568,32 +471,13 @@ export class DataTable<C, R extends Record<C>>
      */
     sort(id: number): DataTable<C, R> {
 
-        let spec = this.values.columns[id];
+        let { columns, sortKey, dataset } = this.values;
 
-        if (spec === undefined) return this;
+        let [data, key] = sortById(columns, sortKey, dataset, id);
 
-        if (!spec.sort) return this;
+        this.values.dataset[0] = data;
 
-        if (this.values.sortKey[0] === id) {
-
-            this.values.dataset[0] = this.values.dataset[0].reverse();
-
-            this.values.sortKey =
-                <SortKey>[this.values.sortKey[0], this.values.sortKey[1] * -1];
-
-
-        } else {
-
-            let strategy = getSortStrategy(spec.sort);
-
-            let alias = spec.alias ? spec.alias : spec.name;
-
-            this.values.sortKey = [id, -1];
-
-            this.values.dataset[0] =
-                doSort(this.values.dataset[1].slice(), strategy, alias);
-
-        }
+        this.values.sortKey = key;
 
         this.fireChange();
 
@@ -640,27 +524,6 @@ const getCellFragment = <C, R extends Record<C>>
 
 const defaultCellFragment = <C, R extends Record<C>>
     (c: CellContext<C, R>) => new views.CellView(c);
-
-const getSortStrategy = (s: SortStrategy<Type>): Sorter<Type> => {
-
-    if (typeof s === 'function') return s;
-
-    if (s === 'date') return dateSort;
-
-    if (s === 'number') return numberSort;
-
-    if (s === 'string') return stringSort;
-
-    return naturalSort;
-
-}
-
-const doSort = <C, R extends Record<C>>
-    (data: R[], s: Sorter<C>, alias: string) =>
-    data.sort((a, b) => s(<C>getAny(alias, a), <C>getAny(alias, b)));
-
-const getAny = <C>(path: string, src: Record<C>) =>
-    getDefault(path, src, undefined);
 
 const getSortClassName = (key: SortKey, index: number) =>
     (key[0] === index) ? (key[1] === 1) ? ASC : DESC : '';
