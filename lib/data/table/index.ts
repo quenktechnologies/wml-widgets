@@ -1,8 +1,9 @@
 import * as views from './wml/table';
 import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
+import { make } from '@quenk/noni/lib/data/array';
 import { unsafeGet } from '@quenk/noni/lib/data/record/path';
-import { concat } from '../../util';
+import { concat, getById } from '../../util';
 import {
     WidgetAttrs,
     HTMLElementAttrs,
@@ -11,9 +12,25 @@ import {
 } from '../../';
 import { sortById, Dataset, SortKey } from './column/sort';
 import { Column } from './column';
-import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent } from './event';
+import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId } from './event';
+import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
+import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
+import { Range, RangeInstance } from './range';
 
-export { Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent }
+export {
+    HeadFragment,
+    HeadContext,
+    HeadingFragment,
+    HeadingContext,
+    BodyFragment,
+    BodyContext,
+    CellFragment,
+    CellContext,
+    Column,
+    DataChangedEvent,
+    CellClickedEvent,
+    HeadingClickedEvent
+}
 
 ///classNames:begin
 export const DATA_TABLE = 'ww-data-table';
@@ -24,169 +41,6 @@ export const DATA_TABLE_CELL = 'ww-data-table__cell';
 export const ASC = '-asc';
 export const DESC = '-desc';
 ///classNames:end
-
-/**
- * Path type.
- *
- * Refers to path notation.
- */
-export type Path = string;
-
-/**
- * HeadFragment type.
- */
-export type HeadFragment<C, R extends Record<C>>
-    = (c: HeadContext<C, R>) => View
-    ;
-
-/**
- * HeadingFragment type.
- */
-export type HeadingFragment<C, R extends Record<C>>
-    = (c: HeadingContext<C, R>) => View
-    ;
-
-/**
- * BodyFragment type.
- */
-export type BodyFragment<C, R extends Record<C>>
-    = (c: BodyContext<C, R>) => View
-    ;
-
-/**
- * CellFragment type.
- */
-export type CellFragment<C, R extends Record<C>>
-    = (c: CellContext<C, R>) => View
-    ;
-
-/**
- * HeadContext
- */
-export interface HeadContext<C, R extends Record<C>> {
-
-    /**
-     * className for the <thead>
-     */
-    className: string,
-
-    /**
-     * columns used to generate the headings.
-     */
-    columns: Column<C, R>[],
-
-    /**
-     * data supplied to the table.
-     */
-    data: R[],
-
-    /**
-     * heading generates the heading cell from a column spec.
-     */
-    heading: (c: Column<C, R>) => (n: number) => Content
-
-}
-
-/**
- * HeadingContext
- */
-export interface HeadingContext<C, R extends Record<C>> {
-
-    /**
-     * className
-     */
-    className: string,
-
-    /**
-     * column used to generate the heading.
-     */
-    column: Column<C, R>,
-
-    /**
-     * columns used to generate the headings.
-     */
-    columns: Column<C, R>[],
-
-    /**
-     * data supplied to the table.
-     */
-    data: R[],
-
-    /**
-     * onclick handler
-     */
-    onclick: (e: Event) => void
-
-}
-
-/**
- * BodyContext
- */
-export interface BodyContext<C, R extends Record<C>> {
-
-    /**
-     * className for the <tbody>
-     */
-    className: string,
-
-    /**
-     * columns used to generate the body cells.
-     */
-    columns: Column<C, R>[],
-
-    /**
-     * data supplied to the table.
-     */
-    data: R[],
-
-    /**
-     * cell generates a cell from a column spec.
-     */
-    cell: (c: Column<C, R>) => (idx: number) => (row: number) => Content
-
-}
-
-/**
- * CellContext
- */
-export interface CellContext<C, R extends Record<C>> {
-
-    /**
-     * className
-     */
-    className: string,
-
-    /**
-     * column indicates the index of the column used to render the cell.
-     */
-    column: number,
-
-    /**
-     * row indicates the row of data the cell value belongs to.
-     */
-    row: number,
-
-    /**
-     * value for the cell.
-     */
-    value: C,
-
-    /**
-     * datum is the entire record of data the cell value comes from.
-     */
-    datum: R,
-
-    /**
-     * format turns a cell value into a string.
-     */
-    format: (c: C) => string,
-
-    /**
-     * onclick handler
-     */
-    onclick: (e: Event) => void
-
-}
 
 /**
  * DataTableAttrs
@@ -294,9 +148,11 @@ export class NewHeadContext<C, R extends Record<C>> {
 
     data = this.table.values.dataset[0];
 
-    heading = (c: Column<C, R>) => (i: number) =>
-        (getHeadingFragment(this.table, c)(new NewHeadingContext(this.table, c, i)))
-            .render();
+    heading = (c: Column<C, R>) => (i: number): Content =>
+        getHeadingView(
+            this.table,
+            new NewHeadingContext(this.table, this, c, i),
+            c).render();
 
 }
 
@@ -307,6 +163,7 @@ export class NewHeadingContext<C, R extends Record<C>> {
 
     constructor(
         public table: DataTable<C, R>,
+        public headContext: HeadContext<C, R>,
         public column: Column<C, R>,
         public index: number) { }
 
@@ -314,10 +171,6 @@ export class NewHeadingContext<C, R extends Record<C>> {
         (this.table.attrs.ww && this.table.attrs.ww.headingClassName || ''),
         <string>this.column.headingClassName,
         getSortClassName(this.table.values.sortKey, this.index));
-
-    columns = this.table.values.columns;
-
-    data = this.table.values.dataset[0];
 
     onclick = (_: Event) => {
 
@@ -349,9 +202,11 @@ export class NewBodyContext<C, R extends Record<C>> {
 
     data = this.table.values.dataset[0];
 
-    cell = (c: Column<C, R>) => (id: number) => (row: number) =>
-        (getCellFragment(this.table, c)(new NewCellContext(this.table, c, id, row)))
-            .render();
+    cell = (c: Column<C, R>) => (id: number) => (row: number): Content =>
+        getCellView(
+            this.table,
+            new NewCellContext(this.table, this, c, id, row),
+            c).render();
 
 }
 
@@ -362,9 +217,12 @@ export class NewCellContext<C, R extends Record<C>> {
 
     constructor(
         public table: DataTable<C, R>,
+        public bodyContext: BodyContext<C, R>,
         public spec: Column<C, R>,
         public column: number,
         public row: number) { }
+
+    id = cellId(this.column, this.row);
 
     className = concat(DATA_TABLE_CELL,
         (this.table.attrs.ww && this.table.attrs.ww.cellClassName || ''),
@@ -398,6 +256,10 @@ export class DataTable<C, R extends Record<C>>
 
     view: View = new views.Main(this);
 
+    theadView: View = new views.EmptyView({});
+
+    tbodyView: View = new views.EmptyView({});
+
     values = {
 
         wml: { id: 'table' },
@@ -419,11 +281,19 @@ export class DataTable<C, R extends Record<C>>
         columns: (this.attrs.ww && this.attrs.ww.columns) ?
             this.attrs.ww.columns : [],
 
-        thead: (): Content =>
-            (getHeadFragment(this)(new NewHeadContext(this))).render(),
+        thead: (): Content => {
 
-        tbody: (): Content =>
-            (getBodyFragment(this)(new NewBodyContext(this))).render()
+            this.theadView = getHeadView(this, new NewHeadContext(this));
+            return this.theadView.render();
+
+        },
+
+        tbody: (): Content => {
+
+            this.tbodyView = getBodyView(this, new NewBodyContext(this))
+            return this.tbodyView.render();
+
+        }
 
     }
 
@@ -444,18 +314,23 @@ export class DataTable<C, R extends Record<C>>
     update(data: R[]): DataTable<C, R> {
 
         this.values.dataset = [data.slice(), data.slice()];
+
         this.fireChange();
+
         this.view.invalidate();
         return this;
 
     }
 
     /**
-     * setSortKey changes the internal sort key.
+     * updateWithSortKey is like update but will set the sort key as well.
      */
-    setSortKey(key: SortKey): DataTable<C, R> {
+    updateWithSortKey(data: R[], key: SortKey): DataTable<C, R> {
 
+        this.values.dataset = [data.slice(), data.slice()];
         this.values.sortKey = key;
+
+        this.fireChange();
         this.view.invalidate();
         return this;
 
@@ -487,43 +362,68 @@ export class DataTable<C, R extends Record<C>>
 
     }
 
+    /**
+     * getRow returns a Range of HTMLTableCellElements for the row
+     * that matches the provided id.
+     *
+     * If no rows are found by that id, the Range will be empty.
+     * In order for this method to work the body view MUST include
+     * the wml:id on each <tr> element that represents a row of data.
+     */
+    getRow(row: RowId): Range {
+
+        let mTr = getById<HTMLTableRowElement>(this.tbodyView, `${row}`);
+
+        if (mTr.isNothing()) return new RangeInstance([]);
+
+        let tr = mTr.get();
+
+        return new RangeInstance(make(tr.cells.length,
+            (n: number) => tr.cells[n]));
+
+    }
+
+    /**
+     * getCell provides a Range containing a cell located at the 
+     * intersection of the column and row.
+     */
+    getCell(column: ColumnId, row: RowId): Range {
+
+        let cells = this.getRow(row).cells;
+
+        if (!cells[column]) return new RangeInstance([]);
+
+        return new RangeInstance([cells[column]]);
+
+    }
+
 }
 
-const getHeadFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
+const getHeadView = <C, R extends Record<C>>
+    (table: DataTable<C, R>, ctx: HeadContext<C, R>) =>
     (table.attrs.ww && table.attrs.ww.headFragment) ?
-        table.attrs.ww.headFragment :
-        defaultHeadFragment;
+        table.attrs.ww.headFragment(ctx) : new views.HeadView(ctx)
 
-const defaultHeadFragment = <C, R extends Record<C>>
-    (c: HeadContext<C, R>) => new views.HeadView(c);
-
-const getHeadingFragment = <C, R extends Record<C>>
-    (table: DataTable<C, R>, c: Column<C, R>) =>
-    c.headingFragment ? c.headingFragment :
+const getHeadingView = <C, R extends Record<C>>
+    (table: DataTable<C, R>, ctx: HeadingContext<C, R>, c: Column<C, R>, ) =>
+    c.headingFragment ? c.headingFragment(ctx) :
         (table.attrs.ww && table.attrs.ww.headingFragment) ?
-            table.attrs.ww.headingFragment :
-            defaultHeadingFragment;
+            table.attrs.ww.headingFragment(ctx) : new views.HeadingView(ctx);
 
-const defaultHeadingFragment = <C, R extends Record<C>>
-    (c: HeadingContext<C, R>) => new views.HeadingView(c);
-
-const getBodyFragment = <C, R extends Record<C>>(table: DataTable<C, R>) =>
+const getBodyView = <C, R extends Record<C>>
+    (table: DataTable<C, R>, ctx: BodyContext<C, R>) =>
     (table.attrs.ww && table.attrs.ww.bodyFragment) ?
-        table.attrs.ww.bodyFragment :
-        defaultBodyFragment;
+        table.attrs.ww.bodyFragment(ctx) :
+        new views.BodyView(ctx);
 
-const defaultBodyFragment = <C, R extends Record<C>>
-    (c: BodyContext<C, R>) => new views.BodyView(c);
-
-const getCellFragment = <C, R extends Record<C>>
-    (table: DataTable<C, R>, c: Column<C, R>) =>
-    c.cellFragment ? c.cellFragment :
+const getCellView = <C, R extends Record<C>>
+    (table: DataTable<C, R>, ctx: CellContext<C, R>, c: Column<C, R>) =>
+    c.cellFragment ? c.cellFragment(ctx) :
         (table.attrs.ww && table.attrs.ww.cellFragment) ?
-            table.attrs.ww.cellFragment :
-            defaultCellFragment;
-
-const defaultCellFragment = <C, R extends Record<C>>
-    (c: CellContext<C, R>) => new views.CellView(c);
+            table.attrs.ww.cellFragment(ctx) :
+            new views.CellView(ctx);
 
 const getSortClassName = (key: SortKey, index: number) =>
     (key[0] === index) ? (key[1] === 1) ? ASC : DESC : '';
+
+const cellId = (column: ColumnId, row: RowId) => `${column},${row}`

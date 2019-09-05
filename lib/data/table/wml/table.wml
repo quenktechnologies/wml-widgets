@@ -9,6 +9,9 @@
    Column, 
    DataTable) from "../" %}
 
+{% view EmptyView (Object) %}
+<div/>
+
 {% view HeadView[C,R:Record[C]] (HeadContext[C,R]) %}
 <thead class={{@className}}>
 
@@ -38,7 +41,7 @@
 
   {% for _, row:Number in @data %}
 
-    <tr>
+    <tr wml:id={{String(row)}}>
 
       {% for col:Column[C,R], idx:Number in @columns %}
 
@@ -54,6 +57,7 @@
 
 {% view CellView[C,R:Record[C]] (CellContext[C,R]) %}
 <td 
+  wml:id={{@id}}
   class={{@className}}
   onclick={{@onclick}}>
 

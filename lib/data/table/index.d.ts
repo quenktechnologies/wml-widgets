@@ -3,8 +3,11 @@ import { Record } from '@quenk/noni/lib/data/record';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 import { SortKey } from './column/sort';
 import { Column } from './column';
-import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent } from './event';
-export { Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent };
+import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId } from './event';
+import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
+import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
+import { Range } from './range';
+export { HeadFragment, HeadContext, HeadingFragment, HeadingContext, BodyFragment, BodyContext, CellFragment, CellContext, Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent };
 export declare const DATA_TABLE = "ww-data-table";
 export declare const DATA_TABLE_HEAD = "ww-data-table__head";
 export declare const DATA_TABLE_HEADING = "ww-data-table__heading";
@@ -12,128 +15,6 @@ export declare const DATA_TABLE_BODY = "ww-data-table__body";
 export declare const DATA_TABLE_CELL = "ww-data-table__cell";
 export declare const ASC = "-asc";
 export declare const DESC = "-desc";
-/**
- * Path type.
- *
- * Refers to path notation.
- */
-export declare type Path = string;
-/**
- * HeadFragment type.
- */
-export declare type HeadFragment<C, R extends Record<C>> = (c: HeadContext<C, R>) => View;
-/**
- * HeadingFragment type.
- */
-export declare type HeadingFragment<C, R extends Record<C>> = (c: HeadingContext<C, R>) => View;
-/**
- * BodyFragment type.
- */
-export declare type BodyFragment<C, R extends Record<C>> = (c: BodyContext<C, R>) => View;
-/**
- * CellFragment type.
- */
-export declare type CellFragment<C, R extends Record<C>> = (c: CellContext<C, R>) => View;
-/**
- * HeadContext
- */
-export interface HeadContext<C, R extends Record<C>> {
-    /**
-     * className for the <thead>
-     */
-    className: string;
-    /**
-     * columns used to generate the headings.
-     */
-    columns: Column<C, R>[];
-    /**
-     * data supplied to the table.
-     */
-    data: R[];
-    /**
-     * heading generates the heading cell from a column spec.
-     */
-    heading: (c: Column<C, R>) => (n: number) => Content;
-}
-/**
- * HeadingContext
- */
-export interface HeadingContext<C, R extends Record<C>> {
-    /**
-     * className
-     */
-    className: string;
-    /**
-     * column used to generate the heading.
-     */
-    column: Column<C, R>;
-    /**
-     * columns used to generate the headings.
-     */
-    columns: Column<C, R>[];
-    /**
-     * data supplied to the table.
-     */
-    data: R[];
-    /**
-     * onclick handler
-     */
-    onclick: (e: Event) => void;
-}
-/**
- * BodyContext
- */
-export interface BodyContext<C, R extends Record<C>> {
-    /**
-     * className for the <tbody>
-     */
-    className: string;
-    /**
-     * columns used to generate the body cells.
-     */
-    columns: Column<C, R>[];
-    /**
-     * data supplied to the table.
-     */
-    data: R[];
-    /**
-     * cell generates a cell from a column spec.
-     */
-    cell: (c: Column<C, R>) => (idx: number) => (row: number) => Content;
-}
-/**
- * CellContext
- */
-export interface CellContext<C, R extends Record<C>> {
-    /**
-     * className
-     */
-    className: string;
-    /**
-     * column indicates the index of the column used to render the cell.
-     */
-    column: number;
-    /**
-     * row indicates the row of data the cell value belongs to.
-     */
-    row: number;
-    /**
-     * value for the cell.
-     */
-    value: C;
-    /**
-     * datum is the entire record of data the cell value comes from.
-     */
-    datum: R;
-    /**
-     * format turns a cell value into a string.
-     */
-    format: (c: C) => string;
-    /**
-     * onclick handler
-     */
-    onclick: (e: Event) => void;
-}
 /**
  * DataTableAttrs
  */
@@ -223,12 +104,11 @@ export declare class NewHeadContext<C, R extends Record<C>> {
  */
 export declare class NewHeadingContext<C, R extends Record<C>> {
     table: DataTable<C, R>;
+    headContext: HeadContext<C, R>;
     column: Column<C, R>;
     index: number;
-    constructor(table: DataTable<C, R>, column: Column<C, R>, index: number);
+    constructor(table: DataTable<C, R>, headContext: HeadContext<C, R>, column: Column<C, R>, index: number);
     className: string;
-    columns: Column<C, R>[];
-    data: R[];
     onclick: (_: Event) => void;
 }
 /**
@@ -247,10 +127,12 @@ export declare class NewBodyContext<C, R extends Record<C>> {
  */
 export declare class NewCellContext<C, R extends Record<C>> {
     table: DataTable<C, R>;
+    bodyContext: BodyContext<C, R>;
     spec: Column<C, R>;
     column: number;
     row: number;
-    constructor(table: DataTable<C, R>, spec: Column<C, R>, column: number, row: number);
+    constructor(table: DataTable<C, R>, bodyContext: BodyContext<C, R>, spec: Column<C, R>, column: number, row: number);
+    id: string;
     className: string;
     value: C;
     datum: R;
@@ -263,6 +145,8 @@ export declare class NewCellContext<C, R extends Record<C>> {
  */
 export declare class DataTable<C, R extends Record<C>> extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
     view: View;
+    theadView: View;
+    tbodyView: View;
     values: {
         wml: {
             id: string;
@@ -285,9 +169,9 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
      */
     update(data: R[]): DataTable<C, R>;
     /**
-     * setSortKey changes the internal sort key.
+     * updateWithSortKey is like update but will set the sort key as well.
      */
-    setSortKey(key: SortKey): DataTable<C, R>;
+    updateWithSortKey(data: R[], key: SortKey): DataTable<C, R>;
     /**
      * sort the table data by the column id specified.
      *
@@ -297,4 +181,18 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
      * This method causes a repaint.
      */
     sort(id: number): DataTable<C, R>;
+    /**
+     * getRow returns a Range of HTMLTableCellElements for the row
+     * that matches the provided id.
+     *
+     * If no rows are found by that id, the Range will be empty.
+     * In order for this method to work the body view MUST include
+     * the wml:id on each <tr> element that represents a row of data.
+     */
+    getRow(row: RowId): Range;
+    /**
+     * getCell provides a Range containing a cell located at the
+     * intersection of the column and row.
+     */
+    getCell(column: ColumnId, row: RowId): Range;
 }

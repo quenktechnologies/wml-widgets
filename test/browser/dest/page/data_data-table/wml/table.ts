@@ -2,7 +2,6 @@ import * as __wml from '@quenk/wml';
 
 import {Demo} from '../../../widgets/demo'; ;
 import {DataTable} from '../../../../../../lib/data/table'; ;
-import {TableWindow} from '../../../../../../lib/layout/table'; ;
 import {DataTablePage} from '../'; 
 //@ts-ignore: 6192
 import {
@@ -65,85 +64,13 @@ export class Main  implements __wml.View {
 
            return __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
-
         __this.node('h3', {html : {  } ,wml : {  } }, [
 
-        document.createTextNode(`Normal`)
+        document.createTextNode(`Data Table`)
      ]),
-__this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
+__this.widget(DataTable, {html : {  } ,wml : { 'id' : __context.values.id   } ,ww : { 'sortable' : true  ,'onCellClicked' : __context.values.onCellClicked  ,'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
 
         
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.node('h3', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`Alternate`)
-     ]),
-__this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'className' : `-alternate` ,'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
-
-        
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.node('h3', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`Bordered`)
-     ]),
-__this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'className' : `-bordered` ,'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
-
-        
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.node('h3', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`Hoverable`)
-     ]),
-__this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'className' : `-hoverable` ,'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
-
-        
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.node('h3', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`Compact`)
-     ]),
-__this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'className' : `-compact` ,'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
-
-        
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.node('h3', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`Windowed`)
-     ]),
-__this.widget(TableWindow, {html : {  } ,wml : {  } }, [
-
-        __this.widget(DataTable, {html : {  } ,wml : {  } ,ww : { 'data' : __context.values.users  ,'columns' : __context.values.columns   } }, [
-
-        
-     ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.node('h3', {html : {  } ,wml : {  } }, [
-
-        document.createTextNode(`Sortable`)
-     ]),
-__this.widget(DataTable, {html : {  } ,wml : { 'id' : `sortable`  } ,ww : { 'sortable' : true  ,'data' : __context.values.users  ,'columns' : __context.values.sortColumns   } }, [
-
-        
-     ])
      ])
      ]);
 

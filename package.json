@@ -19,7 +19,7 @@
     "@quenk/wml": "^0.17.0"
   },
   "dependencies": {
-    "@quenk/noni": "^1.30.2",
+    "@quenk/noni": "^1.31.1",
     "@quenk/polate": "^1.3.0",
     "moment": "^2.21.0",
     "property-seek": "^3.1.0"

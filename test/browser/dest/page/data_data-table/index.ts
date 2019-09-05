@@ -1,18 +1,10 @@
 import * as wml from '@quenk/wml';
+import { CellClickedEvent, DataTable } from '../../../../../lib/data/table';
 import { Main } from './wml/table';
 import { users } from './data';
+import { getById } from '../../../../../lib/util';
 
 const columns = [
-
-    { name: 'index', heading: '#' },
-    { name: 'name', heading: 'Name' },
-    { name: 'gender', heading: 'Gender' },
-    { name: 'email', heading: 'Email' },
-    { name: 'balance', heading: 'Balance' },
-
-];
-
-const sortColumns = [
 
     { name: 'index', heading: '#', sort: 'yes' },
     { name: 'name', heading: 'Name', sort: 'yes' },
@@ -38,9 +30,25 @@ export class DataTablePage {
 
     values = {
 
+        id: 'table',
         users,
         columns,
-        sortColumns
+
+        onCellClicked: (e: CellClickedEvent) => {
+
+            let mDT =
+                getById<DataTable<number | string, User>>(this.view, this.values.id);
+
+            if (mDT.isNothing()) return;
+
+            let dt = mDT.get();
+
+            dt.getCell(e.column, e.row).cells.forEach(c => {
+                c.style.backgroundColor = 'red';
+                c.style.color = '#fff';
+            });
+
+        }
 
     }
 
