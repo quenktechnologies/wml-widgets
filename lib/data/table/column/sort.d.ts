@@ -1,0 +1,32 @@
+import { Record } from '@quenk/noni/lib/data/record';
+import { Sorter } from '@quenk/noni/lib/data/array/sort';
+import { Column } from './';
+/**
+ * SortAlias type.
+ *
+ * This is a path that should be used instead of the name field when
+ * retrieving a column's sort target.
+ */
+export declare type SortAlias = string;
+/**
+ * SortKey stores the column id and direction data has been sorted by.
+ */
+export declare type SortKey = [number, -1 | 1];
+/**
+ * SortStrategy is a function that can be used to sort data or a
+ * string refernece to one.
+ */
+export declare type SortStrategy<C> = string | Sorter<C>;
+/**
+ * Dataset type.
+ *
+ * The left value is the data that is sorted and displayed while
+ * the right is the original data untouched.
+ */
+export declare type Dataset<R> = [R[], R[]];
+/**
+ * sortById sorts a dataset by a column using the columns id.
+ *
+ * Data is only sorted by one column at a time.
+ */
+export declare const sortById: <C, R extends Record<C>>(cols: Column<C, R>[], key: [number, 1 | -1], data: [R[], R[]], id: number) => [R[], [number, 1 | -1]];

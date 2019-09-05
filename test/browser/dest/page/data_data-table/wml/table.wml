@@ -81,6 +81,7 @@
 
       <DataTable
         wml:id="sortable"
+        ww:sortable=true
         ww:data={{@values.users}}
         ww:columns={{@values.sortColumns}} />
 

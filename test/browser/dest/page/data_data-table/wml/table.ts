@@ -140,7 +140,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
         document.createTextNode(`Sortable`)
      ]),
-__this.widget(DataTable, {html : {  } ,wml : { 'id' : `sortable`  } ,ww : { 'data' : __context.values.users  ,'columns' : __context.values.sortColumns   } }, [
+__this.widget(DataTable, {html : {  } ,wml : { 'id' : `sortable`  } ,ww : { 'sortable' : true  ,'data' : __context.values.users  ,'columns' : __context.values.sortColumns   } }, [
 
         
      ])

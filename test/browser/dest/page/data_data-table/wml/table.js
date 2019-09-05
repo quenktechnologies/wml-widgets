@@ -77,7 +77,7 @@ var Main = /** @class */ (function () {
                     __this.node('h3', { html: {}, wml: {} }, [
                         document.createTextNode("Sortable")
                     ]),
-                    __this.widget(table_1.DataTable, { html: {}, wml: { 'id': "sortable" }, ww: { 'data': __context.values.users, 'columns': __context.values.sortColumns } }, [])
+                    __this.widget(table_1.DataTable, { html: {}, wml: { 'id': "sortable" }, ww: { 'sortable': true, 'data': __context.values.users, 'columns': __context.values.sortColumns } }, [])
                 ])
             ]);
         };
