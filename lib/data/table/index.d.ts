@@ -7,7 +7,7 @@ import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnI
 import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
 import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
 import { Range } from './range';
-export { HeadFragment, HeadContext, HeadingFragment, HeadingContext, BodyFragment, BodyContext, CellFragment, CellContext, Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent };
+export { SortKey, HeadFragment, HeadContext, HeadingFragment, HeadingContext, BodyFragment, BodyContext, CellFragment, CellContext, Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent };
 export declare const DATA_TABLE = "ww-data-table";
 export declare const DATA_TABLE_HEAD = "ww-data-table__head";
 export declare const DATA_TABLE_HEADING = "ww-data-table__heading";

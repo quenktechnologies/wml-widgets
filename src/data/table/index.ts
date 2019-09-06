@@ -18,6 +18,7 @@ import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
 import { Range, RangeInstance } from './range';
 
 export {
+    SortKey,
     HeadFragment,
     HeadContext,
     HeadingFragment,
