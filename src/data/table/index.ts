@@ -12,7 +12,7 @@ import {
 } from '../../';
 import { sortById, Dataset, SortKey } from './column/sort';
 import { Column } from './column';
-import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId } from './event';
+import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId, SortRequestedEvent } from './event';
 import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
 import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
 import { Range, RangeInstance } from './range';
@@ -127,6 +127,13 @@ export interface DataTableAttrs<C, R extends Record<C>>
     data?: R[],
 
     /**
+     * onSort handler.
+     *
+     * This can be provided to override the default sort behaviour.
+     */
+    onSort?: (e: SortRequestedEvent<R>) => void,
+
+    /**
      * onChange handler.
      *
      * Fired whenever the internal data representation changes.
@@ -175,8 +182,8 @@ export class NewHeadingContext<C, R extends Record<C>> {
 
     onclick = (_: Event) => {
 
-        if (this.table.values.sortable)
-            this.table.sort(this.index);
+        if (this.column.sort)
+            this.table.values.sort(this.index);
 
         if (this.column.onHeadingClicked)
             this.column.onHeadingClicked(new HeadingClickedEvent(this.index));
@@ -275,6 +282,19 @@ export class DataTable<C, R extends Record<C>>
         sortKey: <SortKey>((this.attrs.ww && this.attrs.ww.sortKey) ?
             this.attrs.ww.sortKey : [-1, 1]),
 
+        sort: (col: ColumnId) => {
+
+            if (this.values.sortable) {
+
+                if (this.attrs.ww && this.attrs.ww.onSort)
+                    this.attrs.ww.onSort(new SortRequestedEvent(col,
+                        this.values.dataset[1], this.values.sortKey));
+                else
+                    this.sort(col);
+
+            }
+
+        },
         dataset: <Dataset<R>>((this.attrs.ww && this.attrs.ww.data) ?
             [this.attrs.ww.data.slice(), this.attrs.ww.data.slice()] :
             [[], []]),

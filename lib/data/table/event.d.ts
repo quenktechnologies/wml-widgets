@@ -1,3 +1,4 @@
+import { SortKey } from "./column/sort";
 /**
  * ColumnId type
  */
@@ -29,4 +30,13 @@ export declare class CellClickedEvent {
 export declare class DataChangedEvent<R> {
     data: R[];
     constructor(data: R[]);
+}
+/**
+ * SortRequestedEvent indicates an attempt to sort the table data was made.
+ */
+export declare class SortRequestedEvent<R> {
+    column: ColumnId;
+    data: R[];
+    key: SortKey;
+    constructor(column: ColumnId, data: R[], key: SortKey);
 }

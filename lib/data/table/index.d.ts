@@ -3,7 +3,7 @@ import { Record } from '@quenk/noni/lib/data/record';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 import { SortKey } from './column/sort';
 import { Column } from './column';
-import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId } from './event';
+import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId, SortRequestedEvent } from './event';
 import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
 import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
 import { Range } from './range';
@@ -82,6 +82,12 @@ export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs
      */
     data?: R[];
     /**
+     * onSort handler.
+     *
+     * This can be provided to override the default sort behaviour.
+     */
+    onSort?: (e: SortRequestedEvent<R>) => void;
+    /**
      * onChange handler.
      *
      * Fired whenever the internal data representation changes.
@@ -155,6 +161,7 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
         className: string;
         sortable: boolean;
         sortKey: [number, 1 | -1];
+        sort: (col: number) => void;
         dataset: [R[], R[]];
         columns: Column<C, R>[];
         thead: () => Content;
