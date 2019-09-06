@@ -316,9 +316,10 @@ export class DataTable<C, R extends Record<C>>
 
         this.values.dataset = [data.slice(), data.slice()];
 
+        this.view.invalidate();
+
         this.fireChange();
 
-        this.view.invalidate();
         return this;
 
     }
@@ -331,8 +332,8 @@ export class DataTable<C, R extends Record<C>>
         this.values.dataset = [data.slice(), data.slice()];
         this.values.sortKey = key;
 
-        this.fireChange();
         this.view.invalidate();
+        this.fireChange();
         return this;
 
     }
@@ -355,9 +356,9 @@ export class DataTable<C, R extends Record<C>>
 
         this.values.sortKey = key;
 
-        this.fireChange();
-
         this.view.invalidate();
+
+        this.fireChange();
 
         return this;
 
