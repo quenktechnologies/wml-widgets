@@ -57,11 +57,21 @@ export const DESC = '-desc';
 ///classNames:end
 
 /**
+ * TableName indicates the name of a table.
+ */
+export type TableName = string;
+
+/**
  * DataTableAttrs
  */
 export interface DataTableAttrs<C, R extends Record<C>>
     extends
     HTMLElementAttrs {
+
+    /**
+     * name of the table.
+     */
+    name?: TableName,
 
     /**
      * headClassName
@@ -143,7 +153,6 @@ export interface DataTableAttrs<C, R extends Record<C>>
      * data list used to populate table data.
      */
     data?: R[],
-
 
     /**
      * onChange handler.
@@ -288,6 +297,8 @@ export class DataTable<C, R extends Record<C>>
 
         className: concat(DATA_TABLE, getClassName(this.attrs)),
 
+        name: (this.attrs.ww && this.attrs.ww.name || ''),
+
         sortable: (this.attrs.ww && (this.attrs.ww.sortable != null)) ?
             this.attrs.ww.sortable : true,
 
@@ -337,6 +348,7 @@ export class DataTable<C, R extends Record<C>>
 
         if (this.attrs.ww && this.attrs.ww.onChange)
             this.attrs.ww.onChange(new DataChangedEvent(
+                this.values.name,
                 this.values.dataset[0].slice(),
                 <SortKey>this.values.sortKey.slice()));
 

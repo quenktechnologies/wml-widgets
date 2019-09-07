@@ -1,4 +1,5 @@
 import { SortKey } from "./column/sort";
+import { TableName } from ".";
 /**
  * ColumnId type
  */
@@ -28,7 +29,8 @@ export declare class CellClickedEvent {
  * changes.
  */
 export declare class DataChangedEvent<R> {
+    name: TableName;
     data: R[];
     key: SortKey;
-    constructor(data: R[], key: SortKey);
+    constructor(name: TableName, data: R[], key: SortKey);
 }

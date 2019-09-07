@@ -16,9 +16,17 @@ export declare const DATA_TABLE_CELL = "ww-data-table__cell";
 export declare const ASC = "-asc";
 export declare const DESC = "-desc";
 /**
+ * TableName indicates the name of a table.
+ */
+export declare type TableName = string;
+/**
  * DataTableAttrs
  */
 export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs {
+    /**
+     * name of the table.
+     */
+    name?: TableName;
     /**
      * headClassName
      */
@@ -157,6 +165,7 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
         };
         id: string;
         className: string;
+        name: string;
         sortable: boolean;
         sortKey: [number, 1 | -1];
         sort: (col: number) => void;
