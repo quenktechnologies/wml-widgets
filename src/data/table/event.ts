@@ -40,15 +40,3 @@ export class DataChangedEvent<R> {
     constructor(public data: R[], public key: SortKey) { }
 
 }
-
-/**
- * SortRequestedEvent indicates an attempt to sort the table data was made.
- */
-export class SortRequestedEvent<R> {
-
-    constructor(
-        public column: ColumnId,
-        public data: R[],
-        public key: SortKey) { }
-
-}

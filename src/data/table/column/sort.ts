@@ -42,6 +42,26 @@ export type SortStrategy<C>
 export type Dataset<R> = [R[], R[]];
 
 /**
+ * SortDelegate type.
+ *
+ * This is a function that given a SortRequest will
+ * sort the data and update the table (with sort key) at some point.
+ */
+export type SortDelegate<R> = (r: SortRequest<R>) => void;
+
+/**
+ * SortRequest contains the info needed to preform a sort.
+ */
+export class SortRequest<R> {
+
+    constructor(
+        public column: ColumnId,
+        public data: R[],
+        public key: SortKey) { }
+
+}
+
+/**
  * sortById sorts a dataset by a column using the columns id.
  *
  * Data is only sorted by one column at a time.

@@ -1,5 +1,6 @@
 import { Record } from '@quenk/noni/lib/data/record';
 import { Sorter } from '@quenk/noni/lib/data/array/sort';
+import { ColumnId } from '../event';
 import { Column } from './';
 /**
  * SortAlias type.
@@ -24,6 +25,22 @@ export declare type SortStrategy<C> = string | Sorter<C>;
  * the right is the original data untouched.
  */
 export declare type Dataset<R> = [R[], R[]];
+/**
+ * SortDelegate type.
+ *
+ * This is a function that given a SortRequest will
+ * sort the data and update the table (with sort key) at some point.
+ */
+export declare type SortDelegate<R> = (r: SortRequest<R>) => void;
+/**
+ * SortRequest contains the info needed to preform a sort.
+ */
+export declare class SortRequest<R> {
+    column: ColumnId;
+    data: R[];
+    key: SortKey;
+    constructor(column: ColumnId, data: R[], key: SortKey);
+}
 /**
  * sortById sorts a dataset by a column using the columns id.
  *

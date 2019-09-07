@@ -32,12 +32,3 @@ export declare class DataChangedEvent<R> {
     key: SortKey;
     constructor(data: R[], key: SortKey);
 }
-/**
- * SortRequestedEvent indicates an attempt to sort the table data was made.
- */
-export declare class SortRequestedEvent<R> {
-    column: ColumnId;
-    data: R[];
-    key: SortKey;
-    constructor(column: ColumnId, data: R[], key: SortKey);
-}

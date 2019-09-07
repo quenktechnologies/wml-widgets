@@ -10,15 +10,28 @@ import {
     getId,
     getClassName
 } from '../../';
-import { sortById, Dataset, SortKey } from './column/sort';
+import {
+    SortDelegate,
+    SortRequest,
+    sortById,
+    Dataset,
+    SortKey
+} from './column/sort';
 import { Column } from './column';
-import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId, SortRequestedEvent } from './event';
+import {
+    DataChangedEvent,
+    CellClickedEvent,
+    HeadingClickedEvent,
+    RowId, ColumnId
+} from './event';
 import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
 import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
 import { Range, RangeInstance } from './range';
 
 export {
     SortKey,
+    SortDelegate,
+    SortRequest,
     HeadFragment,
     HeadContext,
     HeadingFragment,
@@ -117,6 +130,11 @@ export interface DataTableAttrs<C, R extends Record<C>>
     sortKey?: SortKey,
 
     /**
+     * sortDelegate can be provided to override the default sort behaviour.
+     */
+    sortDelegate?: SortDelegate<R>,
+
+    /**
      * columns list used to structure the table.
      */
     columns?: Column<C, R>[],
@@ -126,12 +144,6 @@ export interface DataTableAttrs<C, R extends Record<C>>
      */
     data?: R[],
 
-    /**
-     * onSort handler.
-     *
-     * This can be provided to override the default sort behaviour.
-     */
-    onSort?: (e: SortRequestedEvent<R>) => void,
 
     /**
      * onChange handler.
@@ -286,8 +298,8 @@ export class DataTable<C, R extends Record<C>>
 
             if (this.values.sortable) {
 
-                if (this.attrs.ww && this.attrs.ww.onSort)
-                    this.attrs.ww.onSort(new SortRequestedEvent(col,
+                if (this.attrs.ww && this.attrs.ww.sortDelegate)
+                    this.attrs.ww.sortDelegate(new SortRequest(col,
                         this.values.dataset[1], this.values.sortKey));
                 else
                     this.sort(col);

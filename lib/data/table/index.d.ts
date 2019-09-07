@@ -1,13 +1,13 @@
 import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
-import { SortKey } from './column/sort';
+import { SortDelegate, SortRequest, SortKey } from './column/sort';
 import { Column } from './column';
-import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId, SortRequestedEvent } from './event';
+import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId } from './event';
 import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
 import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
 import { Range } from './range';
-export { SortKey, HeadFragment, HeadContext, HeadingFragment, HeadingContext, BodyFragment, BodyContext, CellFragment, CellContext, Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent };
+export { SortKey, SortDelegate, SortRequest, HeadFragment, HeadContext, HeadingFragment, HeadingContext, BodyFragment, BodyContext, CellFragment, CellContext, Column, DataChangedEvent, CellClickedEvent, HeadingClickedEvent };
 export declare const DATA_TABLE = "ww-data-table";
 export declare const DATA_TABLE_HEAD = "ww-data-table__head";
 export declare const DATA_TABLE_HEADING = "ww-data-table__heading";
@@ -74,6 +74,10 @@ export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs
      */
     sortKey?: SortKey;
     /**
+     * sortDelegate can be provided to override the default sort behaviour.
+     */
+    sortDelegate?: SortDelegate<R>;
+    /**
      * columns list used to structure the table.
      */
     columns?: Column<C, R>[];
@@ -81,12 +85,6 @@ export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs
      * data list used to populate table data.
      */
     data?: R[];
-    /**
-     * onSort handler.
-     *
-     * This can be provided to override the default sort behaviour.
-     */
-    onSort?: (e: SortRequestedEvent<R>) => void;
     /**
      * onChange handler.
      *
