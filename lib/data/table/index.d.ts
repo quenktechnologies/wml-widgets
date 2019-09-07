@@ -66,7 +66,7 @@ export interface DataTableAttrs<C, R extends Record<C>> extends HTMLElementAttrs
     /**
      * sortable indicates whether sorting is enabled for the table.
      *
-     * Default false.
+     * Default true.
      */
     sortable?: boolean;
     /**

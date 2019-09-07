@@ -107,7 +107,7 @@ export interface DataTableAttrs<C, R extends Record<C>>
     /**
      * sortable indicates whether sorting is enabled for the table.
      *
-     * Default false.
+     * Default true.
      */
     sortable?: boolean,
 
@@ -276,8 +276,8 @@ export class DataTable<C, R extends Record<C>>
 
         className: concat(DATA_TABLE, getClassName(this.attrs)),
 
-        sortable: (this.attrs.ww && this.attrs.ww.sortable) ?
-            this.attrs.ww.sortable : false,
+        sortable: (this.attrs.ww && (this.attrs.ww.sortable != null)) ?
+            this.attrs.ww.sortable : true,
 
         sortKey: <SortKey>((this.attrs.ww && this.attrs.ww.sortKey) ?
             this.attrs.ww.sortKey : [-1, 1]),
