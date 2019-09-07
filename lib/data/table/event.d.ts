@@ -29,7 +29,8 @@ export declare class CellClickedEvent {
  */
 export declare class DataChangedEvent<R> {
     data: R[];
-    constructor(data: R[]);
+    key: SortKey;
+    constructor(data: R[], key: SortKey);
 }
 /**
  * SortRequestedEvent indicates an attempt to sort the table data was made.

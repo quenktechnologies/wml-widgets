@@ -325,7 +325,8 @@ export class DataTable<C, R extends Record<C>>
 
         if (this.attrs.ww && this.attrs.ww.onChange)
             this.attrs.ww.onChange(new DataChangedEvent(
-                this.values.dataset[0].slice()));
+                this.values.dataset[0].slice(),
+                <SortKey>this.values.sortKey.slice()));
 
     }
 

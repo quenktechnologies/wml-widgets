@@ -37,7 +37,7 @@ export class CellClickedEvent {
  */
 export class DataChangedEvent<R> {
 
-    constructor(public data: R[]) { }
+    constructor(public data: R[], public key: SortKey) { }
 
 }
 
