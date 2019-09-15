@@ -262,7 +262,9 @@ export class NewCellContext<C, R extends Record<C>> {
 
     datum = this.table.values.dataset[0][this.row];
 
-    format = this.spec.format ? this.spec.format : (c: C) => String(c);
+    format = this.spec.format ?
+        this.spec.format :
+        (c: C) => String(c == null ? '' : c);
 
     onclick = () => {
 
