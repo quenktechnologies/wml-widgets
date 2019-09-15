@@ -189,10 +189,10 @@ export class DescriptionList  implements __wml.View {
        let parent = <Node>tree.parentNode;
 
        if (tree == null)
-           return console.warn('invalidate(): '+       'Cannot invalidate a view that has not been rendered!');
+           return console.warn('invalidate(): '+       'Missing DOM tree!');
 
        if (tree.parentNode == null)
-                  throw new Error('Cannot invalidate a view  that has not been rendered!');
+                  throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
        parent.replaceChild(this.render(), tree) 
 
@@ -351,10 +351,10 @@ export class Title  implements __wml.View {
        let parent = <Node>tree.parentNode;
 
        if (tree == null)
-           return console.warn('invalidate(): '+       'Cannot invalidate a view that has not been rendered!');
+           return console.warn('invalidate(): '+       'Missing DOM tree!');
 
        if (tree.parentNode == null)
-                  throw new Error('Cannot invalidate a view  that has not been rendered!');
+                  throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
        parent.replaceChild(this.render(), tree) 
 
@@ -513,10 +513,10 @@ export class Data  implements __wml.View {
        let parent = <Node>tree.parentNode;
 
        if (tree == null)
-           return console.warn('invalidate(): '+       'Cannot invalidate a view that has not been rendered!');
+           return console.warn('invalidate(): '+       'Missing DOM tree!');
 
        if (tree.parentNode == null)
-                  throw new Error('Cannot invalidate a view  that has not been rendered!');
+                  throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
        parent.replaceChild(this.render(), tree) 
 
