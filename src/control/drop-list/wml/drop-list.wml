@@ -16,6 +16,8 @@
    wml:id={{@values.menu.wml.id}} 
    ww:block={{@values.menu.block}}
    ww:name={{@values.menu.name}}
+   ww:hidden={{@values.menu.hidden}}
+   ww:results={{@values.menu.results}}
    ww:onSelect={{@values.menu.onSelect}}
    ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
    ww:itemsTemplate={{@values.menu.itemTemplate}}

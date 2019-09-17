@@ -352,6 +352,9 @@ export const LABEL = 'ww-label';
 export const DROP_LIST_FIELD = 'ww-drop-list-field';
 ///classNames:end
 ///classNames:begin
+export const RESULTS_MENU = 'ww-results-menu';
+///classNames:end
+///classNames:begin
 /**
  * TAB
  */

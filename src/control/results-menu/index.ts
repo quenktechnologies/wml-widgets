@@ -1,10 +1,14 @@
 import { Maybe, nothing, just } from '@quenk/noni/lib/data/maybe';
 import { Fun, View, Component, Content } from '@quenk/wml';
 import { Menu, MenuAttrs } from '../../menu/menu';
-import { WidgetAttrs } from '../../';
-import { getById } from '../../util';
+import { WidgetAttrs, getClassName } from '../../';
+import { getById, concat } from '../../util';
 import { Event as ControlEvent } from '../';
 import { Main, itemTemplate, noItemsTemplate } from './wml/results-menu';
+
+///classNames:begin
+export const RESULTS_MENU = 'ww-results-menu';
+///classNames:end
 
 /**
  * ItemTemplate used to render each item in the results.
@@ -36,6 +40,16 @@ export interface ResultsMenuAttrs<V> extends MenuAttrs {
     name?: string,
 
     /**
+     * hidden determines whether the menu is shown or not, defaults to false.
+     */
+    hidden?: boolean,
+
+    /**
+     * results pre-populates teh menu.
+     */
+    results?: V[],
+
+    /**
     * itemTemplate if specified will be used to render each
     * result item.
     */
@@ -55,7 +69,17 @@ export interface ResultsMenuAttrs<V> extends MenuAttrs {
     /**
      * onSelect is applied when the user selects an item.
      */
-    onSelect?: (e: ItemSelectedEvent<V>) => void
+    onSelect?: (e: ItemSelectedEvent<V>) => void,
+
+    /**
+     * onOpen is applied when the menu is opened.
+     */
+    onOpen?: () => void,
+
+    /**
+     * onClose is applied when the menu is closed.
+     */
+    onClose?: () => void
 
 }
 
@@ -83,15 +107,19 @@ export class ResultsMenu<V>
 
         tree: <Maybe<Content>>nothing(),
 
-        results: <V[]>[],
+        results: (this.attrs.ww && this.attrs.ww.results) ?
+            this.attrs.ww.results : <V[]>[],
 
         name: (this.attrs.ww && this.attrs.ww.name) ?
             this.attrs.ww.name : '',
 
+        className: concat(RESULTS_MENU, getClassName(this.attrs)),
+
         block: (this.attrs.ww && this.attrs.ww.block) ?
             this.attrs.ww.block : false,
 
-        hidden: true,
+        hidden: (this.attrs.ww && this.attrs.ww.hidden) ?
+            this.attrs.ww.hidden : false,
 
         item: {
 
@@ -126,6 +154,9 @@ export class ResultsMenu<V>
 
         this.values.hidden = false;
 
+        if (this.attrs.ww && this.attrs.ww.onOpen)
+            this.attrs.ww.onOpen();
+
         return this;
 
     }
@@ -136,6 +167,29 @@ export class ResultsMenu<V>
             .map((m: Menu) => m.hide());
 
         this.values.hidden = true;
+
+        if (this.attrs.ww && this.attrs.ww.onClose)
+            this.attrs.ww.onClose();
+
+        return this;
+
+    }
+
+    toggle(): ResultsMenu<V> {
+
+        getById<Menu>(this.view, this.values.wml.id)
+            .map((m: Menu) => m.toggle());
+
+        this.values.hidden = !this.values.hidden;
+
+        if (this.values.hidden === true &&
+            this.attrs.ww &&
+            this.attrs.ww.onClose)
+            this.attrs.ww.onClose();
+        else if (this.values.hidden === false &&
+            this.attrs.ww &&
+            this.attrs.ww.onOpen)
+            this.attrs.ww.onOpen();
 
         return this;
 
@@ -164,10 +218,6 @@ export class ResultsMenu<V>
 
         this.values.results = results;
 
-        window.removeEventListener('click', this);
-
-        window.addEventListener('click', this);
-
         this.values.hidden = false;
 
         this.view.invalidate();
@@ -179,6 +229,10 @@ export class ResultsMenu<V>
     render(): Content {
 
         this.values.tree = just(this.view.render());
+
+        window.removeEventListener('click', this);
+
+        window.addEventListener('click', this);
 
         return this.values.tree.get();
 

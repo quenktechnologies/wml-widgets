@@ -9,7 +9,7 @@ import {
     NoItemsTemplate,
     Stringifier
 } from '../results-menu';
-import { openMenu, closeMenu, updateMenu } from '../search';
+import { openMenu, closeMenu, toggleMenu } from '../search';
 import { getId, getClassName } from '../../';
 import { ControlAttrs, getName, AbstractControl } from '../';
 
@@ -149,16 +149,7 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
             },
             onClick: () => {
 
-                if (this.values.menu.open) {
-
-                    this.close();
-
-                } else {
-
-                    updateMenu(this.view, this.values.menu.wml.id,
-                        this.attrs.ww && this.attrs.ww.options || []);
-
-                }
+                this.toggle();
 
             }
 
@@ -178,7 +169,10 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
             block: (this.attrs.ww && this.attrs.ww.block) ?
                 this.attrs.ww.block : false,
 
-            open: false,
+            hidden: true,
+
+            results: (this.attrs.ww && this.attrs.ww.options) ?
+                this.attrs.ww.options : [],
 
             onSelect: (e: ItemSelectedEvent<Option<V>>) => {
 
@@ -209,7 +203,6 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
      */
     open(): DropList<V> {
 
-        this.values.menu.open = true;
         openMenu(this.view, this.values.menu.wml.id);
         return this;
 
@@ -220,8 +213,17 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
      */
     close(): DropList<V> {
 
-        this.values.menu.open = false;
         closeMenu(this.view, this.values.menu.wml.id);
+        return this;
+
+    }
+
+    /**
+     * toggle the results menu.
+     */
+    toggle(): DropList<V> {
+
+        toggleMenu(this.view, this.values.menu.wml.id);
         return this;
 
     }

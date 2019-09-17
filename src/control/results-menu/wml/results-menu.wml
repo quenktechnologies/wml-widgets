@@ -15,6 +15,7 @@
 {% view Main[V] (ResultsMenu[V]) %}
   <Menu 
     wml:id={{@values.wml.id}}
+    ww:className={{@values.className}}
     ww:name={{@values.name}}
     ww:block={{@values.block}}
     ww:hidden={{@values.hidden}}>
