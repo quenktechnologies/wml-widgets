@@ -85,7 +85,8 @@ export declare class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
             };
             name: string;
             block: boolean;
-            open: boolean;
+            hidden: boolean;
+            results: Option<V>[];
             onSelect: (e: ItemSelectedEvent<Option<V>>) => void;
             itemTemplate: ItemTemplate<Option<V>> | undefined;
             noItemsTemplate: import("@quenk/wml").Fun | undefined;
@@ -100,4 +101,8 @@ export declare class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
      * close the results menu.
      */
     close(): DropList<V>;
+    /**
+     * toggle the results menu.
+     */
+    toggle(): DropList<V>;
 }

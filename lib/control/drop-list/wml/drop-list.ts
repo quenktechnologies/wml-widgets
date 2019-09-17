@@ -74,7 +74,7 @@ __this.widget(Caret, {html : {  } ,wml : {  } }, [
         
      ])
      ]),
-__this.widget(ResultsMenu, {html : {  } ,wml : { 'id' : __context.values.menu .wml .id   } ,ww : { 'block' : __context.values.menu .block  ,'name' : __context.values.menu .name  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemsTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   } }, [
+__this.widget(ResultsMenu, {html : {  } ,wml : { 'id' : __context.values.menu .wml .id   } ,ww : { 'block' : __context.values.menu .block  ,'name' : __context.values.menu .name  ,'hidden' : __context.values.menu .hidden  ,'results' : __context.values.menu .results  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemsTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   } }, [
 
         
      ])

@@ -1904,6 +1904,12 @@ textarea.ww-date-field > .ww-date-field__input {
   margin-bottom: 5px;
   font-weight: bold;
 }
+.ww-results-menu {
+  min-width: 16em;
+  max-height: 18em;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .ww-tab {
   float: left;
   margin-bottom: -1px;

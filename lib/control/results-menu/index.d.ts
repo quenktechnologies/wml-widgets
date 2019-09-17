@@ -3,6 +3,7 @@ import { Fun, View, Component, Content } from '@quenk/wml';
 import { MenuAttrs } from '../../menu/menu';
 import { WidgetAttrs } from '../../';
 import { Event as ControlEvent } from '../';
+export declare const RESULTS_MENU = "ww-results-menu";
 /**
  * ItemTemplate used to render each item in the results.
  */
@@ -26,6 +27,14 @@ export interface ResultsMenuAttrs<V> extends MenuAttrs {
      */
     name?: string;
     /**
+     * hidden determines whether the menu is shown or not, defaults to false.
+     */
+    hidden?: boolean;
+    /**
+     * results pre-populates teh menu.
+     */
+    results?: V[];
+    /**
     * itemTemplate if specified will be used to render each
     * result item.
     */
@@ -43,6 +52,14 @@ export interface ResultsMenuAttrs<V> extends MenuAttrs {
      * onSelect is applied when the user selects an item.
      */
     onSelect?: (e: ItemSelectedEvent<V>) => void;
+    /**
+     * onOpen is applied when the menu is opened.
+     */
+    onOpen?: () => void;
+    /**
+     * onClose is applied when the menu is closed.
+     */
+    onClose?: () => void;
 }
 /**
  * ItemSelectedEvent
@@ -61,6 +78,7 @@ export declare class ResultsMenu<V> extends Component<WidgetAttrs<ResultsMenuAtt
         tree: Maybe<Content>;
         results: V[];
         name: string;
+        className: string;
         block: boolean;
         hidden: boolean;
         item: {
@@ -72,6 +90,7 @@ export declare class ResultsMenu<V> extends Component<WidgetAttrs<ResultsMenuAtt
     };
     open(): ResultsMenu<V>;
     close(): ResultsMenu<V>;
+    toggle(): ResultsMenu<V>;
     handleEvent(e: Event): void;
     /**
      * update will cause the menu to be displayed.

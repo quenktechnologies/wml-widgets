@@ -434,3 +434,13 @@ export const closeMenu = <V>(view: View, id: string): void => {
         .map((m: ResultsMenu<V>) => m.close());
 
 }
+
+/**
+ * toggleMenu 
+ */
+export const toggleMenu = <V>(view: View, id: string): void => {
+
+    getById<ResultsMenu<V>>(view, id)
+        .map((m: ResultsMenu<V>) => m.toggle());
+
+}

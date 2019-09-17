@@ -87,7 +87,7 @@ export class Main <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Menu, {html : {  } ,wml : { 'id' : __context.values.wml .id   } ,ww : { 'name' : __context.values.name  ,'block' : __context.values.block  ,'hidden' : __context.values.hidden   } }, [
+           return __this.widget(Menu, {html : {  } ,wml : { 'id' : __context.values.wml .id   } ,ww : { 'className' : __context.values.className  ,'name' : __context.values.name  ,'block' : __context.values.block  ,'hidden' : __context.values.hidden   } }, [
 
         ...__forIn (__context.values.results , (result , index: number   , _$$all)=> 
 ([

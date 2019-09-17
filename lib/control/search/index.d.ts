@@ -206,3 +206,7 @@ export declare const openMenu: <V>(view: View, id: string) => void;
  * closeMenu will cause the menu to no longer be displayed.
  */
 export declare const closeMenu: <V>(view: View, id: string) => void;
+/**
+ * toggleMenu
+ */
+export declare const toggleMenu: <V>(view: View, id: string) => void;

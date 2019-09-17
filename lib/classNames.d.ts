@@ -215,6 +215,7 @@ export declare const SWITCH = "ww-switch";
 export declare const SWITCH_SLIDER = "ww-switch__slider";
 export declare const LABEL = "ww-label";
 export declare const DROP_LIST_FIELD = "ww-drop-list-field";
+export declare const RESULTS_MENU = "ww-results-menu";
 /**
  * TAB
  */
