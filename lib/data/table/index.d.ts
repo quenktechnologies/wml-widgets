@@ -1,7 +1,7 @@
 import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
-import { SortDelegate, SortRequest, SortKey } from './column/sort';
+import { SortDelegate, SortRequest, Dataset, SortKey } from './column/sort';
 import { Column } from './column';
 import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId } from './event';
 import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
@@ -185,7 +185,7 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
     /**
      * updateWithSortKey is like update but will set the sort key as well.
      */
-    updateWithSortKey(data: R[], key: SortKey): DataTable<C, R>;
+    updateWithSortKey(dataset: Dataset<R>, key: SortKey): DataTable<C, R>;
     /**
      * sort the table data by the column id specified.
      *

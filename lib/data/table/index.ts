@@ -374,9 +374,9 @@ export class DataTable<C, R extends Record<C>>
     /**
      * updateWithSortKey is like update but will set the sort key as well.
      */
-    updateWithSortKey(data: R[], key: SortKey): DataTable<C, R> {
+    updateWithSortKey(dataset: Dataset<R>, key: SortKey): DataTable<C, R> {
 
-        this.values.dataset = [data.slice(), data.slice()];
+        this.values.dataset = dataset;
         this.values.sortKey = key;
 
         this.view.invalidate();
