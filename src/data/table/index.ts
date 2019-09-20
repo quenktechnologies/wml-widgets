@@ -309,15 +309,8 @@ export class DataTable<C, R extends Record<C>>
 
         sort: (col: ColumnId) => {
 
-            if (this.values.sortable) {
-
-                if (this.attrs.ww && this.attrs.ww.sortDelegate)
-                    this.attrs.ww.sortDelegate(new SortRequest(col,
-                        this.values.dataset[1], this.values.sortKey));
-                else
-                    this.sort(col);
-
-            }
+            if (this.values.sortable)
+                this.sort(col);
 
         },
         dataset: <Dataset<R>>((this.attrs.ww && this.attrs.ww.data) ?
@@ -374,13 +367,12 @@ export class DataTable<C, R extends Record<C>>
     /**
      * updateWithSortKey is like update but will set the sort key as well.
      */
-    updateWithSortKey(dataset: Dataset<R>, key: SortKey): DataTable<C, R> {
+    updateWithSortKey(data: R[], key: SortKey): DataTable<C, R> {
 
-        this.values.dataset = dataset;
         this.values.sortKey = key;
 
-        this.view.invalidate();
-        this.fireChange();
+        this.update(data);
+
         return this;
 
     }
@@ -395,9 +387,13 @@ export class DataTable<C, R extends Record<C>>
      */
     sort(id: number): DataTable<C, R> {
 
+        let { attrs } = this;
+
         let { columns, sortKey, dataset } = this.values;
 
-        let [data, key] = sortById(columns, sortKey, dataset, id);
+        let [data, key] = (attrs.ww && attrs.ww.sortDelegate) ?
+            attrs.ww.sortDelegate(new SortRequest(id, dataset[1], sortKey)) :
+            sortById(columns, sortKey, dataset, id);
 
         this.values.dataset[0] = data;
 

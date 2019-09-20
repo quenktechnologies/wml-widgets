@@ -395,9 +395,12 @@ export class DataTable<C, R extends Record<C>>
      */
     sort(id: number): DataTable<C, R> {
 
+        let { attrs } = this;
         let { columns, sortKey, dataset } = this.values;
 
-        let [data, key] = sortById(columns, sortKey, dataset, id);
+        let [data, key] = (attrs.ww && attrs.ww.sortDelegate) ?
+            attrs.ww.sortDelegate(new SortRequest(id, dataset[1], sortKey)) :
+            sortById(columns, sortKey, dataset, id);
 
         this.values.dataset[0] = data;
 

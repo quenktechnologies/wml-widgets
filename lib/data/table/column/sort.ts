@@ -45,9 +45,9 @@ export type Dataset<R> = [R[], R[]];
  * SortDelegate type.
  *
  * This is a function that given a SortRequest will
- * sort the data and update the table (with sort key) at some point.
+ * provide a sorted copy of the data and a new sort key.
  */
-export type SortDelegate<R> = (r: SortRequest<R>) => void;
+export type SortDelegate<R> = (r: SortRequest<R>) => [R[], SortKey];
 
 /**
  * SortRequest contains the info needed to preform a sort.
