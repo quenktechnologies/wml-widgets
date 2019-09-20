@@ -387,13 +387,11 @@ export class DataTable<C, R extends Record<C>>
      */
     sort(id: number): DataTable<C, R> {
 
-        let { attrs } = this;
+        let { sortKey, dataset } = this.values;
 
-        let { columns, sortKey, dataset } = this.values;
+        let del = getSortDelegate(this);
 
-        let [data, key] = (attrs.ww && attrs.ww.sortDelegate) ?
-            attrs.ww.sortDelegate(new SortRequest(id, dataset[1], sortKey)) :
-            sortById(columns, sortKey, dataset, id);
+        let [data, key] = del(new SortRequest(id, dataset[1], sortKey));
 
         this.values.dataset[0] = data;
 
@@ -467,6 +465,13 @@ const getCellView = <C, R extends Record<C>>
         (table.attrs.ww && table.attrs.ww.cellFragment) ?
             table.attrs.ww.cellFragment(ctx) :
             new views.CellView(ctx);
+
+const getSortDelegate = <C, R extends Record<C>>
+    (table: DataTable<C, R>): SortDelegate<R> =>
+    (table.attrs.ww && table.attrs.ww.sortDelegate) ?
+        table.attrs.ww.sortDelegate :
+        (r: SortRequest<R>) => sortById(table.values.columns, r.key,
+            [table.values.dataset[0], r.data], r.column);
 
 const getSortClassName = (key: SortKey, index: number) =>
     (key[0] === index) ? (key[1] === 1) ? ASC : DESC : '';
