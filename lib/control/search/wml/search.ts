@@ -229,7 +229,7 @@ export class Main <V  >  implements __wml.View {
 
         
      ]),
-__this.widget(ResultsMenu, {html : {  } ,wml : { 'id' : __context.values.menu .wml .id   } ,ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemsTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   } }, [
+__this.widget(ResultsMenu, {html : {  } ,wml : { 'id' : __context.values.menu .wml .id   } ,ww : { 'hidden' : true  ,'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemsTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   } }, [
 
         
      ])

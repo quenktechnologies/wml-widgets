@@ -1913,6 +1913,7 @@ textarea.ww-date-field > .ww-date-field__input {
   max-height: 18em;
   overflow-y: auto;
   overflow-x: hidden;
+  position: absolute;
 }
 .ww-tab {
   float: left;
