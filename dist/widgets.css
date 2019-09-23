@@ -1770,7 +1770,7 @@ textarea.ww-date-field > .ww-date-field__input {
   have the -toolbar-compat class in their classlist.
 */
 .ww-toolbar {
-  margin-left: -5px;
+  margin-left: 0px;
 }
 .ww-toolbar::after {
   content: "";
@@ -1779,7 +1779,7 @@ textarea.ww-date-field > .ww-date-field__input {
 }
 .ww-toolbar > .-toolbar-compat {
   float: left;
-  margin-left: 5px;
+  margin-left: 0px;
   margin-top: 5px;
 }
 .ww-button-group,
@@ -1998,7 +1998,6 @@ textarea.ww-date-field > .ww-date-field__input {
 }
 .ww-paginator > li > a {
   color: #000;
-  border: 1px solid #ddd;
   margin-left: -1px;
 }
 .ww-paginator > li > a:hover,
@@ -2062,7 +2061,7 @@ textarea.ww-date-field > .ww-date-field__input {
 .ww-paginator > .disabled > a:focus {
   color: #777;
   background-color: #fff;
-  border-color: #ddd;
+  border-color: #b9b9b9;
   cursor: not-allowed;
 }
 .ww-file-upload-surface {
