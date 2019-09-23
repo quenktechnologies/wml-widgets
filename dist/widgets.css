@@ -1772,11 +1772,15 @@ textarea.ww-date-field > .ww-date-field__input {
 .ww-toolbar {
   margin-left: -5px;
 }
-.ww-toolbar > .-toolbar-compat {
-  float: left;
+.ww-toolbar::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 .ww-toolbar > .-toolbar-compat {
+  float: left;
   margin-left: 5px;
+  margin-top: 5px;
 }
 .ww-button-group,
 .ww-button-group.-vertical {

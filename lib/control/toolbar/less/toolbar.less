@@ -13,17 +13,19 @@
 
   margin-left: @toolbar-margin-left;
 
-  &:extend(.__CLEARFIX__ all);
+  &::after {
 
-  & > .__TOOLBAR_COMPAT__ {
-
-    float: @toolbar-compat-float;
+    content: "";
+    clear: both;
+    display: table;
 
   }
 
   & > .__TOOLBAR_COMPAT__ {
 
-    margin-left: @toolbar-compat-left-margin;
+    float: @toolbar-compat-float;
+    margin-left: @toolbar-compat-margin-left;
+    margin-top: @toolbar-compat-margin-top;
 
   }
 
