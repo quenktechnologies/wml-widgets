@@ -1,6 +1,7 @@
 import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { Updatable } from '../updatable';
 import { SortDelegate, SortRequest, SortKey } from './column/sort';
 import { Column } from './column';
 import { DataChangedEvent, CellClickedEvent, HeadingClickedEvent, RowId, ColumnId } from './event';
@@ -155,7 +156,7 @@ export declare class NewCellContext<C, R extends Record<C>> {
  * DataTable can be used for displaying sortable
  * tabular data.
  */
-export declare class DataTable<C, R extends Record<C>> extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
+export declare class DataTable<C, R extends Record<C>> extends Component<WidgetAttrs<DataTableAttrs<C, R>>> implements Updatable<R> {
     view: View;
     theadView: View;
     tbodyView: View;

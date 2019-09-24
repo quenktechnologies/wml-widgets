@@ -10,6 +10,7 @@ import {
     getId,
     getClassName
 } from '../../';
+import { Updatable } from '../updatable';
 import {
     SortDelegate,
     SortRequest,
@@ -283,7 +284,9 @@ export class NewCellContext<C, R extends Record<C>> {
  * tabular data.
  */
 export class DataTable<C, R extends Record<C>>
-    extends Component<WidgetAttrs<DataTableAttrs<C, R>>> {
+    extends
+    Component<WidgetAttrs<DataTableAttrs<C, R>>>
+    implements Updatable<R>  {
 
     view: View = new views.Main(this);
 
