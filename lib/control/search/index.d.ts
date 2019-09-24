@@ -34,6 +34,10 @@ export interface CommonAttrs<V> extends ControlAttrs<V> {
      */
     placeholder?: string;
     /**
+     * autofocus
+     */
+    autofocus?: boolean;
+    /**
      * readOnly
      */
     readOnly?: boolean;
@@ -118,6 +122,7 @@ export declare class Input extends AbstractControl<string, InputAttrs<string>> {
         placeholder: string;
         readOnly: true | undefined;
         autocomplete: string;
+        autofocus: boolean | undefined;
         size: string;
         value: string;
         onfocus: (e: KeyboardEvent) => void;
@@ -159,6 +164,7 @@ export declare class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
             };
             name: string;
             placeholder: string;
+            autofocus: boolean | undefined;
             readOnly: true | undefined;
             value: string;
             onFocus: ((e: FocusGainedEvent) => void) | undefined;
@@ -179,6 +185,10 @@ export declare class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
         };
     };
     set(value: string): Search<V>;
+    /**
+     * focus gives focus to the input.
+     */
+    focus(): Search<V>;
     /**
      * update the Select with new item options to
      * present to the user.

@@ -10,6 +10,7 @@
     oninput={{@values.oninput}}
     onfocus={{@values.onfocus}}
     onblur={{@values.onblur}}
+    autofocus={{@values.autofocus}}
     autocomplete={{@values.autocomplete}}
     size={{@values.size}}
     placeholder={{@values.placeholder}}
@@ -25,6 +26,7 @@
   <Input
     wml:id={{@values.input.wml.id}}
     ww:name={{@values.input.name}}
+    ww:autofocus={{@values.input.autofocus}}
     ww:onFocus={{@values.input.onFocus}}
     ww:onSearch={{@values.input.onSearch}}
     ww:onEscape={{@values.input.onEscape}}

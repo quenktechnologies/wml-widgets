@@ -61,7 +61,7 @@ export class InputView  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('input', {html : { 'class' : __context.values.className  ,'onkeydown' : __context.values.onkeydown  ,'onkeyup' : __context.values.onkeyup  ,'oninput' : __context.values.oninput  ,'onfocus' : __context.values.onfocus  ,'onblur' : __context.values.onblur  ,'autocomplete' : __context.values.autocomplete  ,'size' : __context.values.size  ,'placeholder' : __context.values.placeholder  ,'readOnly' : __context.values.readOnly  ,'value' : __context.values.value   } ,wml : { 'id' : __context.values.wml .id   } }, [
+           return __this.node('input', {html : { 'class' : __context.values.className  ,'onkeydown' : __context.values.onkeydown  ,'onkeyup' : __context.values.onkeyup  ,'oninput' : __context.values.oninput  ,'onfocus' : __context.values.onfocus  ,'onblur' : __context.values.onblur  ,'autofocus' : __context.values.autofocus  ,'autocomplete' : __context.values.autocomplete  ,'size' : __context.values.size  ,'placeholder' : __context.values.placeholder  ,'readOnly' : __context.values.readOnly  ,'value' : __context.values.value   } ,wml : { 'id' : __context.values.wml .id   } }, [
 
         
      ]);
@@ -225,7 +225,7 @@ export class Main <V  >  implements __wml.View {
 
            return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : { 'id' : __context.values.root .wml .id   } }, [
 
-        __this.widget(Input, {html : {  } ,wml : { 'id' : __context.values.input .wml .id   } ,ww : { 'name' : __context.values.input .name  ,'onFocus' : __context.values.input .onFocus  ,'onSearch' : __context.values.input .onSearch  ,'onEscape' : __context.values.input .onEscape  ,'onBlur' : __context.values.input .onBlur  ,'placeholder' : __context.values.input .placeholder  ,'readOnly' : __context.values.input .readOnly  ,'value' : __context.values.input .value   } }, [
+        __this.widget(Input, {html : {  } ,wml : { 'id' : __context.values.input .wml .id   } ,ww : { 'name' : __context.values.input .name  ,'autofocus' : __context.values.input .autofocus  ,'onFocus' : __context.values.input .onFocus  ,'onSearch' : __context.values.input .onSearch  ,'onEscape' : __context.values.input .onEscape  ,'onBlur' : __context.values.input .onBlur  ,'placeholder' : __context.values.input .placeholder  ,'readOnly' : __context.values.input .readOnly  ,'value' : __context.values.input .value   } }, [
 
         
      ]),

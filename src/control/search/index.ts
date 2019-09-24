@@ -61,6 +61,11 @@ export interface CommonAttrs<V> extends ControlAttrs<V> {
     placeholder?: string,
 
     /**
+     * autofocus
+     */
+    autofocus?: boolean,
+
+    /**
      * readOnly 
      */
     readOnly?: boolean,
@@ -93,6 +98,7 @@ export interface InputAttrs<V> extends CommonAttrs<V> {
  * SearchAttrs
  */
 export interface SearchAttrs<V> extends CommonAttrs<V> {
+
 
     /**
      * onSelect is applied when the user selects an item.
@@ -172,6 +178,9 @@ export class Input
         readOnly: (this.attrs.ww && this.attrs.ww.readOnly) || undefined,
 
         autocomplete: 'do not enable please',
+
+        autofocus: (this.attrs.ww && this.attrs.ww.autofocus) ?
+            true : undefined,
 
         size: String((this.attrs.ww && this.attrs.ww.size) ?
             this.attrs.ww.size : 20),
@@ -302,6 +311,9 @@ export class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
             placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
                 this.attrs.ww.placeholder : '',
 
+            autofocus: (this.attrs.ww && this.attrs.ww.autofocus) ?
+                true : undefined,
+
             readOnly: (this.attrs.ww && this.attrs.ww.readOnly) || undefined,
 
             value: (this.attrs.ww && this.attrs.ww.term) ?
@@ -361,6 +373,18 @@ export class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
 
         getById<HTMLInputElement>(this.view, this.values.root.wml.id)
             .map((e: HTMLInputElement) => { e.value = value });
+
+        return this;
+
+    }
+
+    /**
+     * focus gives focus to the input.
+     */
+    focus(): Search<V> {
+
+        getById<Input>(this.view, this.values.input.wml.id)
+            .map(i => i.focus());
 
         return this;
 
