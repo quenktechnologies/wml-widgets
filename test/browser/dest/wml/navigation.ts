@@ -32,8 +32,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -64,43 +64,43 @@ export class Navigation  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
+           return __this.widget(new Nav({ww : { 'vertical' : true   }}, [
 
-        __this.widget(Item, {html : {  } ,wml : {  } }, [
+        __this.widget(new Item({}, [
 
-        __this.widget(Link, {html : {  } ,wml : { 'group' : `links`  } ,ww : { 'active' : (__context.page === `home`) ,'name' : `home` ,'href' : `#` ,'onClick' : __context.navigate ,'text' : `Home`  } }, [
+        __this.widget(new Link({wml : { 'group' : 'links'  },ww : { 'active' : (__context.page === 'home') ,'name' : 'home' ,'href' : '#' ,'onClick' : __context.navigate ,'text' : 'Home'  }}, [
 
         
-     ])
-     ]),
+     ]),<__wml.Attrs>{wml : { 'group' : 'links'  },ww : { 'active' : (__context.page === 'home') ,'name' : 'home' ,'href' : '#' ,'onClick' : __context.navigate ,'text' : 'Home'  }})
+     ]),<__wml.Attrs>{}),
 ...__forOf (__context.pages, (items , section , _$$all) => 
        ([
 
-        __this.widget(Item, {html : {  } ,wml : {  } }, [
+        __this.widget(new Item({}, [
 
-        __this.widget(MenuHeader, {html : {  } ,wml : {  } ,ww : { 'text' : section  } }, [
+        __this.widget(new MenuHeader({ww : { 'text' : section  }}, [
 
         
-     ]),
-__this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
+     ]),<__wml.Attrs>{ww : { 'text' : section  }}),
+__this.widget(new Nav({ww : { 'vertical' : true   }}, [
 
         ...__forOf (items, (_ , name , _$$all) => 
        ([
 
-        __this.widget(Item, {html : {  } ,wml : {  } }, [
+        __this.widget(new Item({}, [
 
-        __this.widget(Link, {html : {  } ,wml : { 'group' : `links`  } ,ww : { 'name' : name ,'href' : (`#/` + name) ,'onClick' : __context.navigate ,'active' : (__context.page === name) ,'text' : name  } }, [
+        __this.widget(new Link({wml : { 'group' : 'links'  },ww : { 'name' : name ,'href' : ('#/' + name) ,'onClick' : __context.navigate ,'active' : (__context.page === name) ,'text' : name  }}, [
 
         
-     ])
-     ])
+     ]),<__wml.Attrs>{wml : { 'group' : 'links'  },ww : { 'name' : name ,'href' : ('#/' + name) ,'onClick' : __context.navigate ,'active' : (__context.page === name) ,'text' : name  }})
+     ]),<__wml.Attrs>{})
      ]), 
     ()=> ([]))
-     ])
-     ])
+     ]),<__wml.Attrs>{ww : { 'vertical' : true   }})
+     ]),<__wml.Attrs>{})
      ]), 
     ()=> ([]))
-     ]);
+     ]),<__wml.Attrs>{ww : { 'vertical' : true   }});
 
        }
 
@@ -118,37 +118,39 @@ __this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -185,7 +187,6 @@ __this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -193,10 +194,7 @@ __this.widget(Nav, {html : {  } ,wml : {  } ,ww : { 'vertical' : true   } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

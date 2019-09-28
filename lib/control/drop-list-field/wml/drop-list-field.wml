@@ -20,7 +20,7 @@
    ww:options={{@values.control.options}}
    ww:onSelect={{@values.control.onSelect}}
    ww:noItemsTemplate={{@values.control.noItemsTemplate}}
-   ww:itemsTemplate={{@values.control.itemTemplate}}
+   ww:itemTemplate={{@values.control.itemTemplate}}
    ww:stringifier={{@values.control.stringifier}} />
  
   <Help 

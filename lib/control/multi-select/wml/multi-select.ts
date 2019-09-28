@@ -34,8 +34,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -66,13 +66,13 @@ export class Main <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : {  } }, [
+           return __this.node('div', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
-        __this.widget(Label, {html : {  } ,wml : {  } ,ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   } }, [
+        __this.widget(new Label({ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   }}, [
 
         
-     ]),
-__this.node('div', {html : { 'onclick' : __context.values.content .onfocus  ,'class' : __context.values.content .className   } ,wml : {  } }, [
+     ]),<__wml.Attrs>{ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   }}),
+__this.node('div', <__wml.Attrs>{'onclick': __context.values.content .onfocus ,'class': __context.values.content .className }, [
 
         ...(__if(__context.values.tags .has (),
    ()=> ([
@@ -80,30 +80,30 @@ __this.node('div', {html : { 'onclick' : __context.values.content .onfocus  ,'cl
         ...__forIn (__context.values.tags .value , (value , idx , _$$all)=> 
 ([
 
-        __this.widget(Tag, {html : {  } ,wml : {  } ,ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   } }, [
+        __this.widget(new Tag({ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   }})
      ]), 
 ()=> ([]))
      ]),
    ()=> ([
 
-        text (``)
+        text ('')
      ]))) ,
-__this.widget(Input, {html : {  } ,wml : { 'id' : __context.values.input .wml .id   } ,ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'onSearch' : __context.values.input .onSearch   } }, [
+__this.widget(new Input({wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'onSearch' : __context.values.input .onSearch   }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'onSearch' : __context.values.input .onSearch   }})
      ]),
-__this.widget(ResultsMenu, {html : {  } ,wml : { 'id' : __context.values.menu .wml .id   } ,ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemsTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   } }, [
+__this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}, [
 
         
-     ]),
-__this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml .id   } ,ww : { 'text' : __context.values.messages .text   } }, [
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}),
+__this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww : { 'text' : __context.values.messages .text   }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages .wml .id   },ww : { 'text' : __context.values.messages .text   }})
      ]);
 
        }
@@ -122,37 +122,39 @@ __this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml 
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -189,7 +191,6 @@ __this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml 
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -197,10 +198,7 @@ __this.widget(Help, {html : {  } ,wml : { 'id' : __context.values.messages .wml 
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

@@ -12,7 +12,7 @@ var link_1 = require("../../../../../../lib/content/link");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -36,73 +36,74 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
+            return __this.widget(new demo_1.Demo({}, [
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h3', {}, [
                         document.createTextNode("This is a horizontal nav.")
                     ]),
-                    __this.widget(nav_1.Nav, { html: {}, wml: {} }, [
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Home" } }, [])
-                        ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'disabled': true, 'text': "Users" } }, [])
-                        ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Logout" } }, [])
-                        ])
-                    ])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
+                    __this.widget(new nav_1.Nav({}, [
+                        __this.widget(new item_1.Item({}, [
+                            __this.widget(new link_1.Link({ ww: { 'text': 'Home' } }, []), { ww: { 'text': 'Home' } })
+                        ]), {}),
+                        __this.widget(new item_1.Item({}, [
+                            __this.widget(new link_1.Link({ ww: { 'disabled': true, 'text': 'Users' } }, []), { ww: { 'disabled': true, 'text': 'Users' } })
+                        ]), {}),
+                        __this.widget(new item_1.Item({}, [
+                            __this.widget(new link_1.Link({ ww: { 'text': 'Logout' } }, []), { ww: { 'text': 'Logout' } })
+                        ]), {})
+                    ]), {})
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h3', {}, [
                         document.createTextNode("This is a vertical nav.")
                     ]),
-                    __this.widget(nav_1.Nav, { html: {}, wml: {}, ww: { 'vertical': true } }, [
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Home" } }, [])
-                        ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'disabled': true, 'text': "Users" } }, [])
-                        ]),
-                        __this.widget(item_1.Item, { html: {}, wml: {} }, [
-                            __this.widget(link_1.Link, { html: {}, wml: {}, ww: { 'text': "Logout" } }, [])
-                        ])
-                    ])
-                ])
-            ]);
+                    __this.widget(new nav_1.Nav({ ww: { 'vertical': true } }, [
+                        __this.widget(new item_1.Item({}, [
+                            __this.widget(new link_1.Link({ ww: { 'text': 'Home' } }, []), { ww: { 'text': 'Home' } })
+                        ]), {}),
+                        __this.widget(new item_1.Item({}, [
+                            __this.widget(new link_1.Link({ ww: { 'disabled': true, 'text': 'Users' } }, []), { ww: { 'disabled': true, 'text': 'Users' } })
+                        ]), {}),
+                        __this.widget(new item_1.Item({}, [
+                            __this.widget(new link_1.Link({ ww: { 'text': 'Logout' } }, []), { ww: { 'text': 'Logout' } })
+                        ]), {})
+                    ]), { ww: { 'vertical': true } })
+                ]), {})
+            ]), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -120,8 +121,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();

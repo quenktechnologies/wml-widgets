@@ -30,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -62,20 +62,20 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.node('h1', {html : {  } ,wml : {  } }, [
+        __this.node('h1', <__wml.Attrs>{}, [
 
         document.createTextNode(`Modals`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('button', {html : { 'onclick' : __context.values.open   } ,wml : {  } }, [
+        __this.node('button', <__wml.Attrs>{'onclick': __context.values.open }, [
 
         document.createTextNode(`Open`)
      ])
      ])
-     ]);
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -93,37 +93,39 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -160,7 +162,6 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -168,10 +169,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 
@@ -234,32 +232,32 @@ export class Open  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Modal, {html : {  } ,wml : { 'id' : `open`  } }, [
+           return __this.widget(new Modal({wml : { 'id' : 'open'  }}, [
 
-        __this.widget(ModalHeader, {html : {  } ,wml : {  } }, [
+        __this.widget(new ModalHeader({}, [
 
         document.createTextNode(`Open`)
-     ]),
-__this.widget(ModalBody, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new ModalBody({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`Click this `),
-__this.node('button', {html : { 'onclick' : __context.values.close   } ,wml : {  } }, [
+__this.node('button', <__wml.Attrs>{'onclick': __context.values.close }, [
 
         document.createTextNode(`button`)
      ]),
 document.createTextNode(` to close.`)
      ])
-     ]),
-__this.widget(ModalFooter, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new ModalFooter({}, [
 
-        __this.node('button', {html : { 'onclick' : __context.values.close   } ,wml : {  } }, [
+        __this.node('button', <__wml.Attrs>{'onclick': __context.values.close }, [
 
         document.createTextNode(`cancel`)
      ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{wml : { 'id' : 'open'  }});
 
        }
 
@@ -277,37 +275,39 @@ __this.widget(ModalFooter, {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -344,7 +344,6 @@ __this.widget(ModalFooter, {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -352,10 +351,7 @@ __this.widget(ModalFooter, {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

@@ -39,7 +39,7 @@ export interface HeadContext<C, R extends Record<C>> {
     /**
      * heading generates a heading cell from a column spec.
      */
-    heading: (c: Column<C, R>) => (n: number) => Content
+    heading: (c: Column<C, R>, n: number) => Content
 
 }
 

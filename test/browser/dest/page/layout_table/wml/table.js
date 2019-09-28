@@ -15,7 +15,7 @@ var table_1 = require("../../../../../../lib/layout/table");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -34,102 +34,102 @@ var __forOf = function (o, f, alt) {
 };
 exports.content = function () { return function (__this) {
     return [
-        __this.widget(table_1.TableHeader, { html: {}, wml: {} }, [
-            __this.widget(table_1.TableRow, { html: {}, wml: {} }, [
-                __this.widget(table_1.TableHeading, { html: {}, wml: {} }, [
+        __this.widget(new table_1.TableHeader({}, [
+            __this.widget(new table_1.TableRow({}, [
+                __this.widget(new table_1.TableHeading({}, [
                     document.createTextNode("Name")
-                ]),
-                __this.widget(table_1.TableHeading, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableHeading({}, [
                     document.createTextNode("Email")
-                ]),
-                __this.widget(table_1.TableHeading, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableHeading({}, [
                     document.createTextNode("Balance")
-                ]),
-                __this.widget(table_1.TableHeading, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableHeading({}, [
                     document.createTextNode("Username")
-                ]),
-                __this.widget(table_1.TableHeading, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableHeading({}, [
                     document.createTextNode("Status")
-                ])
-            ])
-        ]),
-        __this.widget(table_1.TableBody, { html: {}, wml: {} }, [
-            __this.widget(table_1.TableRow, { html: {}, wml: {} }, [
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {})
+            ]), {})
+        ]), {}),
+        __this.widget(new table_1.TableBody({}, [
+            __this.widget(new table_1.TableRow({}, [
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("Length Wise")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("lw@theemailplace.com")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("$5000")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("lw")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("Active")
-                ])
-            ]),
-            __this.widget(table_1.TableRow, { html: {}, wml: {} }, [
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {})
+            ]), {}),
+            __this.widget(new table_1.TableRow({}, [
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("First Chance")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("fchacne@live.tt")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("$1.00")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("chance")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("Inactive")
-                ])
-            ]),
-            __this.widget(table_1.TableRow, { html: {}, wml: {} }, [
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {})
+            ]), {}),
+            __this.widget(new table_1.TableRow({}, [
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("Du Pear")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("dupear@gmail.com")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("$10,000.00")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("pearboy")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("Active")
-                ])
-            ]),
-            __this.widget(table_1.TableRow, { html: {}, wml: {} }, [
-                __this.widget(table_1.TableCell, { html: {}, wml: {}, ww: { 'rowspan': 2, 'colspan': 5 } }, [
+                ]), {})
+            ]), {}),
+            __this.widget(new table_1.TableRow({}, [
+                __this.widget(new table_1.TableCell({ ww: { 'rowspan': 2, 'colspan': 5 } }, [
                     document.createTextNode("This spans 2 rows 5 columns.")
-                ])
-            ])
-        ]),
-        __this.widget(table_1.TableFooter, { html: {}, wml: {} }, [
-            __this.widget(table_1.TableRow, { html: {}, wml: {} }, [
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), { ww: { 'rowspan': 2, 'colspan': 5 } })
+            ]), {})
+        ]), {}),
+        __this.widget(new table_1.TableFooter({}, [
+            __this.widget(new table_1.TableRow({}, [
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("1")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("2")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("3")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("4")
-                ]),
-                __this.widget(table_1.TableCell, { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new table_1.TableCell({}, [
                     document.createTextNode("5")
-                ])
-            ])
-        ])
+                ]), {})
+            ]), {})
+        ]), {})
     ];
 }; };
 ;
@@ -140,76 +140,77 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
+            return __this.widget(new demo_1.Demo({}, [
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h3', {}, [
                         document.createTextNode("Normal")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {} }, __spreadArrays((exports.content()(__this))))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
+                    __this.widget(new table_1.TableLayout({}, __spreadArrays((exports.content()(__this)))), {})
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h3', {}, [
                         document.createTextNode(" Alternate")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'alternate': true } }, __spreadArrays((exports.content()(__this))))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
+                    __this.widget(new table_1.TableLayout({ ww: { 'alternate': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'alternate': true } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h3', {}, [
                         document.createTextNode("Bordered")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'bordered': true } }, __spreadArrays((exports.content()(__this))))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
+                    __this.widget(new table_1.TableLayout({ ww: { 'bordered': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'bordered': true } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h3', {}, [
                         document.createTextNode("Hoverable")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'hoverable': true } }, __spreadArrays((exports.content()(__this))))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h3', { html: {}, wml: {} }, [
+                    __this.widget(new table_1.TableLayout({ ww: { 'hoverable': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'hoverable': true } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h3', {}, [
                         document.createTextNode("Compact")
                     ]),
-                    __this.widget(table_1.TableLayout, { html: {}, wml: {}, ww: { 'compact': true } }, __spreadArrays((exports.content()(__this))))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.widget(table_1.TableWindow, { html: {}, wml: {} }, [
-                        __this.widget(table_1.TableLayout, { html: {}, wml: {} }, __spreadArrays((exports.content()(__this))))
-                    ])
-                ])
-            ]);
+                    __this.widget(new table_1.TableLayout({ ww: { 'compact': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'compact': true } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new table_1.TableWindow({}, [
+                        __this.widget(new table_1.TableLayout({}, __spreadArrays((exports.content()(__this)))), {})
+                    ]), {})
+                ]), {})
+            ]), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -227,8 +228,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();

@@ -1,6 +1,6 @@
 {% import (Stack) from "../" %}
 
-{% fun content [V](s:Stack[V]) (v:V) (_:Number) %}
+{% fun content [V](s:Stack[V], v:V, _:Number) %}
 
   <div class={{s.values.element.content.className}}>
     {{s.values.element.decorator(v)}}
@@ -16,7 +16,7 @@
 
     <li class={{@values.element.className}}>
 
-      {{...(@values.element.template(v)(index))}}
+      {{...(@values.element.template(v, index))}}
 
       <button 
         class={{@values.close.className}}

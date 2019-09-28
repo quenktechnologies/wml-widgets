@@ -30,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -62,156 +62,156 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+        __this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`This is a text input: `),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange  } }, [
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange  }}, [
 
         
-     ]),
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange  }}),
 document.createTextNode(`.`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`As you type `),
-__this.node('b', {html : {  } ,wml : { 'id' : `txt`  } }, [
+__this.node('b', <__wml.Attrs>{wml : { 'id' : 'txt'  }}, [
 
         document.createTextNode(`this`)
      ]),
 document.createTextNode(` changes.`)
      ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
         ...__forIn (__context.sizes, (v , _$$i, _$$all)=> 
 ([
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` neutral: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v  } }, [
+document.createTextNode((v + ' neutral: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v  }})
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` error: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : `-error`  } }, [
+document.createTextNode((v + ' error: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-error'  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-error'  }})
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` warning: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : `-warning`  } }, [
+document.createTextNode((v + ' warning: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-warning'  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-warning'  }})
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` success: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : `-success`  } }, [
+document.createTextNode((v + ' success: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-success'  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-success'  }})
      ])
      ]), 
 ()=> ([]))
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
       Block:
       `),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'block' : true   } }, [
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : true   }}, [
 
         
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'block' : true   }})
      ])
-     ])
-     ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(` Textarea: `)
      ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+__this.widget(new Demo({}, [
 
         ...__forIn (__context.sizes, (v , _$$i, _$$all)=> 
 ([
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` neutral: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'rows' : 5 ,'size' : v  } }, [
+document.createTextNode((v + ' neutral: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'rows' : 5 ,'size' : v  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'rows' : 5 ,'size' : v  }})
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` error: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : `-error`  } }, [
+document.createTextNode((v + ' error: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-error'  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-error'  }})
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` warning: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : `-warning`  } }, [
+document.createTextNode((v + ' warning: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-warning'  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-warning'  }})
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
         Size `),
-document.createTextNode((v + ` success: `)),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : `-success`  } }, [
+document.createTextNode((v + ' success: ')),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-success'  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-success'  }})
      ])
      ]), 
 ()=> ([]))
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`
       Block:
       `),
-__this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  } }, [
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  }}, [
 
         
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  }})
      ])
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -229,37 +229,39 @@ __this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -296,7 +298,6 @@ __this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -304,10 +305,7 @@ __this.widget(TextInput, {html : {  } ,wml : {  } ,ww : { 'onChange' : __context
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

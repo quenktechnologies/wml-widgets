@@ -7,7 +7,7 @@ export declare const RESULTS_MENU = "ww-results-menu";
 /**
  * ItemTemplate used to render each item in the results.
  */
-export declare type ItemTemplate<V> = (option: V) => (index: number) => Fun;
+export declare type ItemTemplate<V> = (option: V, index: number) => Fun;
 /**
  * NoItemsTemplate is used when there are no results.
  */
@@ -84,7 +84,7 @@ export declare class ResultsMenu<V> extends Component<WidgetAttrs<ResultsMenuAtt
         item: {
             stringifier: Stringifier<V>;
             click: (index: number) => void;
-            template: () => ItemTemplate<V>;
+            template: ItemTemplate<V>;
             noItemsTemplate: () => Fun;
         };
     };

@@ -1,7 +1,6 @@
 import * as __wml from '@quenk/wml';
 
 import {Demo} from '../../../widgets/demo'; ;
-import {ValidationState} from '../../../../../../lib/control/feedback'; ;
 import {TextField} from '../../../../../../lib/control/text-field'; ;
 import {TextFieldPage} from '../'; 
 //@ts-ignore: 6192
@@ -31,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -63,95 +62,95 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+        __this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`The value of the input is:`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('b', {html : {  } ,wml : { 'id' : `content`  } }, [
+        __this.node('b', <__wml.Attrs>{wml : { 'id' : 'content'  }}, [
 
         document.createTextNode(`Nothing`)
      ])
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(TextField, {html : {  } ,wml : { 'id' : `text`  } ,ww : { 'name' : `text` ,'message' : `This is the help message` ,'onChange' : __context.onChange  } }, [
+        __this.widget(new TextField({wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'onChange' : __context.onChange  }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'onChange' : __context.onChange  }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('strong', {html : {  } ,wml : {  } }, [
+        __this.node('strong', <__wml.Attrs>{}, [
 
         document.createTextNode(`Success`)
      ])
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(TextField, {html : {  } ,wml : { 'id' : `success`  } ,ww : { 'name' : `success` ,'validationState' : ValidationState.Success ,'label' : `This is a success label` ,'success' : `This textfield has a success` ,'onChange' : __context.onChange  } }, [
+        __this.widget(new TextField({wml : { 'id' : 'success'  },ww : { 'name' : 'success' ,'label' : 'This is a success label' ,'success' : 'This textfield has a success' ,'onChange' : __context.onChange  }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : 'success'  },ww : { 'name' : 'success' ,'label' : 'This is a success label' ,'success' : 'This textfield has a success' ,'onChange' : __context.onChange  }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('strong', {html : {  } ,wml : {  } }, [
+        __this.node('strong', <__wml.Attrs>{}, [
 
         document.createTextNode(`Warning`)
      ])
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(TextField, {html : {  } ,wml : { 'id' : `warning`  } ,ww : { 'name' : `warning` ,'validationState' : ValidationState.Warning ,'label' : `This is a warning label` ,'warning' : `This textfield has a warning.` ,'onChange' : __context.onChange  } }, [
+        __this.widget(new TextField({wml : { 'id' : 'warning'  },ww : { 'name' : 'warning' ,'label' : 'This is a warning label' ,'warning' : 'This textfield has a warning.' ,'onChange' : __context.onChange  }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : 'warning'  },ww : { 'name' : 'warning' ,'label' : 'This is a warning label' ,'warning' : 'This textfield has a warning.' ,'onChange' : __context.onChange  }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('strong', {html : {  } ,wml : {  } }, [
+        __this.node('strong', <__wml.Attrs>{}, [
 
         document.createTextNode(`Error`)
      ])
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(TextField, {html : {  } ,wml : { 'id' : `error`  } ,ww : { 'name' : `error` ,'validationState' : ValidationState.Error ,'label' : `This is an error label` ,'error' : `This textfield has an error.` ,'onChange' : __context.onChange  } }, [
+        __this.widget(new TextField({wml : { 'id' : 'error'  },ww : { 'name' : 'error' ,'label' : 'This is an error label' ,'error' : 'This textfield has an error.' ,'onChange' : __context.onChange  }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : 'error'  },ww : { 'name' : 'error' ,'label' : 'This is an error label' ,'error' : 'This textfield has an error.' ,'onChange' : __context.onChange  }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`The one uses rows to render a text area:`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(TextField, {html : {  } ,wml : { 'id' : `area`  } ,ww : { 'name' : `area` ,'rows' : 5 ,'label' : `This is a textarea label` ,'onChange' : __context.onChange  } }, [
+        __this.widget(new TextField({wml : { 'id' : 'area'  },ww : { 'name' : 'area' ,'rows' : 5 ,'label' : 'This is a textarea label' ,'onChange' : __context.onChange  }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : 'area'  },ww : { 'name' : 'area' ,'rows' : 5 ,'label' : 'This is a textarea label' ,'onChange' : __context.onChange  }})
      ])
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -169,37 +168,39 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -236,7 +237,6 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -244,10 +244,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

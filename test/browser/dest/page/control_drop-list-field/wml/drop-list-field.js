@@ -8,7 +8,7 @@ var drop_list_field_1 = require("../../../../../../lib/control/drop-list-field")
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -32,73 +32,74 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('b', { html: {}, wml: {} }, [
+            return __this.widget(new demo_1.Demo({}, [
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('b', {}, [
                         document.createTextNode("Normal")
                     ]),
-                    __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(drop_list_field_1.DropListField, { html: {}, wml: { 'id': __context.values.normal.name }, ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onChange': __context.values.normal.onChange } }, [])
+                    __this.node('p', {}, [
+                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.normal.name }, ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onChange': __context.values.normal.onChange } }, []), { wml: { 'id': __context.values.normal.name }, ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onChange': __context.values.normal.onChange } })
                     ])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('b', { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('b', {}, [
                         document.createTextNode("Success")
                     ]),
-                    __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(drop_list_field_1.DropListField, { html: {}, wml: { 'id': __context.values.success.id }, ww: { 'className': "-success", 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange } }, [])
+                    __this.node('p', {}, [
+                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.success.id }, ww: { 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange } }, []), { wml: { 'id': __context.values.success.id }, ww: { 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange } })
                     ])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('b', { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('b', {}, [
                         document.createTextNode("Warning")
                     ]),
-                    __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(drop_list_field_1.DropListField, { html: {}, wml: { 'id': __context.values.warning.id }, ww: { 'className': "-warning", 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange } }, [])
+                    __this.node('p', {}, [
+                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.warning.id }, ww: { 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange } }, []), { wml: { 'id': __context.values.warning.id }, ww: { 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange } })
                     ])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('b', { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('b', {}, [
                         document.createTextNode("Error")
                     ]),
-                    __this.node('p', { html: {}, wml: {} }, [
-                        __this.widget(drop_list_field_1.DropListField, { html: {}, wml: { 'id': __context.values.error.id }, ww: { 'className': "-error", 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange } }, [])
+                    __this.node('p', {}, [
+                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange } }, []), { wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange } })
                     ])
-                ])
-            ]);
+                ]), {})
+            ]), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -116,8 +117,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();

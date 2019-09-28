@@ -14,8 +14,8 @@ export declare class Main implements __wml.View {
     tree: __wml.Content;
     template: __wml.Template;
     register(e: __wml.WMLElement, attrs: __wml.Attributes<any>): __wml.WMLElement;
-    node(tag: string, attrs: __wml.Attributes<any>, children: __wml.Content[]): HTMLElement;
-    widget<A extends __wml.Attrs, W extends __wml.WidgetConstructor<A>>(C: W, attrs: A, children: __wml.Content[]): __wml.Content;
+    node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): HTMLElement;
+    widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
     findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
     invalidate(): void;

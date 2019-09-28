@@ -110,7 +110,7 @@ export declare class NewHeadContext<C, R extends Record<C>> {
     className: string;
     columns: Column<C, R>[];
     data: R[];
-    heading: (c: Column<C, R>) => (i: number) => Content;
+    heading: (c: Column<C, R>, i: number) => Content;
 }
 /**
  * NewHeadingContext
@@ -133,7 +133,7 @@ export declare class NewBodyContext<C, R extends Record<C>> {
     className: string;
     columns: Column<C, R>[];
     data: R[];
-    cell: (c: Column<C, R>) => (id: number) => (row: number) => Content;
+    cell: (c: Column<C, R>, id: number, row: number) => Content;
 }
 /**
  * NewCellContext

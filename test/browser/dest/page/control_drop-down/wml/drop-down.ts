@@ -32,8 +32,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -64,46 +64,46 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(DropDown, {html : {  } ,wml : {  } ,ww : { 'buttonText' : `Click Me`  } }, [
+        __this.widget(new DropDown({ww : { 'buttonText' : 'Click Me'  }}, [
 
-        __this.widget(Menu, {html : {  } ,wml : {  } }, [
+        __this.widget(new Menu({}, [
 
-        __this.widget(Item, {html : {  } ,wml : {  } }, [
+        __this.widget(new Item({}, [
 
-        __this.node('a', {html : { 'href' : `#` ,'onclick' : __context.onClick(`You clicked one`)  } ,wml : {  } }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.onClick('You clicked one')}, [
 
         document.createTextNode(`One`)
      ])
-     ]),
-__this.widget(Item, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Item({}, [
 
-        __this.node('a', {html : { 'href' : `#` ,'onclick' : __context.onClick(`You clicked two`)  } ,wml : {  } }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.onClick('You clicked two')}, [
 
         document.createTextNode(`Two`)
      ])
-     ]),
-__this.widget(Item, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Item({}, [
 
-        __this.node('a', {html : { 'href' : `#` ,'onclick' : __context.onClick(`You clicked three`)  } ,wml : {  } }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.onClick('You clicked three')}, [
 
         document.createTextNode(`Three`)
      ])
-     ])
-     ])
-     ]),
-__this.widget(DropDown, {html : {  } ,wml : {  } ,ww : { 'buttonText' : `Me Too` ,'autoClose' : false   } }, [
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Click Me'  }}),
+__this.widget(new DropDown({ww : { 'buttonText' : 'Me Too' ,'autoClose' : false   }}, [
 
-        __this.node('h1', {html : {  } ,wml : {  } }, [
+        __this.node('h1', <__wml.Attrs>{}, [
 
         document.createTextNode(`Any flow content can go here!`)
      ])
+     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Me Too' ,'autoClose' : false   }})
      ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -121,37 +121,39 @@ __this.widget(DropDown, {html : {  } ,wml : {  } ,ww : { 'buttonText' : `Me Too`
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -188,7 +190,6 @@ __this.widget(DropDown, {html : {  } ,wml : {  } ,ww : { 'buttonText' : `Me Too`
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -196,10 +197,7 @@ __this.widget(DropDown, {html : {  } ,wml : {  } ,ww : { 'buttonText' : `Me Too`
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

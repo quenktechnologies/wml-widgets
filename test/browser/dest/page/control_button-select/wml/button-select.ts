@@ -31,8 +31,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -63,47 +63,47 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+        __this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`You selected: `),
-__this.node('b', {html : {  } ,wml : { 'id' : `select-content`  } }, [
+__this.node('b', <__wml.Attrs>{wml : { 'id' : 'select-content'  }}, [
 
         document.createTextNode(`(None)`)
      ]),
 document.createTextNode(`.`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(ButtonSelect, {html : {  } ,wml : { 'id' : `select`  } ,ww : { 'name' : `select` ,'style' : Style.Primary ,'options' : __context.values.options  ,'onChange' : __context.onChange  } }, [
+        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'onChange' : __context.onChange  }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'onChange' : __context.onChange  }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(`You can also use MultiButtonSelect instead: `),
-__this.node('b', {html : {  } ,wml : { 'id' : `multi-content`  } }, [
+__this.node('b', <__wml.Attrs>{wml : { 'id' : 'multi-content'  }}, [
 
         document.createTextNode(`(None)`)
      ]),
 document.createTextNode(`.`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(MultiButtonSelect, {html : {  } ,wml : { 'id' : `multi`  } ,ww : { 'name' : `multi` ,'style' : Style.Warning ,'options' : __context.values.options  ,'onChange' : __context.onChangeMulti  } }, [
+        __this.widget(new MultiButtonSelect({wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'style' : Style.Warning ,'options' : __context.values.options  ,'onChange' : __context.onChangeMulti  }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'style' : Style.Warning ,'options' : __context.values.options  ,'onChange' : __context.onChangeMulti  }})
      ])
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -121,37 +121,39 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -188,7 +190,6 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -196,10 +197,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

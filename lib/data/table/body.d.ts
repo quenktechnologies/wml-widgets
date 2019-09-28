@@ -28,7 +28,7 @@ export interface BodyContext<C, R extends Record<C>> {
     /**
      * cell generates a cell from a column spec.
      */
-    cell: (c: Column<C, R>) => (idx: number) => (row: number) => Content;
+    cell: (c: Column<C, R>, idx: number, row: number) => Content;
 }
 /**
  * CellContext

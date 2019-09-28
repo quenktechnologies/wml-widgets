@@ -1,7 +1,7 @@
 {% import (Message) from "./message" %}
 {% import (text) from "../../" %}
 
-{% fun label (id:String) (t:String) %}
+{% fun label (id:String, t:String) %}
 
   <label 
     for={{id}} 
@@ -11,7 +11,7 @@
   
 {% endfun %}
 
-{% fun message (_id:String) (_m:Message) %}
+{% fun message (_id:String, _m:Message) %}
 
     <span
       class="help-block"></span>

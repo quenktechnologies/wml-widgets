@@ -17,7 +17,7 @@ var style_1 = require("../../../../../../lib/content/style");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -41,75 +41,76 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(grid_1.GridLayout, { html: {}, wml: {} }, __spreadArrays(__forIn(style_1.styles, function (style, _$$i, _$$all) {
+            return __this.widget(new grid_1.GridLayout({}, __spreadArrays(__forIn(style_1.styles, function (style, _$$i, _$$all) {
                 return ([
-                    __this.widget(grid_1.Row, { html: {}, wml: {} }, [
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
-                                __this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
+                    __this.widget(new grid_1.Row({}, [
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
+                                __this.widget(new panel_1.PanelBody({}, [
                                     document.createTextNode("\n            PanelBody only.\n          ")
-                                ])
-                            ])
-                        ]),
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
-                                __this.widget(panel_1.PanelHeader, { html: {}, wml: {} }, [
+                                ]), {})
+                            ]), { ww: { 'style': style } })
+                        ]), { ww: { 'span': 4 } }),
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
+                                __this.widget(new panel_1.PanelHeader({}, [
                                     document.createTextNode("\n            With PanelHeader\n          ")
-                                ]),
-                                __this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
+                                ]), {}),
+                                __this.widget(new panel_1.PanelBody({}, [
                                     document.createTextNode("\n            Lorem impsum dilium net set.\n          ")
-                                ])
-                            ])
-                        ]),
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(panel_1.Panel, { html: {}, wml: {}, ww: { 'style': style } }, [
-                                __this.widget(panel_1.PanelHeader, { html: {}, wml: {} }, [
+                                ]), {})
+                            ]), { ww: { 'style': style } })
+                        ]), { ww: { 'span': 4 } }),
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
+                                __this.widget(new panel_1.PanelHeader({}, [
                                     document.createTextNode("With PanelFooter")
-                                ]),
-                                __this.widget(panel_1.PanelBody, { html: {}, wml: {} }, [
+                                ]), {}),
+                                __this.widget(new panel_1.PanelBody({}, [
                                     document.createTextNode("Lorem impsum dilium net set.")
-                                ]),
-                                __this.widget(panel_1.PanelFooter, { html: {}, wml: {} }, [
+                                ]), {}),
+                                __this.widget(new panel_1.PanelFooter({}, [
                                     document.createTextNode("Meh foot.")
-                                ])
-                            ])
-                        ])
-                    ])
+                                ]), {})
+                            ]), { ww: { 'style': style } })
+                        ]), { ww: { 'span': 4 } })
+                    ]), {})
                 ]);
-            }, function () { return ([]); })));
+            }, function () { return ([]); }))), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -127,8 +128,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();

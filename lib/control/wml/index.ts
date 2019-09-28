@@ -29,8 +29,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -57,11 +57,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export const label = 
 
-(id: string   )=> (t: string   )=> (__this:__wml.Registry) : __wml.Content[] => {
+(id: string   ,t: string   )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
-        __this.node('label', {html : { 'for' : id ,'class' : `control-label`  } ,wml : {  } }, [
+        __this.node('label', <__wml.Attrs>{'for': id,'class': 'control-label'}, [
 
         text(t)
      ])
@@ -70,11 +70,11 @@ export const label =
 };;
 export const message = 
 
-(_id: string   )=> (_m: Message   )=> (__this:__wml.Registry) : __wml.Content[] => {
+(_id: string   ,_m: Message   )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
-        __this.node('span', {html : { 'class' : `help-block`  } ,wml : {  } }, [
+        __this.node('span', <__wml.Attrs>{'class': 'help-block'}, [
 
         
      ])

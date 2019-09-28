@@ -29,8 +29,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -61,12 +61,12 @@ export class DrawerLayout  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('div', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : { 'id' : __context.values.root .wml .id   } }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.root .wml .id   },'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
-        __this.widget(Drawer, {html : {  } ,wml : { 'id' : __context.values.drawer .wml .id   } ,ww : { 'hidden' : __context.values.drawer .hidden  ,'content' : __context.values.drawer .content   } }, [
+        __this.widget(new Drawer({wml : { 'id' : __context.values.drawer .wml .id   },ww : { 'hidden' : __context.values.drawer .hidden  ,'content' : __context.values.drawer .content   }}, [
 
         
-     ]),
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.drawer .wml .id   },ww : { 'hidden' : __context.values.drawer .hidden  ,'content' : __context.values.drawer .content   }}),
 ... (__context.values.content .value )
      ]);
 
@@ -86,37 +86,39 @@ export class DrawerLayout  implements __wml.View {
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -153,7 +155,6 @@ export class DrawerLayout  implements __wml.View {
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -161,10 +162,7 @@ export class DrawerLayout  implements __wml.View {
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

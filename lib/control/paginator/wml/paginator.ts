@@ -29,8 +29,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -61,50 +61,50 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('ul', {html : { 'id' : __context.values.id  ,'class' : __context.values.className   } ,wml : {  } }, [
+           return __this.node('ul', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        __this.node('li', {html : { 'class' : __context.values.first .className   } ,wml : {  } }, [
+        __this.node('li', <__wml.Attrs>{'class': __context.values.first .className }, [
 
         ...(__if(__context.values.first .isDisabled (),
    ()=> ([
 
-        __this.node('span', {html : {  } ,wml : {  } }, [
+        __this.node('span', <__wml.Attrs>{}, [
 
         
      ])
      ]),
    ()=> ([
 
-        __this.node('a', {html : { 'href' : `#` ,'onclick' : __context.values.first .onclick   } ,wml : {  } }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.first .onclick }, [
 
         
      ])
      ]))) 
      ]),
-__this.node('li', {html : { 'class' : __context.values.previous .className   } ,wml : {  } }, [
+__this.node('li', <__wml.Attrs>{'class': __context.values.previous .className }, [
 
         ...(__if(__context.values.previous .isDisabled (),
    ()=> ([
 
-        __this.node('span', {html : {  } ,wml : {  } }, [
+        __this.node('span', <__wml.Attrs>{}, [
 
         
      ])
      ]),
    ()=> ([
 
-        __this.node('a', {html : { 'href' : `#` ,'onclick' : __context.values.previous .onclick   } ,wml : {  } }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.previous .onclick }, [
 
         
      ])
      ]))) 
      ]),
-__this.node('li', {html : { 'class' : __context.values.position .className   } ,wml : {  } }, [
+__this.node('li', <__wml.Attrs>{'class': __context.values.position .className }, [
 
-        __this.node('span', {html : {  } ,wml : {  } }, [
+        __this.node('span', <__wml.Attrs>{}, [
 
         document.createTextNode(`Page `),
-__this.node('input', {html : { 'value' : __context.values.current .asString ()  } ,wml : {  } }, [
+__this.node('input', <__wml.Attrs>{'value': __context.values.current .asString ()}, [
 
         
      ]),
@@ -112,37 +112,37 @@ document.createTextNode(` of `),
 text (__context.values.total )
      ])
      ]),
-__this.node('li', {html : { 'class' : __context.values.next .className   } ,wml : {  } }, [
+__this.node('li', <__wml.Attrs>{'class': __context.values.next .className }, [
 
         ...(__if(__context.values.next .isDisabled (),
    ()=> ([
 
-        __this.node('span', {html : {  } ,wml : {  } }, [
+        __this.node('span', <__wml.Attrs>{}, [
 
         
      ])
      ]),
    ()=> ([
 
-        __this.node('a', {html : { 'href' : `#` ,'onclick' : __context.values.next .onclick   } ,wml : {  } }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.next .onclick }, [
 
         
      ])
      ]))) 
      ]),
-__this.node('li', {html : { 'class' : __context.values.last .className   } ,wml : {  } }, [
+__this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
 
         ...(__if(__context.values.last .isDisabled (),
    ()=> ([
 
-        __this.node('span', {html : {  } ,wml : {  } }, [
+        __this.node('span', <__wml.Attrs>{}, [
 
         
      ])
      ]),
    ()=> ([
 
-        __this.node('a', {html : { 'href' : `#` ,'onclick' : __context.values.last .onclick   } ,wml : {  } }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.last .onclick }, [
 
         
      ])
@@ -166,37 +166,39 @@ __this.node('li', {html : { 'class' : __context.values.last .className   } ,wml 
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -233,7 +235,6 @@ __this.node('li', {html : { 'class' : __context.values.last .className   } ,wml 
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -241,10 +242,7 @@ __this.node('li', {html : { 'class' : __context.values.last .className   } ,wml 
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

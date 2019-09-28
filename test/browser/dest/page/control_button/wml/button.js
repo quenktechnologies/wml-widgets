@@ -15,7 +15,7 @@ var button_1 = require("../../../../../../lib/control/button");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -39,108 +39,109 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('h1', { html: {}, wml: {} }, [
+            return __this.widget(new demo_1.Demo({}, [
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h1', {}, [
                         document.createTextNode("Buttons")
                     ]),
-                    __this.node('p', { html: {}, wml: {} }, __spreadArrays([
-                        __this.node('h2', { html: {}, wml: {} }, [
+                    __this.node('p', {}, __spreadArrays([
+                        __this.node('h2', {}, [
                             document.createTextNode("Style")
                         ])
                     ], __forIn(__context.values.styles, function (v, _$$i, _$$all) {
                         return ([
-                            __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': v, 'style': v, 'text': __context.values.capitalize(v) } }, [])
+                            __this.widget(new button_1.Button({ ww: { 'name': v, 'style': v, 'text': __context.values.capitalize(v) } }, []), { ww: { 'name': v, 'style': v, 'text': __context.values.capitalize(v) } })
                         ]);
                     }, function () { return ([]); })))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays([
-                    __this.node('h2', { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, __spreadArrays([
+                    __this.node('h2', {}, [
                         document.createTextNode("Outline")
                     ])
                 ], __forIn(__context.values.styles, function (style, _$$i, _$$all) {
                     return ([
-                        __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'style': style, 'outline': true, 'text': __context.values.capitalize(style) } }, [])
+                        __this.widget(new button_1.Button({ ww: { 'style': style, 'outline': true, 'text': __context.values.capitalize(style) } }, []), { ww: { 'style': style, 'outline': true, 'text': __context.values.capitalize(style) } })
                     ]);
-                }, function () { return ([]); }))),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('p', { html: {}, wml: {} }, __spreadArrays([
-                        __this.node('h2', { html: {}, wml: {} }, [
+                }, function () { return ([]); }))), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, __spreadArrays([
+                        __this.node('h2', {}, [
                             document.createTextNode("Active")
                         ])
                     ], __forIn(__context.values.styles, function (v, _$$i, _$$all) {
                         return ([
-                            __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) } }, [])
+                            __this.widget(new button_1.Button({ ww: { 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) } }, []), { ww: { 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) } })
                         ]);
                     }, function () { return ([]); })))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('p', { html: {}, wml: {} }, __spreadArrays([
-                        __this.node('h2', { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, __spreadArrays([
+                        __this.node('h2', {}, [
                             document.createTextNode("Disabled")
                         ])
                     ], __forIn(__context.values.styles, function (v, _$$i, _$$all) {
                         return ([
-                            __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) } }, [])
+                            __this.widget(new button_1.Button({ ww: { 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) } }, []), { ww: { 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) } })
                         ]);
                     }, function () { return ([]); })))
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays([
-                    __this.node('h2', { html: {}, wml: {} }, [
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, __spreadArrays([
+                    __this.node('h2', {}, [
                         document.createTextNode("Size")
                     ])
                 ], __forIn(__context.values.styles, function (style, _$$i, _$$all) {
                     return ([
-                        __this.node('p', { html: {}, wml: {} }, __spreadArrays(__forIn(__context.values.sizes, function (size, _$$i, _$$all) {
+                        __this.node('p', {}, __spreadArrays(__forIn(__context.values.sizes, function (size, _$$i, _$$all) {
                             return ([
-                                __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) } }, [])
+                                __this.widget(new button_1.Button({ ww: { 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) } }, []), { ww: { 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) } })
                             ]);
                         }, function () { return ([]); })))
                     ]);
-                }, function () { return ([]); }))),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays([
-                    __this.node('h2', { html: {}, wml: {} }, [
+                }, function () { return ([]); }))), {}),
+                __this.widget(new demo_1.Demo({}, __spreadArrays([
+                    __this.node('h2', {}, [
                         document.createTextNode("Block")
                     ])
                 ], __forIn(__context.values.styles, function (style, _$$i, _$$all) {
                     return ([
-                        __this.widget(button_1.Button, { html: {}, wml: {}, ww: { 'style': style, 'block': true, 'text': __context.values.capitalize(style) } }, [])
+                        __this.widget(new button_1.Button({ ww: { 'style': style, 'block': true, 'text': __context.values.capitalize(style) } }, []), { ww: { 'style': style, 'block': true, 'text': __context.values.capitalize(style) } })
                     ]);
-                }, function () { return ([]); })))
-            ]);
+                }, function () { return ([]); }))), {})
+            ]), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -158,8 +159,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();

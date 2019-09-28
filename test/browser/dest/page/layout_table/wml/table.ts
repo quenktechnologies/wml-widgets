@@ -30,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -58,141 +58,141 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export const content = 
 
-() =>(__this:__wml.Registry) : __wml.Content[] => {
+()=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
-        __this.widget(TableHeader, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableHeader({}, [
 
-        __this.widget(TableRow, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableRow({}, [
 
-        __this.widget(TableHeading, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableHeading({}, [
 
         document.createTextNode(`Name`)
-     ]),
-__this.widget(TableHeading, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableHeading({}, [
 
         document.createTextNode(`Email`)
-     ]),
-__this.widget(TableHeading, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableHeading({}, [
 
         document.createTextNode(`Balance`)
-     ]),
-__this.widget(TableHeading, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableHeading({}, [
 
         document.createTextNode(`Username`)
-     ]),
-__this.widget(TableHeading, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableHeading({}, [
 
         document.createTextNode(`Status`)
-     ])
-     ])
-     ]),
-__this.widget(TableBody, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableBody({}, [
 
-        __this.widget(TableRow, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableRow({}, [
 
-        __this.widget(TableCell, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableCell({}, [
 
         document.createTextNode(`Length Wise`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`lw@theemailplace.com`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`$5000`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`lw`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`Active`)
-     ])
-     ]),
-__this.widget(TableRow, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableRow({}, [
 
-        __this.widget(TableCell, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableCell({}, [
 
         document.createTextNode(`First Chance`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`fchacne@live.tt`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`$1.00`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`chance`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`Inactive`)
-     ])
-     ]),
-__this.widget(TableRow, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableRow({}, [
 
-        __this.widget(TableCell, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableCell({}, [
 
         document.createTextNode(`Du Pear`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`dupear@gmail.com`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`$10,000.00`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`pearboy`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`Active`)
-     ])
-     ]),
-__this.widget(TableRow, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableRow({}, [
 
-        __this.widget(TableCell, {html : {  } ,wml : {  } ,ww : { 'rowspan' : 2 ,'colspan' : 5  } }, [
+        __this.widget(new TableCell({ww : { 'rowspan' : 2 ,'colspan' : 5  }}, [
 
         document.createTextNode(`This spans 2 rows 5 columns.`)
-     ])
-     ])
-     ]),
-__this.widget(TableFooter, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{ww : { 'rowspan' : 2 ,'colspan' : 5  }})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableFooter({}, [
 
-        __this.widget(TableRow, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableRow({}, [
 
-        __this.widget(TableCell, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableCell({}, [
 
         document.createTextNode(`1`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`2`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`3`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`4`)
-     ]),
-__this.widget(TableCell, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new TableCell({}, [
 
         document.createTextNode(`5`)
-     ])
-     ])
-     ])
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{})
      ];
 
 };;
@@ -202,74 +202,74 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+        __this.widget(new Demo({}, [
 
-        __this.node('h3', {html : {  } ,wml : {  } }, [
+        __this.node('h3', <__wml.Attrs>{}, [
 
         document.createTextNode(`Normal`)
      ]),
-__this.widget(TableLayout, {html : {  } ,wml : {  } }, [
+__this.widget(new TableLayout({}, [
 
         ... (content ()(__this))
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('h3', {html : {  } ,wml : {  } }, [
+        __this.node('h3', <__wml.Attrs>{}, [
 
         document.createTextNode(` Alternate`)
      ]),
-__this.widget(TableLayout, {html : {  } ,wml : {  } ,ww : { 'alternate' : true   } }, [
+__this.widget(new TableLayout({ww : { 'alternate' : true   }}, [
 
         ... (content ()(__this))
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{ww : { 'alternate' : true   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('h3', {html : {  } ,wml : {  } }, [
+        __this.node('h3', <__wml.Attrs>{}, [
 
         document.createTextNode(`Bordered`)
      ]),
-__this.widget(TableLayout, {html : {  } ,wml : {  } ,ww : { 'bordered' : true   } }, [
+__this.widget(new TableLayout({ww : { 'bordered' : true   }}, [
 
         ... (content ()(__this))
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{ww : { 'bordered' : true   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('h3', {html : {  } ,wml : {  } }, [
+        __this.node('h3', <__wml.Attrs>{}, [
 
         document.createTextNode(`Hoverable`)
      ]),
-__this.widget(TableLayout, {html : {  } ,wml : {  } ,ww : { 'hoverable' : true   } }, [
+__this.widget(new TableLayout({ww : { 'hoverable' : true   }}, [
 
         ... (content ()(__this))
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{ww : { 'hoverable' : true   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('h3', {html : {  } ,wml : {  } }, [
+        __this.node('h3', <__wml.Attrs>{}, [
 
         document.createTextNode(`Compact`)
      ]),
-__this.widget(TableLayout, {html : {  } ,wml : {  } ,ww : { 'compact' : true   } }, [
+__this.widget(new TableLayout({ww : { 'compact' : true   }}, [
 
         ... (content ()(__this))
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{ww : { 'compact' : true   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.widget(TableWindow, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableWindow({}, [
 
-        __this.widget(TableLayout, {html : {  } ,wml : {  } }, [
+        __this.widget(new TableLayout({}, [
 
         ... (content ()(__this))
-     ])
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -287,37 +287,39 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -354,7 +356,6 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -362,10 +363,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

@@ -30,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -62,44 +62,44 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+        __this.widget(new Demo({}, [
 
-        __this.widget(StackSelect, {html : {  } ,wml : { 'id' : __context.values.asc .id   } ,ww : { 'name' : __context.values.asc .name  ,'label' : __context.values.asc .label  ,'stringifier' : __context.values.asc .stringifier  ,'onSearch' : __context.values.asc .onSearch  ,'onChange' : __context.values.asc .onChange   } }, [
-
-        
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.widget(StackSelect, {html : {  } ,wml : { 'id' : __context.values.desc .id   } ,ww : { 'name' : __context.values.desc .name  ,'label' : __context.values.desc .label  ,'dir' : -1 ,'stringifier' : __context.values.desc .stringifier  ,'onSearch' : __context.values.desc .onSearch  ,'onChange' : __context.values.desc .onChange   } }, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.asc .id   },ww : { 'name' : __context.values.asc .name  ,'label' : __context.values.asc .label  ,'stringifier' : __context.values.asc .stringifier  ,'onSearch' : __context.values.asc .onSearch  ,'onChange' : __context.values.asc .onChange   }}, [
 
         
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.asc .id   },ww : { 'name' : __context.values.asc .name  ,'label' : __context.values.asc .label  ,'stringifier' : __context.values.asc .stringifier  ,'onSearch' : __context.values.asc .onSearch  ,'onChange' : __context.values.asc .onChange   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.widget(StackSelect, {html : {  } ,wml : { 'id' : __context.values.success .id   } ,ww : { 'name' : __context.values.success .name  ,'label' : __context.values.success .label  ,'success' : __context.values.success .message  ,'stringifier' : __context.values.success .stringifier  ,'onSearch' : __context.values.success .onSearch  ,'onChange' : __context.values.success .onChange   } }, [
-
-        
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
-
-        __this.widget(StackSelect, {html : {  } ,wml : { 'id' : __context.values.warning .id   } ,ww : { 'name' : __context.values.warning .name  ,'label' : __context.values.warning .label  ,'warning' : __context.values.warning .message  ,'stringifier' : __context.values.warning .stringifier  ,'onSearch' : __context.values.warning .onSearch  ,'onChange' : __context.values.warning .onChange   } }, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.desc .id   },ww : { 'name' : __context.values.desc .name  ,'label' : __context.values.desc .label  ,'dir' : -1 ,'stringifier' : __context.values.desc .stringifier  ,'onSearch' : __context.values.desc .onSearch  ,'onChange' : __context.values.desc .onChange   }}, [
 
         
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.desc .id   },ww : { 'name' : __context.values.desc .name  ,'label' : __context.values.desc .label  ,'dir' : -1 ,'stringifier' : __context.values.desc .stringifier  ,'onSearch' : __context.values.desc .onSearch  ,'onChange' : __context.values.desc .onChange   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.widget(StackSelect, {html : {  } ,wml : { 'id' : __context.values.error .id   } ,ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   } }, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.success .id   },ww : { 'name' : __context.values.success .name  ,'label' : __context.values.success .label  ,'success' : __context.values.success .message  ,'stringifier' : __context.values.success .stringifier  ,'onSearch' : __context.values.success .onSearch  ,'onChange' : __context.values.success .onChange   }}, [
 
         
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success .id   },ww : { 'name' : __context.values.success .name  ,'label' : __context.values.success .label  ,'success' : __context.values.success .message  ,'stringifier' : __context.values.success .stringifier  ,'onSearch' : __context.values.success .onSearch  ,'onChange' : __context.values.success .onChange   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.warning .id   },ww : { 'name' : __context.values.warning .name  ,'label' : __context.values.warning .label  ,'warning' : __context.values.warning .message  ,'stringifier' : __context.values.warning .stringifier  ,'onSearch' : __context.values.warning .onSearch  ,'onChange' : __context.values.warning .onChange   }}, [
+
+        
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning .id   },ww : { 'name' : __context.values.warning .name  ,'label' : __context.values.warning .label  ,'warning' : __context.values.warning .message  ,'stringifier' : __context.values.warning .stringifier  ,'onSearch' : __context.values.warning .onSearch  ,'onChange' : __context.values.warning .onChange   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.error .id   },ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   }}, [
+
+        
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error .id   },ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   }})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -117,37 +117,39 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -184,7 +186,6 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -192,10 +193,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

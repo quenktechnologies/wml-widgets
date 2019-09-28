@@ -30,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -62,60 +62,60 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.node('h1', {html : {  } ,wml : {  } }, [
+        __this.node('h1', <__wml.Attrs>{}, [
 
         document.createTextNode(`Meter`)
      ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+__this.widget(new Demo({}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Single`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('button', {html : { 'onclick' : __context.values.dec   } ,wml : {  } }, [
+        __this.node('button', <__wml.Attrs>{'onclick': __context.values.dec }, [
 
         document.createTextNode(`-`)
      ]),
-__this.node('button', {html : { 'onclick' : __context.values.inc   } ,wml : {  } }, [
+__this.node('button', <__wml.Attrs>{'onclick': __context.values.inc }, [
 
         document.createTextNode(`+`)
      ])
      ]),
-__this.widget(Meter, {html : {  } ,wml : {  } }, [
+__this.widget(new Meter({}, [
 
-        __this.widget(MeterBar, {html : {  } ,wml : { 'id' : `single`  } ,ww : { 'value' : 75 ,'color' : `yellow`  } }, [
+        __this.widget(new MeterBar({wml : { 'id' : 'single'  },ww : { 'value' : 75 ,'color' : 'yellow'  }}, [
 
         
-     ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{wml : { 'id' : 'single'  },ww : { 'value' : 75 ,'color' : 'yellow'  }})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Combined`)
      ]),
-__this.widget(Meter, {html : {  } ,wml : {  } }, [
+__this.widget(new Meter({}, [
 
         ...__forIn (__context.values.bars , (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(MeterBar, {html : {  } ,wml : {  } ,ww : { 'value' : v.value ,'color' : v.color  } }, [
+        __this.widget(new MeterBar({ww : { 'value' : v.value ,'color' : v.color  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'value' : v.value ,'color' : v.color  }})
      ]), 
 ()=> ([]))
+     ]),<__wml.Attrs>{})
      ])
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -133,37 +133,39 @@ __this.widget(Meter, {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -200,7 +202,6 @@ __this.widget(Meter, {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -208,10 +209,7 @@ __this.widget(Meter, {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

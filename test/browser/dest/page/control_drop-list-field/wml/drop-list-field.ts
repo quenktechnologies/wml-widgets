@@ -30,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -62,65 +62,65 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+        __this.widget(new Demo({}, [
 
-        __this.node('b', {html : {  } ,wml : {  } }, [
+        __this.node('b', <__wml.Attrs>{}, [
 
         document.createTextNode(`Normal`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(DropListField, {html : {  } ,wml : { 'id' : __context.values.normal .name   } ,ww : { 'name' : __context.values.normal .name  ,'value' : __context.values.normal .value  ,'options' : __context.values.normal .options  ,'onChange' : __context.values.normal .onChange   } }, [
+        __this.widget(new DropListField({wml : { 'id' : __context.values.normal .name   },ww : { 'name' : __context.values.normal .name  ,'value' : __context.values.normal .value  ,'options' : __context.values.normal .options  ,'onChange' : __context.values.normal .onChange   }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.normal .name   },ww : { 'name' : __context.values.normal .name  ,'value' : __context.values.normal .value  ,'options' : __context.values.normal .options  ,'onChange' : __context.values.normal .onChange   }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('b', {html : {  } ,wml : {  } }, [
+        __this.node('b', <__wml.Attrs>{}, [
 
         document.createTextNode(`Success`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(DropListField, {html : {  } ,wml : { 'id' : __context.values.success .id   } ,ww : { 'className' : `-success` ,'name' : __context.values.success .name  ,'options' : __context.values.success .options  ,'onChange' : __context.values.success .onChange   } }, [
+        __this.widget(new DropListField({wml : { 'id' : __context.values.success .id   },ww : { 'className' : '-success' ,'name' : __context.values.success .name  ,'options' : __context.values.success .options  ,'onChange' : __context.values.success .onChange   }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success .id   },ww : { 'className' : '-success' ,'name' : __context.values.success .name  ,'options' : __context.values.success .options  ,'onChange' : __context.values.success .onChange   }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('b', {html : {  } ,wml : {  } }, [
+        __this.node('b', <__wml.Attrs>{}, [
 
         document.createTextNode(`Warning`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(DropListField, {html : {  } ,wml : { 'id' : __context.values.warning .id   } ,ww : { 'className' : `-warning` ,'name' : __context.values.warning .name  ,'options' : __context.values.warning .options  ,'onChange' : __context.values.warning .onChange   } }, [
+        __this.widget(new DropListField({wml : { 'id' : __context.values.warning .id   },ww : { 'className' : '-warning' ,'name' : __context.values.warning .name  ,'options' : __context.values.warning .options  ,'onChange' : __context.values.warning .onChange   }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning .id   },ww : { 'className' : '-warning' ,'name' : __context.values.warning .name  ,'options' : __context.values.warning .options  ,'onChange' : __context.values.warning .onChange   }})
      ])
-     ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('b', {html : {  } ,wml : {  } }, [
+        __this.node('b', <__wml.Attrs>{}, [
 
         document.createTextNode(`Error`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(DropListField, {html : {  } ,wml : { 'id' : __context.values.error .id   } ,ww : { 'className' : `-error` ,'name' : __context.values.error .name  ,'options' : __context.values.error .options  ,'onChange' : __context.values.error .onChange   } }, [
+        __this.widget(new DropListField({wml : { 'id' : __context.values.error .id   },ww : { 'className' : '-error' ,'name' : __context.values.error .name  ,'options' : __context.values.error .options  ,'onChange' : __context.values.error .onChange   }}, [
 
         
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error .id   },ww : { 'className' : '-error' ,'name' : __context.values.error .name  ,'options' : __context.values.error .options  ,'onChange' : __context.values.error .onChange   }})
      ])
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -138,37 +138,39 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -205,7 +207,6 @@ __this.node('p', {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -213,10 +214,7 @@ __this.node('p', {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

@@ -20,7 +20,7 @@
    ww:results={{@values.menu.results}}
    ww:onSelect={{@values.menu.onSelect}}
    ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
-   ww:itemsTemplate={{@values.menu.itemTemplate}}
+   ww:itemTemplate={{@values.menu.itemTemplate}}
    ww:stringifier={{@values.menu.stringifier}} />
 
 </div>

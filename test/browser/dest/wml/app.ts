@@ -34,8 +34,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -66,26 +66,29 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(DrawerLayout, {html : {  } ,wml : { 'id' : __context.values.id .layout   } ,ww : { 'drawerContent' : [
+           return __this.widget(new DrawerLayout({wml : { 'id' : __context.values.id .layout   },ww : { 'drawerContent' : [
 
             (new Navigation(__context)).render()
-            ]  } }, [
+            ]  }}, [
 
-        __this.widget(ActionBar, {html : {  } ,wml : {  } }, [
+        __this.widget(new ActionBar({}, [
 
-        __this.widget(Link, {html : {  } ,wml : {  } ,ww : { 'onClick' : __context.toggleDrawer  } }, [
+        __this.widget(new Link({ww : { 'onClick' : __context.toggleDrawer  }}, [
 
-        __this.widget(MenuIcon, {html : {  } ,wml : {  } }, [
+        __this.widget(new MenuIcon({}, [
 
         
-     ])
-     ])
-     ]),
-__this.widget(MainLayout, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{ww : { 'onClick' : __context.toggleDrawer  }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new MainLayout({}, [
 
         ... (__context.content)
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id .layout   },ww : { 'drawerContent' : [
+
+            (new Navigation(__context)).render()
+            ]  }});
 
        }
 
@@ -103,37 +106,39 @@ __this.widget(MainLayout, {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -170,7 +175,6 @@ __this.widget(MainLayout, {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -178,10 +182,7 @@ __this.widget(MainLayout, {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

@@ -32,8 +32,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -64,32 +64,32 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Modal, {html : {  } ,wml : { 'id' : __context.values.wml .id   } ,ww : { 'className' : __context.values.className   } }, [
+           return __this.widget(new Modal({wml : { 'id' : __context.values.wml .id   },ww : { 'className' : __context.values.className   }}, [
 
-        __this.widget(ModalHeader, {html : {  } ,wml : {  } }, [
+        __this.widget(new ModalHeader({}, [
 
-        __this.widget(CloseButton, {html : {  } ,wml : {  } ,ww : { 'onClick' : __context.values.footer .close .onClick   } }, [
+        __this.widget(new CloseButton({ww : { 'onClick' : __context.values.footer .close .onClick   }}, [
 
         
-     ]),
+     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.footer .close .onClick   }}),
 text (__context.values.header .title )
-     ]),
-__this.widget(ModalBody, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new ModalBody({}, [
 
         ... (__context.children)
-     ]),
-__this.widget(ModalFooter, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new ModalFooter({}, [
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'text' : __context.values.footer .close .text  ,'className' : __context.values.footer .close .className  ,'onClick' : __context.values.footer .close .onClick   } }, [
-
-        
-     ]),
-__this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'text' : __context.values.footer .save .text  ,'className' : __context.values.footer .save .className  ,'disabled' : __context.values.footer .save .disabled  ,'onClick' : __context.values.footer .save .onClick   } }, [
+        __this.widget(new Button({ww : { 'text' : __context.values.footer .close .text  ,'className' : __context.values.footer .close .className  ,'onClick' : __context.values.footer .close .onClick   }}, [
 
         
-     ])
-     ])
-     ]);
+     ]),<__wml.Attrs>{ww : { 'text' : __context.values.footer .close .text  ,'className' : __context.values.footer .close .className  ,'onClick' : __context.values.footer .close .onClick   }}),
+__this.widget(new Button({ww : { 'text' : __context.values.footer .save .text  ,'className' : __context.values.footer .save .className  ,'disabled' : __context.values.footer .save .disabled  ,'onClick' : __context.values.footer .save .onClick   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'text' : __context.values.footer .save .text  ,'className' : __context.values.footer .save .className  ,'disabled' : __context.values.footer .save .disabled  ,'onClick' : __context.values.footer .save .onClick   }})
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },ww : { 'className' : __context.values.className   }});
 
        }
 
@@ -107,37 +107,39 @@ __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'text' : __context.values
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -174,7 +176,6 @@ __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'text' : __context.values
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -182,10 +183,7 @@ __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'text' : __context.values
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

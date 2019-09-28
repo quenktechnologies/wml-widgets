@@ -8,7 +8,7 @@ var multi_select_1 = require("../../../../../../lib/control/multi-select");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -32,56 +32,57 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.normal.id }, ww: { 'name': __context.values.normal.name, 'label': __context.values.normal.label, 'stringifier': __context.values.normal.stringifier, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } }, [])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.success.id }, ww: { 'name': __context.values.success.name, 'label': __context.values.success.label, 'success': __context.values.success.message, 'stringifier': __context.values.success.stringifier, 'onSearch': __context.values.success.onSearch, 'onChange': __context.values.success.onChange } }, [])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.warning.id }, ww: { 'name': __context.values.warning.name, 'label': __context.values.warning.label, 'warning': __context.values.warning.message, 'stringifier': __context.values.warning.stringifier, 'onSearch': __context.values.warning.onSearch, 'onChange': __context.values.warning.onChange } }, [])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.error.id }, ww: { 'name': __context.values.error.name, 'label': __context.values.error.label, 'error': __context.values.error.message, 'stringifier': __context.values.error.stringifier, 'onSearch': __context.values.error.onSearch, 'onChange': __context.values.error.onChange } }, [])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.widget(multi_select_1.MultiSelect, { html: {}, wml: { 'id': __context.values.block.id }, ww: { 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange } }, [])
-                ])
-            ]);
+            return __this.widget(new demo_1.Demo({}, [
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new multi_select_1.MultiSelect({ wml: { 'id': __context.values.normal.id }, ww: { 'name': __context.values.normal.name, 'label': __context.values.normal.label, 'stringifier': __context.values.normal.stringifier, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } }, []), { wml: { 'id': __context.values.normal.id }, ww: { 'name': __context.values.normal.name, 'label': __context.values.normal.label, 'stringifier': __context.values.normal.stringifier, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new multi_select_1.MultiSelect({ wml: { 'id': __context.values.success.id }, ww: { 'name': __context.values.success.name, 'label': __context.values.success.label, 'success': __context.values.success.message, 'stringifier': __context.values.success.stringifier, 'onSearch': __context.values.success.onSearch, 'onChange': __context.values.success.onChange } }, []), { wml: { 'id': __context.values.success.id }, ww: { 'name': __context.values.success.name, 'label': __context.values.success.label, 'success': __context.values.success.message, 'stringifier': __context.values.success.stringifier, 'onSearch': __context.values.success.onSearch, 'onChange': __context.values.success.onChange } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new multi_select_1.MultiSelect({ wml: { 'id': __context.values.warning.id }, ww: { 'name': __context.values.warning.name, 'label': __context.values.warning.label, 'warning': __context.values.warning.message, 'stringifier': __context.values.warning.stringifier, 'onSearch': __context.values.warning.onSearch, 'onChange': __context.values.warning.onChange } }, []), { wml: { 'id': __context.values.warning.id }, ww: { 'name': __context.values.warning.name, 'label': __context.values.warning.label, 'warning': __context.values.warning.message, 'stringifier': __context.values.warning.stringifier, 'onSearch': __context.values.warning.onSearch, 'onChange': __context.values.warning.onChange } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new multi_select_1.MultiSelect({ wml: { 'id': __context.values.error.id }, ww: { 'name': __context.values.error.name, 'label': __context.values.error.label, 'error': __context.values.error.message, 'stringifier': __context.values.error.stringifier, 'onSearch': __context.values.error.onSearch, 'onChange': __context.values.error.onChange } }, []), { wml: { 'id': __context.values.error.id }, ww: { 'name': __context.values.error.name, 'label': __context.values.error.label, 'error': __context.values.error.message, 'stringifier': __context.values.error.stringifier, 'onSearch': __context.values.error.onSearch, 'onChange': __context.values.error.onChange } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new multi_select_1.MultiSelect({ wml: { 'id': __context.values.block.id }, ww: { 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange } }, []), { wml: { 'id': __context.values.block.id }, ww: { 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange } })
+                ]), {})
+            ]), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -99,8 +100,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();

@@ -30,8 +30,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -62,126 +62,126 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(Demo, {html : {  } ,wml : {  } }, [
+           return __this.widget(new Demo({}, [
 
-        __this.widget(Demo, {html : {  } ,wml : {  } }, [
+        __this.widget(new Demo({}, [
 
-        __this.node('h1', {html : {  } ,wml : {  } }, [
+        __this.node('h1', <__wml.Attrs>{}, [
 
         document.createTextNode(`Buttons`)
      ]),
-__this.node('p', {html : {  } ,wml : {  } }, [
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Style`)
      ]),
 ...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize  (v)  } }, [
+        __this.widget(new Button({ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize  (v)  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize  (v)  }})
      ]), 
 ()=> ([]))
      ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Outline`)
      ]),
 ...__forIn (__context.values.styles , (style , _$$i, _$$all)=> 
 ([
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize  (style)  } }, [
+        __this.widget(new Button({ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize  (style)  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize  (style)  }})
      ]), 
 ()=> ([]))
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Active`)
      ]),
 ...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  } }, [
+        __this.widget(new Button({ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }})
      ]), 
 ()=> ([]))
      ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Disabled`)
      ]),
 ...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  } }, [
+        __this.widget(new Button({ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }})
      ]), 
 ()=> ([]))
      ])
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Size`)
      ]),
 ...__forIn (__context.values.styles , (style , _$$i, _$$all)=> 
 ([
 
-        __this.node('p', {html : {  } ,wml : {  } }, [
+        __this.node('p', <__wml.Attrs>{}, [
 
         ...__forIn (__context.values.sizes , (size , _$$i, _$$all)=> 
 ([
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize  (size)  } }, [
+        __this.widget(new Button({ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize  (size)  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize  (size)  }})
      ]), 
 ()=> ([]))
      ])
      ]), 
 ()=> ([]))
-     ]),
-__this.widget(Demo, {html : {  } ,wml : {  } }, [
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
 
-        __this.node('h2', {html : {  } ,wml : {  } }, [
+        __this.node('h2', <__wml.Attrs>{}, [
 
         document.createTextNode(`Block`)
      ]),
 ...__forIn (__context.values.styles , (style , _$$i, _$$all)=> 
 ([
 
-        __this.widget(Button, {html : {  } ,wml : {  } ,ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize  (style)  } }, [
+        __this.widget(new Button({ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize  (style)  }}, [
 
         
-     ])
+     ]),<__wml.Attrs>{ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize  (style)  }})
      ]), 
 ()=> ([]))
-     ])
-     ]);
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{});
 
        }
 
@@ -199,37 +199,39 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -266,7 +268,6 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -274,10 +275,7 @@ __this.widget(Demo, {html : {  } ,wml : {  } }, [
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

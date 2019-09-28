@@ -1,5 +1,4 @@
 {% import (Demo) from "../../../widgets/demo" %}
-{% import (ValidationState) from "../../../../../../lib/control/feedback" %}
 {% import (TextField) from "../../../../../../lib/control/text-field" %}
 {% import (TextFieldPage) from "../" %}
 
@@ -31,7 +30,6 @@
         <TextField 
           wml:id="success"
           ww:name="success"
-          ww:validationState={{ValidationState.Success}}
           ww:label="This is a success label"
           ww:success="This textfield has a success"
           ww:onChange={{@onChange}} />
@@ -49,7 +47,6 @@
         <TextField 
           wml:id="warning"
           ww:name="warning"
-          ww:validationState={{ValidationState.Warning}}
           ww:label="This is a warning label"
           ww:warning="This textfield has a warning."
           ww:onChange={{@onChange}} />
@@ -66,7 +63,6 @@
           <TextField 
             wml:id="error"
             ww:name="error"
-            ww:validationState={{ValidationState.Error}}
             ww:label="This is an error label"
             ww:error="This textfield has an error."
             ww:onChange={{@onChange}} />

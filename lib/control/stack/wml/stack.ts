@@ -28,8 +28,8 @@ interface __Record<A> {
 }
 
 //@ts-ignore:6192
-const __if = (__expr:boolean, __conseq:__IfArg,__alt:__IfArg) : Content[]=>
-(__expr) ? __conseq() :  __alt();
+const __if = (__expr:boolean, __conseq:__IfArg,__alt?:__IfArg) : Content[]=>
+(__expr) ? __conseq() :  __alt ? __alt() : [];
 
 //@ts-ignore:6192
 const __forIn = <A>(list:A[], f:__ForInBody<A>, alt:__ForAlt) : __wml.Content[] => {
@@ -56,11 +56,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 export const content = 
 
-<V  > (s: Stack <V  >   )=> (v: V   )=> (_: number   )=> (__this:__wml.Registry) : __wml.Content[] => {
+<V  > (s: Stack <V  >   ,v: V   ,_: number   )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
-        __this.node('div', {html : { 'class' : s.values.element .content .className   } ,wml : {  } }, [
+        __this.node('div', <__wml.Attrs>{'class': s.values.element .content .className }, [
 
         s.values.element .decorator (v)
      ])
@@ -73,15 +73,15 @@ export class Main <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('ul', {html : { 'id' : __context.values.root .id  ,'class' : __context.values.root .className   } ,wml : {  } }, [
+           return __this.node('ul', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
         ...__forIn (__context.values.root .value , (v , index: number   , _$$all)=> 
 ([
 
-        __this.node('li', {html : { 'class' : __context.values.element .className   } ,wml : {  } }, [
+        __this.node('li', <__wml.Attrs>{'class': __context.values.element .className }, [
 
-        ... (__context.values.element .template (v)(index)),
-__this.node('button', {html : { 'class' : __context.values.close .className  ,'onclick' : __context.values.element .close (index)  } ,wml : {  } }, [
+        ... (__context.values.element .template (v,index)),
+__this.node('button', <__wml.Attrs>{'class': __context.values.close .className ,'onclick': __context.values.element .close (index)}, [
 
         document.createTextNode(`×`)
      ])
@@ -106,37 +106,39 @@ __this.node('button', {html : { 'class' : __context.values.close .className  ,'o
 
    register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
 
-       let id = (<__wml.Attrs><any>attrs).wml.id;
-       let group = <string>(<__wml.Attrs><any>attrs).wml.group;
+       let attrsMap = (<__wml.Attrs><any>attrs)
 
-       if(id != null) {
+       if(attrsMap.wml) {
 
-           if (this.ids.hasOwnProperty(id))
-             throw new Error(`Duplicate id '${id}' detected!`);
+         let {id, group} = attrsMap.wml;
 
-           this.ids[id] = e;
+         if(id != null) {
 
-       }
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
 
-       if(group != null) {
+             this.ids[id] = e;
 
-           this.groups[group] = this.groups[group] || [];
-           this.groups[group].push(e);
+         }
 
-       }
+         if(group != null) {
 
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attributes<any>, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
        let e = document.createElement(tag);
 
-       if (typeof attrs['html'] === 'object')
+       Object.keys(attrs).forEach(key => {
 
-       Object.keys(attrs['html']).forEach(key => {
-
-           let value = (<any>attrs['html'])[key];
+           let value = (<any>attrs)[key];
 
            if (typeof value === 'function') {
 
@@ -173,7 +175,6 @@ __this.node('button', {html : { 'class' : __context.values.close .className  ,'o
 
                }})
 
-
        this.register(e, attrs);
 
        return e;
@@ -181,10 +182,7 @@ __this.node('button', {html : { 'class' : __context.values.close .className  ,'o
    }
 
 
-   widget<A extends __wml.Attrs, W extends __wml.
-   WidgetConstructor<A>>(C: W, attrs:A, children: __wml.Content[]) {
-
-       let w = new C(attrs, children);
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
 
        this.register(w, attrs);
 

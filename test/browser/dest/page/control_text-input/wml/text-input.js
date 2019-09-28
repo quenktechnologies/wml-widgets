@@ -15,7 +15,7 @@ var demo_1 = require("../../../widgets/demo");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -39,118 +39,119 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('p', { html: {}, wml: {} }, [
+            return __this.widget(new demo_1.Demo({}, [
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
                         document.createTextNode("This is a text input: "),
-                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange } }, []),
+                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange } }, []), { ww: { 'onChange': __context.onChange } }),
                         document.createTextNode(".")
                     ]),
-                    __this.node('p', { html: {}, wml: {} }, [
+                    __this.node('p', {}, [
                         document.createTextNode("As you type "),
-                        __this.node('b', { html: {}, wml: { 'id': "txt" } }, [
+                        __this.node('b', { wml: { 'id': 'txt' } }, [
                             document.createTextNode("this")
                         ]),
                         document.createTextNode(" changes.")
                     ])
-                ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
                     return ([
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " neutral: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v } }, [])
+                            document.createTextNode((v + ' neutral: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v } }, []), { ww: { 'onChange': __context.onChange, 'size': v } })
                         ]),
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " error: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'className': "-error" } }, [])
+                            document.createTextNode((v + ' error: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-error' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-error' } })
                         ]),
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " warning: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'className': "-warning" } }, [])
+                            document.createTextNode((v + ' warning: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-warning' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-warning' } })
                         ]),
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " success: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'className': "-success" } }, [])
+                            document.createTextNode((v + ' success: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-success' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-success' } })
                         ])
                     ]);
-                }, function () { return ([]); }))),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('p', { html: {}, wml: {} }, [
+                }, function () { return ([]); }))), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
                         document.createTextNode("\n      Block:\n      "),
-                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'block': true } }, [])
+                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'block': true } }, []), { ww: { 'onChange': __context.onChange, 'block': true } })
                     ])
-                ]),
-                __this.node('p', { html: {}, wml: {} }, [
+                ]), {}),
+                __this.node('p', {}, [
                     document.createTextNode(" Textarea: ")
                 ]),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
+                __this.widget(new demo_1.Demo({}, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
                     return ([
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " neutral: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } }, [])
+                            document.createTextNode((v + ' neutral: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } }, []), { ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } })
                         ]),
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " error: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-error" } }, [])
+                            document.createTextNode((v + ' error: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' } })
                         ]),
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " warning: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-warning" } }, [])
+                            document.createTextNode((v + ' warning: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' } })
                         ]),
-                        __this.node('p', { html: {}, wml: {} }, [
+                        __this.node('p', {}, [
                             document.createTextNode("\n        Size "),
-                            document.createTextNode((v + " success: ")),
-                            __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-success" } }, [])
+                            document.createTextNode((v + ' success: ')),
+                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' } })
                         ])
                     ]);
-                }, function () { return ([]); }))),
-                __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                    __this.node('p', { html: {}, wml: {} }, [
+                }, function () { return ([]); }))), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
                         document.createTextNode("\n      Block:\n      "),
-                        __this.widget(text_input_1.TextInput, { html: {}, wml: {}, ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } }, [])
+                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } }, []), { ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } })
                     ])
-                ])
-            ]);
+                ]), {})
+            ]), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -168,8 +169,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();

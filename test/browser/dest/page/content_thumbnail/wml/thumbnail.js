@@ -10,7 +10,7 @@ var demo_1 = require("../../../widgets/demo");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
-    return (__expr) ? __conseq() : __alt();
+    return (__expr) ? __conseq() : __alt ? __alt() : [];
 };
 //@ts-ignore:6192
 var __forIn = function (list, f, alt) {
@@ -34,104 +34,105 @@ var Main = /** @class */ (function () {
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
-            return __this.widget(demo_1.Demo, { html: {}, wml: {} }, [
-                __this.node('h1', { html: {}, wml: {} }, [
+            return __this.widget(new demo_1.Demo({}, [
+                __this.node('h1', {}, [
                     document.createTextNode("Thumbnail")
                 ]),
-                __this.widget(grid_1.GridLayout, { html: {}, wml: {} }, [
-                    __this.widget(grid_1.Row, { html: {}, wml: {} }, [
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(thumbnail_1.Thumbnail, { html: {}, wml: {} }, [
-                                __this.node('img', { html: { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, wml: {} }, [])
-                            ])
-                        ]),
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(thumbnail_1.Thumbnail, { html: {}, wml: {}, ww: { 'onClick': __context.values.onClick } }, [
-                                __this.node('img', { html: { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, wml: {} }, [])
-                            ])
-                        ]),
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(thumbnail_1.Thumbnail, { html: {}, wml: {}, ww: { 'href': "#" } }, [
-                                __this.node('img', { html: { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, wml: {} }, [])
-                            ])
-                        ])
-                    ]),
-                    __this.widget(grid_1.Row, { html: {}, wml: {} }, [
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(thumbnail_1.Thumbnail, { html: {}, wml: {} }, [
-                                __this.node('img', { html: { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, wml: {} }, []),
-                                __this.widget(thumbnail_1.Caption, { html: {}, wml: {} }, [
-                                    __this.node('h4', { html: {}, wml: {} }, [
+                __this.widget(new grid_1.GridLayout({}, [
+                    __this.widget(new grid_1.Row({}, [
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new thumbnail_1.Thumbnail({}, [
+                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
+                            ]), {})
+                        ]), { ww: { 'span': 4 } }),
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'onClick': __context.values.onClick } }, [
+                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
+                            ]), { ww: { 'onClick': __context.values.onClick } })
+                        ]), { ww: { 'span': 4 } }),
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'href': '#' } }, [
+                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
+                            ]), { ww: { 'href': '#' } })
+                        ]), { ww: { 'span': 4 } })
+                    ]), {}),
+                    __this.widget(new grid_1.Row({}, [
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new thumbnail_1.Thumbnail({}, [
+                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
+                                __this.widget(new thumbnail_1.Caption({}, [
+                                    __this.node('h4', {}, [
                                         document.createTextNode("Caption")
                                     ]),
-                                    __this.node('p', { html: {}, wml: {} }, [
+                                    __this.node('p', {}, [
                                         document.createTextNode("Describes the thumbnail in minor detail.")
                                     ])
-                                ])
-                            ])
-                        ]),
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(thumbnail_1.Thumbnail, { html: {}, wml: {}, ww: { 'onClick': __context.values.onClick } }, [
-                                __this.node('img', { html: { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, wml: {} }, []),
-                                __this.widget(thumbnail_1.Caption, { html: {}, wml: {} }, [
-                                    __this.node('h4', { html: {}, wml: {} }, [
+                                ]), {})
+                            ]), {})
+                        ]), { ww: { 'span': 4 } }),
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'onClick': __context.values.onClick } }, [
+                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
+                                __this.widget(new thumbnail_1.Caption({}, [
+                                    __this.node('h4', {}, [
                                         document.createTextNode("Caption")
                                     ]),
-                                    __this.node('p', { html: {}, wml: {} }, [
+                                    __this.node('p', {}, [
                                         document.createTextNode("Describes the thumbnail in minor detail.")
                                     ])
-                                ])
-                            ])
-                        ]),
-                        __this.widget(grid_1.Column, { html: {}, wml: {}, ww: { 'span': 4 } }, [
-                            __this.widget(thumbnail_1.Thumbnail, { html: {}, wml: {}, ww: { 'href': "#" } }, [
-                                __this.node('img', { html: { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, wml: {} }, []),
-                                __this.widget(thumbnail_1.Caption, { html: {}, wml: {} }, [
-                                    __this.node('h4', { html: {}, wml: {} }, [
+                                ]), {})
+                            ]), { ww: { 'onClick': __context.values.onClick } })
+                        ]), { ww: { 'span': 4 } }),
+                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'href': '#' } }, [
+                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
+                                __this.widget(new thumbnail_1.Caption({}, [
+                                    __this.node('h4', {}, [
                                         document.createTextNode("Caption")
                                     ]),
-                                    __this.node('p', { html: {}, wml: {} }, [
+                                    __this.node('p', {}, [
                                         document.createTextNode("Describes the thumbnail in minor detail.")
                                     ])
-                                ])
-                            ])
-                        ])
-                    ])
-                ])
-            ]);
+                                ]), {})
+                            ]), { ww: { 'href': '#' } })
+                        ]), { ww: { 'span': 4 } })
+                    ]), {})
+                ]), {})
+            ]), {});
         };
     }
     Main.prototype.register = function (e, attrs) {
-        var id = attrs.wml.id;
-        var group = attrs.wml.group;
-        if (id != null) {
-            if (this.ids.hasOwnProperty(id))
-                throw new Error("Duplicate id '" + id + "' detected!");
-            this.ids[id] = e;
-        }
-        if (group != null) {
-            this.groups[group] = this.groups[group] || [];
-            this.groups[group].push(e);
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
         }
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
         var e = document.createElement(tag);
-        if (typeof attrs['html'] === 'object')
-            Object.keys(attrs['html']).forEach(function (key) {
-                var value = attrs['html'][key];
-                if (typeof value === 'function') {
-                    e[key] = value;
-                }
-                else if (typeof value === 'string') {
-                    //prevent setting things like disabled=''
-                    if (value !== '')
-                        e.setAttribute(key, value);
-                }
-                else if (typeof value === 'boolean') {
-                    e.setAttribute(key, "" + value);
-                }
-            });
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, "" + value);
+            }
+        });
         children.forEach(function (c) {
             switch (typeof c) {
                 case 'string':
@@ -149,8 +150,7 @@ var Main = /** @class */ (function () {
         this.register(e, attrs);
         return e;
     };
-    Main.prototype.widget = function (C, attrs, children) {
-        var w = new C(attrs, children);
+    Main.prototype.widget = function (w, attrs) {
         this.register(w, attrs);
         this.widgets.push(w);
         return w.render();
