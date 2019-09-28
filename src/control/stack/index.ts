@@ -79,10 +79,10 @@ export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
 
             className: STACK_ELEMENT,
 
-            template: (v: V) => (idx: number): any =>
+            template: (v: V, idx: number): any =>
                 (this.attrs.ww && this.attrs.ww.elementTemplate) ?
                     this.attrs.ww.elementTemplate(this)(v)(idx)(this.view) :
-                    views.content(this)(v)(idx)(this.view),
+                    views.content(this, v, idx)(this.view),
 
             content: {
 

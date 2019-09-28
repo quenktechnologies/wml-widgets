@@ -19,7 +19,7 @@
 
     {% for col,idx in @columns %}
 
-      {{@heading(col)(idx)}}
+      {{@heading(col, idx)}}
 
     {% endfor %}
 
@@ -45,7 +45,7 @@
 
       {% for col:Column[C,R], idx:Number in @columns %}
 
-        {{ @cell(col)(idx)(row) }}
+        {{ @cell(col,idx,row) }}
 
       {% endfor %}
       

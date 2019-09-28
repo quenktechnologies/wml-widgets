@@ -6,7 +6,7 @@
 {% fun button (d:DropDown) %}
 
   <Button 
-    ww:class={{d.values.button.className}}
+    ww:className={{d.values.button.className}}
     ww:style={{d.values.button.style}}    
     ww:onClick={{d.values.button.onClick}}>
 

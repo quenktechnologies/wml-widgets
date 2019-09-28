@@ -178,7 +178,7 @@ export class NewHeadContext<C, R extends Record<C>> {
 
     data = this.table.values.dataset[0];
 
-    heading = (c: Column<C, R>) => (i: number): Content =>
+    heading = (c: Column<C, R>, i: number): Content =>
         getHeadingView(
             this.table,
             new NewHeadingContext(this.table, this, c, i),
@@ -232,7 +232,7 @@ export class NewBodyContext<C, R extends Record<C>> {
 
     data = this.table.values.dataset[0];
 
-    cell = (c: Column<C, R>) => (id: number) => (row: number): Content =>
+    cell = (c: Column<C, R>, id: number, row: number): Content =>
         getCellView(
             this.table,
             new NewCellContext(this.table, this, c, id, row),

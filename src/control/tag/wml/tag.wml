@@ -23,7 +23,7 @@
   {{ ...@children }}
 
   <Close 
-    ww:class={{@values.dismiss.className}} 
+    ww:className={{@values.dismiss.className}} 
     ww:onClick={{@values.dismiss.onClick}} />
 
 </t.Tag>

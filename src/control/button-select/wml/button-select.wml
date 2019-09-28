@@ -5,13 +5,13 @@
 {% view Main [V](ButtonSelectInterface[V]) %}
 
 <ButtonGroup 
-  id={{@values.root.id}}
-  class={{@values.root.className}}>
+  ww:id={{@values.root.id}}
+  ww:className={{@values.root.className}}>
 
   {% for opt:Option[V],idx in @values.buttons.options %}
 
     <Button
-      ww:class={{@values.buttons.getClassNames(idx)}}
+      ww:className={{@values.buttons.getClassNames(idx)}}
       ww:active={{@values.buttons.getActive(idx)}}
       ww:style={{@values.buttons.getStyle()}}
       ww:onClick={{\->@values.buttons.click(idx)}}

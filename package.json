@@ -16,17 +16,16 @@
   "types": "lib/index.d.ts",
   "peerDependencies": {
     "less-plugin-js-vars": "^2.4.0",
-    "@quenk/wml": "^0.17.0"
+    "@quenk/wml": "^2.1.3"
   },
   "dependencies": {
-    "@quenk/noni": "^1.31.3",
+    "@quenk/noni": "^1.33.0",
     "@quenk/polate": "^1.3.0",
     "moment": "^2.21.0",
     "property-seek": "^3.1.0"
   },
   "devDependencies": {
-    "@quenk/wml": "^1.3.0",
-    "@quenk/wml-typescript": "^0.25.0",
+    "@quenk/wml": "^2.1.3",
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.5",
     "bluebird": "^3.5.1",

@@ -14,7 +14,7 @@ export const RESULTS_MENU = 'ww-results-menu';
  * ItemTemplate used to render each item in the results.
  */
 export type ItemTemplate<V>
-    = (option: V) => (index: number) => Fun
+    = (option: V, index: number) => Fun
     ;
 
 /**
@@ -135,9 +135,10 @@ export class ResultsMenu<V>
 
             },
 
-            template: (): ItemTemplate<V> =>
-                (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                    this.attrs.ww.itemTemplate : itemTemplate(this),
+            template: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
+                this.attrs.ww.itemTemplate :
+                (option: V, index: number): Fun =>
+                    itemTemplate(this, option, index),
 
             noItemsTemplate: () =>
                 (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
