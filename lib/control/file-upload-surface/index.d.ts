@@ -27,6 +27,7 @@ export declare class FileUploadSurface extends AbstractControl<File, FileUploadS
             className: string;
             name: string;
             accept: string;
+            multiple: true | undefined;
             onChange: (e: FileChangedEvent) => void;
         };
         text: {

@@ -1,6 +1,6 @@
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
-import { FileInputAttrs, FileChangedEvent } from '../file-input';
+import { FileInputAttrs, FileChangedEvent, list2Array } from '../file-input';
 import { getClassName, getId } from '../../';
 import { AbstractControl, getName } from '../';
 import { FileUploadSurfaceView } from './wml/file-upload-surface';
@@ -53,8 +53,8 @@ export class FileUploadSurface
                 this.attrs.ww.name : '';
 
             if (e.dataTransfer && e.dataTransfer.files.length > 0)
-                this.values.input.onChange(
-                    new FileChangedEvent(name, e.dataTransfer.files[0]));
+                this.values.input.onChange(new FileChangedEvent(name,
+                    list2Array(e.dataTransfer.files)));
 
         },
 
@@ -67,9 +67,12 @@ export class FileUploadSurface
             accept: (this.attrs.ww && this.attrs.ww.accept) ?
                 this.attrs.ww.accept : '',
 
+            multiple: (this.attrs.ww && this.attrs.ww.multiple) ?
+                this.attrs.ww.multiple : undefined,
+
             onChange: (e: FileChangedEvent) => {
 
-                this.values.text.value = e.value.name;
+                this.values.text.value = e.value[0].name;
 
                 if (this.attrs.ww && this.attrs.ww.onChange)
                     this.attrs.ww.onChange(e);

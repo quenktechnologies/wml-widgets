@@ -14,6 +14,7 @@
       ww:className={{@values.input.className}} 
       ww:name={{@values.input.name}}
       ww:accept={{@values.input.accept}} 
+      ww:multiple={{@values.input.multiple}}
       ww:onChange={{@values.input.onChange}} />
 
     <div class={{@values.text.className}}>

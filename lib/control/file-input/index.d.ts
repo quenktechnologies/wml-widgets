@@ -26,7 +26,7 @@ export interface FileInputAttrs extends ControlAttrs<File> {
 /**
  * FileChangedEvent is fired when
  */
-export declare class FileChangedEvent extends CEvent<File> {
+export declare class FileChangedEvent extends CEvent<File[]> {
 }
 /**
  * FileInput provides a surface for file selection.
@@ -44,3 +44,7 @@ export declare class FileInput extends AbstractControl<File, FileInputAttrs> {
         change: (e: Event) => void;
     };
 }
+/**
+ * list2Array converts a FileList into a plain array of files.
+ */
+export declare const list2Array: (list: FileList) => File[];

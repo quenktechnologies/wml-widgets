@@ -39,7 +39,7 @@ export interface FileInputAttrs extends ControlAttrs<File> {
 /**
  * FileChangedEvent is fired when
  */
-export class FileChangedEvent extends CEvent<File> { }
+export class FileChangedEvent extends CEvent<File[]> { }
 
 /**
  * FileInput provides a surface for file selection.
@@ -76,12 +76,26 @@ export class FileInput
                 this.attrs.ww.onChange) {
 
                 this.attrs.ww.onChange
-                    (new FileChangedEvent(input.name, input.files[0]));
+                    (new FileChangedEvent(input.name, list2Array(input.files)));
 
             }
 
         }
 
     }
+
+}
+
+/**
+ * list2Array converts a FileList into a plain array of files.
+ */
+export const list2Array = (list: FileList): File[] => {
+
+    let ret = [];
+
+    for (let i = 0; i < list.length; i++)
+        ret[i] = list[i];
+
+    return ret;
 
 }
