@@ -25,6 +25,11 @@ export interface FileInputAttrs extends ControlAttrs<File> {
     text?: string,
 
     /**
+     * mulitple input flag.
+     */
+    multiple?: boolean,
+
+    /**
      * onChange handler
      */
     onChange?: (e: FileChangedEvent) => void
@@ -57,6 +62,9 @@ export class FileInput
 
         accept: (this.attrs.ww && this.attrs.ww.accept) ?
             this.attrs.ww.accept : '',
+
+        multiple: (this.attrs.ww && this.attrs.ww.multiple) ?
+            this.attrs.ww.multiple : undefined,
 
         change: (e: Event) => {
 

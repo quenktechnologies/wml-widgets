@@ -15,6 +15,10 @@ export interface FileInputAttrs extends ControlAttrs<File> {
      */
     text?: string;
     /**
+     * mulitple input flag.
+     */
+    multiple?: boolean;
+    /**
      * onChange handler
      */
     onChange?: (e: FileChangedEvent) => void;
@@ -36,6 +40,7 @@ export declare class FileInput extends AbstractControl<File, FileInputAttrs> {
         className: string;
         name: string;
         accept: string;
+        multiple: true | undefined;
         change: (e: Event) => void;
     };
 }
