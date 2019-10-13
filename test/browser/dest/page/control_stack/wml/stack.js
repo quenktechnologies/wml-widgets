@@ -42,6 +42,12 @@ var Main = /** @class */ (function () {
                 ]),
                 __this.node('p', {}, [
                     __this.widget(new stack_1.Stack({ ww: { 'name': 'stack', 'value': __context.values.values, 'decorator': __context.values.decorator, 'onChange': __context.onChange } }, []), { ww: { 'name': 'stack', 'value': __context.values.values, 'decorator': __context.values.decorator, 'onChange': __context.onChange } })
+                ]),
+                __this.node('p', {}, [
+                    document.createTextNode("Disabled")
+                ]),
+                __this.node('p', {}, [
+                    __this.widget(new stack_1.Stack({ ww: { 'name': 'stack', 'value': __context.values.values, 'disabled': true, 'decorator': __context.values.decorator, 'onChange': __context.onChange } }, []), { ww: { 'name': 'stack', 'value': __context.values.values, 'disabled': true, 'decorator': __context.values.decorator, 'onChange': __context.onChange } })
                 ])
             ]), {});
         };

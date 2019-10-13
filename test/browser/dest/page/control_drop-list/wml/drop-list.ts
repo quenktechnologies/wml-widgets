@@ -126,6 +126,20 @@ __this.widget(new Demo({}, [
 
         __this.node('b', <__wml.Attrs>{}, [
 
+        document.createTextNode(`Disabled`)
+     ]),
+__this.widget(new DropList({ww : { 'name' : __context.values.normal .name  ,'disabled' : true  ,'onSelect' : __context.values.normal .onSelect   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal .name  ,'disabled' : true  ,'onSelect' : __context.values.normal .onSelect   }})
+     ])
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.node('p', <__wml.Attrs>{}, [
+
+        __this.node('b', <__wml.Attrs>{}, [
+
         document.createTextNode(`Block`)
      ]),
 __this.widget(new DropList({wml : { 'id' : __context.values.block .id   },ww : { 'className' : '-block' ,'name' : __context.values.block .name  ,'block' : true  ,'onSelect' : __context.values.block .onSelect   }}, [

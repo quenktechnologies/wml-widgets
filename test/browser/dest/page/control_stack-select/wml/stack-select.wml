@@ -70,4 +70,16 @@
 
   </Demo>
 
+  <Demo>
+
+    <StackSelect 
+     ww:name={{@values.asc.name}}
+     ww:label="Disabled"
+     ww:disabled=true
+     ww:stringifier={{@values.asc.stringifier}}
+     ww:onSearch={{@values.asc.onSearch}}
+     ww:onChange={{@values.asc.onChange}} />
+
+  </Demo>
+
 </Demo>

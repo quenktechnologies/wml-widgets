@@ -80,10 +80,10 @@ __this.node('div', <__wml.Attrs>{'onclick': __context.values.content .onfocus ,'
         ...__forIn (__context.values.tags .value , (value , idx , _$$all)=> 
 ([
 
-        __this.widget(new Tag({ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   }}, [
+        __this.widget(new Tag({ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'disabled' : __context.values.tags .disabled  ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   }})
+     ]),<__wml.Attrs>{ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'disabled' : __context.values.tags .disabled  ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   }})
      ]), 
 ()=> ([]))
      ]),
@@ -91,10 +91,10 @@ __this.node('div', <__wml.Attrs>{'onclick': __context.values.content .onfocus ,'
 
         text ('')
      ]))) ,
-__this.widget(new Input({wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'onSearch' : __context.values.input .onSearch   }}, [
+__this.widget(new Input({wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'disabled' : __context.values.input .disabled  ,'onSearch' : __context.values.input .onSearch   }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'onSearch' : __context.values.input .onSearch   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'disabled' : __context.values.input .disabled  ,'onSearch' : __context.values.input .onSearch   }})
      ]),
 __this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}, [
 

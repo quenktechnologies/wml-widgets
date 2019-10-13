@@ -98,6 +98,13 @@ __this.widget(new Demo({}, [
 
         
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.error .id   },ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.widget(new StackSelect({ww : { 'name' : __context.values.asc .name  ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.asc .stringifier  ,'onSearch' : __context.values.asc .onSearch  ,'onChange' : __context.values.asc .onChange   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'name' : __context.values.asc .name  ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.asc .stringifier  ,'onSearch' : __context.values.asc .onSearch  ,'onChange' : __context.values.asc .onChange   }})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

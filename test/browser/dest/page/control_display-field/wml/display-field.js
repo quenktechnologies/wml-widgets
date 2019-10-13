@@ -37,6 +37,11 @@ var Main = /** @class */ (function () {
                     __this.widget(new display_field_1.DisplayField({}, [
                         document.createTextNode(" It was a choice.")
                     ]), {})
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new display_field_1.DisplayField({ ww: { 'disabled': true } }, [
+                        document.createTextNode("Disabled")
+                    ]), { ww: { 'disabled': true } })
                 ]), {})
             ]), {});
         };

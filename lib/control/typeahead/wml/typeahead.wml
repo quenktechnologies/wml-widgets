@@ -16,6 +16,7 @@
     ww:name={{@values.search.name}}
     ww:className={{@values.search.className}}
     ww:block={{@values.search.block}}
+    ww:disabled={{@values.search.disabled}}
     ww:placeholder={{@values.search.placeholder}} 
     ww:readOnly={{@values.search.readOnly}}
     ww:itemTemplate={{@values.search.itemTemplate}}

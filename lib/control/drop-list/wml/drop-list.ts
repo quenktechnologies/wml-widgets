@@ -66,14 +66,14 @@ export class Main <V  >  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        __this.widget(new DisplayField({ww : { 'onClick' : __context.values.display .onClick   }}, [
+        __this.widget(new DisplayField({ww : { 'onClick' : __context.values.display .onClick  ,'disabled' : __context.values.display .disabled   }}, [
 
         text (__context.values.display .placeholder ()),
 __this.widget(new Caret({}, [
 
         
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.display .onClick   }}),
+     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.display .onClick  ,'disabled' : __context.values.display .disabled   }}),
 __this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'name' : __context.values.menu .name  ,'hidden' : __context.values.menu .hidden  ,'results' : __context.values.menu .results  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}, [
 
         

@@ -36,6 +36,11 @@ export interface StackSelectAttrs<V> extends FormControlAttrs<V[]> {
     block?: boolean,
 
     /**
+     * disabled
+     */
+    disabled?: boolean,
+
+    /**
      * onSearch receives events from the SearchControl.
      */
     onSearch?: (s: TermChangedEvent) => void
@@ -133,6 +138,9 @@ export class StackSelect<V>
 
             block: true,
 
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : false,
+
             onSearch: (evt: TermChangedEvent) => {
 
                 if (this.attrs.ww && this.attrs.ww.onSearch)
@@ -160,6 +168,9 @@ export class StackSelect<V>
             },
 
             name: getName(this.attrs),
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : false,
 
             value: (this.attrs.ww && this.attrs.ww.value) ?
                 this.attrs.ww.value : [],

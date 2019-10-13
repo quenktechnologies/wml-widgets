@@ -46,13 +46,17 @@ export interface DropDownMenuAttrs extends HTMLElementAttrs {
      * autoClose when true, will automatically hide the content.
      * Defaults to true.
      */
-    autoClose?: boolean
+    autoClose?: boolean,
+
+    /**
+     * disabled
+     */
+    disabled?: boolean
 
 }
 
 /**
  * DropDown provides a component for displaying a pop up menu.
- *
  *
  *    +--------+
  *    |  Menu  |
@@ -98,6 +102,9 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
             className: concat(DROP_DOWN_TOGGLE,
                 style.DEFAULT, (this.attrs.ww && this.attrs.ww.buttonClassName) ?
                     this.attrs.ww.buttonClassName : ''),
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : undefined,
 
             template: (): ButtonTemplate =>
                 (this.attrs.ww && this.attrs.ww.buttonTemplate) ?

@@ -34,6 +34,10 @@ export interface CommonSelectAttrs<V> extends FormControlAttrs<V> {
      */
     readOnly?: boolean;
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * block
      */
     block?: boolean;
@@ -139,6 +143,7 @@ export declare class SearchSection<V> {
     block: boolean;
     value: V | undefined;
     readOnly: boolean | undefined;
+    disabled: boolean | undefined;
     itemTemplate: ItemTemplate<V> | undefined;
     noItemsTemplate: import("@quenk/wml").Fun | undefined;
     stringifier: Stringifier<V> | undefined;
@@ -160,6 +165,7 @@ export declare class Select<V> extends AbstractFormControl<V, SelectAttrs<V>> {
         tag: {
             className: string;
             value: Maybe<V>;
+            disabled: boolean;
             isSet: () => boolean;
             getText: () => string;
             dismiss: () => void;

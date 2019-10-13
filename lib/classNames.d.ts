@@ -88,6 +88,10 @@ export declare const ERROR = "-error";
 export declare const OUTLINE = "-outline";
 export declare const CARET = "ww-caret";
 /**
+ * DISABLED
+ */
+export declare const DISABLED = "-disabled";
+/**
  * OPEN state.
  */
 export declare const OPEN = "-open";

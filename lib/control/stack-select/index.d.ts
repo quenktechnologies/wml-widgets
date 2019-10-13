@@ -20,6 +20,10 @@ export interface StackSelectAttrs<V> extends FormControlAttrs<V[]> {
      */
     block?: boolean;
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * onSearch receives events from the SearchControl.
      */
     onSearch?: (s: TermChangedEvent) => void;
@@ -85,6 +89,7 @@ export declare class StackSelect<V> extends AbstractFormControl<V[], StackSelect
             name: string;
             value: any;
             block: boolean;
+            disabled: boolean;
             onSearch: (evt: TermChangedEvent) => void;
             onSelect: ({ value }: ItemSelectedEvent<V>) => StackSelect<V>;
         };
@@ -99,6 +104,7 @@ export declare class StackSelect<V> extends AbstractFormControl<V[], StackSelect
                 id: string;
             };
             name: string;
+            disabled: boolean;
             value: V[];
             decorator: (m: V) => string;
             onChange: (e: StackChangedEvent<V>) => void;

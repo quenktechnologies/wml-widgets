@@ -61,7 +61,12 @@ var Main = /** @class */ (function () {
                         __this.node('h1', {}, [
                             document.createTextNode("Any flow content can go here!")
                         ])
-                    ]), { ww: { 'buttonText': 'Me Too', 'autoClose': false } })
+                    ]), { ww: { 'buttonText': 'Me Too', 'autoClose': false } }),
+                    __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'Can\'t touch this!', 'disabled': true } }, [
+                        __this.node('p', {}, [
+                            document.createTextNode("You will never see this!")
+                        ])
+                    ]), { ww: { 'buttonText': 'Can\'t touch this!', 'disabled': true } })
                 ])
             ]), {});
         };

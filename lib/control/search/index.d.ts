@@ -42,6 +42,10 @@ export interface CommonAttrs<V> extends ControlAttrs<V> {
      */
     readOnly?: boolean;
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * block flag
      */
     block?: boolean;
@@ -121,6 +125,7 @@ export declare class Input extends AbstractControl<string, InputAttrs<string>> {
         className: string;
         placeholder: string;
         readOnly: true | undefined;
+        disabled: true | undefined;
         autocomplete: string;
         autofocus: boolean | undefined;
         size: string;
@@ -166,6 +171,7 @@ export declare class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
             placeholder: string;
             autofocus: boolean | undefined;
             readOnly: true | undefined;
+            disabled: true | undefined;
             value: string;
             onFocus: ((e: FocusGainedEvent) => void) | undefined;
             onSearch: ((e: TermChangedEvent) => void) | undefined;

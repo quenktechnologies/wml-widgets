@@ -101,7 +101,14 @@ __this.widget(new DropDown({ww : { 'buttonText' : 'Me Too' ,'autoClose' : false 
 
         document.createTextNode(`Any flow content can go here!`)
      ])
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Me Too' ,'autoClose' : false   }})
+     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Me Too' ,'autoClose' : false   }}),
+__this.widget(new DropDown({ww : { 'buttonText' : 'Can\'t touch this!' ,'disabled' : true   }}, [
+
+        __this.node('p', <__wml.Attrs>{}, [
+
+        document.createTextNode(`You will never see this!`)
+     ])
+     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Can\'t touch this!' ,'disabled' : true   }})
      ])
      ]),<__wml.Attrs>{});
 

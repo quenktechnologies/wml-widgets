@@ -14,6 +14,10 @@ export declare type ElementTemplate<V> = (s: Stack<V>) => (value: V) => (idx: nu
  */
 export interface StackAttrs<V> extends ControlAttrs<V[]> {
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * elementTemplate for rendering each member of the stack.
      */
     elementTemplate?: ElementTemplate<V>;
@@ -41,6 +45,7 @@ export declare class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
         root: {
             id: string;
             className: string;
+            disabled: boolean;
             value: V[];
             fire: () => void;
         };

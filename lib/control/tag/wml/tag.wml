@@ -22,8 +22,12 @@
 
   {{ ...@children }}
 
-  <Close 
-    ww:className={{@values.dismiss.className}} 
-    ww:onClick={{@values.dismiss.onClick}} />
+ {% if @values.disabled != true %}
+
+    <Close 
+      ww:className={{@values.dismiss.className}} 
+      ww:onClick={{@values.dismiss.onClick}} />
+
+ {% endif %}
 
 </t.Tag>

@@ -453,13 +453,13 @@ a.ww-tag:focus {
   outline: 0;
   background-color: #337ab7;
 }
-.ww-menu > .__DISABLED__ > a,
-.ww-menu > .__DISABLED__ > a:hover,
-.ww-menu > .__DISABLED__ > a:focus {
+.ww-menu > .-disabled > a,
+.ww-menu > .-disabled > a:hover,
+.ww-menu > .-disabled > a:focus {
   color: #777;
 }
-.ww-menu > .__DISABLED__ > a:hover,
-.ww-menu > .__DISABLED__ > a:focus {
+.ww-menu > .-disabled > a:hover,
+.ww-menu > .-disabled > a:focus {
   text-decoration: none;
   background-color: transparent;
   background-image: none;
@@ -976,9 +976,9 @@ a.ww-tag:focus {
   color: #555;
   background-color: #f5f5f5;
 }
-.ww-list-layout__item.__DISABLED__,
-.ww-list-layout__item.__DISABLED__:hover,
-.ww-list-layout__item.__DISABLED__:focus {
+.ww-list-layout__item.-disabled,
+.ww-list-layout__item.-disabled:hover,
+.ww-list-layout__item.-disabled:focus {
   color: #555;
   background-color: grey;
   cursor: not-allowed;

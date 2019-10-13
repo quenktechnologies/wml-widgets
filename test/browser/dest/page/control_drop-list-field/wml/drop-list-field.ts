@@ -119,6 +119,20 @@ __this.node('p', <__wml.Attrs>{}, [
         
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.error .id   },ww : { 'className' : '-error' ,'name' : __context.values.error .name  ,'options' : __context.values.error .options  ,'onChange' : __context.values.error .onChange   }})
      ])
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.node('b', <__wml.Attrs>{}, [
+
+        document.createTextNode(`Disabled`)
+     ]),
+__this.node('p', <__wml.Attrs>{}, [
+
+        __this.widget(new DropListField({ww : { 'name' : __context.values.normal .name  ,'value' : __context.values.normal .value  ,'options' : __context.values.normal .options  ,'disabled' : true  ,'onChange' : __context.values.normal .onChange   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal .name  ,'value' : __context.values.normal .value  ,'options' : __context.values.normal .options  ,'disabled' : true  ,'onChange' : __context.values.normal .onChange   }})
+     ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

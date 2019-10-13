@@ -70,6 +70,11 @@ export interface CommonSelectAttrs<V> extends FormControlAttrs<V> {
     readOnly?: boolean,
 
     /**
+     * disabled
+     */
+    disabled?: boolean,
+
+    /**
      * block 
      */
     block?: boolean,
@@ -215,6 +220,8 @@ export class SearchSection<V> {
 
     public readOnly = (this.attrs.ww && this.attrs.ww.readOnly);
 
+    public disabled = (this.attrs.ww && this.attrs.ww.disabled);
+
     public itemTemplate = (this.attrs.ww && this.attrs.ww.itemTemplate) ?
         this.attrs.ww.itemTemplate : undefined;
 
@@ -273,6 +280,9 @@ export class Select<V>
             value: <Maybe<V>>((this.attrs.ww &&
                 (this.attrs.ww.value != undefined)) ?
                 just(this.attrs.ww.value) : nothing()),
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : false,
 
             isSet: () => this.values.tag.value.isJust(),
 

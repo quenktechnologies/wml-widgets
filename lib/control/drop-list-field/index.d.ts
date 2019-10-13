@@ -15,6 +15,10 @@ export interface DropListFieldAttrs<V> extends FormControlAttrs<V> {
      */
     placeholder?: string;
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * options available for selection.
      */
     options?: Option<V>[];
@@ -67,6 +71,7 @@ export declare class DropListField<V> extends AbstractFormControl<V, DropListFie
             className: string;
             block: boolean;
             placeholder: string | undefined;
+            disabled: boolean | undefined;
             value: V | undefined;
             options: Option<V>[];
             stringifier: Stringifier<Option<V>> | undefined;

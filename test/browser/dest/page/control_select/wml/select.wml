@@ -71,4 +71,29 @@
 
   </Demo>
 
+  <Demo>
+
+    <Select 
+     ww:name={{@values.normal.name}}
+     ww:label="Disabled"
+     ww:disabled=true
+     ww:stringifier={{@values.normal.stringifier}}
+     ww:onSearch={{@values.normal.onSearch}}
+     ww:onChange={{@values.normal.onChange}} />
+
+  </Demo>
+
+  <Demo>
+
+    <Select 
+     ww:name={{@values.normal.name}}
+     ww:label="Disabled with value"
+     ww:value={{@values.normal.value}}
+     ww:disabled=true
+     ww:stringifier={{@values.normal.stringifier}}
+     ww:onSearch={{@values.normal.onSearch}}
+     ww:onChange={{@values.normal.onChange}} />
+
+  </Demo>
+
 </Demo>

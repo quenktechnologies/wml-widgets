@@ -70,4 +70,16 @@
 
   </Demo>
 
+  <Demo>
+
+    <Typeahead 
+     ww:name={{@values.normal.name}}
+     ww:label="Disabled"
+     ww:disabled=true
+     ww:stringifier={{@values.normal.stringifier}}
+     ww:onSearch={{@values.normal.onSearch}}
+     ww:onChange={{@values.normal.onChange}} />
+
+  </Demo>
+
 </Demo>

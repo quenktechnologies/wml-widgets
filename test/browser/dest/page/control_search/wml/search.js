@@ -42,6 +42,14 @@ var Main = /** @class */ (function () {
                     __this.node('p', {}, [
                         __this.widget(new search_1.Search({ wml: { 'id': __context.values.id2 }, ww: { 'name': __context.values.name2, 'block': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } }, []), { wml: { 'id': __context.values.id2 }, ww: { 'name': __context.values.name2, 'block': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } })
                     ])
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h2', {}, [
+                        document.createTextNode(" Disabled ")
+                    ]),
+                    __this.node('p', {}, [
+                        __this.widget(new search_1.Search({ ww: { 'disabled': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } }, []), { ww: { 'disabled': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } })
+                    ])
                 ]), {})
             ]), {});
         };

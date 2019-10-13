@@ -23,6 +23,11 @@ export type ElementTemplate<V> =
 export interface StackAttrs<V> extends ControlAttrs<V[]> {
 
     /**
+     * disabled
+     */
+    disabled?: boolean,
+
+    /**
      * elementTemplate for rendering each member of the stack.
      */
     elementTemplate?: ElementTemplate<V>,
@@ -60,17 +65,24 @@ export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
 
             className: concat(STACK, getClassName(this.attrs)),
 
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : false,
+
             value: (this.attrs.ww && this.attrs.ww.value) ?
                 this.attrs.ww.value : [],
 
             fire: () => {
 
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(new StackChangedEvent<V>(
-                        <string>this.attrs.ww.name,
-                        this.values.root.value.slice()));
+                if (!this.values.root.disabled) {
 
-                this.view.invalidate();
+                    if (this.attrs.ww && this.attrs.ww.onChange)
+                        this.attrs.ww.onChange(new StackChangedEvent<V>(
+                            <string>this.attrs.ww.name,
+                            this.values.root.value.slice()));
+
+                    this.view.invalidate();
+
+                }
 
             }
 

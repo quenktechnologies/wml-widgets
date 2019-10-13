@@ -35,10 +35,13 @@ export interface DropDownMenuAttrs extends HTMLElementAttrs {
      * Defaults to true.
      */
     autoClose?: boolean;
+    /**
+     * disabled
+     */
+    disabled?: boolean;
 }
 /**
  * DropDown provides a component for displaying a pop up menu.
- *
  *
  *    +--------+
  *    |  Menu  |
@@ -67,6 +70,7 @@ export declare class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>> 
             text: string;
             style: style.Style;
             className: string;
+            disabled: true | undefined;
             template: () => ButtonTemplate;
             onClick: () => void;
         };

@@ -68,6 +68,14 @@ var Main = /** @class */ (function () {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __this.node('b', {}, [
+                            document.createTextNode("Disabled")
+                        ]),
+                        __this.widget(new drop_list_1.DropList({ ww: { 'name': __context.values.normal.name, 'disabled': true, 'onSelect': __context.values.normal.onSelect } }, []), { ww: { 'name': __context.values.normal.name, 'disabled': true, 'onSelect': __context.values.normal.onSelect } })
+                    ])
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
+                        __this.node('b', {}, [
                             document.createTextNode("Block")
                         ]),
                         __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.block.id }, ww: { 'className': '-block', 'name': __context.values.block.name, 'block': true, 'onSelect': __context.values.block.onSelect } }, []), { wml: { 'id': __context.values.block.id }, ww: { 'className': '-block', 'name': __context.values.block.name, 'block': true, 'onSelect': __context.values.block.onSelect } })

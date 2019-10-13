@@ -22,6 +22,10 @@ export interface DisplayFieldAttrs extends HTMLElementAttrs {
      */
     block?: boolean;
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * onClick handler.
      */
     onClick?: () => void;
@@ -36,6 +40,7 @@ export declare class DisplayField extends Component<WidgetAttrs<DisplayFieldAttr
             id: string;
         };
         id: string;
+        disabled: boolean;
         className: string;
         onclick: (e: Event) => void;
         content: {

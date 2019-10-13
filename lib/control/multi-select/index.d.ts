@@ -20,6 +20,10 @@ export interface MutliselectAttrs<V> extends FormControlAttrs<V[]> {
      */
     block?: boolean;
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * inputWidth indicates how wide the invisible input should be initially.
      */
     inputWidth?: number;
@@ -64,6 +68,7 @@ export declare class MultiSelect<V> extends AbstractFormControl<V[], Mutliselect
             wml: {
                 id: string;
             };
+            disabled: boolean;
             id: string;
             className: string;
         };
@@ -101,6 +106,7 @@ export declare class MultiSelect<V> extends AbstractFormControl<V[], Mutliselect
         tags: {
             className: string;
             value: V[];
+            disabled: boolean;
             has: () => boolean;
             getText: Stringifier<V>;
             onDismiss: (e: DismissEvent) => void;
@@ -113,6 +119,7 @@ export declare class MultiSelect<V> extends AbstractFormControl<V[], Mutliselect
             name: string;
             inputWidth: number;
             fontIncrement: number;
+            disabled: true | undefined;
             onSearch: (e: TermChangedEvent) => void;
         };
         menu: {

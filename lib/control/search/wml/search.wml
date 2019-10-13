@@ -15,6 +15,7 @@
     size={{@values.size}}
     placeholder={{@values.placeholder}}
     readOnly={{@values.readOnly}}
+    disabled={{@values.disabled}}
     value={{@values.value}} />
 
 {% view Main[V] (Search[V]) %}
@@ -33,6 +34,7 @@
     ww:onBlur={{@values.input.onBlur}}
     ww:placeholder={{@values.input.placeholder}}
     ww:readOnly={{@values.input.readOnly}}
+    ww:disabled={{@values.input.disabled}}
     ww:value={{@values.input.value}} />
 
    <ResultsMenu 

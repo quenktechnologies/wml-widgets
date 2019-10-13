@@ -47,6 +47,9 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.widget(new multi_select_1.MultiSelect({ wml: { 'id': __context.values.block.id }, ww: { 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange } }, []), { wml: { 'id': __context.values.block.id }, ww: { 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new multi_select_1.MultiSelect({ ww: { 'name': __context.values.normal.name, 'label': 'Disabled', 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } }, []), { ww: { 'name': __context.values.normal.name, 'label': 'Disabled', 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } })
                 ]), {})
             ]), {});
         };

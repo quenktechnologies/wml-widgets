@@ -13,6 +13,10 @@ export interface TagAttrs extends ControlAttrs<void> {
      */
     style?: Style;
     /**
+     * disabled
+     */
+    disabled?: boolean;
+    /**
      * text to display for the tag.
      */
     text?: string;
@@ -42,6 +46,7 @@ export declare class Tag extends AbstractControl<void, TagAttrs> {
         id: string;
         className: string;
         style: Style;
+        disabled: boolean;
         text: {
             className: string;
             value: string | undefined;

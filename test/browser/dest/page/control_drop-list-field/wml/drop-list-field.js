@@ -64,6 +64,14 @@ var Main = /** @class */ (function () {
                     __this.node('p', {}, [
                         __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange } }, []), { wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange } })
                     ])
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('b', {}, [
+                        document.createTextNode("Disabled")
+                    ]),
+                    __this.node('p', {}, [
+                        __this.widget(new drop_list_field_1.DropListField({ ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'disabled': true, 'onChange': __context.values.normal.onChange } }, []), { ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'disabled': true, 'onChange': __context.values.normal.onChange } })
+                    ])
                 ]), {})
             ]), {});
         };

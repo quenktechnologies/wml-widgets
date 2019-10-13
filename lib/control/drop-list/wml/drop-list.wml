@@ -8,7 +8,9 @@
 
 <div id={{@values.id}} class={{@values.className}}>
   
-  <DisplayField ww:onClick={{@values.display.onClick}}>
+  <DisplayField 
+    ww:onClick={{@values.display.onClick}} 
+    ww:disabled={{@values.display.disabled}}>
     {{@values.display.placeholder()| text}} <Caret/>
   </DisplayField>
 

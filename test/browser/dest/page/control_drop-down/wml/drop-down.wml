@@ -38,6 +38,14 @@
 
     </DropDown>
 
+    <DropDown 
+      ww:buttonText="Can\'t touch this!"
+      ww:disabled=true>
+
+      <p>You will never see this!</p>
+
+    </DropDown>
+
   </p>
 
 </Demo>

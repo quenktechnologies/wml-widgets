@@ -70,6 +70,13 @@ export class Main  implements __wml.View {
 
         document.createTextNode(` It was a choice.`)
      ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.widget(new DisplayField({ww : { 'disabled' : true   }}, [
+
+        document.createTextNode(`Disabled`)
+     ]),<__wml.Attrs>{ww : { 'disabled' : true   }})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

@@ -24,6 +24,7 @@
         <Tag
           ww:name={{String(idx)}}
           ww:text={{@values.tags.getText(value)}}
+          ww:disabled={{@values.tags.disabled}}
           ww:className={{@values.tags.className}}
           ww:onDismiss={{@values.tags.onDismiss}} />
 
@@ -39,6 +40,7 @@
       wml:id={{@values.input.wml.id}} 
       ww:className={{@values.input.className}} 
       ww:name={{@values.input.name}}
+      ww:disabled={{@values.input.disabled}}
       ww:onSearch={{@values.input.onSearch}} />
 
     </div>

@@ -78,10 +78,15 @@ export class Main  implements __wml.View {
         text ('')
      ]))) ,
 ... (__context.children),
-__this.widget(new Close({ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }}, [
+...(__if((__context.values.disabled  !== true),
+   ()=> ([
+
+        __this.widget(new Close({ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }}, [
 
         
      ]),<__wml.Attrs>{ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }})
+     ]),
+   ()=> ([]))) 
      ]),<__wml.Attrs>{ww : { 'id' : __context.values.id  ,'className' : __context.values.className  ,'style' : __context.values.style   }});
 
        }
