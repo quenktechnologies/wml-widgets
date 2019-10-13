@@ -19,6 +19,7 @@ import { Event as ControlEvent, getName } from '../';
 import { getMessage, getValidityClassName, Message } from '../feedback';
 import { DismissEvent } from '../tag';
 import { ACTIVE } from '../../content/state/active';
+import { DISABLED } from '../../content/state/disabled';
 
 export { NoItemsTemplate, ItemTemplate, TermChangedEvent }
 
@@ -41,6 +42,11 @@ export interface MutliselectAttrs<V> extends FormControlAttrs<V[]> {
      * block flag
      */
     block?: boolean,
+
+    /**
+     * disabled
+     */
+    disabled?: boolean,
 
     /**
      * inputWidth indicates how wide the invisible input should be initially.
@@ -95,7 +101,6 @@ export class MultiSelect<V>
 
     values = {
 
-
         root: {
 
             wml: {
@@ -104,12 +109,17 @@ export class MultiSelect<V>
 
             },
 
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : false,
+
             id: getId(this.attrs),
 
             className: concat(MULTI_SELECT,
                 getClassName(this.attrs),
                 getValidityClassName(this.attrs),
-                getBlockClassName(this.attrs))
+                getBlockClassName(this.attrs),
+                (this.attrs.ww && this.attrs.ww.disabled) ?
+                    DISABLED : '')
 
         },
         control: {
@@ -184,6 +194,9 @@ export class MultiSelect<V>
 
             value: <V[]>[],
 
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : false,
+
             has: () => this.values.tags.value.length > 0,
 
             getText: (this.attrs.ww && this.attrs.ww.stringifier) ?
@@ -220,12 +233,19 @@ export class MultiSelect<V>
             fontIncrement: (this.attrs.ww && this.attrs.ww.fontIncrement) ?
                 this.attrs.ww.fontIncrement : DEFAULT_FONT_INCREMENT,
 
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                this.attrs.ww.disabled : undefined,
+
             onSearch: (e: TermChangedEvent) => {
 
-                this.grow(e.value.length + 1);
+                if (!this.values.root.disabled) {
 
-                if (this.attrs.ww && this.attrs.ww.onSearch)
-                    this.attrs.ww.onSearch(e);
+                    this.grow(e.value.length + 1);
+
+                    if (this.attrs.ww && this.attrs.ww.onSearch)
+                        this.attrs.ww.onSearch(e);
+
+                }
 
             }
 

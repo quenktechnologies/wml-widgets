@@ -61,6 +61,11 @@ export interface DropListAttrs<V> extends ControlAttrs<V> {
     placeholder?: string,
 
     /**
+        * disabled
+        */
+    disabled?: boolean,
+
+    /**
      * options available for selection.
      */
     options?: Option<V>[];
@@ -133,6 +138,8 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
         },
 
         display: {
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled),
 
             placeholder: () => {
 

@@ -37,4 +37,20 @@
 
   </Demo>
 
+  <Demo>
+
+    <h2> Disabled </h2>
+
+    <p>
+
+      <Search 
+        ww:disabled=true
+        ww:stringifier={{@values.stringifier}}
+        ww:onSearch={{@values.onSearch}}
+        ww:onSelect={{@values.onSelect}} />
+
+    </p>
+
+  </Demo>
+
 </Demo>

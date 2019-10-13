@@ -78,6 +78,23 @@
 
     <p>
     
+      <b>Disabled</b>
+
+      <DropList 
+        ww:name={{@values.normal.name}}
+        ww:disabled=true
+        ww:onSelect={{@values.normal.onSelect}} />
+
+    </p>
+
+  </Demo>
+
+
+
+  <Demo>
+
+    <p>
+    
       <b>Block</b>
 
       <DropList 

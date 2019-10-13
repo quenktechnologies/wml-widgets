@@ -74,4 +74,23 @@
 
   </Demo>
 
+  <Demo>
+
+    <b>Disabled</b>
+
+    <p>
+    
+      <DropListField 
+       ww:name={{@values.normal.name}}
+       ww:value={{@values.normal.value}}
+       ww:options={{@values.normal.options}}
+       ww:disabled=true
+       ww:onChange={{@values.normal.onChange}} />
+
+    </p>
+
+  </Demo>
+
+
+
 </Demo>

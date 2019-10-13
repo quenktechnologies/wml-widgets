@@ -11,4 +11,10 @@
 
   </Demo>
 
+  <Demo>
+
+    <DisplayField ww:disabled=true>Disabled</DisplayField>
+
+  </Demo>
+
 </Demo>

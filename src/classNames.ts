@@ -125,6 +125,12 @@ export const CARET = 'ww-caret';
 ///classNames:end
 ///classNames:begin
 /**
+ * DISABLED
+ */
+export const DISABLED = '-disabled';
+///classNames:end
+///classNames:begin
+/**
  * OPEN state.
  */
 export const OPEN = '-open';

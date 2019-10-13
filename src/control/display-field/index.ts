@@ -1,6 +1,7 @@
 import { View, Component } from '@quenk/wml';
 import { TOOLBAR_COMPAT } from '../toolbar';
 import { BLOCK } from '../../content/orientation';
+import { DISABLED } from '../../content/state/disabled';
 import { DEFAULT, Style, getStyleClassName } from '../../content/style';
 import { Size, getSizeClassName } from '../../content/size';
 import { concat } from '../../util';
@@ -35,6 +36,11 @@ export interface DisplayFieldAttrs extends HTMLElementAttrs {
     block?: boolean,
 
     /**
+     * disabled
+     */
+    disabled?: boolean,
+
+    /**
      * onClick handler.
      */
     onClick?: () => void
@@ -60,6 +66,9 @@ export class DisplayField
 
         id: getId(this.attrs),
 
+        disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+            this.attrs.ww.disabled : false,
+
         className: concat(DISPLAY_FIELD,
 
             getClassName(this.attrs),
@@ -74,13 +83,18 @@ export class DisplayField
                 getSizeClassName(this.attrs.ww.size) : '',
 
             (this.attrs.ww && this.attrs.ww.block) ?
-                BLOCK : ''),
+                BLOCK : '',
+
+            (this.attrs.ww && this.attrs.ww.disabled) ?
+                DISABLED : ''),
 
         onclick: (e: Event) => {
 
             e.stopPropagation(); //prevent a bug when used with ResultsMenu
 
-            if (this.attrs.ww && this.attrs.ww.onClick)
+            if (this.attrs.ww &&
+                this.attrs.ww.onClick &&
+                (!this.values.disabled))
                 this.attrs.ww.onClick();
 
         },

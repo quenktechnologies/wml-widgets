@@ -22,6 +22,11 @@ export interface TagAttrs extends ControlAttrs<void> {
     style?: Style,
 
     /**
+     * disabled
+     */
+    disabled?: boolean,
+
+    /**
      * text to display for the tag.
      */
     text?: string
@@ -62,6 +67,9 @@ export class Tag extends AbstractControl<void, TagAttrs> {
 
         style: (this.attrs.ww && this.attrs.ww.style) ?
             this.attrs.ww.style : Style.Default,
+
+        disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+            this.attrs.ww.disabled : false,
 
         text: {
 

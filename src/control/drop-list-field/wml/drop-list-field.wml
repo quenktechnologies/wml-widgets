@@ -15,6 +15,7 @@
    ww:className={{@values.control.className}}
    ww:name={{@values.control.name}}
    ww:placeholder={{@values.control.placeholder}}
+   ww:disabled={{@values.control.disabled}}
    ww:block={{@values.control.block}}
    ww:value={{@values.control.value}}
    ww:options={{@values.control.options}}

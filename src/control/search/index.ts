@@ -71,6 +71,11 @@ export interface CommonAttrs<V> extends ControlAttrs<V> {
     readOnly?: boolean,
 
     /**
+     * disabled
+     */
+    disabled?: boolean,
+
+    /**
      * block flag
      */
     block?: boolean,
@@ -98,7 +103,6 @@ export interface InputAttrs<V> extends CommonAttrs<V> {
  * SearchAttrs
  */
 export interface SearchAttrs<V> extends CommonAttrs<V> {
-
 
     /**
      * onSelect is applied when the user selects an item.
@@ -176,6 +180,8 @@ export class Input
             this.attrs.ww.placeholder : '',
 
         readOnly: (this.attrs.ww && this.attrs.ww.readOnly) || undefined,
+
+        disabled: (this.attrs.ww && this.attrs.ww.disabled) || undefined,
 
         autocomplete: 'do not enable please',
 
@@ -315,6 +321,8 @@ export class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
                 true : undefined,
 
             readOnly: (this.attrs.ww && this.attrs.ww.readOnly) || undefined,
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled) || undefined,
 
             value: (this.attrs.ww && this.attrs.ww.term) ?
                 this.attrs.ww.term :

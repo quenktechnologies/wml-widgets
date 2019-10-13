@@ -37,6 +37,11 @@ export interface DropListFieldAttrs<V> extends FormControlAttrs<V> {
     placeholder?: string,
 
     /**
+     * disabled
+     */
+    disabled?: boolean,
+
+    /**
      * options available for selection.
      */
     options?: Option<V>[];
@@ -121,6 +126,8 @@ export class DropListField<V>
             block: true,
 
             placeholder: (this.attrs.ww && this.attrs.ww.placeholder),
+
+            disabled: (this.attrs.ww && this.attrs.ww.disabled),
 
             value: (this.attrs.ww && this.attrs.ww.value),
 

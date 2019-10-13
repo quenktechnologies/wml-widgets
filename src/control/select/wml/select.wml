@@ -17,6 +17,7 @@
      <Tag
       ww:text={{@values.tag.getText()}}
       ww:className={{@values.tag.className}}
+      ww:disabled={{@values.tag.disabled}}
       ww:onDismiss={{@values.tag.dismiss}} />
 
     {% else %}
@@ -28,6 +29,7 @@
         ww:block={{@values.search.block}}
         ww:placeholder={{@values.search.placeholder}} 
         ww:readOnly={{@values.search.readOnly}}
+        ww:disabled={{@values.search.disabled}}
         ww:itemTemplate={{@values.search.itemTemplate}}
         ww:noItemsTemplate={{@values.search.noItemsTemplate}}
         ww:stringifier={{@values.search.stringifier}}

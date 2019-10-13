@@ -15,4 +15,15 @@
        ww:onChange={{@onChange}} />
    </p>
 
+  <p>Disabled</p>
+
+   <p>
+     <Stack
+       ww:name="stack"
+       ww:value={{@values.values}}
+       ww:disabled=true
+       ww:decorator={{@values.decorator}}
+       ww:onChange={{@onChange}} />
+   </p>
+
 </Demo>

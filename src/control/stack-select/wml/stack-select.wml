@@ -19,6 +19,7 @@
       ww:name={{@values.search.name}}
       ww:value={{@values.search.value}}
       ww:block={{@values.search.block}}
+      ww:disabled={{@values.search.disabled}}
       ww:stringifier={{@values.stack.decorator}}
       ww:onSearch={{@values.search.onSearch}}
       ww:onSelect={{@values.search.onSelect}} />
@@ -27,6 +28,7 @@
       wml:id={{@values.stack.wml.id}}
       ww:name={{@values.stack.name}}
       ww:value={{@values.stack.value}}
+      ww:disabled={{@values.stack.disabled}}
       ww:decorator={{@values.stack.decorator}}
       ww:onChange={{@values.stack.onChange}} />
 
