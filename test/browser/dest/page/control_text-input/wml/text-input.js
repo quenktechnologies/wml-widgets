@@ -116,6 +116,12 @@ var Main = /** @class */ (function () {
                         document.createTextNode("\n      Block:\n      "),
                         __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } }, []), { ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } })
                     ])
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
+                        document.createTextNode("\n      Autofocused:\n      "),
+                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'focus': true } }, []), { ww: { 'onChange': __context.onChange, 'focus': true } })
+                    ])
                 ]), {})
             ]), {});
         };

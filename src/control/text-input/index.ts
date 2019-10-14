@@ -129,7 +129,7 @@ export class TextInput
 
         oninput: dispatchInput(this),
 
-        focus: (this.attrs.ww && this.attrs.ww.focus) ? true : undefined,
+        autofocus: (this.attrs.ww && this.attrs.ww.focus) ? true : undefined,
 
         onfocus: () => {
 

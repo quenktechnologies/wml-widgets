@@ -21,6 +21,7 @@
   type={{@values.type}}
   placeholder={{@values.placeholder}}
   oninput={{@values.oninput}} 
+  autofocus={{@values.autofocus}}
   value={{@values.value}}
   disabled={{@values.disabled}}
   readonly={{@values.readOnly}}

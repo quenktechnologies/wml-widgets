@@ -68,7 +68,7 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         disabled: boolean | null;
         readOnly: boolean | null;
         oninput: (e: KeyboardEvent) => void;
-        focus: boolean | undefined;
+        autofocus: boolean | undefined;
         onfocus: () => void;
         onblur: () => void;
     };

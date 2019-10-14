@@ -210,6 +210,19 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : t
         
      ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  }})
      ])
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.node('p', <__wml.Attrs>{}, [
+
+        document.createTextNode(`
+      Autofocused:
+      `),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : true   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'focus' : true   }})
+     ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

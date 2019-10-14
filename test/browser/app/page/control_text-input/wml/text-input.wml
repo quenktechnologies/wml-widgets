@@ -110,4 +110,15 @@
 
   </Demo>
 
+  <Demo>
+
+    <p>
+      Autofocused:
+      <TextInput ww:onChange={{@onChange}} ww:focus=true />
+    </p>
+
+  </Demo>
+
+
+
 </Demo>
