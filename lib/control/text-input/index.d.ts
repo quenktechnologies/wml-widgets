@@ -16,6 +16,14 @@ export interface TextInputAttrs extends ControlAttrs<string>, FocusableAttrs {
      */
     type?: string;
     /**
+     * min amount if the type is number.
+     */
+    min?: number;
+    /**
+     * max amount if the type is number.
+     */
+    max?: number;
+    /**
      * size of the TextInput
      */
     size?: Size;
@@ -62,6 +70,8 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         className: string;
         name: string;
         type: string;
+        min: number | undefined;
+        max: number | undefined;
         placeholder: string;
         value: string;
         rows: number;

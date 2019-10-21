@@ -35,6 +35,16 @@ export interface TextInputAttrs
     type?: string,
 
     /**
+     * min amount if the type is number.
+     */
+    min?: number,
+
+    /**
+     * max amount if the type is number.
+     */
+    max?: number,
+
+    /**
      * size of the TextInput
      */
     size?: Size,
@@ -111,6 +121,12 @@ export class TextInput
 
         type: (this.attrs.ww && this.attrs.ww.type) ?
             this.attrs.ww.type : 'text',
+
+        min: (this.attrs.ww && this.attrs.ww.min) ?
+            this.attrs.ww.min : undefined,
+
+        max: (this.attrs.ww && this.attrs.ww.max) ?
+            this.attrs.ww.max : undefined,
 
         placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
             this.attrs.ww.placeholder : '',

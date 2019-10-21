@@ -69,10 +69,10 @@ export class Main  implements __wml.View {
 
         
      ]),<__wml.Attrs>{ww : { 'for' : __context.values.control .id  ,'text' : __context.values.label .text   }}),
-__this.widget(new TextInput({ww : { 'id' : __context.values.control .id  ,'name' : __context.values.control .name  ,'focus' : __context.values.control .focus  ,'placeholder' : __context.values.control .placeholder  ,'onChange' : __context.values.control .onChange  ,'block' : true  ,'type' : __context.values.control .type  ,'value' : __context.values.control .value  ,'rows' : __context.values.control .rows  ,'disabled' : __context.values.control .disabled  ,'readOnly' : __context.values.control .readOnly   }}, [
+__this.widget(new TextInput({ww : { 'id' : __context.values.control .id  ,'name' : __context.values.control .name  ,'focus' : __context.values.control .focus  ,'placeholder' : __context.values.control .placeholder  ,'onChange' : __context.values.control .onChange  ,'block' : true  ,'type' : __context.values.control .type  ,'min' : __context.values.control .min  ,'max' : __context.values.control .max  ,'value' : __context.values.control .value  ,'rows' : __context.values.control .rows  ,'disabled' : __context.values.control .disabled  ,'readOnly' : __context.values.control .readOnly   }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'id' : __context.values.control .id  ,'name' : __context.values.control .name  ,'focus' : __context.values.control .focus  ,'placeholder' : __context.values.control .placeholder  ,'onChange' : __context.values.control .onChange  ,'block' : true  ,'type' : __context.values.control .type  ,'value' : __context.values.control .value  ,'rows' : __context.values.control .rows  ,'disabled' : __context.values.control .disabled  ,'readOnly' : __context.values.control .readOnly   }}),
+     ]),<__wml.Attrs>{ww : { 'id' : __context.values.control .id  ,'name' : __context.values.control .name  ,'focus' : __context.values.control .focus  ,'placeholder' : __context.values.control .placeholder  ,'onChange' : __context.values.control .onChange  ,'block' : true  ,'type' : __context.values.control .type  ,'min' : __context.values.control .min  ,'max' : __context.values.control .max  ,'value' : __context.values.control .value  ,'rows' : __context.values.control .rows  ,'disabled' : __context.values.control .disabled  ,'readOnly' : __context.values.control .readOnly   }}),
 __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww : { 'text' : __context.values.messages .text   }}, [
 
         

@@ -17,6 +17,14 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
      */
     type?: string;
     /**
+     * min amount if the type is number.
+     */
+    min?: number;
+    /**
+     * max amount if the type is number.
+     */
+    max?: number;
+    /**
      * rows more than 1 will use a textarea instead of an input.
      */
     rows?: number;
@@ -62,6 +70,8 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             id: string;
             name: string;
             type: string;
+            min: number | undefined;
+            max: number | undefined;
             focus: true | undefined;
             placeholder: string;
             value: string;

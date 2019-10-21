@@ -19,6 +19,8 @@
   id={{@values.id}}
   name={{@values.name}}
   type={{@values.type}}
+  min={{String(@values.min)}}
+  max={{String(@values.max)}}
   placeholder={{@values.placeholder}}
   oninput={{@values.oninput}} 
   autofocus={{@values.autofocus}}

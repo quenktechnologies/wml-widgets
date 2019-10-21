@@ -19,6 +19,8 @@
     ww:onChange={{@values.control.onChange}} 
     ww:block=true
     ww:type={{@values.control.type}}
+    ww:min={{@values.control.min}}
+    ww:max={{@values.control.max}}
     ww:value={{@values.control.value}}
     ww:rows={{@values.control.rows}}
     ww:disabled={{@values.control.disabled}}
