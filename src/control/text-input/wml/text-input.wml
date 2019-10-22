@@ -19,10 +19,11 @@
   id={{@values.id}}
   name={{@values.name}}
   type={{@values.type}}
-  min={{String(@values.min)}}
-  max={{String(@values.max)}}
+  min={{@values.min}}
+  max={{@values.max}}
   placeholder={{@values.placeholder}}
   oninput={{@values.oninput}} 
+  onkeydown={{@values.onkeydown}}
   autofocus={{@values.autofocus}}
   value={{@values.value}}
   disabled={{@values.disabled}}

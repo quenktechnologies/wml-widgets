@@ -25,6 +25,15 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
      */
     max?: number;
     /**
+     * match if specified restricts input to characters matching the
+     * specified pattern.
+     */
+    match?: string;
+    /**
+     * length indicates the max number of characters allowed to be input.
+     */
+    length?: number;
+    /**
      * rows more than 1 will use a textarea instead of an input.
      */
     rows?: number;
@@ -74,6 +83,8 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             max: number | undefined;
             focus: true | undefined;
             placeholder: string;
+            match: string | undefined;
+            length: number | undefined;
             value: string;
             disabled: boolean | undefined;
             readOnly: boolean | undefined;

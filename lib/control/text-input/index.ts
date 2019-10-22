@@ -45,6 +45,17 @@ export interface TextInputAttrs
     max?: number,
 
     /**
+     * match if specified restricts input to characters matching the 
+     * specified pattern.
+     */
+    match?: string,
+
+    /**
+     * length indicates the max number of characters allowed to be input.
+     */
+    length?: number,
+
+    /**
      * size of the TextInput
      */
     size?: Size,
@@ -123,10 +134,16 @@ export class TextInput
             this.attrs.ww.type : 'text',
 
         min: (this.attrs.ww && this.attrs.ww.min) ?
-            this.attrs.ww.min : null,
+            String(this.attrs.ww.min) : null,
 
         max: (this.attrs.ww && this.attrs.ww.max) ?
-            this.attrs.ww.max : null,
+            String(this.attrs.ww.max) : null,
+
+        match: new RegExp((this.attrs.ww && this.attrs.ww.match) ?
+            this.attrs.ww.match : '.'),
+
+        length: (this.attrs.ww && this.attrs.ww.length) ?
+            this.attrs.ww.length : Infinity,
 
         placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
             this.attrs.ww.placeholder : '',
@@ -142,6 +159,16 @@ export class TextInput
 
         readOnly: (this.attrs.ww && this.attrs.ww.readOnly === true) ?
             true : null,
+
+        onkeydown: (e: KeyboardEvent) => {
+
+            let value = (<HTMLInputElement>e.target).value || '';
+
+            if ((!this.values.match.test(e.key)) ||
+                (value.length > this.values.length))
+                e.preventDefault();
+
+        },
 
         oninput: dispatchInput(this),
 

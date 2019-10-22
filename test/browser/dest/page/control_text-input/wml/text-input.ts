@@ -68,12 +68,15 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`This is a text input: `),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange  }}, [
+        document.createTextNode(`
+      This is a text input: 
+      `),
+__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'match' : '[a-zA-Z]' ,'length' : 20  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange  }}),
-document.createTextNode(`.`)
+     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'match' : '[a-zA-Z]' ,'length' : 20  }}),
+document.createTextNode(`.
+    `)
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -82,7 +85,7 @@ __this.node('b', <__wml.Attrs>{wml : { 'id' : 'txt'  }}, [
 
         document.createTextNode(`this`)
      ]),
-document.createTextNode(` changes.`)
+document.createTextNode(` changes, but only for letters. (20)`)
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [

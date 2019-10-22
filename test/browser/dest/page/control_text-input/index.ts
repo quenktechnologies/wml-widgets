@@ -7,13 +7,13 @@ export class TextInputPage {
 
     view: wml.View = new views.Main(this);
 
-        sizes =  <Size[]>[
-            Size.ExtraSmall,
-            Size.Small,
-            Size.Medium,
-            Size.Large,
-            Size.ExtraLarge
-        ]
+    sizes = <Size[]>[
+        Size.ExtraSmall,
+        Size.Small,
+        Size.Medium,
+        Size.Large,
+        Size.ExtraLarge
+    ]
 
     content = () => document.createTextNode('this');
 

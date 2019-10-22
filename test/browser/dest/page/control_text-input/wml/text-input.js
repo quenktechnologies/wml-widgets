@@ -42,16 +42,16 @@ var Main = /** @class */ (function () {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("This is a text input: "),
-                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange } }, []), { ww: { 'onChange': __context.onChange } }),
-                        document.createTextNode(".")
+                        document.createTextNode("\n      This is a text input: \n      "),
+                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'match': '[a-zA-Z]', 'length': 20 } }, []), { ww: { 'onChange': __context.onChange, 'match': '[a-zA-Z]', 'length': 20 } }),
+                        document.createTextNode(".\n    ")
                     ]),
                     __this.node('p', {}, [
                         document.createTextNode("As you type "),
                         __this.node('b', { wml: { 'id': 'txt' } }, [
                             document.createTextNode("this")
                         ]),
-                        document.createTextNode(" changes.")
+                        document.createTextNode(" changes, but only for letters. (20)")
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {

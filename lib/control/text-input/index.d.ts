@@ -24,6 +24,15 @@ export interface TextInputAttrs extends ControlAttrs<string>, FocusableAttrs {
      */
     max?: number;
     /**
+     * match if specified restricts input to characters matching the
+     * specified pattern.
+     */
+    match?: string;
+    /**
+     * length indicates the max number of characters allowed to be input.
+     */
+    length?: number;
+    /**
      * size of the TextInput
      */
     size?: Size;
@@ -70,13 +79,16 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         className: string;
         name: string;
         type: string;
-        min: number | null;
-        max: number | null;
+        min: string | null;
+        max: string | null;
+        match: RegExp;
+        length: number;
         placeholder: string;
         value: string;
         rows: number;
         disabled: boolean | null;
         readOnly: boolean | null;
+        onkeydown: (e: KeyboardEvent) => void;
         oninput: (e: KeyboardEvent) => void;
         autofocus: boolean | undefined;
         onfocus: () => void;

@@ -220,7 +220,7 @@ export class Input  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.control .wml .id   },'id': __context.values.id ,'name': __context.values.name ,'type': __context.values.type ,'min': String(__context.values.min ),'max': String(__context.values.max ),'placeholder': __context.values.placeholder ,'oninput': __context.values.oninput ,'autofocus': __context.values.autofocus ,'value': __context.values.value ,'disabled': __context.values.disabled ,'readonly': __context.values.readOnly ,'class': __context.values.className }, [
+           return __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.control .wml .id   },'id': __context.values.id ,'name': __context.values.name ,'type': __context.values.type ,'min': __context.values.min ,'max': __context.values.max ,'placeholder': __context.values.placeholder ,'oninput': __context.values.oninput ,'onkeydown': __context.values.onkeydown ,'autofocus': __context.values.autofocus ,'value': __context.values.value ,'disabled': __context.values.disabled ,'readonly': __context.values.readOnly ,'class': __context.values.className }, [
 
         
      ]);

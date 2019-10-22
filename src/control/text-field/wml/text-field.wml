@@ -21,6 +21,8 @@
     ww:type={{@values.control.type}}
     ww:min={{@values.control.min}}
     ww:max={{@values.control.max}}
+    ww:match={{@values.control.match}}
+    ww:length={{@values.control.length}}
     ww:value={{@values.control.value}}
     ww:rows={{@values.control.rows}}
     ww:disabled={{@values.control.disabled}}
