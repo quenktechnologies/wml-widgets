@@ -7,8 +7,9 @@ var data = {
     balance: '5000'
 };
 var money = function (s) { return "$" + s; };
+var dataFragment = function (c) { return new property_list_1.BoldDataView(c); };
 var fields = [
-    { name: 'name', heading: 'Name' },
+    { name: 'name', heading: 'Name', dataFragment: dataFragment },
     { name: 'age', heading: 'age' },
     { name: 'balance', heading: 'Balance', format: money }
 ];

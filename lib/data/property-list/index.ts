@@ -1,18 +1,47 @@
-import { Fun, Component } from '@quenk/wml';
+import { View, Component } from '@quenk/wml';
+
 import { get } from '@quenk/noni/lib/data/record/path';
 import { Record } from '@quenk/noni/lib/data/record';
+
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs, getClassName, text } from '../../';
-import { Main } from './wml/property-list';
+import { WidgetAttrs, HTMLElementAttrs, getClassName } from '../../';
+import { NothingView, DataView, PropertyListView } from './wml/property-list';
 
 ///classNames:begin
 export const PROPERTY_LIST = 'ww-property-list';
 ///classNames:end
 
 /**
+ * DataContext
+ */
+export interface DataContext<D, R extends Record<D>> {
+
+    /**
+     * name of the field.
+     */
+    name: string,
+
+    /**
+     * data item being displyed.
+     */
+    data: D,
+
+    /**
+     * format turns the data into a string.
+     */
+    format: (v: D) => string,
+
+    /**
+     * value is the value of all the data fields.
+     */
+    value: R
+
+}
+
+/**
  * Field describes a single field displayed in a PropertyList.
  */
-export interface Field<D, R> {
+export interface Field<D, R extends Record<D>> {
 
     /**
      * heading to display for the field.
@@ -34,14 +63,16 @@ export interface Field<D, R> {
      * dataFragment can be specified to customise the rendering
      * of the data value.
      */
-    dataFragment?: (value: D, key: string, data: R) => Fun
+    dataFragment?: (c: DataContext<D, R>) => View
 
 }
 
 /**
  * PropertyListAttrs 
  */
-export interface PropertyListAttrs<D, R> extends HTMLElementAttrs {
+export interface PropertyListAttrs<D, R extends Record<D>>
+    extends
+    HTMLElementAttrs {
 
     /**
      * fields used to generate the data.
@@ -56,6 +87,19 @@ export interface PropertyListAttrs<D, R> extends HTMLElementAttrs {
 }
 
 /**
+ * DataCtx
+ */
+export class DataCtx<D, R extends Record<D>> implements DataContext<D, R> {
+
+    constructor(
+        public data: D,
+        public name: string,
+        public value: R,
+        public format: (d: D) => string) { }
+
+}
+
+/**
  * PropertyList generates a description list using the properties of
  * an object.
  */
@@ -63,7 +107,7 @@ export class PropertyList<D, R extends Record<D>>
     extends
     Component<WidgetAttrs<PropertyListAttrs<D, R>>> {
 
-    view: Main<D, R> = new Main(this);
+    view: View = new PropertyListView(this);
 
     values = {
 
@@ -86,18 +130,18 @@ export class PropertyList<D, R extends Record<D>>
                 let mData = get(f.name, this.values.data.value);
 
                 if (mData.isNothing())
-                    return [text('-')];
+                    return new NothingView({}).render();
 
                 let d = mData.get();
 
+                let fmt = (f.format) ? f.format : (c: D) => '' + c;
+
+                let ctx = new DataCtx(d, f.name, this.values.data.value, fmt);
+
                 if (f.dataFragment)
-                    return f.dataFragment(d, f.name,
-                        this.values.data.value)(this.view);
-
-                if (f.format)
-                    return [text('' + f.format(d))];
-
-                return [text('' + d)];
+                    return f.dataFragment(ctx).render();
+                else
+                    return new DataView(ctx).render();
 
             }
 

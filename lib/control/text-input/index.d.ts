@@ -70,8 +70,8 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         className: string;
         name: string;
         type: string;
-        min: number | undefined;
-        max: number | undefined;
+        min: number | null;
+        max: number | null;
         placeholder: string;
         value: string;
         rows: number;

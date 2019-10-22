@@ -123,10 +123,10 @@ export class TextInput
             this.attrs.ww.type : 'text',
 
         min: (this.attrs.ww && this.attrs.ww.min) ?
-            this.attrs.ww.min : undefined,
+            this.attrs.ww.min : null,
 
         max: (this.attrs.ww && this.attrs.ww.max) ?
-            this.attrs.ww.max : undefined,
+            this.attrs.ww.max : null,
 
         placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
             this.attrs.ww.placeholder : '',

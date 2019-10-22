@@ -1,7 +1,10 @@
+{% import (DataContext, PropertyList) from "../../../../../../lib/data/property-list" %}
+{% import (text) from "../../../../../../lib" %}
 {% import (Demo) from "../../../widgets/demo" %}
-{% import (PropertyList) from "../../../../../../lib/data/property-list" %}
+{% import (PropertyListPage, Data) from "../" %}
 
-{% import (PropertyListPage) from "../" %}
+{% view BoldDataView (DataContext[string, Data]) %}
+<b>{{ @data | text }}</b>
 
 {% view Main (PropertyListPage) %}
  

@@ -1,9 +1,15 @@
 {% import (Record) from "@quenk/noni/lib/data/record" %}
 {% import (text) from "../../../" %}
 {% import (DescriptionList,Title,Data) from "../../../layout/description-list" %}
-{% import (PropertyList) from "../" %}
+{% import (DataContext, PropertyList) from "../" %}
 
-{% view Main [D,R:Record[D]](PropertyList[D,R]) %}
+{% view NothingView (Object) %}
+<Data></Data>
+
+{% view DataView [D, R:Record[D]] (DataContext[D,R]) %}
+<Data>{{ @format(@data) | text }}</Data>
+
+{% view PropertyListView [D,R:Record[D]](PropertyList[D,R]) %}
 
 <DescriptionList ww:className={{@values.root.className}}>
 
@@ -11,7 +17,7 @@
 
     <Title>{{field.heading|text}}</Title>
 
-    <Data>{{...@values.data.get(field)}}</Data>
+    {{@values.data.get(field)}}
 
   {% endfor %}
 

@@ -1,15 +1,15 @@
 import * as wml from '@quenk/wml';
-import { Field } from '../../../../../lib/data/property-list';
-import { Main } from './wml/property-list';
 
-interface Data {
+import { Field, DataContext } from '../../../../../lib/data/property-list';
+import { Main, BoldDataView } from './wml/property-list';
+
+export interface Data {
 
     [key: string]: string
 
 }
 
 const data: Data = {
-
 
     name: 'London Beta',
 
@@ -21,9 +21,11 @@ const data: Data = {
 
 const money = (s: string) => `$${s}`;
 
+const dataFragment = (c: DataContext<string, Data>) => new BoldDataView(c);
+
 const fields: Field<string, Data>[] = [
 
-    { name: 'name', heading: 'Name' },
+    { name: 'name', heading: 'Name', dataFragment },
     { name: 'age', heading: 'age' },
     { name: 'balance', heading: 'Balance', format: money }
 
