@@ -162,11 +162,15 @@ export class TextInput
 
         onkeydown: (e: KeyboardEvent) => {
 
-            let value = (<HTMLInputElement>e.target).value || '';
+            if (e.key.length === 1) {
 
-            if ((!this.values.match.test(e.key)) ||
-                (value.length > this.values.length))
-                e.preventDefault();
+                let value = (<HTMLInputElement>e.target).value || '';
+
+                if ((!this.values.match.test(e.key)) ||
+                    (value.length > this.values.length))
+                    e.preventDefault();
+
+            }
 
         },
 
