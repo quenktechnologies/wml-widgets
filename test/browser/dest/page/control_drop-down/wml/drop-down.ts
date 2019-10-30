@@ -108,7 +108,14 @@ __this.widget(new DropDown({ww : { 'buttonText' : 'Can\'t touch this!' ,'disable
 
         document.createTextNode(`You will never see this!`)
      ])
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Can\'t touch this!' ,'disabled' : true   }})
+     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Can\'t touch this!' ,'disabled' : true   }}),
+__this.widget(new DropDown({ww : { 'buttonText' : 'I am an anchor' ,'anchor' : false   }}, [
+
+        __this.node('b', <__wml.Attrs>{}, [
+
+        document.createTextNode(`Content`)
+     ])
+     ]),<__wml.Attrs>{ww : { 'buttonText' : 'I am an anchor' ,'anchor' : false   }})
      ])
      ]),<__wml.Attrs>{});
 

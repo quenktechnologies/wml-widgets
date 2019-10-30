@@ -46,6 +46,14 @@
 
     </DropDown>
 
+    <DropDown 
+      ww:buttonText="I am an anchor"
+      ww:anchor=true>
+
+      <b>Content</b>
+
+    </DropDown>
+
   </p>
 
 </Demo>

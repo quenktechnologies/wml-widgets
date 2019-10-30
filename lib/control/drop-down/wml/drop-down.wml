@@ -5,17 +5,33 @@
 
 {% fun button (d:DropDown) %}
 
-  <Button 
-    ww:className={{d.values.button.className}}
-    ww:style={{d.values.button.style}}    
-    ww:disabled={{d.values.button.disabled}}
-    ww:onClick={{d.values.button.onClick}}>
+  {% if (d.values.button.anchor == true) %}
 
-    {{d.values.button.text + " " | text }}
+    <a 
+     class={{d.values.button.className}}
+     disabled={{d.values.button.disabled}}
+     onclick={{d.values.button.onClick}}>
 
-    <Caret/>
+      {{d.values.button.text + " " | text }}
 
-  </Button>
+      <Caret/>
+
+    </a>
+
+  {% else %}
+
+    <Button 
+     ww:className={{d.values.button.className}}
+     ww:disabled={{d.values.button.disabled}}
+     ww:onClick={{d.values.button.onClick}}>
+
+      {{d.values.button.text + " " | text }}
+
+      <Caret/>
+
+    </Button>
+
+  {% endif %}
 
 {% endfun %}
 

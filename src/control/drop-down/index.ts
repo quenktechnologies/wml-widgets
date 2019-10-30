@@ -49,6 +49,11 @@ export interface DropDownMenuAttrs extends HTMLElementAttrs {
     autoClose?: boolean,
 
     /**
+     * anchor if true will use an anchor instead of a button.
+     */
+    anchor?: boolean,
+
+    /**
      * disabled
      */
     disabled?: boolean
@@ -96,11 +101,11 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
             text: (this.attrs.ww && this.attrs.ww.buttonText) ?
                 this.attrs.ww.buttonText : '',
 
-            style: (this.attrs.ww && this.attrs.ww.buttonStyle) ?
-                this.attrs.ww.buttonStyle : Style.Default,
+            anchor: (this.attrs.ww && this.attrs.ww.anchor) ?
+                this.attrs.ww.anchor : false,
 
-            className: concat(DROP_DOWN_TOGGLE,
-                style.DEFAULT, (this.attrs.ww && this.attrs.ww.buttonClassName) ?
+            className: concat(DROP_DOWN_TOGGLE, style.DEFAULT,
+                (this.attrs.ww && this.attrs.ww.buttonClassName) ?
                     this.attrs.ww.buttonClassName : ''),
 
             disabled: (this.attrs.ww && this.attrs.ww.disabled) ?

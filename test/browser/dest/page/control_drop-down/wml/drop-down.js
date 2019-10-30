@@ -66,7 +66,12 @@ var Main = /** @class */ (function () {
                         __this.node('p', {}, [
                             document.createTextNode("You will never see this!")
                         ])
-                    ]), { ww: { 'buttonText': 'Can\'t touch this!', 'disabled': true } })
+                    ]), { ww: { 'buttonText': 'Can\'t touch this!', 'disabled': true } }),
+                    __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'I am an anchor', 'anchor': false } }, [
+                        __this.node('b', {}, [
+                            document.createTextNode("Content")
+                        ])
+                    ]), { ww: { 'buttonText': 'I am an anchor', 'anchor': false } })
                 ])
             ]), {});
         };

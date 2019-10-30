@@ -1,5 +1,4 @@
 import * as hidden from '../../content/state/hidden';
-import * as style from '../../content/style';
 import { View, Fun, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
@@ -36,6 +35,10 @@ export interface DropDownMenuAttrs extends HTMLElementAttrs {
      */
     autoClose?: boolean;
     /**
+     * anchor if true will use an anchor instead of a button.
+     */
+    anchor?: boolean;
+    /**
      * disabled
      */
     disabled?: boolean;
@@ -68,7 +71,7 @@ export declare class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>> 
         };
         button: {
             text: string;
-            style: style.Style;
+            anchor: boolean;
             className: string;
             disabled: true | undefined;
             template: () => ButtonTemplate;
