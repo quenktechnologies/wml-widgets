@@ -1,7 +1,7 @@
 import { View } from '@quenk/wml';
 import { Style } from '../../content/style';
 import { Size } from '../../content/size';
-import { ControlAttrs, AbstractControl, Event } from '../';
+import { ControlAttrs, AbstractControl, Event as ControlEvent } from '../';
 export { Style };
 export declare const BUTTON = "ww-button";
 /**
@@ -33,6 +33,10 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
      */
     onClick?: (e: ButtonClickedEvent<V>) => void;
     /**
+     * anchor if true will render an anchor instead of a button.
+     */
+    anchor?: boolean;
+    /**
      * text can be specified as an alternative to explicit children.
      */
     text?: string;
@@ -44,7 +48,7 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
 /**
  * ButtonClickedEvent
  */
-export declare class ButtonClickedEvent<V> extends Event<V> {
+export declare class ButtonClickedEvent<V> extends ControlEvent<V> {
 }
 /**
  * Button is an improvement over HTMLButtionElement
@@ -61,7 +65,8 @@ export declare class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
             type: string;
             name: string;
             disabled: boolean | null;
-            onclick: () => void | undefined;
+            anchor: boolean;
+            onclick: (e: Event) => void;
             content: () => import("@quenk/wml").Content[];
         };
     };

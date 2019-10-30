@@ -4,10 +4,10 @@ import { TOOLBAR_COMPAT } from '../toolbar';
 import { ACTIVE } from '../../content/state/active';
 import { BLOCK } from '../../content/orientation';
 import { DEFAULT, OUTLINE, Style, getStyleClassName } from '../../content/style';
-import {Size,getSizeClassName} from '../../content/size';
+import { Size, getSizeClassName } from '../../content/size';
 import { concat, getById } from '../../util';
 import { getClassName, getId, text } from '../../';
-import { ControlAttrs, AbstractControl, Event } from '../';
+import { ControlAttrs, AbstractControl, Event as ControlEvent } from '../';
 
 export { Style }
 
@@ -51,6 +51,11 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
     onClick?: (e: ButtonClickedEvent<V>) => void,
 
     /**
+     * anchor if true will render an anchor instead of a button.
+     */
+    anchor?: boolean,
+
+    /**
      * text can be specified as an alternative to explicit children.
      */
     text?: string
@@ -65,14 +70,15 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
 /**
  * ButtonClickedEvent
  */
-export class ButtonClickedEvent<V> extends Event<V> { }
+export class ButtonClickedEvent<V> extends ControlEvent<V> { }
 
 /**
  * Button is an improvement over HTMLButtionElement
  */
 export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
-    view: View = new views.Main(this);
+    view: View = (this.attrs.ww && this.attrs.ww.anchor) ?
+        new views.AnchorView(this) : new views.ButtonView(this);
 
     values = {
 
@@ -97,7 +103,7 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
                     DEFAULT,
 
                 (this.attrs.ww && this.attrs.ww.size) ?
-                  getSizeClassName(this.attrs.ww.size) : '',
+                    getSizeClassName(this.attrs.ww.size) : '',
 
                 (this.attrs.ww && this.attrs.ww.outline) ?
                     OUTLINE : '',
@@ -108,7 +114,6 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
                 (this.attrs.ww && this.attrs.ww.active) ?
                     ACTIVE : ''),
 
-
             type: (this.attrs.ww && this.attrs.ww.type) ?
                 this.attrs.ww.type : 'button',
 
@@ -116,11 +121,20 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
             disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : null,
 
-            onclick: () => this.attrs.ww &&
-                this.attrs.ww.onClick &&
-                this.attrs.ww.onClick(new ButtonClickedEvent(
-                    (this.attrs.ww && this.attrs.ww.name) ?
-                        this.attrs.ww.name : '', <V>this.attrs.ww.value)),
+            anchor: (this.attrs.ww && this.attrs.ww.anchor) ?
+                this.attrs.ww.anchor : false,
+
+            onclick: (e: Event) => {
+
+                e.preventDefault();
+
+                this.attrs.ww &&
+                    this.attrs.ww.onClick &&
+                    this.attrs.ww.onClick(new ButtonClickedEvent(
+                        (this.attrs.ww && this.attrs.ww.name) ?
+                            this.attrs.ww.name : '', <V>this.attrs.ww.value))
+
+            },
 
             content: () => (this.attrs.ww && this.attrs.ww.text) ?
                 [text(this.attrs.ww.text)] : this.children

@@ -63,29 +63,14 @@ export const button =
 
    return [
 
-        ...(__if((d.values.button .anchor  === true),
-   ()=> ([
-
-        __this.node('a', <__wml.Attrs>{'class': d.values.button .className ,'disabled': d.values.button .disabled ,'onclick': d.values.button .onClick }, [
+        __this.widget(new Button({ww : { 'className' : d.values.button .className  ,'anchor' : d.values.button .anchor  ,'disabled' : d.values.button .disabled  ,'onClick' : d.values.button .onClick   }}, [
 
         text ((d.values.button .text  + ' ')),
 __this.widget(new Caret({}, [
 
         
      ]),<__wml.Attrs>{})
-     ])
-     ]),
-   ()=> ([
-
-        __this.widget(new Button({ww : { 'className' : d.values.button .className  ,'disabled' : d.values.button .disabled  ,'onClick' : d.values.button .onClick   }}, [
-
-        text ((d.values.button .text  + ' ')),
-__this.widget(new Caret({}, [
-
-        
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'className' : d.values.button .className  ,'disabled' : d.values.button .disabled  ,'onClick' : d.values.button .onClick   }})
-     ]))) 
+     ]),<__wml.Attrs>{ww : { 'className' : d.values.button .className  ,'anchor' : d.values.button .anchor  ,'disabled' : d.values.button .disabled  ,'onClick' : d.values.button .onClick   }})
      ];
 
 };;

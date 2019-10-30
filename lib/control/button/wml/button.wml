@@ -1,6 +1,6 @@
 {% import (Button) from "../" %}
 
-{% view Main [V](Button[V]) %}
+{% view ButtonView [V](Button[V]) %}
   
 <button
   wml:id={{@values.button.wml.id}}
@@ -12,3 +12,17 @@
   onclick={{@values.button.onclick}}>
   {{...@values.button.content()}}
 </button>
+
+{% view AnchorView [V](Button[V]) %}
+  
+<a
+  wml:id={{@values.button.wml.id}}
+  id={{@values.button.id}}
+  type={{@values.button.type}}
+  href="#"
+  name={{@values.button.name}}
+  disabled={{@values.button.disabled}}
+  class={{@values.button.className}}
+  onclick={{@values.button.onclick}}>
+  {{...@values.button.content()}}
+</a>
