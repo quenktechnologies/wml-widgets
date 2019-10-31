@@ -1,6 +1,9 @@
-import * as util from '../../util';
 import * as orientation from '../../content/orientation';
+
 import { View } from '@quenk/wml';
+
+import { getClassName } from '../..';
+import { concat } from '../../util';
 import { LAYOUT, LayoutAttrs, AbstractLayout } from '../';
 import { Main } from './wml/action-bar';
 
@@ -44,11 +47,11 @@ export class ActionBar extends AbstractLayout<ActionBarAttrs> {
             id: (this.attrs.ww && this.attrs.ww.id) ?
                 this.attrs.ww.id : '',
 
-            class: util.combine([
+            className: concat(
                 ACTION_BAR,
                 LAYOUT,
-                orientation.POSITIONED
-            ])
+                orientation.POSITIONED,
+                getClassName(this.attrs))
 
         },
         content: {

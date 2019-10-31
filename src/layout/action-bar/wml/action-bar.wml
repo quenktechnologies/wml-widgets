@@ -5,7 +5,7 @@
 <div 
   wml:id={{@values.root.wml.id}}
   id={{@values.root.id}}
-  class={{@values.root.class}}>
+  class={{@values.root.className}}>
 
   <div 
     wml:id={{@values.content.wml.id}} 

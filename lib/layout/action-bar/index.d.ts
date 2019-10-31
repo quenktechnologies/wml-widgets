@@ -25,7 +25,7 @@ export declare class ActionBar extends AbstractLayout<ActionBarAttrs> {
                 id: string;
             };
             id: string;
-            class: string;
+            className: string;
         };
         content: {
             wml: {
