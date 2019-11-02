@@ -206,6 +206,21 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
     }
 
     /**
+     * update changes the options available in the list.
+     *
+     * The view will be invalidated.
+     */
+    update(options: Option<V>[]): DropList<V> {
+
+        this.values.menu.results = options;
+
+        this.view.invalidate();
+
+        return this;
+
+    }
+
+    /**
      * open the results menu.
      */
     open(): DropList<V> {

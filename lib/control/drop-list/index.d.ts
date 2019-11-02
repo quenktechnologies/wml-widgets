@@ -99,6 +99,12 @@ export declare class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
         };
     };
     /**
+     * update changes the options available in the list.
+     *
+     * The view will be invalidated.
+     */
+    update(options: Option<V>[]): DropList<V>;
+    /**
      * open the results menu.
      */
     open(): DropList<V>;
