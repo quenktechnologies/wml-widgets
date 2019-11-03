@@ -24,6 +24,11 @@
     "moment": "^2.21.0",
     "property-seek": "^3.1.0"
   },
+  "peerDependencies": {
+
+    "less": "3.9.0"
+
+  },
   "devDependencies": {
     "@quenk/wml": "^2.2.0",
     "@types/mocha": "^5.2.7",
@@ -32,7 +37,7 @@
     "browserify": "^16.5.0",
     "docopt": "^0.6.2",
     "http-server": "^0.11.1",
-    "less": "^3.10.3",
+    "less": "^3.9.0",
     "less-plugin-js-vars": "^3.0.0",
     "less-plugin-npm-import": "^2.1.0",
     "mocha": "^6.2.0",
