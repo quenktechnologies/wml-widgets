@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "1.26.4",
+  "version": "1.26.5",
   "description": "Various wml widgets for creating web apps.",
   "repository": {
     "type": "git",
@@ -15,19 +15,13 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "peerDependencies": {
-    "less-plugin-js-vars": "^2.4.0",
-    "@quenk/wml": "^2.1.3"
+    "less": "~3.9.0"
   },
   "dependencies": {
     "@quenk/noni": "^1.34.0",
     "@quenk/polate": "^1.3.0",
     "moment": "^2.21.0",
     "property-seek": "^3.1.0"
-  },
-  "peerDependencies": {
-
-    "less": "3.9.0"
-
   },
   "devDependencies": {
     "@quenk/wml": "^2.2.0",
@@ -37,7 +31,7 @@
     "browserify": "^16.5.0",
     "docopt": "^0.6.2",
     "http-server": "^0.11.1",
-    "less": "^3.9.0",
+    "less": "~3.9.0",
     "less-plugin-js-vars": "^3.0.0",
     "less-plugin-npm-import": "^2.1.0",
     "mocha": "^6.2.0",
