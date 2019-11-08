@@ -382,7 +382,7 @@ const parseDate = (d: string, formats: string[]) => {
 
     } else {
 
-        return moment.utc(d, formats, true);
+        return moment.utc(d, [...formats, moment.ISO_8601], true);
 
     }
 
