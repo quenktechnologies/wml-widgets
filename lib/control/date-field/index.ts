@@ -211,7 +211,7 @@ export interface DateFieldAttrs extends FormControlAttrs<ISO8601Date> {
  *
  * The value is a truncated ISO8601 string consisting of the date part alone.
  */
-export class DateChangedEvent extends ControlEvent<ISO8601Date> { }
+export class DateChangedEvent extends ControlEvent<ISO8601Date | undefined> { }
 
 /**
  * DateField provides a text field for entering dates.
@@ -311,15 +311,24 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
             onkeyup: debounce((e: Event): void => {
 
                 let value = (<HTMLInputElement>e.target).value;
-                let m = parseDate(value, this.values.input.format);
 
-                if (m.isValid()) {
+                if (value === '') {
 
-                    this.values.input.moment = just(m);
+                    this.values.input.moment = nothing();
 
-                    this.fireChange();
+                } else {
+
+                    let m = parseDate(value, this.values.input.format);
+
+                    if (m.isValid()) {
+
+                        this.values.input.moment = just(m);
+
+                    }
 
                 }
+
+                this.fireChange();
 
             }, DELAY),
 
@@ -338,13 +347,23 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
      */
     fireChange(): void {
 
-        if (this.values.input.moment.isJust()) {
+        if (this.attrs.ww && this.attrs.ww.onChange) {
 
-            let m = this.values.input.moment.get();
+            let name = this.attrs.ww.name || '';
 
-            if (m.isValid() && (this.attrs.ww && this.attrs.ww.onChange))
-                this.attrs.ww.onChange(new DateChangedEvent(
-                    this.attrs.ww.name || '', m.format(VALUE_FORMAT)));
+            if (this.values.input.moment.isJust()) {
+
+                let m = this.values.input.moment.get();
+
+                if (m.isValid())
+                    this.attrs.ww.onChange(new DateChangedEvent(
+                        name, m.format(VALUE_FORMAT)));
+
+            } else {
+
+                this.attrs.ww.onChange(new DateChangedEvent(name, undefined));
+
+            }
 
         }
 

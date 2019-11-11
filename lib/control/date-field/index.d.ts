@@ -61,7 +61,7 @@ export interface DateFieldAttrs extends FormControlAttrs<ISO8601Date> {
  *
  * The value is a truncated ISO8601 string consisting of the date part alone.
  */
-export declare class DateChangedEvent extends ControlEvent<ISO8601Date> {
+export declare class DateChangedEvent extends ControlEvent<ISO8601Date | undefined> {
 }
 /**
  * DateField provides a text field for entering dates.
