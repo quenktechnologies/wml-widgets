@@ -78,10 +78,10 @@ document.createTextNode(`.`)
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'onChange' : __context.onChange  }}, [
+        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [

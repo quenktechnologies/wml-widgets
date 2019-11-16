@@ -44,7 +44,7 @@ var Main = /** @class */ (function () {
                         document.createTextNode(".")
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'onChange': __context.onChange } }, []), { wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'onChange': __context.onChange } })
+                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } }, []), { wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [

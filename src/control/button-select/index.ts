@@ -2,7 +2,7 @@ import * as views from './wml/button-select';
 import { View } from '@quenk/wml';
 import { Style } from '../../content/style';
 import { concat } from '../../util';
-import { getId, getClassName } from '../../';
+import { getId, getClassName, WidgetAttrs } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
 
 ///className:begin
@@ -126,7 +126,9 @@ export interface ButtonSelectInterface<V> {
 /**
  * ButtonSelect
  */
-export class ButtonSelect<V> extends AbstractControl<V, ButtonSelectAttrs<V, V>> {
+export class ButtonSelect<V>
+    extends
+    AbstractControl<V, ButtonSelectAttrs<V, V>> {
 
     view: View = new views.Main(this);
 
@@ -141,11 +143,10 @@ export class ButtonSelect<V> extends AbstractControl<V, ButtonSelectAttrs<V, V>>
         },
         buttons: {
 
-            current: -1,
+            current: getCurrent(this.attrs),
 
             options: (this.attrs.ww && this.attrs.ww.options) ?
                 this.attrs.ww.options : [],
-
 
             click: (idx: number) => {
 
@@ -214,7 +215,7 @@ export class MultiButtonSelect<V>
                         <string>this.attrs.ww.name,
                         values.map(n => this.values.buttons.options[n].value)));
 
-              this.view.invalidate();
+                this.view.invalidate();
 
             },
 
@@ -230,5 +231,20 @@ export class MultiButtonSelect<V>
         }
 
     }
+
+}
+
+const getCurrent = <V>(attrs: WidgetAttrs<ButtonSelectAttrs<V, V>>) => {
+
+    if ((attrs.ww != null) &&
+        (attrs.ww.value != null) &&
+        (attrs.ww.options != null)) {
+
+        return attrs.ww.options.reduce((p, c, k) =>
+            c.value === (<{ value: V }>attrs.ww).value ? k : p, -1);
+
+    }
+
+    return -1;
 
 }

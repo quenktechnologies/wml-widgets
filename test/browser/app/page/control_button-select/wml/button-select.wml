@@ -18,6 +18,7 @@
           ww:name="select"
           ww:style={{Style.Primary}}
           ww:options={{@values.options}}
+          ww:value={{@values.value}}
           ww:onChange={{@onChange}} />
     </p>
 

@@ -11,7 +11,10 @@ export class ButtonSelectPage {
         options: <Option<string>[]>[
             { text: 'Asus', value: 'Asus' },
             { text: 'MSI', value: 'MSI' },
-            { text: 'Gigabyte', value: 'Gigabyte' }]
+            { text: 'Gigabyte', value: 'Gigabyte' }
+        ],
+
+        value: 'MSI'
 
     };
 
