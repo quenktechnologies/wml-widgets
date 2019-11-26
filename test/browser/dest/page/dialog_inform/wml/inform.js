@@ -31,6 +31,7 @@ var Main = /** @class */ (function () {
     function Main(__context) {
         this.ids = {};
         this.groups = {};
+        this.views = [];
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
@@ -46,6 +47,10 @@ var Main = /** @class */ (function () {
             ]), {});
         };
     }
+    Main.prototype.registerView = function (v) {
+        this.views.push(v);
+        return v;
+    };
     Main.prototype.register = function (e, attrs) {
         var attrsMap = attrs;
         if (attrsMap.wml) {
@@ -101,12 +106,18 @@ var Main = /** @class */ (function () {
         return w.render();
     };
     Main.prototype.findById = function (id) {
-        return maybe_1.fromNullable(this.ids[id]);
+        var mW = maybe_1.fromNullable(this.ids[id]);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findById(id);
+        }, mW);
     };
     Main.prototype.findByGroup = function (name) {
-        return maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        var mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findByGroup(name);
+        }, mGroup);
     };
     Main.prototype.invalidate = function () {
         var tree = this.tree;
@@ -121,6 +132,7 @@ var Main = /** @class */ (function () {
         this.ids = {};
         this.widgets.forEach(function (w) { return w.removed(); });
         this.widgets = [];
+        this.views = [];
         this.tree = this.template(this);
         this.ids['root'] = (this.ids['root']) ?
             this.ids['root'] :
@@ -136,6 +148,7 @@ var Open = /** @class */ (function () {
     function Open(__context) {
         this.ids = {};
         this.groups = {};
+        this.views = [];
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
@@ -144,6 +157,10 @@ var Open = /** @class */ (function () {
             ]), { wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onClose': __context.values.onClose } });
         };
     }
+    Open.prototype.registerView = function (v) {
+        this.views.push(v);
+        return v;
+    };
     Open.prototype.register = function (e, attrs) {
         var attrsMap = attrs;
         if (attrsMap.wml) {
@@ -199,12 +216,18 @@ var Open = /** @class */ (function () {
         return w.render();
     };
     Open.prototype.findById = function (id) {
-        return maybe_1.fromNullable(this.ids[id]);
+        var mW = maybe_1.fromNullable(this.ids[id]);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findById(id);
+        }, mW);
     };
     Open.prototype.findByGroup = function (name) {
-        return maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        var mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findByGroup(name);
+        }, mGroup);
     };
     Open.prototype.invalidate = function () {
         var tree = this.tree;
@@ -219,6 +242,7 @@ var Open = /** @class */ (function () {
         this.ids = {};
         this.widgets.forEach(function (w) { return w.removed(); });
         this.widgets = [];
+        this.views = [];
         this.tree = this.template(this);
         this.ids['root'] = (this.ids['root']) ?
             this.ids['root'] :

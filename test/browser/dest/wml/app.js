@@ -44,11 +44,12 @@ var Main = /** @class */ (function () {
     function Main(__context) {
         this.ids = {};
         this.groups = {};
+        this.views = [];
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new drawer_1.DrawerLayout({ wml: { 'id': __context.values.id.layout }, ww: { 'drawerContent': [
-                        (new navigation_1.Navigation(__context)).render()
+                        __this.registerView((new navigation_1.Navigation(__context))).render()
                     ] } }, [
                 __this.widget(new action_bar_1.ActionBar({}, [
                     __this.widget(new link_1.Link({ ww: { 'onClick': __context.toggleDrawer } }, [
@@ -57,10 +58,14 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new main_1.MainLayout({}, __spreadArrays((__context.content))), {})
             ]), { wml: { 'id': __context.values.id.layout }, ww: { 'drawerContent': [
-                        (new navigation_1.Navigation(__context)).render()
+                        __this.registerView((new navigation_1.Navigation(__context))).render()
                     ] } });
         };
     }
+    Main.prototype.registerView = function (v) {
+        this.views.push(v);
+        return v;
+    };
     Main.prototype.register = function (e, attrs) {
         var attrsMap = attrs;
         if (attrsMap.wml) {
@@ -116,12 +121,18 @@ var Main = /** @class */ (function () {
         return w.render();
     };
     Main.prototype.findById = function (id) {
-        return maybe_1.fromNullable(this.ids[id]);
+        var mW = maybe_1.fromNullable(this.ids[id]);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findById(id);
+        }, mW);
     };
     Main.prototype.findByGroup = function (name) {
-        return maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        var mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findByGroup(name);
+        }, mGroup);
     };
     Main.prototype.invalidate = function () {
         var tree = this.tree;
@@ -136,6 +147,7 @@ var Main = /** @class */ (function () {
         this.ids = {};
         this.widgets.forEach(function (w) { return w.removed(); });
         this.widgets = [];
+        this.views = [];
         this.tree = this.template(this);
         this.ids['root'] = (this.ids['root']) ?
             this.ids['root'] :

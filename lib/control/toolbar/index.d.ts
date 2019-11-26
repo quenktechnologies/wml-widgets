@@ -1,6 +1,5 @@
 import { View, Component } from '@quenk/wml';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
-import { ToolbarAttrs } from '.';
 export declare const TOOLBAR = "ww-toolbar";
 export declare const TOOLBAR_COMPAT = "-toolbar-compat";
 /**

@@ -9,9 +9,11 @@ export declare class MediaDescription implements __wml.View {
     groups: {
         [key: string]: __wml.WMLElement[];
     };
+    views: __wml.View[];
     widgets: __wml.Widget[];
     tree: __wml.Content;
     template: __wml.Template;
+    registerView(v: __wml.View): __wml.View;
     register(e: __wml.WMLElement, attrs: __wml.Attributes<any>): __wml.WMLElement;
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): HTMLElement;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
@@ -28,9 +30,11 @@ export declare class Media implements __wml.View {
     groups: {
         [key: string]: __wml.WMLElement[];
     };
+    views: __wml.View[];
     widgets: __wml.Widget[];
     tree: __wml.Content;
     template: __wml.Template;
+    registerView(v: __wml.View): __wml.View;
     register(e: __wml.WMLElement, attrs: __wml.Attributes<any>): __wml.WMLElement;
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): HTMLElement;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
@@ -47,9 +51,11 @@ export declare class Description implements __wml.View {
     groups: {
         [key: string]: __wml.WMLElement[];
     };
+    views: __wml.View[];
     widgets: __wml.Widget[];
     tree: __wml.Content;
     template: __wml.Template;
+    registerView(v: __wml.View): __wml.View;
     register(e: __wml.WMLElement, attrs: __wml.Attributes<any>): __wml.WMLElement;
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): HTMLElement;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;

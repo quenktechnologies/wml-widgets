@@ -77,4 +77,4 @@ export declare class Prompt extends Component<WidgetAttrs<PromptAttrs>> {
 /**
  * close the Modal in a view.
  */
-export declare const close: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+export declare const close: (view: View, id: string) => import("@quenk/wml").Maybe<void>;

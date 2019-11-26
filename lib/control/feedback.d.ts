@@ -103,11 +103,11 @@ export declare abstract class AbstractFeedbackControl<V, A extends FeedbackContr
 /**
  * setMessage helper.
  */
-export declare const setMessage: (view: View, id: string, msg: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+export declare const setMessage: (view: View, id: string, msg: string) => import("@quenk/wml").Maybe<void>;
 /**
  * removeMessage
  */
-export declare const removeMessage: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+export declare const removeMessage: (view: View, id: string) => import("@quenk/wml").Maybe<void>;
 /**
  * setValidationState helper.
  */

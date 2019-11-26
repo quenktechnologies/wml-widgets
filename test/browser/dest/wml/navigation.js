@@ -40,6 +40,7 @@ var Navigation = /** @class */ (function () {
     function Navigation(__context) {
         this.ids = {};
         this.groups = {};
+        this.views = [];
         this.widgets = [];
         this.tree = document.createElement('div');
         this.template = function (__this) {
@@ -63,6 +64,10 @@ var Navigation = /** @class */ (function () {
             }, function () { return ([]); }))), { ww: { 'vertical': true } });
         };
     }
+    Navigation.prototype.registerView = function (v) {
+        this.views.push(v);
+        return v;
+    };
     Navigation.prototype.register = function (e, attrs) {
         var attrsMap = attrs;
         if (attrsMap.wml) {
@@ -118,12 +123,18 @@ var Navigation = /** @class */ (function () {
         return w.render();
     };
     Navigation.prototype.findById = function (id) {
-        return maybe_1.fromNullable(this.ids[id]);
+        var mW = maybe_1.fromNullable(this.ids[id]);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findById(id);
+        }, mW);
     };
     Navigation.prototype.findByGroup = function (name) {
-        return maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        var mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findByGroup(name);
+        }, mGroup);
     };
     Navigation.prototype.invalidate = function () {
         var tree = this.tree;
@@ -138,6 +149,7 @@ var Navigation = /** @class */ (function () {
         this.ids = {};
         this.widgets.forEach(function (w) { return w.removed(); });
         this.widgets = [];
+        this.views = [];
         this.tree = this.template(this);
         this.ids['root'] = (this.ids['root']) ?
             this.ids['root'] :

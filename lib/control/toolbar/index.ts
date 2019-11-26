@@ -1,8 +1,9 @@
 import * as views from './wml/toolbar';
-import {View, Component} from '@quenk/wml';
+
+import { View, Component } from '@quenk/wml';
+
 import { concat } from '../../util';
-import {WidgetAttrs, HTMLElementAttrs, getId, getClassName} from '../../';
-import { ToolbarAttrs } from '.';
+import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
 
 ///classNames:begin
 export const TOOLBAR = 'ww-toolbar';
@@ -12,7 +13,7 @@ export const TOOLBAR_COMPAT = '-toolbar-compat';
 /**
  * ToolbarAttrs
  */
-export interface ToolbarAttrs extends HTMLElementAttrs {}
+export interface ToolbarAttrs extends HTMLElementAttrs { }
 
 /**
  * Toolbar provides a widget for grouping related controls into a
@@ -26,9 +27,9 @@ export class Toolbar extends Component<WidgetAttrs<ToolbarAttrs>> {
 
         root: {
 
-          id: getId(this.attrs),
-          
-          className: concat(TOOLBAR, getClassName(this.attrs))
+            id: getId(this.attrs),
+
+            className: concat(TOOLBAR, getClassName(this.attrs))
 
         }
 

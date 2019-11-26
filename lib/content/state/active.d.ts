@@ -21,13 +21,13 @@ export interface Activate {
  *
  * Adds the ACTIVE class.
  */
-export declare const activate: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+export declare const activate: (view: View, id: string) => import("@quenk/wml").Maybe<void>;
 /**
  * deactivate helper.
  *
  * Removes the ACTIVE class.
  */
-export declare const deactivate: (view: View, id: string) => import("@quenk/noni/lib/data/maybe").Maybe<void>;
+export declare const deactivate: (view: View, id: string) => import("@quenk/wml").Maybe<void>;
 /**
  * isActive helpder
  *
