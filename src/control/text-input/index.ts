@@ -151,8 +151,8 @@ export class TextInput
         value: (this.attrs.ww && this.attrs.ww.value) ?
             this.attrs.ww.value : '',
 
-        rows: (this.attrs.ww && this.attrs.ww.rows) ?
-            this.attrs.ww.rows : 1,
+        rows: String((this.attrs.ww && this.attrs.ww.rows) ?
+            this.attrs.ww.rows : 1),
 
         disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
             true : null,
