@@ -85,7 +85,7 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         length: number;
         placeholder: string;
         value: string;
-        rows: number;
+        rows: string;
         disabled: boolean | null;
         readOnly: boolean | null;
         onkeydown: (e: KeyboardEvent) => void;
