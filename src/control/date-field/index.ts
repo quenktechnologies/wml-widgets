@@ -455,7 +455,7 @@ const getPlaceholder = (attrs: WidgetAttrs<DateFieldAttrs>): string => {
 
     }
 
-    return '';
+    return 'YYYY-MM-DD';
 
 }
 
