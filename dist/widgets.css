@@ -253,7 +253,7 @@ textarea.ww-display-field {
   border-radius: 4px;
 }
 .ww-paginator > li {
-  display: inline;
+  display: inline-block;
 }
 .ww-paginator > li > a,
 .ww-paginator > li > span {
