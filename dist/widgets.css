@@ -296,6 +296,7 @@ textarea.ww-display-field {
   width: 2em;
   text-align: center;
   padding: 0;
+  border: 1px solid #ddd;
 }
 .ww-paginator > li.ww-paginator__next > a:after,
 .ww-paginator > li.ww-paginator__next > span:after {
