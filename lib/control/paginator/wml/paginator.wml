@@ -9,7 +9,7 @@
     
     {% if @values.first.isDisabled() %}
 
-      <span/>
+      <span class={{@values.disabled.className}}/>
 
     {% else %}
   
@@ -23,7 +23,7 @@
     
     {% if @values.previous.isDisabled() %}
 
-      <span/>
+      <span class={{@values.disabled.className}}/>
 
     {% else %}
   
@@ -43,7 +43,7 @@
     
     {% if @values.next.isDisabled() %}
 
-      <span/>
+      <span class={{@values.disabled.className}}/>
 
     {% else %}
   
@@ -57,7 +57,7 @@
     
     {% if @values.last.isDisabled() %}
 
-      <span/>
+      <span class={{@values.disabled.className}}/>
 
     {% else %}
   

@@ -68,7 +68,7 @@ export class Main  implements __wml.View {
         ...(__if(__context.values.first .isDisabled (),
    ()=> ([
 
-        __this.node('span', <__wml.Attrs>{}, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])
@@ -86,7 +86,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.previous .className },
         ...(__if(__context.values.previous .isDisabled (),
    ()=> ([
 
-        __this.node('span', <__wml.Attrs>{}, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])
@@ -117,7 +117,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.next .className }, [
         ...(__if(__context.values.next .isDisabled (),
    ()=> ([
 
-        __this.node('span', <__wml.Attrs>{}, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])
@@ -135,7 +135,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
         ...(__if(__context.values.last .isDisabled (),
    ()=> ([
 
-        __this.node('span', <__wml.Attrs>{}, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])

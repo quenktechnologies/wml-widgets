@@ -73,6 +73,9 @@ export declare class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
             isDisabled: () => boolean;
             onclick: (e: Event) => void;
         };
+        disabled: {
+            className: string;
+        };
     };
     /**
      * @private

@@ -1,7 +1,10 @@
 import { View, Component } from '@quenk/wml';
+
+import { DISABLED } from '../../content/state/disabled';
 import { concat } from '../../util';
 import { WidgetAttrs, getId, getClassName, HTMLElementAttrs } from '../../';
 import { Event as ControlEvent } from '../';
+
 import { Main } from './wml/paginator';
 
 ///classNames:begin
@@ -149,6 +152,12 @@ export class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
                 this.fire();
 
             }
+
+        },
+
+        disabled: {
+
+            className: DISABLED
 
         }
 

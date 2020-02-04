@@ -277,8 +277,9 @@ textarea.ww-display-field {
   background-color: #eee;
   border-color: #ddd;
 }
-.ww-paginator > li > span {
-  color: #777;
+.ww-paginator > li > .-disabled {
+  color: #ddddec;
+  cursor: not-allowed;
 }
 .ww-paginator > li.ww-paginator__first > a:after,
 .ww-paginator > li.ww-paginator__first > span:after {
@@ -330,7 +331,7 @@ textarea.ww-display-field {
 .ww-paginator > .disabled > a,
 .ww-paginator > .disabled > a:hover,
 .ww-paginator > .disabled > a:focus {
-  color: #777;
+  color: #ddddec;
   background-color: #fff;
   border-color: #b9b9b9;
   cursor: not-allowed;
