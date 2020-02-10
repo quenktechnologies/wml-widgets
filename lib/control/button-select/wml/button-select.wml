@@ -14,7 +14,7 @@
       ww:className={{@values.buttons.getClassNames(idx)}}
       ww:active={{@values.buttons.getActive(idx)}}
       ww:style={{@values.buttons.getStyle()}}
-      ww:onClick={{\->@values.buttons.click(idx)}}
+      ww:onClick={{->@values.buttons.click(idx)}}
       ww:text={{opt.text}} />
 
   {% endfor %}

@@ -45,7 +45,7 @@ export declare abstract class AbstractLayout<A extends LayoutAttrs> extends Comp
 /**
  * doSetContent on a Node found in a view.
  */
-export declare const doSetContent: (view: View, id: string, content: Content[]) => void;
+export declare const doSetContent: (view: View, id: string, content: import("@quenk/wml").Content[]) => void;
 /**
  * doRemoveContent from a View.
  */

@@ -13,7 +13,7 @@ import { View, Renderable, WMLElement, } from '@quenk/wml';
  * If the WMLElement is not found a warning is logged to console.
  */
 export const getById = <E extends WMLElement>(view: View, id: string)
-  : Maybe<E> => {
+    : Maybe<E> => {
 
     let m: Maybe<E> = view.findById(id);
 
@@ -64,7 +64,7 @@ export const replaceContent = (r: Renderable, node: Node) => {
     while (node.lastChild)
         node.removeChild(node.lastChild);
 
-    node.appendChild(r.render());
+    node.appendChild(<Node>r.render());
 
 }
 

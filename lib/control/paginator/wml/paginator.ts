@@ -1,7 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {text} from '../../../'; ;
-import {Paginator} from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -9,6 +7,10 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {text} from '../../../'; ;
+import {Paginator} from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -55,9 +57,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class Main  implements __wml.View {
 
-   constructor(__context: Paginator  ) {
+   constructor(__context: Paginator) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -103,12 +107,12 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.position .className },
 
         __this.node('span', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Page `),
+        __document.createTextNode('Page '),
 __this.node('input', <__wml.Attrs>{'value': __context.values.current .asString ()}, [
 
         
      ]),
-document.createTextNode(` of `),
+__document.createTextNode(' of '),
 text (__context.values.total )
      ])
      ]),
@@ -162,7 +166,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -203,7 +207,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -221,7 +225,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -234,8 +238,8 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -293,7 +297,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -303,7 +307,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

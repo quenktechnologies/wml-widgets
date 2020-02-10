@@ -1,7 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {Message} from './message'; ;
-import {text} from '../../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -9,6 +7,10 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {Message} from './message'; ;
+import {text} from '../../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -55,9 +57,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export const label = 
 
-(id: string   ,t: string   )=>(__this:__wml.Registry) : __wml.Content[] => {
+(id: string ,t: string )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 
@@ -70,7 +74,7 @@ export const label =
 };;
 export const message = 
 
-(_id: string   ,_m: Message   )=>(__this:__wml.Registry) : __wml.Content[] => {
+(_id: string ,_m: Message )=>(__this:__wml.Registry) : __wml.Content[] => {
 
    return [
 

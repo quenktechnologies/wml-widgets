@@ -1,9 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {Label} from '../../label'; ;
-import {Help} from '../../help'; ;
-import {DropList} from '../../drop-list'; ;
-import {DropListField} from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -11,6 +7,12 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {Label} from '../../label'; ;
+import {Help} from '../../help'; ;
+import {DropList} from '../../drop-list'; ;
+import {DropListField} from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -57,9 +59,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class Main <V  >  implements __wml.View {
 
-   constructor(__context: DropListField <V  >  ) {
+   constructor(__context: DropListField<V  > ) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -91,7 +95,7 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -132,7 +136,7 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -150,7 +154,7 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -163,8 +167,8 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -222,7 +226,7 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -232,7 +236,7 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

@@ -1,6 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import * as table  from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -8,6 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import * as table  from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -54,9 +56,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class TableHeader  implements __wml.View {
 
-   constructor(__context: table.TableHeader  ) {
+   constructor(__context: table.TableHeader) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -77,7 +81,7 @@ export class TableHeader  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -118,7 +122,7 @@ export class TableHeader  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -136,7 +140,7 @@ export class TableHeader  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -149,8 +153,8 @@ export class TableHeader  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -208,7 +212,7 @@ export class TableHeader  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -218,7 +222,7 @@ export class TableHeader  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 
@@ -233,7 +237,7 @@ export class TableHeader  implements __wml.View {
 };
 export class TableBody  implements __wml.View {
 
-   constructor(__context: table.TableBody  ) {
+   constructor(__context: table.TableBody) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -254,7 +258,7 @@ export class TableBody  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -295,7 +299,7 @@ export class TableBody  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -313,7 +317,7 @@ export class TableBody  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -326,8 +330,8 @@ export class TableBody  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -385,7 +389,7 @@ export class TableBody  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -395,7 +399,7 @@ export class TableBody  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 
@@ -410,7 +414,7 @@ export class TableBody  implements __wml.View {
 };
 export class TableFooter  implements __wml.View {
 
-   constructor(__context: table.TableFooter  ) {
+   constructor(__context: table.TableFooter) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -431,7 +435,7 @@ export class TableFooter  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -472,7 +476,7 @@ export class TableFooter  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -490,7 +494,7 @@ export class TableFooter  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -503,8 +507,8 @@ export class TableFooter  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -562,7 +566,7 @@ export class TableFooter  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -572,7 +576,7 @@ export class TableFooter  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 
@@ -587,7 +591,7 @@ export class TableFooter  implements __wml.View {
 };
 export class TableRow  implements __wml.View {
 
-   constructor(__context: table.TableRow  ) {
+   constructor(__context: table.TableRow) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -608,7 +612,7 @@ export class TableRow  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -649,7 +653,7 @@ export class TableRow  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -667,7 +671,7 @@ export class TableRow  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -680,8 +684,8 @@ export class TableRow  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -739,7 +743,7 @@ export class TableRow  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -749,7 +753,7 @@ export class TableRow  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 
@@ -764,7 +768,7 @@ export class TableRow  implements __wml.View {
 };
 export class TableHeading  implements __wml.View {
 
-   constructor(__context: table.TableHeading  ) {
+   constructor(__context: table.TableHeading) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -785,7 +789,7 @@ export class TableHeading  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -826,7 +830,7 @@ export class TableHeading  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -844,7 +848,7 @@ export class TableHeading  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -857,8 +861,8 @@ export class TableHeading  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -916,7 +920,7 @@ export class TableHeading  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -926,7 +930,7 @@ export class TableHeading  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 
@@ -941,7 +945,7 @@ export class TableHeading  implements __wml.View {
 };
 export class TableCell  implements __wml.View {
 
-   constructor(__context: table.TableCell  ) {
+   constructor(__context: table.TableCell) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -962,7 +966,7 @@ export class TableCell  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -1003,7 +1007,7 @@ export class TableCell  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -1021,7 +1025,7 @@ export class TableCell  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -1034,8 +1038,8 @@ export class TableCell  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -1093,7 +1097,7 @@ export class TableCell  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -1103,7 +1107,7 @@ export class TableCell  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 
@@ -1118,7 +1122,7 @@ export class TableCell  implements __wml.View {
 };
 export class TableWindow  implements __wml.View {
 
-   constructor(__context: table.TableWindow  ) {
+   constructor(__context: table.TableWindow) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -1139,7 +1143,7 @@ export class TableWindow  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -1180,7 +1184,7 @@ export class TableWindow  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -1198,7 +1202,7 @@ export class TableWindow  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -1211,8 +1215,8 @@ export class TableWindow  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -1270,7 +1274,7 @@ export class TableWindow  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -1280,7 +1284,7 @@ export class TableWindow  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 
@@ -1295,7 +1299,7 @@ export class TableWindow  implements __wml.View {
 };
 export class TableLayout  implements __wml.View {
 
-   constructor(__context: table.TableLayout  ) {
+   constructor(__context: table.TableLayout) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -1316,7 +1320,7 @@ export class TableLayout  implements __wml.View {
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -1357,7 +1361,7 @@ export class TableLayout  implements __wml.View {
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -1375,7 +1379,7 @@ export class TableLayout  implements __wml.View {
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -1388,8 +1392,8 @@ export class TableLayout  implements __wml.View {
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -1447,7 +1451,7 @@ export class TableLayout  implements __wml.View {
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -1457,7 +1461,7 @@ export class TableLayout  implements __wml.View {
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

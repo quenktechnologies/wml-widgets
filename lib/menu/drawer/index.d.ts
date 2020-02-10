@@ -42,7 +42,7 @@ export declare class Drawer extends AbstractLayout<DrawerAttrs> implements Hidab
                 id: string;
             };
             className: string;
-            value: wml.Content[];
+            value: import("@quenk/wml").Content[];
         };
     };
     isHidden(): boolean;

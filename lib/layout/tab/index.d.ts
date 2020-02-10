@@ -65,12 +65,12 @@ export declare class TabLayout extends Component<WidgetAttrs<TabLayoutAttrs>> im
         root: {
             id: string;
             className: string;
-            content: () => Content[];
+            content: () => import("@quenk/wml").Content[];
         };
         tabs: {
             current: string;
             data: TabSpecMap;
-            content: (t: TabSpec) => Content[];
+            content: (t: TabSpec) => import("@quenk/wml").Content[];
             onClick: (e: TabClickedEvent) => void;
         };
     };

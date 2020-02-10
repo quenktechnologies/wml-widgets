@@ -78,8 +78,8 @@ export const doSetContent = (view: View, id: string, content: Content[]) => {
     while (n.firstChild)
         n.removeChild(n.firstChild);
 
-  for(let i=0; i<content.length; i++)
-    n.appendChild(content[i]);
+    for (let i = 0; i < content.length; i++)
+        n.appendChild(<Node>content[i]);
 
 }
 

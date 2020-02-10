@@ -23,6 +23,6 @@ export declare class MenuHeader extends wml.Component<WidgetAttrs<MenuHeaderAttr
             id: string;
             className: string;
         };
-        text: wml.Content[];
+        text: import("@quenk/wml").Content[];
     };
 }

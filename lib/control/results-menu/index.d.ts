@@ -75,7 +75,7 @@ export declare class ResultsMenu<V> extends Component<WidgetAttrs<ResultsMenuAtt
         wml: {
             id: string;
         };
-        tree: Maybe<Content>;
+        tree: Maybe<Node>;
         results: V[];
         name: string;
         className: string;
