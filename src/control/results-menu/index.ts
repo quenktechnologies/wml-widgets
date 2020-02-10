@@ -105,7 +105,7 @@ export class ResultsMenu<V>
 
         },
 
-        tree: <Maybe<Content>>nothing(),
+        tree: <Maybe<Node>>nothing(),
 
         results: (this.attrs.ww && this.attrs.ww.results) ?
             this.attrs.ww.results : <V[]>[],
@@ -229,7 +229,7 @@ export class ResultsMenu<V>
 
     render(): Content {
 
-        this.values.tree = just(this.view.render());
+        this.values.tree = just(<Node>this.view.render());
 
         window.removeEventListener('click', this);
 

@@ -3,7 +3,7 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (PropertyListPage, Data) from "../" %}
 
-{% view BoldDataView (DataContext[string, Data]) %}
+{% view BoldDataView (DataContext[String, Data]) %}
 <b>{{ @data | text }}</b>
 
 {% view Main (PropertyListPage) %}

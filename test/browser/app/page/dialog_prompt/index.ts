@@ -29,7 +29,7 @@ export class PromptPage {
 
         open: () => {
 
-            document.body.appendChild(this.v.render());
+            document.body.appendChild(<Node>this.v.render());
 
         },
 

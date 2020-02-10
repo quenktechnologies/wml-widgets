@@ -6,13 +6,13 @@ export class ModalPage {
 
     view: wml.View = new views.Main(this);
 
-  v: wml.View = new views.Open(this);
+    v: wml.View = new views.Open(this);
 
     values = {
 
         open: () => {
 
-            document.body.appendChild(this.v.render());
+            document.body.appendChild(<Node>this.v.render());
 
         },
 

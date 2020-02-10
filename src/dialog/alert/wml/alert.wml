@@ -12,7 +12,7 @@
 
   {% if @values.closable %}
 
-    <Close ww:onClick={{\->@close()}} />
+    <Close ww:onClick={{->@close()}} />
 
   {% else %}
 

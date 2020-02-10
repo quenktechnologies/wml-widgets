@@ -24,7 +24,7 @@
         <Item ww:name={{''+index}}>
 
             <Link 
-              ww:onClick={{\->@values.item.click(index)}}>
+              ww:onClick={{->@values.item.click(index)}}>
 
               {{ ...<(@values.item.template)(result, index)> }}
 
