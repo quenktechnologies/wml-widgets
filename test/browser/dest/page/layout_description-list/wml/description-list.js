@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
 var description_list_1 = require("../../../../../../lib/layout/description-list");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -31,50 +32,50 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.widget(new description_list_1.DescriptionList({}, [
                         __this.widget(new description_list_1.Title({}, [
-                            document.createTextNode("Phone")
+                            __document.createTextNode('Phone')
                         ]), {}),
                         __this.widget(new description_list_1.Data({}, [
-                            document.createTextNode("6385532")
+                            __document.createTextNode('6385532')
                         ]), {}),
                         __this.widget(new description_list_1.Title({}, [
-                            document.createTextNode("Email")
+                            __document.createTextNode('Email')
                         ]), {}),
                         __this.widget(new description_list_1.Data({}, [
-                            document.createTextNode("hel@lo.com")
+                            __document.createTextNode('hel@lo.com')
                         ]), {}),
                         __this.widget(new description_list_1.Title({}, [
-                            document.createTextNode("Website")
+                            __document.createTextNode('Website')
                         ]), {}),
                         __this.widget(new description_list_1.Data({}, [
-                            document.createTextNode("example.com")
+                            __document.createTextNode('example.com')
                         ]), {})
                     ]), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.widget(new description_list_1.DescriptionList({ ww: { 'horizontal': true } }, [
                         __this.widget(new description_list_1.Title({}, [
-                            document.createTextNode("Phone")
+                            __document.createTextNode('Phone')
                         ]), {}),
                         __this.widget(new description_list_1.Data({}, [
-                            document.createTextNode("6385532")
+                            __document.createTextNode('6385532')
                         ]), {}),
                         __this.widget(new description_list_1.Title({}, [
-                            document.createTextNode("Email")
+                            __document.createTextNode('Email')
                         ]), {}),
                         __this.widget(new description_list_1.Data({}, [
-                            document.createTextNode("hel@lo.com")
+                            __document.createTextNode('hel@lo.com')
                         ]), {}),
                         __this.widget(new description_list_1.Title({}, [
-                            document.createTextNode("Website")
+                            __document.createTextNode('Website')
                         ]), {}),
                         __this.widget(new description_list_1.Data({}, [
-                            document.createTextNode("example.com")
+                            __document.createTextNode('example.com')
                         ]), {})
                     ]), { ww: { 'horizontal': true } })
                 ]), {})
@@ -102,7 +103,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -114,7 +115,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -122,7 +123,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

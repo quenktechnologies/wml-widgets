@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var overlay_1 = require("../../../../../../lib/content/overlay");
 ;
 var demo_1 = require("../../../widgets/demo");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -31,11 +32,11 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.node('h1', {}, [
-                    document.createTextNode("Overlay")
+                    __document.createTextNode('Overlay')
                 ]),
                 __this.widget(new overlay_1.Overlay({ wml: { 'id': 'overlay' }, ww: { 'onClick': __context.values.onClick } }, []), { wml: { 'id': 'overlay' }, ww: { 'onClick': __context.values.onClick } })
             ]), {});
@@ -62,7 +63,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -74,7 +75,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -82,7 +83,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

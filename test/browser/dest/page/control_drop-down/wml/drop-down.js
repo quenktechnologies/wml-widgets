@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
 var drop_down_1 = require("../../../../../../lib/control/drop-down");
@@ -8,8 +11,6 @@ var menu_1 = require("../../../../../../lib/menu/menu");
 ;
 var item_1 = require("../../../../../../lib/menu/item");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -35,7 +36,7 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.node('p', {}, [
@@ -43,34 +44,34 @@ var Main = /** @class */ (function () {
                         __this.widget(new menu_1.Menu({}, [
                             __this.widget(new item_1.Item({}, [
                                 __this.node('a', { 'href': '#', 'onclick': __context.onClick('You clicked one') }, [
-                                    document.createTextNode("One")
+                                    __document.createTextNode('One')
                                 ])
                             ]), {}),
                             __this.widget(new item_1.Item({}, [
                                 __this.node('a', { 'href': '#', 'onclick': __context.onClick('You clicked two') }, [
-                                    document.createTextNode("Two")
+                                    __document.createTextNode('Two')
                                 ])
                             ]), {}),
                             __this.widget(new item_1.Item({}, [
                                 __this.node('a', { 'href': '#', 'onclick': __context.onClick('You clicked three') }, [
-                                    document.createTextNode("Three")
+                                    __document.createTextNode('Three')
                                 ])
                             ]), {})
                         ]), {})
                     ]), { ww: { 'buttonText': 'Click Me' } }),
                     __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'Me Too', 'autoClose': false } }, [
                         __this.node('h1', {}, [
-                            document.createTextNode("Any flow content can go here!")
+                            __document.createTextNode('Any flow content can go here!')
                         ])
                     ]), { ww: { 'buttonText': 'Me Too', 'autoClose': false } }),
                     __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'Can\'t touch this!', 'disabled': true } }, [
                         __this.node('p', {}, [
-                            document.createTextNode("You will never see this!")
+                            __document.createTextNode('You will never see this!')
                         ])
                     ]), { ww: { 'buttonText': 'Can\'t touch this!', 'disabled': true } }),
                     __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'I am an anchor', 'anchor': true } }, [
                         __this.node('b', {}, [
-                            document.createTextNode("Content")
+                            __document.createTextNode('Content')
                         ])
                     ]), { ww: { 'buttonText': 'I am an anchor', 'anchor': true } })
                 ])
@@ -98,7 +99,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -110,7 +111,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -118,7 +119,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

@@ -1,7 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {GridLayout,Row,Column} from '../../../../../../lib/layout/grid'; ;
-import {GridLayoutPage} from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -9,6 +7,10 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {GridLayout,Row,Column} from '../../../../../../lib/layout/grid'; ;
+import {GridLayoutPage} from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -55,9 +57,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class Main  implements __wml.View {
 
-   constructor(__context: GridLayoutPage  ) {
+   constructor(__context: GridLayoutPage) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -67,114 +71,114 @@ export class Main  implements __wml.View {
 
         __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
 __this.widget(new Column({ww : { 'span' : 1  }}, [
 
-        document.createTextNode(`Span 1`)
+        __document.createTextNode('Span 1')
      ]),<__wml.Attrs>{ww : { 'span' : 1  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
         __this.widget(new Column({ww : { 'span' : 8  }}, [
 
-        document.createTextNode(`Span 8`)
+        __document.createTextNode('Span 8')
      ]),<__wml.Attrs>{ww : { 'span' : 8  }}),
 __this.widget(new Column({ww : { 'span' : 4  }}, [
 
-        document.createTextNode(`Span 4`)
+        __document.createTextNode('Span 4')
      ]),<__wml.Attrs>{ww : { 'span' : 4  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
         __this.widget(new Column({ww : { 'span' : 4  }}, [
 
-        document.createTextNode(`Span 4`)
+        __document.createTextNode('Span 4')
      ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
 __this.widget(new Column({ww : { 'span' : 4  }}, [
 
-        document.createTextNode(`Span 4`)
+        __document.createTextNode('Span 4')
      ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
 __this.widget(new Column({ww : { 'span' : 4  }}, [
 
-        document.createTextNode(`Span 4`)
+        __document.createTextNode('Span 4')
      ]),<__wml.Attrs>{ww : { 'span' : 4  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
         __this.widget(new Column({ww : { 'span' : 6  }}, [
 
-        document.createTextNode(`Span 6`)
+        __document.createTextNode('Span 6')
      ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
 __this.widget(new Column({ww : { 'span' : 6  }}, [
 
-        document.createTextNode(`Span 6`)
+        __document.createTextNode('Span 6')
      ]),<__wml.Attrs>{ww : { 'span' : 6  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
         __this.widget(new Column({ww : { 'span' : 6  }}, [
 
-        document.createTextNode(`Span 6`)
+        __document.createTextNode('Span 6')
      ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
 __this.widget(new Column({ww : { 'span' : 6  }}, [
 
-        document.createTextNode(`Span 6`)
+        __document.createTextNode('Span 6')
      ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
 __this.widget(new Column({ww : { 'span' : 6  }}, [
 
-        document.createTextNode(`Span 6`)
+        __document.createTextNode('Span 6')
      ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
 __this.widget(new Column({ww : { 'span' : 6  }}, [
 
-        document.createTextNode(`Span 6`)
+        __document.createTextNode('Span 6')
      ]),<__wml.Attrs>{ww : { 'span' : 6  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
         __this.widget(new Column({ww : { 'span' : 12  }}, [
 
-        document.createTextNode(`Span 12`)
+        __document.createTextNode('Span 12')
      ]),<__wml.Attrs>{ww : { 'span' : 12  }})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{ww : { 'className' : __context.values.root .className   }});
@@ -191,7 +195,7 @@ __this.widget(new Row({}, [
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -232,7 +236,7 @@ __this.widget(new Row({}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -250,7 +254,7 @@ __this.widget(new Row({}, [
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -263,8 +267,8 @@ __this.widget(new Row({}, [
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -322,7 +326,7 @@ __this.widget(new Row({}, [
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -332,7 +336,7 @@ __this.widget(new Row({}, [
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

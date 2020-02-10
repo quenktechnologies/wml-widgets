@@ -1,8 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {Demo} from '../../../widgets/demo'; ;
-import {DropListField} from '../../../../../../lib/control/drop-list-field'; ;
-import {DropListFieldPage} from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -10,6 +7,11 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {Demo} from '../../../widgets/demo'; ;
+import {DropListField} from '../../../../../../lib/control/drop-list-field'; ;
+import {DropListFieldPage} from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -56,9 +58,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class Main  implements __wml.View {
 
-   constructor(__context: DropListFieldPage  ) {
+   constructor(__context: DropListFieldPage) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -68,7 +72,7 @@ export class Main  implements __wml.View {
 
         __this.node('b', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Normal`)
+        __document.createTextNode('Normal')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -82,7 +86,7 @@ __this.widget(new Demo({}, [
 
         __this.node('b', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Success`)
+        __document.createTextNode('Success')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -96,7 +100,7 @@ __this.widget(new Demo({}, [
 
         __this.node('b', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Warning`)
+        __document.createTextNode('Warning')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -110,7 +114,7 @@ __this.widget(new Demo({}, [
 
         __this.node('b', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Error`)
+        __document.createTextNode('Error')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -124,7 +128,7 @@ __this.widget(new Demo({}, [
 
         __this.node('b', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Disabled`)
+        __document.createTextNode('Disabled')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -148,7 +152,7 @@ __this.node('p', <__wml.Attrs>{}, [
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -189,7 +193,7 @@ __this.node('p', <__wml.Attrs>{}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -207,7 +211,7 @@ __this.node('p', <__wml.Attrs>{}, [
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -220,8 +224,8 @@ __this.node('p', <__wml.Attrs>{}, [
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -279,7 +283,7 @@ __this.node('p', <__wml.Attrs>{}, [
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -289,7 +293,7 @@ __this.node('p', <__wml.Attrs>{}, [
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

@@ -7,6 +7,9 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var drawer_1 = require("../../../../lib/layout/drawer");
 ;
 var action_bar_1 = require("../../../../lib/layout/action-bar");
@@ -19,8 +22,6 @@ var menu_icon_1 = require("../../../../lib/content/menu-icon");
 var main_1 = require("../../../../lib/layout/main");
 ;
 var navigation_1 = require("./navigation");
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -46,7 +47,7 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new drawer_1.DrawerLayout({ wml: { 'id': __context.values.id.layout }, ww: { 'drawerContent': [
                         __this.registerView((new navigation_1.Navigation(__context))).render()
@@ -83,7 +84,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -95,7 +96,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -103,7 +104,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

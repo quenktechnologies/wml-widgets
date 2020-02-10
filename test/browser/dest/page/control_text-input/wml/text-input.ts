@@ -1,8 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {TextInput} from '../../../../../../lib/control/text-input'; ;
-import {Demo} from '../../../widgets/demo'; ;
-import {TextInputPage} from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -10,6 +7,11 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {TextInput} from '../../../../../../lib/control/text-input'; ;
+import {Demo} from '../../../widgets/demo'; ;
+import {TextInputPage} from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -56,9 +58,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class Main  implements __wml.View {
 
-   constructor(__context: TextInputPage  ) {
+   constructor(__context: TextInputPage) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -68,24 +72,21 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-      This is a text input: 
-      `),
+        __document.createTextNode('\u000a      This is a text input: \u000a      '),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'match' : '[a-zA-Z]' ,'length' : 20  }}, [
 
         
      ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'match' : '[a-zA-Z]' ,'length' : 20  }}),
-document.createTextNode(`.
-    `)
+__document.createTextNode('.\u000a    ')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`As you type `),
+        __document.createTextNode('As you type '),
 __this.node('b', <__wml.Attrs>{wml : { 'id' : 'txt'  }}, [
 
-        document.createTextNode(`this`)
+        __document.createTextNode('this')
      ]),
-document.createTextNode(` changes, but only for letters. (20)`)
+__document.createTextNode(' changes, but only for letters. (20)')
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -95,8 +96,7 @@ __this.widget(new Demo({}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' neutral: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v  }}, [
 
@@ -105,8 +105,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v 
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' error: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-error'  }}, [
 
@@ -115,8 +114,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v 
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' warning: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-warning'  }}, [
 
@@ -125,8 +123,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v 
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' success: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-success'  }}, [
 
@@ -140,9 +137,7 @@ __this.widget(new Demo({}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-      Block:
-      `),
+        __document.createTextNode('\u000a      Block:\u000a      '),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : true   }}, [
 
         
@@ -151,7 +146,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : t
      ]),<__wml.Attrs>{}),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(` Textarea: `)
+        __document.createTextNode(' Textarea: ')
      ]),
 __this.widget(new Demo({}, [
 
@@ -160,8 +155,7 @@ __this.widget(new Demo({}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' neutral: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'rows' : 5 ,'size' : v  }}, [
 
@@ -170,8 +164,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'rows' : 5 
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' error: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-error'  }}, [
 
@@ -180,8 +173,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v 
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' warning: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-warning'  }}, [
 
@@ -190,8 +182,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v 
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-        Size `),
+        __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' success: ')),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-success'  }}, [
 
@@ -205,9 +196,7 @@ __this.widget(new Demo({}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-      Block:
-      `),
+        __document.createTextNode('\u000a      Block:\u000a      '),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  }}, [
 
         
@@ -218,9 +207,7 @@ __this.widget(new Demo({}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        document.createTextNode(`
-      Autofocused:
-      `),
+        __document.createTextNode('\u000a      Autofocused:\u000a      '),
 __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : true   }}, [
 
         
@@ -241,7 +228,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : t
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -282,7 +269,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : t
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -300,7 +287,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : t
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -313,8 +300,8 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : t
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -372,7 +359,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : t
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -382,7 +369,7 @@ __this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : t
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

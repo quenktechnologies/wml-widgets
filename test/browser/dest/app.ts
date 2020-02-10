@@ -117,7 +117,7 @@ export class App {
         while (root.lastChild)
             root.removeChild(root.lastChild)
 
-        root.appendChild(this.view.render());
+        root.appendChild(<Node>this.view.render());
 
         let path = window.location.hash.split('#')[1];
         path = path ? path.split('/').join('') : '';

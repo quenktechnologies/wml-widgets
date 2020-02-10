@@ -7,14 +7,15 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var grid_1 = require("../../../../../../lib/layout/grid");
 ;
 var panel_1 = require("../../../../../../lib/layout/panel");
 ;
 var style_1 = require("../../../../../../lib/content/style");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -40,7 +41,7 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new grid_1.GridLayout({}, __spreadArrays(__forIn(style_1.styles, function (style, _$$i, _$$all) {
                 return ([
@@ -48,30 +49,30 @@ var Main = /** @class */ (function () {
                         __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
                             __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
                                 __this.widget(new panel_1.PanelBody({}, [
-                                    document.createTextNode("\n            PanelBody only.\n          ")
+                                    __document.createTextNode('\u000a            PanelBody only.\u000a          ')
                                 ]), {})
                             ]), { ww: { 'style': style } })
                         ]), { ww: { 'span': 4 } }),
                         __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
                             __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
                                 __this.widget(new panel_1.PanelHeader({}, [
-                                    document.createTextNode("\n            With PanelHeader\n          ")
+                                    __document.createTextNode('\u000a            With PanelHeader\u000a          ')
                                 ]), {}),
                                 __this.widget(new panel_1.PanelBody({}, [
-                                    document.createTextNode("\n            Lorem impsum dilium net set.\n          ")
+                                    __document.createTextNode('\u000a            Lorem impsum dilium net set.\u000a          ')
                                 ]), {})
                             ]), { ww: { 'style': style } })
                         ]), { ww: { 'span': 4 } }),
                         __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
                             __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
                                 __this.widget(new panel_1.PanelHeader({}, [
-                                    document.createTextNode("With PanelFooter")
+                                    __document.createTextNode('With PanelFooter')
                                 ]), {}),
                                 __this.widget(new panel_1.PanelBody({}, [
-                                    document.createTextNode("Lorem impsum dilium net set.")
+                                    __document.createTextNode('Lorem impsum dilium net set.')
                                 ]), {}),
                                 __this.widget(new panel_1.PanelFooter({}, [
-                                    document.createTextNode("Meh foot.")
+                                    __document.createTextNode('Meh foot.')
                                 ]), {})
                             ]), { ww: { 'style': style } })
                         ]), { ww: { 'span': 4 } })
@@ -101,7 +102,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -113,7 +114,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -121,7 +122,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

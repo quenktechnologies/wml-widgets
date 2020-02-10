@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
 var style_1 = require("../../../../../../lib/content/style");
 ;
 var button_select_1 = require("../../../../../../lib/control/button-select");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -33,16 +34,16 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("You selected: "),
+                        __document.createTextNode('You selected: '),
                         __this.node('b', { wml: { 'id': 'select-content' } }, [
-                            document.createTextNode("(None)")
+                            __document.createTextNode('(None)')
                         ]),
-                        document.createTextNode(".")
+                        __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } }, []), { wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } })
@@ -50,11 +51,11 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("You can also use MultiButtonSelect instead: "),
+                        __document.createTextNode('You can also use MultiButtonSelect instead: '),
                         __this.node('b', { wml: { 'id': 'multi-content' } }, [
-                            document.createTextNode("(None)")
+                            __document.createTextNode('(None)')
                         ]),
-                        document.createTextNode(".")
+                        __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new button_select_1.MultiButtonSelect({ wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'style': style_1.Style.Warning, 'options': __context.values.options, 'onChange': __context.onChangeMulti } }, []), { wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'style': style_1.Style.Warning, 'options': __context.values.options, 'onChange': __context.onChangeMulti } })
@@ -84,7 +85,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -96,7 +97,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -104,7 +105,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

@@ -7,12 +7,13 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var text_input_1 = require("../../../../../../lib/control/text-input");
 ;
 var demo_1 = require("../../../widgets/demo");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -38,42 +39,42 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("\n      This is a text input: \n      "),
+                        __document.createTextNode('\u000a      This is a text input: \u000a      '),
                         __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'match': '[a-zA-Z]', 'length': 20 } }, []), { ww: { 'onChange': __context.onChange, 'match': '[a-zA-Z]', 'length': 20 } }),
-                        document.createTextNode(".\n    ")
+                        __document.createTextNode('.\u000a    ')
                     ]),
                     __this.node('p', {}, [
-                        document.createTextNode("As you type "),
+                        __document.createTextNode('As you type '),
                         __this.node('b', { wml: { 'id': 'txt' } }, [
-                            document.createTextNode("this")
+                            __document.createTextNode('this')
                         ]),
-                        document.createTextNode(" changes, but only for letters. (20)")
+                        __document.createTextNode(' changes, but only for letters. (20)')
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
                     return ([
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' neutral: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v } }, []), { ww: { 'onChange': __context.onChange, 'size': v } })
                         ]),
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' error: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-error' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-error' } })
                         ]),
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' warning: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-warning' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-warning' } })
                         ]),
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' success: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-success' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-success' } })
                         ])
@@ -81,32 +82,32 @@ var Main = /** @class */ (function () {
                 }, function () { return ([]); }))), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("\n      Block:\n      "),
+                        __document.createTextNode('\u000a      Block:\u000a      '),
                         __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'block': true } }, []), { ww: { 'onChange': __context.onChange, 'block': true } })
                     ])
                 ]), {}),
                 __this.node('p', {}, [
-                    document.createTextNode(" Textarea: ")
+                    __document.createTextNode(' Textarea: ')
                 ]),
                 __this.widget(new demo_1.Demo({}, __spreadArrays(__forIn(__context.sizes, function (v, _$$i, _$$all) {
                     return ([
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' neutral: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } }, []), { ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } })
                         ]),
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' error: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' } })
                         ]),
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' warning: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' } })
                         ]),
                         __this.node('p', {}, [
-                            document.createTextNode("\n        Size "),
+                            __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' success: ')),
                             __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' } })
                         ])
@@ -114,13 +115,13 @@ var Main = /** @class */ (function () {
                 }, function () { return ([]); }))), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("\n      Block:\n      "),
+                        __document.createTextNode('\u000a      Block:\u000a      '),
                         __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } }, []), { ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("\n      Autofocused:\n      "),
+                        __document.createTextNode('\u000a      Autofocused:\u000a      '),
                         __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'focus': true } }, []), { ww: { 'onChange': __context.onChange, 'focus': true } })
                     ])
                 ]), {})
@@ -148,7 +149,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -160,7 +161,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -168,7 +169,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

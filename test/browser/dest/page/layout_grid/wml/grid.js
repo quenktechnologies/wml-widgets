@@ -1,9 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var grid_1 = require("../../../../../../lib/layout/grid");
-;
+var __document = require("@quenk/wml/lib/dom");
 //@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
+var grid_1 = require("../../../../../../lib/layout/grid");
+;
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -29,91 +30,91 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new grid_1.GridLayout({ ww: { 'className': __context.values.root.className } }, [
                 __this.widget(new grid_1.Row({}, [
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
-                        document.createTextNode("Span 1")
+                        __document.createTextNode('Span 1')
                     ]), { ww: { 'span': 1 } })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
                     __this.widget(new grid_1.Column({ ww: { 'span': 8 } }, [
-                        document.createTextNode("Span 8")
+                        __document.createTextNode('Span 8')
                     ]), { ww: { 'span': 8 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                        document.createTextNode("Span 4")
+                        __document.createTextNode('Span 4')
                     ]), { ww: { 'span': 4 } })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
                     __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                        document.createTextNode("Span 4")
+                        __document.createTextNode('Span 4')
                     ]), { ww: { 'span': 4 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                        document.createTextNode("Span 4")
+                        __document.createTextNode('Span 4')
                     ]), { ww: { 'span': 4 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                        document.createTextNode("Span 4")
+                        __document.createTextNode('Span 4')
                     ]), { ww: { 'span': 4 } })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
                     __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
-                        document.createTextNode("Span 6")
+                        __document.createTextNode('Span 6')
                     ]), { ww: { 'span': 6 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
-                        document.createTextNode("Span 6")
+                        __document.createTextNode('Span 6')
                     ]), { ww: { 'span': 6 } })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
                     __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
-                        document.createTextNode("Span 6")
+                        __document.createTextNode('Span 6')
                     ]), { ww: { 'span': 6 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
-                        document.createTextNode("Span 6")
+                        __document.createTextNode('Span 6')
                     ]), { ww: { 'span': 6 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
-                        document.createTextNode("Span 6")
+                        __document.createTextNode('Span 6')
                     ]), { ww: { 'span': 6 } }),
                     __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
-                        document.createTextNode("Span 6")
+                        __document.createTextNode('Span 6')
                     ]), { ww: { 'span': 6 } })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
                     __this.widget(new grid_1.Column({ ww: { 'span': 12 } }, [
-                        document.createTextNode("Span 12")
+                        __document.createTextNode('Span 12')
                     ]), { ww: { 'span': 12 } })
                 ]), {})
             ]), { ww: { 'className': __context.values.root.className } });
@@ -140,7 +141,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -152,7 +153,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -160,7 +161,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

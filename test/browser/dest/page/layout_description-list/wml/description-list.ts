@@ -1,8 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {Demo} from '../../../widgets/demo'; ;
-import {DescriptionList,Title,Data} from '../../../../../../lib/layout/description-list'; ;
-import {DescriptionListPage} from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -10,6 +7,11 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {Demo} from '../../../widgets/demo'; ;
+import {DescriptionList,Title,Data} from '../../../../../../lib/layout/description-list'; ;
+import {DescriptionListPage} from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -56,9 +58,11 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export class Main  implements __wml.View {
 
-   constructor(__context: DescriptionListPage  ) {
+   constructor(__context: DescriptionListPage) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -70,27 +74,27 @@ export class Main  implements __wml.View {
 
         __this.widget(new Title({}, [
 
-        document.createTextNode(`Phone`)
+        __document.createTextNode('Phone')
      ]),<__wml.Attrs>{}),
 __this.widget(new Data({}, [
 
-        document.createTextNode(`6385532`)
+        __document.createTextNode('6385532')
      ]),<__wml.Attrs>{}),
 __this.widget(new Title({}, [
 
-        document.createTextNode(`Email`)
+        __document.createTextNode('Email')
      ]),<__wml.Attrs>{}),
 __this.widget(new Data({}, [
 
-        document.createTextNode(`hel@lo.com`)
+        __document.createTextNode('hel@lo.com')
      ]),<__wml.Attrs>{}),
 __this.widget(new Title({}, [
 
-        document.createTextNode(`Website`)
+        __document.createTextNode('Website')
      ]),<__wml.Attrs>{}),
 __this.widget(new Data({}, [
 
-        document.createTextNode(`example.com`)
+        __document.createTextNode('example.com')
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
@@ -100,27 +104,27 @@ __this.widget(new Demo({}, [
 
         __this.widget(new Title({}, [
 
-        document.createTextNode(`Phone`)
+        __document.createTextNode('Phone')
      ]),<__wml.Attrs>{}),
 __this.widget(new Data({}, [
 
-        document.createTextNode(`6385532`)
+        __document.createTextNode('6385532')
      ]),<__wml.Attrs>{}),
 __this.widget(new Title({}, [
 
-        document.createTextNode(`Email`)
+        __document.createTextNode('Email')
      ]),<__wml.Attrs>{}),
 __this.widget(new Data({}, [
 
-        document.createTextNode(`hel@lo.com`)
+        __document.createTextNode('hel@lo.com')
      ]),<__wml.Attrs>{}),
 __this.widget(new Title({}, [
 
-        document.createTextNode(`Website`)
+        __document.createTextNode('Website')
      ]),<__wml.Attrs>{}),
 __this.widget(new Data({}, [
 
-        document.createTextNode(`example.com`)
+        __document.createTextNode('example.com')
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{ww : { 'horizontal' : true   }})
      ]),<__wml.Attrs>{})
@@ -138,7 +142,7 @@ __this.widget(new Data({}, [
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -179,7 +183,7 @@ __this.widget(new Data({}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -197,7 +201,7 @@ __this.widget(new Data({}, [
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -210,8 +214,8 @@ __this.widget(new Data({}, [
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -269,7 +273,7 @@ __this.widget(new Data({}, [
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -279,7 +283,7 @@ __this.widget(new Data({}, [
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

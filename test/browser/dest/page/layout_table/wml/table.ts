@@ -1,8 +1,5 @@
 import * as __wml from '@quenk/wml';
-
-import {Demo} from '../../../widgets/demo'; ;
-import {TableLayout,TableHeader,TableBody,TableFooter,TableRow,TableHeading,TableCell,TableWindow} from '../../../../../../lib/layout/table'; ;
-import {TableLayoutPage} from '../'; 
+import * as __document from '@quenk/wml/lib/dom';
 //@ts-ignore: 6192
 import {
 Maybe as __Maybe,
@@ -10,6 +7,11 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {Demo} from '../../../widgets/demo'; ;
+import {TableLayout,TableHeader,TableBody,TableFooter,TableRow,TableHeading,TableCell,TableWindow} from '../../../../../../lib/layout/table'; ;
+import {TableLayoutPage} from '../'; 
+
+
 //@ts-ignore:6192
 type __IfArg = ()=>__wml.Content[]
 
@@ -56,6 +58,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
     return ret.length === 0 ? alt(): ret;
 
 }
+
+
 export const content = 
 
 ()=>(__this:__wml.Registry) : __wml.Content[] => {
@@ -68,23 +72,23 @@ export const content =
 
         __this.widget(new TableHeading({}, [
 
-        document.createTextNode(`Name`)
+        __document.createTextNode('Name')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableHeading({}, [
 
-        document.createTextNode(`Email`)
+        __document.createTextNode('Email')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableHeading({}, [
 
-        document.createTextNode(`Balance`)
+        __document.createTextNode('Balance')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableHeading({}, [
 
-        document.createTextNode(`Username`)
+        __document.createTextNode('Username')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableHeading({}, [
 
-        document.createTextNode(`Status`)
+        __document.createTextNode('Status')
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
@@ -94,76 +98,76 @@ __this.widget(new TableBody({}, [
 
         __this.widget(new TableCell({}, [
 
-        document.createTextNode(`Length Wise`)
+        __document.createTextNode('Length Wise')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`lw@theemailplace.com`)
+        __document.createTextNode('lw@theemailplace.com')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`$5000`)
+        __document.createTextNode('$5000')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`lw`)
+        __document.createTextNode('lw')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`Active`)
+        __document.createTextNode('Active')
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
 __this.widget(new TableRow({}, [
 
         __this.widget(new TableCell({}, [
 
-        document.createTextNode(`First Chance`)
+        __document.createTextNode('First Chance')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`fchacne@live.tt`)
+        __document.createTextNode('fchacne@live.tt')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`$1.00`)
+        __document.createTextNode('$1.00')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`chance`)
+        __document.createTextNode('chance')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`Inactive`)
+        __document.createTextNode('Inactive')
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
 __this.widget(new TableRow({}, [
 
         __this.widget(new TableCell({}, [
 
-        document.createTextNode(`Du Pear`)
+        __document.createTextNode('Du Pear')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`dupear@gmail.com`)
+        __document.createTextNode('dupear@gmail.com')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`$10,000.00`)
+        __document.createTextNode('$10,000.00')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`pearboy`)
+        __document.createTextNode('pearboy')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`Active`)
+        __document.createTextNode('Active')
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
 __this.widget(new TableRow({}, [
 
         __this.widget(new TableCell({ww : { 'rowspan' : 2 ,'colspan' : 5  }}, [
 
-        document.createTextNode(`This spans 2 rows 5 columns.`)
+        __document.createTextNode('This spans 2 rows 5 columns.')
      ]),<__wml.Attrs>{ww : { 'rowspan' : 2 ,'colspan' : 5  }})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
@@ -173,23 +177,23 @@ __this.widget(new TableFooter({}, [
 
         __this.widget(new TableCell({}, [
 
-        document.createTextNode(`1`)
+        __document.createTextNode('1')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`2`)
+        __document.createTextNode('2')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`3`)
+        __document.createTextNode('3')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`4`)
+        __document.createTextNode('4')
      ]),<__wml.Attrs>{}),
 __this.widget(new TableCell({}, [
 
-        document.createTextNode(`5`)
+        __document.createTextNode('5')
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
@@ -198,7 +202,7 @@ __this.widget(new TableCell({}, [
 };;
 export class Main  implements __wml.View {
 
-   constructor(__context: TableLayoutPage  ) {
+   constructor(__context: TableLayoutPage) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -208,7 +212,7 @@ export class Main  implements __wml.View {
 
         __this.node('h3', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Normal`)
+        __document.createTextNode('Normal')
      ]),
 __this.widget(new TableLayout({}, [
 
@@ -219,7 +223,7 @@ __this.widget(new Demo({}, [
 
         __this.node('h3', <__wml.Attrs>{}, [
 
-        document.createTextNode(` Alternate`)
+        __document.createTextNode(' Alternate')
      ]),
 __this.widget(new TableLayout({ww : { 'alternate' : true   }}, [
 
@@ -230,7 +234,7 @@ __this.widget(new Demo({}, [
 
         __this.node('h3', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Bordered`)
+        __document.createTextNode('Bordered')
      ]),
 __this.widget(new TableLayout({ww : { 'bordered' : true   }}, [
 
@@ -241,7 +245,7 @@ __this.widget(new Demo({}, [
 
         __this.node('h3', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Hoverable`)
+        __document.createTextNode('Hoverable')
      ]),
 __this.widget(new TableLayout({ww : { 'hoverable' : true   }}, [
 
@@ -252,7 +256,7 @@ __this.widget(new Demo({}, [
 
         __this.node('h3', <__wml.Attrs>{}, [
 
-        document.createTextNode(`Compact`)
+        __document.createTextNode('Compact')
      ]),
 __this.widget(new TableLayout({ww : { 'compact' : true   }}, [
 
@@ -283,7 +287,7 @@ __this.widget(new Demo({}, [
 
    widgets: __wml.Widget[] = [];
 
-   tree: __wml.Content = document.createElement('div');
+   tree: Node = <Node>__document.createElement('div');
 
    template: __wml.Template;
 
@@ -324,7 +328,7 @@ __this.widget(new Demo({}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
 
-       let e = document.createElement(tag);
+       let e = __document.createElement(tag);
 
        Object.keys(attrs).forEach(key => {
 
@@ -342,7 +346,7 @@ __this.widget(new Demo({}, [
 
            } else if (typeof value === 'boolean') {
 
-             e.setAttribute(key, `${value}`);
+             e.setAttribute(key, '');
 
            }
 
@@ -355,8 +359,8 @@ __this.widget(new Demo({}, [
                    case 'string':
                    case 'number':
                    case 'boolean':
-                     let tn = document.createTextNode(''+c);
-                     e.appendChild(tn)
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
                    case 'object':
                        e.appendChild(<Node>c);
                    break;
@@ -414,7 +418,7 @@ __this.widget(new Demo({}, [
        if (tree.parentNode == null)
                   throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
 
-       parent.replaceChild(this.render(), tree) 
+       parent.replaceChild(<Node>this.render(), tree) 
 
    }
 
@@ -424,7 +428,7 @@ __this.widget(new Demo({}, [
        this.widgets.forEach(w => w.removed());
        this.widgets = [];
        this.views = [];
-       this.tree = this.template(this);
+       this.tree = <Node>this.template(this);
 
        this.ids['root'] = (this.ids['root']) ?
        this.ids['root'] : 

@@ -7,12 +7,13 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var callout_1 = require("../../../../../../lib/layout/callout");
 ;
 var demo_1 = require("../../../widgets/demo");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -38,21 +39,21 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h1', {}, [
-                        document.createTextNode("Callout")
+                        __document.createTextNode('Callout')
                     ]),
                     __this.node('p', {}, __spreadArrays([
                         __this.node('h2', {}, [
-                            document.createTextNode("Styles")
+                            __document.createTextNode('Styles')
                         ])
                     ], __forIn(__context.values.styles, function (v, _$$i, _$$all) {
                         return ([
                             __this.widget(new callout_1.Callout({ ww: { 'style': v } }, [
-                                document.createTextNode("\n\n            This is a callout with style on display.\n\n          ")
+                                __document.createTextNode('\u000a\u000a            This is a callout with style on display.\u000a\u000a          ')
                             ]), { ww: { 'style': v } })
                         ]);
                     }, function () { return ([]); })))
@@ -81,7 +82,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -93,7 +94,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -101,7 +102,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

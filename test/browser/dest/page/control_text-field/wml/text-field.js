@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
 var text_field_1 = require("../../../../../../lib/control/text-field");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -31,16 +32,16 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("The value of the input is:")
+                        __document.createTextNode('The value of the input is:')
                     ]),
                     __this.node('p', {}, [
                         __this.node('b', { wml: { 'id': 'content' } }, [
-                            document.createTextNode("Nothing")
+                            __document.createTextNode('Nothing')
                         ])
                     ]),
                     __this.node('p', {}, [
@@ -50,7 +51,7 @@ var Main = /** @class */ (function () {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __this.node('strong', {}, [
-                            document.createTextNode("Success")
+                            __document.createTextNode('Success')
                         ])
                     ]),
                     __this.node('p', {}, [
@@ -60,7 +61,7 @@ var Main = /** @class */ (function () {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __this.node('strong', {}, [
-                            document.createTextNode("Warning")
+                            __document.createTextNode('Warning')
                         ])
                     ]),
                     __this.node('p', {}, [
@@ -70,7 +71,7 @@ var Main = /** @class */ (function () {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __this.node('strong', {}, [
-                            document.createTextNode("Error")
+                            __document.createTextNode('Error')
                         ])
                     ]),
                     __this.node('p', {}, [
@@ -79,7 +80,7 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        document.createTextNode("The one uses rows to render a text area:")
+                        __document.createTextNode('The one uses rows to render a text area:')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new text_field_1.TextField({ wml: { 'id': 'area' }, ww: { 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange } }, []), { wml: { 'id': 'area' }, ww: { 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange } })
@@ -109,7 +110,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -121,7 +122,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -129,7 +130,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

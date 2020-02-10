@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var text_field_1 = require("../../../../../../lib/control/text-field");
 ;
 var prompt_1 = require("../../../../../../lib/dialog/prompt");
@@ -8,8 +11,6 @@ var lib_1 = require("../../../../../../lib");
 ;
 var demo_1 = require("../../../widgets/demo");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -35,18 +36,18 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.node('h1', {}, [
-                    document.createTextNode("Prompt")
+                    __document.createTextNode('Prompt')
                 ]),
                 __this.node('p', {}, [
                     lib_1.text(__context.values.value)
                 ]),
                 __this.node('p', {}, [
                     __this.node('button', { 'onclick': __context.values.open }, [
-                        document.createTextNode("Open")
+                        __document.createTextNode('Open')
                     ])
                 ])
             ]), {});
@@ -73,7 +74,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -85,7 +86,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -93,7 +94,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);
@@ -155,7 +156,7 @@ var Open = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new prompt_1.Prompt({ wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onSave': __context.values.onSave, 'onCancel': __context.values.onCancel } }, [
                 __this.widget(new text_field_1.TextField({ ww: { 'value': __context.values.value, 'onChange': __context.values.onChange } }, []), { ww: { 'value': __context.values.value, 'onChange': __context.values.onChange } })
@@ -183,7 +184,7 @@ var Open = /** @class */ (function () {
         return e;
     };
     Open.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -195,7 +196,7 @@ var Open = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -203,7 +204,7 @@ var Open = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
 var drop_list_field_1 = require("../../../../../../lib/control/drop-list-field");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -31,12 +32,12 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('b', {}, [
-                        document.createTextNode("Normal")
+                        __document.createTextNode('Normal')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.normal.name }, ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onChange': __context.values.normal.onChange } }, []), { wml: { 'id': __context.values.normal.name }, ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onChange': __context.values.normal.onChange } })
@@ -44,7 +45,7 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('b', {}, [
-                        document.createTextNode("Success")
+                        __document.createTextNode('Success')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.success.id }, ww: { 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange } }, []), { wml: { 'id': __context.values.success.id }, ww: { 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange } })
@@ -52,7 +53,7 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('b', {}, [
-                        document.createTextNode("Warning")
+                        __document.createTextNode('Warning')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.warning.id }, ww: { 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange } }, []), { wml: { 'id': __context.values.warning.id }, ww: { 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange } })
@@ -60,7 +61,7 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('b', {}, [
-                        document.createTextNode("Error")
+                        __document.createTextNode('Error')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange } }, []), { wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange } })
@@ -68,7 +69,7 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('b', {}, [
-                        document.createTextNode("Disabled")
+                        __document.createTextNode('Disabled')
                     ]),
                     __this.node('p', {}, [
                         __this.widget(new drop_list_field_1.DropListField({ ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'disabled': true, 'onChange': __context.values.normal.onChange } }, []), { ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'disabled': true, 'onChange': __context.values.normal.onChange } })
@@ -98,7 +99,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -110,7 +111,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -118,7 +119,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

@@ -7,12 +7,13 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var meter_1 = require("../../../../../../lib/layout/meter");
 ;
 var demo_1 = require("../../../widgets/demo");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -38,22 +39,22 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.node('h1', {}, [
-                    document.createTextNode("Meter")
+                    __document.createTextNode('Meter')
                 ]),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h2', {}, [
-                        document.createTextNode("Single")
+                        __document.createTextNode('Single')
                     ]),
                     __this.node('p', {}, [
                         __this.node('button', { 'onclick': __context.values.dec }, [
-                            document.createTextNode("-")
+                            __document.createTextNode('-')
                         ]),
                         __this.node('button', { 'onclick': __context.values.inc }, [
-                            document.createTextNode("+")
+                            __document.createTextNode('+')
                         ])
                     ]),
                     __this.widget(new meter_1.Meter({}, [
@@ -63,7 +64,7 @@ var Main = /** @class */ (function () {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __this.node('h2', {}, [
-                            document.createTextNode("Combined")
+                            __document.createTextNode('Combined')
                         ]),
                         __this.widget(new meter_1.Meter({}, __spreadArrays(__forIn(__context.values.bars, function (v, _$$i, _$$all) {
                             return ([
@@ -96,7 +97,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -108,7 +109,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -116,7 +117,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);

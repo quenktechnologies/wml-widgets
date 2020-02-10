@@ -7,12 +7,13 @@ var __spreadArrays = (this && this.__spreadArrays) || function () {
     return r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var __document = require("@quenk/wml/lib/dom");
+//@ts-ignore: 6192
+var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
 var table_1 = require("../../../../../../lib/layout/table");
 ;
-//@ts-ignore: 6192
-var maybe_1 = require("@quenk/noni/lib/data/maybe");
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
     return (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -37,96 +38,96 @@ exports.content = function () { return function (__this) {
         __this.widget(new table_1.TableHeader({}, [
             __this.widget(new table_1.TableRow({}, [
                 __this.widget(new table_1.TableHeading({}, [
-                    document.createTextNode("Name")
+                    __document.createTextNode('Name')
                 ]), {}),
                 __this.widget(new table_1.TableHeading({}, [
-                    document.createTextNode("Email")
+                    __document.createTextNode('Email')
                 ]), {}),
                 __this.widget(new table_1.TableHeading({}, [
-                    document.createTextNode("Balance")
+                    __document.createTextNode('Balance')
                 ]), {}),
                 __this.widget(new table_1.TableHeading({}, [
-                    document.createTextNode("Username")
+                    __document.createTextNode('Username')
                 ]), {}),
                 __this.widget(new table_1.TableHeading({}, [
-                    document.createTextNode("Status")
+                    __document.createTextNode('Status')
                 ]), {})
             ]), {})
         ]), {}),
         __this.widget(new table_1.TableBody({}, [
             __this.widget(new table_1.TableRow({}, [
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("Length Wise")
+                    __document.createTextNode('Length Wise')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("lw@theemailplace.com")
+                    __document.createTextNode('lw@theemailplace.com')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("$5000")
+                    __document.createTextNode('$5000')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("lw")
+                    __document.createTextNode('lw')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("Active")
+                    __document.createTextNode('Active')
                 ]), {})
             ]), {}),
             __this.widget(new table_1.TableRow({}, [
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("First Chance")
+                    __document.createTextNode('First Chance')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("fchacne@live.tt")
+                    __document.createTextNode('fchacne@live.tt')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("$1.00")
+                    __document.createTextNode('$1.00')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("chance")
+                    __document.createTextNode('chance')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("Inactive")
+                    __document.createTextNode('Inactive')
                 ]), {})
             ]), {}),
             __this.widget(new table_1.TableRow({}, [
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("Du Pear")
+                    __document.createTextNode('Du Pear')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("dupear@gmail.com")
+                    __document.createTextNode('dupear@gmail.com')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("$10,000.00")
+                    __document.createTextNode('$10,000.00')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("pearboy")
+                    __document.createTextNode('pearboy')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("Active")
+                    __document.createTextNode('Active')
                 ]), {})
             ]), {}),
             __this.widget(new table_1.TableRow({}, [
                 __this.widget(new table_1.TableCell({ ww: { 'rowspan': 2, 'colspan': 5 } }, [
-                    document.createTextNode("This spans 2 rows 5 columns.")
+                    __document.createTextNode('This spans 2 rows 5 columns.')
                 ]), { ww: { 'rowspan': 2, 'colspan': 5 } })
             ]), {})
         ]), {}),
         __this.widget(new table_1.TableFooter({}, [
             __this.widget(new table_1.TableRow({}, [
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("1")
+                    __document.createTextNode('1')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("2")
+                    __document.createTextNode('2')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("3")
+                    __document.createTextNode('3')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("4")
+                    __document.createTextNode('4')
                 ]), {}),
                 __this.widget(new table_1.TableCell({}, [
-                    document.createTextNode("5")
+                    __document.createTextNode('5')
                 ]), {})
             ]), {})
         ]), {})
@@ -139,36 +140,36 @@ var Main = /** @class */ (function () {
         this.groups = {};
         this.views = [];
         this.widgets = [];
-        this.tree = document.createElement('div');
+        this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
-                        document.createTextNode("Normal")
+                        __document.createTextNode('Normal')
                     ]),
                     __this.widget(new table_1.TableLayout({}, __spreadArrays((exports.content()(__this)))), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
-                        document.createTextNode(" Alternate")
+                        __document.createTextNode(' Alternate')
                     ]),
                     __this.widget(new table_1.TableLayout({ ww: { 'alternate': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'alternate': true } })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
-                        document.createTextNode("Bordered")
+                        __document.createTextNode('Bordered')
                     ]),
                     __this.widget(new table_1.TableLayout({ ww: { 'bordered': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'bordered': true } })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
-                        document.createTextNode("Hoverable")
+                        __document.createTextNode('Hoverable')
                     ]),
                     __this.widget(new table_1.TableLayout({ ww: { 'hoverable': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'hoverable': true } })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
-                        document.createTextNode("Compact")
+                        __document.createTextNode('Compact')
                     ]),
                     __this.widget(new table_1.TableLayout({ ww: { 'compact': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'compact': true } })
                 ]), {}),
@@ -201,7 +202,7 @@ var Main = /** @class */ (function () {
         return e;
     };
     Main.prototype.node = function (tag, attrs, children) {
-        var e = document.createElement(tag);
+        var e = __document.createElement(tag);
         Object.keys(attrs).forEach(function (key) {
             var value = attrs[key];
             if (typeof value === 'function') {
@@ -213,7 +214,7 @@ var Main = /** @class */ (function () {
                     e.setAttribute(key, value);
             }
             else if (typeof value === 'boolean') {
-                e.setAttribute(key, "" + value);
+                e.setAttribute(key, '');
             }
         });
         children.forEach(function (c) {
@@ -221,7 +222,7 @@ var Main = /** @class */ (function () {
                 case 'string':
                 case 'number':
                 case 'boolean':
-                    var tn = document.createTextNode('' + c);
+                    var tn = __document.createTextNode('' + c);
                     e.appendChild(tn);
                 case 'object':
                     e.appendChild(c);
