@@ -196,6 +196,12 @@ export class TextInput
 
     }
 
+    rendered() {
+
+        if (this.values.autofocus === true) this.focus();
+
+    }
+
     focus() {
 
         return focus(this.view, this.values.control.wml.id)

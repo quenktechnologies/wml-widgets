@@ -82,7 +82,7 @@ export class Main  implements __wml.View {
         text ('')
      ]))) ,
 ... (__context.children),
-...(__if((__context.values.disabled  !== true),
+...(__if((__context.values.disabled  !== true ),
    ()=> ([
 
         __this.widget(new Close({ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }}, [

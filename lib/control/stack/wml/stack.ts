@@ -85,7 +85,7 @@ export class Main <V  >  implements __wml.View {
         __this.node('li', <__wml.Attrs>{'class': __context.values.element .className }, [
 
         ... (__context.values.element .template (v,index)),
-...(__if((__context.values.root .disabled  === false),
+...(__if((__context.values.root .disabled  === false ),
    ()=> ([
 
         __this.node('button', <__wml.Attrs>{'class': __context.values.close .className ,'onclick': __context.values.element .close (index)}, [

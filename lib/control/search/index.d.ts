@@ -136,6 +136,7 @@ export declare class Input extends AbstractControl<string, InputAttrs<string>> {
         oninput: (e: KeyboardEvent) => void;
         onblur: () => void;
     };
+    rendered(): void;
     /**
      * focus steals user focus to the Input.
      */

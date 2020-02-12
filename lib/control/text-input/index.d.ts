@@ -94,5 +94,6 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         onfocus: () => void;
         onblur: () => void;
     };
+    rendered(): void;
     focus(): void;
 }
