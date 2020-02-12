@@ -45,7 +45,7 @@ var Main = /** @class */ (function () {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('\u000a      This is a text input: \u000a      '),
-                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'match': '[a-zA-Z]', 'length': 20 } }, []), { ww: { 'onChange': __context.onChange, 'match': '[a-zA-Z]', 'length': 20 } }),
+                        __this.widget(new text_input_1.TextInput({ ww: { 'match': '[a-zA-Z]', 'length': 20, 'focus': true, 'onChange': __context.onChange } }, []), { ww: { 'match': '[a-zA-Z]', 'length': 20, 'focus': true, 'onChange': __context.onChange } }),
                         __document.createTextNode('.\u000a    ')
                     ]),
                     __this.node('p', {}, [

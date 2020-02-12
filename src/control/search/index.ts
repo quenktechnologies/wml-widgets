@@ -243,6 +243,12 @@ export class Input
 
     }
 
+    rendered() {
+
+        if (this.values.autofocus === true) this.focus();
+
+    }
+
     /**
      * focus steals user focus to the Input.
      */

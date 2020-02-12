@@ -9,9 +9,10 @@
     <p>
       This is a text input: 
       <TextInput 
-        ww:onChange={{@onChange}} 
         ww:match="[a-zA-Z]"
-        ww:length=20 />.
+        ww:length=20
+        ww:focus=true
+        ww:onChange={{@onChange}}/>.
     </p>
     <p>As you type <b wml:id="txt">this</b> changes, but only for letters. (20)</p>
   </Demo>
