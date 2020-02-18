@@ -1,5 +1,7 @@
 import * as views from './wml/search';
 import { View } from '@quenk/wml';
+import { tick } from '@quenk/noni/lib/control/timer';
+
 import { getBlockClassName } from '../../content/orientation';
 import { concat, getById } from '../../util';
 import {
@@ -254,7 +256,7 @@ export class Input
      */
     focus(): Input {
 
-        getInput(this).map(i => i.focus());
+        tick(() => getInput(this).map(i => i.focus()));
         return this;
 
     }

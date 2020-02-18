@@ -1,5 +1,8 @@
 import * as views from './wml/text-input';
+
 import { View } from '@quenk/wml';
+import { tick } from '@quenk/noni/lib/control/timer';
+
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
 import { Size, getSizeClassName } from '../../content/size';
@@ -198,14 +201,13 @@ export class TextInput
 
     rendered() {
 
-        if (this.values.autofocus === true)
-            setTimeout(() => this.focus(), 0);
+        if (this.values.autofocus === true) this.focus();
 
     }
 
     focus() {
 
-        return focus(this.view, this.values.control.wml.id)
+        return tick(() => focus(this.view, this.values.control.wml.id));
 
     }
 

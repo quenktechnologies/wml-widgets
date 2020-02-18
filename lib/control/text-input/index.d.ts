@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import { View } from '@quenk/wml';
 import { Size } from '../../content/size';
 import { FocusableAttrs, Focusable } from '../focus';
@@ -95,5 +96,5 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         onblur: () => void;
     };
     rendered(): void;
-    focus(): void;
+    focus(): void | NodeJS.Timeout;
 }
