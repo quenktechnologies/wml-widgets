@@ -315,6 +315,7 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
                 if (value === '') {
 
                     this.values.input.moment = nothing();
+                    this.fireChange();
 
                 } else {
 
@@ -323,12 +324,11 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
                     if (m.isValid()) {
 
                         this.values.input.moment = just(m);
+                        this.fireChange();
 
                     }
 
                 }
-
-                this.fireChange();
 
             }, DELAY),
 
