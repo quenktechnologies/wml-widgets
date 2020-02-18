@@ -83,10 +83,10 @@ __this.node('p', <__wml.Attrs>{}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new TextField({wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'onChange' : __context.onChange  }}, [
+        __this.widget(new TextField({wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'focus' : true  ,'onChange' : __context.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'focus' : true  ,'onChange' : __context.onChange  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [

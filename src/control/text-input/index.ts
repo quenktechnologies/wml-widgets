@@ -198,7 +198,8 @@ export class TextInput
 
     rendered() {
 
-        if (this.values.autofocus === true) this.focus();
+        if (this.values.autofocus === true)
+            setTimeout(() => this.focus(), 0);
 
     }
 

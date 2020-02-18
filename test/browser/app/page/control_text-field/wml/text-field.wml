@@ -16,6 +16,7 @@
           wml:id="text"
           ww:name="text"
           ww:message="This is the help message"
+          ww:focus=true
           ww:onChange={{@onChange}} />
       </p>
 

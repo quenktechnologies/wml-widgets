@@ -45,7 +45,7 @@ var Main = /** @class */ (function () {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'text' }, ww: { 'name': 'text', 'message': 'This is the help message', 'onChange': __context.onChange } }, []), { wml: { 'id': 'text' }, ww: { 'name': 'text', 'message': 'This is the help message', 'onChange': __context.onChange } })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'text' }, ww: { 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange } }, []), { wml: { 'id': 'text' }, ww: { 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange } })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [

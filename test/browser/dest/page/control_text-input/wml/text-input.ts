@@ -73,10 +73,10 @@ export class Main  implements __wml.View {
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a      This is a text input: \u000a      '),
-__this.widget(new TextInput({ww : { 'match' : '[a-zA-Z]' ,'length' : 20 ,'focus' : true  ,'onChange' : __context.onChange  }}, [
+__this.widget(new TextInput({ww : { 'match' : '[a-zA-Z]' ,'length' : 20 ,'onChange' : __context.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'match' : '[a-zA-Z]' ,'length' : 20 ,'focus' : true  ,'onChange' : __context.onChange  }}),
+     ]),<__wml.Attrs>{ww : { 'match' : '[a-zA-Z]' ,'length' : 20 ,'onChange' : __context.onChange  }}),
 __document.createTextNode('.\u000a    ')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
