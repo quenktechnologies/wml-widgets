@@ -65,7 +65,7 @@ export class InputView  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'class': __context.values.className ,'onkeydown': __context.values.onkeydown ,'onkeyup': __context.values.onkeyup ,'oninput': __context.values.oninput ,'onfocus': __context.values.onfocus ,'onblur': __context.values.onblur ,'autofocus': __context.values.autofocus ,'autocomplete': __context.values.autocomplete ,'size': __context.values.size ,'placeholder': __context.values.placeholder ,'readOnly': __context.values.readOnly ,'disabled': __context.values.disabled ,'value': __context.values.value }, [
+           return __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'class': __context.values.className ,'onkeyup': __context.values.onkeyup ,'oninput': __context.values.oninput ,'onfocus': __context.values.onfocus ,'onblur': __context.values.onblur ,'autofocus': __context.values.autofocus ,'autocomplete': __context.values.autocomplete ,'size': __context.values.size ,'placeholder': __context.values.placeholder ,'readOnly': __context.values.readOnly ,'disabled': __context.values.disabled ,'value': __context.values.value }, [
 
         
      ]);

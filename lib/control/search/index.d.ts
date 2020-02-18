@@ -131,11 +131,11 @@ export declare class Input extends AbstractControl<string, InputAttrs<string>> {
         size: string;
         value: string;
         onfocus: (e: KeyboardEvent) => void;
-        onkeydown: (e: KeyboardEvent) => void;
         onkeyup: (e: KeyboardEvent) => void;
         oninput: (e: KeyboardEvent) => void;
         onblur: () => void;
     };
+    fireSearch(e: KeyboardEvent): void;
     rendered(): void;
     /**
      * focus steals user focus to the Input.

@@ -207,32 +207,26 @@ export class Input
             target.value = target.value;
 
         },
-        onkeydown: (e: KeyboardEvent) => {
-
-            if (e.keyCode !== ESCAPE)
-                if (this.attrs.ww && this.attrs.ww.onSearch) {
-
-                    let name = '' + this.attrs.ww.name;
-                    let value = (<HTMLInputElement>e.target).value;
-
-                    this.attrs.ww.onSearch(new TermChangedEvent(name, value));
-
-                }
-
-        },
         onkeyup: (e: KeyboardEvent) => {
 
-            if (e.keyCode === ESCAPE)
+            if (e.keyCode === ESCAPE) {
+
                 if (this.attrs.ww && this.attrs.ww.onEscape)
                     this.attrs.ww.onEscape(
                         new EscapeEvent(this.attrs.ww.name || ''));
+
+            } else {
+
+                this.fireSearch(e);
+
+            }
 
         },
         oninput: (e: KeyboardEvent) => {
 
             //For compatability reasons
             (<HTMLInputElement>e.target).oninput = null;
-            this.values.onkeydown(e);
+            this.values.onkeyup(e);
 
         },
         onblur: () => {
@@ -240,6 +234,19 @@ export class Input
             if (this.attrs.ww && this.attrs.ww.onBlur)
                 this.attrs.ww.onBlur(new FocusLostEvent(
                     this.attrs.ww && this.attrs.ww.name || ''));
+
+        }
+
+    }
+
+    fireSearch(e: KeyboardEvent) {
+
+        if (this.attrs.ww && this.attrs.ww.onSearch) {
+
+            let name = '' + this.attrs.ww.name;
+            let value = (<HTMLInputElement>e.target).value;
+
+            this.attrs.ww.onSearch(new TermChangedEvent(name, value));
 
         }
 

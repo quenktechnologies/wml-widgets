@@ -5,7 +5,6 @@
   <input 
     wml:id={{@values.wml.id}}
     class={{@values.className}}
-    onkeydown={{@values.onkeydown}} 
     onkeyup={{@values.onkeyup}} 
     oninput={{@values.oninput}}
     onfocus={{@values.onfocus}}
