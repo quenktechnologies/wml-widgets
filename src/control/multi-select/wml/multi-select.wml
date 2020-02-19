@@ -48,6 +48,7 @@
     <ResultsMenu 
       wml:id={{@values.menu.wml.id}} 
       ww:block={{@values.menu.block}}
+      ww:hidden=true
       ww:onSelect={{@values.menu.onSelect}}
       ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
       ww:itemTemplate={{@values.menu.itemTemplate}}

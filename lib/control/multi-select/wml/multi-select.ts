@@ -100,10 +100,10 @@ __this.widget(new Input({wml : { 'id' : __context.values.input .wml .id   },ww :
         
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'disabled' : __context.values.input .disabled  ,'onSearch' : __context.values.input .onSearch   }})
      ]),
-__this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}, [
+__this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'hidden' : true  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}),
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.menu .wml .id   },ww : { 'block' : __context.values.menu .block  ,'hidden' : true  ,'onSelect' : __context.values.menu .onSelect  ,'noItemsTemplate' : __context.values.menu .noItemsTemplate  ,'itemTemplate' : __context.values.menu .itemTemplate  ,'stringifier' : __context.values.menu .stringifier   }}),
 __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww : { 'text' : __context.values.messages .text   }}, [
 
         

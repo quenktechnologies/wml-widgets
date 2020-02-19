@@ -1062,6 +1062,9 @@ textarea.ww-date-field > .ww-date-field__input {
   overflow-x: hidden;
   position: absolute;
 }
+.ww-results-menu.-block {
+  width: 100%;
+}
 .ww-text-field {
   margin-bottom: 0.5em;
 }
