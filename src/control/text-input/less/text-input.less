@@ -6,6 +6,20 @@
  */
 .__TEXT_INPUT__ {
 
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+  
+    -webkit-appearance: none;
+    margin: 0;
+  
+  }
+      /* Firefox */
+  &[type=number] {
+
+    -moz-appearance:textfield;
+
+  }
+
   .control(); //use the standard control feel.
 
   .textInputDim(

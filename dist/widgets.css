@@ -68,6 +68,7 @@
  * ww-text-input styling.
  */
 .ww-text-input {
+  /* Firefox */
   height: 36px;
   padding: 6px 12px;
   font-size: 14px;
@@ -80,6 +81,14 @@
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   width: 12em;
+}
+.ww-text-input::-webkit-outer-spin-button,
+.ww-text-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ww-text-input[type=number] {
+  -moz-appearance: textfield;
 }
 .ww-text-input::-ms-expand {
   border: 0;
@@ -260,7 +269,7 @@ textarea.ww-display-field {
   position: relative;
   float: left;
   padding: 6px 12px;
-  line-height: 1.4;
+  line-height: 1.42857143;
   background-color: #fff;
   text-decoration: none;
   margin-left: -1px;
@@ -291,13 +300,19 @@ textarea.ww-display-field {
 }
 .ww-paginator > li.ww-paginator__position {
   color: inherit;
+  /**
+       * Re-style TextInput to fit in with the paginatior buttons.
+       */
 }
 .ww-paginator > li.ww-paginator__position input {
   display: inline-block;
   width: 2em;
+  height: auto;
   text-align: center;
+  line-height: 0.4;
   padding: 0;
   border: 1px solid #ddd;
+  border-radius: unset;
 }
 .ww-paginator > li.ww-paginator__next > a:after,
 .ww-paginator > li.ww-paginator__next > span:after {

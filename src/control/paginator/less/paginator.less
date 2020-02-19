@@ -71,13 +71,19 @@
 
       color: @paginator-color;
 
+      /**
+       * Re-style TextInput to fit in with the paginatior buttons.
+       */
       & input {
 
         display: inline-block;
         width: 2em;
+        height: auto;
         text-align: center;
+        line-height: 0.4; //the border throws off alignment with other elements.
         padding: 0;
         border: @paginator-border;
+        border-radius: unset;
 
       }
 

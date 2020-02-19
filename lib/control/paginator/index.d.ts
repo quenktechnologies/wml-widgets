@@ -1,4 +1,5 @@
 import { View, Component } from '@quenk/wml';
+import { TextChangedEvent } from '../text-input';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 import { Event as ControlEvent } from '../';
 export declare const PAGINATOR = "ww-paginator";
@@ -28,6 +29,13 @@ export interface PaginatorAttrs extends HTMLElementAttrs {
      */
     current?: number;
     /**
+     * positionView can be specified to custom render the position part
+     * of the paginator.
+     *
+     * This view MUST begin with a <li> element.
+     */
+    positionView?: (c: PositionViewContext) => View;
+    /**
      * onChange handler.
      */
     onChange?: (e: PageChangedEvent) => void;
@@ -36,6 +44,17 @@ export interface PaginatorAttrs extends HTMLElementAttrs {
  * PageChangedEvent indicating the current page has been changed.
  */
 export declare class PageChangedEvent extends ControlEvent<number> {
+}
+/**
+ * PositionViewContext contains the info needed to render the positon part of
+ * the paginator.
+ */
+export declare class PositionViewContext {
+    className: string;
+    current: number;
+    total: number;
+    onChange: (e: TextChangedEvent) => void;
+    constructor(className: string, current: number, total: number, onChange: (e: TextChangedEvent) => void);
 }
 /**
  * Paginator provides a control for navigating paged data, results, view etc.
@@ -47,7 +66,6 @@ export declare class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
         className: string;
         current: {
             value: number;
-            asString: () => string;
         };
         total: number;
         first: {
@@ -62,6 +80,7 @@ export declare class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
         };
         position: {
             className: string;
+            view: () => import("@quenk/wml").Content;
         };
         next: {
             className: string;

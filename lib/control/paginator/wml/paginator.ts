@@ -7,8 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import {TextInput} from '../../text-input'; ;
 import {text} from '../../../'; ;
-import {Paginator} from '../'; 
+import {PositionViewContext,Paginator} from '../'; 
 
 
 //@ts-ignore:6192
@@ -59,7 +60,193 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
-export class Main  implements __wml.View {
+export class PositionView  implements __wml.View {
+
+   constructor(__context: PositionViewContext) {
+
+       this.template = (__this:__wml.Registry) => {
+
+           return __this.node('li', <__wml.Attrs>{'class': __context.className}, [
+
+        __this.node('span', <__wml.Attrs>{}, [
+
+        __document.createTextNode('Page '),
+__this.widget(new TextInput({ww : { 'type' : 'number' ,'match' : '[0-9]' ,'value' : String(__context.current) ,'onChange' : __context.onChange  }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'type' : 'number' ,'match' : '[0-9]' ,'value' : String(__context.current) ,'onChange' : __context.onChange  }}),
+__document.createTextNode(' of '),
+text (__context.total)
+     ])
+     ]);
+
+       }
+
+   }
+
+   ids: { [key: string]: __wml.WMLElement } = {};
+
+   groups: { [key: string]: __wml.WMLElement[] } = {};
+
+   views: __wml.View[] = [];
+
+   widgets: __wml.Widget[] = [];
+
+   tree: Node = <Node>__document.createElement('div');
+
+   template: __wml.Template;
+
+   registerView(v:__wml.View) : __wml.View {
+
+       this.views.push(v);
+
+       return v;
+
+}
+   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
+
+       let attrsMap = (<__wml.Attrs><any>attrs)
+
+       if(attrsMap.wml) {
+
+         let {id, group} = attrsMap.wml;
+
+         if(id != null) {
+
+             if (this.ids.hasOwnProperty(id))
+               throw new Error(`Duplicate id '${id}' detected!`);
+
+             this.ids[id] = e;
+
+         }
+
+         if(group != null) {
+
+             this.groups[group] = this.groups[group] || [];
+             this.groups[group].push(e);
+
+         }
+
+         }
+       return e;
+}
+
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
+
+       let e = __document.createElement(tag);
+
+       Object.keys(attrs).forEach(key => {
+
+           let value = (<any>attrs)[key];
+
+           if (typeof value === 'function') {
+
+           (<any>e)[key] = value;
+
+           } else if (typeof value === 'string') {
+
+               //prevent setting things like disabled=''
+               if (value !== '')
+               e.setAttribute(key, value);
+
+           } else if (typeof value === 'boolean') {
+
+             e.setAttribute(key, '');
+
+           }
+
+       });
+
+       children.forEach(c => {
+
+               switch (typeof c) {
+
+                   case 'string':
+                   case 'number':
+                   case 'boolean':
+                     let tn = __document.createTextNode(''+c);
+                     e.appendChild(<Node>tn)
+                   case 'object':
+                       e.appendChild(<Node>c);
+                   break;
+                   default:
+                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
+
+               }})
+
+       this.register(e, attrs);
+
+       return e;
+
+   }
+
+
+   widget(w: __wml.Widget, attrs:__wml.Attrs) {
+
+       this.register(w, attrs);
+
+       this.widgets.push(w);
+
+       return w.render();
+
+   }
+
+   findById<E extends __wml.WMLElement>(id: string): __Maybe<E> {
+
+       let mW:__Maybe<E> = __fromNullable<E>(<E>this.ids[id])
+
+       return this.views.reduce((p,c)=>
+       p.isJust() ? p : c.findById(id), mW);
+
+   }
+
+   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
+
+      let mGroup:__Maybe<E[]> =
+           __fromArray(this.groups.hasOwnProperty(name) ?
+           <any>this.groups[name] : 
+           []);
+
+      return this.views.reduce((p,c) =>
+       p.isJust() ? p : c.findByGroup(name), mGroup);
+
+   }
+
+   invalidate() : void {
+
+       let {tree} = this;
+       let parent = <Node>tree.parentNode;
+
+       if (tree == null)
+           return console.warn('invalidate(): '+       'Missing DOM tree!');
+
+       if (tree.parentNode == null)
+                  throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
+
+       parent.replaceChild(<Node>this.render(), tree) 
+
+   }
+
+   render(): __wml.Content {
+
+       this.ids = {};
+       this.widgets.forEach(w => w.removed());
+       this.widgets = [];
+       this.views = [];
+       this.tree = <Node>this.template(this);
+
+       this.ids['root'] = (this.ids['root']) ?
+       this.ids['root'] : 
+       this.tree;
+
+       this.widgets.forEach(w => w.rendered());
+
+       return this.tree;
+
+   }
+
+};
+export class PaginatorView  implements __wml.View {
 
    constructor(__context: Paginator) {
 
@@ -103,19 +290,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.previous .className },
      ])
      ]))) 
      ]),
-__this.node('li', <__wml.Attrs>{'class': __context.values.position .className }, [
-
-        __this.node('span', <__wml.Attrs>{}, [
-
-        __document.createTextNode('Page '),
-__this.node('input', <__wml.Attrs>{'value': __context.values.current .asString ()}, [
-
-        
-     ]),
-__document.createTextNode(' of '),
-text (__context.values.total )
-     ])
-     ]),
+__context.values.position .view (),
 __this.node('li', <__wml.Attrs>{'class': __context.values.next .className }, [
 
         ...(__if(__context.values.next .isDisabled (),

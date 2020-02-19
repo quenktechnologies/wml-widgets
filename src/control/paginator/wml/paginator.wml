@@ -1,7 +1,19 @@
+{% import (TextInput) from "../../text-input" %}
 {% import (text) from "../../../" %}
-{% import (Paginator) from "../" %}
+{% import (PositionViewContext, Paginator) from "../" %}
 
-{% view Main (Paginator) %}
+{% view PositionView (PositionViewContext) %}
+<li class={{@className}}>
+
+  <span>Page <TextInput 
+                ww:type="number"
+                ww:match="[0-9]"
+                ww:value={{String(@current)}}
+                ww:onChange={{@onChange}} /> of {{@total | text }} </span>
+  
+</li>
+
+{% view PaginatorView (Paginator) %}
 
 <ul id={{@values.id}} class={{@values.className}}>
 
@@ -33,11 +45,7 @@
 
   </li>
 
-  <li class={{@values.position.className}}>
-  
-    <span>Page <input value={{@values.current.asString()}}/> of {{@values.total | text }} </span>
-    
-  </li>
+  {{ @values.position.view() }}
 
   <li class={{@values.next.className}}>
     
