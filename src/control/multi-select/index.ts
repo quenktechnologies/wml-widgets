@@ -192,7 +192,8 @@ export class MultiSelect<V>
             className: concat(MULTI_SELECT_TAG,
                 getValidityClassName(this.attrs)),
 
-            value: <V[]>[],
+            value: (this.attrs.ww && this.attrs.ww.value) ?
+                this.attrs.ww.value : [],
 
             disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
                 this.attrs.ww.disabled : false,

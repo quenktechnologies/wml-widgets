@@ -10,7 +10,6 @@ var MultiSelectPage = /** @class */ (function () {
                 id: 'normal',
                 name: 'normal',
                 label: 'Normal',
-                value: results_1.results[2],
                 stringifier: function (r) { return r.value; },
                 onSearch: onSearch(this),
                 onChange: onChange(this),
@@ -50,6 +49,15 @@ var MultiSelectPage = /** @class */ (function () {
                 onSearch: onSearch(this),
                 onChange: onChange(this),
             },
+            init: {
+                id: 'init',
+                name: 'init',
+                label: 'Init',
+                value: results_1.results,
+                stringifier: function (r) { return r.value; },
+                onSearch: onSearch(this),
+                onChange: onChange(this),
+            }
         };
     }
     return MultiSelectPage;

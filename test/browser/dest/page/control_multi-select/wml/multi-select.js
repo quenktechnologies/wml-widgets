@@ -52,6 +52,9 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.widget(new multi_select_1.MultiSelect({ ww: { 'name': __context.values.normal.name, 'label': 'Disabled', 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } }, []), { ww: { 'name': __context.values.normal.name, 'label': 'Disabled', 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange } })
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.widget(new multi_select_1.MultiSelect({ ww: { 'name': __context.values.init.name, 'label': 'Initialized', 'value': __context.values.init.value, 'stringifier': __context.values.init.stringifier, 'onSearch': __context.values.init.onSearch, 'onChange': __context.values.init.onChange } }, []), { ww: { 'name': __context.values.init.name, 'label': 'Initialized', 'value': __context.values.init.value, 'stringifier': __context.values.init.stringifier, 'onSearch': __context.values.init.onSearch, 'onChange': __context.values.init.onChange } })
                 ]), {})
             ]), {});
         };

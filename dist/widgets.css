@@ -836,6 +836,9 @@ buttonLink styles the button to appear like a link.
   position: relative;
   width: 30em;
 }
+.ww-multi-select.-disabled {
+  cursor: not-allowed;
+}
 .ww-multi-select > .ww-multi-select__content {
   height: 36px;
   padding: 6px 12px;

@@ -109,6 +109,13 @@ __this.widget(new Demo({}, [
 
         
      ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal .name  ,'label' : 'Disabled' ,'disabled' : true  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.widget(new MultiSelect({ww : { 'name' : __context.values.init .name  ,'label' : 'Initialized' ,'value' : __context.values.init .value  ,'stringifier' : __context.values.init .stringifier  ,'onSearch' : __context.values.init .onSearch  ,'onChange' : __context.values.init .onChange   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'name' : __context.values.init .name  ,'label' : 'Initialized' ,'value' : __context.values.init .value  ,'stringifier' : __context.values.init .stringifier  ,'onSearch' : __context.values.init .onSearch  ,'onChange' : __context.values.init .onChange   }})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

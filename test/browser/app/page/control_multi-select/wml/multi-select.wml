@@ -81,4 +81,16 @@
 
   </Demo>
 
+  <Demo>
+
+    <MultiSelect 
+     ww:name={{@values.init.name}}
+     ww:label="Initialized"
+     ww:value={{@values.init.value}}
+     ww:stringifier={{@values.init.stringifier}}
+     ww:onSearch={{@values.init.onSearch}}
+     ww:onChange={{@values.init.onChange}} />
+
+  </Demo>
+
 </Demo>

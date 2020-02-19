@@ -18,7 +18,6 @@ export class MultiSelectPage {
             id: 'normal',
             name: 'normal',
             label: 'Normal',
-            value: results[2],
             stringifier: (r: Result) => r.value,
             onSearch: onSearch(this),
             onChange: onChange(this),
@@ -68,6 +67,17 @@ export class MultiSelectPage {
             onChange: onChange(this),
 
         },
+        init: {
+
+            id: 'init',
+            name: 'init',
+            label: 'Init',
+            value: results,
+            stringifier: (r: Result) => r.value,
+            onSearch: onSearch(this),
+            onChange: onChange(this),
+
+        }
 
     }
 
