@@ -1,6 +1,8 @@
 import { View, Content, Component } from '@quenk/wml';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 export declare const BUTTON_GROUP = "ww-button-group";
+export declare const BUTTON_GROUP_BUTTON = "ww-button-group__button";
+export declare const BUTTON_GROUP_COMPAT = "ww-button-group-compat";
 /**
  * ButtonGroupAttrs
  */

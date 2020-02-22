@@ -6,7 +6,7 @@
   Intended for styling button groups and other things that may want to
   be in a Toolbar.
   
-  In order to benifit from the below styling, those controls must 
+  In order to benefit from the below styling, those controls must 
   have the __TOOLBAR_COMPAT__ class in their classlist.
 */
 .__TOOLBAR__ {
@@ -21,11 +21,20 @@
 
   }
 
-  & > .__TOOLBAR_COMPAT__ {
+  & > .__BUTTON_GROUP__ ,
+  & > __TOOLBAR_COMPAT__ {
 
     float: @toolbar-compat-float;
-    margin-left: @toolbar-compat-margin-left;
     margin-top: @toolbar-compat-margin-top;
+
+  }
+
+  & > .__BUTTON_GROUP__    + __BUTTON_GROUP__,
+  & > .__BUTTON_GROUP__    + .__TOOLBAR_COMPAT__,
+  & > .__TOOLBAR_COMPAT__  + .__BUTTON_GROUP__,
+  & > .__TOOLBAR_COMPAT__  + .__TOOLBAR_COMPAT__ {
+
+    margin-left: @toolbar-compat-margin-left;
 
   }
 

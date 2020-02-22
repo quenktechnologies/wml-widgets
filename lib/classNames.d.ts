@@ -1,6 +1,8 @@
 export declare const TOOLBAR = "ww-toolbar";
 export declare const TOOLBAR_COMPAT = "-toolbar-compat";
 export declare const BUTTON_GROUP = "ww-button-group";
+export declare const BUTTON_GROUP_BUTTON = "ww-button-group__button";
+export declare const BUTTON_GROUP_COMPAT = "ww-button-group-compat";
 export declare const TEXT_INPUT = "ww-text-input";
 export declare const DISPLAY_FIELD = "ww-display-field";
 export declare const DISPLAY_FIELD_CONTENT = "ww-display-field__content";

@@ -4,6 +4,8 @@ export const TOOLBAR_COMPAT = '-toolbar-compat';
 ///classNames:end
 ///classNames:begin
 export const BUTTON_GROUP = 'ww-button-group';
+export const BUTTON_GROUP_BUTTON = 'ww-button-group__button';
+export const BUTTON_GROUP_COMPAT = 'ww-button-group-compat';
 ///classNames:end
 ///classNames:begin
 export const TEXT_INPUT = 'ww-text-input';

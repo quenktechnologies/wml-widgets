@@ -10,10 +10,8 @@ from '@quenk/noni/lib/data/maybe';
 import {Demo} from '../../../widgets/demo'; ;
 import {Button} from '../../../../../../lib/control/button'; ;
 import {ButtonGroup} from '../../../../../../lib/control/button-group'; ;
-import {DropDown} from '../../../../../../lib/control/drop-down'; ;
-import {Menu} from '../../../../../../lib/menu/menu'; ;
-import {Item} from '../../../../../../lib/menu/item'; ;
-import {ButtonGroupPage} from '../'; 
+import {Toolbar} from '../../../../../../lib/control/toolbar'; ;
+import {ToolbarPage} from '../'; 
 
 
 //@ts-ignore:6192
@@ -66,31 +64,13 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 
 export class Main  implements __wml.View {
 
-   constructor(__context: ButtonGroupPage) {
+   constructor(__context: ToolbarPage) {
 
        this.template = (__this:__wml.Registry) => {
 
            return __this.widget(new Demo({}, [
 
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new ButtonGroup({}, [
-
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }}),
-__this.widget(new Button({ww : { 'text' : 'two' ,'active' : true   }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'two' ,'active' : true   }}),
-__this.widget(new Button({ww : { 'text' : 'four'  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'four'  }})
-     ]),<__wml.Attrs>{})
-     ]),
-__this.node('p', <__wml.Attrs>{}, [
+        __this.widget(new Toolbar({}, [
 
         __this.widget(new ButtonGroup({}, [
 
@@ -102,63 +82,42 @@ __this.widget(new Button({ww : { 'text' : 'two'  }}, [
 
         
      ]),<__wml.Attrs>{ww : { 'text' : 'two'  }}),
-__this.widget(new Button({ww : { 'text' : 'four'  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'four'  }})
-     ]),<__wml.Attrs>{})
-     ]),
-__this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new ButtonGroup({}, [
-
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }})
-     ]),<__wml.Attrs>{})
-     ]),
-__this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new ButtonGroup({}, [
-
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }}),
-__this.widget(new DropDown({ww : { 'buttonText' : 'two'  }}, [
-
-        __this.widget(new Menu({}, [
-
-        __this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('Link')
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('Link')
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('Link')
-     ])
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'two'  }}),
 __this.widget(new Button({ww : { 'text' : 'three'  }}, [
 
         
      ]),<__wml.Attrs>{ww : { 'text' : 'three'  }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new ButtonGroup({}, [
+
+        __this.widget(new Button({ww : { 'text' : 'four'  }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'text' : 'four'  }}),
+__this.widget(new Button({ww : { 'text' : 'five' ,'active' : true   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'text' : 'five' ,'active' : true   }}),
+__this.widget(new Button({ww : { 'text' : 'six'  }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'text' : 'six'  }})
+     ]),<__wml.Attrs>{}),
+__this.widget(new ButtonGroup({}, [
+
+        __this.widget(new Button({ww : { 'text' : 'seven'  }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'text' : 'seven'  }}),
+__this.widget(new Button({ww : { 'text' : 'eight' ,'active' : true   }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'text' : 'eight' ,'active' : true   }}),
+__this.widget(new Button({ww : { 'text' : '9'  }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'text' : '9'  }})
      ]),<__wml.Attrs>{})
-     ])
+     ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 
        }

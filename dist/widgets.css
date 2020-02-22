@@ -4,7 +4,7 @@
   Intended for styling button groups and other things that may want to
   be in a Toolbar.
   
-  In order to benifit from the below styling, those controls must 
+  In order to benefit from the below styling, those controls must 
   have the -toolbar-compat class in their classlist.
 */
 .ww-toolbar {
@@ -15,52 +15,109 @@
   clear: both;
   display: table;
 }
-.ww-toolbar > .-toolbar-compat {
+.ww-toolbar > .ww-button-group,
+.ww-toolbar > -toolbar-compat {
   float: left;
-  margin-left: 0px;
-  margin-top: 5px;
+  margin-top: 0px;
+}
+.ww-toolbar > .ww-button-group + ww-button-group,
+.ww-toolbar > .ww-button-group + .-toolbar-compat,
+.ww-toolbar > .-toolbar-compat + .ww-button-group,
+.ww-toolbar > .-toolbar-compat + .-toolbar-compat {
+  margin-left: 5px;
+}
+/**
+ * Styles for ww-button-group.
+ *
+ * We want to adjust any buttons in the group to appear to fit snuggly next
+ * to each other.
+ *
+ * There are three types of child classes we expect here:
+ * 1. ww-button               - regular buttons
+ * 2. ww-button-group__button - any element that wants to be treated like 
+ *                               ww-button.
+ * 3. ww-button-group-compat  - any element that contains buttons. 
+ */
+.ww-button-group {
+  /**
+   * Attempts to hide extra borders when these elements are next to each other.
+   */
+  /**
+   * Attempts to remove border radius from buttons not on the ends.
+   */
+  /**
+   * Remove the right radius of the first elements.
+   */
+  /**
+   * Remove the left radius for first elements.
+   */
 }
 .ww-button-group,
 .ww-button-group.-vertical {
   position: relative;
   display: inline-block;
+  /**
+     * Make all top level elements float to the left of the group.
+     */
+  /**
+     * Make all buttons and button like things share the same radius.
+     */
 }
 .ww-button-group > .ww-button,
-.ww-button-group.-vertical > .ww-button {
+.ww-button-group.-vertical > .ww-button,
+.ww-button-group > .ww-button-group__button,
+.ww-button-group.-vertical > .ww-button-group__button,
+.ww-button-group > .ww-button-group-compat,
+.ww-button-group.-vertical > .ww-button-group-compat {
   position: relative;
   float: left;
 }
-.ww-button-group .ww-button + .ww-button,
-.ww-button-group .ww-button + .ww-button-group,
-.ww-button-group .ww-button-group + .ww-button,
-.ww-button-group .ww-button-group + .ww-button-group {
-  margin-left: -1px;
-}
-.ww-button-group > .ww-button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-  border-radius: 0;
-}
-.ww-button-group > .ww-button:first-child {
-  margin-left: 0;
-}
-.ww-button-group > .ww-button:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-}
-.ww-button-group > .ww-button:last-child:not(:first-child) {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-}
-.ww-button-group > .ww-button-group {
+.ww-button-group > .ww-button,
+.ww-button-group.-vertical > .ww-button,
+.ww-button-group > .ww-button-group__button,
+.ww-button-group.-vertical > .ww-button-group__button,
+.ww-button-group > .ww-button-group-compat .ww-button,
+.ww-button-group.-vertical > .ww-button-group-compat .ww-button,
+.ww-button-group > .ww-button-group-compat .ww-button-group__button,
+.ww-button-group.-vertical > .ww-button-group-compat .ww-button-group__button {
   float: left;
 }
-.ww-button-group > .ww-button-group:not(:first-child):not(:last-child) > .ww-button {
+.ww-button-group .ww-button + .ww-button,
+.ww-button-group .ww-button + .ww-button-group__button,
+.ww-button-group .ww-button + .ww-button-group-compat,
+.ww-button-group .ww-button-group__button + .ww-button,
+.ww-button-group .ww-button-group__button + .ww-button-group__button,
+.ww-button-group .ww-button-group__button + .ww-button-group-compat,
+.ww-button-group .ww-button-group-compat + .ww-button,
+.ww-button-group .ww-button-group-compat + .ww-button-group__button,
+.ww-button-group .ww-button-group-compat + .ww-button-group-compat {
+  margin-left: -1px;
+}
+.ww-button-group > .ww-button:not(:first-child):not(:last-child),
+.ww-button-group > .ww-button-group__button:not(:first-child):not(:last-child) {
   border-radius: 0;
 }
-.ww-button-group > .ww-button-group:first-child:not(:last-child) > .ww-button:last-child {
+.ww-button-group > .ww-button-group-compat:not(:first-child):not(:last-child) .ww-button,
+.ww-button-group > .ww-button-group-compat:not(:first-child):not(:last-child) .ww-button-group__button {
+  border-radius: 0;
+}
+.ww-button-group > .ww-button:first-child,
+.ww-button-group > .ww-button-group__button:first-child,
+.ww-button-group > .ww-button-group-compat:first-child .ww-button,
+.ww-button-group > .ww-button-group-compat:first-child .ww-button-group__button {
+  margin-left: 0;
+}
+.ww-button-group > .ww-button:first-child:not(:last-child),
+.ww-button-group > .ww-button-group__button:first-child:not(:last-child),
+.ww-button-group > .ww-button-group-compat:first-child .ww-button:not(:last-child),
+.ww-button-group > .ww-button-group-compat:first-child .ww-button-group__button:not(:last-child) {
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
-.ww-button-group > .ww-button-group:last-child:not(:first-child) > .ww-button:first-child {
+.ww-button-group > .ww-button:last-child:not(:first-child),
+.ww-button-group > .ww-button-group__button:last-child:not(:first-child),
+.ww-button-group > .ww-button-group-compat:last-child:not(:first-child) .ww-button,
+.ww-button-group > .ww-button-group-compat:last-child:not(:first-child) .ww-button-group__button {
   border-bottom-left-radius: 0;
   border-top-left-radius: 0;
 }
@@ -979,6 +1036,7 @@ textarea.ww-multi-select > .ww-multi-select__content {
 }
 .ww-drop-down-menu > .ww-drop-down__content {
   min-width: 10em;
+  margin-top: 0.5em;
   display: block;
   position: absolute;
   top: 100%;

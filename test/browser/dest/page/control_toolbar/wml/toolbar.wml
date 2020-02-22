@@ -1,0 +1,38 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Button) from "../../../../../../lib/control/button" %}
+{% import (ButtonGroup) from "../../../../../../lib/control/button-group" %}
+{% import (Toolbar) from "../../../../../../lib/control/toolbar" %}
+{% import (ToolbarPage) from "../" %}
+
+{% view Main (ToolbarPage) %}
+<Demo>
+
+  <Toolbar>
+
+    <ButtonGroup>
+
+      <Button ww:text="one"/>
+      <Button ww:text="two"/>
+      <Button ww:text="three"/>
+
+    </ButtonGroup>
+
+    <ButtonGroup>
+
+      <Button ww:text="four"/>
+      <Button ww:text="five" ww:active=true />
+      <Button ww:text="six"/>
+
+    </ButtonGroup>
+
+    <ButtonGroup>
+
+      <Button ww:text="seven"/>
+      <Button ww:text="eight" ww:active=true />
+      <Button ww:text="9"/>
+
+    </ButtonGroup>
+
+  </Toolbar>
+
+</Demo>

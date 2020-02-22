@@ -1,5 +1,17 @@
 @import "./variables";
 
+/**
+ * Styles for ww-button-group.
+ *
+ * We want to adjust any buttons in the group to appear to fit snuggly next
+ * to each other.
+ *
+ * There are three types of child classes we expect here:
+ * 1. ww-button               - regular buttons
+ * 2. ww-button-group__button - any element that wants to be treated like 
+ *                               ww-button.
+ * 3. ww-button-group-compat  - any element that contains buttons. 
+ */
 .__BUTTON_GROUP__ { 
 
   &, &.__VERTICAL__ {
@@ -7,38 +19,80 @@
     position: relative;
     display: inline-block;
 
-    & > .__BUTTON__ {
-
+    /**
+     * Make all top level elements float to the left of the group.
+     */
+    & > .__BUTTON__,
+    & > .ww-button-group__button,
+    & > .ww-button-group-compat {
+      
       position: relative;
+      float: left;
+
+    }
+
+    /**
+     * Make all buttons and button like things share the same radius.
+     */
+    & > .__BUTTON__ ,
+    & > .ww-button-group__button,
+    & > .ww-button-group-compat .__BUTTON__,
+    & > .ww-button-group-compat .ww-button-group__button {
+      
       float: left;
 
     }
 
   }
 
-  // Prevent double borders when buttons are next to each other
-  & .__BUTTON__ + .__BUTTON__,
-  .__BUTTON__ + .__BUTTON_GROUP__,
-  .__BUTTON_GROUP__ + .__BUTTON__,
-  .__BUTTON_GROUP__ + .__BUTTON_GROUP__ {
+  /**
+   * Attempts to hide extra borders when these elements are next to each other.
+   */
+  & .__BUTTON__              + .__BUTTON__,
+  & .__BUTTON__              + .ww-button-group__button,
+  & .__BUTTON__              + .ww-button-group-compat,
+  & .ww-button-group__button + .__BUTTON__,
+  & .ww-button-group__button + .ww-button-group__button,
+  & .ww-button-group__button + .ww-button-group-compat,
+  & .ww-button-group-compat  + .__BUTTON__,
+  & .ww-button-group-compat  + .ww-button-group__button,
+  & .ww-button-group-compat  + .ww-button-group-compat {
 
     margin-left: -1px;
 
   }
 
-  & > .__BUTTON__:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  /**
+   * Attempts to remove border radius from buttons not on the ends.
+   */
+  & > .__BUTTON__:not(:first-child):not(:last-child),
+  & > .ww-button-group__button:not(:first-child):not(:last-child) {
 
     border-radius: 0;
 
   }
 
-  // Set corners individual because sometimes a single button can be in 
-  // a .__BUTTON_GROUP__ and we need :first-child and :last-child to both match.
-  & > .__BUTTON__:first-child {
+  & > .ww-button-group-compat:not(:first-child):not(:last-child) {
+
+    & .__BUTTON__, & .ww-button-group__button {
+
+      border-radius: 0;
+
+    }
+
+  }
+
+  /**
+   * Remove the right radius of the first elements.
+   */
+  & > .__BUTTON__:first-child,
+  & > .ww-button-group__button:first-child,
+  & > .ww-button-group-compat:first-child .__BUTTON__,
+  & > .ww-button-group-compat:first-child .ww-button-group__button {
 
     margin-left: 0;
 
-    &:not(:last-child):not(.dropdown-toggle) {
+    &:not(:last-child) {
 
       border-bottom-right-radius: 0;
       border-top-right-radius: 0;
@@ -47,36 +101,13 @@
 
   }
 
-  & > .__BUTTON__:last-child:not(:first-child) {
-
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-
-  }
-
-  & > .__BUTTON_GROUP__ {
-
-    float: left;
-
-  }
-
-  & > .__BUTTON_GROUP__:not(:first-child):not(:last-child) > .__BUTTON__ {
-
-    border-radius: 0;
-
-  }
-
-  & > .__BUTTON_GROUP__:first-child:not(:last-child) {
-    > .__BUTTON__:last-child {
-
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-
-    }
-
-  }
-
-  & > .__BUTTON_GROUP__:last-child:not(:first-child) > .__BUTTON__:first-child {
+  /**
+   * Remove the left radius for first elements.
+   */
+  & > .__BUTTON__:last-child:not(:first-child),
+  & > .ww-button-group__button:last-child:not(:first-child),
+  & > .ww-button-group-compat:last-child:not(:first-child) .__BUTTON__,
+  & > .ww-button-group-compat:last-child:not(:first-child) .ww-button-group__button {
 
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -84,4 +115,3 @@
   }
 
 }
-

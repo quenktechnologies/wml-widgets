@@ -9,11 +9,7 @@ var button_1 = require("../../../../../../lib/control/button");
 ;
 var button_group_1 = require("../../../../../../lib/control/button-group");
 ;
-var drop_down_1 = require("../../../../../../lib/control/drop-down");
-;
-var menu_1 = require("../../../../../../lib/menu/menu");
-;
-var item_1 = require("../../../../../../lib/menu/item");
+var toolbar_1 = require("../../../../../../lib/control/toolbar");
 ;
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
@@ -43,50 +39,23 @@ var Main = /** @class */ (function () {
         this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new demo_1.Demo({}, [
-                __this.node('p', {}, [
-                    __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'two', 'active': true } }, []), { ww: { 'text': 'two', 'active': true } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'four' } }, []), { ww: { 'text': 'four' } })
-                    ]), {})
-                ]),
-                __this.node('p', {}, [
+                __this.widget(new toolbar_1.Toolbar({}, [
                     __this.widget(new button_group_1.ButtonGroup({}, [
                         __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } }),
                         __this.widget(new button_1.Button({ ww: { 'text': 'two' } }, []), { ww: { 'text': 'two' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'four' } }, []), { ww: { 'text': 'four' } })
-                    ]), {})
-                ]),
-                __this.node('p', {}, [
-                    __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } })
-                    ]), {})
-                ]),
-                __this.node('p', {}, [
-                    __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } }),
-                        __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'two' } }, [
-                            __this.widget(new menu_1.Menu({}, [
-                                __this.widget(new item_1.Item({}, [
-                                    __this.node('a', { 'href': '#' }, [
-                                        __document.createTextNode('Link')
-                                    ])
-                                ]), {}),
-                                __this.widget(new item_1.Item({}, [
-                                    __this.node('a', { 'href': '#' }, [
-                                        __document.createTextNode('Link')
-                                    ])
-                                ]), {}),
-                                __this.widget(new item_1.Item({}, [
-                                    __this.node('a', { 'href': '#' }, [
-                                        __document.createTextNode('Link')
-                                    ])
-                                ]), {})
-                            ]), {})
-                        ]), { ww: { 'buttonText': 'two' } }),
                         __this.widget(new button_1.Button({ ww: { 'text': 'three' } }, []), { ww: { 'text': 'three' } })
+                    ]), {}),
+                    __this.widget(new button_group_1.ButtonGroup({}, [
+                        __this.widget(new button_1.Button({ ww: { 'text': 'four' } }, []), { ww: { 'text': 'four' } }),
+                        __this.widget(new button_1.Button({ ww: { 'text': 'five', 'active': true } }, []), { ww: { 'text': 'five', 'active': true } }),
+                        __this.widget(new button_1.Button({ ww: { 'text': 'six' } }, []), { ww: { 'text': 'six' } })
+                    ]), {}),
+                    __this.widget(new button_group_1.ButtonGroup({}, [
+                        __this.widget(new button_1.Button({ ww: { 'text': 'seven' } }, []), { ww: { 'text': 'seven' } }),
+                        __this.widget(new button_1.Button({ ww: { 'text': 'eight', 'active': true } }, []), { ww: { 'text': 'eight', 'active': true } }),
+                        __this.widget(new button_1.Button({ ww: { 'text': '9' } }, []), { ww: { 'text': '9' } })
                     ]), {})
-                ])
+                ]), {})
             ]), {});
         };
     }
@@ -186,4 +155,4 @@ var Main = /** @class */ (function () {
     return Main;
 }());
 exports.Main = Main;
-//# sourceMappingURL=button-group.js.map
+//# sourceMappingURL=toolbar.js.map

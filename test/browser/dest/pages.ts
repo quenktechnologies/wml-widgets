@@ -25,6 +25,7 @@ export const pages:{[key:string]:any} = {
 'control_tag-control' : require('./page/control_tag-control').default,
 'control_text-field' : require('./page/control_text-field').default,
 'control_text-input' : require('./page/control_text-input').default,
+'control_toolbar' : require('./page/control_toolbar').default,
 'control_typeahead' : require('./page/control_typeahead').default,
 'data_data-table' : require('./page/data_data-table').default,
 'data_property-list' : require('./page/data_property-list').default,
