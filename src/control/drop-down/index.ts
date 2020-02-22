@@ -1,8 +1,11 @@
 import * as views from './wml/drop-down';
 import * as hidden from '../../content/state/hidden';
 import * as style from '../../content/style';
+
 import { View, Fun, Component } from '@quenk/wml';
+
 import { Style } from '../../content/style';
+import { BUTTON_GROUP_COMPAT } from '../button-group';
 import { concat, getById } from '../../util';
 import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
 
@@ -93,7 +96,7 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
 
             id: getId(this.attrs),
 
-            className: concat(DROP_DOWN, getClassName(this.attrs))
+            className: concat(DROP_DOWN, BUTTON_GROUP_COMPAT, getClassName(this.attrs))
 
         },
         button: {

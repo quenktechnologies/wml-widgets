@@ -1,17 +1,80 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (Button) from "../../../../../../lib/control/button" %}
 {% import (ButtonGroup) from "../../../../../../lib/control/button-group" %}
+{% import (DropDown) from "../../../../../../lib/control/drop-down" %}
+{% import (Menu) from "../../../../../../lib/menu/menu" %}
+{% import (Item) from "../../../../../../lib/menu/item" %}
+
 {% import (ButtonGroupPage) from "../" %}
 
 {% view Main (ButtonGroupPage) %}
 <Demo>
 
-  <ButtonGroup>
+  <p>
 
-    <Button ww:text="one"/>
-    <Button ww:text="three" ww:active=true />
-    <Button ww:text="four"/>
+    <ButtonGroup>
 
-  </ButtonGroup>
+      <Button ww:text="one"/>
+      <Button ww:text="two" ww:active=true />
+      <Button ww:text="four"/>
+
+    </ButtonGroup>
+
+  </p>
+
+  <p>
+
+    <ButtonGroup>
+
+      <Button ww:text="one"/>
+      <Button ww:text="two" />
+      <Button ww:text="four"/>
+
+    </ButtonGroup>
+
+  </p>
+
+  <p>
+
+    <ButtonGroup>
+
+      <Button ww:text="one"/>
+
+    </ButtonGroup>
+
+  </p>
+
+  <p>
+
+    <ButtonGroup>
+
+      <Button ww:text="one"/>
+
+      <DropDown 
+        ww:buttonText="two">
+
+        <Menu>
+
+          <Item>
+            <a href="#">Link</a>
+          </Item>
+
+          <Item>
+            <a href="#">Link</a>
+          </Item>
+
+          <Item>
+            <a href="#">Link</a>
+          </Item>
+
+        </Menu>
+
+      </DropDown>
+
+      <Button ww:text="three"/>
+
+    </ButtonGroup>
+
+  </p>
 
 </Demo>

@@ -1,0 +1,87 @@
+@import "./variables";
+
+.__BUTTON_GROUP__ { 
+
+  &, &.__VERTICAL__ {
+
+    position: relative;
+    display: inline-block;
+
+    & > .__BUTTON__ {
+
+      position: relative;
+      float: left;
+
+    }
+
+  }
+
+  // Prevent double borders when buttons are next to each other
+  & .__BUTTON__ + .__BUTTON__,
+  .__BUTTON__ + .__BUTTON_GROUP__,
+  .__BUTTON_GROUP__ + .__BUTTON__,
+  .__BUTTON_GROUP__ + .__BUTTON_GROUP__ {
+
+    margin-left: -1px;
+
+  }
+
+  & > .__BUTTON__:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+
+    border-radius: 0;
+
+  }
+
+  // Set corners individual because sometimes a single button can be in 
+  // a .__BUTTON_GROUP__ and we need :first-child and :last-child to both match.
+  & > .__BUTTON__:first-child {
+
+    margin-left: 0;
+
+    &:not(:last-child):not(.dropdown-toggle) {
+
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+    }
+
+  }
+
+  & > .__BUTTON__:last-child:not(:first-child) {
+
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+  }
+
+  & > .__BUTTON_GROUP__ {
+
+    float: left;
+
+  }
+
+  & > .__BUTTON_GROUP__:not(:first-child):not(:last-child) > .__BUTTON__ {
+
+    border-radius: 0;
+
+  }
+
+  & > .__BUTTON_GROUP__:first-child:not(:last-child) {
+    > .__BUTTON__:last-child {
+
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+    }
+
+  }
+
+  & > .__BUTTON_GROUP__:last-child:not(:first-child) > .__BUTTON__:first-child {
+
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+  }
+
+}
+

@@ -6,6 +6,8 @@ import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
 
 ///classNames:begin
 export const BUTTON_GROUP = 'ww-button-group';
+export const BUTTON_GROUP_BUTTON = 'ww-button-group__button';
+export const BUTTON_GROUP_COMPAT = 'ww-button-group-compat';
 ///classNames:end
 
 /**
@@ -33,8 +35,8 @@ export class ButtonGroup extends Component<WidgetAttrs<ButtonGroupAttrs>> {
 
             id: getId(this.attrs),
 
-          className: concat(BUTTON_GROUP, TOOLBAR_COMPAT, 
-            getClassName(this.attrs))
+            className: concat(BUTTON_GROUP, TOOLBAR_COMPAT,
+                getClassName(this.attrs))
 
         }
 
