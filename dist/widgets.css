@@ -474,30 +474,29 @@ textarea.ww-display-field {
   border: rgba(0, 0, 0, 0.15) solid 0px;
   border-radius: 4px;
   background-clip: padding-box;
-  background-color: #fff;
+  background-color: #f5f5f5;
   list-style-type: none;
 }
 .ww-stack:empty {
   border: none;
 }
-.ww-stack > li {
+.ww-stack > li.ww-stack__element {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   clear: both;
   padding: 0.5em 0.5em;
+  border: 1px solid #d2d3d6;
   margin-bottom: 0.5em;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+  box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.175);
 }
 .ww-stack > li .ww-stack__element__content {
   flex-grow: 2;
 }
-.ww-stack > li:hover {
+.ww-stack > li.-hoverable:hover {
   color: #fff;
   background-color: #31708f;
-}
-.ww-stack > li:not(:last-child) {
-  border-bottom: rgba(0, 0, 0, 0.15) 1px solid;
+  border-color: #31708f;
 }
 .ww-stack > li > .ww-stack__button {
   align-self: flex-end;
