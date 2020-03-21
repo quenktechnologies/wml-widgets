@@ -21,6 +21,7 @@
       ww:block={{@values.search.block}}
       ww:disabled={{@values.search.disabled}}
       ww:stringifier={{@values.stack.decorator}}
+      ww:placeholder={{@values.search.placeholder}}
       ww:onSearch={{@values.search.onSearch}}
       ww:onSelect={{@values.search.onSelect}} />
 
