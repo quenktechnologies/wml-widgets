@@ -64,7 +64,7 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.node('div', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('span', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
         __this.node('label', <__wml.Attrs>{}, [
 

@@ -2,7 +2,7 @@
 
 {% view Main (Checkbox) %}
 
-<div id={{@values.root.id}} class={{@values.root.className}}>
+<span id={{@values.root.id}} class={{@values.root.className}}>
 
   <label>
 
@@ -14,5 +14,4 @@
 
   </label>
 
-</div>
-
+</span>

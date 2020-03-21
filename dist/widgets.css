@@ -513,6 +513,9 @@ textarea.ww-display-field {
 .ww-tag-control .ww-tag-control__dismiss {
   float: right;
 }
+.ww-checkbox.-block {
+  display: block;
+}
 /*
   Button styling.
 */
