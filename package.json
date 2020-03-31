@@ -18,23 +18,23 @@
     "less": "~3.9.0"
   },
   "dependencies": {
-    "@quenk/noni": "^1.38.0",
+    "@quenk/noni": "^1.39.1",
     "moment": "^2.21.0"
   },
   "devDependencies": {
-    "@quenk/wml": "^2.6.0",
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.12.14",
-    "browserify": "^16.5.0",
+    "@quenk/wml": "^2.6.1",
+    "@types/mocha": "^7.0.2",
+    "@types/node": "^13.9.8",
+    "browserify": "^16.5.1",
     "docopt": "^0.6.2",
     "less": "~3.9.0",
     "less-plugin-js-vars": "^3.0.0",
     "less-plugin-npm-import": "^2.1.0",
-    "mocha": "^6.2.2",
+    "mocha": "^7.1.1",
     "must": "^0.13.4",
-    "typedoc": "^0.15.3",
+    "typedoc": "^0.17.3",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typescript": "^3.7.2",
+    "typescript": "^3.8.3",
     "web-console-reporter": "^1.0.0"
   },
   "author": "Quenk Technologies <info@quenk.com> (https://quenk.com)",
