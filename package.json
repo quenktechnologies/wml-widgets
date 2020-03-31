@@ -1,6 +1,6 @@
 {
   "name": "@quenk/wml-widgets",
-  "version": "1.27.11",
+  "version": "1.27.12",
   "description": "Various wml widgets for creating web apps.",
   "repository": {
     "type": "git",
