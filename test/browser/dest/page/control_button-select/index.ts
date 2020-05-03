@@ -14,7 +14,9 @@ export class ButtonSelectPage {
             { text: 'Gigabyte', value: 'Gigabyte' }
         ],
 
-        value: 'MSI'
+        value: 'MSI',
+
+        values: ['MSI']
 
     };
 

@@ -5,8 +5,6 @@ var __document = require("@quenk/wml/lib/dom");
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
-var style_1 = require("../../../../../../lib/content/style");
-;
 var button_select_1 = require("../../../../../../lib/control/button-select");
 ;
 //@ts-ignore:6192
@@ -46,7 +44,7 @@ var Main = /** @class */ (function () {
                         __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } }, []), { wml: { 'id': 'select' }, ww: { 'name': 'select', 'style': style_1.Style.Primary, 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } })
+                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, ww: { 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } }, []), { wml: { 'id': 'select' }, ww: { 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -58,7 +56,7 @@ var Main = /** @class */ (function () {
                         __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new button_select_1.MultiButtonSelect({ wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'style': style_1.Style.Warning, 'options': __context.values.options, 'onChange': __context.onChangeMulti } }, []), { wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'style': style_1.Style.Warning, 'options': __context.values.options, 'onChange': __context.onChangeMulti } })
+                        __this.widget(new button_select_1.MultiButtonSelect({ wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti } }, []), { wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti } })
                     ])
                 ]), {})
             ]), {});

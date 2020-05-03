@@ -1,16 +1,16 @@
 import { View } from '@quenk/wml';
-import { Style } from '../../content/style';
+import { WidgetAttrs } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
 export declare const BUTTON_SELECT = "ww-button-select";
 export declare const BUTTON_SELECT_OPTION = "ww-button-select__option";
 /**
  * Option provides the information for rendering button select options.
  */
-export interface Option<V> {
+export interface Option<T> {
     /**
      * value provided when the option's button has been clicked.
      */
-    value: V;
+    value: T;
     /**
      * text displayed for the button.
      */
@@ -23,19 +23,26 @@ export interface Option<V> {
 /**
  * ButtonSelectAttrs
  */
-export interface ButtonSelectAttrs<O, V> extends ControlAttrs<V> {
+export interface ButtonSelectAttrs<TOption, TValue> extends ControlAttrs<TValue> {
     /**
      * options to display
      */
-    options: Option<O>[];
-    /**
-     * style in style to use.
-     */
-    style?: Style;
+    options: Option<TOption>[];
     /**
      * onChange handler.
      */
-    onChange?: (e: ButtonChangedEvent<V>) => void;
+    onChange?: (e: ButtonChangedEvent<TValue>) => void;
+}
+/**
+ * @private
+ */
+export interface ButtonSelectWidget<TOption, TValue> {
+    attrs: WidgetAttrs<ButtonSelectAttrs<TOption, TValue>>;
+    values: {
+        id: string;
+        className: string;
+        button: ButtonSection<TOption, TValue>;
+    };
 }
 /**
  * ButtonChangedEvent
@@ -43,91 +50,49 @@ export interface ButtonSelectAttrs<O, V> extends ControlAttrs<V> {
 export declare class ButtonChangedEvent<V> extends Event<V> {
 }
 /**
- * ButtonSelectInterface
+ * @private
  */
-export interface ButtonSelectInterface<V> {
-    /**
-     * values available to the View's template.
-     */
-    values: {
-        /**
-         * root element values.
-         */
-        root: {
-            /**
-             * id of the root element
-             */
-            id: string;
-            /**
-             * className of the root element.
-             */
-            className: string;
-        };
-        /**
-         * buttons values.
-         */
-        buttons: {
-            /**
-             * options used to display the buttons
-             */
-            options: Option<V>[];
-            /**
-             * click is applied to the value of an option's value when
-             * it is clicked by the user.
-             */
-            click: (n: number) => void;
-            /**
-             * getClassNames for an options' button.
-             */
-            getClassNames: (n: number) => string;
-            /**
-             * getStyle
-             */
-            getStyle: () => Style;
-            /**
-             * getActive
-             */
-            getActive: (n: number) => boolean;
-        };
-    };
+export declare class ButtonSelectValues<TOption, TValue> {
+    ref: ButtonSelectWidget<TOption, TValue>;
+    button: ButtonSection<TOption, TValue>;
+    constructor(ref: ButtonSelectWidget<TOption, TValue>, button: ButtonSection<TOption, TValue>);
+    id: string;
+    className: string;
+}
+/**
+ * @private
+ */
+export declare class ButtonSection<TOption, TValue> {
+    ref: ButtonSelectWidget<TOption, TValue>;
+    onClick: (idx: number) => void;
+    constructor(ref: ButtonSelectWidget<TOption, TValue>, onClick: (idx: number) => void);
+    current: number;
+    selected: number[];
+    options: Option<TOption>[];
+    isActive: (n: number) => boolean;
+    getClassNames: (n: number) => string;
+}
+/**
+ * @private
+ */
+export declare class MultiButtonSection<V> extends ButtonSection<V, V[]> {
+    ref: MultiButtonSelect<V>;
+    onClick: (idx: number) => void;
+    constructor(ref: MultiButtonSelect<V>, onClick: (idx: number) => void);
+    selected: number[];
+    isActive: (n: number) => boolean;
 }
 /**
  * ButtonSelect
  */
 export declare class ButtonSelect<V> extends AbstractControl<V, ButtonSelectAttrs<V, V>> {
     view: View;
-    values: {
-        root: {
-            id: string;
-            className: string;
-        };
-        buttons: {
-            current: number;
-            options: Option<V>[];
-            click: (idx: number) => void;
-            getStyle: () => Style.Default | Style;
-            getActive: (n: number) => boolean;
-            getClassNames: (n: number) => string;
-        };
-    };
+    values: ButtonSelectValues<V, V>;
 }
 /**
  * MultiButtonSelect
  */
 export declare class MultiButtonSelect<V> extends AbstractControl<V[], ButtonSelectAttrs<V, V[]>> {
     view: View;
-    values: {
-        root: {
-            id: string;
-            className: string;
-        };
-        buttons: {
-            values: number[];
-            options: Option<V>[];
-            click: (n: number) => void;
-            getStyle: () => Style.Default | Style;
-            getActive: (n: number) => boolean;
-            getClassNames: (n: number) => string;
-        };
-    };
+    values: ButtonSelectValues<V, V[]>;
 }

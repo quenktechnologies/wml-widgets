@@ -1,5 +1,4 @@
 {% import (Demo) from "../../../widgets/demo" %}
-{% import (Style) from "../../../../../../lib/content/style" %}
 {% import (ButtonSelect,MultiButtonSelect) 
     from "../../../../../../lib/control/button-select" %}
 {% import (ButtonSelectPage) from "../" %}
@@ -16,7 +15,6 @@
         <ButtonSelect 
           wml:id="select"
           ww:name="select"
-          ww:style={{Style.Primary}}
           ww:options={{@values.options}}
           ww:value={{@values.value}}
           ww:onChange={{@onChange}} />
@@ -32,8 +30,8 @@
         <MultiButtonSelect 
           wml:id="multi"
           ww:name="multi"
-          ww:style={{Style.Warning}}
           ww:options={{@values.options}}
+          ww:value={{@values.values}}
           ww:onChange={{@onChangeMulti}} />
       </p>
 

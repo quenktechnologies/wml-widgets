@@ -8,7 +8,6 @@ fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
 import {Demo} from '../../../widgets/demo'; ;
-import {Style} from '../../../../../../lib/content/style'; ;
 import {ButtonSelect,MultiButtonSelect} from '../../../../../../lib/control/button-select'; ;
 import {ButtonSelectPage} from '../'; 
 
@@ -82,10 +81,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }}, [
+        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'style' : Style.Primary ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -101,10 +100,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new MultiButtonSelect({wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'style' : Style.Warning ,'options' : __context.values.options  ,'onChange' : __context.onChangeMulti  }}, [
+        __this.widget(new MultiButtonSelect({wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'options' : __context.values.options  ,'value' : __context.values.values  ,'onChange' : __context.onChangeMulti  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'style' : Style.Warning ,'options' : __context.values.options  ,'onChange' : __context.onChangeMulti  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'options' : __context.values.options  ,'value' : __context.values.values  ,'onChange' : __context.onChangeMulti  }})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

@@ -1,9 +1,21 @@
 import * as __wml from '@quenk/wml';
 import * as __document from '@quenk/wml/lib/dom';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-import { ButtonSelectInterface } from '../';
-export declare class Main<V> implements __wml.View {
-    constructor(__context: ButtonSelectInterface<V>);
+import { Option } from '../';
+export interface ButtonSelectIface<V> {
+    values: {
+        id: string;
+        className: string;
+        button: {
+            options: (Option<V>)[];
+            getClassNames: ($0: number) => string;
+            isActive: ($0: number) => boolean;
+            onClick: ($0: number) => void;
+        };
+    };
+}
+export declare class ButtonSelectView<V> implements __wml.View {
+    constructor(__context: ButtonSelectIface<V>);
     ids: {
         [key: string]: __wml.WMLElement;
     };

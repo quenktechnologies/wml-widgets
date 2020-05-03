@@ -9,7 +9,7 @@ fromArray as __fromArray
 from '@quenk/noni/lib/data/maybe';
 import {ButtonGroup} from '../../button-group'; ;
 import {Button} from '../../button'; ;
-import {ButtonSelectInterface,Option} from '../'; 
+import {Option} from '../'; 
 
 
 //@ts-ignore:6192
@@ -60,24 +60,34 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
-export class Main <V  >  implements __wml.View {
+export interface ButtonSelectIface<V  > {values : {
+id : string,
+className : string,
+button : {
+options : (Option<V  > )[],
+getClassNames : ($0:number) => string,
+isActive : ($0:number) => boolean,
+onClick : ($0:number) => void
+}
+} };
+export class ButtonSelectView <V  >  implements __wml.View {
 
-   constructor(__context: ButtonSelectInterface<V  > ) {
+   constructor(__context: ButtonSelectIface<V  > ) {
 
        this.template = (__this:__wml.Registry) => {
 
-           return __this.widget(new ButtonGroup({ww : { 'id' : __context.values.root .id  ,'className' : __context.values.root .className   }}, [
+           return __this.widget(new ButtonGroup({ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }}, [
 
-        ...__forIn (__context.values.buttons .options , (opt: Option<V  >  , idx , _$$all)=> 
+        ...__forIn (__context.values.button .options , (opt: Option<V  >  , idx , _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'className' : __context.values.buttons .getClassNames (idx) ,'active' : __context.values.buttons .getActive (idx) ,'style' : __context.values.buttons .getStyle () ,'onClick' : () => __context.values.buttons .click (idx) ,'text' : opt.text  }}, [
+        __this.widget(new Button({ww : { 'className' : __context.values.button .getClassNames (idx) ,'active' : __context.values.button .isActive (idx) ,'onClick' : () => __context.values.button .onClick (idx) ,'text' : opt.text  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.buttons .getClassNames (idx) ,'active' : __context.values.buttons .getActive (idx) ,'style' : __context.values.buttons .getStyle () ,'onClick' : () => __context.values.buttons .click (idx) ,'text' : opt.text  }})
+     ]),<__wml.Attrs>{ww : { 'className' : __context.values.button .getClassNames (idx) ,'active' : __context.values.button .isActive (idx) ,'onClick' : () => __context.values.button .onClick (idx) ,'text' : opt.text  }})
      ]), 
 ()=> ([]))
-     ]),<__wml.Attrs>{ww : { 'id' : __context.values.root .id  ,'className' : __context.values.root .className   }});
+     ]),<__wml.Attrs>{ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }});
 
        }
 

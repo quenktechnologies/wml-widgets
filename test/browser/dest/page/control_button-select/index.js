@@ -11,7 +11,8 @@ var ButtonSelectPage = /** @class */ (function () {
                 { text: 'MSI', value: 'MSI' },
                 { text: 'Gigabyte', value: 'Gigabyte' }
             ],
-            value: 'MSI'
+            value: 'MSI',
+            values: ['MSI']
         };
         this.onChange = function (_a) {
             var value = _a.value, name = _a.name;
