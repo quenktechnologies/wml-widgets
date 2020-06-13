@@ -125,7 +125,7 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             wml: {
 
-                id: 'control'
+                id: 'root'
 
             },
 
