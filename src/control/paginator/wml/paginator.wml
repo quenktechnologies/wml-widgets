@@ -1,5 +1,4 @@
 {% import (TextInput) from "../../text-input" %}
-{% import (text) from "../../../" %}
 {% import (PositionViewContext, Paginator) from "../" %}
 
 {% view PositionView (PositionViewContext) %}

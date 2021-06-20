@@ -1,5 +1,4 @@
 {% import (Close) from "../../../content/close" %}
-{% import (text) from "../../../" %}
 {% import (Alert) from "../" %}
 
 {% view Main (Alert) %}

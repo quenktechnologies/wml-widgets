@@ -1,5 +1,4 @@
 {% import * as t from "../../../content/tag" %}
-{% import (text) from "../../../" %}
 {% import (Close) from "../../../content/close" %}
 {% import (Tag) from "../" %}
 

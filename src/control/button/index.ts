@@ -1,4 +1,5 @@
 import * as views from './wml/button';
+import { text } from '@quenk/wml/lib/dom';
 import { View } from '@quenk/wml';
 import { TOOLBAR_COMPAT } from '../toolbar';
 import { ACTIVE } from '../../content/state/active';
@@ -6,7 +7,7 @@ import { BLOCK } from '../../content/orientation';
 import { DEFAULT, OUTLINE, Style, getStyleClassName } from '../../content/style';
 import { Size, getSizeClassName } from '../../content/size';
 import { concat, getById } from '../../util';
-import { getClassName, getId, text } from '../../';
+import { getClassName, getId } from '../../';
 import { ControlAttrs, AbstractControl, Event as ControlEvent } from '../';
 
 export { Style }

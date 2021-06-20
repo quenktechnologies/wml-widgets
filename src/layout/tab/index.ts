@@ -1,8 +1,9 @@
 import * as views from './wml/tab';
 import { Fun, Content, Component } from '@quenk/wml';
+import { text} from '@quenk/wml/lib/dom';
 import { fromNullable } from '@quenk/noni/lib/data/maybe';
 import { concat } from '../../util';
-import { WidgetAttrs, text, getId, getClassName } from '../../';
+import { WidgetAttrs,  getId, getClassName } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
 import { LAYOUT, LayoutAttrs, Layout } from '../';
 

@@ -1,4 +1,3 @@
-{% import (text) from "../../../" %}
 {% import (Link) from "../../../content/link" %}
 {% import (Menu) from "../../../menu/menu" %}
 {% import (Item) from "../../../menu/item" %}

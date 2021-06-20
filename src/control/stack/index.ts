@@ -1,7 +1,8 @@
 import * as views from './wml/stack';
 import { Fun } from '@quenk/wml';
+import { text } from '@quenk/wml/lib/dom';
 import { concat } from '../../util';
-import { text, getId, getClassName } from '../../';
+import {  getId, getClassName } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
 
 ///classNames:begin

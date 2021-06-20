@@ -1,9 +1,10 @@
 import * as hidden from '../../content/state/hidden';
 import * as headerViews from './wml/header';
 import { View, Component, Content } from '@quenk/wml';
+import { text } from '@quenk/wml/lib/dom';
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
-import { WidgetAttrs, HTMLElementAttrs, text, getId, getClassName } from '../../';
+import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
 import { Main } from './wml/menu';
 
 ///classNames:begin
