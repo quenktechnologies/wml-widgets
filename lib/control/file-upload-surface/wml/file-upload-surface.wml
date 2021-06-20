@@ -1,4 +1,3 @@
-{% import (text) from "../../../" %}
 {% import (FileInput) from "../../file-input" %}
 {% import (FileUploadSurface) from "../" %}
 

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DisplayFieldPage = void 0;
 var views = require("./wml/display-field");
 var style_1 = require("../../../../../lib/content/style");
 var getStyles = function () { return [

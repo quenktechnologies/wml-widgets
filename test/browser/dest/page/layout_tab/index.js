@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TabLayoutPage = void 0;
 var views = require("./wml/tab");
 var TabLayoutPage = /** @class */ (function () {
     function TabLayoutPage() {

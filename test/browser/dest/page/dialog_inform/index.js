@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InformPage = void 0;
 var views = require("./wml/inform");
 var InformPage = /** @class */ (function () {
     function InformPage() {

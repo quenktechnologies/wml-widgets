@@ -71,7 +71,7 @@ export declare class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
             name: string | null;
             href: string;
             active: boolean;
-            content: import("@quenk/wml").Content[];
+            content: wml.Content[];
             clicked: (e: Event) => void;
         };
     };

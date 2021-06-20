@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SelectPage = void 0;
 var views = require("./wml/select");
 var results_1 = require("../../fixtures/data/results");
 var SelectPage = /** @class */ (function () {

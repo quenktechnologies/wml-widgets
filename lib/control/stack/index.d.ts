@@ -55,8 +55,8 @@ export declare class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
             content: {
                 className: string;
             };
-            close: (index: string | number) => () => void;
-            decorator: (v: V) => Text;
+            close: (index: number | string) => () => void;
+            decorator: (v: V) => Node;
         };
         close: {
             className: string;

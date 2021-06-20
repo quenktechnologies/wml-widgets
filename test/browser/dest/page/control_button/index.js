@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ButtonPage = void 0;
 var views = require("./wml/button");
 var style_1 = require("../../../../../lib/content/style");
 var size_1 = require("../../../../../lib/content/size");

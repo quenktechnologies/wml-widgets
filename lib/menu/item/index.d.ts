@@ -51,7 +51,7 @@ export declare class Item extends wml.Component<WidgetAttrs<ItemAttrs>> implemen
             id: string;
             className: string;
             content: {
-                render: () => import("@quenk/wml").Content[];
+                render: () => wml.Content[];
             };
         };
     };

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CalloutPage = void 0;
 var views = require("./wml/callout");
 var style_1 = require("../../../../../lib/content/style");
 var CalloutPage = /** @class */ (function () {

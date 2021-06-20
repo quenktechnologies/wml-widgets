@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.onChange = exports.DateFieldPage = void 0;
 var views = require("./wml/date-field");
 var date_field_1 = require("../../../../../lib/control/date-field");
 var util_1 = require("../../../../../lib/util");

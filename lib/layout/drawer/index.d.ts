@@ -81,11 +81,11 @@ export declare class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttr
                 id: string;
             };
             hidden: boolean;
-            content: import("@quenk/wml").Content[];
+            content: Content[];
         };
         content: {
             id: string;
-            value: import("@quenk/wml").Content[];
+            value: Content[];
         };
     };
     isHidden(): boolean;

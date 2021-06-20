@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MediaDescriptionPage = void 0;
 var views = require("./wml/media-description");
 var MediaDescriptionPage = /** @class */ (function () {
     function MediaDescriptionPage() {

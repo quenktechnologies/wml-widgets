@@ -3,7 +3,7 @@
  */
 /** imports */
 import { WidgetAttrs } from '../';
-import { FeedbackControlAttrs, FeedbackControl, AbstractFeedbackControl } from './feedback';
+import { FeedbackControlAttrs, FeedbackControl, AbstractFeedbackControl, Message } from './feedback';
 import { View } from '@quenk/wml';
 /**
  * FormControlAtrrs
@@ -34,7 +34,7 @@ export declare const getLabel: <V>(attrs: WidgetAttrs<FormControlAttrs<V>>) => s
  *
  * Sets the message on the Help widget.
  */
-export declare const setMessage: (view: View, id: string, msg: string) => void;
+export declare const setMessage: (view: View, id: string, msg: Message) => void;
 /**
  * removeMessage helper.
  *

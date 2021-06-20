@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Main = void 0;
 var __document = require("@quenk/wml/lib/dom");
 //@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var demo_1 = require("../../../widgets/demo");
 ;
 var paginator_1 = require("../../../../../../lib/control/paginator");
-;
-var lib_1 = require("../../../../../../lib");
 ;
 //@ts-ignore:6192
 var __if = function (__expr, __conseq, __alt) {
@@ -28,6 +27,10 @@ var __forOf = function (o, f, alt) {
             ret = ret.concat(f((o)[key], key, o));
     return ret.length === 0 ? alt() : ret;
 };
+// @ts-ignore 6192
+var text = __document.text;
+// @ts-ignore 6192
+var isSet = function (value) { return value != null; };
 var Main = /** @class */ (function () {
     function Main(__context) {
         this.ids = {};
@@ -39,7 +42,7 @@ var Main = /** @class */ (function () {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new paginator_1.Paginator({ ww: { 'total': __context.values.total, 'current': __context.values.current, 'onChange': __context.values.onChange } }, []), { ww: { 'total': __context.values.total, 'current': __context.values.current, 'onChange': __context.values.onChange } }),
                 __this.node('p', {}, [
-                    lib_1.text(__context.values.message)
+                    text(__context.values.message)
                 ])
             ]), {});
         };

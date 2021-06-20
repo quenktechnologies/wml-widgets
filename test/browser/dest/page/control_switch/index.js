@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SwitchPage = void 0;
 var views = require("./wml/switch");
 var SwitchPage = /** @class */ (function () {
     function SwitchPage() {

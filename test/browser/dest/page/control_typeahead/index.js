@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TypeaheadPage = void 0;
 var views = require("./wml/typeahead");
 var results = [
     { label: 'Asus', value: 'Asus' },

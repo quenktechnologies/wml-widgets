@@ -1,5 +1,4 @@
 {% import (Inform) from "../../../../../../lib/dialog/inform" %}
-{% import (text) from "../../../../../../lib" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (InformPage) from "../" %}
 

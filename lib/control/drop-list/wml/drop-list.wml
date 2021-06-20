@@ -1,7 +1,6 @@
 {% import (Caret) from "../../../content/caret" %}
 {% import (ResultsMenu) from "../../results-menu" %}
 {% import (DisplayField) from "../../display-field" %}
-{% import (text) from "../../../" %}
 {% import (DropList) from "../" %}
 
 {% view Main [V](DropList[V]) %}

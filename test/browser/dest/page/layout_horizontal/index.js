@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.HorizontalLayoutPage = void 0;
 var views = require("./wml/horizontal");
 var HorizontalLayoutPage = /** @class */ (function () {
     function HorizontalLayoutPage() {

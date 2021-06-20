@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.App = void 0;
 var record_1 = require("@quenk/noni/lib/data/record");
 var util_1 = require("../../../lib/util");
 var app_1 = require("./wml/app");

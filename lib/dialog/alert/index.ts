@@ -1,7 +1,8 @@
+import {text} from '@quenk/wml/lib/dom';
 import { View, Component } from '@quenk/wml';
 import { DEFAULT, Style, getStyleClassName } from '../../content/style';
 import { concat, getById } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getClassName, getId, text } from '../../';
+import { HTMLElementAttrs, WidgetAttrs, getClassName, getId  } from '../../';
 import { Main } from './wml/alert';
 
 export { Style }

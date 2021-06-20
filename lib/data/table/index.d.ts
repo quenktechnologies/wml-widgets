@@ -1,4 +1,4 @@
-import { View, Component } from '@quenk/wml';
+import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 import { Updatable } from '../updatable';
@@ -110,7 +110,7 @@ export declare class NewHeadContext<C, R extends Record<C>> {
     className: string;
     columns: Column<C, R>[];
     data: R[];
-    heading: (c: Column<C, R>, i: number) => import("@quenk/wml").Content;
+    heading: (c: Column<C, R>, i: number) => Content;
 }
 /**
  * NewHeadingContext
@@ -133,7 +133,7 @@ export declare class NewBodyContext<C, R extends Record<C>> {
     className: string;
     columns: Column<C, R>[];
     data: R[];
-    cell: (c: Column<C, R>, id: number, row: number) => import("@quenk/wml").Content;
+    cell: (c: Column<C, R>, id: number, row: number) => Content;
 }
 /**
  * NewCellContext
@@ -169,11 +169,11 @@ export declare class DataTable<C, R extends Record<C>> extends Component<WidgetA
         name: string;
         sortable: boolean;
         sortKey: SortKey;
-        sort: (col: number) => void;
+        sort: (col: ColumnId) => void;
         dataset: Dataset<R>;
         columns: Column<C, R>[];
-        thead: () => import("@quenk/wml").Content;
-        tbody: () => import("@quenk/wml").Content;
+        thead: () => Content;
+        tbody: () => Content;
     };
     /**
      * @private

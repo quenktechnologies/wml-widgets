@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TextInputPage = void 0;
 var views = require("./wml/text-input");
 var size_1 = require("../../../../../lib/content/size");
 var TextInputPage = /** @class */ (function () {

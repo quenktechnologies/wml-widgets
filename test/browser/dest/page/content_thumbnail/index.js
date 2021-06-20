@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ThumbnailPage = void 0;
 var views = require("./wml/thumbnail");
 var ThumbnailPage = /** @class */ (function () {
     function ThumbnailPage() {

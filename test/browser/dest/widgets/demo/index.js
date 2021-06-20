@@ -13,6 +13,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Demo = void 0;
 var wml = require("@quenk/wml");
 var views = require("./wml/demo");
 var Demo = /** @class */ (function (_super) {

@@ -1,5 +1,4 @@
 {% import (Confirm) from "../../../../../../lib/dialog/confirm" %}
-{% import (text) from "../../../../../../lib" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (ConfirmPage) from "../" %}
 

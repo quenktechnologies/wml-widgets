@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.SearchPage = void 0;
 var views = require("./wml/search");
 var results_1 = require("../../fixtures/data/results");
 var SearchPage = /** @class */ (function () {

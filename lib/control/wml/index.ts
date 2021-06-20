@@ -7,8 +7,7 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {Message} from './message'; ;
-import {text} from '../../'; 
+import {Message} from './message'; 
 
 
 //@ts-ignore:6192
@@ -59,6 +58,10 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
+// @ts-ignore 6192
+const text = __document.text;
+// @ts-ignore 6192
+const isSet = (value:any) => value != null
 export const label = 
 
 (id: string ,t: string )=>(__this:__wml.Registry) : __wml.Content[] => {

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DropDownPage = void 0;
 var views = require("./wml/drop-down");
 var DropDownPage = /** @class */ (function () {
     function DropDownPage() {

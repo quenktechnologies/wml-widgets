@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.results = void 0;
 exports.results = [
     { label: 'Asus', value: 'Asus' },
     { label: 'MSI', value: 'MSI' },

@@ -44,5 +44,5 @@ export declare const BOTTOM = "-bottom";
  * value is set to true.
  */
 export declare const getBlockClassName: (attrs: WidgetAttrs<{
-    block?: boolean | undefined;
+    block?: boolean;
 }>) => "-block" | "";

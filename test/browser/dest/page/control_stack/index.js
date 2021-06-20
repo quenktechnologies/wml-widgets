@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.StackPage = void 0;
 var views = require("./wml/stack");
 var _getValues = function () { return [
     { label: 'Asus', value: 'Asus' },

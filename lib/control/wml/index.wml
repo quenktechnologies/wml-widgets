@@ -1,5 +1,4 @@
 {% import (Message) from "./message" %}
-{% import (text) from "../../" %}
 
 {% fun label (id:String, t:String) %}
 

@@ -35,7 +35,3 @@ export declare const getId: (attrs: WidgetAttrs<HTMLElementAttrs>) => string;
  * getClassName from a widget's passed attributes.
  */
 export declare const getClassName: (attrs: WidgetAttrs<HTMLElementAttrs>) => string;
-/**
- * text constructor.
- */
-export declare const text: (str: any) => Text;

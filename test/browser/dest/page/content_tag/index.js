@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TagPage = void 0;
 var views = require("./wml/tag");
 var style_1 = require("../../../../../lib/content/style");
 var TagPage = /** @class */ (function () {

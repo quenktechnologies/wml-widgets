@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.EmbedPage = void 0;
 var views = require("./wml/embed");
 var EmbedPage = /** @class */ (function () {
     function EmbedPage() {

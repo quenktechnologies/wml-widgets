@@ -58,6 +58,10 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
+// @ts-ignore 6192
+const text = __document.text;
+// @ts-ignore 6192
+const isSet = (value:any) => value != null
 export const content = 
 
 <V  > (s: Stack<V  >  ,v: V ,_: number )=>(__this:__wml.Registry) : __wml.Content[] => {
@@ -122,7 +126,7 @@ export class Main <V  >  implements __wml.View {
        return v;
 
 }
-   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
+   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) : __wml.WMLElement {
 
        let attrsMap = (<__wml.Attrs><any>attrs)
 
@@ -150,7 +154,7 @@ export class Main <V  >  implements __wml.View {
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
        let e = __document.createElement(tag);
 
@@ -200,7 +204,7 @@ export class Main <V  >  implements __wml.View {
    }
 
 
-   widget(w: __wml.Widget, attrs:__wml.Attrs) {
+   widget(w: __wml.Widget, attrs:__wml.Attrs) : __wml.Content {
 
        this.register(w, attrs);
 

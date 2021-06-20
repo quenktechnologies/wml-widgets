@@ -1,6 +1,5 @@
 {% import (Button) from "../../../control/button" %}
 {% import (CloseButton) from "../../../control/close-button" %}
-{% import (text) from "../../../" %}
 {% import (Modal,ModalHeader,ModalBody,ModalFooter) from "../../modal" %}
 {% import (Prompt) from "../" %}
 

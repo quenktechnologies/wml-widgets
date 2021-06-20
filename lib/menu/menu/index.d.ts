@@ -35,7 +35,7 @@ export declare class HeaderItem extends Component<WidgetAttrs<HeaderAttrs>> {
     values: {
         root: {
             className: string;
-            content: import("@quenk/wml").Content[];
+            content: Content[];
         };
     };
 }
@@ -56,7 +56,7 @@ export declare class Menu extends Component<WidgetAttrs<MenuAttrs>> implements h
         menu: {
             id: string;
         };
-        content: () => import("@quenk/wml").Content[];
+        content: () => Content[];
     };
     isHidden(): boolean;
     hide(): Menu;

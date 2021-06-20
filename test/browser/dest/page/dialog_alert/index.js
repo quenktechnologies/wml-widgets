@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.AlertPage = void 0;
 var views = require("./wml/alert");
 var style_1 = require("../../../../../lib/content/style");
 var AlertPage = /** @class */ (function () {

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PaginatorPage = void 0;
 var views = require("./wml/paginator");
 var scenes = [
     'Page 1',

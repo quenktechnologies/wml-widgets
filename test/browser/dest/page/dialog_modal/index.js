@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ModalPage = void 0;
 var views = require("./wml/modal");
 var ModalPage = /** @class */ (function () {
     function ModalPage() {

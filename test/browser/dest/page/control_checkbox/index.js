@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.CheckboxPage = void 0;
 var views = require("./wml/checkbox");
 var CheckboxPage = /** @class */ (function () {
     function CheckboxPage() {

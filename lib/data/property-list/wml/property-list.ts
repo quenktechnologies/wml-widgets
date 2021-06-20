@@ -8,7 +8,6 @@ fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
 import {Record} from '@quenk/noni/lib/data/record'; ;
-import {text} from '../../../'; ;
 import {DescriptionList,Title,Data} from '../../../layout/description-list'; ;
 import {DataContext,PropertyList} from '../'; 
 
@@ -61,6 +60,10 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 }
 
 
+// @ts-ignore 6192
+const text = __document.text;
+// @ts-ignore 6192
+const isSet = (value:any) => value != null
 export class NothingView  implements __wml.View {
 
    constructor(__context: object) {
@@ -95,7 +98,7 @@ export class NothingView  implements __wml.View {
        return v;
 
 }
-   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
+   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) : __wml.WMLElement {
 
        let attrsMap = (<__wml.Attrs><any>attrs)
 
@@ -123,7 +126,7 @@ export class NothingView  implements __wml.View {
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
        let e = __document.createElement(tag);
 
@@ -173,7 +176,7 @@ export class NothingView  implements __wml.View {
    }
 
 
-   widget(w: __wml.Widget, attrs:__wml.Attrs) {
+   widget(w: __wml.Widget, attrs:__wml.Attrs) : __wml.Content {
 
        this.register(w, attrs);
 
@@ -272,7 +275,7 @@ export class DataView <D  ,R extends Record<D  >  >  implements __wml.View {
        return v;
 
 }
-   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
+   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) : __wml.WMLElement {
 
        let attrsMap = (<__wml.Attrs><any>attrs)
 
@@ -300,7 +303,7 @@ export class DataView <D  ,R extends Record<D  >  >  implements __wml.View {
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
        let e = __document.createElement(tag);
 
@@ -350,7 +353,7 @@ export class DataView <D  ,R extends Record<D  >  >  implements __wml.View {
    }
 
 
-   widget(w: __wml.Widget, attrs:__wml.Attrs) {
+   widget(w: __wml.Widget, attrs:__wml.Attrs) : __wml.Content {
 
        this.register(w, attrs);
 
@@ -458,7 +461,7 @@ __context.values.data .get (field)
        return v;
 
 }
-   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) {
+   register(e:__wml.WMLElement, attrs:__wml.Attributes<any>) : __wml.WMLElement {
 
        let attrsMap = (<__wml.Attrs><any>attrs)
 
@@ -486,7 +489,7 @@ __context.values.data .get (field)
        return e;
 }
 
-   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]) {
+   node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
        let e = __document.createElement(tag);
 
@@ -536,7 +539,7 @@ __context.values.data .get (field)
    }
 
 
-   widget(w: __wml.Widget, attrs:__wml.Attrs) {
+   widget(w: __wml.Widget, attrs:__wml.Attrs) : __wml.Content {
 
        this.register(w, attrs);
 

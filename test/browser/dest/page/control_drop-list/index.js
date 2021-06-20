@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DropListPage = void 0;
 var views = require("./wml/drop-list");
 var results_1 = require("../../fixtures/data/results");
 var options = results_1.results;

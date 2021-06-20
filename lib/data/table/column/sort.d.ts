@@ -46,4 +46,4 @@ export declare class SortRequest<R> {
  *
  * Data is only sorted by one column at a time.
  */
-export declare const sortById: <C, R extends Record<C>>(cols: Column<C, R>[], key: SortKey, data: Dataset<R>, id: number) => [R[], SortKey];
+export declare const sortById: <C, R extends Record<C>>(cols: Column<C, R>[], key: SortKey, data: Dataset<R>, id: ColumnId) => [R[], SortKey];

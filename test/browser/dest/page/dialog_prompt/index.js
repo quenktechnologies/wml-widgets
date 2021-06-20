@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.PromptPage = void 0;
 var views = require("./wml/prompt");
 var PromptPage = /** @class */ (function () {
     function PromptPage() {

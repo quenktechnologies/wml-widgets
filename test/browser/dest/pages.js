@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.pages = void 0;
 exports.pages = {
     'content_embed': require('./page/content_embed').default,
     'content_media-description': require('./page/content_media-description').default,

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DataTablePage = void 0;
 var table_1 = require("./wml/table");
 var data_1 = require("./data");
 var util_1 = require("../../../../../lib/util");

@@ -1,5 +1,4 @@
 {% import (DataContext, PropertyList) from "../../../../../../lib/data/property-list" %}
-{% import (text) from "../../../../../../lib" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (PropertyListPage, Data) from "../" %}
 

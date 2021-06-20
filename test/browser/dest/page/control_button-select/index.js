@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ButtonSelectPage = void 0;
 var views = require("./wml/button-select");
 var ButtonSelectPage = /** @class */ (function () {
     function ButtonSelectPage() {

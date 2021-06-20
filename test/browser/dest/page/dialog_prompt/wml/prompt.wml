@@ -1,6 +1,5 @@
 {% import (TextField) from "../../../../../../lib/control/text-field" %}
 {% import (Prompt) from "../../../../../../lib/dialog/prompt" %}
-{% import (text) from "../../../../../../lib" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (PromptPage) from "../" %}
 

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OverlayPage = void 0;
 var views = require("./wml/overlay");
 var OverlayPage = /** @class */ (function () {
     function OverlayPage() {

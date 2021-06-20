@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TextFieldPage = void 0;
 var views = require("./wml/text-field");
 var feedback_1 = require("../../../../../lib/control/feedback");
 var TextFieldPage = /** @class */ (function () {

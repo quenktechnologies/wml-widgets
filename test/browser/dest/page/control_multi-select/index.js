@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MultiSelectPage = void 0;
 var views = require("./wml/multi-select");
 var results_1 = require("../../fixtures/data/results");
 var MultiSelectPage = /** @class */ (function () {

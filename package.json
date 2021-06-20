@@ -22,9 +22,9 @@
     "moment": "^2.29.1"
   },
   "devDependencies": {
-    "@quenk/wml": "^2.6.2",
+    "@quenk/wml": "^2.9.0",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^14.14.10",
+    "@types/node": "^14.17.3",
     "browserify": "^16.5.2",
     "docopt": "^0.6.2",
     "less": "~3.9.0",
@@ -34,7 +34,7 @@
     "must": "^0.13.4",
     "typedoc": "^0.17.8",
     "typedoc-plugin-external-module-name": "^4.0.3",
-    "typescript": "^3.9.7",
+    "typescript": "^3.9.10",
     "web-console-reporter": "^1.0.0"
   },
   "author": "Quenk Technologies <info@quenk.com> (https://quenk.com)",

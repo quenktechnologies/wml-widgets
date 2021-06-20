@@ -1,4 +1,5 @@
 import * as views from './wml/tab-bar';
+import {text} from '@quenk/wml/lib/dom';
 import { View, Component } from '@quenk/wml';
 import { ACTIVE } from '../../content/state/active';
 import {JUSTIFIED} from '../../content/orientation';
@@ -6,7 +7,6 @@ import { concat, getById } from '../../util';
 import {
     WidgetAttrs,
     HTMLElementAttrs,
-    text,
     getId,
     getClassName
 } from '../../';

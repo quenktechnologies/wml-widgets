@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Main = exports.BoldDataView = void 0;
 var __document = require("@quenk/wml/lib/dom");
 //@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
 var property_list_1 = require("../../../../../../lib/data/property-list");
-;
-var lib_1 = require("../../../../../../lib");
 ;
 var demo_1 = require("../../../widgets/demo");
 ;
@@ -28,6 +27,10 @@ var __forOf = function (o, f, alt) {
             ret = ret.concat(f((o)[key], key, o));
     return ret.length === 0 ? alt() : ret;
 };
+// @ts-ignore 6192
+var text = __document.text;
+// @ts-ignore 6192
+var isSet = function (value) { return value != null; };
 var BoldDataView = /** @class */ (function () {
     function BoldDataView(__context) {
         this.ids = {};
@@ -37,7 +40,7 @@ var BoldDataView = /** @class */ (function () {
         this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.node('b', {}, [
-                lib_1.text(__context.data)
+                text(__context.data)
             ]);
         };
     }

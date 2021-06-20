@@ -1,6 +1,5 @@
 {% import (Button) from "../../button" %}
 {% import (Caret) from "../../../content/caret" %}
-{% import (text) from "../../../" %}
 {% import (DropDown) from "../" %}
 
 {% fun button (d:DropDown) %}

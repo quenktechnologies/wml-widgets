@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GridLayoutPage = void 0;
 var views = require("./wml/grid");
 var GridLayoutPage = /** @class */ (function () {
     function GridLayoutPage() {

@@ -3,7 +3,6 @@
 {% import (Tag) from "../../tag" %}
 {% import (Input) from "../../search" %}
 {% import (ResultsMenu) from "../../results-menu" %}
-{% import (text) from "../../../" %}
 {% import (MultiSelect) from "../" %}
 
 {% view Main [V](MultiSelect[V]) %}

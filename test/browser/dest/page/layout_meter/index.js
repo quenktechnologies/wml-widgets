@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MeterPage = void 0;
 var views = require("./wml/meter");
 var MeterPage = /** @class */ (function () {
     function MeterPage() {

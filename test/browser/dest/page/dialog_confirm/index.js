@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ConfirmPage = void 0;
 var views = require("./wml/confirm");
 var ConfirmPage = /** @class */ (function () {
     function ConfirmPage() {
