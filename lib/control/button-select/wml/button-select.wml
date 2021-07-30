@@ -2,7 +2,7 @@
 {% import (Button) from "../../button" %}
 {% import (Option) from "../" %}
 
-{% contract ButtonSelectIface[V] = 
+{% context ButtonSelectIface[V] where
 
   values.id: String,
 

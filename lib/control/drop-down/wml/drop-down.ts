@@ -63,6 +63,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export const button = 
 
@@ -87,12 +89,14 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.root .wml .id   },'class': __context.values.root .className }, [
 
-        ... (__context.values.button .template () (__context)(__this)),
+        ...(__context.values.button .template () (__context)(__this)),
 __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content .wml .id   },'class': __context.values.content .className }, [
 
-        ... (__context.values.content .render ())
+        ...(__context.values.content .render ())
      ])
      ]);
 
@@ -168,6 +172,11 @@ __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content .wml .i
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

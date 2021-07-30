@@ -61,6 +61,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class TabBar  implements __wml.View {
 
@@ -68,9 +70,11 @@ export class TabBar  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('ul', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -145,6 +149,11 @@ export class TabBar  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -245,11 +254,13 @@ export class Tab  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.root .wml .id   },'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
         __this.node('a', <__wml.Attrs>{wml : { 'id' : __context.values.a .wml .id   },'href': '#','onclick': __context.values.a .clicked }, [
 
-        ... (__context.values.a .content )
+        ...(__context.values.a .content )
      ])
      ]);
 
@@ -325,6 +336,11 @@ export class Tab  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

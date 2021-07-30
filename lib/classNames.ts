@@ -81,6 +81,11 @@ export const DISPLAY_FIELD = 'ww-display-field';
 export const DISPLAY_FIELD_CONTENT = 'ww-display-field__content';
 ///classNames:end
 ///classNames:begin
+export const INPUT_GROUP = 'ww-input-group';
+export const INPUT_GROUP_ADDON = 'ww-input-group__addon';
+export const INPUT_GROUP_BUTTON_ADDON = 'ww-input-group__button-addon';
+///classNames:end
+///classNames:begin
 export const SELECT = 'ww-select';
 ///classNames:end
 ///classNames:begin

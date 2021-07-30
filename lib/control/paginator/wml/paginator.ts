@@ -62,12 +62,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class PositionView  implements __wml.View {
 
    constructor(__context: PositionViewContext) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.node('li', <__wml.Attrs>{'class': __context.className}, [
 
@@ -155,6 +159,11 @@ text (__context.total)
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -255,80 +264,82 @@ export class PaginatorView  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('ul', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
         __this.node('li', <__wml.Attrs>{'class': __context.values.first .className }, [
 
-        ...(__if(__context.values.first .isDisabled (),
-   ()=> ([
+        ...((__context.values.first .isDisabled ()) ?
+(()=>([
 
         __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.first .onclick }, [
 
         
      ])
-     ]))) 
+     ]))())
      ]),
 __this.node('li', <__wml.Attrs>{'class': __context.values.previous .className }, [
 
-        ...(__if(__context.values.previous .isDisabled (),
-   ()=> ([
+        ...((__context.values.previous .isDisabled ()) ?
+(()=>([
 
         __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.previous .onclick }, [
 
         
      ])
-     ]))) 
+     ]))())
      ]),
 __context.values.position .view (),
 __this.node('li', <__wml.Attrs>{'class': __context.values.next .className }, [
 
-        ...(__if(__context.values.next .isDisabled (),
-   ()=> ([
+        ...((__context.values.next .isDisabled ()) ?
+(()=>([
 
         __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.next .onclick }, [
 
         
      ])
-     ]))) 
+     ]))())
      ]),
 __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
 
-        ...(__if(__context.values.last .isDisabled (),
-   ()=> ([
+        ...((__context.values.last .isDisabled ()) ?
+(()=>([
 
         __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
 
         
      ])
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.last .onclick }, [
 
         
      ])
-     ]))) 
+     ]))())
      ])
      ]);
 
@@ -404,6 +415,11 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

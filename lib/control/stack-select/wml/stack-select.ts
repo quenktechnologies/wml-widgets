@@ -65,6 +65,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class Main <V  >  implements __wml.View {
 
@@ -72,10 +74,12 @@ export class Main <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
-        ...(__if((__context.values.root .dir  === -1),
-   ()=> ([
+        ...(((__context.values.root .dir  === -1)) ?
+(()=>([
 
         __this.widget(new Label({ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   }}, [
 
@@ -93,8 +97,8 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
 
         
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages .wml .id   },ww : { 'text' : __context.values.messages .text   }})
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         __this.widget(new Label({ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   }}, [
 
@@ -112,7 +116,7 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
 
         
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages .wml .id   },ww : { 'text' : __context.values.messages .text   }})
-     ]))) 
+     ]))())
      ]);
 
        }
@@ -187,6 +191,11 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

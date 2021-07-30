@@ -61,6 +61,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class ButtonView <V  >  implements __wml.View {
 
@@ -68,9 +70,11 @@ export class ButtonView <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('button', <__wml.Attrs>{wml : { 'id' : __context.values.button .wml .id   },'id': __context.values.button .id ,'type': __context.values.button .type ,'name': __context.values.button .name ,'disabled': __context.values.button .disabled ,'class': __context.values.button .className ,'onclick': __context.values.button .onclick }, [
 
-        ... (__context.values.button .content ())
+        ...(__context.values.button .content ())
      ]);
 
        }
@@ -145,6 +149,11 @@ export class ButtonView <V  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -245,9 +254,11 @@ export class AnchorView <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('a', <__wml.Attrs>{wml : { 'id' : __context.values.button .wml .id   },'id': __context.values.button .id ,'type': __context.values.button .type ,'href': '#','name': __context.values.button .name ,'disabled': __context.values.button .disabled ,'class': __context.values.button .className ,'onclick': __context.values.button .onclick }, [
 
-        ... (__context.values.button .content ())
+        ...(__context.values.button .content ())
      ]);
 
        }
@@ -322,6 +333,11 @@ export class AnchorView <V  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

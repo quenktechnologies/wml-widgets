@@ -1,0 +1,131 @@
+{% import (TextInput) from "../../../../../../lib/control/text-input" %}
+{% import (InputGroup,AddOn) from "../../../../../../lib/control/input-group" %}
+{% import (Checkbox) from "../../../../../../lib/control/checkbox" %}
+{% import (Button) from "../../../../../../lib/control/button" %}
+{% import (DropDown) from "../../../../../../lib/control/drop-down" %}
+{% import (Menu) from "../../../../../../lib/menu/menu" %}
+{% import (Item) from "../../../../../../lib/menu/item" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (InputGroupPage) from "../" %}
+
+{% view Main (InputGroupPage) %}
+<Demo>
+
+  <Demo>
+    
+    <p>
+      <InputGroup>
+        <AddOn>http</Addon>
+        <TextInput/>
+      </InputGroup>
+    </p>
+
+  </Demo>
+
+  <Demo>
+    <p>
+      <InputGroup>
+        <TextInput/>
+        <AddOn>.com</Addon>
+      </InputGroup>
+    </p>
+  </Demo>
+
+  <Demo>
+    <p>
+      <InputGroup>
+        <AddOn><Checkbox/></Addon>
+        <TextInput/>
+      </InputGroup>
+    </p>
+  </Demo>
+
+  <Demo>
+    <p>
+      <InputGroup>
+        <TextInput/>
+        <AddOn><Checkbox/></Addon>
+      </InputGroup>
+    </p>
+  </Demo>
+
+  <Demo>
+    <p>
+      <InputGroup>
+        <AddOn button=true><Button ww:text="Find"/></Addon>
+        <TextInput/>
+      </InputGroup>
+    </p>
+  </Demo>
+
+  <Demo>
+    <p>
+      <InputGroup>
+        <TextInput/>
+        <AddOn button=true><Button ww:text="Find"/></Addon>
+      </InputGroup>
+    </p>
+  </Demo>
+
+  <Demo>
+    <p>
+      <InputGroup>
+        <AddOn button=true>
+          
+          <DropDown ww:buttonText="Click Me">
+
+            <Menu>
+
+              <Item>
+                <a href="#">One</a>
+              </Item>
+
+              <Item>
+                <a href="#">Two</a>
+              </Item>
+
+              <Item>
+                <a href="#">Three</a>
+              </Item>
+
+            </Menu>
+
+          </DropDown>
+
+        </Addon>
+        <TextInput/>
+      </InputGroup>
+    </p>
+  </Demo>
+
+  <Demo>
+    <p>
+      <InputGroup>
+        <TextInput/>
+        <AddOn button=true>
+          <DropDown ww:buttonText="Click Me">
+
+            <Menu>
+
+              <Item>
+                <a href="#">One</a>
+              </Item>
+
+              <Item>
+                <a href="#">Two</a>
+              </Item>
+
+              <Item>
+                <a href="#">Three</a>
+              </Item>
+
+            </Menu>
+
+          </DropDown>
+
+        </Addon>
+
+      </InputGroup>
+    </p>
+  </Demo>
+</Demo>

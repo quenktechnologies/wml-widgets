@@ -61,6 +61,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class TableHeader  implements __wml.View {
 
@@ -68,9 +70,11 @@ export class TableHeader  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('thead', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -145,6 +149,11 @@ export class TableHeader  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -245,9 +254,11 @@ export class TableBody  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('tbody', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -322,6 +333,11 @@ export class TableBody  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -422,9 +438,11 @@ export class TableFooter  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('tfoot', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -499,6 +517,11 @@ export class TableFooter  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -599,9 +622,11 @@ export class TableRow  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('tr', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'onclick': __context.values.onclick }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -676,6 +701,11 @@ export class TableRow  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -776,9 +806,11 @@ export class TableHeading  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('th', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'onclick': __context.values.onclick }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -853,6 +885,11 @@ export class TableHeading  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -953,9 +990,11 @@ export class TableCell  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('td', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'colspan': String(__context.values.colspan ),'rowspan': String(__context.values.rowspan ),'onclick': __context.values.onclick }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -1030,6 +1069,11 @@ export class TableCell  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -1130,9 +1174,11 @@ export class TableWindow  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -1207,6 +1253,11 @@ export class TableWindow  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -1307,9 +1358,11 @@ export class TableLayout  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('table', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -1384,6 +1437,11 @@ export class TableLayout  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

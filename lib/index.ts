@@ -7,7 +7,7 @@ import { Attrs } from '@quenk/wml';
  * This may not be the case for all widgets whose attributes
  * use this interface.
  */
-export interface HTMLElementAttrs {
+export interface HTMLElementAttrs extends Attrs {
 
     /**
      * id usually applied to the root element of the widget's view.
@@ -44,5 +44,12 @@ export const getId = (attrs: WidgetAttrs<HTMLElementAttrs>) =>
 /**
  * getClassName from a widget's passed attributes.
  */
-export const getClassName = (attrs: WidgetAttrs<HTMLElementAttrs>) =>
-    (attrs.ww && attrs.ww.className) ? attrs.ww.className : '';
+export const getClassName =
+    (attrs: WidgetAttrs<HTMLElementAttrs> | HTMLElementAttrs) => {
+        let asHtmlAttrs = <HTMLElementAttrs>attrs;
+        let asWidgetAttrs = (<WidgetAttrs<HTMLElementAttrs>>attrs).ww;
+
+        return asHtmlAttrs.className ||
+            (asWidgetAttrs && asWidgetAttrs.className) || '';
+
+    }

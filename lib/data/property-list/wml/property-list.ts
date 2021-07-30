@@ -63,12 +63,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class NothingView  implements __wml.View {
 
    constructor(__context: object) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.widget(new Data({}, [
 
@@ -147,6 +151,11 @@ export class NothingView  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -247,6 +256,8 @@ export class DataView <D  ,R extends Record<D  >  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.widget(new Data({}, [
 
         text (__context.format(__context.data))
@@ -324,6 +335,11 @@ export class DataView <D  ,R extends Record<D  >  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -424,6 +440,8 @@ export class PropertyListView <D  ,R extends Record<D  >  >  implements __wml.Vi
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.widget(new DescriptionList({ww : { 'className' : __context.values.root .className   }}, [
 
         ...__forIn (__context.values.fields , (field , _$$i, _$$all)=> 
@@ -510,6 +528,11 @@ __context.values.data .get (field)
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

@@ -66,12 +66,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class Main <V  >  implements __wml.View {
 
    constructor(__context: MultiSelect<V  > ) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.node('div', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
@@ -81,8 +85,8 @@ export class Main <V  >  implements __wml.View {
      ]),<__wml.Attrs>{ww : { 'for' : __context.values.root .id  ,'text' : __context.values.label .text   }}),
 __this.node('div', <__wml.Attrs>{'onclick': __context.values.content .onfocus ,'class': __context.values.content .className }, [
 
-        ...(__if(__context.values.tags .has (),
-   ()=> ([
+        ...((__context.values.tags .has ()) ?
+(()=>([
 
         ...__forIn (__context.values.tags .value , (value , idx , _$$all)=> 
 ([
@@ -93,11 +97,11 @@ __this.node('div', <__wml.Attrs>{'onclick': __context.values.content .onfocus ,'
      ]),<__wml.Attrs>{ww : { 'name' : String(idx) ,'text' : __context.values.tags .getText (value) ,'disabled' : __context.values.tags .disabled  ,'className' : __context.values.tags .className  ,'onDismiss' : __context.values.tags .onDismiss   }})
      ]), 
 ()=> ([]))
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         text ('')
-     ]))) ,
+     ]))()),
 __this.widget(new Input({wml : { 'id' : __context.values.input .wml .id   },ww : { 'className' : __context.values.input .className  ,'name' : __context.values.input .name  ,'disabled' : __context.values.input .disabled  ,'onSearch' : __context.values.input .onSearch   }}, [
 
         
@@ -185,6 +189,11 @@ __this.widget(new Help({wml : { 'id' : __context.values.messages .wml .id   },ww
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

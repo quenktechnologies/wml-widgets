@@ -64,6 +64,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export const itemTemplate = 
 
@@ -94,6 +96,8 @@ export class Main <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.widget(new Menu({wml : { 'id' : __context.values.wml .id   },ww : { 'className' : __context.values.className  ,'block' : __context.values.block  ,'hidden' : __context.values.hidden   }}, [
 
         ...__forIn (__context.values.results , (result , index: number , _$$all)=> 
@@ -103,13 +107,13 @@ export class Main <V  >  implements __wml.View {
 
         __this.widget(new Link({ww : { 'onClick' : () => __context.values.item .click (index)  }}, [
 
-        ... (__context.values.item .template  (result,index)(__this))
+        ...(__context.values.item .template  (result,index)(__this))
      ]),<__wml.Attrs>{ww : { 'onClick' : () => __context.values.item .click (index)  }})
      ]),<__wml.Attrs>{ww : { 'name' : ('' + index)  }})
      ]), 
 ()=> ([
 
-        ... (__context.values.item .noItemsTemplate  ()(__this))
+        ...(__context.values.item .noItemsTemplate  ()(__this))
      ]))
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },ww : { 'className' : __context.values.className  ,'block' : __context.values.block  ,'hidden' : __context.values.hidden   }});
 
@@ -185,6 +189,11 @@ export class Main <V  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

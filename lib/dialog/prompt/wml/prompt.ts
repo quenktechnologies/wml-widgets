@@ -64,12 +64,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class Main  implements __wml.View {
 
    constructor(__context: Prompt) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.widget(new Modal({wml : { 'id' : __context.values.wml .id   },ww : { 'className' : __context.values.className   }}, [
 
@@ -83,7 +87,7 @@ text (__context.values.header .title )
      ]),<__wml.Attrs>{}),
 __this.widget(new ModalBody({}, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]),<__wml.Attrs>{}),
 __this.widget(new ModalFooter({}, [
 
@@ -170,6 +174,11 @@ __this.widget(new Button({ww : { 'text' : __context.values.footer .save .text  ,
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

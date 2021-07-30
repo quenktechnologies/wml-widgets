@@ -1,5 +1,6 @@
 import { View, Content } from '@quenk/wml';
 import { reduce, group } from '@quenk/noni/lib/data/record';
+
 import { DrawerLayout } from '../../../lib/layout/drawer';
 import { LinkClickedEvent } from '../../../lib/content/link';
 import { getById } from '../../../lib/util';
@@ -121,6 +122,8 @@ export class App {
 
         let path = window.location.hash.split('#')[1];
         path = path ? path.split('/').join('') : '';
+
+      this.navigate(new LinkClickedEvent(path, path));
 
     }
 

@@ -62,6 +62,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class DrawerLayout  implements __wml.View {
 
@@ -69,13 +71,15 @@ export class DrawerLayout  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.root .wml .id   },'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
         __this.widget(new Drawer({wml : { 'id' : __context.values.drawer .wml .id   },ww : { 'hidden' : __context.values.drawer .hidden  ,'content' : __context.values.drawer .content   }}, [
 
         
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.drawer .wml .id   },ww : { 'hidden' : __context.values.drawer .hidden  ,'content' : __context.values.drawer .content   }}),
-... (__context.values.content .value )
+...(__context.values.content .value )
      ]);
 
        }
@@ -150,6 +154,11 @@ export class DrawerLayout  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

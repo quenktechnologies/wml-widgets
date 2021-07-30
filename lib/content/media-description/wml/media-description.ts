@@ -61,6 +61,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class MediaDescription  implements __wml.View {
 
@@ -68,9 +70,11 @@ export class MediaDescription  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -145,6 +149,11 @@ export class MediaDescription  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -245,9 +254,11 @@ export class Media  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -322,6 +333,11 @@ export class Media  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -422,9 +438,11 @@ export class Description  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -499,6 +517,11 @@ export class Description  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

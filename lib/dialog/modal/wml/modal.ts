@@ -61,6 +61,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class Modal  implements __wml.View {
 
@@ -68,13 +70,15 @@ export class Modal  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
 
         __this.node('div', <__wml.Attrs>{'class': __context.values.position .className }, [
 
         __this.node('div', <__wml.Attrs>{'class': __context.values.content .className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ])
      ])
      ]);
@@ -151,6 +155,11 @@ export class Modal  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -251,9 +260,11 @@ export class ModalHeader  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -328,6 +339,11 @@ export class ModalHeader  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -428,9 +444,11 @@ export class ModalBody  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -505,6 +523,11 @@ export class ModalBody  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -605,9 +628,11 @@ export class ModalFooter  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -682,6 +707,11 @@ export class ModalFooter  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

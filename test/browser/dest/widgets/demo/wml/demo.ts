@@ -62,6 +62,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class Main  implements __wml.View {
 
@@ -69,13 +71,15 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.widget(new GridLayout({}, [
 
         __this.widget(new Row({}, [
 
         __this.widget(new Column({ww : { 'span' : __context.values.size   }}, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]),<__wml.Attrs>{ww : { 'span' : __context.values.size   }})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
@@ -152,6 +156,11 @@ export class Main  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

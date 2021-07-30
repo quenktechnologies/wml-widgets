@@ -61,6 +61,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class ListLayoutItem  implements __wml.View {
 
@@ -68,9 +70,11 @@ export class ListLayoutItem  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.content .wml .id   },'id': __context.values.content .id ,'class': __context.values.content .className ,'onclick': __context.values.content .onclick }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -145,6 +149,11 @@ export class ListLayoutItem  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -245,9 +254,11 @@ export class ListLayout  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('ul', <__wml.Attrs>{wml : { 'id' : __context.values.content .wml .id   },'id': __context.values.content .id ,'class': __context.values.content .className }, [
 
-        ... (__context.children)
+        ...(__context.children)
      ]);
 
        }
@@ -322,6 +333,11 @@ export class ListLayout  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.App = void 0;
 var record_1 = require("@quenk/noni/lib/data/record");
+var link_1 = require("../../../lib/content/link");
 var util_1 = require("../../../lib/util");
 var app_1 = require("./wml/app");
 var pages_1 = require("./pages");
@@ -71,6 +72,7 @@ var App = /** @class */ (function () {
         root.appendChild(this.view.render());
         var path = window.location.hash.split('#')[1];
         path = path ? path.split('/').join('') : '';
+        this.navigate(new link_1.LinkClickedEvent(path, path));
     };
     App.main = function (root) {
         return new App(root);

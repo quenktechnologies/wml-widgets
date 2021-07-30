@@ -63,6 +63,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class Main  implements __wml.View {
 
@@ -70,30 +72,32 @@ export class Main  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.widget(new t.Tag({ww : { 'id' : __context.values.id  ,'className' : __context.values.className  ,'style' : __context.values.style   }}, [
 
-        ...(__if((__context.values.text .value  !== ''),
-   ()=> ([
+        ...(((__context.values.text .value  !== '')) ?
+(()=>([
 
         __this.node('span', <__wml.Attrs>{'class': __context.values.text .className }, [
 
         text (__context.values.text .value )
      ])
-     ]),
-   ()=> ([
+     ]))() :
+(()=>([
 
         text ('')
-     ]))) ,
-... (__context.children),
-...(__if((__context.values.disabled  !== true ),
-   ()=> ([
+     ]))()),
+...(__context.children),
+...(((__context.values.disabled  !== true )) ?
+(()=>([
 
         __this.widget(new Close({ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }}, [
 
         
      ]),<__wml.Attrs>{ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }})
-     ]),
-   ()=> ([]))) 
+     ]))() :
+(()=>([]))())
      ]),<__wml.Attrs>{ww : { 'id' : __context.values.id  ,'className' : __context.values.className  ,'style' : __context.values.style   }});
 
        }
@@ -168,6 +172,11 @@ export class Main  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

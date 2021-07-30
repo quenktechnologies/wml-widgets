@@ -64,12 +64,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class Main <V  >  implements __wml.View {
 
    constructor(__context: DropList<V  > ) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
 
@@ -159,6 +163,11 @@ __this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu .wml .id   }
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

@@ -61,6 +61,8 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export const content = 
 
@@ -81,6 +83,8 @@ export class Main <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('ul', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
         ...__forIn (__context.values.root .value , (v , index: number , _$$all)=> 
@@ -88,16 +92,16 @@ export class Main <V  >  implements __wml.View {
 
         __this.node('li', <__wml.Attrs>{'class': __context.values.element .className }, [
 
-        ... (__context.values.element .template (v,index)),
-...(__if((__context.values.root .disabled  === false ),
-   ()=> ([
+        ...(__context.values.element .template (v,index)),
+...(((__context.values.root .disabled  === false )) ?
+(()=>([
 
         __this.node('button', <__wml.Attrs>{'class': __context.values.close .className ,'onclick': __context.values.element .close (index)}, [
 
         __document.createTextNode('×')
      ])
-     ]),
-   ()=> ([]))) 
+     ]))() :
+(()=>([]))())
      ])
      ]), 
 ()=> ([]))
@@ -175,6 +179,11 @@ export class Main <V  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

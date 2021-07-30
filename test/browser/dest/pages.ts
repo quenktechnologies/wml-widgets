@@ -14,6 +14,7 @@ export const pages:{[key:string]:any} = {
 'control_drop-list' : require('./page/control_drop-list').default,
 'control_drop-list-field' : require('./page/control_drop-list-field').default,
 'control_file-upload-surface' : require('./page/control_file-upload-surface').default,
+'control_input-group' : require('./page/control_input-group').default,
 'control_multi-select' : require('./page/control_multi-select').default,
 'control_paginator' : require('./page/control_paginator').default,
 'control_search' : require('./page/control_search').default,

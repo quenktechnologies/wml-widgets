@@ -63,12 +63,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class EmptyView  implements __wml.View {
 
    constructor(__context: object) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.node('div', <__wml.Attrs>{}, [
 
@@ -147,6 +151,11 @@ export class EmptyView  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -247,6 +256,8 @@ export class HeadView <C  ,R extends Record<C  >  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('thead', <__wml.Attrs>{'class': __context.className}, [
 
         __this.node('tr', <__wml.Attrs>{}, [
@@ -332,6 +343,11 @@ export class HeadView <C  ,R extends Record<C  >  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -432,6 +448,8 @@ export class HeadingView <C  ,R extends Record<C  >  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('th', <__wml.Attrs>{'class': __context.className,'onclick': __context.onclick}, [
 
         text (__context.column.heading )
@@ -509,6 +527,11 @@ export class HeadingView <C  ,R extends Record<C  >  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -609,6 +632,8 @@ export class BodyView <C  ,R extends Record<C  >  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('tbody', <__wml.Attrs>{'class': __context.className}, [
 
         ...__forIn (__context.data, (_ , row: number , _$$all)=> 
@@ -699,6 +724,11 @@ export class BodyView <C  ,R extends Record<C  >  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -799,6 +829,8 @@ export class CellView <C  ,R extends Record<C  >  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('td', <__wml.Attrs>{wml : { 'id' : __context.id  },'class': __context.className,'onclick': __context.onclick}, [
 
         text (__context.format(__context.value))
@@ -876,6 +908,11 @@ export class CellView <C  ,R extends Record<C  >  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -976,6 +1013,8 @@ export class Main <C  ,R extends Record<C  >  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.widget(new TableLayout({wml : { 'id' : __context.values.wml .id   },ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }}, [
 
         __context.values.thead (),
@@ -1054,6 +1093,11 @@ __context.values.tbody ()
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

@@ -63,22 +63,22 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
-export interface ButtonSelectIface<V  > {values : {
-id : string,
+export interface ButtonSelectIface<V  > {values: {id : string,
 className : string,
-button : {
-options : (Option<V  > )[],
+button: {options : (Option<V  > )[],
 getClassNames : ($0:number) => string,
 isActive : ($0:number) => boolean,
-onClick : ($0:number) => void
-}
-}};
+onClick : ($0:number) => void}}};
 export class ButtonSelectView <V  >  implements __wml.View {
 
    constructor(__context: ButtonSelectIface<V  > ) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.widget(new ButtonGroup({ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }}, [
 
@@ -165,6 +165,11 @@ export class ButtonSelectView <V  >  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 

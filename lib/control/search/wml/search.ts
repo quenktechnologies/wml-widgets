@@ -62,12 +62,16 @@ const __forOf = <A>(o:__Record<A>, f:__ForOfBody<A>,alt:__ForAlt) : __wml.Conten
 // @ts-ignore 6192
 const text = __document.text;
 // @ts-ignore 6192
+const unsafe = __document.unsafe
+// @ts-ignore 6192
 const isSet = (value:any) => value != null
 export class InputView  implements __wml.View {
 
    constructor(__context: Input) {
 
        this.template = (__this:__wml.Registry) => {
+
+       
 
            return __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'class': __context.values.className ,'onkeyup': __context.values.onkeyup ,'oninput': __context.values.oninput ,'onfocus': __context.values.onfocus ,'onblur': __context.values.onblur ,'autofocus': __context.values.autofocus ,'autocomplete': __context.values.autocomplete ,'size': __context.values.size ,'placeholder': __context.values.placeholder ,'readOnly': __context.values.readOnly ,'disabled': __context.values.disabled ,'value': __context.values.value }, [
 
@@ -146,6 +150,11 @@ export class InputView  implements __wml.View {
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
@@ -246,6 +255,8 @@ export class Main <V  >  implements __wml.View {
 
        this.template = (__this:__wml.Registry) => {
 
+       
+
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.root .wml .id   },'id': __context.values.root .id ,'class': __context.values.root .className }, [
 
         __this.widget(new Input({wml : { 'id' : __context.values.input .wml .id   },ww : { 'name' : __context.values.input .name  ,'autofocus' : __context.values.input .autofocus  ,'onFocus' : __context.values.input .onFocus  ,'onSearch' : __context.values.input .onSearch  ,'onEscape' : __context.values.input .onEscape  ,'onBlur' : __context.values.input .onBlur  ,'placeholder' : __context.values.input .placeholder  ,'readOnly' : __context.values.input .readOnly  ,'disabled' : __context.values.input .disabled  ,'value' : __context.values.input .value   }}, [
@@ -330,6 +341,11 @@ __this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu .wml .id   }
            } else if (typeof value === 'boolean') {
 
              e.setAttribute(key, '');
+
+           } else if(!__document.isBrowser && 
+                     value instanceof __document.WMLDOMText) {
+
+             e.setAttribute(key, <any>value);
 
            }
 
