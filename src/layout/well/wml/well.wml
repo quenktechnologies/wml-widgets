@@ -1,0 +1,8 @@
+{% import (Well) from ".." %}
+
+{% view WellView (Well) %}
+<div
+  wml:id={{@values.content.id}}
+  class={{@values.content.className}}>
+  {{...@children}}
+</div>

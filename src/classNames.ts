@@ -399,6 +399,9 @@ export const LIST_LAYOUT = 'ww-list-layout';
 export const LIST_LAYOUT_ITEM = 'ww-list-layout__item';
 ///classNames:end
 ///classNames:begin
+export const WELL = 'ww-well';
+///classNames:end
+///classNames:begin
 export const DESCRIPTION_LIST = 'ww-description-list';
 export const DESCRIPTION_LIST_TITLE = 'ww-description-list__title';
 export const DESCRIPTION_LIST_DATA = 'ww-description-list__data';
