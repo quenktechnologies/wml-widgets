@@ -1,0 +1,33 @@
+{% import (Well) from "../../../../../../lib/layout/well" %}
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (WellPage) from "../" %}
+
+{% view Main (WellPage) %}
+<Demo>
+
+  <Demo>
+
+      <h1>Well</h2>
+
+      <p>
+
+        <Well>This is in a well.</Well>
+
+      </p>
+
+      <p>
+
+        <Well ww:className="-small">This is a small well.</Well>
+
+      </p>
+
+      <p>
+
+        <Well ww:className="-large">This is a small well.</Well>
+
+
+      </p>
+
+   </Demo>
+
+</Demo>

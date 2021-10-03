@@ -47,6 +47,7 @@ exports.pages = {
     'layout_panel': require('./page/layout_panel').default,
     'layout_tab': require('./page/layout_tab').default,
     'layout_table': require('./page/layout_table').default,
+    'layout_well': require('./page/layout_well').default,
     'menu_menu': require('./page/menu_menu').default,
     'menu_nav': require('./page/menu_nav').default,
 };

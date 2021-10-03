@@ -7,16 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {TextInput} from '../../../../../../lib/control/text-input'; ;
-import {InputGroup,AddOn} from '../../../../../../lib/control/input-group'; ;
-import {Checkbox} from '../../../../../../lib/control/checkbox'; ;
-import {Button} from '../../../../../../lib/control/button'; ;
-import {DropDown} from '../../../../../../lib/control/drop-down'; ;
-import {DropList} from '../../../../../../lib/control/drop-list'; ;
-import {Menu} from '../../../../../../lib/menu/menu'; ;
-import {Item} from '../../../../../../lib/menu/item'; ;
+import {Well} from '../../../../../../lib/layout/well'; ;
 import {Demo} from '../../../widgets/demo'; ;
-import {InputGroupPage} from '../'; 
+import {WellPage} from '../'; 
 
 
 //@ts-ignore:6192
@@ -75,7 +68,7 @@ const unsafe = __document.unsafe
 const isSet = (value:any) => value != null
 export class Main  implements __wml.View {
 
-   constructor(__context: InputGroupPage) {
+   constructor(__context: WellPage) {
 
        this.template = (__this:__wml.Registry) => {
 
@@ -85,222 +78,30 @@ export class Main  implements __wml.View {
 
         __this.widget(new Demo({}, [
 
-        __this.node('p', <__wml.Attrs>{}, [
+        __this.node('h1', <__wml.Attrs>{}, [
 
-        __this.widget(new InputGroup({}, [
+        __document.createTextNode('Well')
+     ]),
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new AddOn({}, [
+        __this.widget(new Well({}, [
 
-        __document.createTextNode('http')
-     ]),<__wml.Attrs>{}),
-__this.widget(new TextInput({}, [
-
-        
+        __document.createTextNode('This is in a well.')
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
+     ]),
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('p', <__wml.Attrs>{}, [
+        __this.widget(new Well({ww : { 'className' : '-small'  }}, [
 
-        __this.widget(new InputGroup({}, [
+        __document.createTextNode('This is a small well.')
+     ]),<__wml.Attrs>{ww : { 'className' : '-small'  }})
+     ]),
+__this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new TextInput({}, [
+        __this.widget(new Well({ww : { 'className' : '-large'  }}, [
 
-        
-     ]),<__wml.Attrs>{}),
-__this.widget(new AddOn({}, [
-
-        __document.createTextNode('.com')
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
-
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new InputGroup({}, [
-
-        __this.widget(new AddOn({}, [
-
-        __this.widget(new Checkbox({}, [
-
-        
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{}),
-__this.widget(new TextInput({}, [
-
-        
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
-
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new InputGroup({}, [
-
-        __this.widget(new TextInput({}, [
-
-        
-     ]),<__wml.Attrs>{}),
-__this.widget(new AddOn({}, [
-
-        __this.widget(new Checkbox({}, [
-
-        
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
-
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new InputGroup({}, [
-
-        __this.widget(new AddOn({'button': true }, [
-
-        __this.widget(new Button({ww : { 'text' : 'Find'  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'Find'  }})
-     ]),<__wml.Attrs>{'button': true }),
-__this.widget(new TextInput({}, [
-
-        
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
-
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new InputGroup({}, [
-
-        __this.widget(new TextInput({}, [
-
-        
-     ]),<__wml.Attrs>{}),
-__this.widget(new AddOn({'button': true }, [
-
-        __this.widget(new Button({ww : { 'text' : 'Find'  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'text' : 'Find'  }})
-     ]),<__wml.Attrs>{'button': true })
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
-
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new InputGroup({}, [
-
-        __this.widget(new AddOn({'button': true }, [
-
-        __this.widget(new DropDown({ww : { 'buttonText' : 'Click Me'  }}, [
-
-        __this.widget(new Menu({}, [
-
-        __this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('One')
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('Two')
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('Three')
-     ])
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Click Me'  }})
-     ]),<__wml.Attrs>{'button': true }),
-__this.widget(new TextInput({}, [
-
-        
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
-
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new InputGroup({}, [
-
-        __this.widget(new TextInput({}, [
-
-        
-     ]),<__wml.Attrs>{}),
-__this.widget(new AddOn({'button': true }, [
-
-        __this.widget(new DropDown({ww : { 'buttonText' : 'Click Me'  }}, [
-
-        __this.widget(new Menu({}, [
-
-        __this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('One')
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('Two')
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Item({}, [
-
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
-
-        __document.createTextNode('Three')
-     ])
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Click Me'  }})
-     ]),<__wml.Attrs>{'button': true })
-     ]),<__wml.Attrs>{})
-     ])
-     ]),<__wml.Attrs>{}),
-__this.widget(new Demo({}, [
-
-        __this.node('p', <__wml.Attrs>{}, [
-
-        __this.widget(new InputGroup({}, [
-
-        __this.widget(new AddOn({'button': true }, [
-
-        __this.widget(new DropList({ww : { 'options' : __context.values.dropList .options   }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'options' : __context.values.dropList .options   }})
-     ]),<__wml.Attrs>{'button': true }),
-__this.widget(new TextInput({}, [
-
-        
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{})
+        __document.createTextNode('This is a small well.')
+     ]),<__wml.Attrs>{ww : { 'className' : '-large'  }})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

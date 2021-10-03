@@ -14,6 +14,8 @@ var button_1 = require("../../../../../../lib/control/button");
 ;
 var drop_down_1 = require("../../../../../../lib/control/drop-down");
 ;
+var drop_list_1 = require("../../../../../../lib/control/drop-list");
+;
 var menu_1 = require("../../../../../../lib/menu/menu");
 ;
 var item_1 = require("../../../../../../lib/menu/item");
@@ -167,6 +169,16 @@ var Main = /** @class */ (function () {
                                     ]), {})
                                 ]), { ww: { 'buttonText': 'Click Me' } })
                             ]), { 'button': true })
+                        ]), {})
+                    ])
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
+                        __this.widget(new input_group_1.InputGroup({}, [
+                            __this.widget(new input_group_1.AddOn({ 'button': true }, [
+                                __this.widget(new drop_list_1.DropList({ ww: { 'options': __context.values.dropList.options } }, []), { ww: { 'options': __context.values.dropList.options } })
+                            ]), { 'button': true }),
+                            __this.widget(new text_input_1.TextInput({}, []), {})
                         ]), {})
                     ])
                 ]), {})

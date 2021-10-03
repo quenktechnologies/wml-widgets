@@ -243,6 +243,7 @@ export declare const GRID_LAYOUT_COLUMN = "ww-grid-layout__column";
 export declare const TAB_LAYOUT = "ww-tab-layout";
 export declare const LIST_LAYOUT = "ww-list-layout";
 export declare const LIST_LAYOUT_ITEM = "ww-list-layout__item";
+export declare const WELL = "ww-well";
 export declare const DESCRIPTION_LIST = "ww-description-list";
 export declare const DESCRIPTION_LIST_TITLE = "ww-description-list__title";
 export declare const DESCRIPTION_LIST_DATA = "ww-description-list__data";
