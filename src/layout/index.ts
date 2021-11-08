@@ -22,7 +22,7 @@ export interface Layout {
     /**
      * setContent changes the content value.
      */
-    setContent(content: Content[]): Layout;
+    setContent(content: Content|Content[]): Layout;
 
     /**
      * removeContent removes existing content. 
@@ -47,7 +47,7 @@ export abstract class AbstractLayout<A extends LayoutAttrs>
      */
     abstract values: { content: { wml: { id: string } } }
 
-    setContent(c: Content[]): AbstractLayout<A> {
+    setContent(c: Content|Content[]): AbstractLayout<A> {
 
         doSetContent(this.view, this.values.content.wml.id, c);
         return this;
@@ -66,7 +66,8 @@ export abstract class AbstractLayout<A extends LayoutAttrs>
 /**
  * doSetContent on a Node found in a view.
  */
-export const doSetContent = (view: View, id: string, content: Content[]) => {
+export const doSetContent = 
+  (view: View, id: string, content: Content|Content[]) => {
 
     let maybeRoot: Maybe<Node> = view.findById(id);
 
@@ -77,6 +78,8 @@ export const doSetContent = (view: View, id: string, content: Content[]) => {
 
     while (n.firstChild)
         n.removeChild(n.firstChild);
+
+    content = Array.isArray(content) ? content : [content];
 
     for (let i = 0; i < content.length; i++)
         n.appendChild(<Node>content[i]);

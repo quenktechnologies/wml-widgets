@@ -15,7 +15,7 @@ export interface Layout {
     /**
      * setContent changes the content value.
      */
-    setContent(content: Content[]): Layout;
+    setContent(content: Content | Content[]): Layout;
     /**
      * removeContent removes existing content.
      */
@@ -39,13 +39,13 @@ export declare abstract class AbstractLayout<A extends LayoutAttrs> extends Comp
             };
         };
     };
-    setContent(c: Content[]): AbstractLayout<A>;
+    setContent(c: Content | Content[]): AbstractLayout<A>;
     removeContent(): AbstractLayout<A>;
 }
 /**
  * doSetContent on a Node found in a view.
  */
-export declare const doSetContent: (view: View, id: string, content: Content[]) => void;
+export declare const doSetContent: (view: View, id: string, content: Content | Content[]) => void;
 /**
  * doRemoveContent from a View.
  */
