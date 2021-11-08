@@ -2,6 +2,7 @@ import * as views from './wml/modal';
 import { View, Component } from '@quenk/wml';
 import { concat, getById } from '../../util';
 import { HTMLElementAttrs, WidgetAttrs, getClassName, getId } from '../../';
+import { AbstractLayout } from '../../layout';
 
 ///classNames:begin
 export const MODAL = 'ww-modal';
@@ -41,11 +42,11 @@ export class Modal extends Component<WidgetAttrs<ModalAttrs>> {
 
         },
 
-      position: {
+        position: {
 
-        className: MODAL_POSITION
+            className: MODAL_POSITION
 
-      }
+        }
 
     }
 
@@ -77,7 +78,7 @@ export interface ModalHeaderAttrs extends HTMLElementAttrs { }
 /**
  * ModalHeader
  */
-export class ModalHeader extends Component<WidgetAttrs<ModalHeaderAttrs>> {
+export class ModalHeader extends AbstractLayout<ModalHeaderAttrs> {
 
     view: View = new views.ModalHeader(this);
 
@@ -88,9 +89,12 @@ export class ModalHeader extends Component<WidgetAttrs<ModalHeaderAttrs>> {
             id: 'root'
 
         },
+
         id: getId(this.attrs),
 
         className: concat(MODAL_HEADER, getClassName(this.attrs)),
+
+        content: { wml: { id: 'root' } }
 
     }
 
@@ -104,7 +108,7 @@ export interface ModalBodyAttrs extends HTMLElementAttrs { }
 /**
  * ModalBodyAttrs
  */
-export class ModalBody extends Component<WidgetAttrs<ModalBodyAttrs>> {
+export class ModalBody extends AbstractLayout<ModalBodyAttrs> {
 
     view: View = new views.ModalBody(this);
 
@@ -119,6 +123,8 @@ export class ModalBody extends Component<WidgetAttrs<ModalBodyAttrs>> {
 
         className: concat(MODAL_BODY, getClassName(this.attrs)),
 
+        content: { wml: { id: 'root' } }
+
     }
 
 }
@@ -131,7 +137,7 @@ export interface ModalFooterAttrs extends HTMLElementAttrs { }
 /**
  * ModalFooter
  */
-export class ModalFooter extends Component<WidgetAttrs<ModalFooterAttrs>> {
+export class ModalFooter extends Component<ModalFooterAttrs> {
 
     view: View = new views.ModalFooter(this);
 
@@ -142,9 +148,12 @@ export class ModalFooter extends Component<WidgetAttrs<ModalFooterAttrs>> {
             id: 'root'
 
         },
+
         id: getId(this.attrs),
 
         className: concat(MODAL_FOOTER, getClassName(this.attrs)),
+
+        content: { wml: { id: 'root' } }
 
     }
 

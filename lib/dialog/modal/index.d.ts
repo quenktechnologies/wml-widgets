@@ -1,5 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { AbstractLayout } from '../../layout';
 export declare const MODAL = "ww-modal";
 export declare const MODAL_POSITION = "ww-modal__position";
 export declare const MODAL_CONTENT = "ww-modal__content";
@@ -42,7 +43,7 @@ export interface ModalHeaderAttrs extends HTMLElementAttrs {
 /**
  * ModalHeader
  */
-export declare class ModalHeader extends Component<WidgetAttrs<ModalHeaderAttrs>> {
+export declare class ModalHeader extends AbstractLayout<ModalHeaderAttrs> {
     view: View;
     values: {
         wml: {
@@ -50,6 +51,11 @@ export declare class ModalHeader extends Component<WidgetAttrs<ModalHeaderAttrs>
         };
         id: string;
         className: string;
+        content: {
+            wml: {
+                id: string;
+            };
+        };
     };
 }
 /**
@@ -60,7 +66,7 @@ export interface ModalBodyAttrs extends HTMLElementAttrs {
 /**
  * ModalBodyAttrs
  */
-export declare class ModalBody extends Component<WidgetAttrs<ModalBodyAttrs>> {
+export declare class ModalBody extends AbstractLayout<ModalBodyAttrs> {
     view: View;
     values: {
         wml: {
@@ -68,6 +74,11 @@ export declare class ModalBody extends Component<WidgetAttrs<ModalBodyAttrs>> {
         };
         id: string;
         className: string;
+        content: {
+            wml: {
+                id: string;
+            };
+        };
     };
 }
 /**
@@ -78,7 +89,7 @@ export interface ModalFooterAttrs extends HTMLElementAttrs {
 /**
  * ModalFooter
  */
-export declare class ModalFooter extends Component<WidgetAttrs<ModalFooterAttrs>> {
+export declare class ModalFooter extends Component<ModalFooterAttrs> {
     view: View;
     values: {
         wml: {
@@ -86,5 +97,10 @@ export declare class ModalFooter extends Component<WidgetAttrs<ModalFooterAttrs>
         };
         id: string;
         className: string;
+        content: {
+            wml: {
+                id: string;
+            };
+        };
     };
 }
