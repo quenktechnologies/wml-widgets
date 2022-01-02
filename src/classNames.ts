@@ -387,6 +387,9 @@ export const PANEL_FOOTER = 'ww-panel__footer';
 export const CALLOUT = 'ww-callout';
 ///classNames:end
 ///classNames:begin
+export const NAV_BAR = 'ww-nav-bar';
+///classNames:end
+///classNames:begin
 export const GRID_LAYOUT = 'ww-grid-layout';
 export const GRID_LAYOUT_ROW = 'ww-grid-layout__row';
 export const GRID_LAYOUT_COLUMN = 'ww-grid-layout__column';

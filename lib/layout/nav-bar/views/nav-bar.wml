@@ -1,0 +1,33 @@
+{% import (Item) from "../../../menu/item" %}
+{% import (Nav) from "../../../menu/nav" %}
+{% import (Link) from "../../../content/link" %}
+{% import (ActionBar) from "../../action-bar" %}
+{% import (NavBar) from "../" %}
+
+{% view NavBarView (NavBar) %}
+
+  <ActionBar 
+    ww:id={{@values.id}}
+    ww:className={{@values.className}}>
+
+      <Nav>
+
+        {% for conf in @values.links %}
+
+          <Item>
+
+            <Link
+              ww:className={{conf.className}}
+              ww:name={{conf.name}}
+              ww:text={{conf.title}}
+              ww:onClick={{->if conf.onClick then conf.onClick(conf.name) else undefined}} />
+
+            </Item>
+
+        {% endfor %}
+
+      </Nav>
+
+      {{...@children}}
+
+  </ActionBar>

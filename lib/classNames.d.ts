@@ -237,6 +237,7 @@ export declare const PANEL_BODY = "ww-panel__body";
  */
 export declare const PANEL_FOOTER = "ww-panel__footer";
 export declare const CALLOUT = "ww-callout";
+export declare const NAV_BAR = "ww-nav-bar";
 export declare const GRID_LAYOUT = "ww-grid-layout";
 export declare const GRID_LAYOUT_ROW = "ww-grid-layout__row";
 export declare const GRID_LAYOUT_COLUMN = "ww-grid-layout__column";
