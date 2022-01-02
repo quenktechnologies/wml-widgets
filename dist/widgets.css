@@ -2094,7 +2094,7 @@ a.ww-tag:focus {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  padding: 1em 1em;
+  padding: 0.5em 0.5em;
   /**
      * Set the line height of immediate content by default to 0.
      * 
@@ -2610,7 +2610,7 @@ a.ww-tag:focus {
   margin-left: 0;
 }
 .ww-nav > .ww-menu-item > a {
-  padding: 0.7em 1em;
+  padding: 0.3em 1em;
   display: block;
   color: inherit;
   text-decoration: inherit;
