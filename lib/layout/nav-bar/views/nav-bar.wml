@@ -20,6 +20,7 @@
               ww:className={{conf.className}}
               ww:name={{conf.name}}
               ww:text={{conf.title}}
+              ww:href={{conf.href}}
               ww:onClick={{->if conf.onClick then conf.onClick(conf.name) else undefined}} />
 
             </Item>

@@ -85,10 +85,10 @@ export class NavBarView  implements __wml.View {
 
         __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'className' : conf.className ,'name' : conf.name ,'text' : conf.title ,'onClick' : () => (conf.onClick) ? conf.onClick(conf.name) :  undefined  }}, [
+        __this.widget(new Link({ww : { 'className' : conf.className ,'name' : conf.name ,'text' : conf.title ,'href' : conf.href ,'onClick' : () => (conf.onClick) ? conf.onClick(conf.name) :  undefined  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : conf.className ,'name' : conf.name ,'text' : conf.title ,'onClick' : () => (conf.onClick) ? conf.onClick(conf.name) :  undefined  }})
+     ]),<__wml.Attrs>{ww : { 'className' : conf.className ,'name' : conf.name ,'text' : conf.title ,'href' : conf.href ,'onClick' : () => (conf.onClick) ? conf.onClick(conf.name) :  undefined  }})
      ]),<__wml.Attrs>{})
      ]), 
 ()=> ([]))
