@@ -76,7 +76,7 @@ export class Main  implements __wml.View {
 
            return __this.widget(new Demo({}, [
 
-        ...__forOf (__context.values.formats , (spec , _$$k, _$$all) => 
+        ...__forOf (__context.values.formats, (spec , _$$k, _$$all) => 
        ([
 
         __this.widget(new Demo({}, [
@@ -91,7 +91,7 @@ export class Main  implements __wml.View {
      ]),<__wml.Attrs>{})
      ]), 
     ()=> ([])),
-...__forOf (__context.values.states , (spec , _$$k, _$$all) => 
+...__forOf (__context.values.states, (spec , _$$k, _$$all) => 
        ([
 
         __this.widget(new Demo({}, [

@@ -145,7 +145,7 @@ export declare class SearchSection<V> {
     readOnly: boolean | undefined;
     disabled: boolean | undefined;
     itemTemplate: ItemTemplate<V> | undefined;
-    noItemsTemplate: import("@quenk/wml").Fun | undefined;
+    noItemsTemplate: View | undefined;
     stringifier: Stringifier<V> | undefined;
     onSearch: (e: TermChangedEvent) => void;
 }

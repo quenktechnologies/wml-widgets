@@ -72,7 +72,7 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('img', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'src': __context.values.src ,'alt': __context.values.alt }, [
+           return __this.node('img', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'src': __context.values.src,'alt': __context.values.alt}, [
 
         
      ]);

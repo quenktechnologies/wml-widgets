@@ -89,7 +89,7 @@ export declare class MultiSelect<V> extends AbstractFormControl<V[], Mutliselect
             };
             block: true | undefined;
             itemTemplate: ItemTemplate<V> | undefined;
-            noItemsTemplate: import("@quenk/wml").Fun | undefined;
+            noItemsTemplate: View | undefined;
             onSearch: (evt: TermChangedEvent) => void;
             onSelect: ({ value }: ItemSelectedEvent<V>) => void;
         };
@@ -130,7 +130,7 @@ export declare class MultiSelect<V> extends AbstractFormControl<V[], Mutliselect
             block: boolean;
             onSelect: (e: ItemSelectedEvent<V>) => void;
             itemTemplate: ItemTemplate<V> | undefined;
-            noItemsTemplate: import("@quenk/wml").Fun | undefined;
+            noItemsTemplate: View | undefined;
             stringifier: Stringifier<V> | undefined;
         };
     };

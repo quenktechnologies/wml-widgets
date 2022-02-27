@@ -4,7 +4,7 @@
    from "../../../../../../lib/layout/table" %}
 {% import (TableLayoutPage) from "../" %}
 
-{% fun content () %}
+{% view HeaderView (Object) %}
 
   <TableHeader>
 
@@ -23,6 +23,8 @@
     </TableRow>
 
   </TableHeader>
+
+{% view BodyView (Object) %}
 
   <TableBody>
 
@@ -76,6 +78,8 @@
 
   </TableBody>
 
+{% view FooterView (Object) %}
+
   <TableFooter>
 
     <TableRow>
@@ -94,8 +98,6 @@
 
   </TableFooter>
 
-{% endfun %}
-
 {% view Main (TableLayoutPage) %}
  
 <Demo>
@@ -104,7 +106,15 @@
 
     <h3>Normal</h3>
 
-    <TableLayout> {{...<content()>}} </TableLayout>
+    <TableLayout> 
+
+      {{<HeaderView(@)>}}
+
+      {{<BodyView(@)>}}
+
+      {{<FooterView(@)>}}
+
+    </TableLayout>
 
   </Demo>
 
@@ -112,7 +122,15 @@
 
     <h3> Alternate</h3>
 
-    <TableLayout ww:alternate=true>{{...<content()>}}</TableLayout>
+    <TableLayout ww:alternate=true>
+
+      {{<HeaderView(@)>}}
+
+      {{<BodyView(@)>}}
+
+      {{<FooterView(@)>}}
+
+    </TableLayout>
 
   </Demo>
 
@@ -120,7 +138,15 @@
 
     <h3>Bordered</h3>
 
-    <TableLayout ww:bordered=true>{{...<content()>}}</TableLayout>
+    <TableLayout ww:bordered=true>
+
+      {{<HeaderView(@)>}}
+
+      {{<BodyView(@)>}}
+
+      {{<FooterView(@)>}}
+
+    </TableLayout>
 
   </Demo>
 
@@ -128,7 +154,15 @@
 
     <h3>Hoverable</h3>
 
-    <TableLayout ww:hoverable=true>{{...<content()>}}</TableLayout>
+    <TableLayout ww:hoverable=true>
+
+      {{<HeaderView(@)>}}
+
+      {{<BodyView(@)>}}
+
+      {{<FooterView(@)>}}
+
+    </TableLayout>
 
   </Demo>
 
@@ -136,7 +170,14 @@
 
     <h3>Compact</h3>
 
-    <TableLayout ww:compact=true>{{...<content()>}}</TableLayout>
+    <TableLayout ww:compact=true>
+      {{<HeaderView(@)>}}
+
+      {{<BodyView(@)>}}
+
+      {{<FooterView(@)>}}
+
+    </TableLayout>
 
   </Demo>
 
@@ -144,7 +185,14 @@
 
     <TableWindow>
 
-      <TableLayout>{{...<content()>}}</TableLayout>
+      <TableLayout>
+      {{<HeaderView(@)>}}
+
+      {{<BodyView(@)>}}
+
+      {{<FooterView(@)>}}
+
+      </TableLayout>
 
     </TableWindow>
 

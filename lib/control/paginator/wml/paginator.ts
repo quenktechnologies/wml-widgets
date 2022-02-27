@@ -266,76 +266,76 @@ export class PaginatorView  implements __wml.View {
 
        
 
-           return __this.node('ul', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('ul', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
-        __this.node('li', <__wml.Attrs>{'class': __context.values.first .className }, [
+        __this.node('li', <__wml.Attrs>{'class': __context.values.first.className}, [
 
-        ...((__context.values.first .isDisabled ()) ?
+        ...((__context.values.first.isDisabled()) ?
 (()=>([
 
-        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled.className}, [
 
         
      ])
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.first .onclick }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.first.onclick}, [
 
         
      ])
      ]))())
      ]),
-__this.node('li', <__wml.Attrs>{'class': __context.values.previous .className }, [
+__this.node('li', <__wml.Attrs>{'class': __context.values.previous.className}, [
 
-        ...((__context.values.previous .isDisabled ()) ?
+        ...((__context.values.previous.isDisabled()) ?
 (()=>([
 
-        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled.className}, [
 
         
      ])
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.previous .onclick }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.previous.onclick}, [
 
         
      ])
      ]))())
      ]),
-__context.values.position .view (),
-__this.node('li', <__wml.Attrs>{'class': __context.values.next .className }, [
+__context.values.position.view(),
+__this.node('li', <__wml.Attrs>{'class': __context.values.next.className}, [
 
-        ...((__context.values.next .isDisabled ()) ?
+        ...((__context.values.next.isDisabled()) ?
 (()=>([
 
-        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled.className}, [
 
         
      ])
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.next .onclick }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.next.onclick}, [
 
         
      ])
      ]))())
      ]),
-__this.node('li', <__wml.Attrs>{'class': __context.values.last .className }, [
+__this.node('li', <__wml.Attrs>{'class': __context.values.last.className}, [
 
-        ...((__context.values.last .isDisabled ()) ?
+        ...((__context.values.last.isDisabled()) ?
 (()=>([
 
-        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled .className }, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.disabled.className}, [
 
         
      ])
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.last .onclick }, [
+        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.last.onclick}, [
 
         
      ])

@@ -81,16 +81,16 @@ export class Main  implements __wml.View {
         __document.createTextNode('Members: '),
 __this.node('b', <__wml.Attrs>{wml : { 'id' : 'selected'  }}, [
 
-        __context.values.text 
+        __context.values.text
      ]),
 __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Stack({ww : { 'name' : 'stack' ,'value' : __context.values.values  ,'decorator' : __context.values.decorator  ,'onChange' : __context.onChange  }}, [
+        __this.widget(new Stack({ww : { 'name' : 'stack' ,'value' : __context.values.values ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : 'stack' ,'value' : __context.values.values  ,'decorator' : __context.values.decorator  ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{ww : { 'name' : 'stack' ,'value' : __context.values.values ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -98,10 +98,10 @@ __this.node('p', <__wml.Attrs>{}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Stack({ww : { 'name' : 'stack' ,'value' : __context.values.values  ,'disabled' : true  ,'decorator' : __context.values.decorator  ,'onChange' : __context.onChange  }}, [
+        __this.widget(new Stack({ww : { 'name' : 'stack' ,'value' : __context.values.values ,'disabled' : true  ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : 'stack' ,'value' : __context.values.values  ,'disabled' : true  ,'decorator' : __context.values.decorator  ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{ww : { 'name' : 'stack' ,'value' : __context.values.values ,'disabled' : true  ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }})
      ])
      ]),<__wml.Attrs>{});
 

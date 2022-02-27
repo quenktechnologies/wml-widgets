@@ -88,13 +88,13 @@ __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Style')
      ]),
-...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
+...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize  (v)  }}, [
+        __this.widget(new Button({ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize (v)  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize  (v)  }})
+     ]),<__wml.Attrs>{ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize (v)  }})
      ]), 
 ()=> ([]))
      ])
@@ -105,13 +105,13 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Outline')
      ]),
-...__forIn (__context.values.styles , (style , _$$i, _$$all)=> 
+...__forIn (__context.values.styles, (style , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize  (style)  }}, [
+        __this.widget(new Button({ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize (style)  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize  (style)  }})
+     ]),<__wml.Attrs>{ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize (style)  }})
      ]), 
 ()=> ([]))
      ]),<__wml.Attrs>{}),
@@ -123,13 +123,13 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Active')
      ]),
-...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
+...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }}, [
+        __this.widget(new Button({ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }})
+     ]),<__wml.Attrs>{ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }})
      ]), 
 ()=> ([]))
      ])
@@ -142,13 +142,13 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Disabled')
      ]),
-...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
+...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }}, [
+        __this.widget(new Button({ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize  (v)  }})
+     ]),<__wml.Attrs>{ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }})
      ]), 
 ()=> ([]))
      ])
@@ -159,18 +159,18 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Size')
      ]),
-...__forIn (__context.values.styles , (style , _$$i, _$$all)=> 
+...__forIn (__context.values.styles, (style , _$$i, _$$all)=> 
 ([
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        ...__forIn (__context.values.sizes , (size , _$$i, _$$all)=> 
+        ...__forIn (__context.values.sizes, (size , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize  (size)  }}, [
+        __this.widget(new Button({ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize (size)  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize  (size)  }})
+     ]),<__wml.Attrs>{ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize (size)  }})
      ]), 
 ()=> ([]))
      ])
@@ -183,13 +183,13 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Block')
      ]),
-...__forIn (__context.values.styles , (style , _$$i, _$$all)=> 
+...__forIn (__context.values.styles, (style , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize  (style)  }}, [
+        __this.widget(new Button({ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize (style)  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize  (style)  }})
+     ]),<__wml.Attrs>{ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize (style)  }})
      ]), 
 ()=> ([]))
      ]),<__wml.Attrs>{})

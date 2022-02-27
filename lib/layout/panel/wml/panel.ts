@@ -72,7 +72,7 @@ export class Panel  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content .id   },'class': __context.values.content .className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content.id  },'class': __context.values.content.className}, [
 
         ...(__context.children)
      ]);
@@ -256,7 +256,7 @@ export class PanelHeader  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content .id   },'class': __context.values.content .className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content.id  },'class': __context.values.content.className}, [
 
         ...(__context.children)
      ]);
@@ -440,7 +440,7 @@ export class PanelBody  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content .id   },'class': __context.values.content .className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content.id  },'class': __context.values.content.className}, [
 
         ...(__context.children)
      ]);
@@ -624,7 +624,7 @@ export class PanelFooter  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content .id   },'class': __context.values.content .className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content.id  },'class': __context.values.content.className}, [
 
         ...(__context.children)
      ]);

@@ -73,21 +73,21 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('div', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
 
         __this.widget(new TabBar({}, [
 
-        ...__forOf (__context.values.tabs .data , (tab , name , _$$all) => 
+        ...__forOf (__context.values.tabs.data, (tab , name , _$$all) => 
        ([
 
-        __this.widget(new Tab({ww : { 'name' : name ,'active' : (__context.values.tabs .current  === name) ,'onClick' : __context.values.tabs .onClick   }}, [
+        __this.widget(new Tab({ww : { 'name' : name ,'active' : (__context.values.tabs.current === name) ,'onClick' : __context.values.tabs.onClick  }}, [
 
-        ...(__context.values.tabs .content (tab))
-     ]),<__wml.Attrs>{ww : { 'name' : name ,'active' : (__context.values.tabs .current  === name) ,'onClick' : __context.values.tabs .onClick   }})
+        ...(__context.values.tabs.content(tab))
+     ]),<__wml.Attrs>{ww : { 'name' : name ,'active' : (__context.values.tabs.current === name) ,'onClick' : __context.values.tabs.onClick  }})
      ]), 
     ()=> ([]))
      ]),<__wml.Attrs>{}),
-...(__context.values.root .content ())
+...(__context.values.root.content())
      ]);
 
        }

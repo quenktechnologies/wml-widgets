@@ -72,7 +72,7 @@ export class DescriptionList  implements __wml.View {
 
        
 
-           return __this.node('dl', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('dl', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);
@@ -256,7 +256,7 @@ export class Title  implements __wml.View {
 
        
 
-           return __this.node('dt', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('dt', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);
@@ -440,7 +440,7 @@ export class Data  implements __wml.View {
 
        
 
-           return __this.node('dd', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('dd', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);

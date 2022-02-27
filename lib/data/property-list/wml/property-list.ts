@@ -442,19 +442,19 @@ export class PropertyListView <D  ,R extends Record<D  >  >  implements __wml.Vi
 
        
 
-           return __this.widget(new DescriptionList({ww : { 'className' : __context.values.root .className   }}, [
+           return __this.widget(new DescriptionList({ww : { 'className' : __context.values.root.className  }}, [
 
-        ...__forIn (__context.values.fields , (field , _$$i, _$$all)=> 
+        ...__forIn (__context.values.fields, (field , _$$i, _$$all)=> 
 ([
 
         __this.widget(new Title({}, [
 
         text (field.heading)
      ]),<__wml.Attrs>{}),
-__context.values.data .get (field)
+__context.values.data.get(field)
      ]), 
 ()=> ([]))
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.root .className   }});
+     ]),<__wml.Attrs>{ww : { 'className' : __context.values.root.className  }});
 
        }
 

@@ -72,7 +72,7 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('span', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'onclick': __context.values.onClick }, [
+           return __this.node('span', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'onclick': __context.values.onClick}, [
 
         __document.createTextNode('×')
      ]);

@@ -1,13 +1,6 @@
 "use strict";
-var __spreadArrays = (this && this.__spreadArrays) || function () {
-    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
-    for (var r = Array(s), k = 0, i = 0; i < il; i++)
-        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
-            r[k] = a[j];
-    return r;
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Main = exports.content = void 0;
+exports.Main = exports.FooterView = exports.BodyView = exports.HeaderView = void 0;
 var __document = require("@quenk/wml/lib/dom");
 //@ts-ignore: 6192
 var maybe_1 = require("@quenk/noni/lib/data/maybe");
@@ -40,106 +33,434 @@ var text = __document.text;
 var unsafe = __document.unsafe;
 // @ts-ignore 6192
 var isSet = function (value) { return value != null; };
-exports.content = function () { return function (__this) {
-    return [
-        __this.widget(new table_1.TableHeader({}, [
-            __this.widget(new table_1.TableRow({}, [
-                __this.widget(new table_1.TableHeading({}, [
-                    __document.createTextNode('Name')
-                ]), {}),
-                __this.widget(new table_1.TableHeading({}, [
-                    __document.createTextNode('Email')
-                ]), {}),
-                __this.widget(new table_1.TableHeading({}, [
-                    __document.createTextNode('Balance')
-                ]), {}),
-                __this.widget(new table_1.TableHeading({}, [
-                    __document.createTextNode('Username')
-                ]), {}),
-                __this.widget(new table_1.TableHeading({}, [
-                    __document.createTextNode('Status')
+var HeaderView = /** @class */ (function () {
+    function HeaderView(__context) {
+        this.ids = {};
+        this.groups = {};
+        this.views = [];
+        this.widgets = [];
+        this.tree = __document.createElement('div');
+        this.template = function (__this) {
+            return __this.widget(new table_1.TableHeader({}, [
+                __this.widget(new table_1.TableRow({}, [
+                    __this.widget(new table_1.TableHeading({}, [
+                        __document.createTextNode('Name')
+                    ]), {}),
+                    __this.widget(new table_1.TableHeading({}, [
+                        __document.createTextNode('Email')
+                    ]), {}),
+                    __this.widget(new table_1.TableHeading({}, [
+                        __document.createTextNode('Balance')
+                    ]), {}),
+                    __this.widget(new table_1.TableHeading({}, [
+                        __document.createTextNode('Username')
+                    ]), {}),
+                    __this.widget(new table_1.TableHeading({}, [
+                        __document.createTextNode('Status')
+                    ]), {})
                 ]), {})
-            ]), {})
-        ]), {}),
-        __this.widget(new table_1.TableBody({}, [
-            __this.widget(new table_1.TableRow({}, [
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('Length Wise')
+            ]), {});
+        };
+    }
+    HeaderView.prototype.registerView = function (v) {
+        this.views.push(v);
+        return v;
+    };
+    HeaderView.prototype.register = function (e, attrs) {
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
+        }
+        return e;
+    };
+    HeaderView.prototype.node = function (tag, attrs, children) {
+        var e = __document.createElement(tag);
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, '');
+            }
+            else if (!__document.isBrowser &&
+                value instanceof __document.WMLDOMText) {
+                e.setAttribute(key, value);
+            }
+        });
+        children.forEach(function (c) {
+            switch (typeof c) {
+                case 'string':
+                case 'number':
+                case 'boolean':
+                    var tn = __document.createTextNode('' + c);
+                    e.appendChild(tn);
+                case 'object':
+                    e.appendChild(c);
+                    break;
+                default:
+                    throw new TypeError("Can not adopt child " + c + " of type " + typeof c);
+            }
+        });
+        this.register(e, attrs);
+        return e;
+    };
+    HeaderView.prototype.widget = function (w, attrs) {
+        this.register(w, attrs);
+        this.widgets.push(w);
+        return w.render();
+    };
+    HeaderView.prototype.findById = function (id) {
+        var mW = maybe_1.fromNullable(this.ids[id]);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findById(id);
+        }, mW);
+    };
+    HeaderView.prototype.findByGroup = function (name) {
+        var mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+            this.groups[name] :
+            []);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findByGroup(name);
+        }, mGroup);
+    };
+    HeaderView.prototype.invalidate = function () {
+        var tree = this.tree;
+        var parent = tree.parentNode;
+        if (tree == null)
+            return console.warn('invalidate(): ' + 'Missing DOM tree!');
+        if (tree.parentNode == null)
+            throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
+        parent.replaceChild(this.render(), tree);
+    };
+    HeaderView.prototype.render = function () {
+        this.ids = {};
+        this.widgets.forEach(function (w) { return w.removed(); });
+        this.widgets = [];
+        this.views = [];
+        this.tree = this.template(this);
+        this.ids['root'] = (this.ids['root']) ?
+            this.ids['root'] :
+            this.tree;
+        this.widgets.forEach(function (w) { return w.rendered(); });
+        return this.tree;
+    };
+    return HeaderView;
+}());
+exports.HeaderView = HeaderView;
+;
+var BodyView = /** @class */ (function () {
+    function BodyView(__context) {
+        this.ids = {};
+        this.groups = {};
+        this.views = [];
+        this.widgets = [];
+        this.tree = __document.createElement('div');
+        this.template = function (__this) {
+            return __this.widget(new table_1.TableBody({}, [
+                __this.widget(new table_1.TableRow({}, [
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('Length Wise')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('lw@theemailplace.com')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('$5000')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('lw')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('Active')
+                    ]), {})
                 ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('lw@theemailplace.com')
+                __this.widget(new table_1.TableRow({}, [
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('First Chance')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('fchacne@live.tt')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('$1.00')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('chance')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('Inactive')
+                    ]), {})
                 ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('$5000')
+                __this.widget(new table_1.TableRow({}, [
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('Du Pear')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('dupear@gmail.com')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('$10,000.00')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('pearboy')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('Active')
+                    ]), {})
                 ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('lw')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('Active')
+                __this.widget(new table_1.TableRow({}, [
+                    __this.widget(new table_1.TableCell({ ww: { 'rowspan': 2, 'colspan': 5 } }, [
+                        __document.createTextNode('This spans 2 rows 5 columns.')
+                    ]), { ww: { 'rowspan': 2, 'colspan': 5 } })
                 ]), {})
-            ]), {}),
-            __this.widget(new table_1.TableRow({}, [
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('First Chance')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('fchacne@live.tt')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('$1.00')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('chance')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('Inactive')
+            ]), {});
+        };
+    }
+    BodyView.prototype.registerView = function (v) {
+        this.views.push(v);
+        return v;
+    };
+    BodyView.prototype.register = function (e, attrs) {
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
+        }
+        return e;
+    };
+    BodyView.prototype.node = function (tag, attrs, children) {
+        var e = __document.createElement(tag);
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, '');
+            }
+            else if (!__document.isBrowser &&
+                value instanceof __document.WMLDOMText) {
+                e.setAttribute(key, value);
+            }
+        });
+        children.forEach(function (c) {
+            switch (typeof c) {
+                case 'string':
+                case 'number':
+                case 'boolean':
+                    var tn = __document.createTextNode('' + c);
+                    e.appendChild(tn);
+                case 'object':
+                    e.appendChild(c);
+                    break;
+                default:
+                    throw new TypeError("Can not adopt child " + c + " of type " + typeof c);
+            }
+        });
+        this.register(e, attrs);
+        return e;
+    };
+    BodyView.prototype.widget = function (w, attrs) {
+        this.register(w, attrs);
+        this.widgets.push(w);
+        return w.render();
+    };
+    BodyView.prototype.findById = function (id) {
+        var mW = maybe_1.fromNullable(this.ids[id]);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findById(id);
+        }, mW);
+    };
+    BodyView.prototype.findByGroup = function (name) {
+        var mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+            this.groups[name] :
+            []);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findByGroup(name);
+        }, mGroup);
+    };
+    BodyView.prototype.invalidate = function () {
+        var tree = this.tree;
+        var parent = tree.parentNode;
+        if (tree == null)
+            return console.warn('invalidate(): ' + 'Missing DOM tree!');
+        if (tree.parentNode == null)
+            throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
+        parent.replaceChild(this.render(), tree);
+    };
+    BodyView.prototype.render = function () {
+        this.ids = {};
+        this.widgets.forEach(function (w) { return w.removed(); });
+        this.widgets = [];
+        this.views = [];
+        this.tree = this.template(this);
+        this.ids['root'] = (this.ids['root']) ?
+            this.ids['root'] :
+            this.tree;
+        this.widgets.forEach(function (w) { return w.rendered(); });
+        return this.tree;
+    };
+    return BodyView;
+}());
+exports.BodyView = BodyView;
+;
+var FooterView = /** @class */ (function () {
+    function FooterView(__context) {
+        this.ids = {};
+        this.groups = {};
+        this.views = [];
+        this.widgets = [];
+        this.tree = __document.createElement('div');
+        this.template = function (__this) {
+            return __this.widget(new table_1.TableFooter({}, [
+                __this.widget(new table_1.TableRow({}, [
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('1')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('2')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('3')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('4')
+                    ]), {}),
+                    __this.widget(new table_1.TableCell({}, [
+                        __document.createTextNode('5')
+                    ]), {})
                 ]), {})
-            ]), {}),
-            __this.widget(new table_1.TableRow({}, [
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('Du Pear')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('dupear@gmail.com')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('$10,000.00')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('pearboy')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('Active')
-                ]), {})
-            ]), {}),
-            __this.widget(new table_1.TableRow({}, [
-                __this.widget(new table_1.TableCell({ ww: { 'rowspan': 2, 'colspan': 5 } }, [
-                    __document.createTextNode('This spans 2 rows 5 columns.')
-                ]), { ww: { 'rowspan': 2, 'colspan': 5 } })
-            ]), {})
-        ]), {}),
-        __this.widget(new table_1.TableFooter({}, [
-            __this.widget(new table_1.TableRow({}, [
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('1')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('2')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('3')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('4')
-                ]), {}),
-                __this.widget(new table_1.TableCell({}, [
-                    __document.createTextNode('5')
-                ]), {})
-            ]), {})
-        ]), {})
-    ];
-}; };
+            ]), {});
+        };
+    }
+    FooterView.prototype.registerView = function (v) {
+        this.views.push(v);
+        return v;
+    };
+    FooterView.prototype.register = function (e, attrs) {
+        var attrsMap = attrs;
+        if (attrsMap.wml) {
+            var _a = attrsMap.wml, id = _a.id, group = _a.group;
+            if (id != null) {
+                if (this.ids.hasOwnProperty(id))
+                    throw new Error("Duplicate id '" + id + "' detected!");
+                this.ids[id] = e;
+            }
+            if (group != null) {
+                this.groups[group] = this.groups[group] || [];
+                this.groups[group].push(e);
+            }
+        }
+        return e;
+    };
+    FooterView.prototype.node = function (tag, attrs, children) {
+        var e = __document.createElement(tag);
+        Object.keys(attrs).forEach(function (key) {
+            var value = attrs[key];
+            if (typeof value === 'function') {
+                e[key] = value;
+            }
+            else if (typeof value === 'string') {
+                //prevent setting things like disabled=''
+                if (value !== '')
+                    e.setAttribute(key, value);
+            }
+            else if (typeof value === 'boolean') {
+                e.setAttribute(key, '');
+            }
+            else if (!__document.isBrowser &&
+                value instanceof __document.WMLDOMText) {
+                e.setAttribute(key, value);
+            }
+        });
+        children.forEach(function (c) {
+            switch (typeof c) {
+                case 'string':
+                case 'number':
+                case 'boolean':
+                    var tn = __document.createTextNode('' + c);
+                    e.appendChild(tn);
+                case 'object':
+                    e.appendChild(c);
+                    break;
+                default:
+                    throw new TypeError("Can not adopt child " + c + " of type " + typeof c);
+            }
+        });
+        this.register(e, attrs);
+        return e;
+    };
+    FooterView.prototype.widget = function (w, attrs) {
+        this.register(w, attrs);
+        this.widgets.push(w);
+        return w.render();
+    };
+    FooterView.prototype.findById = function (id) {
+        var mW = maybe_1.fromNullable(this.ids[id]);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findById(id);
+        }, mW);
+    };
+    FooterView.prototype.findByGroup = function (name) {
+        var mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+            this.groups[name] :
+            []);
+        return this.views.reduce(function (p, c) {
+            return p.isJust() ? p : c.findByGroup(name);
+        }, mGroup);
+    };
+    FooterView.prototype.invalidate = function () {
+        var tree = this.tree;
+        var parent = tree.parentNode;
+        if (tree == null)
+            return console.warn('invalidate(): ' + 'Missing DOM tree!');
+        if (tree.parentNode == null)
+            throw new Error('invalidate(): cannot invalidate this view, it has no parent node!');
+        parent.replaceChild(this.render(), tree);
+    };
+    FooterView.prototype.render = function () {
+        this.ids = {};
+        this.widgets.forEach(function (w) { return w.removed(); });
+        this.widgets = [];
+        this.views = [];
+        this.tree = this.template(this);
+        this.ids['root'] = (this.ids['root']) ?
+            this.ids['root'] :
+            this.tree;
+        this.widgets.forEach(function (w) { return w.rendered(); });
+        return this.tree;
+    };
+    return FooterView;
+}());
+exports.FooterView = FooterView;
 ;
 var Main = /** @class */ (function () {
     function Main(__context) {
@@ -154,35 +475,59 @@ var Main = /** @class */ (function () {
                     __this.node('h3', {}, [
                         __document.createTextNode('Normal')
                     ]),
-                    __this.widget(new table_1.TableLayout({}, __spreadArrays((exports.content()(__this)))), {})
+                    __this.widget(new table_1.TableLayout({}, [
+                        __this.registerView(new HeaderView(__context)).render(),
+                        __this.registerView(new BodyView(__context)).render(),
+                        __this.registerView(new FooterView(__context)).render()
+                    ]), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
                         __document.createTextNode(' Alternate')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'alternate': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'alternate': true } })
+                    __this.widget(new table_1.TableLayout({ ww: { 'alternate': true } }, [
+                        __this.registerView(new HeaderView(__context)).render(),
+                        __this.registerView(new BodyView(__context)).render(),
+                        __this.registerView(new FooterView(__context)).render()
+                    ]), { ww: { 'alternate': true } })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
                         __document.createTextNode('Bordered')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'bordered': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'bordered': true } })
+                    __this.widget(new table_1.TableLayout({ ww: { 'bordered': true } }, [
+                        __this.registerView(new HeaderView(__context)).render(),
+                        __this.registerView(new BodyView(__context)).render(),
+                        __this.registerView(new FooterView(__context)).render()
+                    ]), { ww: { 'bordered': true } })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
                         __document.createTextNode('Hoverable')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'hoverable': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'hoverable': true } })
+                    __this.widget(new table_1.TableLayout({ ww: { 'hoverable': true } }, [
+                        __this.registerView(new HeaderView(__context)).render(),
+                        __this.registerView(new BodyView(__context)).render(),
+                        __this.registerView(new FooterView(__context)).render()
+                    ]), { ww: { 'hoverable': true } })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
                         __document.createTextNode('Compact')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'compact': true } }, __spreadArrays((exports.content()(__this)))), { ww: { 'compact': true } })
+                    __this.widget(new table_1.TableLayout({ ww: { 'compact': true } }, [
+                        __this.registerView(new HeaderView(__context)).render(),
+                        __this.registerView(new BodyView(__context)).render(),
+                        __this.registerView(new FooterView(__context)).render()
+                    ]), { ww: { 'compact': true } })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.widget(new table_1.TableWindow({}, [
-                        __this.widget(new table_1.TableLayout({}, __spreadArrays((exports.content()(__this)))), {})
+                        __this.widget(new table_1.TableLayout({}, [
+                            __this.registerView(new HeaderView(__context)).render(),
+                            __this.registerView(new BodyView(__context)).render(),
+                            __this.registerView(new FooterView(__context)).render()
+                        ]), {})
                     ]), {})
                 ]), {})
             ]), {});

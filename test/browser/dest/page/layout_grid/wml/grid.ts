@@ -73,7 +73,7 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new GridLayout({ww : { 'className' : __context.values.root .className   }}, [
+           return __this.widget(new GridLayout({ww : { 'className' : __context.values.root.className  }}, [
 
         __this.widget(new Row({}, [
 
@@ -189,7 +189,7 @@ __this.widget(new Row({}, [
         __document.createTextNode('Span 12')
      ]),<__wml.Attrs>{ww : { 'span' : 12  }})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.root .className   }});
+     ]),<__wml.Attrs>{ww : { 'className' : __context.values.root.className  }});
 
        }
 

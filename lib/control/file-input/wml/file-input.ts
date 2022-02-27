@@ -72,7 +72,7 @@ export class FileInputView  implements __wml.View {
 
        
 
-           return __this.node('input', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'name': __context.values.name ,'type': 'file','accept': __context.values.accept ,'onchange': __context.values.change ,'multiple': __context.values.multiple }, [
+           return __this.node('input', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'name': __context.values.name,'type': 'file','accept': __context.values.accept,'onchange': __context.values.change,'multiple': __context.values.multiple}, [
 
         
      ]);

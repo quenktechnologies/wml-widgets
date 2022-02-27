@@ -80,10 +80,10 @@ export class Main  implements __wml.View {
 
         __document.createTextNode('Data Table')
      ]),
-__this.widget(new DataTable({wml : { 'id' : __context.values.id   },ww : { 'sortable' : true  ,'onCellClicked' : __context.values.onCellClicked  ,'data' : __context.values.users  ,'columns' : __context.values.columns   }}, [
+__this.widget(new DataTable({wml : { 'id' : __context.values.id  },ww : { 'sortable' : true  ,'onCellClicked' : __context.values.onCellClicked ,'data' : __context.values.users ,'columns' : __context.values.columns  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id   },ww : { 'sortable' : true  ,'onCellClicked' : __context.values.onCellClicked  ,'data' : __context.values.users  ,'columns' : __context.values.columns   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id  },ww : { 'sortable' : true  ,'onCellClicked' : __context.values.onCellClicked ,'data' : __context.values.users ,'columns' : __context.values.columns  }})
      ]),<__wml.Attrs>{});
 
        }

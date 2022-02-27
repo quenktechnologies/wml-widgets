@@ -72,7 +72,7 @@ export class Thumbnail  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'onclick': __context.values.onclick }, [
+           return __this.node('div', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'onclick': __context.values.onclick}, [
 
         ...(__context.children)
      ]);
@@ -256,7 +256,7 @@ export class Anchor  implements __wml.View {
 
        
 
-           return __this.node('a', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className ,'href': __context.values.href ,'onclick': __context.values.onclick }, [
+           return __this.node('a', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'href': __context.values.href,'onclick': __context.values.onclick}, [
 
         ...(__context.children)
      ]);
@@ -440,7 +440,7 @@ export class Caption  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);

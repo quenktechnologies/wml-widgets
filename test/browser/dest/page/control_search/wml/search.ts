@@ -80,20 +80,20 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Search({wml : { 'id' : __context.values.id   },ww : { 'name' : __context.values.name  ,'stringifier' : __context.values.stringifier  ,'onSearch' : __context.values.onSearch  ,'onSelect' : __context.values.onSelect   }}, [
+        __this.widget(new Search({wml : { 'id' : __context.values.id  },ww : { 'name' : __context.values.name ,'stringifier' : __context.values.stringifier ,'onSearch' : __context.values.onSearch ,'onSelect' : __context.values.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id   },ww : { 'name' : __context.values.name  ,'stringifier' : __context.values.stringifier  ,'onSearch' : __context.values.onSearch  ,'onSelect' : __context.values.onSelect   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id  },ww : { 'name' : __context.values.name ,'stringifier' : __context.values.stringifier ,'onSearch' : __context.values.onSearch ,'onSelect' : __context.values.onSelect  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Search({wml : { 'id' : __context.values.id2   },ww : { 'name' : __context.values.name2  ,'block' : true  ,'stringifier' : __context.values.stringifier  ,'onSearch' : __context.values.onSearch  ,'onSelect' : __context.values.onSelect   }}, [
+        __this.widget(new Search({wml : { 'id' : __context.values.id2  },ww : { 'name' : __context.values.name2 ,'block' : true  ,'stringifier' : __context.values.stringifier ,'onSearch' : __context.values.onSearch ,'onSelect' : __context.values.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id2   },ww : { 'name' : __context.values.name2  ,'block' : true  ,'stringifier' : __context.values.stringifier  ,'onSearch' : __context.values.onSearch  ,'onSelect' : __context.values.onSelect   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id2  },ww : { 'name' : __context.values.name2 ,'block' : true  ,'stringifier' : __context.values.stringifier ,'onSearch' : __context.values.onSearch ,'onSelect' : __context.values.onSelect  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -104,10 +104,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Search({ww : { 'disabled' : true  ,'stringifier' : __context.values.stringifier  ,'onSearch' : __context.values.onSearch  ,'onSelect' : __context.values.onSelect   }}, [
+        __this.widget(new Search({ww : { 'disabled' : true  ,'stringifier' : __context.values.stringifier ,'onSearch' : __context.values.onSearch ,'onSelect' : __context.values.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'disabled' : true  ,'stringifier' : __context.values.stringifier  ,'onSearch' : __context.values.onSearch  ,'onSelect' : __context.values.onSelect   }})
+     ]),<__wml.Attrs>{ww : { 'disabled' : true  ,'stringifier' : __context.values.stringifier ,'onSearch' : __context.values.onSearch ,'onSelect' : __context.values.onSelect  }})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

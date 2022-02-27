@@ -88,11 +88,11 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('button', <__wml.Attrs>{'onclick': __context.values.dec }, [
+        __this.node('button', <__wml.Attrs>{'onclick': __context.values.dec}, [
 
         __document.createTextNode('-')
      ]),
-__this.node('button', <__wml.Attrs>{'onclick': __context.values.inc }, [
+__this.node('button', <__wml.Attrs>{'onclick': __context.values.inc}, [
 
         __document.createTextNode('+')
      ])
@@ -115,7 +115,7 @@ __this.widget(new Demo({}, [
      ]),
 __this.widget(new Meter({}, [
 
-        ...__forIn (__context.values.bars , (v , _$$i, _$$all)=> 
+        ...__forIn (__context.values.bars, (v , _$$i, _$$all)=> 
 ([
 
         __this.widget(new MeterBar({ww : { 'value' : v.value ,'color' : v.color  }}, [

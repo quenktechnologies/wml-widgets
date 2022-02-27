@@ -72,9 +72,9 @@ export class Textarea  implements __wml.View {
 
        
 
-           return __this.node('textarea', <__wml.Attrs>{wml : { 'id' : __context.values.control .wml .id   },'id': __context.values.id ,'name': __context.values.name ,'placeholder': __context.values.placeholder ,'oninput': __context.values.oninput ,'value': __context.values.value ,'disabled': __context.values.disabled ,'readonly': __context.values.readOnly ,'rows': __context.values.rows ,'class': __context.values.className }, [
+           return __this.node('textarea', <__wml.Attrs>{wml : { 'id' : __context.values.control.wml.id  },'id': __context.values.id,'name': __context.values.name,'placeholder': __context.values.placeholder,'oninput': __context.values.oninput,'value': __context.values.value,'disabled': __context.values.disabled,'readonly': __context.values.readOnly,'rows': __context.values.rows,'class': __context.values.className}, [
 
-        document.createTextNode(__context.values.value )
+        document.createTextNode(__context.values.value)
      ]);
 
        }
@@ -256,7 +256,7 @@ export class Input  implements __wml.View {
 
        
 
-           return __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.control .wml .id   },'id': __context.values.id ,'name': __context.values.name ,'type': __context.values.type ,'min': __context.values.min ,'max': __context.values.max ,'placeholder': __context.values.placeholder ,'oninput': __context.values.oninput ,'onkeydown': __context.values.onkeydown ,'autofocus': __context.values.autofocus ,'value': __context.values.value ,'disabled': __context.values.disabled ,'readonly': __context.values.readOnly ,'class': __context.values.className }, [
+           return __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.control.wml.id  },'id': __context.values.id,'name': __context.values.name,'type': __context.values.type,'min': __context.values.min,'max': __context.values.max,'placeholder': __context.values.placeholder,'oninput': __context.values.oninput,'onkeydown': __context.values.onkeydown,'autofocus': __context.values.autofocus,'value': __context.values.value,'disabled': __context.values.disabled,'readonly': __context.values.readOnly,'class': __context.values.className}, [
 
         
      ]);

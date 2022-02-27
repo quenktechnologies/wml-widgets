@@ -1,5 +1,5 @@
 import * as hidden from '../../content/state/hidden';
-import { View, Fun, Component } from '@quenk/wml';
+import { View, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 export declare const DROP_DOWN = "ww-drop-down-menu";
@@ -8,7 +8,7 @@ export declare const DROP_DOWN_CONTENT = "ww-drop-down__content";
 /**
  * ButtonTemplate provides the template for rendering the button part.
  */
-export declare type ButtonTemplate = (b: DropDown) => Fun;
+export declare type ButtonTemplate = (b: DropDown) => View;
 /**
  * DropDownMenuAttrs
  */
@@ -74,7 +74,7 @@ export declare class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>> 
             anchor: boolean;
             className: string;
             disabled: true | undefined;
-            template: () => ButtonTemplate;
+            template: () => View;
             onClick: () => void;
         };
         content: {

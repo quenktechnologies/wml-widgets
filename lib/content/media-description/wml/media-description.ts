@@ -72,7 +72,7 @@ export class MediaDescription  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);
@@ -256,7 +256,7 @@ export class Media  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);
@@ -440,7 +440,7 @@ export class Description  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);

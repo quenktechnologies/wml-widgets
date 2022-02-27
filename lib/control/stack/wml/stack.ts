@@ -70,9 +70,9 @@ export const content =
 
    return [
 
-        __this.node('div', <__wml.Attrs>{'class': s.values.element .content .className }, [
+        __this.node('div', <__wml.Attrs>{'class': s.values.element.content.className}, [
 
-        s.values.element .decorator (v)
+        s.values.element.decorator(v)
      ])
      ];
 
@@ -85,18 +85,18 @@ export class Main <V  >  implements __wml.View {
 
        
 
-           return __this.node('ul', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('ul', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
 
-        ...__forIn (__context.values.root .value , (v , index: number , _$$all)=> 
+        ...__forIn (__context.values.root.value, (v , index: number , _$$all)=> 
 ([
 
-        __this.node('li', <__wml.Attrs>{'class': __context.values.element .className }, [
+        __this.node('li', <__wml.Attrs>{'class': __context.values.element.className}, [
 
-        ...(__context.values.element .template (v,index)),
-...(((__context.values.root .disabled  === false )) ?
+        ...(__context.values.element.template(v,index)),
+...(((__context.values.root.disabled === false )) ?
 (()=>([
 
-        __this.node('button', <__wml.Attrs>{'class': __context.values.close .className ,'onclick': __context.values.element .close (index)}, [
+        __this.node('button', <__wml.Attrs>{'class': __context.values.close.className,'onclick': __context.values.element.close(index)}, [
 
         __document.createTextNode('×')
      ])

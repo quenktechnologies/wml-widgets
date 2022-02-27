@@ -72,9 +72,9 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.root .wml .id   },'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.root.wml.id  },'id': __context.values.root.id,'class': __context.values.root.className}, [
 
-        ...(__context.values.root .content .render ())
+        ...(__context.values.root.content.render())
      ]);
 
        }

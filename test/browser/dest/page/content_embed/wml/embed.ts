@@ -89,7 +89,7 @@ __this.widget(new GridLayout({}, [
 
         __this.widget(new Embed({ww : { 'className' : '-aspect-ratio-16x9'  }}, [
 
-        __this.node('iframe', <__wml.Attrs>{'src': __context.values.jojo ,'allow': __context.values.allow }, [
+        __this.node('iframe', <__wml.Attrs>{'src': __context.values.jojo,'allow': __context.values.allow}, [
 
         
      ])
@@ -99,7 +99,7 @@ __this.widget(new Column({ww : { 'span' : 4  }}, [
 
         __this.widget(new Embed({ww : { 'className' : '-aspect-ratio-4x3'  }}, [
 
-        __this.node('iframe', <__wml.Attrs>{'src': __context.values.win ,'allow': __context.values.allow }, [
+        __this.node('iframe', <__wml.Attrs>{'src': __context.values.win,'allow': __context.values.allow}, [
 
         
      ])
@@ -109,7 +109,7 @@ __this.widget(new Column({ww : { 'span' : 4  }}, [
 
         __this.widget(new Embed({ww : { 'className' : '-aspect-ratio-16x9'  }}, [
 
-        __this.node('iframe', <__wml.Attrs>{'src': __context.values.max ,'allow': __context.values.allow }, [
+        __this.node('iframe', <__wml.Attrs>{'src': __context.values.max,'allow': __context.values.allow}, [
 
         
      ])

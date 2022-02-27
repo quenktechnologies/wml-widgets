@@ -452,7 +452,7 @@ export class HeadingView <C  ,R extends Record<C  >  >  implements __wml.View {
 
            return __this.node('th', <__wml.Attrs>{'class': __context.className,'onclick': __context.onclick}, [
 
-        text (__context.column.heading )
+        text (__context.column.heading)
      ]);
 
        }
@@ -1015,11 +1015,11 @@ export class Main <C  ,R extends Record<C  >  >  implements __wml.View {
 
        
 
-           return __this.widget(new TableLayout({wml : { 'id' : __context.values.wml .id   },ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }}, [
+           return __this.widget(new TableLayout({wml : { 'id' : __context.values.wml.id  },ww : { 'id' : __context.values.id ,'className' : __context.values.className  }}, [
 
-        __context.values.thead (),
-__context.values.tbody ()
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }});
+        __context.values.thead(),
+__context.values.tbody()
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },ww : { 'id' : __context.values.id ,'className' : __context.values.className  }});
 
        }
 

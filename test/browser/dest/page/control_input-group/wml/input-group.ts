@@ -291,10 +291,10 @@ __this.widget(new Demo({}, [
 
         __this.widget(new AddOn({'button': true }, [
 
-        __this.widget(new DropList({ww : { 'options' : __context.values.dropList .options   }}, [
+        __this.widget(new DropList({ww : { 'options' : __context.values.dropList.options  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'options' : __context.values.dropList .options   }})
+     ]),<__wml.Attrs>{ww : { 'options' : __context.values.dropList.options  }})
      ]),<__wml.Attrs>{'button': true }),
 __this.widget(new TextInput({}, [
 

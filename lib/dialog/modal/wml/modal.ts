@@ -72,11 +72,11 @@ export class Modal  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className}, [
 
-        __this.node('div', <__wml.Attrs>{'class': __context.values.position .className }, [
+        __this.node('div', <__wml.Attrs>{'class': __context.values.position.className}, [
 
-        __this.node('div', <__wml.Attrs>{'class': __context.values.content .className }, [
+        __this.node('div', <__wml.Attrs>{'class': __context.values.content.className}, [
 
         ...(__context.children)
      ])
@@ -262,7 +262,7 @@ export class ModalHeader  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);
@@ -446,7 +446,7 @@ export class ModalBody  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);
@@ -630,7 +630,7 @@ export class ModalFooter  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className}, [
 
         ...(__context.children)
      ]);

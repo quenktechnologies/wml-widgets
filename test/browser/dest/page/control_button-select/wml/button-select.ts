@@ -89,10 +89,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }}, [
+        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'options' : __context.values.options ,'value' : __context.values.value ,'onChange' : __context.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'options' : __context.values.options  ,'value' : __context.values.value  ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },ww : { 'name' : 'select' ,'options' : __context.values.options ,'value' : __context.values.value ,'onChange' : __context.onChange  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -108,10 +108,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new MultiButtonSelect({wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'options' : __context.values.options  ,'value' : __context.values.values  ,'onChange' : __context.onChangeMulti  }}, [
+        __this.widget(new MultiButtonSelect({wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'options' : __context.values.options ,'value' : __context.values.values ,'onChange' : __context.onChangeMulti  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'options' : __context.values.options  ,'value' : __context.values.values  ,'onChange' : __context.onChangeMulti  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'multi'  },ww : { 'name' : 'multi' ,'options' : __context.values.options ,'value' : __context.values.values ,'onChange' : __context.onChangeMulti  }})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

@@ -72,9 +72,9 @@ export class ButtonView <V  >  implements __wml.View {
 
        
 
-           return __this.node('button', <__wml.Attrs>{wml : { 'id' : __context.values.button .wml .id   },'id': __context.values.button .id ,'type': __context.values.button .type ,'name': __context.values.button .name ,'disabled': __context.values.button .disabled ,'class': __context.values.button .className ,'onclick': __context.values.button .onclick }, [
+           return __this.node('button', <__wml.Attrs>{wml : { 'id' : __context.values.button.wml.id  },'id': __context.values.button.id,'type': __context.values.button.type,'name': __context.values.button.name,'disabled': __context.values.button.disabled,'class': __context.values.button.className,'onclick': __context.values.button.onclick}, [
 
-        ...(__context.values.button .content ())
+        ...(__context.values.button.content())
      ]);
 
        }
@@ -256,9 +256,9 @@ export class AnchorView <V  >  implements __wml.View {
 
        
 
-           return __this.node('a', <__wml.Attrs>{wml : { 'id' : __context.values.button .wml .id   },'id': __context.values.button .id ,'type': __context.values.button .type ,'href': '#','name': __context.values.button .name ,'disabled': __context.values.button .disabled ,'class': __context.values.button .className ,'onclick': __context.values.button .onclick }, [
+           return __this.node('a', <__wml.Attrs>{wml : { 'id' : __context.values.button.wml.id  },'id': __context.values.button.id,'type': __context.values.button.type,'href': '#','name': __context.values.button.name,'disabled': __context.values.button.disabled,'class': __context.values.button.className,'onclick': __context.values.button.onclick}, [
 
-        ...(__context.values.button .content ())
+        ...(__context.values.button.content())
      ]);
 
        }

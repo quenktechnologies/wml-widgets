@@ -72,13 +72,13 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('label', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('label', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
 
-        __this.node('input', <__wml.Attrs>{'type': 'checkbox','name': __context.values.input .name ,'checked': __context.values.input .checked (),'disabled': __context.values.input .disabled ,'onchange': __context.values.input .onChange }, [
+        __this.node('input', <__wml.Attrs>{'type': 'checkbox','name': __context.values.input.name,'checked': __context.values.input.checked(),'disabled': __context.values.input.disabled,'onchange': __context.values.input.onChange}, [
 
         
      ]),
-__this.node('div', <__wml.Attrs>{'class': __context.values.slider .className }, [
+__this.node('div', <__wml.Attrs>{'class': __context.values.slider.className}, [
 
         
      ])

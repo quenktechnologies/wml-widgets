@@ -72,9 +72,9 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('span', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className ,'onclick': __context.values.onclick }, [
+           return __this.node('span', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className,'onclick': __context.values.onclick}, [
 
-        ...(__context.values.content )
+        ...(__context.values.content)
      ]);
 
        }

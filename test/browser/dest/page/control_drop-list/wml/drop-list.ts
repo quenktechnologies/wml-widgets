@@ -84,10 +84,10 @@ export class Main  implements __wml.View {
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropList({wml : { 'id' : __context.values.normal .name   },ww : { 'name' : __context.values.normal .name  ,'value' : __context.values.normal .value  ,'options' : __context.values.normal .options  ,'onSelect' : __context.values.normal .onSelect   }}, [
+        __this.widget(new DropList({wml : { 'id' : __context.values.normal.name  },ww : { 'name' : __context.values.normal.name ,'value' : __context.values.normal.value ,'options' : __context.values.normal.options ,'onSelect' : __context.values.normal.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.normal .name   },ww : { 'name' : __context.values.normal .name  ,'value' : __context.values.normal .value  ,'options' : __context.values.normal .options  ,'onSelect' : __context.values.normal .onSelect   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.normal.name  },ww : { 'name' : __context.values.normal.name ,'value' : __context.values.normal.value ,'options' : __context.values.normal.options ,'onSelect' : __context.values.normal.onSelect  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -98,10 +98,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropList({wml : { 'id' : __context.values.success .id   },ww : { 'className' : '-success' ,'name' : __context.values.success .name  ,'options' : __context.values.success .options  ,'onSelect' : __context.values.success .onSelect   }}, [
+        __this.widget(new DropList({wml : { 'id' : __context.values.success.id  },ww : { 'className' : '-success' ,'name' : __context.values.success.name ,'options' : __context.values.success.options ,'onSelect' : __context.values.success.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success .id   },ww : { 'className' : '-success' ,'name' : __context.values.success .name  ,'options' : __context.values.success .options  ,'onSelect' : __context.values.success .onSelect   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success.id  },ww : { 'className' : '-success' ,'name' : __context.values.success.name ,'options' : __context.values.success.options ,'onSelect' : __context.values.success.onSelect  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -112,10 +112,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropList({wml : { 'id' : __context.values.warning .id   },ww : { 'className' : '-warning' ,'name' : __context.values.warning .name  ,'options' : __context.values.warning .options  ,'onSelect' : __context.values.warning .onSelect   }}, [
+        __this.widget(new DropList({wml : { 'id' : __context.values.warning.id  },ww : { 'className' : '-warning' ,'name' : __context.values.warning.name ,'options' : __context.values.warning.options ,'onSelect' : __context.values.warning.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning .id   },ww : { 'className' : '-warning' ,'name' : __context.values.warning .name  ,'options' : __context.values.warning .options  ,'onSelect' : __context.values.warning .onSelect   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning.id  },ww : { 'className' : '-warning' ,'name' : __context.values.warning.name ,'options' : __context.values.warning.options ,'onSelect' : __context.values.warning.onSelect  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -126,10 +126,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropList({wml : { 'id' : __context.values.error .id   },ww : { 'className' : '-error' ,'name' : __context.values.error .name  ,'options' : __context.values.error .options  ,'onSelect' : __context.values.error .onSelect   }}, [
+        __this.widget(new DropList({wml : { 'id' : __context.values.error.id  },ww : { 'className' : '-error' ,'name' : __context.values.error.name ,'options' : __context.values.error.options ,'onSelect' : __context.values.error.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error .id   },ww : { 'className' : '-error' ,'name' : __context.values.error .name  ,'options' : __context.values.error .options  ,'onSelect' : __context.values.error .onSelect   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error.id  },ww : { 'className' : '-error' ,'name' : __context.values.error.name ,'options' : __context.values.error.options ,'onSelect' : __context.values.error.onSelect  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -140,10 +140,10 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Disabled')
      ]),
-__this.widget(new DropList({ww : { 'name' : __context.values.normal .name  ,'disabled' : true  ,'onSelect' : __context.values.normal .onSelect   }}, [
+__this.widget(new DropList({ww : { 'name' : __context.values.normal.name ,'disabled' : true  ,'onSelect' : __context.values.normal.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal .name  ,'disabled' : true  ,'onSelect' : __context.values.normal .onSelect   }})
+     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal.name ,'disabled' : true  ,'onSelect' : __context.values.normal.onSelect  }})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -154,10 +154,10 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Block')
      ]),
-__this.widget(new DropList({wml : { 'id' : __context.values.block .id   },ww : { 'className' : '-block' ,'name' : __context.values.block .name  ,'block' : true  ,'onSelect' : __context.values.block .onSelect   }}, [
+__this.widget(new DropList({wml : { 'id' : __context.values.block.id  },ww : { 'className' : '-block' ,'name' : __context.values.block.name ,'block' : true  ,'onSelect' : __context.values.block.onSelect  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.block .id   },ww : { 'className' : '-block' ,'name' : __context.values.block .name  ,'block' : true  ,'onSelect' : __context.values.block .onSelect   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.block.id  },ww : { 'className' : '-block' ,'name' : __context.values.block.name ,'block' : true  ,'onSelect' : __context.values.block.onSelect  }})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

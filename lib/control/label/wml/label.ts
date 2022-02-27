@@ -72,9 +72,9 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('label', <__wml.Attrs>{'for': __context.values.label .for ,'class': __context.values.label .className }, [
+           return __this.node('label', <__wml.Attrs>{'for': __context.values.label.for,'class': __context.values.label.className}, [
 
-        ...(__context.values.label .text )
+        ...(__context.values.label.text)
      ]);
 
        }

@@ -72,7 +72,7 @@ export class ListLayoutItem  implements __wml.View {
 
        
 
-           return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.content .wml .id   },'id': __context.values.content .id ,'class': __context.values.content .className ,'onclick': __context.values.content .onclick }, [
+           return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.content.wml.id  },'id': __context.values.content.id,'class': __context.values.content.className,'onclick': __context.values.content.onclick}, [
 
         ...(__context.children)
      ]);
@@ -256,7 +256,7 @@ export class ListLayout  implements __wml.View {
 
        
 
-           return __this.node('ul', <__wml.Attrs>{wml : { 'id' : __context.values.content .wml .id   },'id': __context.values.content .id ,'class': __context.values.content .className }, [
+           return __this.node('ul', <__wml.Attrs>{wml : { 'id' : __context.values.content.wml.id  },'id': __context.values.content.id,'class': __context.values.content.className}, [
 
         ...(__context.children)
      ]);

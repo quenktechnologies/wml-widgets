@@ -94,7 +94,7 @@ export declare class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
             results: Option<V>[];
             onSelect: (e: ItemSelectedEvent<Option<V>>) => void;
             itemTemplate: ItemTemplate<Option<V>> | undefined;
-            noItemsTemplate: import("@quenk/wml").Fun | undefined;
+            noItemsTemplate: View | undefined;
             stringifier: Stringifier<Option<V>>;
         };
     };

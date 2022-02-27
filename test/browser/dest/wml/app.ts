@@ -78,9 +78,9 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new DrawerLayout({wml : { 'id' : __context.values.id .layout   },ww : { 'drawerContent' : [
+           return __this.widget(new DrawerLayout({wml : { 'id' : __context.values.id.layout  },ww : { 'drawerContent' : [
 
-            __this.registerView((new Navigation(__context))).render()
+            __this.registerView(new Navigation(__context)).render()
             ]  }}, [
 
         __this.widget(new ActionBar({}, [
@@ -97,9 +97,9 @@ __this.widget(new MainLayout({}, [
 
         ...(__context.content)
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id .layout   },ww : { 'drawerContent' : [
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id.layout  },ww : { 'drawerContent' : [
 
-            __this.registerView((new Navigation(__context))).render()
+            __this.registerView(new Navigation(__context)).render()
             ]  }});
 
        }

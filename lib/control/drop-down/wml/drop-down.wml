@@ -2,21 +2,18 @@
 {% import (Caret) from "../../../content/caret" %}
 {% import (DropDown) from "../" %}
 
-{% fun button (d:DropDown) %}
-
+{% view ButtonView (DropDown) %}
     <Button 
-     ww:className={{d.values.button.className}}
-     ww:anchor={{d.values.button.anchor}}
-     ww:disabled={{d.values.button.disabled}}
-     ww:onClick={{d.values.button.onClick}}>
+     ww:className={{@values.button.className}}
+     ww:anchor={{@values.button.anchor}}
+     ww:disabled={{@values.button.disabled}}
+     ww:onClick={{@values.button.onClick}}>
 
-      {{d.values.button.text + " " | text }}
+      {{@values.button.text + " " | text }}
 
       <Caret/>
 
     </Button>
-
-{% endfun %}
 
 {% view Main (DropDown) %}
 
@@ -24,7 +21,7 @@
   wml:id={{@values.root.wml.id}} 
   class={{@values.root.className}}>
 
-  {{...<(@values.button.template())(@)>}}
+  {{<(@values.button.template())>}}
 
   <div
     wml:id={{@values.content.wml.id}}

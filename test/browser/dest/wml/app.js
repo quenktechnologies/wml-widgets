@@ -57,7 +57,7 @@ var Main = /** @class */ (function () {
         this.tree = __document.createElement('div');
         this.template = function (__this) {
             return __this.widget(new drawer_1.DrawerLayout({ wml: { 'id': __context.values.id.layout }, ww: { 'drawerContent': [
-                        __this.registerView((new navigation_1.Navigation(__context))).render()
+                        __this.registerView(new navigation_1.Navigation(__context)).render()
                     ] } }, [
                 __this.widget(new action_bar_1.ActionBar({}, [
                     __this.widget(new link_1.Link({ ww: { 'onClick': __context.toggleDrawer } }, [
@@ -66,7 +66,7 @@ var Main = /** @class */ (function () {
                 ]), {}),
                 __this.widget(new main_1.MainLayout({}, __spreadArrays((__context.content))), {})
             ]), { wml: { 'id': __context.values.id.layout }, ww: { 'drawerContent': [
-                        __this.registerView((new navigation_1.Navigation(__context))).render()
+                        __this.registerView(new navigation_1.Navigation(__context)).render()
                     ] } });
         };
     }

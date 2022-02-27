@@ -82,7 +82,7 @@ export class Main  implements __wml.View {
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('button', <__wml.Attrs>{'onclick': __context.values.open }, [
+        __this.node('button', <__wml.Attrs>{'onclick': __context.values.open}, [
 
         __document.createTextNode('Open')
      ])
@@ -279,7 +279,7 @@ __this.widget(new ModalBody({}, [
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Click this '),
-__this.node('button', <__wml.Attrs>{'onclick': __context.values.close }, [
+__this.node('button', <__wml.Attrs>{'onclick': __context.values.close}, [
 
         __document.createTextNode('button')
      ]),
@@ -288,7 +288,7 @@ __document.createTextNode(' to close.')
      ]),<__wml.Attrs>{}),
 __this.widget(new ModalFooter({}, [
 
-        __this.node('button', <__wml.Attrs>{'onclick': __context.values.close }, [
+        __this.node('button', <__wml.Attrs>{'onclick': __context.values.close}, [
 
         __document.createTextNode('cancel')
      ])

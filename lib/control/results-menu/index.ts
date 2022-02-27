@@ -1,10 +1,10 @@
 import { Maybe, nothing, just } from '@quenk/noni/lib/data/maybe';
-import { Fun, View, Component, Content } from '@quenk/wml';
+import { View, Component, Content } from '@quenk/wml';
 import { Menu, MenuAttrs } from '../../menu/menu';
 import { WidgetAttrs, getClassName } from '../../';
 import { getById, concat } from '../../util';
 import { Event as ControlEvent } from '../';
-import { Main, itemTemplate, noItemsTemplate } from './wml/results-menu';
+import { Main, ItemTemplateView, NoItemsTemplateView } from './wml/results-menu';
 
 ///classNames:begin
 export const RESULTS_MENU = 'ww-results-menu';
@@ -14,13 +14,13 @@ export const RESULTS_MENU = 'ww-results-menu';
  * ItemTemplate used to render each item in the results.
  */
 export type ItemTemplate<V>
-    = (option: V, index: number) => Fun
+    = (option: V, index: number, menu:ResultsMenu<V>) => View
     ;
 
 /**
  * NoItemsTemplate is used when there are no results.
  */
-export type NoItemsTemplate = Fun;
+export type NoItemsTemplate = View;
 
 /**
  * Stringifier turns a value into a string.
@@ -135,14 +135,16 @@ export class ResultsMenu<V>
 
             },
 
-            template: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                this.attrs.ww.itemTemplate :
-                (option: V, index: number): Fun =>
-                    itemTemplate(this, option, index),
+            template: (result: V, index: number): View =>
+                (this.attrs.ww && this.attrs.ww.itemTemplate) ?
+                    this.attrs.ww.itemTemplate(result, index, this) :
+                    new ItemTemplateView({
+                        option: this.values.item.stringifier(result)
+                    }),
 
-            noItemsTemplate: () =>
+            noItemsTemplate: (): View =>
                 (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                    this.attrs.ww.noItemsTemplate : noItemsTemplate(),
+                    this.attrs.ww.noItemsTemplate : new NoItemsTemplateView({}),
 
         }
 

@@ -72,7 +72,7 @@ export class TabBar  implements __wml.View {
 
        
 
-           return __this.node('ul', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('ul', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
 
         ...(__context.children)
      ]);
@@ -256,11 +256,11 @@ export class Tab  implements __wml.View {
 
        
 
-           return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.root .wml .id   },'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('li', <__wml.Attrs>{wml : { 'id' : __context.values.root.wml.id  },'id': __context.values.root.id,'class': __context.values.root.className}, [
 
-        __this.node('a', <__wml.Attrs>{wml : { 'id' : __context.values.a .wml .id   },'href': '#','onclick': __context.values.a .clicked }, [
+        __this.node('a', <__wml.Attrs>{wml : { 'id' : __context.values.a.wml.id  },'href': '#','onclick': __context.values.a.clicked}, [
 
-        ...(__context.values.a .content )
+        ...(__context.values.a.content)
      ])
      ]);
 

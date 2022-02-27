@@ -187,7 +187,7 @@ export declare class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
             block: boolean;
             onSelect: (e: ItemSelectedEvent<V>) => void;
             itemTemplate: ItemTemplate<V> | undefined;
-            noItemsTemplate: import("@quenk/wml").Fun | undefined;
+            noItemsTemplate: View | undefined;
             stringifier: Stringifier<V> | undefined;
         };
     };

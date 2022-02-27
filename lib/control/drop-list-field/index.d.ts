@@ -76,7 +76,7 @@ export declare class DropListField<V> extends AbstractFormControl<V, DropListFie
             options: Option<V>[];
             stringifier: Stringifier<Option<V>> | undefined;
             itemTemplate: ItemTemplate<Option<V>> | undefined;
-            noItemsTemplate: import("@quenk/wml").Fun | undefined;
+            noItemsTemplate: View | undefined;
             onSelect: (e: ItemSelectedEvent<V>) => void;
         };
     };

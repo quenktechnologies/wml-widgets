@@ -73,10 +73,10 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml .id   },'id': __context.values.id ,'class': __context.values.className }, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className}, [
 
-        ...(__context.values.content ),
-...((__context.values.closable ) ?
+        ...(__context.values.content),
+...((__context.values.closable) ?
 (()=>([
 
         __this.widget(new Close({ww : { 'onClick' : () => __context.close()  }}, [

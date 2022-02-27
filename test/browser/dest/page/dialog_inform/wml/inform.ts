@@ -82,7 +82,7 @@ export class Main  implements __wml.View {
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.node('button', <__wml.Attrs>{'onclick': __context.values.open }, [
+        __this.node('button', <__wml.Attrs>{'onclick': __context.values.open}, [
 
         __document.createTextNode('Open')
      ])
@@ -268,10 +268,10 @@ export class Open  implements __wml.View {
 
        
 
-           return __this.widget(new Inform({wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title  ,'onClose' : __context.values.onClose   }}, [
+           return __this.widget(new Inform({wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title ,'onClose' : __context.values.onClose  }}, [
 
-        text (__context.values.message )
-     ]),<__wml.Attrs>{wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title  ,'onClose' : __context.values.onClose   }});
+        text (__context.values.message)
+     ]),<__wml.Attrs>{wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title ,'onClose' : __context.values.onClose  }});
 
        }
 

@@ -80,18 +80,18 @@ export class ButtonSelectView <V  >  implements __wml.View {
 
        
 
-           return __this.widget(new ButtonGroup({ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }}, [
+           return __this.widget(new ButtonGroup({ww : { 'id' : __context.values.id ,'className' : __context.values.className  }}, [
 
-        ...__forIn (__context.values.button .options , (opt: Option<V  >  , idx , _$$all)=> 
+        ...__forIn (__context.values.button.options, (opt: Option<V  >  , idx , _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'className' : __context.values.button .getClassNames (idx) ,'active' : __context.values.button .isActive (idx) ,'onClick' : () => __context.values.button .onClick (idx) ,'text' : opt.text  }}, [
+        __this.widget(new Button({ww : { 'className' : __context.values.button.getClassNames(idx) ,'active' : __context.values.button.isActive(idx) ,'onClick' : () => __context.values.button.onClick(idx) ,'text' : opt.text  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.button .getClassNames (idx) ,'active' : __context.values.button .isActive (idx) ,'onClick' : () => __context.values.button .onClick (idx) ,'text' : opt.text  }})
+     ]),<__wml.Attrs>{ww : { 'className' : __context.values.button.getClassNames(idx) ,'active' : __context.values.button.isActive(idx) ,'onClick' : () => __context.values.button.onClick(idx) ,'text' : opt.text  }})
      ]), 
 ()=> ([]))
-     ]),<__wml.Attrs>{ww : { 'id' : __context.values.id  ,'className' : __context.values.className   }});
+     ]),<__wml.Attrs>{ww : { 'id' : __context.values.id ,'className' : __context.values.className  }});
 
        }
 

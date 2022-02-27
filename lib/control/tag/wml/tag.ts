@@ -74,14 +74,14 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new t.Tag({ww : { 'id' : __context.values.id  ,'className' : __context.values.className  ,'style' : __context.values.style   }}, [
+           return __this.widget(new t.Tag({ww : { 'id' : __context.values.id ,'className' : __context.values.className ,'style' : __context.values.style  }}, [
 
-        ...(((__context.values.text .value  !== '')) ?
+        ...(((__context.values.text.value !== '')) ?
 (()=>([
 
-        __this.node('span', <__wml.Attrs>{'class': __context.values.text .className }, [
+        __this.node('span', <__wml.Attrs>{'class': __context.values.text.className}, [
 
-        text (__context.values.text .value )
+        text (__context.values.text.value)
      ])
      ]))() :
 (()=>([
@@ -89,16 +89,16 @@ export class Main  implements __wml.View {
         text ('')
      ]))()),
 ...(__context.children),
-...(((__context.values.disabled  !== true )) ?
+...(((__context.values.disabled !== true )) ?
 (()=>([
 
-        __this.widget(new Close({ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }}, [
+        __this.widget(new Close({ww : { 'className' : __context.values.dismiss.className ,'onClick' : __context.values.dismiss.onClick  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.dismiss .className  ,'onClick' : __context.values.dismiss .onClick   }})
+     ]),<__wml.Attrs>{ww : { 'className' : __context.values.dismiss.className ,'onClick' : __context.values.dismiss.onClick  }})
      ]))() :
 (()=>([]))())
-     ]),<__wml.Attrs>{ww : { 'id' : __context.values.id  ,'className' : __context.values.className  ,'style' : __context.values.style   }});
+     ]),<__wml.Attrs>{ww : { 'id' : __context.values.id ,'className' : __context.values.className ,'style' : __context.values.style  }});
 
        }
 

@@ -1,5 +1,5 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
-import { Fun, View, Component, Content } from '@quenk/wml';
+import { View, Component, Content } from '@quenk/wml';
 import { MenuAttrs } from '../../menu/menu';
 import { WidgetAttrs } from '../../';
 import { Event as ControlEvent } from '../';
@@ -7,11 +7,11 @@ export declare const RESULTS_MENU = "ww-results-menu";
 /**
  * ItemTemplate used to render each item in the results.
  */
-export declare type ItemTemplate<V> = (option: V, index: number) => Fun;
+export declare type ItemTemplate<V> = (option: V, index: number, menu: ResultsMenu<V>) => View;
 /**
  * NoItemsTemplate is used when there are no results.
  */
-export declare type NoItemsTemplate = Fun;
+export declare type NoItemsTemplate = View;
 /**
  * Stringifier turns a value into a string.
  */
@@ -84,8 +84,8 @@ export declare class ResultsMenu<V> extends Component<WidgetAttrs<ResultsMenuAtt
         item: {
             stringifier: Stringifier<V>;
             click: (index: number) => void;
-            template: ItemTemplate<V>;
-            noItemsTemplate: () => Fun;
+            template: (result: V, index: number) => View;
+            noItemsTemplate: () => View;
         };
     };
     open(): ResultsMenu<V>;

@@ -97,13 +97,13 @@ __this.widget(new GridLayout({}, [
      ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
 __this.widget(new Column({ww : { 'span' : 4  }}, [
 
-        __this.widget(new Thumbnail({ww : { 'onClick' : __context.values.onClick   }}, [
+        __this.widget(new Thumbnail({ww : { 'onClick' : __context.values.onClick  }}, [
 
         __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
 
         
      ])
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick   }})
+     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick  }})
      ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
 __this.widget(new Column({ww : { 'span' : 4  }}, [
 
@@ -141,7 +141,7 @@ __this.node('p', <__wml.Attrs>{}, [
      ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
 __this.widget(new Column({ww : { 'span' : 4  }}, [
 
-        __this.widget(new Thumbnail({ww : { 'onClick' : __context.values.onClick   }}, [
+        __this.widget(new Thumbnail({ww : { 'onClick' : __context.values.onClick  }}, [
 
         __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
 
@@ -158,7 +158,7 @@ __this.node('p', <__wml.Attrs>{}, [
         __document.createTextNode('Describes the thumbnail in minor detail.')
      ])
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick   }})
+     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick  }})
      ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
 __this.widget(new Column({ww : { 'span' : 4  }}, [
 

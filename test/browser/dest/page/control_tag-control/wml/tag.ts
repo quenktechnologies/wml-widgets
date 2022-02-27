@@ -88,13 +88,13 @@ __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Styles')
      ]),
-...__forIn (__context.values.styles , (v , _$$i, _$$all)=> 
+...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Tag({ww : { 'style' : v ,'text' : __context.values.capitalize  (v) ,'name' : v ,'onDismiss' : __context.values.onDismiss   }}, [
+        __this.widget(new Tag({ww : { 'style' : v ,'text' : __context.values.capitalize (v) ,'name' : v ,'onDismiss' : __context.values.onDismiss  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'style' : v ,'text' : __context.values.capitalize  (v) ,'name' : v ,'onDismiss' : __context.values.onDismiss   }})
+     ]),<__wml.Attrs>{ww : { 'style' : v ,'text' : __context.values.capitalize (v) ,'name' : v ,'onDismiss' : __context.values.onDismiss  }})
      ]), 
 ()=> ([]))
      ])

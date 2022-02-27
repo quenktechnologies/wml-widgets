@@ -78,52 +78,52 @@ export class Main  implements __wml.View {
 
         __this.widget(new Demo({}, [
 
-        __this.widget(new Select({wml : { 'id' : __context.values.normal .id   },ww : { 'name' : __context.values.normal .name  ,'label' : __context.values.normal .label  ,'value' : __context.values.normal .value  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   }}, [
+        __this.widget(new Select({wml : { 'id' : __context.values.normal.id  },ww : { 'name' : __context.values.normal.name ,'label' : __context.values.normal.label ,'value' : __context.values.normal.value ,'stringifier' : __context.values.normal.stringifier ,'onSearch' : __context.values.normal.onSearch ,'onChange' : __context.values.normal.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.normal .id   },ww : { 'name' : __context.values.normal .name  ,'label' : __context.values.normal .label  ,'value' : __context.values.normal .value  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.normal.id  },ww : { 'name' : __context.values.normal.name ,'label' : __context.values.normal.label ,'value' : __context.values.normal.value ,'stringifier' : __context.values.normal.stringifier ,'onSearch' : __context.values.normal.onSearch ,'onChange' : __context.values.normal.onChange  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new Select({wml : { 'id' : __context.values.success .id   },ww : { 'name' : __context.values.success .name  ,'label' : __context.values.success .label  ,'success' : __context.values.success .message  ,'stringifier' : __context.values.success .stringifier  ,'onSearch' : __context.values.success .onSearch  ,'onChange' : __context.values.success .onChange   }}, [
+        __this.widget(new Select({wml : { 'id' : __context.values.success.id  },ww : { 'name' : __context.values.success.name ,'label' : __context.values.success.label ,'success' : __context.values.success.message ,'stringifier' : __context.values.success.stringifier ,'onSearch' : __context.values.success.onSearch ,'onChange' : __context.values.success.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success .id   },ww : { 'name' : __context.values.success .name  ,'label' : __context.values.success .label  ,'success' : __context.values.success .message  ,'stringifier' : __context.values.success .stringifier  ,'onSearch' : __context.values.success .onSearch  ,'onChange' : __context.values.success .onChange   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success.id  },ww : { 'name' : __context.values.success.name ,'label' : __context.values.success.label ,'success' : __context.values.success.message ,'stringifier' : __context.values.success.stringifier ,'onSearch' : __context.values.success.onSearch ,'onChange' : __context.values.success.onChange  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new Select({wml : { 'id' : __context.values.warning .id   },ww : { 'name' : __context.values.warning .name  ,'label' : __context.values.warning .label  ,'warning' : __context.values.warning .message  ,'stringifier' : __context.values.warning .stringifier  ,'onSearch' : __context.values.warning .onSearch  ,'onChange' : __context.values.warning .onChange   }}, [
+        __this.widget(new Select({wml : { 'id' : __context.values.warning.id  },ww : { 'name' : __context.values.warning.name ,'label' : __context.values.warning.label ,'warning' : __context.values.warning.message ,'stringifier' : __context.values.warning.stringifier ,'onSearch' : __context.values.warning.onSearch ,'onChange' : __context.values.warning.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning .id   },ww : { 'name' : __context.values.warning .name  ,'label' : __context.values.warning .label  ,'warning' : __context.values.warning .message  ,'stringifier' : __context.values.warning .stringifier  ,'onSearch' : __context.values.warning .onSearch  ,'onChange' : __context.values.warning .onChange   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning.id  },ww : { 'name' : __context.values.warning.name ,'label' : __context.values.warning.label ,'warning' : __context.values.warning.message ,'stringifier' : __context.values.warning.stringifier ,'onSearch' : __context.values.warning.onSearch ,'onChange' : __context.values.warning.onChange  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new Select({wml : { 'id' : __context.values.error .id   },ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   }}, [
+        __this.widget(new Select({wml : { 'id' : __context.values.error.id  },ww : { 'name' : __context.values.error.name ,'label' : __context.values.error.label ,'error' : __context.values.error.message ,'stringifier' : __context.values.error.stringifier ,'onSearch' : __context.values.error.onSearch ,'onChange' : __context.values.error.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error .id   },ww : { 'name' : __context.values.error .name  ,'label' : __context.values.error .label  ,'error' : __context.values.error .message  ,'stringifier' : __context.values.error .stringifier  ,'onSearch' : __context.values.error .onSearch  ,'onChange' : __context.values.error .onChange   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error.id  },ww : { 'name' : __context.values.error.name ,'label' : __context.values.error.label ,'error' : __context.values.error.message ,'stringifier' : __context.values.error.stringifier ,'onSearch' : __context.values.error.onSearch ,'onChange' : __context.values.error.onChange  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new Select({wml : { 'id' : __context.values.block .id   },ww : { 'name' : __context.values.block .name  ,'label' : __context.values.block .label  ,'block' : true  ,'stringifier' : __context.values.block .stringifier  ,'onSearch' : __context.values.block .onSearch  ,'onChange' : __context.values.block .onChange   }}, [
+        __this.widget(new Select({wml : { 'id' : __context.values.block.id  },ww : { 'name' : __context.values.block.name ,'label' : __context.values.block.label ,'block' : true  ,'stringifier' : __context.values.block.stringifier ,'onSearch' : __context.values.block.onSearch ,'onChange' : __context.values.block.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.block .id   },ww : { 'name' : __context.values.block .name  ,'label' : __context.values.block .label  ,'block' : true  ,'stringifier' : __context.values.block .stringifier  ,'onSearch' : __context.values.block .onSearch  ,'onChange' : __context.values.block .onChange   }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.block.id  },ww : { 'name' : __context.values.block.name ,'label' : __context.values.block.label ,'block' : true  ,'stringifier' : __context.values.block.stringifier ,'onSearch' : __context.values.block.onSearch ,'onChange' : __context.values.block.onChange  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new Select({ww : { 'name' : __context.values.normal .name  ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   }}, [
+        __this.widget(new Select({ww : { 'name' : __context.values.normal.name ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.normal.stringifier ,'onSearch' : __context.values.normal.onSearch ,'onChange' : __context.values.normal.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal .name  ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   }})
+     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal.name ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.normal.stringifier ,'onSearch' : __context.values.normal.onSearch ,'onChange' : __context.values.normal.onChange  }})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new Select({ww : { 'name' : __context.values.normal .name  ,'label' : 'Disabled with value' ,'value' : __context.values.normal .value  ,'disabled' : true  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   }}, [
+        __this.widget(new Select({ww : { 'name' : __context.values.normal.name ,'label' : 'Disabled with value' ,'value' : __context.values.normal.value ,'disabled' : true  ,'stringifier' : __context.values.normal.stringifier ,'onSearch' : __context.values.normal.onSearch ,'onChange' : __context.values.normal.onChange  }}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal .name  ,'label' : 'Disabled with value' ,'value' : __context.values.normal .value  ,'disabled' : true  ,'stringifier' : __context.values.normal .stringifier  ,'onSearch' : __context.values.normal .onSearch  ,'onChange' : __context.values.normal .onChange   }})
+     ]),<__wml.Attrs>{ww : { 'name' : __context.values.normal.name ,'label' : 'Disabled with value' ,'value' : __context.values.normal.value ,'disabled' : true  ,'stringifier' : __context.values.normal.stringifier ,'onSearch' : __context.values.normal.onSearch ,'onChange' : __context.values.normal.onChange  }})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

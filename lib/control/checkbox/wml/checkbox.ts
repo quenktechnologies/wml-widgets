@@ -72,11 +72,11 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.node('span', <__wml.Attrs>{'id': __context.values.root .id ,'class': __context.values.root .className }, [
+           return __this.node('span', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
 
         __this.node('label', <__wml.Attrs>{}, [
 
-        __this.node('input', <__wml.Attrs>{'type': 'checkbox','name': __context.values.input .name ,'checked': __context.values.input .value ,'onchange': __context.values.input .onChange }, [
+        __this.node('input', <__wml.Attrs>{'type': 'checkbox','name': __context.values.input.name,'checked': __context.values.input.value,'onchange': __context.values.input.onChange}, [
 
         
      ]),
