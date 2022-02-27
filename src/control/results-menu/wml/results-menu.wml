@@ -3,13 +3,11 @@
 {% import (Item) from "../../../menu/item" %}
 {% import (ResultsMenu) from "../" %}
 
-{% fun itemTemplate [V] (r:ResultsMenu[V], option:V, _index:Number) %}
-  {{ text(r.values.item.stringifier(option)) }}  
-{% endfun %}
+{% view ItemTemplateView where option:String %}
+  <span>{{ @option | text }}</span>
 
-{% fun noItemsTemplate () %}
+{% view NoItemsTemplateView (Object) %}
   <b>No results to display.</b>
-{% endfun %}
 
 {% view Main[V] (ResultsMenu[V]) %}
   <Menu 
@@ -25,7 +23,7 @@
             <Link 
               ww:onClick={{->@values.item.click(index)}}>
 
-              {{ ...<(@values.item.template)(result, index)> }}
+              {{ <(@values.item.template(result, index))> }}
 
             </Link>
 
@@ -33,7 +31,7 @@
 
       {% else %}
 
-        {{...<(@values.item.noItemsTemplate)>}}
+        {{<@values.item.noItemsTemplate()>}}
 
       {% endfor %}
 

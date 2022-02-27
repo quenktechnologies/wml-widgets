@@ -2,7 +2,7 @@ import * as views from './wml/drop-down';
 import * as hidden from '../../content/state/hidden';
 import * as style from '../../content/style';
 
-import { View, Fun, Component } from '@quenk/wml';
+import { View, Component } from '@quenk/wml';
 
 import { Style } from '../../content/style';
 import { BUTTON_GROUP_COMPAT } from '../button-group';
@@ -18,7 +18,7 @@ export const DROP_DOWN_CONTENT = 'ww-drop-down__content';
 /**
  * ButtonTemplate provides the template for rendering the button part.
  */
-export type ButtonTemplate = (b: DropDown) => Fun;
+export type ButtonTemplate = (b: DropDown) => View;
 
 /**
  * DropDownMenuAttrs
@@ -114,9 +114,8 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
             disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
                 this.attrs.ww.disabled : undefined,
 
-            template: (): ButtonTemplate =>
-                (this.attrs.ww && this.attrs.ww.buttonTemplate) ?
-                    this.attrs.ww.buttonTemplate : views.button,
+            template: () => (this.attrs.ww && this.attrs.ww.buttonTemplate) ?
+                this.attrs.ww.buttonTemplate(this) : new views.ButtonView(this),
 
             onClick: () => {
 
