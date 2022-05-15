@@ -22,7 +22,7 @@
     "moment": "^2.29.1"
   },
   "devDependencies": {
-    "@quenk/wml": "^2.10.1",
+    "@quenk/wml": "^2.11.1",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.17.6",
     "browserify": "^16.5.2",
@@ -32,8 +32,6 @@
     "less-plugin-npm-import": "^2.1.0",
     "mocha": "^8.2.1",
     "must": "^0.13.4",
-    "typedoc": "^0.17.8",
-    "typedoc-plugin-external-module-name": "^4.0.3",
     "typescript": "^3.9.10",
     "web-console-reporter": "^1.0.0"
   },

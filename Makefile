@@ -95,12 +95,4 @@ test/browser/dest/run.js: $(shell find test/browser/unit -name \*_test.ts)
 	find . -name \*_test.js | \
 	sed 's/[^ ]*/require("&");/g' >> ../dest/run.js
 
-.PHONY: docs
-docs: src
-	$(TYPEDOC) --out docs \
-	  --excludeExternals \
-	  --excludeNotExported \
-	  --tsconfig src/tsconfig.json
-	 touch docs/.nojekyll
-
 .DELETE_ON_ERROR:
