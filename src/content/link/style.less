@@ -1,0 +1,33 @@
+@import "./variables";
+
+.__LINK__ {
+
+  color: @ww-link-color;
+  text-decoration: underline;
+
+  &:hover {
+
+    color: @ww-link-hover-color;
+
+  }
+
+  &.-ww-no-decoration {
+
+    text-decoration: none;
+
+  }
+
+  &.-ww-disabled, &.-disabled {
+
+    cursor: not-allowed;
+    color: @ww-link-disabled-color;
+
+    &:hover {
+
+      color: @ww-link-disabled-color;
+
+    }
+
+  }
+
+}

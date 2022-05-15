@@ -1,0 +1,24 @@
+
+{% view DisabledLinkView (Link from ".") %}
+<span 
+  id={{@values.id}}
+  class={{@values.className}}
+  href={{@values.href}}
+  title={{@values.title}}
+  onclick={{@values.clicked}}>
+
+    {{...@values.content}}
+
+</span>
+
+{% view LinkView (Link from ".") %}
+<a 
+  id={{@values.id}}
+  class={{@values.className}}
+  href={{@values.href}}
+  title={{@values.title}}
+  onclick={{@values.clicked}}>
+
+    {{...@values.content}}
+
+</a>
