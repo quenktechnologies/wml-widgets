@@ -107,7 +107,10 @@ export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
             (this.attrs.ww && this.attrs.ww.active) ?
                 ACTIVE : '',
             (this.attrs.ww && this.attrs.ww.disabled) ?
-                DISABLED : ''
+                DISABLED : '',
+            (this.attrs.ww && this.attrs.ww.disabled) ?
+                `-ww-disabled` : ''
+
         ),
 
         title: (this.attrs.ww && this.attrs.ww.title) ?

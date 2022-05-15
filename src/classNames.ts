@@ -40,6 +40,11 @@ export const TEXT_FIELD = 'ww-text-field';
 export const BUTTON = 'ww-button';
 ///classNames:end
 ///classNames:begin
+export const PAGER = 'ww-pager';
+export const PAGER_PREVIOUS = 'ww-pager__first';
+export const PAGER_NEXT = 'ww-pager__next';
+///classNames:end
+///classNames:begin
 export const DROP_DOWN = 'ww-drop-down-menu';
 export const DROP_DOWN_TOGGLE = 'ww-drop-down-menu__toggle';
 export const DROP_DOWN_CONTENT = 'ww-drop-down__content';

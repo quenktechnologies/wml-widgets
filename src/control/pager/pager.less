@@ -1,0 +1,57 @@
+@import "./variables";
+
+.__PAGER__ {
+
+  & > ul {
+
+    padding-left: 0;
+    margin: @ww-pager-margin;
+    text-align: center;
+    list-style: none;
+    overflow: auto;
+
+  }
+
+  &> ul:after {
+
+    content: "";
+    clear: both;
+    display: table;
+
+  }
+  
+  & > ul > li {
+
+    display: inline;
+
+  }
+
+  & > ul > li > .__LINK__ {
+
+    display: inline-block;
+    padding: @ww-pager-link-vertical-padding @ww-pager-link-horizontal-padding;
+    background-color: @ww-pager-background-color;
+    border: 1px solid @ww-pager-border-color;
+    border-radius: @ww-pager-border-radius;
+
+    &:not(.-ww-disabled) {
+
+      &:hover, &:focus {
+
+        background-color: @ww-pager-hover-background-color;
+  
+      }
+
+    }
+
+  }
+
+  & > ul > .__PAGER_PREVIOUS__ > .__LINK__ {
+    float: left;
+  }
+
+  & > ul > .__PAGER_NEXT__ > .__LINK__ {
+    float: right;
+  }
+
+}
