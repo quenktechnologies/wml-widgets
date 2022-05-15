@@ -24,7 +24,7 @@ export declare const combine: (str: string[], joiner?: string) => string;
  *
  * Removes empty strings, null and undefined values.
  */
-export declare const concat: (...str: string[]) => string;
+export declare const concat: (...str: (string | undefined)[]) => string;
 /**
  * noop
  */

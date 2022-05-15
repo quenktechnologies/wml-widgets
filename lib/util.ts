@@ -47,9 +47,9 @@ export const combine = (str: string[], joiner: string = ' ') =>
  *
  * Removes empty strings, null and undefined values.
  */
-export const concat = (...str: string[]): string =>
+export const concat = (...str: (string | undefined)[]): string =>
     str.filter(s => ((s == null) || (s == '')) ? false : true)
-        .map(s => s.trim()).join(' ');
+        .map(s => (<string>s).trim()).join(' ');
 
 /**
  * noop 
