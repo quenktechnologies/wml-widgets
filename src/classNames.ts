@@ -94,6 +94,10 @@ export const INPUT_GROUP_BUTTON_ADDON = 'ww-input-group__button-addon';
 export const SELECT = 'ww-select';
 ///classNames:end
 ///classNames:begin
+export const RANGED_PAGER = 'ww-ranged-pager';
+export const RANGED_PAGER_PAGE = 'ww-ranged-pager__page';
+///classNames:end
+///classNames:begin
 export const TAG_CONTROL = 'ww-tag-control';
 export const TAG_CONTROL_TEXT = 'ww-tag-control__text';
 export const TAG_CONTROL_DISMISS = 'ww-tag-control__dismiss';

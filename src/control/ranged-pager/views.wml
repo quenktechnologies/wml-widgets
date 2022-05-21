@@ -1,0 +1,38 @@
+{% import (Link) from "../../content/link" %}
+{% import (Pager) from "../pager" %}
+
+{% view RangedPagerView (RangedPager from ".") %}
+
+<Pager 
+  wml:id="pager"
+  id={{@values.id}}
+  className={{@values.className}}
+  current={{@values.current}}
+  total={{@values.total}}
+  onChange={{@values.onChange}}>
+
+  {% for idx in @values.pages %}
+
+    <li class={{@values.page.getClassName(idx)}}>
+
+      {% if idx == 0 %}
+
+        <Link
+          ww:className="-ww-no-decoration"
+          ww:disabled=true
+          ww:text="…" />
+
+      {% else %}
+
+        <Link
+          ww:className="-ww-no-decoration"
+          ww:text={{String(idx)}}
+          ww:onClick={{->@values.page.onClick(idx)}} />
+
+      {% endif %}
+
+    </li>
+
+  {% endfor %}
+
+</Pager>
