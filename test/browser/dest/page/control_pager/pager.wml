@@ -1,0 +1,32 @@
+{% import (Row,Column) from "../../../../../lib/layout/grid" %}
+
+{% import (Demo) from "../../widgets/demo" %}
+{% import (Pager) from "../../../../../lib/control/pager" %}
+
+{% view Main (PagerPage from ".") %}
+<Demo>
+
+  <Row>
+
+    <Column>
+
+      <p>{{@values.message | text}}</p>
+
+    </Column>
+
+  </Row>
+
+  <Row>
+
+    <Column>
+
+      <Pager
+       total={{@values.total}}
+       current={{@values.current}} 
+       onChange={{@values.onChange}} />
+
+    </Column>
+
+  </Row>
+
+</Demo>

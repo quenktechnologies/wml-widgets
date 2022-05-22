@@ -7,7 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {Link} from '../'; 
+import {Link} from '../../content/link'; ;
+import {Pager} from '../pager'; ;
+import {RangedPager} from '.'; 
 
 
 //@ts-ignore:6192
@@ -64,18 +66,40 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export class Main  implements __wml.View {
+export class RangedPagerView  implements __wml.View {
 
-   constructor(__context: Link) {
+   constructor(__context: RangedPager) {
 
        this.template = (__this:__wml.Registry) => {
 
        
 
-           return __this.node('a', <__wml.Attrs>{'id': __context.values.a.id,'class': __context.values.a.className,'href': __context.values.a.href,'title': __context.values.a.title,'disabled': __context.values.a.disabled,'onclick': __context.values.a.clicked}, [
+           return __this.widget(new Pager({wml : { 'id' : 'pager'  },'id': __context.values.id,'className': __context.values.className,'current': __context.values.current,'total': __context.values.total,'onChange': __context.values.onChange}, [
 
-        ...(__context.values.a.content)
-     ]);
+        ...__forIn (__context.values.pages, (idx , _$$i, _$$all)=> 
+([
+
+        __this.node('li', <__wml.Attrs>{'class': __context.values.page.getClassName(idx)}, [
+
+        ...(((idx === 0)) ?
+(()=>([
+
+        __this.widget(new Link({ww : { 'className' : '-ww-no-decoration' ,'disabled' : true  ,'text' : '…'  }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'className' : '-ww-no-decoration' ,'disabled' : true  ,'text' : '…'  }})
+     ]))() :
+(()=>([
+
+        __this.widget(new Link({ww : { 'className' : '-ww-no-decoration' ,'text' : String(idx) ,'onClick' : () => __context.values.page.onClick(idx)  }}, [
+
+        
+     ]),<__wml.Attrs>{ww : { 'className' : '-ww-no-decoration' ,'text' : String(idx) ,'onClick' : () => __context.values.page.onClick(idx)  }})
+     ]))())
+     ])
+     ]), 
+()=> ([]))
+     ]),<__wml.Attrs>{wml : { 'id' : 'pager'  },'id': __context.values.id,'className': __context.values.className,'current': __context.values.current,'total': __context.values.total,'onChange': __context.values.onChange});
 
        }
 

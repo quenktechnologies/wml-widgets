@@ -63,17 +63,15 @@ export declare class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
      */
     href: string;
     values: {
-        a: {
-            id: string;
-            disabled: true | null;
-            className: string;
-            title: string | null;
-            name: string | null;
-            href: string;
-            active: boolean;
-            content: wml.Content[];
-            clicked: (e: Event) => void;
-        };
+        id: string;
+        disabled: true | null;
+        className: string;
+        title: string | null;
+        name: string | null;
+        href: string;
+        active: boolean;
+        content: wml.Content[];
+        clicked: (e: Event) => void;
     };
     /**
       * activate this nav list Item.

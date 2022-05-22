@@ -679,6 +679,38 @@ buttonLinkBackground styles the background and shadows.
 /*
 buttonLink styles the button to appear like a link.
 */
+.ww-pager > ul {
+  padding-left: 0;
+  margin: 20px 0;
+  text-align: center;
+  list-style: none;
+  overflow: auto;
+}
+.ww-pager > ul:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.ww-pager > ul > li {
+  display: inline;
+}
+.ww-pager > ul > li > .ww-link {
+  display: inline-block;
+  padding: 5px 14px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+.ww-pager > ul > li > .ww-link:not(.-ww-disabled):hover,
+.ww-pager > ul > li > .ww-link:not(.-ww-disabled):focus {
+  background-color: #eee;
+}
+.ww-pager > ul > .ww-pager__first > .ww-link {
+  float: left;
+}
+.ww-pager > ul > .ww-pager__next > .ww-link {
+  float: right;
+}
 .ww-drop-down-menu {
   position: relative;
   display: inline-block;
@@ -1180,6 +1212,36 @@ textarea.ww-display-field {
 .ww-select.-block + .ww-select.-block {
   margin-top: 0.5em;
 }
+.ww-ranged-pager > ul > li.ww-pager__first > .ww-link {
+  float: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.ww-ranged-pager > ul > li.ww-pager__first + li > .ww-link {
+  border-left: none;
+}
+.ww-ranged-pager > ul > li.ww-ranged-pager__page {
+  display: none;
+}
+@media screen and (min-width: 720px) {
+  .ww-ranged-pager > ul > li.ww-ranged-pager__page {
+    display: inline;
+  }
+}
+.ww-ranged-pager > ul > li.ww-ranged-pager__page > .ww-link {
+  border-radius: 0;
+}
+.ww-ranged-pager > ul > li.ww-ranged-pager__page.-active > .ww-link {
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #337ab7;
+}
+.ww-ranged-pager > ul > li.ww-pager__next > .ww-link {
+  float: none;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: none;
+}
 .ww-tag-control .ww-tag-control__text {
   margin-right: 0.5em;
 }
@@ -1580,6 +1642,25 @@ a.ww-thumbnail {
   border-top: 4px solid \9;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
+}
+.ww-link {
+  color: #337ab7;
+  text-decoration: underline;
+}
+.ww-link:hover {
+  color: #0056b3;
+}
+.ww-link.-ww-no-decoration {
+  text-decoration: none;
+}
+.ww-link.-ww-disabled,
+.ww-link.-disabled {
+  cursor: not-allowed;
+  color: #6c757d;
+}
+.ww-link.-ww-disabled:hover,
+.ww-link.-disabled:hover {
+  color: #6c757d;
 }
 .ww-overlay {
   position: fixed;

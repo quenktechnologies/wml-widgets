@@ -1,8 +1,8 @@
 import * as __wml from '@quenk/wml';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-import { Link } from '../';
-export declare class Main implements __wml.View {
-    constructor(__context: Link);
+import { Pager } from '.';
+export declare class PagerView implements __wml.View {
+    constructor(__context: Pager);
     ids: {
         [key: string]: __wml.WMLElement;
     };

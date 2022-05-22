@@ -1,8 +1,11 @@
 import * as wml from '@quenk/wml';
-import * as views from './wml/link';
+import * as views from './views';
+
 import { Maybe } from '@quenk/noni/lib/data/maybe';
+
 import { getById, concat } from '../../util';
 import { ACTIVE } from '../state/active';
+import { DISABLED } from '../state/disabled';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 
 ///classNames:begin
@@ -68,7 +71,9 @@ export class LinkClickedEvent {
  */
 export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
 
-    view: wml.View = new views.Main(this);
+    view: wml.View = (this.attrs.ww && this.attrs.ww.disabled) ?
+        new views.DisabledLinkView(this) :
+        new views.LinkView(this);
 
     /**
      * name assigned to this Link.
@@ -90,50 +95,52 @@ export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
 
     values = {
 
-        a: {
+        id: (this.attrs.ww && this.attrs.ww.id) ?
+            this.attrs.ww.id : '',
 
-            id: (this.attrs.ww && this.attrs.ww.id) ?
-                this.attrs.ww.id : '',
+        disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+            this.attrs.ww.disabled : null,
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : null,
+        className: concat(LINK,
+            (this.attrs.ww && this.attrs.ww.className) ?
+                this.attrs.ww.className : '',
+            (this.attrs.ww && this.attrs.ww.active) ?
+                ACTIVE : '',
+            (this.attrs.ww && this.attrs.ww.disabled) ?
+                DISABLED : '',
+            (this.attrs.ww && this.attrs.ww.disabled) ?
+                `-ww-disabled` : ''
 
-            className: concat(LINK,
-                (this.attrs.ww && this.attrs.ww.className) ?
-                    this.attrs.ww.className : '',
-                (this.attrs.ww && this.attrs.ww.active) ?
-                    ACTIVE : ''),
+        ),
 
-            title: (this.attrs.ww && this.attrs.ww.title) ?
-                this.attrs.ww.title : null,
+        title: (this.attrs.ww && this.attrs.ww.title) ?
+            this.attrs.ww.title : null,
 
-            name: (this.attrs.ww && this.attrs.ww.name) ?
-                this.attrs.ww.name : null,
+        name: (this.attrs.ww && this.attrs.ww.name) ?
+            this.attrs.ww.name : null,
 
-            href: (this.attrs.ww && this.attrs.ww.href) ?
-                this.attrs.ww.href : '#',
+        href: (this.attrs.ww && this.attrs.ww.href) ?
+            this.attrs.ww.href : '#',
 
-            active: (this.attrs.ww && this.attrs.ww.active) ?
-                this.attrs.ww.active : false,
+        active: (this.attrs.ww && this.attrs.ww.active) ?
+            this.attrs.ww.active : false,
 
-          //TODO: move to dom lib
-            content: (this.attrs.ww && this.attrs.ww.text) ?
-          [document.createTextNode(this.attrs.ww.text)] :  
-                this.children,
+        //TODO: move to dom lib
+        content: (this.attrs.ww && this.attrs.ww.text) ?
+            [document.createTextNode(this.attrs.ww.text)] :
+            this.children,
 
-            clicked: (e: Event): void => {
+        clicked: (e: Event): void => {
 
-                if (this.attrs.ww) {
+            if (this.attrs.ww && !this.attrs.ww.disabled) {
 
-                    let { name, href, onClick } = this.attrs.ww;
+                let { name, href, onClick } = this.attrs.ww;
 
-                    if (!href)
-                        e.preventDefault();
+                if (!href)
+                    e.preventDefault();
 
-                    if (onClick)
-                        onClick(new LinkClickedEvent(<string>name, <string>href));
-
-                }
+                if (onClick)
+                    onClick(new LinkClickedEvent(<string>name, <string>href));
 
             }
 
@@ -146,7 +153,7 @@ export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
       */
     activate(): Link {
 
-        let m: Maybe<Element> = getById(this.view, this.values.a.id);
+        let m: Maybe<Element> = getById(this.view, this.values.id);
 
         if (m.isJust()) {
 
@@ -166,7 +173,7 @@ export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
      */
     deactivate(): Link {
 
-        let m: Maybe<Element> = getById(this.view, this.values.a.id);
+        let m: Maybe<Element> = getById(this.view, this.values.id);
 
         if (m.isJust())
             m.get().classList.remove(ACTIVE);

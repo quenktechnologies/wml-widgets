@@ -1,5 +1,6 @@
 export const pages:{[key:string]:any} = {
 'content_embed' : require('./page/content_embed').default,
+'content_link' : require('./page/content_link').default,
 'content_media-description' : require('./page/content_media-description').default,
 'content_overlay' : require('./page/content_overlay').default,
 'content_tag' : require('./page/content_tag').default,
@@ -16,7 +17,9 @@ export const pages:{[key:string]:any} = {
 'control_file-upload-surface' : require('./page/control_file-upload-surface').default,
 'control_input-group' : require('./page/control_input-group').default,
 'control_multi-select' : require('./page/control_multi-select').default,
+'control_pager' : require('./page/control_pager').default,
 'control_paginator' : require('./page/control_paginator').default,
+'control_ranged-pager' : require('./page/control_ranged-pager').default,
 'control_search' : require('./page/control_search').default,
 'control_select' : require('./page/control_select').default,
 'control_stack' : require('./page/control_stack').default,

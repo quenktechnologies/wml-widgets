@@ -22,7 +22,7 @@
     "moment": "^2.29.1"
   },
   "devDependencies": {
-    "@quenk/wml": "^2.11.1",
+    "@quenk/wml": "^2.11.2",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.17.6",
     "browserify": "^16.5.2",

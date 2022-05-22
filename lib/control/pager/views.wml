@@ -1,0 +1,33 @@
+{% import (Link) from "../../content/link" %}
+
+{% view PagerView (Pager from ".") %}
+
+<nav id={{@values.id}} class={{@values.className}}>
+
+  <ul>
+
+    <li class={{@values.previous.className}}>
+
+      <Link
+        ww:className="-ww-no-decoration"
+        ww:text={{@values.previous.text}}
+        ww:disabled={{@values.previous.isDisabled()}}
+        ww:onClick={{@values.previous.onClick}} />
+
+    </li>
+
+    {{...@children}}
+
+    <li class={{@values.next.className}}>
+
+      <Link
+        ww:className="-ww-no-decoration"
+        ww:text={{@values.next.text}}
+        ww:disabled={{@values.next.isDisabled()}}
+        ww:onClick={{@values.next.onClick}} />
+
+    </li>
+
+  </ul>
+
+</nav>
