@@ -1,1 +1,1 @@
-{"version":3,"file":"updatable.js","sourceRoot":"","sources":["updatable.ts"],"names":[],"mappings":""}
+{"version":3,"file":"updatable.js","sourceRoot":"","sources":["updatable.ts"],"names":[],"mappings":";;;AAEA,gCAAkC;AAgBlC;;GAEG;AACU,QAAA,MAAM,GAAG,UAAI,IAAU,EAAE,EAAU,EAAE,IAAS;IACvD,OAAA,cAAO,CAAe,IAAI,EAAE,EAAE,CAAC,CAAC,GAAG,CAAC,UAAA,CAAC,IAAI,OAAA,CAAC,CAAC,MAAM,CAAC,IAAI,CAAC,EAAd,CAAc,CAAC;AAAxD,CAAwD,CAAC"}
