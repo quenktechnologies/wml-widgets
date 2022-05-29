@@ -2786,9 +2786,8 @@ a.ww-tag:focus {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.ww-menu-item.-divider {
+.ww-menu-divider {
   height: 1px;
-  margin: -0.28571429 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }

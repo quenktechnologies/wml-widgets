@@ -10,7 +10,7 @@ from '@quenk/noni/lib/data/maybe';
 import {Demo} from '../../../widgets/demo'; ;
 import {DropDown} from '../../../../../../lib/control/drop-down'; ;
 import {Menu} from '../../../../../../lib/menu/menu'; ;
-import {Item} from '../../../../../../lib/menu/item'; ;
+import {Item,Divider} from '../../../../../../lib/menu/item'; ;
 import {DropDownPage} from '../'; 
 
 
@@ -97,6 +97,10 @@ __this.widget(new Item({}, [
 
         __document.createTextNode('Two')
      ])
+     ]),<__wml.Attrs>{}),
+__this.widget(new Divider({}, [
+
+        
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 

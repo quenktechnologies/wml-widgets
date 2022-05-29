@@ -11,7 +11,7 @@ import { concat } from '../../util';
 
 ///classNames:begin
 export const ITEM = 'ww-menu-item';
-export const DIVIDER = '-divider';
+export const DIVIDER = 'ww-menu-divider';
 ///classNames:end
 
 /**
@@ -28,11 +28,6 @@ export interface ItemAttrs extends HTMLElementAttrs {
      * active state of the Item
      */
     active?: boolean,
-
-    /**
-     * divider flag
-     */
-    divider?: boolean,
 
     /**
      * text can be specified to display textual content in the link.
@@ -53,6 +48,22 @@ export interface ItemAttrs extends HTMLElementAttrs {
 export class ItemClickedEvent {
 
     constructor(public name: string) { }
+
+}
+
+/**
+ * Divider is used to add a horizontal line in place of an item to siginify a
+ * new section.
+ */
+export class Divider extends wml.Component<HTMLElementAttrs> {
+
+    view: wml.View = new views.DividerView(this);
+
+    values = {
+
+        className: DIVIDER
+
+    }
 
 }
 
@@ -79,16 +90,13 @@ export class Item extends wml.Component<WidgetAttrs<ItemAttrs>> implements
             id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
 
             className: concat(ITEM,
-                (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : '',
-                (this.attrs.ww && this.attrs.ww.divider) ? DIVIDER : ''),
+                (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : ''),
 
             content: {
 
                 render: () => {
 
-                    if (this.attrs.ww && this.attrs.ww.divider)
-                        return [];
-                    else if (this.attrs.ww && this.attrs.ww.text)
+                     if (this.attrs.ww && this.attrs.ww.text)
                         return [document.createTextNode(this.attrs.ww.text)]
                     else
                         return this.children

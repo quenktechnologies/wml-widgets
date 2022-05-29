@@ -2,7 +2,7 @@ import * as wml from '@quenk/wml';
 import { Activate } from '../../content/state/active';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
 export declare const ITEM = "ww-menu-item";
-export declare const DIVIDER = "-divider";
+export declare const DIVIDER = "ww-menu-divider";
 /**
  * ItemAttrs
  */
@@ -15,10 +15,6 @@ export interface ItemAttrs extends HTMLElementAttrs {
      * active state of the Item
      */
     active?: boolean;
-    /**
-     * divider flag
-     */
-    divider?: boolean;
     /**
      * text can be specified to display textual content in the link.
      */
@@ -35,6 +31,16 @@ export interface ItemAttrs extends HTMLElementAttrs {
 export declare class ItemClickedEvent {
     name: string;
     constructor(name: string);
+}
+/**
+ * Divider is used to add a horizontal line in place of an item to siginify a
+ * new section.
+ */
+export declare class Divider extends wml.Component<HTMLElementAttrs> {
+    view: wml.View;
+    values: {
+        className: string;
+    };
 }
 /**
  * Item wraps content in a navigation list.

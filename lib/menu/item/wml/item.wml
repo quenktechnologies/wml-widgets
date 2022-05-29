@@ -1,5 +1,8 @@
 {% import (Item) from ".." %}
 
+{% view DividerView(Divider from "..") %}
+<li class={{@values.className}}/>
+
 {% view Main (Item) %}
   
 <li 

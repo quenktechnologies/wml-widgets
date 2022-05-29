@@ -267,4 +267,4 @@ export declare const MENU_HEADER_ITEM = "ww-menu__header-item";
  */
 export declare const MENU_HEADER = "ww-menu-header";
 export declare const ITEM = "ww-menu-item";
-export declare const DIVIDER = "-divider";
+export declare const DIVIDER = "ww-menu-divider";

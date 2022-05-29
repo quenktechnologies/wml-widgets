@@ -9,7 +9,7 @@ fromArray as __fromArray
 from '@quenk/noni/lib/data/maybe';
 import {Demo} from '../../../widgets/demo'; ;
 import {Menu} from '../../../../../../lib/menu/menu'; ;
-import {Item} from '../../../../../../lib/menu/item'; ;
+import {Item,Divider} from '../../../../../../lib/menu/item'; ;
 import {Link} from '../../../../../../lib/content/link'; ;
 import {MenuPage} from '../'; 
 
@@ -101,10 +101,10 @@ __this.widget(new Item({}, [
         
      ]),<__wml.Attrs>{ww : { 'disabled' : true  ,'text' : 'Refresh'  }})
      ]),<__wml.Attrs>{}),
-__this.widget(new Item({ww : { 'divider' : true   }}, [
+__this.widget(new Divider({}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'divider' : true   }}),
+     ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
         __this.node('a', <__wml.Attrs>{'href': '#/menu'}, [

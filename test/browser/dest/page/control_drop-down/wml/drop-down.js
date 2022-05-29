@@ -59,6 +59,7 @@ var Main = /** @class */ (function () {
                                     __document.createTextNode('Two')
                                 ])
                             ]), {}),
+                            __this.widget(new item_1.Divider({}, []), {}),
                             __this.widget(new item_1.Item({}, [
                                 __this.node('a', { 'href': '#', 'onclick': __context.onClick('You clicked three') }, [
                                     __document.createTextNode('Three')

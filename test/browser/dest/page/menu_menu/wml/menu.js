@@ -58,7 +58,7 @@ var Main = /** @class */ (function () {
                     __this.widget(new item_1.Item({}, [
                         __this.widget(new link_1.Link({ ww: { 'disabled': true, 'text': 'Refresh' } }, []), { ww: { 'disabled': true, 'text': 'Refresh' } })
                     ]), {}),
-                    __this.widget(new item_1.Item({ ww: { 'divider': true } }, []), { ww: { 'divider': true } }),
+                    __this.widget(new item_1.Divider({}, []), {}),
                     __this.widget(new item_1.Item({}, [
                         __this.node('a', { 'href': '#/menu' }, [
                             __document.createTextNode('Quit')
