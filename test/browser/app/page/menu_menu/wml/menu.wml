@@ -1,6 +1,6 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (Menu) from "../../../../../../lib/menu/menu" %}
-{% import (Item) from "../../../../../../lib/menu/item" %}
+{% import (Item, Divider) from "../../../../../../lib/menu/item" %}
 {% import (Link) from "../../../../../../lib/content/link" %}
 {% import (MenuPage) from "../" %}
 
@@ -32,7 +32,7 @@
             
         </Item>
 
-        <Item ww:divider=true />
+        <Divider />
 
         <Item>
         

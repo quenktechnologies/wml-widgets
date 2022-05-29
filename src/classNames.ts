@@ -443,5 +443,5 @@ export const MENU_HEADER = 'ww-menu-header';
 ///classNames:end
 ///classNames:begin
 export const ITEM = 'ww-menu-item';
-export const DIVIDER = '-divider';
+export const DIVIDER = 'ww-menu-divider';
 ///classNames:end

@@ -1,7 +1,7 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (DropDown) from "../../../../../../lib/control/drop-down" %}
 {% import (Menu) from "../../../../../../lib/menu/menu" %}
-{% import (Item) from "../../../../../../lib/menu/item" %}
+{% import (Item,Divider) from "../../../../../../lib/menu/item" %}
 {% import (DropDownPage) from "../" %}
 
 {% view Main (DropDownPage) %}
@@ -21,6 +21,8 @@
         <Item>
           <a href="#" onclick={{@onClick('You clicked two')}}>Two</a>
         </Item>
+
+        <Divider/>
 
         <Item>
           <a href="#" onclick={{@onClick('You clicked three')}}>Three</a>
