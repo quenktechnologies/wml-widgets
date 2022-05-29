@@ -78,6 +78,9 @@ export class NavBarView  implements __wml.View {
 
            return __this.widget(new ActionBar({ww : { 'id' : __context.values.id ,'className' : __context.values.className  }}, [
 
+        ...(((__context.values.links.length > 0)) ?
+(()=>([
+
         __this.widget(new Nav({}, [
 
         ...__forIn (__context.values.links, (conf , _$$i, _$$all)=> 
@@ -92,7 +95,9 @@ export class NavBarView  implements __wml.View {
      ]),<__wml.Attrs>{})
      ]), 
 ()=> ([]))
-     ]),<__wml.Attrs>{}),
+     ]),<__wml.Attrs>{})
+     ]))() :
+(()=>([]))()),
 ...(__context.children)
      ]),<__wml.Attrs>{ww : { 'id' : __context.values.id ,'className' : __context.values.className  }});
 

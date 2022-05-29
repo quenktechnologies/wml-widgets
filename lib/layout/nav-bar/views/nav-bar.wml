@@ -10,24 +10,28 @@
     ww:id={{@values.id}}
     ww:className={{@values.className}}>
 
-      <Nav>
+      {% if @values.links.length > 0 %}
 
-        {% for conf in @values.links %}
+        <Nav>
 
-          <Item>
+          {% for conf in @values.links %}
 
-            <Link
-              ww:className={{conf.className}}
-              ww:name={{conf.name}}
-              ww:text={{conf.title}}
-              ww:href={{conf.href}}
-              ww:onClick={{->if conf.onClick then conf.onClick(conf.name) else undefined}} />
+            <Item>
 
-            </Item>
+              <Link
+                ww:className={{conf.className}}
+                ww:name={{conf.name}}
+                ww:text={{conf.title}}
+                ww:href={{conf.href}}
+                ww:onClick={{->if conf.onClick then conf.onClick(conf.name) else undefined}} />
 
-        {% endfor %}
+              </Item>
 
-      </Nav>
+          {% endfor %}
+
+        </Nav>
+
+      {% endif %}
 
       {{...@children}}
 
