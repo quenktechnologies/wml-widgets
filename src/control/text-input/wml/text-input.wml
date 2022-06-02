@@ -1,3 +1,5 @@
+{% import * as document from "@quenk/wml/lib/dom" %}
+
 {% import (TextInput) from "../" %}
 
 {% view Textarea (TextInput) %}

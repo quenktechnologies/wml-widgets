@@ -1,4 +1,5 @@
 import * as wml from '@quenk/wml';
+import * as document from '@quenk/wml/lib/dom';
 import * as views from './views';
 
 import { Maybe } from '@quenk/noni/lib/data/maybe';

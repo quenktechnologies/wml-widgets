@@ -1,4 +1,7 @@
+import * as document from '@quenk/wml/lib/dom';
+
 import { View, Component } from '@quenk/wml';
+
 import { concat } from '../../util';
 import { Message, setMessage, removeMessage } from '../feedback';
 import { WidgetAttrs, getClassName } from '../../';

@@ -1,4 +1,5 @@
 import * as wml from '@quenk/wml';
+import * as document from '@quenk/wml/lib/dom';
 import * as views from './wml/item';
 import {
     Activate,
@@ -96,7 +97,7 @@ export class Item extends wml.Component<WidgetAttrs<ItemAttrs>> implements
 
                 render: () => {
 
-                     if (this.attrs.ww && this.attrs.ww.text)
+                    if (this.attrs.ww && this.attrs.ww.text)
                         return [document.createTextNode(this.attrs.ww.text)]
                     else
                         return this.children
