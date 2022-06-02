@@ -7,6 +7,7 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
+import * as document  from '@quenk/wml/lib/dom'; ;
 import {TextInput} from '../'; 
 
 

@@ -1,5 +1,8 @@
 import * as style from '../content/style';
+import * as document from '@quenk/wml/lib/dom';
+
 import { View } from '@quenk/wml';
+
 import { getById } from '../util';
 import { Control, ControlAttrs, AbstractControl } from '../control';
 import { WidgetAttrs } from '../';

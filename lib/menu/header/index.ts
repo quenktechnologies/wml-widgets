@@ -1,4 +1,5 @@
 import * as wml from '@quenk/wml';
+import * as document from '@quenk/wml/lib/dom';
 import * as views from './wml/header';
 import { concat } from '../../util';
 import { WidgetAttrs, HTMLElementAttrs } from '../../';
@@ -40,8 +41,8 @@ export class MenuHeader extends wml.Component<WidgetAttrs<MenuHeaderAttrs>> {
                     this.attrs.ww.className : '')
 
         },
-      text: (this.attrs.ww && this.attrs.ww.text) ?
-      [document.createTextNode(this.attrs.ww.text)] : this.children
+        text: (this.attrs.ww && this.attrs.ww.text) ?
+            [document.createTextNode(this.attrs.ww.text)] : this.children
 
     }
 
