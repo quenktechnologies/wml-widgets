@@ -14,9 +14,6 @@
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "peerDependencies": {
-    "less": "~3.9.0"
-  },
   "dependencies": {
     "@quenk/noni": "^1.40.14",
     "moment": "^2.29.1"
