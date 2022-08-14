@@ -1,3 +1,4 @@
+@import "../../../menu/drawer/less/drawer";
 @import "./variables";
 
 .__DRAWER_LAYOUT__ { 
@@ -14,9 +15,10 @@
 
   }
 
-  & > .__DRAWER__:not(.__HIDDEN__) {
+  & > .__DRAWER_LAYOUT_CONTENT__ {
 
-    width: @drawer-layout-drawer-width;
+    height: 100%;
+    overflow: auto;
 
   }
 
