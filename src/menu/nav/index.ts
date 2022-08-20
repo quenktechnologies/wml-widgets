@@ -2,13 +2,13 @@ import * as wml from '@quenk/wml';
 import * as util from '../../util';
 
 import { mapTo, merge, Record } from '@quenk/noni/lib/data/record';
+import { isFunction, isObject, isString } from '@quenk/noni/lib/data/type';
 
 import { VERTICAL } from '../../content/orientation';
 import { HTMLElementAttrs } from '../../';
 import { LinkAttrs } from '../../content/link';
 import { MenuHeaderAttrs } from '../header';
 import { NavMenuView } from './view';
-import { isFunction, isObject, isString } from '@quenk/noni/lib/data/type';
 
 export { Item } from '../item';
 export { Link } from '../../content/link';
