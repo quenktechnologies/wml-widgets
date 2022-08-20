@@ -1,5 +1,5 @@
 {% import (Demo) from "../../../widgets/demo" %}
-{% import (Nav) from "../../../../../../lib/menu/nav" %}
+{% import (NavMenu) from "../../../../../../lib/menu/nav" %}
 {% import (Item) from "../../../../../../lib/menu/item" %}
 {% import (Link) from "../../../../../../lib/content/link" %}
 {% import (NavPage) from "../" %}
@@ -12,7 +12,7 @@
 
     <h3>This is a horizontal nav.</h3>
 
-    <Nav>
+    <NavMenu>
 
       <Item>
         
@@ -36,7 +36,7 @@
           
       </Item>
 
-    </Nav>
+    </NavMenu>
 
   </Demo>
 
@@ -44,7 +44,7 @@
 
     <h3>This is a vertical nav.</h3>
 
-    <Nav ww:vertical=true>
+    <NavMenu vertical=true>
 
       <Item>
         
@@ -68,7 +68,7 @@
           
       </Item>
 
-    </Nav>
+    </NavMenu>
 
   </Demo>
 

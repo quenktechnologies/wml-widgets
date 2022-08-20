@@ -7,10 +7,7 @@ export const ITEM = 'ww-menu-item';
 export const DIVIDER = 'ww-menu-divider';
 ///classNames:end
 ///classNames:begin
-/**
- * NAV
- */
-export const NAV = 'ww-nav';
+export const NAV_MENU = 'ww-nav-menu';
 ///classNames:end
 ///classNames:begin
 export const BREADCRUMB_MENU = 'ww-breadcrumb-menu';
