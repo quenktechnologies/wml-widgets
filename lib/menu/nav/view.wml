@@ -1,0 +1,33 @@
+{% import (Item) from "../item" %}
+{% import (MenuHeader) from "../header" %}
+{% import (Link) from "../../content/link" %}
+{% import (NavMenu) from "." %}
+
+{% view NavMenuView (NavMenu) %}
+<ul id={{@values.id}} class={{@values.className}}>
+
+  {% for item in @values.items %}
+
+    <Item>
+
+      {% if (item."type") == "header" %}
+
+        <MenuHeader wml:attrs={{item}}/>
+
+      {% else if (item."type") == "link" %}
+
+        <Link wml:attrs={{item}} />
+
+      {% else if (item."type") == "menu" %}
+
+        <NavMenu wml:attrs={{item}} />
+
+      {% endif %}
+
+    </Item>
+
+  {% endfor %}
+    
+  {{...@children}}
+
+</ul>

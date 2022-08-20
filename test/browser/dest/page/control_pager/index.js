@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PagerPage = void 0;
-var views = require("./pager");
-var scenes = [
+const views = require("./pager");
+const scenes = [
     'Page 1',
     'Page 2',
     'Page 3',
@@ -14,23 +14,21 @@ var scenes = [
     'Page 9',
     'Page 10'
 ];
-var PagerPage = /** @class */ (function () {
-    function PagerPage() {
-        var _this = this;
+class PagerPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
             message: scenes[0],
             total: scenes.length,
             current: 1,
-            onChange: function (e) {
-                _this.values.current = e.value;
-                _this.values.message = scenes[_this.values.current - 1];
-                _this.view.invalidate();
+            onChange: (e) => {
+                this.values.current = e.value;
+                this.values.message = scenes[this.values.current - 1];
+                this.view.invalidate();
             }
         };
     }
-    return PagerPage;
-}());
+}
 exports.PagerPage = PagerPage;
 exports.default = new PagerPage();
 //# sourceMappingURL=index.js.map

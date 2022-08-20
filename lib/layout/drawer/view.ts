@@ -7,8 +7,8 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {Drawer} from '../../../menu/drawer'; ;
-import * as drawer  from '../'; 
+import {Drawer} from '../../menu/drawer'; ;
+import {DrawerLayout} from '.'; 
 
 
 //@ts-ignore:6192
@@ -65,21 +65,24 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export class DrawerLayout  implements __wml.View {
+export class DrawerLayoutView  implements __wml.View {
 
-   constructor(__context: drawer.DrawerLayout) {
+   constructor(__context: DrawerLayout) {
 
        this.template = (__this:__wml.Registry) => {
 
        
 
-           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.root.wml.id  },'id': __context.values.root.id,'class': __context.values.root.className}, [
+           return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className}, [
 
-        __this.widget(new Drawer({wml : { 'id' : __context.values.drawer.wml.id  },ww : { 'hidden' : __context.values.drawer.hidden ,'content' : __context.values.drawer.content  }}, [
+        __this.widget(new Drawer({wml : { 'id' : __context.values.drawer.wml.id  },ww : { 'hidden' : __context.values.drawer.hidden  }}, [
 
-        
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.drawer.wml.id  },ww : { 'hidden' : __context.values.drawer.hidden ,'content' : __context.values.drawer.content  }}),
-...(__context.values.content.value)
+        ...(__context.values.drawer.content)
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.drawer.wml.id  },ww : { 'hidden' : __context.values.drawer.hidden  }}),
+__this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content.wml.id  },'class': __context.values.content.className}, [
+
+        ...(__context.values.content.content)
+     ])
      ]);
 
        }

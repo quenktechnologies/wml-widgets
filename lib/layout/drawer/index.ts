@@ -1,22 +1,16 @@
-import * as views from './wml/drawer';
 import { View, Content, Component } from '@quenk/wml';
-import { Maybe } from '@quenk/noni/lib/data/maybe';
-import {
-    hide,
-    show,
-    toggle
-} from '../../content/state/hidden';
-import { Hidable } from '../../content/state/hidden';
+
+import { contains, find } from '@quenk/noni/lib/data/array';
+
 import { Drawer } from '../../menu/drawer';
-import { concat, warnMissing } from '../../util';
-import { WidgetAttrs } from '../../';
+import { concat, getById } from '../../util';
+import { HTMLId, } from '../../';
 import { LAYOUT, LayoutAttrs, Layout } from '../';
+import { DrawerLayoutView } from './view';
 
 ///classNames:begin
-/**
- * DRAWER_LAYOUT
- */
 export const DRAWER_LAYOUT = 'ww-drawer-layout';
+export const DRAWER_LAYOUT_CONTENT = 'ww-drawer-layout__content';
 ///classNames:end
 
 /**
@@ -25,192 +19,176 @@ export const DRAWER_LAYOUT = 'ww-drawer-layout';
 export interface DrawerLayoutAttrs extends LayoutAttrs {
 
     /**
-     * drawerHidden if true will hide the Drawer.
+     * drawer is the id of the root element of the drawer.
+     *
+     * This will be removed and added as the drawer is toggled.
      */
-    drawerHidden?: boolean,
+    drawer: HTMLId,
 
     /**
-     * drawerContent used to populate the Drawer.
+     * open if true shows the drawer along with the content.
+     *
+     * Defaults to false.
      */
-    drawerContent?: Content[]
+    open?: boolean
 
-};
+    /**
+     * persist is a comma seperated list of html ids of elements in the content 
+     * are of the layout that should not be removed when setContent() is called.
+     *
+     * Use this to keep navigation bars etc.
+     */
+    persist?: string
+
+    /**
+     * content if specified indicates which of the elements to treat as the
+     * container for content.
+     *
+     * This element will be updated by calls to setContent() and removeContent()
+     */
+    content?: HTMLId
+
+}
 
 /**
- * DrawerLayout provides a 1 column application layout with a drawer that can 
- * be shown or hidden upon requests.
+ * DrawerLayout provides a 2 column layout for an application where the first
+ * column is an optionally displayed menu "drawer" and the second used for
+ * regular application content.
  *
- * The drawer takes up most of the screen on mobile and about roughly 1/6 - 1/8
- * on a desktop (not fact checked yet).
- *  
- *  Mobile:
- *  +---------------------------------------------------------------------+
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |   <drawer>                                 |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  |                                            |                        |
- *  +---------------------------------------------------------------------+
- *
- *  Desktop: 
- *  +---------------------------------------------------------------------+
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |   <drawer>  |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  |             |                                                       |
- *  +---------------------------------------------------------------------+
- */
-export class DrawerLayout extends Component<WidgetAttrs<DrawerLayoutAttrs>>
-    implements Hidable, Layout {
+ * Methods exists to open or close the drawer as well as replace the content
+ * displayed in the second column as desired.
+  */
+export class DrawerLayout
+    extends Component<DrawerLayoutAttrs>
+    implements Layout {
 
-    view: View = new views.DrawerLayout(this);
+    view: View = new DrawerLayoutView(this);
 
-    /**
-     * values is a hash of values used in the template.
-     */
     values = {
 
-        root: {
+        wml: { id: 'layout' },
 
-            wml: {
+        id: this.attrs.id,
 
-                id: 'layout'
+        className: concat(DRAWER_LAYOUT, LAYOUT, this.attrs.className),
 
-            },
-
-            id: this.attrs.ww && this.attrs.ww.id,
-
-            className: concat(DRAWER_LAYOUT, LAYOUT,
-                (this.attrs.ww && this.attrs.ww.className) ?
-                    this.attrs.ww.className : '')
-
-        },
-        drawer: {
-
-            wml: {
-
-                id: 'drawer'
-
-            },
-
-            hidden: (this.attrs.ww && this.attrs.ww.drawerHidden) ?
-                this.attrs.ww.drawerHidden : false,
-
-            content: (this.attrs.ww && this.attrs.ww.drawerContent) ?
-                this.attrs.ww.drawerContent : []
-
-        },
         content: {
 
-            id: 'content',
+            wml: { id: 'content' },
 
-            value: this.children
+            className: concat(DRAWER_LAYOUT_CONTENT, LAYOUT),
 
-        }
+            content: getContent(<Element[]>this.children, this.attrs.drawer),
 
-    }
+            persist: (this.attrs.persist || '').split(',').filter(id=>id)
 
-    isHidden(): boolean {
+        },
 
-        let m = getDrawer(this);
+        drawer: {
 
-        if (m.isNothing())
-            return true;
+            wml: { id: 'drawer' },
 
-        return m.get().isHidden();
+            hidden: !this.attrs.open,
 
-    }
-
-    hide(): DrawerLayout {
-
-        let m = getDrawer(this);
-
-        if (m.isJust()) {
-
-            m.get().hide();
-            hide(this.view, this.values.root.wml.id);
+            content: getDrawer(<Element[]>this.children, this.attrs.drawer)
 
         }
 
-        return this;
+    }
+
+    get _drawer() {
+
+        return getById<Drawer>(this.view, this.values.drawer.wml.id).get();
 
     }
 
-    show(): DrawerLayout {
+    get _content() {
 
-        let m = getDrawer(this);
+        let content = getById<Element>(this.view,
+            this.values.content.wml.id).get();
 
-        if (m.isJust()) {
-
-            m.get().show();
-            show(this.view, this.values.root.wml.id);
-
-
-        }
-
-        return this;
+        if (this.attrs.content)
+            return <Element>content.querySelector(`#${this.attrs.content}`);
+        else
+            return content;
 
     }
 
+    /**
+     * isOpen indicates whether the drawer part of the layout is open.
+     */
+    isOpen(): boolean {
+
+        return !this._drawer.isHidden();
+
+    }
+
+    /**
+     * open the drawer part of the layout.
+     */
+    open() {
+
+        this._drawer.show();
+
+    }
+
+    /**
+     * close the drawer part of the layout.
+     */
+    close() {
+
+        this._drawer.hide();
+
+    }
+
+    /**
+     * toggle the state of the drawer part of the layout.
+     */
     toggle() {
 
-        let m = getDrawer(this);
-
-        if (m.isJust()) {
-
-            m.get().toggle();
-            toggle(this.view, this.values.root.wml.id);
-
-        }
-
-        return this;
+        if (this.isOpen())
+            this.close();
+        else
+            this.open();
 
     }
 
-    setContent(c: Content[]): DrawerLayout {
+    setContent(frag: Content[]): DrawerLayout {
 
-        this.values.content.value = c;
-        this.view.invalidate();
+        this.removeContent();
+
+        let content = this._content;
+
+        frag.forEach(child => content.appendChild(child));
+
         return this;
 
     }
 
     removeContent(): DrawerLayout {
 
-        this.values.content.value = [];
+        let content = this._content;
+
+        for (let i = 0; i < content.children.length; i++) {
+
+            let child = content.children[i];
+
+            if (!contains(this.values.content.persist, child.id))
+                content.removeChild(child);
+
+        }
+
         return this;
 
     }
 
 }
 
-const getDrawer = (dl: DrawerLayout) => {
+const getDrawer = (children: Element[], id: HTMLId): Content[] =>
+    find(children, (el: Element) => el.id === id)
+        .map((el: Element) => [el])
+        .orJust(() => [])
+        .get()
 
-    let m: Maybe<Drawer> = dl.view.findById(dl.values.drawer.wml.id);
-
-    if (m.isNothing())
-        warnMissing(dl.view, dl.values.drawer.wml.id);
-
-    return m;
-
-}
+const getContent = (children: Element[], id: HTMLId): Content[] =>
+    children.filter(child => (<Element>child).id !== id);

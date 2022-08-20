@@ -1,12 +1,12 @@
 {% import (App) from "../app" %}
-{% import (Nav) from "../../../../lib/menu/nav" %}
+{% import (NavMenu) from "../../../../lib/menu/nav" %}
 {% import (Item) from "../../../../lib/menu/item" %}
 {% import (MenuHeader) from "../../../../lib/menu/header" %}
 {% import (Link) from "../../../../lib/content/link" %}
 
 {% view Navigation (App) %}
 
-<Nav ww:vertical=true>
+<NavMenu id="nav" vertical=true>
 
   <Item>
 
@@ -26,7 +26,7 @@
 
         <MenuHeader ww:text={{section}} />
 
-        <Nav ww:vertical=true>
+        <NavMenu vertical=true>
 
           {% for _,name of items %}
 
@@ -44,10 +44,10 @@
      
           {% endfor %}
 
-        </Nav>
+        </NavMenu>
 
       </Item>
 
       {% endfor %}
     
-</Nav>
+</NavMenu>

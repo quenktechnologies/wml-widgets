@@ -1,8 +1,8 @@
 import * as __wml from '@quenk/wml';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-import { Nav } from '../';
-export declare class Main implements __wml.View {
-    constructor(__context: Nav);
+import { NavMenu } from '.';
+export declare class NavMenuView implements __wml.View {
+    constructor(__context: NavMenu);
     ids: {
         [key: string]: __wml.WMLElement;
     };

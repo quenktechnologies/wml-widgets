@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TagPage = void 0;
-var views = require("./wml/tag");
-var style_1 = require("../../../../../lib/content/style");
-var TagPage = /** @class */ (function () {
-    function TagPage() {
+const views = require("./wml/tag");
+const style_1 = require("../../../../../lib/content/style");
+class TagPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
-            capitalize: function (s) { return "" + s[0].toUpperCase() + s.slice(1); },
+            capitalize: (s) => `${s[0].toUpperCase()}${s.slice(1)}`,
             styles: [
                 style_1.Style.Default,
                 style_1.Style.Primary,
@@ -18,8 +18,7 @@ var TagPage = /** @class */ (function () {
             ]
         };
     }
-    return TagPage;
-}());
+}
 exports.TagPage = TagPage;
 exports.default = new TagPage();
 //# sourceMappingURL=index.js.map

@@ -1,22 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TabBarPage = void 0;
-var views = require("./wml/tab-bar");
-var TabBarPage = /** @class */ (function () {
-    function TabBarPage() {
-        var _this = this;
+const views = require("./wml/tab-bar");
+class TabBarPage {
+    constructor() {
         this.view = new views.Main(this);
         this.tab = 'First';
         this.content = document.createTextNode('First Tab');
-        this.clicked = function (_a) {
-            var name = _a.name;
-            _this.tab = name;
-            _this.content = document.createTextNode(name + " Tab");
-            _this.view.invalidate();
+        this.clicked = ({ name }) => {
+            this.tab = name;
+            this.content = document.createTextNode(`${name} Tab`);
+            this.view.invalidate();
         };
     }
-    return TabBarPage;
-}());
+}
 exports.TabBarPage = TabBarPage;
 exports.default = new TabBarPage();
 //# sourceMappingURL=index.js.map

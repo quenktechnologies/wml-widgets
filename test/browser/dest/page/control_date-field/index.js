@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.onChange = exports.DateFieldPage = void 0;
-var views = require("./wml/date-field");
-var date_field_1 = require("../../../../../lib/control/date-field");
-var util_1 = require("../../../../../lib/util");
-var DateFieldPage = /** @class */ (function () {
-    function DateFieldPage() {
+const views = require("./wml/date-field");
+const date_field_1 = require("../../../../../lib/control/date-field");
+const util_1 = require("../../../../../lib/util");
+class DateFieldPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
             formats: {
@@ -78,16 +78,14 @@ var DateFieldPage = /** @class */ (function () {
             }
         };
     }
-    return DateFieldPage;
-}());
+}
 exports.DateFieldPage = DateFieldPage;
-exports.onChange = function (d) { return function (_a) {
-    var name = _a.name, value = _a.value;
-    var mDate = util_1.getById(d.view, name);
+exports.onChange = (d) => ({ name, value }) => {
+    let mDate = util_1.getById(d.view, name);
     if (mDate.isJust()) {
-        var d_1 = mDate.get();
-        d_1.setMessage("The date is " + value + ".");
+        let d = mDate.get();
+        d.setMessage(`The date is ${value}.`);
     }
-}; };
+};
 exports.default = new DateFieldPage();
 //# sourceMappingURL=index.js.map

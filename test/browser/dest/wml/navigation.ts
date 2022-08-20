@@ -8,7 +8,7 @@ fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
 import {App} from '../app'; ;
-import {Nav} from '../../../../lib/menu/nav'; ;
+import {NavMenu} from '../../../../lib/menu/nav'; ;
 import {Item} from '../../../../lib/menu/item'; ;
 import {MenuHeader} from '../../../../lib/menu/header'; ;
 import {Link} from '../../../../lib/content/link'; 
@@ -76,7 +76,7 @@ export class Navigation  implements __wml.View {
 
        
 
-           return __this.widget(new Nav({ww : { 'vertical' : true   }}, [
+           return __this.widget(new NavMenu({'id': 'nav','vertical': true }, [
 
         __this.widget(new Item({}, [
 
@@ -94,7 +94,7 @@ export class Navigation  implements __wml.View {
 
         
      ]),<__wml.Attrs>{ww : { 'text' : section  }}),
-__this.widget(new Nav({ww : { 'vertical' : true   }}, [
+__this.widget(new NavMenu({'vertical': true }, [
 
         ...__forOf (items, (_ , name , _$$all) => 
        ([
@@ -108,11 +108,11 @@ __this.widget(new Nav({ww : { 'vertical' : true   }}, [
      ]),<__wml.Attrs>{})
      ]), 
     ()=> ([]))
-     ]),<__wml.Attrs>{ww : { 'vertical' : true   }})
+     ]),<__wml.Attrs>{'vertical': true })
      ]),<__wml.Attrs>{})
      ]), 
     ()=> ([]))
-     ]),<__wml.Attrs>{ww : { 'vertical' : true   }});
+     ]),<__wml.Attrs>{'id': 'nav','vertical': true });
 
        }
 

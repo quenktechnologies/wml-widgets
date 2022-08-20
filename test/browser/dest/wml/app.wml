@@ -1,21 +1,24 @@
 {% import (DrawerLayout) from "../../../../lib/layout/drawer" %}
 {% import (ActionBar) from "../../../../lib/layout/action-bar" %}
-{% import (App) from "../app" %}
 {% import (Link) from "../../../../lib/content/link" %}
 {% import (MenuIcon) from "../../../../lib/content/menu-icon" %}
 {% import (MainLayout) from "../../../../lib/layout/main" %}
+{% import (App) from "../app" %}
 {% import (Navigation) from "./navigation" %}
 
 {% view  Main (App) %}
 
 <DrawerLayout 
   wml:id={{@values.id.layout}} 
-  ww:drawerContent={{[<Navigation(@)>]}}>
+  drawer="nav"
+  content="main"
+  open=true>
 
-  <ActionBar>
+  {{ <Navigation(@)> }}
 
-    <Link
-      ww:onClick={{@toggleDrawer}}>
+  <ActionBar ww:id="appBar">
+
+    <Link ww:onClick={{@toggleDrawer}}>
 
       <MenuIcon/>
 
@@ -23,7 +26,7 @@
 
   </ActionBar>
 
-  <MainLayout>
+  <MainLayout ww:id="main">
 
     {{...@content}}
 

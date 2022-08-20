@@ -1,5 +1,5 @@
 {% import (Item) from "../../../menu/item" %}
-{% import (Nav) from "../../../menu/nav" %}
+{% import (NavMenu) from "../../../menu/nav" %}
 {% import (Link) from "../../../content/link" %}
 {% import (ActionBar) from "../../action-bar" %}
 {% import (NavBar) from "../" %}
@@ -12,7 +12,7 @@
 
       {% if @values.links.length > 0 %}
 
-        <Nav>
+        <NavMenu>
 
           {% for conf in @values.links %}
 
@@ -29,7 +29,7 @@
 
           {% endfor %}
 
-        </Nav>
+        </NavMenu>
 
       {% endif %}
 

@@ -9,10 +9,10 @@ fromArray as __fromArray
 from '@quenk/noni/lib/data/maybe';
 import {DrawerLayout} from '../../../../lib/layout/drawer'; ;
 import {ActionBar} from '../../../../lib/layout/action-bar'; ;
-import {App} from '../app'; ;
 import {Link} from '../../../../lib/content/link'; ;
 import {MenuIcon} from '../../../../lib/content/menu-icon'; ;
 import {MainLayout} from '../../../../lib/layout/main'; ;
+import {App} from '../app'; ;
 import {Navigation} from './navigation'; 
 
 
@@ -78,12 +78,10 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new DrawerLayout({wml : { 'id' : __context.values.id.layout  },ww : { 'drawerContent' : [
+           return __this.widget(new DrawerLayout({wml : { 'id' : __context.values.id.layout  },'drawer': 'nav','content': 'main','open': true }, [
 
-            __this.registerView(new Navigation(__context)).render()
-            ]  }}, [
-
-        __this.widget(new ActionBar({}, [
+        __this.registerView(new Navigation(__context)).render(),
+__this.widget(new ActionBar({ww : { 'id' : 'appBar'  }}, [
 
         __this.widget(new Link({ww : { 'onClick' : __context.toggleDrawer  }}, [
 
@@ -92,15 +90,12 @@ export class Main  implements __wml.View {
         
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{ww : { 'onClick' : __context.toggleDrawer  }})
-     ]),<__wml.Attrs>{}),
-__this.widget(new MainLayout({}, [
+     ]),<__wml.Attrs>{ww : { 'id' : 'appBar'  }}),
+__this.widget(new MainLayout({ww : { 'id' : 'main'  }}, [
 
         ...(__context.content)
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id.layout  },ww : { 'drawerContent' : [
-
-            __this.registerView(new Navigation(__context)).render()
-            ]  }});
+     ]),<__wml.Attrs>{ww : { 'id' : 'main'  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.id.layout  },'drawer': 'nav','content': 'main','open': true });
 
        }
 

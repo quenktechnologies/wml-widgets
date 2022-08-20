@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextInputPage = void 0;
-var views = require("./wml/text-input");
-var size_1 = require("../../../../../lib/content/size");
-var TextInputPage = /** @class */ (function () {
-    function TextInputPage() {
-        var _this = this;
+const views = require("./wml/text-input");
+const size_1 = require("../../../../../lib/content/size");
+class TextInputPage {
+    constructor() {
         this.view = new views.Main(this);
         this.sizes = [
             size_1.Size.ExtraSmall,
@@ -14,17 +13,15 @@ var TextInputPage = /** @class */ (function () {
             size_1.Size.Large,
             size_1.Size.ExtraLarge
         ];
-        this.content = function () { return document.createTextNode('this'); };
-        this.onChange = function (_a) {
-            var value = _a.value;
-            _this
+        this.content = () => document.createTextNode('this');
+        this.onChange = ({ value }) => {
+            this
                 .view
                 .findById('txt')
-                .map(function (h) { return h.innerHTML = value; });
+                .map(h => h.innerHTML = value);
         };
     }
-    return TextInputPage;
-}());
+}
 exports.TextInputPage = TextInputPage;
 exports.default = new TextInputPage();
 //# sourceMappingURL=index.js.map

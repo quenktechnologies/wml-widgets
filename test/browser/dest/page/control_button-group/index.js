@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonGroupPage = void 0;
-var views = require("./wml/button-group");
-var ButtonGroupPage = /** @class */ (function () {
-    function ButtonGroupPage() {
+const views = require("./wml/button-group");
+class ButtonGroupPage {
+    constructor() {
         this.view = new views.Main(this);
     }
-    return ButtonGroupPage;
-}());
+}
 exports.ButtonGroupPage = ButtonGroupPage;
 exports.default = new ButtonGroupPage();
 //# sourceMappingURL=index.js.map

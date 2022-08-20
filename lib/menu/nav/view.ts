@@ -7,7 +7,10 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {Nav} from '../'; 
+import {Item} from '../item'; ;
+import {MenuHeader} from '../header'; ;
+import {Link} from '../../content/link'; ;
+import {NavMenu} from '.'; 
 
 
 //@ts-ignore:6192
@@ -64,17 +67,50 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export class Main  implements __wml.View {
+export class NavMenuView  implements __wml.View {
 
-   constructor(__context: Nav) {
+   constructor(__context: NavMenu) {
 
        this.template = (__this:__wml.Registry) => {
 
        
 
-           return __this.node('ul', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
+           return __this.node('ul', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className}, [
 
-        ...(__context.children)
+        ...__forIn (__context.values.items, (item , _$$i, _$$all)=> 
+([
+
+        __this.widget(new Item({}, [
+
+        ...(((item['type'] === 'header')) ?
+(()=>([
+
+        __this.widget(new MenuHeader(item, [
+
+        
+     ]),<__wml.Attrs>item)
+     ]))() :
+(()=>([...(((item['type'] === 'link')) ?
+(()=>([
+
+        __this.widget(new Link(item, [
+
+        
+     ]),<__wml.Attrs>item)
+     ]))() :
+(()=>([...(((item['type'] === 'menu')) ?
+(()=>([
+
+        __this.widget(new NavMenu(item, [
+
+        
+     ]),<__wml.Attrs>item)
+     ]))() :
+(()=>([]))())]))())]))())
+     ]),<__wml.Attrs>{})
+     ]), 
+()=> ([])),
+...(__context.children)
      ]);
 
        }

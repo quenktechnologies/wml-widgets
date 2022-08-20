@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ToolbarPage = void 0;
-var views = require("./wml/toolbar");
-var ToolbarPage = /** @class */ (function () {
-    function ToolbarPage() {
+const views = require("./wml/toolbar");
+class ToolbarPage {
+    constructor() {
         this.view = new views.Main(this);
     }
-    return ToolbarPage;
-}());
+}
 exports.ToolbarPage = ToolbarPage;
 exports.default = new ToolbarPage();
 //# sourceMappingURL=index.js.map

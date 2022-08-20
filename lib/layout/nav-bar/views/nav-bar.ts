@@ -8,7 +8,7 @@ fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
 import {Item} from '../../../menu/item'; ;
-import {Nav} from '../../../menu/nav'; ;
+import {NavMenu} from '../../../menu/nav'; ;
 import {Link} from '../../../content/link'; ;
 import {ActionBar} from '../../action-bar'; ;
 import {NavBar} from '../'; 
@@ -81,7 +81,7 @@ export class NavBarView  implements __wml.View {
         ...(((__context.values.links.length > 0)) ?
 (()=>([
 
-        __this.widget(new Nav({}, [
+        __this.widget(new NavMenu({}, [
 
         ...__forIn (__context.values.links, (conf , _$$i, _$$all)=> 
 ([

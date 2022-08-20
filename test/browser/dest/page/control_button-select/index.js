@@ -1,10 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonSelectPage = void 0;
-var views = require("./wml/button-select");
-var ButtonSelectPage = /** @class */ (function () {
-    function ButtonSelectPage() {
-        var _this = this;
+const views = require("./wml/button-select");
+class ButtonSelectPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
             options: [
@@ -15,31 +14,28 @@ var ButtonSelectPage = /** @class */ (function () {
             value: 'MSI',
             values: ['MSI']
         };
-        this.onChange = function (_a) {
-            var value = _a.value, name = _a.name;
-            _this
+        this.onChange = ({ value, name }) => {
+            this
                 .view
-                .findById(name + "-content")
-                .map(function (e) {
+                .findById(`${name}-content`)
+                .map((e) => {
                 while (e.lastChild)
                     e.removeChild(e.lastChild);
                 e.appendChild(document.createTextNode(String(value)));
             });
         };
-        this.onChangeMulti = function (_a) {
-            var value = _a.value, name = _a.name;
-            _this
+        this.onChangeMulti = ({ value, name }) => {
+            this
                 .view
-                .findById(name + "-content")
-                .map(function (e) {
+                .findById(`${name}-content`)
+                .map((e) => {
                 while (e.lastChild)
                     e.removeChild(e.lastChild);
                 e.appendChild(document.createTextNode(String(value)));
             });
         };
     }
-    return ButtonSelectPage;
-}());
+}
 exports.ButtonSelectPage = ButtonSelectPage;
 exports.default = new ButtonSelectPage();
 //# sourceMappingURL=index.js.map

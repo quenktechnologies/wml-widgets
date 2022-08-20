@@ -15,11 +15,11 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "dependencies": {
-    "@quenk/noni": "^1.40.14",
+    "@quenk/noni": "^1.43.3",
     "moment": "^2.29.1"
   },
   "devDependencies": {
-    "@quenk/wml": "^2.11.2",
+    "@quenk/wml": "^2.12.0",
     "@types/mocha": "^7.0.2",
     "@types/node": "^14.17.6",
     "browserify": "^16.5.2",

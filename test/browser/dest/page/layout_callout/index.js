@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CalloutPage = void 0;
-var views = require("./wml/callout");
-var style_1 = require("../../../../../lib/content/style");
-var CalloutPage = /** @class */ (function () {
-    function CalloutPage() {
+const views = require("./wml/callout");
+const style_1 = require("../../../../../lib/content/style");
+class CalloutPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
-            capitalize: function (s) { return "" + s[0].toUpperCase() + s.slice(1); },
+            capitalize: (s) => `${s[0].toUpperCase()}${s.slice(1)}`,
             styles: [
                 style_1.Style.Default,
                 style_1.Style.Primary,
@@ -18,8 +18,7 @@ var CalloutPage = /** @class */ (function () {
             ]
         };
     }
-    return CalloutPage;
-}());
+}
 exports.CalloutPage = CalloutPage;
 exports.default = new CalloutPage();
 //# sourceMappingURL=index.js.map

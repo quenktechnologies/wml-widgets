@@ -1,24 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ModalPage = void 0;
-var views = require("./wml/modal");
-var ModalPage = /** @class */ (function () {
-    function ModalPage() {
-        var _this = this;
+const views = require("./wml/modal");
+class ModalPage {
+    constructor() {
         this.view = new views.Main(this);
         this.v = new views.Open(this);
         this.values = {
-            open: function () {
-                document.body.appendChild(_this.v.render());
+            open: () => {
+                document.body.appendChild(this.v.render());
             },
-            close: function () {
-                _this.v.findById('open')
-                    .map(function (m) { return m.close(); });
+            close: () => {
+                this.v.findById('open')
+                    .map(m => m.close());
             }
         };
     }
-    return ModalPage;
-}());
+}
 exports.ModalPage = ModalPage;
 exports.default = new ModalPage();
 //# sourceMappingURL=index.js.map

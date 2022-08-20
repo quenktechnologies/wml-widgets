@@ -1,13 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DescriptionListPage = void 0;
-var description_list_1 = require("./wml/description-list");
-var DescriptionListPage = /** @class */ (function () {
-    function DescriptionListPage() {
+const description_list_1 = require("./wml/description-list");
+class DescriptionListPage {
+    constructor() {
         this.view = new description_list_1.Main(this);
     }
-    return DescriptionListPage;
-}());
+}
 exports.DescriptionListPage = DescriptionListPage;
 exports.default = new DescriptionListPage();
 //# sourceMappingURL=index.js.map

@@ -1,32 +1,30 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ConfirmPage = void 0;
-var views = require("./wml/confirm");
-var ConfirmPage = /** @class */ (function () {
-    function ConfirmPage() {
-        var _this = this;
+const views = require("./wml/confirm");
+class ConfirmPage {
+    constructor() {
         this.view = new views.Main(this);
         this.v = new views.Open(this);
         this.values = {
             title: 'Confirm a message',
             message: 'Would you like to confirm this message?',
-            onYes: function () {
+            onYes: () => {
                 alert('Message confirmed!');
             },
-            onNo: function () {
+            onNo: () => {
                 alert('Message rejected!');
             },
-            open: function () {
-                document.body.appendChild(_this.v.render());
+            open: () => {
+                document.body.appendChild(this.v.render());
             },
-            close: function () {
-                _this.v.findById('open')
-                    .map(function (m) { return m.close(); });
+            close: () => {
+                this.v.findById('open')
+                    .map(m => m.close());
             }
         };
     }
-    return ConfirmPage;
-}());
+}
 exports.ConfirmPage = ConfirmPage;
 exports.default = new ConfirmPage();
 //# sourceMappingURL=index.js.map

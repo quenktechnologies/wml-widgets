@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TypeaheadPage = void 0;
-var views = require("./wml/typeahead");
-var results = [
+const views = require("./wml/typeahead");
+const results = [
     { label: 'Asus', value: 'Asus' },
     { label: 'MSI', value: 'MSI' },
     { label: 'Gigabyte', value: 'Gigabyte' },
@@ -14,8 +14,8 @@ var results = [
     { label: 'Kirpalani\'s', value: 'Kirpalani\'s' },
     { label: 'Asunder', value: 'Asunder' }
 ];
-var TypeaheadPage = /** @class */ (function () {
-    function TypeaheadPage() {
+class TypeaheadPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
             normal: {
@@ -23,7 +23,7 @@ var TypeaheadPage = /** @class */ (function () {
                 name: 'normal',
                 label: 'Normal',
                 value: 'Normal',
-                stringifier: function (r) { return r.value; },
+                stringifier: (r) => r.value,
                 onSearch: doSearch(this),
                 onChange: doChange(this)
             },
@@ -31,7 +31,7 @@ var TypeaheadPage = /** @class */ (function () {
                 id: 'block',
                 name: 'block',
                 label: 'Block',
-                stringifier: function (r) { return r.value; },
+                stringifier: (r) => r.value,
                 onSearch: doSearch(this),
                 onChange: doChange(this)
             },
@@ -39,7 +39,7 @@ var TypeaheadPage = /** @class */ (function () {
                 id: 'success',
                 name: 'success',
                 label: 'Success',
-                stringifier: function (r) { return r.value; },
+                stringifier: (r) => r.value,
                 message: 'This has a success message.',
                 onSearch: doSearch(this),
                 onChange: doChange(this)
@@ -48,7 +48,7 @@ var TypeaheadPage = /** @class */ (function () {
                 id: 'warning',
                 name: 'warning',
                 label: 'Warning',
-                stringifier: function (r) { return r.value; },
+                stringifier: (r) => r.value,
                 message: 'This has a warning message.',
                 onSearch: doSearch(this),
                 onChange: doChange(this)
@@ -57,36 +57,27 @@ var TypeaheadPage = /** @class */ (function () {
                 id: 'error',
                 name: 'error',
                 label: 'Error',
-                stringifier: function (r) { return r.value; },
+                stringifier: (r) => r.value,
                 message: 'This has a error message.',
                 onSearch: doSearch(this),
                 onChange: doChange(this)
             },
         };
     }
-    return TypeaheadPage;
-}());
+}
 exports.TypeaheadPage = TypeaheadPage;
-var doSearch = function (page) { return function (_a) {
-    var name = _a.name, value = _a.value;
-    return page
-        .view
-        .findById(name)
-        .map(function (s) {
-        var hit = results.filter(function (c) {
-            return c.value.toLowerCase().startsWith(value) ? true : false;
-        });
-        s.update(hit);
-    });
-}; };
-var doChange = function (page) { return function (_a) {
-    var name = _a.name, value = _a.value;
-    return page
-        .view
-        .findById(name)
-        .map(function (t) {
-        t.setMessage("Selected: " + value);
-    });
-}; };
+const doSearch = (page) => ({ name, value }) => page
+    .view
+    .findById(name)
+    .map((s) => {
+    let hit = results.filter(c => c.value.toLowerCase().startsWith(value) ? true : false);
+    s.update(hit);
+});
+const doChange = (page) => ({ name, value }) => page
+    .view
+    .findById(name)
+    .map(t => {
+    t.setMessage(`Selected: ${value}`);
+});
 exports.default = new TypeaheadPage();
 //# sourceMappingURL=index.js.map

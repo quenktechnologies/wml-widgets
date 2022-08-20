@@ -1,16 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SwitchPage = void 0;
-var views = require("./wml/switch");
-var SwitchPage = /** @class */ (function () {
-    function SwitchPage() {
-        var _this = this;
+const views = require("./wml/switch");
+class SwitchPage {
+    constructor() {
         this.view = new views.Main(this);
         this.value = true;
-        this.onChange = function (_a) {
-            var value = _a.value;
-            _this.view.findById('content')
-                .map(function (e) {
+        this.onChange = ({ value }) => {
+            this.view.findById('content')
+                .map((e) => {
                 while (e.firstChild)
                     e.removeChild(e.firstChild);
                 e.appendChild(document.createTextNode(value === true ?
@@ -19,8 +17,7 @@ var SwitchPage = /** @class */ (function () {
             });
         };
     }
-    return SwitchPage;
-}());
+}
 exports.SwitchPage = SwitchPage;
 exports.default = new SwitchPage();
 //# sourceMappingURL=index.js.map

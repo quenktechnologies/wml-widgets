@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ButtonPage = void 0;
-var views = require("./wml/button");
-var style_1 = require("../../../../../lib/content/style");
-var size_1 = require("../../../../../lib/content/size");
-var ButtonPage = /** @class */ (function () {
-    function ButtonPage() {
+const views = require("./wml/button");
+const style_1 = require("../../../../../lib/content/style");
+const size_1 = require("../../../../../lib/content/size");
+class ButtonPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
-            capitalize: function (s) { return "" + s[0].toUpperCase() + s.slice(1); },
+            capitalize: (s) => `${s[0].toUpperCase()}${s.slice(1)}`,
             styles: [
                 style_1.Style.Default,
                 style_1.Style.Primary,
@@ -26,8 +26,7 @@ var ButtonPage = /** @class */ (function () {
             ]
         };
     }
-    return ButtonPage;
-}());
+}
 exports.ButtonPage = ButtonPage;
 exports.default = new ButtonPage();
 //# sourceMappingURL=index.js.map

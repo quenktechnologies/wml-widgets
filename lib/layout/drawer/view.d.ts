@@ -1,8 +1,8 @@
 import * as __wml from '@quenk/wml';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-import * as drawer from '../';
-export declare class DrawerLayout implements __wml.View {
-    constructor(__context: drawer.DrawerLayout);
+import { DrawerLayout } from '.';
+export declare class DrawerLayoutView implements __wml.View {
+    constructor(__context: DrawerLayout);
     ids: {
         [key: string]: __wml.WMLElement;
     };

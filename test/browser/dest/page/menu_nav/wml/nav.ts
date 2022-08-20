@@ -8,7 +8,7 @@ fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
 import {Demo} from '../../../widgets/demo'; ;
-import {Nav} from '../../../../../../lib/menu/nav'; ;
+import {NavMenu} from '../../../../../../lib/menu/nav'; ;
 import {Item} from '../../../../../../lib/menu/item'; ;
 import {Link} from '../../../../../../lib/content/link'; ;
 import {NavPage} from '../'; 
@@ -84,7 +84,7 @@ export class Main  implements __wml.View {
 
         __document.createTextNode('This is a horizontal nav.')
      ]),
-__this.widget(new Nav({}, [
+__this.widget(new NavMenu({}, [
 
         __this.widget(new Item({}, [
 
@@ -115,7 +115,7 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('This is a vertical nav.')
      ]),
-__this.widget(new Nav({ww : { 'vertical' : true   }}, [
+__this.widget(new NavMenu({'vertical': true }, [
 
         __this.widget(new Item({}, [
 
@@ -138,7 +138,7 @@ __this.widget(new Item({}, [
         
      ]),<__wml.Attrs>{ww : { 'text' : 'Logout'  }})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'vertical' : true   }})
+     ]),<__wml.Attrs>{'vertical': true })
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

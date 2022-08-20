@@ -1,18 +1,16 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TextFieldPage = void 0;
-var views = require("./wml/text-field");
-var feedback_1 = require("../../../../../lib/control/feedback");
-var TextFieldPage = /** @class */ (function () {
-    function TextFieldPage() {
-        var _this = this;
+const views = require("./wml/text-field");
+const feedback_1 = require("../../../../../lib/control/feedback");
+class TextFieldPage {
+    constructor() {
         this.id = 'text';
         this.view = new views.Main(this);
-        this.onChange = function (_a) {
-            var name = _a.name, value = _a.value;
-            var maybeField = _this.view.findById(name);
+        this.onChange = ({ name, value }) => {
+            let maybeField = this.view.findById(name);
             if (maybeField.isJust()) {
-                var t = maybeField.get();
+                let t = maybeField.get();
                 switch (value) {
                     case 'neutral':
                         t.setValidationState(feedback_1.ValidationState.Neutral);
@@ -29,12 +27,11 @@ var TextFieldPage = /** @class */ (function () {
                     default:
                         break;
                 }
-                t.setMessage("Message: " + value);
+                t.setMessage(`Message: ${value}`);
             }
         };
     }
-    return TextFieldPage;
-}());
+}
 exports.TextFieldPage = TextFieldPage;
 exports.default = new TextFieldPage();
 //# sourceMappingURL=index.js.map

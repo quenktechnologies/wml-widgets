@@ -1,9 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RangedPagerPage = void 0;
-var views = require("./views");
-var array_1 = require("@quenk/noni/lib/data/array");
-var scenes = [
+const views = require("./views");
+const array_1 = require("@quenk/noni/lib/data/array");
+const scenes = [
     'Page 1',
     'Page 2',
     'Page 3',
@@ -15,9 +15,8 @@ var scenes = [
     'Page 9',
     'Page 10'
 ];
-var RangedPagerPage = /** @class */ (function () {
-    function RangedPagerPage() {
-        var _this = this;
+class RangedPagerPage {
+    constructor() {
         this.view = new views.Main(this);
         this.values = {
             scenes: scenes,
@@ -25,23 +24,22 @@ var RangedPagerPage = /** @class */ (function () {
             max: scenes.length,
             total: scenes.length,
             current: 1,
-            onAttrChange: function (e) {
-                _this.values[e.name] = Number(e.value);
+            onAttrChange: (e) => {
+                this.values[e.name] = Number(e.value);
                 if (e.name === 'total')
-                    _this.values.scenes = array_1.make(Number(e.value), function (i) { return "Page " + i; });
+                    this.values.scenes = array_1.make(Number(e.value), i => `Page ${i}`);
             },
-            onChange: function (e) {
-                _this.values.current = e.value;
-                _this.values.message = _this.values.scenes[_this.values.current - 1];
-                _this.view.invalidate();
+            onChange: (e) => {
+                this.values.current = e.value;
+                this.values.message = this.values.scenes[this.values.current - 1];
+                this.view.invalidate();
             },
-            reset: function () {
-                _this.view.invalidate();
+            reset: () => {
+                this.view.invalidate();
             }
         };
     }
-    return RangedPagerPage;
-}());
+}
 exports.RangedPagerPage = RangedPagerPage;
 exports.default = new RangedPagerPage();
 //# sourceMappingURL=index.js.map
