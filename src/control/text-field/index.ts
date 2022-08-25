@@ -1,6 +1,10 @@
 import * as views from './wml/text-field';
-import { Maybe } from '@quenk/noni/lib/data/maybe';
+
 import { View } from '@quenk/wml';
+
+import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { merge } from '@quenk/noni/lib/data/record';
+
 import { concat, getById } from '../../util';
 import {
     Message,
@@ -67,8 +71,14 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
 
     /**
      * focus indicates this input should steal focus when rendered.
+     * 
      */
     focus?: boolean,
+
+    /**
+     * html attributes to pass directly to the underlying input.
+     */
+    html?: object,
 
     /**
      * onChange handler
@@ -129,47 +139,54 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             },
 
-            id: getId(this.attrs),
+          attrs: { 
 
-            name: getName(this.attrs),
+            ww:  merge((this.attrs.ww && this.attrs.ww.html) || {}, {
+                id: getId(this.attrs),
 
-            type: (this.attrs.ww && this.attrs.ww.type) ?
-                this.attrs.ww.type : 'text',
+                name: getName(this.attrs),
 
-            min: (this.attrs.ww && this.attrs.ww.min) ?
-                this.attrs.ww.min : undefined,
+                type: (this.attrs.ww && this.attrs.ww.type) ?
+                    this.attrs.ww.type : 'text',
 
-            max: (this.attrs.ww && this.attrs.ww.max) ?
-                this.attrs.ww.max : undefined,
+                min: (this.attrs.ww && this.attrs.ww.min) ?
+                    this.attrs.ww.min : undefined,
 
-            focus: (this.attrs.ww && this.attrs.ww.focus) ?
-                this.attrs.ww.focus : undefined,
+                max: (this.attrs.ww && this.attrs.ww.max) ?
+                    this.attrs.ww.max : undefined,
 
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-                this.attrs.ww.placeholder : '',
+                focus: (this.attrs.ww && this.attrs.ww.focus) ?
+                    this.attrs.ww.focus : undefined,
 
-            match: (this.attrs.ww && this.attrs.ww.match) ?
-                this.attrs.ww.match : undefined,
+                placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
+                    this.attrs.ww.placeholder : '',
 
-            length: (this.attrs.ww && this.attrs.ww.length) ?
-                this.attrs.ww.length : undefined,
+                match: (this.attrs.ww && this.attrs.ww.match) ?
+                    this.attrs.ww.match : undefined,
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : '',
+                length: (this.attrs.ww && this.attrs.ww.length) ?
+                    this.attrs.ww.length : undefined,
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : undefined,
+                value: (this.attrs.ww && this.attrs.ww.value) ?
+                    this.attrs.ww.value : '',
 
-            readOnly: (this.attrs.ww && this.attrs.ww.readOnly) ?
-                true : undefined,
+                disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : undefined,
 
-            rows: (this.attrs.ww && this.attrs.ww.rows) ?
-                this.attrs.ww.rows : 1,
+                readOnly: (this.attrs.ww && this.attrs.ww.readOnly) ?
+                    true : undefined,
 
-            oninput: (this.attrs.ww && this.attrs.ww.onChange) ?
-                oninput(this) : () => { },
+                rows: (this.attrs.ww && this.attrs.ww.rows) ?
+                    this.attrs.ww.rows : 1,
 
-            onChange: (this.attrs.ww && this.attrs.ww.onChange) ?
-                this.attrs.ww.onChange : () => { }
+                oninput: (this.attrs.ww && this.attrs.ww.onChange) ?
+                    oninput(this) : () => { },
+
+                onChange: (this.attrs.ww && this.attrs.ww.onChange) ?
+                    this.attrs.ww.onChange : () => { }
+
+            })
+
+          }
 
         }
 

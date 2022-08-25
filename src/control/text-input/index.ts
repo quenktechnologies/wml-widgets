@@ -1,7 +1,9 @@
 import * as views from './wml/text-input';
 
 import { View } from '@quenk/wml';
+
 import { tick } from '@quenk/noni/lib/control/timer';
+import { merge } from '@quenk/noni/lib/data/record';
 
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
@@ -86,6 +88,11 @@ export interface TextInputAttrs
     disabled?: boolean,
 
     /**
+     * html attributes to pass directly to the underlying input.
+     */
+    html?: object,
+
+    /**
      * onChange handler
      */
     onChange?: (e: TextChangedEvent) => void
@@ -108,6 +115,9 @@ export class TextInput
     view: View = (this.attrs.ww && this.attrs.ww.rows && this.attrs.ww.rows > 1) ?
         new views.Textarea(this) : new views.Input(this);
 
+    length = (this.attrs.ww && this.attrs.ww.length) ?
+        this.attrs.ww.length : Infinity;
+
     values = {
 
         control: {
@@ -118,90 +128,89 @@ export class TextInput
 
             }
         },
-        id: getId(this.attrs),
 
-        className: concat(TEXT_INPUT,
+        attrs: merge((this.attrs.ww && this.attrs.ww.html) || {}, {
 
-            getClassName(this.attrs),
+            id: getId(this.attrs),
 
-            (this.attrs.ww && this.attrs.ww.size) ?
-                getSizeClassName(this.attrs.ww.size) : '',
+            className: concat(TEXT_INPUT,
 
-            (this.attrs.ww && this.attrs.ww.block) ?
-                BLOCK : ''
-        ),
+                getClassName(this.attrs),
 
-        name: getName(this.attrs),
+                (this.attrs.ww && this.attrs.ww.size) ?
+                    getSizeClassName(this.attrs.ww.size) : '',
 
-        type: (this.attrs.ww && this.attrs.ww.type) ?
-            this.attrs.ww.type : 'text',
+                (this.attrs.ww && this.attrs.ww.block) ?
+                    BLOCK : ''
+            ),
 
-        min: (this.attrs.ww && this.attrs.ww.min) ?
-            String(this.attrs.ww.min) : null,
+            name: getName(this.attrs),
 
-        max: (this.attrs.ww && this.attrs.ww.max) ?
-            String(this.attrs.ww.max) : null,
+            type: (this.attrs.ww && this.attrs.ww.type) ?
+                this.attrs.ww.type : 'text',
 
-        match: new RegExp((this.attrs.ww && this.attrs.ww.match) ?
-            this.attrs.ww.match : '.'),
+            min: (this.attrs.ww && this.attrs.ww.min) ?
+                String(this.attrs.ww.min) : null,
 
-        length: (this.attrs.ww && this.attrs.ww.length) ?
-            this.attrs.ww.length : Infinity,
+            max: (this.attrs.ww && this.attrs.ww.max) ?
+                String(this.attrs.ww.max) : null,
 
-        placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-            this.attrs.ww.placeholder : '',
+            match: new RegExp((this.attrs.ww && this.attrs.ww.match) ?
+                this.attrs.ww.match : '.'),
 
-        value: (this.attrs.ww && this.attrs.ww.value) ?
-            this.attrs.ww.value : '',
 
-        rows: String((this.attrs.ww && this.attrs.ww.rows) ?
-            this.attrs.ww.rows : 1),
+            value: (this.attrs.ww && this.attrs.ww.value) ?
+                this.attrs.ww.value : '',
 
-        disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
-            true : null,
+            rows: String((this.attrs.ww && this.attrs.ww.rows) ?
+                this.attrs.ww.rows : 1),
 
-        readOnly: (this.attrs.ww && this.attrs.ww.readOnly === true) ?
-            true : null,
+            disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
+                true : null,
 
-        onkeydown: (e: KeyboardEvent) => {
+            readOnly: (this.attrs.ww && this.attrs.ww.readOnly === true) ?
+                true : null,
 
-            if (e.key.length === 1) {
+            onkeydown: (e: KeyboardEvent) => {
 
-                let value = (<HTMLInputElement>e.target).value || '';
+                if (e.key.length === 1) {
 
-                if ((!this.values.match.test(e.key)) ||
-                    (value.length > this.values.length))
-                    e.preventDefault();
+                    let value = (<HTMLInputElement>e.target).value || '';
+
+                    if ((!this.values.attrs.match.test(e.key)) ||
+                        (value.length > this.length))
+                        e.preventDefault();
+
+                }
+
+            },
+
+            oninput: dispatchInput(this),
+
+            autofocus: (this.attrs.ww && this.attrs.ww.focus) ? true : undefined,
+
+            onfocus: () => {
+
+                if (this.attrs.ww && this.attrs.ww.onFocusGained)
+                    this.attrs.ww.onFocusGained(
+                        new FocusGainedEvent(getName(this.attrs)))
+
+            },
+
+            onblur: () => {
+
+                if (this.attrs.ww && this.attrs.ww.onFocusLost)
+                    this.attrs.ww.onFocusLost(
+                        new FocusLostEvent(getName(this.attrs)))
 
             }
 
-        },
-
-        oninput: dispatchInput(this),
-
-        autofocus: (this.attrs.ww && this.attrs.ww.focus) ? true : undefined,
-
-        onfocus: () => {
-
-            if (this.attrs.ww && this.attrs.ww.onFocusGained)
-                this.attrs.ww.onFocusGained(
-                    new FocusGainedEvent(getName(this.attrs)))
-
-        },
-
-        onblur: () => {
-
-            if (this.attrs.ww && this.attrs.ww.onFocusLost)
-                this.attrs.ww.onFocusLost(
-                    new FocusLostEvent(getName(this.attrs)))
-
-        }
-
+        })
     }
 
     rendered() {
 
-        if (this.values.autofocus === true) this.focus();
+        if (this.values.attrs.autofocus === true) this.focus();
 
     }
 

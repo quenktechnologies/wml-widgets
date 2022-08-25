@@ -5,29 +5,9 @@
 {% view Textarea (TextInput) %}
 <textarea
   wml:id={{@values.control.wml.id}}
-  id={{@values.id}}
-  name={{@values.name}}
-  placeholder={{@values.placeholder}}
-  oninput={{@values.oninput}} 
-  value={{@values.value}}
-  disabled={{@values.disabled}}
-  readonly={{@values.readOnly}}
-  rows={{@values.rows}}
-  class={{@values.className}} >{{document.createTextNode(@values.value)}}</textarea>
+  wml:attrs={{@values.attrs}}>{{document.createTextNode(@values.attrs.value)}}</textarea>
 
 {% view Input (TextInput) %}
 <input
   wml:id={{@values.control.wml.id}}
-  id={{@values.id}}
-  name={{@values.name}}
-  type={{@values.type}}
-  min={{@values.min}}
-  max={{@values.max}}
-  placeholder={{@values.placeholder}}
-  oninput={{@values.oninput}} 
-  onkeydown={{@values.onkeydown}}
-  autofocus={{@values.autofocus}}
-  value={{@values.value}}
-  disabled={{@values.disabled}}
-  readonly={{@values.readOnly}}
-  class={{@values.className}} />
+  wml:attrs={{@values.attrs}} />
