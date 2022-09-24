@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { concat } from '../../util';
-import { WidgetAttrs, getId, getClassName, HTMLElementAttrs } from '../../';
+import { getId, getClassName, HTMLElementAttrs } from '../../';
 import { close } from '../prompt';
 import { Main } from './wml/inform';
 
@@ -34,7 +34,7 @@ export interface InformAttrs extends HTMLElementAttrs {
 /**
  * Inform displays a message to the user.
  */
-export class Inform extends Component<WidgetAttrs<InformAttrs>> {
+export class Inform extends Component<InformAttrs> {
 
     view: View = new Main(this);
 
@@ -52,16 +52,16 @@ export class Inform extends Component<WidgetAttrs<InformAttrs>> {
 
         header: {
 
-            title: (this.attrs.ww && this.attrs.ww.title) ?
-                this.attrs.ww.title : ''
+            title: (this.attrs && this.attrs.title) ?
+                this.attrs.title : ''
 
         },
         footer: {
 
             ok: {
 
-                text: (this.attrs.ww && this.attrs.ww.buttonText) ?
-                    this.attrs.ww.buttonText : 'Ok',
+                text: (this.attrs && this.attrs.buttonText) ?
+                    this.attrs.buttonText : 'Ok',
 
                 wml: {
 
@@ -73,8 +73,8 @@ export class Inform extends Component<WidgetAttrs<InformAttrs>> {
 
                 onClick: () => {
 
-                    if (this.attrs.ww && this.attrs.ww.onClose)
-                        this.attrs.ww.onClose();
+                    if (this.attrs && this.attrs.onClose)
+                        this.attrs.onClose();
 
                     this.close();
 

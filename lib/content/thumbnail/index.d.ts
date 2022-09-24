@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const THUMBNAIL = "ww-thumbnail";
 export declare const THUMBNAIL_CAPTION = "ww-thumbnail__caption";
 /**
@@ -18,7 +18,7 @@ export interface ThumbnailAttrs extends HTMLElementAttrs {
 /**
  * Thumbnail
  */
-export declare class Thumbnail extends Component<WidgetAttrs<ThumbnailAttrs>> {
+export declare class Thumbnail extends Component<ThumbnailAttrs> {
     view: View;
     values: {
         id: string;
@@ -35,7 +35,7 @@ export interface CaptionAttrs extends HTMLElementAttrs {
 /**
  * Caption
  */
-export declare class Caption extends Component<WidgetAttrs<CaptionAttrs>> {
+export declare class Caption extends Component<CaptionAttrs> {
     view: View;
     values: {
         id: string;

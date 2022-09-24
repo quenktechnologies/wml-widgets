@@ -17,13 +17,13 @@
 
       <p>
 
-        <Well ww:className="-small">This is a small well.</Well>
+        <Well className="-small">This is a small well.</Well>
 
       </p>
 
       <p>
 
-        <Well ww:className="-large">This is a small well.</Well>
+        <Well className="-large">This is a small well.</Well>
 
 
       </p>

@@ -1,9 +1,10 @@
 import * as views from './wml/description-list';
+
 import { View, Component } from '@quenk/wml';
+
 import { HORIZONTAL } from '../../content/orientation';
 import { concat } from '../../util';
 import {
-    WidgetAttrs,
     HTMLElementAttrs,
     getId,
     getClassName
@@ -42,7 +43,7 @@ export interface DataAttrs extends HTMLElementAttrs { }
  */
 export class DescriptionList
     extends
-    Component<WidgetAttrs<DescriptionListAttrs>> {
+    Component<DescriptionListAttrs> {
 
     view: View = new views.DescriptionList(this);
 
@@ -52,7 +53,7 @@ export class DescriptionList
 
         className: concat(DESCRIPTION_LIST,
             getClassName(this.attrs),
-            (this.attrs.ww && this.attrs.ww.horizontal) ? HORIZONTAL : '')
+            (this.attrs && this.attrs.horizontal) ? HORIZONTAL : '')
 
     }
 
@@ -61,7 +62,7 @@ export class DescriptionList
 /**
  * Title
  */
-export class Title extends Component<WidgetAttrs<TitleAttrs>> {
+export class Title extends Component<TitleAttrs> {
 
     view: View = new views.Title(this);
 
@@ -78,7 +79,7 @@ export class Title extends Component<WidgetAttrs<TitleAttrs>> {
 /**
  * Data
  */
-export class Data extends Component<WidgetAttrs<DataAttrs>> {
+export class Data extends Component<DataAttrs> {
 
     view: View = new views.Data(this);
 

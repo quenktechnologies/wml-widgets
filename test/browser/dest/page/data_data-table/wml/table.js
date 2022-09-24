@@ -43,7 +43,7 @@ class Main {
                 __this.node('h3', {}, [
                     __document.createTextNode('Data Table')
                 ]),
-                __this.widget(new table_1.DataTable({ wml: { 'id': __context.values.id }, ww: { 'sortable': true, 'onCellClicked': __context.values.onCellClicked, 'data': __context.values.users, 'columns': __context.values.columns } }, []), { wml: { 'id': __context.values.id }, ww: { 'sortable': true, 'onCellClicked': __context.values.onCellClicked, 'data': __context.values.users, 'columns': __context.values.columns } })
+                __this.widget(new table_1.DataTable({ wml: { 'id': __context.values.id }, 'sortable': true, 'onCellClicked': __context.values.onCellClicked, 'data': __context.values.users, 'columns': __context.values.columns }, []), { wml: { 'id': __context.values.id }, 'sortable': true, 'onCellClicked': __context.values.onCellClicked, 'data': __context.values.users, 'columns': __context.values.columns })
             ]), {});
         };
     }
@@ -110,11 +110,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

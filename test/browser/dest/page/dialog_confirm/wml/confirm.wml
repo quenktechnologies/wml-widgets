@@ -14,9 +14,9 @@
 {% view Open (ConfirmPage) %}
 <Confirm 
   wml:id="open"
-  ww:title={{@values.title}}
-  ww:onNo={{@values.onNo}}
-  ww:onYes={{@values.onYes}}>
+  title={{@values.title}}
+  onNo={{@values.onNo}}
+  onYes={{@values.onYes}}>
  
   {{@values.message | text}}
 

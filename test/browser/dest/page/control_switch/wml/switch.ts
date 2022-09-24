@@ -84,10 +84,10 @@ export class Main  implements __wml.View {
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Switch({ww : { 'name' : 'switch' ,'value' : true   }}, [
+        __this.widget(new Switch({'name': 'switch','value': true }, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : 'switch' ,'value' : true   }})
+     ]),<__wml.Attrs>{'name': 'switch','value': true })
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -103,10 +103,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Switch({ww : { 'name' : 'switch' ,'onChange' : __context.onChange  }}, [
+        __this.widget(new Switch({'name': 'switch','onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : 'switch' ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{'name': 'switch','onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

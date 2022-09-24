@@ -85,7 +85,7 @@ __this.widget(new GridLayout({}, [
 
         __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 4  }}, [
+        __this.widget(new Column({'span': 4}, [
 
         __this.widget(new Thumbnail({}, [
 
@@ -94,31 +94,31 @@ __this.widget(new GridLayout({}, [
         
      ])
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Thumbnail({ww : { 'onClick' : __context.values.onClick  }}, [
-
-        __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
-
-        
-     ])
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
-
-        __this.widget(new Thumbnail({ww : { 'href' : '#'  }}, [
+        __this.widget(new Thumbnail({'onClick': __context.values.onClick}, [
 
         __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
 
         
      ])
-     ]),<__wml.Attrs>{ww : { 'href' : '#'  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }})
+     ]),<__wml.Attrs>{'onClick': __context.values.onClick})
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
+
+        __this.widget(new Thumbnail({'href': '#'}, [
+
+        __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
+
+        
+     ])
+     ]),<__wml.Attrs>{'href': '#'})
+     ]),<__wml.Attrs>{'span': 4})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 4  }}, [
+        __this.widget(new Column({'span': 4}, [
 
         __this.widget(new Thumbnail({}, [
 
@@ -138,31 +138,10 @@ __this.node('p', <__wml.Attrs>{}, [
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Thumbnail({ww : { 'onClick' : __context.values.onClick  }}, [
-
-        __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
-
-        
-     ]),
-__this.widget(new Caption({}, [
-
-        __this.node('h4', <__wml.Attrs>{}, [
-
-        __document.createTextNode('Caption')
-     ]),
-__this.node('p', <__wml.Attrs>{}, [
-
-        __document.createTextNode('Describes the thumbnail in minor detail.')
-     ])
-     ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
-
-        __this.widget(new Thumbnail({ww : { 'href' : '#'  }}, [
+        __this.widget(new Thumbnail({'onClick': __context.values.onClick}, [
 
         __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
 
@@ -179,8 +158,29 @@ __this.node('p', <__wml.Attrs>{}, [
         __document.createTextNode('Describes the thumbnail in minor detail.')
      ])
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'href' : '#'  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }})
+     ]),<__wml.Attrs>{'onClick': __context.values.onClick})
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
+
+        __this.widget(new Thumbnail({'href': '#'}, [
+
+        __this.node('img', <__wml.Attrs>{'alt': 'placeholder','src': 'https://via.placeholder.com/171x180','style': 'width:100%;height:100%;display:block'}, [
+
+        
+     ]),
+__this.widget(new Caption({}, [
+
+        __this.node('h4', <__wml.Attrs>{}, [
+
+        __document.createTextNode('Caption')
+     ]),
+__this.node('p', <__wml.Attrs>{}, [
+
+        __document.createTextNode('Describes the thumbnail in minor detail.')
+     ])
+     ]),<__wml.Attrs>{})
+     ]),<__wml.Attrs>{'href': '#'})
+     ]),<__wml.Attrs>{'span': 4})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

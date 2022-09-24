@@ -43,14 +43,14 @@ class Main {
                 ...__forOf(__context.values.formats, (spec, _$$k, _$$all) => ([
                     __this.widget(new demo_1.Demo({}, [
                         __this.node('p', {}, [
-                            __this.widget(new date_field_1.DateField({ wml: { 'id': spec.id }, ww: { 'name': spec.name, 'label': spec.label, 'format': spec.format, 'message': spec.message, 'onChange': spec.onChange } }, []), { wml: { 'id': spec.id }, ww: { 'name': spec.name, 'label': spec.label, 'format': spec.format, 'message': spec.message, 'onChange': spec.onChange } })
+                            __this.widget(new date_field_1.DateField({ wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'format': spec.format, 'message': spec.message, 'onChange': spec.onChange }, []), { wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'format': spec.format, 'message': spec.message, 'onChange': spec.onChange })
                         ])
                     ]), {})
                 ]), () => ([])),
                 ...__forOf(__context.values.states, (spec, _$$k, _$$all) => ([
                     __this.widget(new demo_1.Demo({}, [
                         __this.node('p', {}, [
-                            __this.widget(new date_field_1.DateField({ wml: { 'id': spec.id }, ww: { 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'block': spec.block, 'onChange': spec.onChange } }, []), { wml: { 'id': spec.id }, ww: { 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'block': spec.block, 'onChange': spec.onChange } })
+                            __this.widget(new date_field_1.DateField({ wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'block': spec.block, 'onChange': spec.onChange }, []), { wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'block': spec.block, 'onChange': spec.onChange })
                         ])
                     ]), {})
                 ]), () => ([]))
@@ -120,11 +120,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

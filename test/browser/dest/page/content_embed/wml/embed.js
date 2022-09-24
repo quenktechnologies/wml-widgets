@@ -47,21 +47,21 @@ class Main {
                 ]),
                 __this.widget(new grid_1.GridLayout({}, [
                     __this.widget(new grid_1.Row({}, [
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new embed_1.Embed({ ww: { 'className': '-aspect-ratio-16x9' } }, [
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new embed_1.Embed({ 'className': '-aspect-ratio-16x9' }, [
                                 __this.node('iframe', { 'src': __context.values.jojo, 'allow': __context.values.allow }, [])
-                            ]), { ww: { 'className': '-aspect-ratio-16x9' } })
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new embed_1.Embed({ ww: { 'className': '-aspect-ratio-4x3' } }, [
+                            ]), { 'className': '-aspect-ratio-16x9' })
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new embed_1.Embed({ 'className': '-aspect-ratio-4x3' }, [
                                 __this.node('iframe', { 'src': __context.values.win, 'allow': __context.values.allow }, [])
-                            ]), { ww: { 'className': '-aspect-ratio-4x3' } })
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new embed_1.Embed({ ww: { 'className': '-aspect-ratio-16x9' } }, [
+                            ]), { 'className': '-aspect-ratio-4x3' })
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new embed_1.Embed({ 'className': '-aspect-ratio-16x9' }, [
                                 __this.node('iframe', { 'src': __context.values.max, 'allow': __context.values.allow }, [])
-                            ]), { ww: { 'className': '-aspect-ratio-16x9' } })
-                        ]), { ww: { 'span': 4 } })
+                            ]), { 'className': '-aspect-ratio-16x9' })
+                        ]), { 'span': 4 })
                     ]), {})
                 ]), {})
             ]), {});
@@ -130,11 +130,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

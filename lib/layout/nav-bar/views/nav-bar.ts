@@ -76,7 +76,7 @@ export class NavBarView  implements __wml.View {
 
        
 
-           return __this.widget(new ActionBar({ww : { 'id' : __context.values.id ,'className' : __context.values.className  }}, [
+           return __this.widget(new ActionBar({'id': __context.values.id,'className': __context.values.className}, [
 
         ...(((__context.values.links.length > 0)) ?
 (()=>([
@@ -88,10 +88,10 @@ export class NavBarView  implements __wml.View {
 
         __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'className' : conf.className ,'name' : conf.name ,'text' : conf.title ,'href' : conf.href ,'onClick' : () => (conf.onClick) ? conf.onClick(conf.name) :  undefined  }}, [
+        __this.widget(new Link({'className': conf.className,'name': conf.name,'text': conf.title,'href': conf.href,'onClick': () => (conf.onClick) ? conf.onClick(conf.name) :  undefined}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : conf.className ,'name' : conf.name ,'text' : conf.title ,'href' : conf.href ,'onClick' : () => (conf.onClick) ? conf.onClick(conf.name) :  undefined  }})
+     ]),<__wml.Attrs>{'className': conf.className,'name': conf.name,'text': conf.title,'href': conf.href,'onClick': () => (conf.onClick) ? conf.onClick(conf.name) :  undefined})
      ]),<__wml.Attrs>{})
      ]), 
 ()=> ([]))
@@ -99,7 +99,7 @@ export class NavBarView  implements __wml.View {
      ]))() :
 (()=>([]))()),
 ...(__context.children)
-     ]),<__wml.Attrs>{ww : { 'id' : __context.values.id ,'className' : __context.values.className  }});
+     ]),<__wml.Attrs>{'id': __context.values.id,'className': __context.values.className});
 
        }
 

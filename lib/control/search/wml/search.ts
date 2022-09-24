@@ -259,14 +259,14 @@ export class Main <V  >  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.root.wml.id  },'id': __context.values.root.id,'class': __context.values.root.className}, [
 
-        __this.widget(new Input({wml : { 'id' : __context.values.input.wml.id  },ww : { 'name' : __context.values.input.name ,'autofocus' : __context.values.input.autofocus ,'onFocus' : __context.values.input.onFocus ,'onSearch' : __context.values.input.onSearch ,'onEscape' : __context.values.input.onEscape ,'onBlur' : __context.values.input.onBlur ,'placeholder' : __context.values.input.placeholder ,'readOnly' : __context.values.input.readOnly ,'disabled' : __context.values.input.disabled ,'value' : __context.values.input.value  }}, [
+        __this.widget(new Input({wml : { 'id' : __context.values.input.wml.id  },'name': __context.values.input.name,'autofocus': __context.values.input.autofocus,'onFocus': __context.values.input.onFocus,'onSearch': __context.values.input.onSearch,'onEscape': __context.values.input.onEscape,'onBlur': __context.values.input.onBlur,'placeholder': __context.values.input.placeholder,'readOnly': __context.values.input.readOnly,'disabled': __context.values.input.disabled,'value': __context.values.input.value}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.input.wml.id  },ww : { 'name' : __context.values.input.name ,'autofocus' : __context.values.input.autofocus ,'onFocus' : __context.values.input.onFocus ,'onSearch' : __context.values.input.onSearch ,'onEscape' : __context.values.input.onEscape ,'onBlur' : __context.values.input.onBlur ,'placeholder' : __context.values.input.placeholder ,'readOnly' : __context.values.input.readOnly ,'disabled' : __context.values.input.disabled ,'value' : __context.values.input.value  }}),
-__this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu.wml.id  },ww : { 'hidden' : true  ,'block' : __context.values.menu.block ,'onSelect' : __context.values.menu.onSelect ,'noItemsTemplate' : __context.values.menu.noItemsTemplate ,'itemTemplate' : __context.values.menu.itemTemplate ,'stringifier' : __context.values.menu.stringifier  }}, [
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.input.wml.id  },'name': __context.values.input.name,'autofocus': __context.values.input.autofocus,'onFocus': __context.values.input.onFocus,'onSearch': __context.values.input.onSearch,'onEscape': __context.values.input.onEscape,'onBlur': __context.values.input.onBlur,'placeholder': __context.values.input.placeholder,'readOnly': __context.values.input.readOnly,'disabled': __context.values.input.disabled,'value': __context.values.input.value}),
+__this.widget(new ResultsMenu({wml : { 'id' : __context.values.menu.wml.id  },'hidden': true ,'block': __context.values.menu.block,'onSelect': __context.values.menu.onSelect,'noItemsTemplate': __context.values.menu.noItemsTemplate,'itemTemplate': __context.values.menu.itemTemplate,'stringifier': __context.values.menu.stringifier}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.menu.wml.id  },ww : { 'hidden' : true  ,'block' : __context.values.menu.block ,'onSelect' : __context.values.menu.onSelect ,'noItemsTemplate' : __context.values.menu.noItemsTemplate ,'itemTemplate' : __context.values.menu.itemTemplate ,'stringifier' : __context.values.menu.stringifier  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.menu.wml.id  },'hidden': true ,'block': __context.values.menu.block,'onSelect': __context.values.menu.onSelect,'noItemsTemplate': __context.values.menu.noItemsTemplate,'itemTemplate': __context.values.menu.itemTemplate,'stringifier': __context.values.menu.stringifier})
      ]);
 
        }

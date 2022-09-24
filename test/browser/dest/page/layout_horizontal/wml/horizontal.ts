@@ -96,17 +96,17 @@ __this.node('textarea', <__wml.Attrs>{}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new HorizontalLayout({ww : { 'orientation' : HorizontalLayoutOrientation.Left  }}, [
+        __this.widget(new HorizontalLayout({'orientation': HorizontalLayoutOrientation.Left}, [
 
         __document.createTextNode('\u000a      This is oriented to the left.\u000a    ')
-     ]),<__wml.Attrs>{ww : { 'orientation' : HorizontalLayoutOrientation.Left  }})
+     ]),<__wml.Attrs>{'orientation': HorizontalLayoutOrientation.Left})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new HorizontalLayout({ww : { 'orientation' : HorizontalLayoutOrientation.Right  }}, [
+        __this.widget(new HorizontalLayout({'orientation': HorizontalLayoutOrientation.Right}, [
 
         __document.createTextNode('\u000a      This is oriented to the right.\u000a    ')
-     ]),<__wml.Attrs>{ww : { 'orientation' : HorizontalLayoutOrientation.Right  }})
+     ]),<__wml.Attrs>{'orientation': HorizontalLayoutOrientation.Right})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

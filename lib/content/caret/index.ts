@@ -1,7 +1,7 @@
 import * as views from './wml/caret';
 import { View, Component } from '@quenk/wml';
 import { concat } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs,  } from '../../';
 
 ///classNames:begin
 export const CARET = 'ww-caret';
@@ -15,7 +15,7 @@ export interface CaretAttrs extends HTMLElementAttrs { }
 /**
  * Caret
  */
-export class Caret extends Component<WidgetAttrs<CaretAttrs>> {
+export class Caret extends Component<CaretAttrs> {
 
     view: View = new views.Main(this);
 
@@ -23,10 +23,10 @@ export class Caret extends Component<WidgetAttrs<CaretAttrs>> {
 
         root: {
 
-            id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
 
-            className: concat(CARET, (this.attrs.ww && this.attrs.ww.className) ?
-                this.attrs.ww.className : '')
+            className: concat(CARET, (this.attrs && this.attrs.className) ?
+                this.attrs.className : '')
 
         }
 

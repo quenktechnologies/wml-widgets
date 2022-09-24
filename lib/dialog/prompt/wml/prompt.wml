@@ -4,11 +4,11 @@
 {% import (Prompt) from "../" %}
 
 {% view Main (Prompt) %}
-<Modal wml:id={{@values.wml.id}} ww:className={{@values.className}}>
+<Modal wml:id={{@values.wml.id}} className={{@values.className}}>
 
   <ModalHeader>
   
-    <CloseButton ww:onClick={{@values.footer.close.onClick}} />
+    <CloseButton onClick={{@values.footer.close.onClick}} />
 
     {{@values.header.title|text}} 
     
@@ -23,15 +23,15 @@
   <ModalFooter>
 
     <Button
-      ww:text={{@values.footer.close.text}} 
-      ww:className={{@values.footer.close.className}}
-      ww:onClick={{@values.footer.close.onClick}} />
+      text={{@values.footer.close.text}} 
+      className={{@values.footer.close.className}}
+      onClick={{@values.footer.close.onClick}} />
 
     <Button
-      ww:text={{@values.footer.save.text}}
-      ww:className={{@values.footer.save.className}}
-      ww:disabled={{@values.footer.save.disabled}}
-      ww:onClick={{@values.footer.save.onClick}} />
+      text={{@values.footer.save.text}}
+      className={{@values.footer.save.className}}
+      disabled={{@values.footer.save.disabled}}
+      onClick={{@values.footer.save.onClick}} />
 
   </ModalFooter>
 

@@ -5,7 +5,7 @@ import { View } from '@quenk/wml';
 
 import { getById } from '../util';
 import { Control, ControlAttrs, AbstractControl } from '../control';
-import { WidgetAttrs } from '../';
+import { } from '../';
 
 /**
  * ValidationState
@@ -98,8 +98,9 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
  *
  * Provides a default implementaion of the interface methods.
  */
-export abstract class AbstractFeedbackControl<V, A extends FeedbackControlAttrs<V>>
-    extends AbstractControl<V, A> implements FeedbackControl<V, A>  {
+export abstract class
+    AbstractFeedbackControl<V, A extends FeedbackControlAttrs<V>>
+    extends AbstractControl<V, A> implements FeedbackControl<V, A> {
 
     /**
      * view of the Control.
@@ -250,17 +251,17 @@ export const getValidationState = (view: View, id: string): ValidationState =>
  * the validity properties of FeedbackControAttrs.
  */
 export const getValidityClassName =
-    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>): string => {
+    <V>(attrs: FeedbackControlAttrs<V>): string => {
 
-        if (attrs.ww) {
+        if (attrs) {
 
-            if (attrs.ww.error && (attrs.ww.error != ''))
+            if (attrs.error && (attrs.error != ''))
                 return style.ERROR;
 
-            if (attrs.ww.warning && (attrs.ww.warning != ''))
+            if (attrs.warning && (attrs.warning != ''))
                 return style.WARNING;
 
-            if (attrs.ww.success && (attrs.ww.success != ''))
+            if (attrs.success && (attrs.success != ''))
                 return style.SUCCESS;
 
         }
@@ -273,21 +274,21 @@ export const getValidityClassName =
  * getMessage
  */
 export const getMessage =
-    <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => {
+    <V>(attrs: FeedbackControlAttrs<V>) => {
 
-        if (attrs.ww) {
+        if (attrs) {
 
-            if (attrs.ww.error && (attrs.ww.error != ''))
-                return attrs.ww.error;
+            if (attrs.error && (attrs.error != ''))
+                return attrs.error;
 
-            if (attrs.ww.warning && (attrs.ww.warning != ''))
-                return attrs.ww.warning;
+            if (attrs.warning && (attrs.warning != ''))
+                return attrs.warning;
 
-            if (attrs.ww.success && (attrs.ww.success != ''))
-                return attrs.ww.success;
+            if (attrs.success && (attrs.success != ''))
+                return attrs.success;
 
-            if (attrs.ww.message && (attrs.ww.message != ''))
-                return attrs.ww.message;
+            if (attrs.message && (attrs.message != ''))
+                return attrs.message;
 
         }
 

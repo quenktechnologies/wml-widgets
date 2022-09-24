@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const DESCRIPTION_LIST = "ww-description-list";
 export declare const DESCRIPTION_LIST_TITLE = "ww-description-list__title";
 export declare const DESCRIPTION_LIST_DATA = "ww-description-list__data";
@@ -25,7 +25,7 @@ export interface DataAttrs extends HTMLElementAttrs {
 /**
  * DescriptionList layout.
  */
-export declare class DescriptionList extends Component<WidgetAttrs<DescriptionListAttrs>> {
+export declare class DescriptionList extends Component<DescriptionListAttrs> {
     view: View;
     values: {
         id: string;
@@ -35,7 +35,7 @@ export declare class DescriptionList extends Component<WidgetAttrs<DescriptionLi
 /**
  * Title
  */
-export declare class Title extends Component<WidgetAttrs<TitleAttrs>> {
+export declare class Title extends Component<TitleAttrs> {
     view: View;
     values: {
         id: string;
@@ -45,7 +45,7 @@ export declare class Title extends Component<WidgetAttrs<TitleAttrs>> {
 /**
  * Data
  */
-export declare class Data extends Component<WidgetAttrs<DataAttrs>> {
+export declare class Data extends Component<DataAttrs> {
     view: View;
     values: {
         id: string;

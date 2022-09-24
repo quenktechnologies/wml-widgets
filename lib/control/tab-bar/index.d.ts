@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 import { ControlAttrs, AbstractControl, Event as ControlEvent } from '../';
 /**
  * TAB
@@ -84,7 +84,7 @@ export declare class Tab extends AbstractControl<void, TabAttrs> {
  * Use it to create a tabbed navigation or view for main layout,
  * sub views or forms etc.
  */
-export declare class TabBar extends Component<WidgetAttrs<TabBarAttrs>> {
+export declare class TabBar extends Component<TabBarAttrs> {
     view: View;
     values: {
         root: {

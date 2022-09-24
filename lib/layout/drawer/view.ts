@@ -75,10 +75,10 @@ export class DrawerLayoutView  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'id': __context.values.id,'class': __context.values.className}, [
 
-        __this.widget(new Drawer({wml : { 'id' : __context.values.drawer.wml.id  },ww : { 'hidden' : __context.values.drawer.hidden  }}, [
+        __this.widget(new Drawer({wml : { 'id' : __context.values.drawer.wml.id  },'hidden': __context.values.drawer.hidden}, [
 
         ...(__context.values.drawer.content)
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.drawer.wml.id  },ww : { 'hidden' : __context.values.drawer.hidden  }}),
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.drawer.wml.id  },'hidden': __context.values.drawer.hidden}),
 __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.content.wml.id  },'class': __context.values.content.className}, [
 
         ...(__context.values.content.content)

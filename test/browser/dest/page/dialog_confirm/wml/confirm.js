@@ -114,11 +114,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);
@@ -155,9 +155,9 @@ class Open {
         this.widgets = [];
         this.tree = __document.createElement('div');
         this.template = (__this) => {
-            return __this.widget(new confirm_1.Confirm({ wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes } }, [
+            return __this.widget(new confirm_1.Confirm({ wml: { 'id': 'open' }, 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes }, [
                 text(__context.values.message)
-            ]), { wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes } });
+            ]), { wml: { 'id': 'open' }, 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes });
         };
     }
     registerView(v) {
@@ -223,11 +223,11 @@ class Open {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

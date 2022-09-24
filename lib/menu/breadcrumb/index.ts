@@ -1,7 +1,9 @@
 import * as views from './wml/breadcrumb';
+
 import { Component, View } from '@quenk/wml';
+
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 
 ///classNames:begin
 export const BREADCRUMB_MENU = 'ww-breadcrumb-menu';
@@ -18,7 +20,7 @@ export interface BreadcrumbAttrs extends HTMLElementAttrs { }
 /**
  * BreadcrumbMenu
  */
-export class BreadcrumbMenu extends Component<WidgetAttrs<BreadcrumbAttrs>>{
+export class BreadcrumbMenu extends Component<BreadcrumbAttrs>{
 
     view: View = new views.Main(this);
 
@@ -26,11 +28,11 @@ export class BreadcrumbMenu extends Component<WidgetAttrs<BreadcrumbAttrs>>{
 
         root: {
 
-            id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
 
-          className: concat(BREADCRUMB_MENU,
-            (this.attrs.ww && this.attrs.ww.className) ?
-                this.attrs.ww.className : '')
+            className: concat(BREADCRUMB_MENU,
+                (this.attrs && this.attrs.className) ?
+                    this.attrs.className : '')
 
         }
 

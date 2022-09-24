@@ -50,14 +50,14 @@ class Main {
                         ]), {})
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new well_1.Well({ ww: { 'className': '-small' } }, [
+                        __this.widget(new well_1.Well({ 'className': '-small' }, [
                             __document.createTextNode('This is a small well.')
-                        ]), { ww: { 'className': '-small' } })
+                        ]), { 'className': '-small' })
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new well_1.Well({ ww: { 'className': '-large' } }, [
+                        __this.widget(new well_1.Well({ 'className': '-large' }, [
                             __document.createTextNode('This is a small well.')
-                        ]), { ww: { 'className': '-large' } })
+                        ]), { 'className': '-large' })
                     ])
                 ]), {})
             ]), {});
@@ -126,11 +126,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

@@ -12,11 +12,11 @@
       <p>
         <DateField
           wml:id={{spec.id}}
-          ww:name={{spec.name}}
-          ww:label={{spec.label}}
-          ww:format={{spec.format}}
-          ww:message={{spec.message}}
-          ww:onChange={{spec.onChange}} />
+          name={{spec.name}}
+          label={{spec.label}}
+          format={{spec.format}}
+          message={{spec.message}}
+          onChange={{spec.onChange}} />
       </p>
 
     </Demo>
@@ -30,13 +30,13 @@
       <p>
         <DateField
           wml:id={{spec.id}}
-          ww:name={{spec.name}}
-          ww:label={{spec.label}}
-          ww:success={{spec.success}}
-          ww:warning={{spec.warning}}
-          ww:error={{spec.error}}
-          ww:block={{spec.block}}
-          ww:onChange={{spec.onChange}} />
+          name={{spec.name}}
+          label={{spec.label}}
+          success={{spec.success}}
+          warning={{spec.warning}}
+          error={{spec.error}}
+          block={{spec.block}}
+          onChange={{spec.onChange}} />
       </p>
 
     </Demo>

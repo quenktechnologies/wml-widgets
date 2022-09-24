@@ -114,11 +114,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);
@@ -155,9 +155,9 @@ class Open {
         this.widgets = [];
         this.tree = __document.createElement('div');
         this.template = (__this) => {
-            return __this.widget(new inform_1.Inform({ wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onClose': __context.values.onClose } }, [
+            return __this.widget(new inform_1.Inform({ wml: { 'id': 'open' }, 'title': __context.values.title, 'onClose': __context.values.onClose }, [
                 text(__context.values.message)
-            ]), { wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onClose': __context.values.onClose } });
+            ]), { wml: { 'id': 'open' }, 'title': __context.values.title, 'onClose': __context.values.onClose });
         };
     }
     registerView(v) {
@@ -223,11 +223,11 @@ class Open {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

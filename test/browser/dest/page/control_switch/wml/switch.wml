@@ -12,8 +12,8 @@
 
     <p>
       <Switch 
-        ww:name="switch"
-        ww:value={{true}}/>
+        name="switch"
+        value={{true}}/>
     </p>
 
   </Demo>
@@ -24,8 +24,8 @@
 
     <p>
       <Switch 
-        ww:name="switch"
-        ww:onChange={{@onChange}} />
+        name="switch"
+        onChange={{@onChange}} />
     </p>
 
   </Demo>

@@ -45,7 +45,7 @@ class Main {
                         __document.createTextNode('The switch is already set.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new switch_1.Switch({ ww: { 'name': 'switch', 'value': true } }, []), { ww: { 'name': 'switch', 'value': true } })
+                        __this.widget(new switch_1.Switch({ 'name': 'switch', 'value': true }, []), { 'name': 'switch', 'value': true })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -57,7 +57,7 @@ class Main {
                         __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new switch_1.Switch({ ww: { 'name': 'switch', 'onChange': __context.onChange } }, []), { ww: { 'name': 'switch', 'onChange': __context.onChange } })
+                        __this.widget(new switch_1.Switch({ 'name': 'switch', 'onChange': __context.onChange }, []), { 'name': 'switch', 'onChange': __context.onChange })
                     ])
                 ]), {})
             ]), {});
@@ -126,11 +126,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

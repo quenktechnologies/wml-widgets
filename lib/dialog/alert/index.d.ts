@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export { Style };
 export declare const ALERT = "ww-alert";
 /**
@@ -23,7 +23,7 @@ export interface AlertAttrs extends HTMLElementAttrs {
 /**
  * Alert is used for displaying important messages to users.
  */
-export declare class Alert extends Component<WidgetAttrs<AlertAttrs>> {
+export declare class Alert extends Component<AlertAttrs> {
     view: View;
     values: {
         wml: {

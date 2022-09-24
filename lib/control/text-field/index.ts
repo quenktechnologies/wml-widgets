@@ -1,6 +1,10 @@
 import * as views from './wml/text-field';
-import { Maybe } from '@quenk/noni/lib/data/maybe';
+
 import { View } from '@quenk/wml';
+
+import { Maybe } from '@quenk/noni/lib/data/maybe';
+import { merge } from '@quenk/noni/lib/data/record';
+
 import { concat, getById } from '../../util';
 import {
     Message,
@@ -67,8 +71,14 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
 
     /**
      * focus indicates this input should steal focus when rendered.
+     * 
      */
     focus?: boolean,
+
+    /**
+     * html attributes to pass directly to the underlying input.
+     */
+    html?: object,
 
     /**
      * onChange handler
@@ -129,47 +139,51 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             },
 
-            id: getId(this.attrs),
+          attrs:               merge(this.attrs.html || {}, {
 
-            name: getName(this.attrs),
+                id: getId(this.attrs),
 
-            type: (this.attrs.ww && this.attrs.ww.type) ?
-                this.attrs.ww.type : 'text',
+                name: getName(this.attrs),
 
-            min: (this.attrs.ww && this.attrs.ww.min) ?
-                this.attrs.ww.min : undefined,
+                type: (this.attrs && this.attrs.type) ?
+                    this.attrs.type : 'text',
 
-            max: (this.attrs.ww && this.attrs.ww.max) ?
-                this.attrs.ww.max : undefined,
+                min: (this.attrs && this.attrs.min) ?
+                    this.attrs.min : undefined,
 
-            focus: (this.attrs.ww && this.attrs.ww.focus) ?
-                this.attrs.ww.focus : undefined,
+                max: (this.attrs && this.attrs.max) ?
+                    this.attrs.max : undefined,
 
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-                this.attrs.ww.placeholder : '',
+                focus: (this.attrs && this.attrs.focus) ?
+                    this.attrs.focus : undefined,
 
-            match: (this.attrs.ww && this.attrs.ww.match) ?
-                this.attrs.ww.match : undefined,
+                placeholder: (this.attrs && this.attrs.placeholder) ?
+                    this.attrs.placeholder : '',
 
-            length: (this.attrs.ww && this.attrs.ww.length) ?
-                this.attrs.ww.length : undefined,
+                match: (this.attrs && this.attrs.match) ?
+                    this.attrs.match : undefined,
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : '',
+                length: (this.attrs && this.attrs.length) ?
+                    this.attrs.length : undefined,
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : undefined,
+                value: (this.attrs && this.attrs.value) ?
+                    this.attrs.value : '',
 
-            readOnly: (this.attrs.ww && this.attrs.ww.readOnly) ?
-                true : undefined,
+                disabled: (this.attrs && this.attrs.disabled) ? true : undefined,
 
-            rows: (this.attrs.ww && this.attrs.ww.rows) ?
-                this.attrs.ww.rows : 1,
+                readOnly: (this.attrs && this.attrs.readOnly) ?
+                    true : undefined,
 
-            oninput: (this.attrs.ww && this.attrs.ww.onChange) ?
-                oninput(this) : () => { },
+                rows: (this.attrs && this.attrs.rows) ?
+                    this.attrs.rows : 1,
 
-            onChange: (this.attrs.ww && this.attrs.ww.onChange) ?
-                this.attrs.ww.onChange : () => { }
+                oninput: (this.attrs && this.attrs.onChange) ?
+                    oninput(this) : () => { },
+
+                onChange: (this.attrs && this.attrs.onChange) ?
+                    this.attrs.onChange : () => { }
+
+            })
 
         }
 
@@ -196,10 +210,10 @@ const getHelp = (t: TextField): Maybe<Help> =>
 
 const oninput = (f: TextField) => (e: KeyboardEvent) => {
 
-    if (f.attrs.ww && f.attrs.ww && f.attrs.ww.onChange)
-        f.attrs.ww.onChange(
-            new TextChangedEvent((f.attrs.ww && f.attrs.ww.name) ?
-                f.attrs.ww.name : '',
+    if (f.attrs && f.attrs && f.attrs.onChange)
+        f.attrs.onChange(
+            new TextChangedEvent((f.attrs && f.attrs.name) ?
+                f.attrs.name : '',
                 (<HTMLInputElement>e.target).value));
 
 }

@@ -31,29 +31,32 @@ const text = __document.text;
 const unsafe = __document.unsafe;
 // @ts-ignore 6192
 const isSet = (value) => value != null;
-exports.firstTab = (_) => (__this) => {
+const firstTab = (_) => (__this) => {
     return [
         __this.node('p', {}, [
             __document.createTextNode('Click a tab to change content.')
         ])
     ];
 };
+exports.firstTab = firstTab;
 ;
-exports.secondTab = (_) => (__this) => {
+const secondTab = (_) => (__this) => {
     return [
         __this.node('p', {}, [
             __document.createTextNode('Second tab.')
         ])
     ];
 };
+exports.secondTab = secondTab;
 ;
-exports.thirdTab = (_) => (__this) => {
+const thirdTab = (_) => (__this) => {
     return [
         __this.node('p', {}, [
             __document.createTextNode('Third tab.')
         ])
     ];
 };
+exports.thirdTab = thirdTab;
 ;
 class Main {
     constructor(__context) {
@@ -64,11 +67,11 @@ class Main {
         this.tree = __document.createElement('div');
         this.template = (__this) => {
             return __this.widget(new demo_1.Demo({}, [
-                __this.widget(new tab_1.TabLayout({ ww: { 'tabs': __context.tabs, 'active': 'first' } }, [
+                __this.widget(new tab_1.TabLayout({ 'tabs': __context.tabs, 'active': 'first' }, [
                     __this.node('p', {}, [
                         __document.createTextNode('Click a tab to change content.')
                     ])
-                ]), { ww: { 'tabs': __context.tabs, 'active': 'first' } })
+                ]), { 'tabs': __context.tabs, 'active': 'first' })
             ]), {});
         };
     }
@@ -135,11 +138,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

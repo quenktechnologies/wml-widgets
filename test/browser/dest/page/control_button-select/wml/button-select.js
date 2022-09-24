@@ -49,7 +49,7 @@ class Main {
                         __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, ww: { 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } }, []), { wml: { 'id': 'select' }, ww: { 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange } })
+                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange }, []), { wml: { 'id': 'select' }, 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -61,7 +61,7 @@ class Main {
                         __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new button_select_1.MultiButtonSelect({ wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti } }, []), { wml: { 'id': 'multi' }, ww: { 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti } })
+                        __this.widget(new button_select_1.MultiButtonSelect({ wml: { 'id': 'multi' }, 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti }, []), { wml: { 'id': 'multi' }, 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti })
                     ])
                 ]), {})
             ]), {});
@@ -130,11 +130,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

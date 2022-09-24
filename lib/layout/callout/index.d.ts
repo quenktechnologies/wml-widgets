@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export { Style };
 export declare const CALLOUT = "ww-callout";
 /**
@@ -15,7 +15,7 @@ export interface CalloutAttrs extends HTMLElementAttrs {
 /**
  * Callout
  */
-export declare class Callout extends Component<WidgetAttrs<CalloutAttrs>> {
+export declare class Callout extends Component<CalloutAttrs> {
     view: View;
     values: {
         id: string;

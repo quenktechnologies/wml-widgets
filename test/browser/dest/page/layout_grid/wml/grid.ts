@@ -73,123 +73,123 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new GridLayout({ww : { 'className' : __context.values.root.className  }}, [
+           return __this.widget(new GridLayout({'className': __context.values.root.className}, [
 
         __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 1  }}, [
+        __this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }}),
-__this.widget(new Column({ww : { 'span' : 1  }}, [
+     ]),<__wml.Attrs>{'span': 1}),
+__this.widget(new Column({'span': 1}, [
 
         __document.createTextNode('Span 1')
-     ]),<__wml.Attrs>{ww : { 'span' : 1  }})
+     ]),<__wml.Attrs>{'span': 1})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 8  }}, [
+        __this.widget(new Column({'span': 8}, [
 
         __document.createTextNode('Span 8')
-     ]),<__wml.Attrs>{ww : { 'span' : 8  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'span': 8}),
+__this.widget(new Column({'span': 4}, [
 
         __document.createTextNode('Span 4')
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }})
+     ]),<__wml.Attrs>{'span': 4})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 4  }}, [
+        __this.widget(new Column({'span': 4}, [
 
         __document.createTextNode('Span 4')
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
         __document.createTextNode('Span 4')
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
         __document.createTextNode('Span 4')
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }})
+     ]),<__wml.Attrs>{'span': 4})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 6  }}, [
+        __this.widget(new Column({'span': 6}, [
 
         __document.createTextNode('Span 6')
-     ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
-__this.widget(new Column({ww : { 'span' : 6  }}, [
+     ]),<__wml.Attrs>{'span': 6}),
+__this.widget(new Column({'span': 6}, [
 
         __document.createTextNode('Span 6')
-     ]),<__wml.Attrs>{ww : { 'span' : 6  }})
+     ]),<__wml.Attrs>{'span': 6})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 6  }}, [
+        __this.widget(new Column({'span': 6}, [
 
         __document.createTextNode('Span 6')
-     ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
-__this.widget(new Column({ww : { 'span' : 6  }}, [
+     ]),<__wml.Attrs>{'span': 6}),
+__this.widget(new Column({'span': 6}, [
 
         __document.createTextNode('Span 6')
-     ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
-__this.widget(new Column({ww : { 'span' : 6  }}, [
+     ]),<__wml.Attrs>{'span': 6}),
+__this.widget(new Column({'span': 6}, [
 
         __document.createTextNode('Span 6')
-     ]),<__wml.Attrs>{ww : { 'span' : 6  }}),
-__this.widget(new Column({ww : { 'span' : 6  }}, [
+     ]),<__wml.Attrs>{'span': 6}),
+__this.widget(new Column({'span': 6}, [
 
         __document.createTextNode('Span 6')
-     ]),<__wml.Attrs>{ww : { 'span' : 6  }})
+     ]),<__wml.Attrs>{'span': 6})
      ]),<__wml.Attrs>{}),
 __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 12  }}, [
+        __this.widget(new Column({'span': 12}, [
 
         __document.createTextNode('Span 12')
-     ]),<__wml.Attrs>{ww : { 'span' : 12  }})
+     ]),<__wml.Attrs>{'span': 12})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.root.className  }});
+     ]),<__wml.Attrs>{'className': __context.values.root.className});
 
        }
 

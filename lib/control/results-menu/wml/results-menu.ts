@@ -444,24 +444,24 @@ export class Main <V  >  implements __wml.View {
 
        
 
-           return __this.widget(new Menu({wml : { 'id' : __context.values.wml.id  },ww : { 'className' : __context.values.className ,'block' : __context.values.block ,'hidden' : __context.values.hidden  }}, [
+           return __this.widget(new Menu({wml : { 'id' : __context.values.wml.id  },'className': __context.values.className,'block': __context.values.block,'hidden': __context.values.hidden}, [
 
         ...__forIn (__context.values.results, (result , index: number , _$$all)=> 
 ([
 
-        __this.widget(new Item({ww : { 'name' : ('' + index)  }}, [
+        __this.widget(new Item({'name': ('' + index)}, [
 
-        __this.widget(new Link({ww : { 'onClick' : () => __context.values.item.click(index)  }}, [
+        __this.widget(new Link({'onClick': () => __context.values.item.click(index)}, [
 
         __this.registerView(__context.values.item.template(result,index)).render()
-     ]),<__wml.Attrs>{ww : { 'onClick' : () => __context.values.item.click(index)  }})
-     ]),<__wml.Attrs>{ww : { 'name' : ('' + index)  }})
+     ]),<__wml.Attrs>{'onClick': () => __context.values.item.click(index)})
+     ]),<__wml.Attrs>{'name': ('' + index)})
      ]), 
 ()=> ([
 
         __this.registerView(__context.values.item.noItemsTemplate()).render()
      ]))
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },ww : { 'className' : __context.values.className ,'block' : __context.values.block ,'hidden' : __context.values.hidden  }});
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'className': __context.values.className,'block': __context.values.block,'hidden': __context.values.hidden});
 
        }
 

@@ -56,6 +56,10 @@ export interface TextInputAttrs extends ControlAttrs<string>, FocusableAttrs {
      */
     disabled?: boolean;
     /**
+     * html attributes to pass directly to the underlying input.
+     */
+    html?: object;
+    /**
      * onChange handler
      */
     onChange?: (e: TextChangedEvent) => void;
@@ -70,30 +74,31 @@ export declare class TextChangedEvent extends Event<string> {
  */
 export declare class TextInput extends AbstractControl<string, TextInputAttrs> implements Focusable {
     view: View;
+    length: number;
     values: {
         control: {
             wml: {
                 id: string;
             };
         };
-        id: string;
-        className: string;
-        name: string;
-        type: string;
-        min: string | null;
-        max: string | null;
-        match: RegExp;
-        length: number;
-        placeholder: string;
-        value: string;
-        rows: string;
-        disabled: boolean | null;
-        readOnly: boolean | null;
-        onkeydown: (e: KeyboardEvent) => void;
-        oninput: (e: KeyboardEvent) => void;
-        autofocus: boolean | undefined;
-        onfocus: () => void;
-        onblur: () => void;
+        attrs: object & {
+            id: string;
+            className: string;
+            name: string;
+            type: string;
+            min: string | null;
+            max: string | null;
+            match: RegExp;
+            value: string;
+            rows: string;
+            disabled: boolean | null;
+            readOnly: boolean | null;
+            onkeydown: (e: KeyboardEvent) => void;
+            oninput: (e: KeyboardEvent) => void;
+            autofocus: boolean | undefined;
+            onfocus: () => void;
+            onblur: () => void;
+        };
     };
     rendered(): void;
     focus(): void | NodeJS.Timeout;

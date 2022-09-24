@@ -7,7 +7,7 @@ const util_1 = require("../../../lib/util");
 const app_1 = require("./wml/app");
 const pages_1 = require("./pages");
 const pages2Pages = () => {
-    let tmp = record_1.group(pages_1.pages, (_, k) => k.split('_')[0]);
+    let tmp = (0, record_1.group)(pages_1.pages, (_, k) => k.split('_')[0]);
     for (let sec in tmp)
         if (tmp.hasOwnProperty(sec)) {
             let newSec = {};
@@ -20,7 +20,7 @@ const pages2Pages = () => {
     return tmp;
 };
 const pages2Modules = () => {
-    return record_1.reduce(pages_1.pages, {}, (p, c, k) => {
+    return (0, record_1.reduce)(pages_1.pages, {}, (p, c, k) => {
         p[k.split('_')[1]] = c;
         return p;
     });
@@ -48,7 +48,7 @@ class App {
         this.navigate = ({ name }) => {
             this.page = name;
             if (this.modules.hasOwnProperty(name)) {
-                util_1.getById(this.view, this.values.id.layout)
+                (0, util_1.getById)(this.view, this.values.id.layout)
                     .map((d) => d.setContent([this.modules[name].view.render()]));
             }
         };
@@ -56,7 +56,7 @@ class App {
          * toggleDrawer
          */
         this.toggleDrawer = () => {
-            util_1.getById(this.view, this.values.id.layout)
+            (0, util_1.getById)(this.view, this.values.id.layout)
                 .map((d) => d.toggle());
         };
     }

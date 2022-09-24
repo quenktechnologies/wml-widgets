@@ -1,7 +1,7 @@
 import { View, Component } from '@quenk/wml';
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
-import { HTMLElementAttrs, WidgetAttrs, getClassName, getId } from '../../';
+import { HTMLElementAttrs, getClassName, getId } from '../../';
 import { Main } from './wml/image';
 
 ///classNames:begin
@@ -33,7 +33,7 @@ export interface ImageAttrs extends HTMLElementAttrs {
 /**
  * Image
  */
-export class Image extends Component<WidgetAttrs<ImageAttrs>> {
+export class Image extends Component<ImageAttrs> {
 
     view: View = new Main(this);
 
@@ -48,12 +48,12 @@ export class Image extends Component<WidgetAttrs<ImageAttrs>> {
         id: getId(this.attrs),
 
         className: concat(IMAGE, getClassName(this.attrs),
-            (this.attrs.ww && this.attrs.ww.block) ?
+            (this.attrs && this.attrs.block) ?
                 BLOCK : ''),
 
-        src: (this.attrs.ww && this.attrs.ww.src) ? this.attrs.ww.src : '',
+        src: (this.attrs && this.attrs.src) ? this.attrs.src : '',
 
-        alt: (this.attrs.ww && this.attrs.ww.alt) ? this.attrs.ww.alt : '',
+        alt: (this.attrs && this.attrs.alt) ? this.attrs.alt : '',
 
     }
 

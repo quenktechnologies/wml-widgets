@@ -1,4 +1,5 @@
 import * as views from './wml/typeahead';
+
 import { getById } from '../../util';
 import { Message } from '../feedback';
 import { AbstractFormControl, removeMessage, setMessage } from '../form';
@@ -71,7 +72,7 @@ export class Typeahead<V>
                 this.close();
 
                 let mSearch =
-                    getById<Search<V>>(this.view, this.values.search.wml.id);
+                    getById <Search<V>>(this.view, this.values.search.wml.id);
 
                 if (mSearch.isJust()) {
 
@@ -82,9 +83,9 @@ export class Typeahead<V>
 
                     s.set(str);
 
-                    if (this.attrs.ww && this.attrs.ww.onChange)
-                        this.attrs.ww.onChange(new TextChangedEvent(
-                            '' + this.attrs.ww.name, str));
+                    if (this.attrs && this.attrs.onChange)
+                        this.attrs.onChange(new TextChangedEvent(
+                            '' + this.attrs.name, str));
 
                 }
 

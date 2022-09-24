@@ -2,7 +2,7 @@ import {text} from '@quenk/wml/lib/dom';
 import { View, Component } from '@quenk/wml';
 import { DEFAULT, Style, getStyleClassName } from '../../content/style';
 import { concat, getById } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getClassName, getId  } from '../../';
+import { HTMLElementAttrs, getClassName, getId  } from '../../';
 import { Main } from './wml/alert';
 
 export { Style }
@@ -36,7 +36,7 @@ export interface AlertAttrs extends HTMLElementAttrs {
 /**
  * Alert is used for displaying important messages to users.
  */
-export class Alert extends Component<WidgetAttrs<AlertAttrs>> {
+export class Alert extends Component<AlertAttrs> {
 
     view: View = new Main(this);
 
@@ -54,15 +54,15 @@ export class Alert extends Component<WidgetAttrs<AlertAttrs>> {
 
             getClassName(this.attrs),
 
-            (this.attrs.ww && this.attrs.ww.style) ?
-                getStyleClassName(this.attrs.ww.style) :
+            (this.attrs && this.attrs.style) ?
+                getStyleClassName(this.attrs.style) :
                 DEFAULT),
 
-        closable: (this.attrs.ww && this.attrs.ww.closable) ?
-            this.attrs.ww.closable : false,
+        closable: (this.attrs && this.attrs.closable) ?
+            this.attrs.closable : false,
 
-        content: (this.attrs.ww && this.attrs.ww.text) ?
-            [text(this.attrs.ww.text)] : this.children
+        content: (this.attrs && this.attrs.text) ?
+            [text(this.attrs.text)] : this.children
 
     }
 

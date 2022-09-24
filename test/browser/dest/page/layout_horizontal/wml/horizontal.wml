@@ -25,7 +25,7 @@
 
   <Demo>
 
-    <HorizontalLayout ww:orientation={{HorizontalLayoutOrientation.Left}}>
+    <HorizontalLayout orientation={{HorizontalLayoutOrientation.Left}}>
       This is oriented to the left.
     </HorizontalLayout>
 
@@ -33,7 +33,7 @@
 
   <Demo>
 
-    <HorizontalLayout ww:orientation={{HorizontalLayoutOrientation.Right}}>
+    <HorizontalLayout orientation={{HorizontalLayoutOrientation.Right}}>
       This is oriented to the right.
     </HorizontalLayout>
 

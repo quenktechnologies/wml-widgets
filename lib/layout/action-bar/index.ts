@@ -44,8 +44,8 @@ export class ActionBar extends AbstractLayout<ActionBarAttrs> {
 
             },
 
-            id: (this.attrs.ww && this.attrs.ww.id) ?
-                this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ?
+                this.attrs.id : '',
 
             className: concat(
                 ACTION_BAR,

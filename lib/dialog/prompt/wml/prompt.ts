@@ -75,14 +75,14 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new Modal({wml : { 'id' : __context.values.wml.id  },ww : { 'className' : __context.values.className  }}, [
+           return __this.widget(new Modal({wml : { 'id' : __context.values.wml.id  },'className': __context.values.className}, [
 
         __this.widget(new ModalHeader({}, [
 
-        __this.widget(new CloseButton({ww : { 'onClick' : __context.values.footer.close.onClick  }}, [
+        __this.widget(new CloseButton({'onClick': __context.values.footer.close.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.footer.close.onClick  }}),
+     ]),<__wml.Attrs>{'onClick': __context.values.footer.close.onClick}),
 text (__context.values.header.title)
      ]),<__wml.Attrs>{}),
 __this.widget(new ModalBody({}, [
@@ -91,16 +91,16 @@ __this.widget(new ModalBody({}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new ModalFooter({}, [
 
-        __this.widget(new Button({ww : { 'text' : __context.values.footer.close.text ,'className' : __context.values.footer.close.className ,'onClick' : __context.values.footer.close.onClick  }}, [
+        __this.widget(new Button({'text': __context.values.footer.close.text,'className': __context.values.footer.close.className,'onClick': __context.values.footer.close.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : __context.values.footer.close.text ,'className' : __context.values.footer.close.className ,'onClick' : __context.values.footer.close.onClick  }}),
-__this.widget(new Button({ww : { 'text' : __context.values.footer.save.text ,'className' : __context.values.footer.save.className ,'disabled' : __context.values.footer.save.disabled ,'onClick' : __context.values.footer.save.onClick  }}, [
+     ]),<__wml.Attrs>{'text': __context.values.footer.close.text,'className': __context.values.footer.close.className,'onClick': __context.values.footer.close.onClick}),
+__this.widget(new Button({'text': __context.values.footer.save.text,'className': __context.values.footer.save.className,'disabled': __context.values.footer.save.disabled,'onClick': __context.values.footer.save.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : __context.values.footer.save.text ,'className' : __context.values.footer.save.className ,'disabled' : __context.values.footer.save.disabled ,'onClick' : __context.values.footer.save.onClick  }})
+     ]),<__wml.Attrs>{'text': __context.values.footer.save.text,'className': __context.values.footer.save.className,'disabled': __context.values.footer.save.disabled,'onClick': __context.values.footer.save.onClick})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },ww : { 'className' : __context.values.className  }});
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'className': __context.values.className});
 
        }
 

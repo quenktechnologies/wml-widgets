@@ -1,11 +1,11 @@
 import { View, Component } from '@quenk/wml';
 import { Message } from '../feedback';
-import { WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const HELP = "ww-help";
 /**
  * HelpAttrs
  */
-export interface HelpAttrs {
+export interface HelpAttrs extends HTMLElementAttrs {
     /**
      * id for the help.
      */
@@ -22,7 +22,7 @@ export interface HelpAttrs {
 /**
  * Help
  */
-export declare class Help extends Component<WidgetAttrs<HelpAttrs>> {
+export declare class Help extends Component<HelpAttrs> {
     view: View;
     values: {
         help: {

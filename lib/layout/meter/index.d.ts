@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const METER = "ww-meter";
 export declare const METER_BAR = "ww-meter__bar";
 /**
@@ -10,7 +10,7 @@ export interface MeterAttrs extends HTMLElementAttrs {
 /**
  * Meter
  */
-export declare class Meter extends Component<WidgetAttrs<MeterAttrs>> {
+export declare class Meter extends Component<MeterAttrs> {
     view: View;
     values: {
         id: string;
@@ -33,7 +33,7 @@ export interface MeterBarAttrs extends HTMLElementAttrs {
 /**
  * MeterBar
  */
-export declare class MeterBar extends Component<WidgetAttrs<MeterBarAttrs>> {
+export declare class MeterBar extends Component<MeterBarAttrs> {
     view: View;
     values: {
         id: string;

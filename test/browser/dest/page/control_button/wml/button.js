@@ -49,7 +49,7 @@ class Main {
                             __document.createTextNode('Style')
                         ]),
                         ...__forIn(__context.values.styles, (v, _$$i, _$$all) => ([
-                            __this.widget(new button_1.Button({ ww: { 'name': v, 'style': v, 'text': __context.values.capitalize(v) } }, []), { ww: { 'name': v, 'style': v, 'text': __context.values.capitalize(v) } })
+                            __this.widget(new button_1.Button({ 'name': v, 'style': v, 'text': __context.values.capitalize(v) }, []), { 'name': v, 'style': v, 'text': __context.values.capitalize(v) })
                         ]), () => ([]))
                     ])
                 ]), {}),
@@ -58,7 +58,7 @@ class Main {
                         __document.createTextNode('Outline')
                     ]),
                     ...__forIn(__context.values.styles, (style, _$$i, _$$all) => ([
-                        __this.widget(new button_1.Button({ ww: { 'style': style, 'outline': true, 'text': __context.values.capitalize(style) } }, []), { ww: { 'style': style, 'outline': true, 'text': __context.values.capitalize(style) } })
+                        __this.widget(new button_1.Button({ 'style': style, 'outline': true, 'text': __context.values.capitalize(style) }, []), { 'style': style, 'outline': true, 'text': __context.values.capitalize(style) })
                     ]), () => ([]))
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -67,7 +67,7 @@ class Main {
                             __document.createTextNode('Active')
                         ]),
                         ...__forIn(__context.values.styles, (v, _$$i, _$$all) => ([
-                            __this.widget(new button_1.Button({ ww: { 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) } }, []), { ww: { 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) } })
+                            __this.widget(new button_1.Button({ 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) }, []), { 'name': v, 'active': true, 'style': v, 'text': __context.values.capitalize(v) })
                         ]), () => ([]))
                     ])
                 ]), {}),
@@ -77,7 +77,7 @@ class Main {
                             __document.createTextNode('Disabled')
                         ]),
                         ...__forIn(__context.values.styles, (v, _$$i, _$$all) => ([
-                            __this.widget(new button_1.Button({ ww: { 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) } }, []), { ww: { 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) } })
+                            __this.widget(new button_1.Button({ 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) }, []), { 'name': v, 'disabled': true, 'style': v, 'text': __context.values.capitalize(v) })
                         ]), () => ([]))
                     ])
                 ]), {}),
@@ -88,7 +88,7 @@ class Main {
                     ...__forIn(__context.values.styles, (style, _$$i, _$$all) => ([
                         __this.node('p', {}, [
                             ...__forIn(__context.values.sizes, (size, _$$i, _$$all) => ([
-                                __this.widget(new button_1.Button({ ww: { 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) } }, []), { ww: { 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) } })
+                                __this.widget(new button_1.Button({ 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) }, []), { 'name': size, 'style': style, 'size': size, 'text': __context.values.capitalize(size) })
                             ]), () => ([]))
                         ])
                     ]), () => ([]))
@@ -98,7 +98,7 @@ class Main {
                         __document.createTextNode('Block')
                     ]),
                     ...__forIn(__context.values.styles, (style, _$$i, _$$all) => ([
-                        __this.widget(new button_1.Button({ ww: { 'style': style, 'block': true, 'text': __context.values.capitalize(style) } }, []), { ww: { 'style': style, 'block': true, 'text': __context.values.capitalize(style) } })
+                        __this.widget(new button_1.Button({ 'style': style, 'block': true, 'text': __context.values.capitalize(style) }, []), { 'style': style, 'block': true, 'text': __context.values.capitalize(style) })
                     ]), () => ([]))
                 ]), {})
             ]), {});
@@ -167,11 +167,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

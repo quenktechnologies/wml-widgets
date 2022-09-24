@@ -74,7 +74,7 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new t.Tag({ww : { 'id' : __context.values.id ,'className' : __context.values.className ,'style' : __context.values.style  }}, [
+           return __this.widget(new t.Tag({'id': __context.values.id,'className': __context.values.className,'style': __context.values.style}, [
 
         ...(((__context.values.text.value !== '')) ?
 (()=>([
@@ -92,13 +92,13 @@ export class Main  implements __wml.View {
 ...(((__context.values.disabled !== true )) ?
 (()=>([
 
-        __this.widget(new Close({ww : { 'className' : __context.values.dismiss.className ,'onClick' : __context.values.dismiss.onClick  }}, [
+        __this.widget(new Close({'className': __context.values.dismiss.className,'onClick': __context.values.dismiss.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.dismiss.className ,'onClick' : __context.values.dismiss.onClick  }})
+     ]),<__wml.Attrs>{'className': __context.values.dismiss.className,'onClick': __context.values.dismiss.onClick})
      ]))() :
 (()=>([]))())
-     ]),<__wml.Attrs>{ww : { 'id' : __context.values.id ,'className' : __context.values.className ,'style' : __context.values.style  }});
+     ]),<__wml.Attrs>{'id': __context.values.id,'className': __context.values.className,'style': __context.values.style});
 
        }
 

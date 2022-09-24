@@ -3,7 +3,8 @@
  */
 
 /** imports */
-import { WidgetAttrs } from '../';
+import { View } from '@quenk/wml';
+
 import { getById } from '../util';
 import {
     FeedbackControlAttrs,
@@ -12,7 +13,6 @@ import {
     Message
 } from './feedback';
 import { Help } from './help';
-import { View } from '@quenk/wml';
 
 /**
  * FormControlAtrrs
@@ -42,8 +42,8 @@ export abstract class AbstractFormControl<V, A extends FormControlAttrs<V>>
 /**
  * getLabel extracts the label value from FromControlAttrs.
  */
-export const getLabel = <V>(attrs: WidgetAttrs<FormControlAttrs<V>>)
-    : string => (attrs.ww && attrs.ww.label) ? attrs.ww.label : '';
+export const getLabel = <V>(attrs: FormControlAttrs<V>)
+    : string => (attrs && attrs.label) ? attrs.label : '';
 
 /**
  * setMessage helper.

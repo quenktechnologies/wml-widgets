@@ -81,20 +81,20 @@ export class Main  implements __wml.View {
            return __this.widget(new DrawerLayout({wml : { 'id' : __context.values.id.layout  },'drawer': 'nav','content': 'main','open': true }, [
 
         __this.registerView(new Navigation(__context)).render(),
-__this.widget(new ActionBar({ww : { 'id' : 'appBar'  }}, [
+__this.widget(new ActionBar({'id': 'appBar'}, [
 
-        __this.widget(new Link({ww : { 'onClick' : __context.toggleDrawer  }}, [
+        __this.widget(new Link({'onClick': __context.toggleDrawer}, [
 
         __this.widget(new MenuIcon({}, [
 
         
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.toggleDrawer  }})
-     ]),<__wml.Attrs>{ww : { 'id' : 'appBar'  }}),
-__this.widget(new MainLayout({ww : { 'id' : 'main'  }}, [
+     ]),<__wml.Attrs>{'onClick': __context.toggleDrawer})
+     ]),<__wml.Attrs>{'id': 'appBar'}),
+__this.widget(new MainLayout({'id': 'main'}, [
 
         ...(__context.content)
-     ]),<__wml.Attrs>{ww : { 'id' : 'main'  }})
+     ]),<__wml.Attrs>{'id': 'main'})
      ]),<__wml.Attrs>{wml : { 'id' : __context.values.id.layout  },'drawer': 'nav','content': 'main','open': true });
 
        }

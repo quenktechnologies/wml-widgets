@@ -1,6 +1,7 @@
 import { View, Component } from '@quenk/wml';
+
 import { concat, getById } from '../../util';
-import { WidgetAttrs, getId, getClassName, HTMLElementAttrs } from '../../';
+import { getId, getClassName, HTMLElementAttrs } from '../../';
 import { Main } from './wml/prompt';
 import { Modal } from '../modal';
 import { Button } from '../../control/button';
@@ -52,7 +53,7 @@ export interface PromptAttrs extends HTMLElementAttrs {
  * Prompt displays a dialog to the user suitable for collecting data
  * input.
  */
-export class Prompt extends Component<WidgetAttrs<PromptAttrs>> {
+export class Prompt extends Component<PromptAttrs> {
 
     view: View = new Main(this);
 
@@ -70,23 +71,23 @@ export class Prompt extends Component<WidgetAttrs<PromptAttrs>> {
 
         header: {
 
-            title: (this.attrs.ww && this.attrs.ww.title) ?
-                this.attrs.ww.title : ''
+            title: (this.attrs && this.attrs.title) ?
+                this.attrs.title : ''
 
         },
         footer: {
 
             close: {
 
-                text: (this.attrs.ww && this.attrs.ww.closeText) ?
-                    this.attrs.ww.closeText : 'Close',
+                text: (this.attrs && this.attrs.closeText) ?
+                    this.attrs.closeText : 'Close',
 
                 className: PROMPT_CLOSE,
 
                 onClick: () => {
 
-                    if (this.attrs.ww && this.attrs.ww.onCancel)
-                        this.attrs.ww.onCancel();
+                    if (this.attrs && this.attrs.onCancel)
+                        this.attrs.onCancel();
 
                     this.close();
 
@@ -96,8 +97,8 @@ export class Prompt extends Component<WidgetAttrs<PromptAttrs>> {
 
             save: {
 
-                text: (this.attrs.ww && this.attrs.ww.saveText) ?
-                    this.attrs.ww.saveText : 'Save',
+                text: (this.attrs && this.attrs.saveText) ?
+                    this.attrs.saveText : 'Save',
 
                 wml: {
 
@@ -107,13 +108,13 @@ export class Prompt extends Component<WidgetAttrs<PromptAttrs>> {
 
                 className: concat('-primary', PROMPT_SAVE),
 
-                disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
+                disabled: (this.attrs && this.attrs.disabled) ?
                     true : false,
 
                 onClick: () => {
 
-                    if (this.attrs.ww && this.attrs.ww.onSave)
-                        this.attrs.ww.onSave();
+                    if (this.attrs && this.attrs.onSave)
+                        this.attrs.onSave();
 
                     this.close();
 
@@ -155,7 +156,7 @@ export class Prompt extends Component<WidgetAttrs<PromptAttrs>> {
 }
 
 const getSave = (p: Prompt) =>
-    getById<Button<void>>(p.view, p.values.footer.save.wml.id);
+    getById < Button<void>>(p.view, p.values.footer.save.wml.id);
 
 /**
  * close the Modal in a view.

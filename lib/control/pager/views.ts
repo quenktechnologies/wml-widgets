@@ -79,18 +79,18 @@ export class PagerView  implements __wml.View {
 
         __this.node('li', <__wml.Attrs>{'class': __context.values.previous.className}, [
 
-        __this.widget(new Link({ww : { 'className' : '-ww-no-decoration' ,'text' : __context.values.previous.text ,'disabled' : __context.values.previous.isDisabled() ,'onClick' : __context.values.previous.onClick  }}, [
+        __this.widget(new Link({'className': '-ww-no-decoration','text': __context.values.previous.text,'disabled': __context.values.previous.isDisabled(),'onClick': __context.values.previous.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : '-ww-no-decoration' ,'text' : __context.values.previous.text ,'disabled' : __context.values.previous.isDisabled() ,'onClick' : __context.values.previous.onClick  }})
+     ]),<__wml.Attrs>{'className': '-ww-no-decoration','text': __context.values.previous.text,'disabled': __context.values.previous.isDisabled(),'onClick': __context.values.previous.onClick})
      ]),
 ...(__context.children),
 __this.node('li', <__wml.Attrs>{'class': __context.values.next.className}, [
 
-        __this.widget(new Link({ww : { 'className' : '-ww-no-decoration' ,'text' : __context.values.next.text ,'disabled' : __context.values.next.isDisabled() ,'onClick' : __context.values.next.onClick  }}, [
+        __this.widget(new Link({'className': '-ww-no-decoration','text': __context.values.next.text,'disabled': __context.values.next.isDisabled(),'onClick': __context.values.next.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : '-ww-no-decoration' ,'text' : __context.values.next.text ,'disabled' : __context.values.next.isDisabled() ,'onClick' : __context.values.next.onClick  }})
+     ]),<__wml.Attrs>{'className': '-ww-no-decoration','text': __context.values.next.text,'disabled': __context.values.next.isDisabled(),'onClick': __context.values.next.onClick})
      ])
      ])
      ]);

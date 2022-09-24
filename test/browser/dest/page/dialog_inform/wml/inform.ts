@@ -268,10 +268,10 @@ export class Open  implements __wml.View {
 
        
 
-           return __this.widget(new Inform({wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title ,'onClose' : __context.values.onClose  }}, [
+           return __this.widget(new Inform({wml : { 'id' : 'open'  },'title': __context.values.title,'onClose': __context.values.onClose}, [
 
         text (__context.values.message)
-     ]),<__wml.Attrs>{wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title ,'onClose' : __context.values.onClose  }});
+     ]),<__wml.Attrs>{wml : { 'id' : 'open'  },'title': __context.values.title,'onClose': __context.values.onClose});
 
        }
 

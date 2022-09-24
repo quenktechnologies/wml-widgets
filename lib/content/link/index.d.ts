@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 /**
  * LINK
  */
@@ -48,7 +48,7 @@ export declare class LinkClickedEvent {
 /**
  * Link generates an <a> element.
  */
-export declare class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
+export declare class Link extends wml.Component<LinkAttrs> {
     view: wml.View;
     /**
      * name assigned to this Link.

@@ -1,6 +1,6 @@
 import * as views from './wml/menu-icon';
 import { View, Component } from '@quenk/wml';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs,  } from '../../';
 import { concat } from '../../util';
 
 ///classNames:begin
@@ -17,7 +17,7 @@ export interface MenuIconAttrs extends HTMLElementAttrs { }
  * MenuIcon provides a css implement icon normally used 
  * to toggle a side menu.
  */
-export class MenuIcon extends Component<WidgetAttrs<MenuIconAttrs>> {
+export class MenuIcon extends Component<MenuIconAttrs> {
 
     view: View = new views.Main(this);
 
@@ -25,11 +25,11 @@ export class MenuIcon extends Component<WidgetAttrs<MenuIconAttrs>> {
 
         root: {
 
-            id: (this.attrs.ww && this.attrs.ww.id) ?
-                this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ?
+                this.attrs.id : '',
 
-            className: concat(MENU_ICON, (this.attrs.ww && this.attrs.ww.id) ?
-                this.attrs.ww.id : '')
+            className: concat(MENU_ICON, (this.attrs && this.attrs.id) ?
+                this.attrs.id : '')
 
         },
         dash: {

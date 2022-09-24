@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const OVERLAY = "ww-overlay";
 /**
  * OverlayAttrs
@@ -13,7 +13,7 @@ export interface OverlayAttrs extends HTMLElementAttrs {
 /**
  * Overlay
  */
-export declare class Overlay extends Component<WidgetAttrs<OverlayAttrs>> {
+export declare class Overlay extends Component<OverlayAttrs> {
     view: View;
     values: {
         wml: {

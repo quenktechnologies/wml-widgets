@@ -88,24 +88,24 @@ __this.widget(new NavMenu({}, [
 
         __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'text' : 'Home'  }}, [
+        __this.widget(new Link({'text': 'Home'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'Home'  }})
+     ]),<__wml.Attrs>{'text': 'Home'})
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'disabled' : true  ,'text' : 'Users'  }}, [
+        __this.widget(new Link({'disabled': true ,'text': 'Users'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'disabled' : true  ,'text' : 'Users'  }})
+     ]),<__wml.Attrs>{'disabled': true ,'text': 'Users'})
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'text' : 'Logout'  }}, [
+        __this.widget(new Link({'text': 'Logout'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'Logout'  }})
+     ]),<__wml.Attrs>{'text': 'Logout'})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
@@ -119,24 +119,24 @@ __this.widget(new NavMenu({'vertical': true }, [
 
         __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'text' : 'Home'  }}, [
+        __this.widget(new Link({'text': 'Home'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'Home'  }})
+     ]),<__wml.Attrs>{'text': 'Home'})
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'disabled' : true  ,'text' : 'Users'  }}, [
+        __this.widget(new Link({'disabled': true ,'text': 'Users'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'disabled' : true  ,'text' : 'Users'  }})
+     ]),<__wml.Attrs>{'disabled': true ,'text': 'Users'})
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'text' : 'Logout'  }}, [
+        __this.widget(new Link({'text': 'Logout'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'Logout'  }})
+     ]),<__wml.Attrs>{'text': 'Logout'})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{'vertical': true })
      ]),<__wml.Attrs>{})

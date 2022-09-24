@@ -48,7 +48,7 @@ export class GridLayout extends AbstractLayout<GridAttrs> {
 
         content: {
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             wml: {
 
@@ -57,8 +57,8 @@ export class GridLayout extends AbstractLayout<GridAttrs> {
             },
             className: () => {
 
-                let c = (this.attrs.ww && this.attrs.ww.className) ?
-                    <string>this.attrs.ww.className : '';
+                let c = (this.attrs && this.attrs.className) ?
+                    <string>this.attrs.className : '';
 
                 return concat(GRID_LAYOUT, LAYOUT, c);
 
@@ -80,7 +80,7 @@ export class Row extends AbstractLayout<RowAttrs> {
 
         content: {
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             wml: {
 
@@ -90,8 +90,8 @@ export class Row extends AbstractLayout<RowAttrs> {
 
             className: () => {
 
-                let c = (this.attrs.ww && this.attrs.ww.className) ?
-                    <string>this.attrs.ww.className : '';
+                let c = (this.attrs && this.attrs.className) ?
+                    <string>this.attrs.className : '';
 
                 return concat(GRID_LAYOUT_ROW, c);
 
@@ -114,7 +114,7 @@ export class Column extends AbstractLayout<ColumnAttrs> {
 
         content: {
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             wml: {
 
@@ -124,19 +124,19 @@ export class Column extends AbstractLayout<ColumnAttrs> {
 
             className: () => {
 
-                if (this.attrs.ww != null) {
+                if (this.attrs != null) {
 
                     return concat(GRID_LAYOUT_COLUMN,
 
-                        this.attrs.ww.span ?
-                            `-span${this.attrs.ww.span}` :
+                        this.attrs.span ?
+                            `-span${this.attrs.span}` :
                             '-span12',
 
-                        this.attrs.ww.offset ?
-                            `-offset${this.attrs.ww.offset}` :
+                        this.attrs.offset ?
+                            `-offset${this.attrs.offset}` :
                             '',
 
-                        <string>this.attrs.ww.className);
+                        <string>this.attrs.className);
 
                 } else {
 

@@ -91,10 +91,10 @@ __this.node('p', <__wml.Attrs>{}, [
 ...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Tag({ww : { 'style' : v ,'text' : __context.values.capitalize (v)  }}, [
+        __this.widget(new Tag({'style': v,'text': __context.values.capitalize (v)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'style' : v ,'text' : __context.values.capitalize (v)  }})
+     ]),<__wml.Attrs>{'style': v,'text': __context.values.capitalize (v)})
      ]), 
 ()=> ([]))
      ])

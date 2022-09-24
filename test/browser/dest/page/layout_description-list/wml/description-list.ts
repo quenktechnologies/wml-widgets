@@ -108,7 +108,7 @@ __this.widget(new Data({}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new DescriptionList({ww : { 'horizontal' : true   }}, [
+        __this.widget(new DescriptionList({'horizontal': true }, [
 
         __this.widget(new Title({}, [
 
@@ -134,7 +134,7 @@ __this.widget(new Data({}, [
 
         __document.createTextNode('example.com')
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'horizontal' : true   }})
+     ]),<__wml.Attrs>{'horizontal': true })
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

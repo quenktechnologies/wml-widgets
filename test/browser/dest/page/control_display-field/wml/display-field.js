@@ -46,9 +46,9 @@ class Main {
                     ]), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new display_field_1.DisplayField({ ww: { 'disabled': true } }, [
+                    __this.widget(new display_field_1.DisplayField({ 'disabled': true }, [
                         __document.createTextNode('Disabled')
-                    ]), { ww: { 'disabled': true } })
+                    ]), { 'disabled': true })
                 ]), {})
             ]), {});
         };
@@ -116,11 +116,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

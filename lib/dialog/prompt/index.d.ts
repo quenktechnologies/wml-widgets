@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const PROMPT = "ww-prompt";
 export declare const PROMPT_CLOSE = "ww-prompt__close";
 export declare const PROMPT_SAVE = "ww-prompt__save";
@@ -36,7 +36,7 @@ export interface PromptAttrs extends HTMLElementAttrs {
  * Prompt displays a dialog to the user suitable for collecting data
  * input.
  */
-export declare class Prompt extends Component<WidgetAttrs<PromptAttrs>> {
+export declare class Prompt extends Component<PromptAttrs> {
     view: View;
     values: {
         id: string;

@@ -65,18 +65,18 @@ export class Tag extends AbstractControl<void, TagAttrs> {
 
         className: concat(TAG_CONTROL, getClassName(this.attrs)),
 
-        style: (this.attrs.ww && this.attrs.ww.style) ?
-            this.attrs.ww.style : Style.Default,
+        style: (this.attrs && this.attrs.style) ?
+            this.attrs.style : Style.Default,
 
-        disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-            this.attrs.ww.disabled : false,
+        disabled: (this.attrs && this.attrs.disabled) ?
+            this.attrs.disabled : false,
 
         text: {
 
             className: TAG_CONTROL_TEXT,
 
-            value: (this.attrs.ww && this.attrs.ww.text) ?
-                this.attrs.ww.text : undefined,
+            value: (this.attrs && this.attrs.text) ?
+                this.attrs.text : undefined,
 
         },
         dismiss: {
@@ -85,9 +85,9 @@ export class Tag extends AbstractControl<void, TagAttrs> {
 
             onClick: () => {
 
-                if (this.attrs.ww && this.attrs.ww.onDismiss)
-                    this.attrs.ww.onDismiss(new DismissEvent(
-                        this.attrs.ww && this.attrs.ww.name || ''));
+                if (this.attrs && this.attrs.onDismiss)
+                    this.attrs.onDismiss(new DismissEvent(
+                        this.attrs && this.attrs.name || ''));
 
             }
 

@@ -1,4 +1,5 @@
 import { Record } from '@quenk/noni/lib/data/record';
+
 import { CellClickedEvent, HeadingClickedEvent } from '../event';
 import { HeadingFragment } from '../head';
 import { CellFragment } from '../body';

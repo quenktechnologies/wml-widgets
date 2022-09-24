@@ -1,7 +1,7 @@
 import * as views from './wml/media-description';
 import { View, Component } from '@quenk/wml';
 import { concat } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getId, getClassName } from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 
 ///classNames:begin
 export const MEDIA_DESCRIPTION = 'ww-media-description';
@@ -19,7 +19,7 @@ export interface MediaDescriptionAttrs extends HTMLElementAttrs { }
  */
 export class MediaDescription
     extends
-    Component<WidgetAttrs<MediaDescriptionAttrs>> {
+    Component<MediaDescriptionAttrs> {
 
     view: View = new views.MediaDescription(this);
 
@@ -43,7 +43,7 @@ export interface MediaAttrs extends HTMLElementAttrs { }
  */
 export class Media
     extends
-    Component<WidgetAttrs<MediaAttrs>> {
+    Component<MediaAttrs> {
 
     view: View = new views.Media(this);
 
@@ -67,7 +67,7 @@ export interface DescriptionAttrs extends HTMLElementAttrs { }
  */
 export class Description
     extends
-    Component<WidgetAttrs<DescriptionAttrs>> {
+    Component<DescriptionAttrs> {
 
     view: View = new views.Description(this);
 

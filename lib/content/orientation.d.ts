@@ -1,4 +1,3 @@
-import { WidgetAttrs } from '../';
 /**
  * VERTICAL indicates an element is vertical rendererd.
  */
@@ -43,6 +42,6 @@ export declare const BOTTOM = "-bottom";
  * getBlockClassName provides the __BLOCK__ class name if the attribute
  * value is set to true.
  */
-export declare const getBlockClassName: (attrs: WidgetAttrs<{
+export declare const getBlockClassName: (attrs: {
     block?: boolean;
-}>) => "-block" | "";
+}) => "-block" | "";

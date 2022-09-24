@@ -4,7 +4,7 @@ import { get } from '@quenk/noni/lib/data/record/path';
 import { Record } from '@quenk/noni/lib/data/record';
 
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs, getClassName } from '../../';
+import { HTMLElementAttrs, getClassName } from '../../';
 import { NothingView, DataView, PropertyListView } from './wml/property-list';
 
 ///classNames:begin
@@ -89,7 +89,9 @@ export interface PropertyListAttrs<D, R extends Record<D>>
 /**
  * DataCtx
  */
-export class DataCtx<D, R extends Record<D>> implements DataContext<D, R> {
+export class DataCtx<D, R extends Record<D>>
+    implements
+    DataContext<D, R> {
 
     constructor(
         public data: D,
@@ -105,7 +107,7 @@ export class DataCtx<D, R extends Record<D>> implements DataContext<D, R> {
  */
 export class PropertyList<D, R extends Record<D>>
     extends
-    Component<WidgetAttrs<PropertyListAttrs<D, R>>> {
+    Component<PropertyListAttrs<D, R>> {
 
     view: View = new PropertyListView(this);
 
@@ -117,13 +119,13 @@ export class PropertyList<D, R extends Record<D>>
 
         },
 
-        fields: <Field<D, R>[]>((this.attrs.ww && this.attrs.ww.fields) ?
-            this.attrs.ww.fields : []),
+        fields: <Field<D, R>[]>((this.attrs && this.attrs.fields) ?
+            this.attrs.fields : []),
 
         data: {
 
-            value: <R>((this.attrs.ww && this.attrs.ww.data) ?
-                this.attrs.ww.data : (<any>{})),
+            value: <R>((this.attrs && this.attrs.data) ?
+                this.attrs.data : (<any>{})),
 
             get: (f: Field<D, R>) => {
 

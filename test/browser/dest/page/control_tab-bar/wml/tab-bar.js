@@ -42,17 +42,17 @@ class Main {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.widget(new tab_bar_1.TabBar({}, [
-                        __this.widget(new tab_bar_1.Tab({ ww: { 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked } }, []), { ww: { 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked } }),
-                        __this.widget(new tab_bar_1.Tab({ ww: { 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked } }, []), { ww: { 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked } }),
-                        __this.widget(new tab_bar_1.Tab({ ww: { 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked } }, []), { ww: { 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked } })
+                        __this.widget(new tab_bar_1.Tab({ 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked }, []), { 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked }),
+                        __this.widget(new tab_bar_1.Tab({ 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked }, []), { 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked }),
+                        __this.widget(new tab_bar_1.Tab({ 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked }, []), { 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked })
                     ]), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new tab_bar_1.TabBar({ ww: { 'justify': true } }, [
-                        __this.widget(new tab_bar_1.Tab({ ww: { 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked } }, []), { ww: { 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked } }),
-                        __this.widget(new tab_bar_1.Tab({ ww: { 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked } }, []), { ww: { 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked } }),
-                        __this.widget(new tab_bar_1.Tab({ ww: { 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked } }, []), { ww: { 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked } })
-                    ]), { ww: { 'justify': true } })
+                    __this.widget(new tab_bar_1.TabBar({ 'justify': true }, [
+                        __this.widget(new tab_bar_1.Tab({ 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked }, []), { 'active': (__context.tab === 'First'), 'text': 'First', 'name': 'First', 'onClick': __context.clicked }),
+                        __this.widget(new tab_bar_1.Tab({ 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked }, []), { 'active': (__context.tab === 'Second'), 'text': 'Second', 'name': 'Second', 'onClick': __context.clicked }),
+                        __this.widget(new tab_bar_1.Tab({ 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked }, []), { 'active': (__context.tab === 'Third'), 'text': 'Third', 'name': 'Third', 'onClick': __context.clicked })
+                    ]), { 'justify': true })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', { wml: { 'id': 'content' } }, [
@@ -125,11 +125,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

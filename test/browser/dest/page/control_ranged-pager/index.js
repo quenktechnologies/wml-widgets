@@ -27,7 +27,7 @@ class RangedPagerPage {
             onAttrChange: (e) => {
                 this.values[e.name] = Number(e.value);
                 if (e.name === 'total')
-                    this.values.scenes = array_1.make(Number(e.value), i => `Page ${i}`);
+                    this.values.scenes = (0, array_1.make)(Number(e.value), i => `Page ${i}`);
             },
             onChange: (e) => {
                 this.values.current = e.value;

@@ -40,7 +40,7 @@ class Main {
         this.tree = __document.createElement('div');
         this.template = (__this) => {
             return __this.widget(new demo_1.Demo({}, [
-                __this.widget(new paginator_1.Paginator({ ww: { 'total': __context.values.total, 'current': __context.values.current, 'onChange': __context.values.onChange } }, []), { ww: { 'total': __context.values.total, 'current': __context.values.current, 'onChange': __context.values.onChange } }),
+                __this.widget(new paginator_1.Paginator({ 'total': __context.values.total, 'current': __context.values.current, 'onChange': __context.values.onChange }, []), { 'total': __context.values.total, 'current': __context.values.current, 'onChange': __context.values.onChange }),
                 __this.node('p', {}, [
                     text(__context.values.message)
                 ])
@@ -110,11 +110,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

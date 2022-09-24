@@ -3,7 +3,7 @@ import { Fun, Content, Component } from '@quenk/wml';
 import { text} from '@quenk/wml/lib/dom';
 import { fromNullable } from '@quenk/noni/lib/data/maybe';
 import { concat } from '../../util';
-import { WidgetAttrs,  getId, getClassName } from '../../';
+import {  getId, getClassName } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
 import { LAYOUT, LayoutAttrs, Layout } from '../';
 
@@ -76,7 +76,7 @@ export interface TabLayoutAttrs extends LayoutAttrs {
  * |                                                                          |
  * |__________________________________________________________________________|
  */
-export class TabLayout extends Component<WidgetAttrs<TabLayoutAttrs>>
+export class TabLayout extends Component<TabLayoutAttrs>
     implements Layout {
 
     view: views.Main = new views.Main(this);
@@ -107,11 +107,11 @@ export class TabLayout extends Component<WidgetAttrs<TabLayoutAttrs>>
 
             content: (): Content[] => {
 
-                if ((this.attrs.ww && this.attrs.ww.active)) {
+                if ((this.attrs && this.attrs.active)) {
 
                     let maybeActive =
                         fromNullable<TabSpec>(
-                            this.values.tabs.data[this.attrs.ww.active]);
+                            this.values.tabs.data[this.attrs.active]);
 
                     if (maybeActive.isJust())
                         return maybeActive
@@ -128,11 +128,11 @@ export class TabLayout extends Component<WidgetAttrs<TabLayoutAttrs>>
 
         tabs: {
 
-            current: (this.attrs.ww && this.attrs.ww.active) ?
-                this.attrs.ww.active : '',
+            current: (this.attrs && this.attrs.active) ?
+                this.attrs.active : '',
 
-            data: (this.attrs.ww && this.attrs.ww.tabs) ?
-                this.attrs.ww.tabs : {},
+            data: (this.attrs && this.attrs.tabs) ?
+                this.attrs.tabs : {},
 
             content: (t: TabSpec): Content[] => {
 

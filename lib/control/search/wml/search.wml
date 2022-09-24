@@ -25,24 +25,24 @@
 
   <Input
     wml:id={{@values.input.wml.id}}
-    ww:name={{@values.input.name}}
-    ww:autofocus={{@values.input.autofocus}}
-    ww:onFocus={{@values.input.onFocus}}
-    ww:onSearch={{@values.input.onSearch}}
-    ww:onEscape={{@values.input.onEscape}}
-    ww:onBlur={{@values.input.onBlur}}
-    ww:placeholder={{@values.input.placeholder}}
-    ww:readOnly={{@values.input.readOnly}}
-    ww:disabled={{@values.input.disabled}}
-    ww:value={{@values.input.value}} />
+    name={{@values.input.name}}
+    autofocus={{@values.input.autofocus}}
+    onFocus={{@values.input.onFocus}}
+    onSearch={{@values.input.onSearch}}
+    onEscape={{@values.input.onEscape}}
+    onBlur={{@values.input.onBlur}}
+    placeholder={{@values.input.placeholder}}
+    readOnly={{@values.input.readOnly}}
+    disabled={{@values.input.disabled}}
+    value={{@values.input.value}} />
 
    <ResultsMenu 
     wml:id={{@values.menu.wml.id}} 
-    ww:hidden=true
-    ww:block={{@values.menu.block}}
-    ww:onSelect={{@values.menu.onSelect}}
-    ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
-    ww:itemTemplate={{@values.menu.itemTemplate}}
-    ww:stringifier={{@values.menu.stringifier}} />
+    hidden=true
+    block={{@values.menu.block}}
+    onSelect={{@values.menu.onSelect}}
+    noItemsTemplate={{@values.menu.noItemsTemplate}}
+    itemTemplate={{@values.menu.itemTemplate}}
+    stringifier={{@values.menu.stringifier}} />
 
 </div>

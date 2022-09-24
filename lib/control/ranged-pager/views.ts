@@ -84,17 +84,17 @@ export class RangedPagerView  implements __wml.View {
         ...(((idx === 0)) ?
 (()=>([
 
-        __this.widget(new Link({ww : { 'className' : '-ww-no-decoration' ,'disabled' : true  ,'text' : '…'  }}, [
+        __this.widget(new Link({'className': '-ww-no-decoration','disabled': true ,'text': '…'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : '-ww-no-decoration' ,'disabled' : true  ,'text' : '…'  }})
+     ]),<__wml.Attrs>{'className': '-ww-no-decoration','disabled': true ,'text': '…'})
      ]))() :
 (()=>([
 
-        __this.widget(new Link({ww : { 'className' : '-ww-no-decoration' ,'text' : String(idx) ,'onClick' : () => __context.values.page.onClick(idx)  }}, [
+        __this.widget(new Link({'className': '-ww-no-decoration','text': String(idx),'onClick': () => __context.values.page.onClick(idx)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : '-ww-no-decoration' ,'text' : String(idx) ,'onClick' : () => __context.values.page.onClick(idx)  }})
+     ]),<__wml.Attrs>{'className': '-ww-no-decoration','text': String(idx),'onClick': () => __context.values.page.onClick(idx)})
      ]))())
      ])
      ]), 

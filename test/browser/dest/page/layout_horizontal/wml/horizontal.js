@@ -54,14 +54,14 @@ class Main {
                     ]), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new horizontal_1.HorizontalLayout({ ww: { 'orientation': horizontal_1.HorizontalLayoutOrientation.Left } }, [
+                    __this.widget(new horizontal_1.HorizontalLayout({ 'orientation': horizontal_1.HorizontalLayoutOrientation.Left }, [
                         __document.createTextNode('\u000a      This is oriented to the left.\u000a    ')
-                    ]), { ww: { 'orientation': horizontal_1.HorizontalLayoutOrientation.Left } })
+                    ]), { 'orientation': horizontal_1.HorizontalLayoutOrientation.Left })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new horizontal_1.HorizontalLayout({ ww: { 'orientation': horizontal_1.HorizontalLayoutOrientation.Right } }, [
+                    __this.widget(new horizontal_1.HorizontalLayout({ 'orientation': horizontal_1.HorizontalLayoutOrientation.Right }, [
                         __document.createTextNode('\u000a      This is oriented to the right.\u000a    ')
-                    ]), { ww: { 'orientation': horizontal_1.HorizontalLayoutOrientation.Right } })
+                    ]), { 'orientation': horizontal_1.HorizontalLayoutOrientation.Right })
                 ]), {})
             ]), {});
         };
@@ -129,11 +129,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

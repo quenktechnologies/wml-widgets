@@ -99,10 +99,10 @@ __this.node('button', <__wml.Attrs>{'onclick': __context.values.inc}, [
      ]),
 __this.widget(new Meter({}, [
 
-        __this.widget(new MeterBar({wml : { 'id' : 'single'  },ww : { 'value' : 75 ,'color' : 'yellow'  }}, [
+        __this.widget(new MeterBar({wml : { 'id' : 'single'  },'value': 75,'color': 'yellow'}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'single'  },ww : { 'value' : 75 ,'color' : 'yellow'  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'single'  },'value': 75,'color': 'yellow'})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -118,10 +118,10 @@ __this.widget(new Meter({}, [
         ...__forIn (__context.values.bars, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new MeterBar({ww : { 'value' : v.value ,'color' : v.color  }}, [
+        __this.widget(new MeterBar({'value': v.value,'color': v.color}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'value' : v.value ,'color' : v.color  }})
+     ]),<__wml.Attrs>{'value': v.value,'color': v.color})
      ]), 
 ()=> ([]))
      ]),<__wml.Attrs>{})

@@ -39,9 +39,9 @@ class Main {
         this.template = (__this) => {
             return __this.widget(new grid_1.GridLayout({}, [
                 __this.widget(new grid_1.Row({}, [
-                    __this.widget(new grid_1.Column({ ww: { 'span': __context.values.size } }, [
+                    __this.widget(new grid_1.Column({ 'span': __context.values.size }, [
                         ...(__context.children)
-                    ]), { ww: { 'span': __context.values.size } })
+                    ]), { 'span': __context.values.size })
                 ]), {})
             ]), {});
         };
@@ -109,11 +109,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const PROPERTY_LIST = "ww-property-list";
 /**
  * DataContext
@@ -73,7 +73,7 @@ export declare class DataCtx<D, R extends Record<D>> implements DataContext<D, R
  * PropertyList generates a description list using the properties of
  * an object.
  */
-export declare class PropertyList<D, R extends Record<D>> extends Component<WidgetAttrs<PropertyListAttrs<D, R>>> {
+export declare class PropertyList<D, R extends Record<D>> extends Component<PropertyListAttrs<D, R>> {
     view: View;
     values: {
         root: {

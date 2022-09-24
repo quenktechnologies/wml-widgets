@@ -43,7 +43,7 @@ class Main {
                 __this.node('h1', {}, [
                     __document.createTextNode('Overlay')
                 ]),
-                __this.widget(new overlay_1.Overlay({ wml: { 'id': 'overlay' }, ww: { 'onClick': __context.values.onClick } }, []), { wml: { 'id': 'overlay' }, ww: { 'onClick': __context.values.onClick } })
+                __this.widget(new overlay_1.Overlay({ wml: { 'id': 'overlay' }, 'onClick': __context.values.onClick }, []), { wml: { 'id': 'overlay' }, 'onClick': __context.values.onClick })
             ]), {});
         };
     }
@@ -110,11 +110,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

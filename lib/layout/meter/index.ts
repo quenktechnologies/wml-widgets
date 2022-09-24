@@ -1,9 +1,10 @@
 import * as views from './wml/meter';
+
 import { View, Component } from '@quenk/wml';
+
 import { concat } from '../../util';
 import {
     HTMLElementAttrs,
-    WidgetAttrs,
     getId,
     getClassName
 } from '../../';
@@ -21,7 +22,7 @@ export interface MeterAttrs extends HTMLElementAttrs { }
 /**
  * Meter
  */
-export class Meter extends Component<WidgetAttrs<MeterAttrs>> {
+export class Meter extends Component<MeterAttrs> {
 
     view: View = new views.Meter(this);
 
@@ -55,7 +56,7 @@ export interface MeterBarAttrs extends HTMLElementAttrs {
 /**
  * MeterBar
  */
-export class MeterBar extends Component<WidgetAttrs<MeterBarAttrs>> {
+export class MeterBar extends Component<MeterBarAttrs> {
 
     view: View = new views.MeterBar(this);
 
@@ -65,11 +66,11 @@ export class MeterBar extends Component<WidgetAttrs<MeterBarAttrs>> {
 
         className: concat(METER_BAR, getClassName(this.attrs)),
 
-        value: (this.attrs.ww && this.attrs.ww.value) ?
-            this.attrs.ww.value : 0,
+        value: (this.attrs && this.attrs.value) ?
+            this.attrs.value : 0,
 
-        color: (this.attrs.ww && this.attrs.ww.color) ?
-            this.attrs.ww.color : '',
+        color: (this.attrs && this.attrs.color) ?
+            this.attrs.color : '',
 
         style: () => {
 

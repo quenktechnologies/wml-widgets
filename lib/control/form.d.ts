@@ -2,9 +2,8 @@
  * The form module deals with controls specifically for accepting user input.
  */
 /** imports */
-import { WidgetAttrs } from '../';
-import { FeedbackControlAttrs, FeedbackControl, AbstractFeedbackControl, Message } from './feedback';
 import { View } from '@quenk/wml';
+import { FeedbackControlAttrs, FeedbackControl, AbstractFeedbackControl, Message } from './feedback';
 /**
  * FormControlAtrrs
  */
@@ -28,7 +27,7 @@ export declare abstract class AbstractFormControl<V, A extends FormControlAttrs<
 /**
  * getLabel extracts the label value from FromControlAttrs.
  */
-export declare const getLabel: <V>(attrs: WidgetAttrs<FormControlAttrs<V>>) => string;
+export declare const getLabel: <V>(attrs: FormControlAttrs<V>) => string;
 /**
  * setMessage helper.
  *

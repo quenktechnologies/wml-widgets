@@ -85,10 +85,10 @@ export class Main  implements __wml.View {
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new DisplayField({ww : { 'disabled' : true   }}, [
+        __this.widget(new DisplayField({'disabled': true }, [
 
         __document.createTextNode('Disabled')
-     ]),<__wml.Attrs>{ww : { 'disabled' : true   }})
+     ]),<__wml.Attrs>{'disabled': true })
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

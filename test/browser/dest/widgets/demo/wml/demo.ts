@@ -77,10 +77,10 @@ export class Main  implements __wml.View {
 
         __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : __context.values.size  }}, [
+        __this.widget(new Column({'span': __context.values.size}, [
 
         ...(__context.children)
-     ]),<__wml.Attrs>{ww : { 'span' : __context.values.size  }})
+     ]),<__wml.Attrs>{'span': __context.values.size})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

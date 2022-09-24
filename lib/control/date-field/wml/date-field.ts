@@ -76,18 +76,18 @@ export class Main  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
 
-        __this.widget(new Label({ww : { 'for' : __context.values.root.id ,'text' : __context.values.label.text  }}, [
+        __this.widget(new Label({'for': __context.values.root.id,'text': __context.values.label.text}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'for' : __context.values.root.id ,'text' : __context.values.label.text  }}),
+     ]),<__wml.Attrs>{'for': __context.values.root.id,'text': __context.values.label.text}),
 __this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.input.wml.id  },'name': __context.values.input.wml.id,'onfocus': __context.values.input.onfocus,'oninput': __context.values.input.oninput,'onkeyup': __context.values.input.onkeyup,'onblur': __context.values.input.onblur,'value': __context.values.input.value(),'disabled': __context.values.input.disabled,'class': __context.values.input.className,'placeholder': __context.values.input.placeholder}, [
 
         
      ]),
-__this.widget(new Help({wml : { 'id' : __context.values.messages.wml.id  },ww : { 'text' : __context.values.messages.text  }}, [
+__this.widget(new Help({wml : { 'id' : __context.values.messages.wml.id  },'text': __context.values.messages.text}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages.wml.id  },ww : { 'text' : __context.values.messages.text  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages.wml.id  },'text': __context.values.messages.text})
      ]);
 
        }

@@ -12,7 +12,7 @@
 
     <Row>
 
-      <Column ww:span=4>
+      <Column span=4>
 
         <Thumbnail>
 
@@ -25,9 +25,9 @@
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Thumbnail ww:onClick={{@values.onClick}}>
+        <Thumbnail onClick={{@values.onClick}}>
 
            <img 
             alt="placeholder"
@@ -38,9 +38,9 @@
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Thumbnail ww:href="#">
+        <Thumbnail href="#">
 
            <img 
             alt="placeholder"
@@ -55,7 +55,7 @@
 
     <Row>
 
-      <Column ww:span=4>
+      <Column span=4>
 
         <Thumbnail>
 
@@ -76,9 +76,9 @@
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Thumbnail ww:onClick={{@values.onClick}}>
+        <Thumbnail onClick={{@values.onClick}}>
 
            <img 
             alt="placeholder"
@@ -97,9 +97,9 @@
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Thumbnail ww:href="#">
+        <Thumbnail href="#">
 
            <img 
             alt="placeholder"

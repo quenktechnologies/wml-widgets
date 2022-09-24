@@ -442,7 +442,7 @@ export class PropertyListView <D  ,R extends Record<D  >  >  implements __wml.Vi
 
        
 
-           return __this.widget(new DescriptionList({ww : { 'className' : __context.values.root.className  }}, [
+           return __this.widget(new DescriptionList({'className': __context.values.root.className}, [
 
         ...__forIn (__context.values.fields, (field , _$$i, _$$all)=> 
 ([
@@ -454,7 +454,7 @@ export class PropertyListView <D  ,R extends Record<D  >  >  implements __wml.Vi
 __context.values.data.get(field)
      ]), 
 ()=> ([]))
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.root.className  }});
+     ]),<__wml.Attrs>{'className': __context.values.root.className});
 
        }
 

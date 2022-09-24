@@ -78,10 +78,10 @@ export class PositionView  implements __wml.View {
         __this.node('span', <__wml.Attrs>{}, [
 
         __document.createTextNode('Page '),
-__this.widget(new TextInput({ww : { 'type' : 'number' ,'match' : '[0-9]' ,'value' : String(__context.current) ,'onChange' : __context.onChange  }}, [
+__this.widget(new TextInput({'type': 'number','match': '[0-9]','value': String(__context.current),'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'type' : 'number' ,'match' : '[0-9]' ,'value' : String(__context.current) ,'onChange' : __context.onChange  }}),
+     ]),<__wml.Attrs>{'type': 'number','match': '[0-9]','value': String(__context.current),'onChange': __context.onChange}),
 __document.createTextNode(' of '),
 text (__context.total)
      ])

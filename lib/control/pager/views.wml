@@ -9,10 +9,10 @@
     <li class={{@values.previous.className}}>
 
       <Link
-        ww:className="-ww-no-decoration"
-        ww:text={{@values.previous.text}}
-        ww:disabled={{@values.previous.isDisabled()}}
-        ww:onClick={{@values.previous.onClick}} />
+        className="-ww-no-decoration"
+        text={{@values.previous.text}}
+        disabled={{@values.previous.isDisabled()}}
+        onClick={{@values.previous.onClick}} />
 
     </li>
 
@@ -21,10 +21,10 @@
     <li class={{@values.next.className}}>
 
       <Link
-        ww:className="-ww-no-decoration"
-        ww:text={{@values.next.text}}
-        ww:disabled={{@values.next.isDisabled()}}
-        ww:onClick={{@values.next.onClick}} />
+        className="-ww-no-decoration"
+        text={{@values.next.text}}
+        disabled={{@values.next.isDisabled()}}
+        onClick={{@values.next.onClick}} />
 
     </li>
 

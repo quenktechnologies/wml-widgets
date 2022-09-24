@@ -1,5 +1,5 @@
 import { Component, View, Content } from '@quenk/wml';
-import { HTMLElementAttrs, WidgetAttrs } from '../';
+import { HTMLElementAttrs } from '../';
 export declare const LAYOUT = "-layout";
 /**
  * LayoutAttrs
@@ -24,7 +24,7 @@ export interface Layout {
 /**
  * AbstractLayout provides an implementation of Layout.
  */
-export declare abstract class AbstractLayout<A extends LayoutAttrs> extends Component<WidgetAttrs<A>> implements Layout {
+export declare abstract class AbstractLayout<A extends LayoutAttrs> extends Component<A> implements Layout {
     /**
      * view for the AbstractLayout.
      */

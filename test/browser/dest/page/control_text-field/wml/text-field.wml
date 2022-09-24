@@ -14,10 +14,10 @@
       <p>
         <TextField 
           wml:id="text"
-          ww:name="text"
-          ww:message="This is the help message"
-          ww:focus=true
-          ww:onChange={{@onChange}} />
+          name="text"
+          message="This is the help message"
+          focus=true
+          onChange={{@onChange}} />
       </p>
 
     </Demo>
@@ -30,10 +30,10 @@
       <p>
         <TextField 
           wml:id="success"
-          ww:name="success"
-          ww:label="This is a success label"
-          ww:success="This textfield has a success"
-          ww:onChange={{@onChange}} />
+          name="success"
+          label="This is a success label"
+          success="This textfield has a success"
+          onChange={{@onChange}} />
       </p>
 
     </Demo>
@@ -47,10 +47,10 @@
       <p>
         <TextField 
           wml:id="warning"
-          ww:name="warning"
-          ww:label="This is a warning label"
-          ww:warning="This textfield has a warning."
-          ww:onChange={{@onChange}} />
+          name="warning"
+          label="This is a warning label"
+          warning="This textfield has a warning."
+          onChange={{@onChange}} />
       </p>
 
     </Demo>
@@ -63,10 +63,10 @@
         <p>
           <TextField 
             wml:id="error"
-            ww:name="error"
-            ww:label="This is an error label"
-            ww:error="This textfield has an error."
-            ww:onChange={{@onChange}} />
+            name="error"
+            label="This is an error label"
+            error="This textfield has an error."
+            onChange={{@onChange}} />
         </p>
 
   </Demo>
@@ -78,10 +78,10 @@
       <p>
         <TextField 
           wml:id="area"
-          ww:name="area"
-          ww:rows=5
-          ww:label="This is a textarea label"
-          ww:onChange={{@onChange}} />
+          name="area"
+          rows=5
+          label="This is a textarea label"
+          onChange={{@onChange}} />
       </p>
 
    </Demo>

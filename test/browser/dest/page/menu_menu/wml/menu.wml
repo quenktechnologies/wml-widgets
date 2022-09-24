@@ -19,16 +19,16 @@
         <Item>
         
           <Link
-            ww:disabled=true 
-            ww:text="Back"/>
+            disabled=true 
+            text="Back"/>
 
         </Item>
 
         <Item>
         
           <Link
-            ww:disabled=true
-            ww:text="Refresh"/>
+            disabled=true
+            text="Refresh"/>
             
         </Item>
 

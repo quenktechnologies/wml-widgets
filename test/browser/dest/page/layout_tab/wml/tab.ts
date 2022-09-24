@@ -115,13 +115,13 @@ export class Main  implements __wml.View {
 
            return __this.widget(new Demo({}, [
 
-        __this.widget(new TabLayout({ww : { 'tabs' : __context.tabs ,'active' : 'first'  }}, [
+        __this.widget(new TabLayout({'tabs': __context.tabs,'active': 'first'}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Click a tab to change content.')
      ])
-     ]),<__wml.Attrs>{ww : { 'tabs' : __context.tabs ,'active' : 'first'  }})
+     ]),<__wml.Attrs>{'tabs': __context.tabs,'active': 'first'})
      ]),<__wml.Attrs>{});
 
        }

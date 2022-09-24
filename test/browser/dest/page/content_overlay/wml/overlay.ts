@@ -80,10 +80,10 @@ export class Main  implements __wml.View {
 
         __document.createTextNode('Overlay')
      ]),
-__this.widget(new Overlay({wml : { 'id' : 'overlay'  },ww : { 'onClick' : __context.values.onClick  }}, [
+__this.widget(new Overlay({wml : { 'id' : 'overlay'  },'onClick': __context.values.onClick}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'overlay'  },ww : { 'onClick' : __context.values.onClick  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'overlay'  },'onClick': __context.values.onClick})
      ]),<__wml.Attrs>{});
 
        }

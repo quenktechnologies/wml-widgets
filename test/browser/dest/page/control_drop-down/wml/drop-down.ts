@@ -80,7 +80,7 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropDown({ww : { 'buttonText' : 'Click Me'  }}, [
+        __this.widget(new DropDown({'buttonText': 'Click Me'}, [
 
         __this.widget(new Menu({}, [
 
@@ -110,28 +110,28 @@ __this.widget(new Item({}, [
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Click Me'  }}),
-__this.widget(new DropDown({ww : { 'buttonText' : 'Me Too' ,'autoClose' : false   }}, [
+     ]),<__wml.Attrs>{'buttonText': 'Click Me'}),
+__this.widget(new DropDown({'buttonText': 'Me Too','autoClose': false }, [
 
         __this.node('h1', <__wml.Attrs>{}, [
 
         __document.createTextNode('Any flow content can go here!')
      ])
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Me Too' ,'autoClose' : false   }}),
-__this.widget(new DropDown({ww : { 'buttonText' : 'Can\'t touch this!' ,'disabled' : true   }}, [
+     ]),<__wml.Attrs>{'buttonText': 'Me Too','autoClose': false }),
+__this.widget(new DropDown({'buttonText': 'Can\'t touch this!','disabled': true }, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('You will never see this!')
      ])
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Can\'t touch this!' ,'disabled' : true   }}),
-__this.widget(new DropDown({ww : { 'buttonText' : 'I am an anchor' ,'anchor' : true   }}, [
+     ]),<__wml.Attrs>{'buttonText': 'Can\'t touch this!','disabled': true }),
+__this.widget(new DropDown({'buttonText': 'I am an anchor','anchor': true }, [
 
         __this.node('b', <__wml.Attrs>{}, [
 
         __document.createTextNode('Content')
      ])
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'I am an anchor' ,'anchor' : true   }})
+     ]),<__wml.Attrs>{'buttonText': 'I am an anchor','anchor': true })
      ])
      ]),<__wml.Attrs>{});
 

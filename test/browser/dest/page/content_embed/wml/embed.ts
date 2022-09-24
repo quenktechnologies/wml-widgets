@@ -85,36 +85,36 @@ __this.widget(new GridLayout({}, [
 
         __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 4  }}, [
+        __this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Embed({ww : { 'className' : '-aspect-ratio-16x9'  }}, [
+        __this.widget(new Embed({'className': '-aspect-ratio-16x9'}, [
 
         __this.node('iframe', <__wml.Attrs>{'src': __context.values.jojo,'allow': __context.values.allow}, [
 
         
      ])
-     ]),<__wml.Attrs>{ww : { 'className' : '-aspect-ratio-16x9'  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'className': '-aspect-ratio-16x9'})
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Embed({ww : { 'className' : '-aspect-ratio-4x3'  }}, [
+        __this.widget(new Embed({'className': '-aspect-ratio-4x3'}, [
 
         __this.node('iframe', <__wml.Attrs>{'src': __context.values.win,'allow': __context.values.allow}, [
 
         
      ])
-     ]),<__wml.Attrs>{ww : { 'className' : '-aspect-ratio-4x3'  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'className': '-aspect-ratio-4x3'})
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Embed({ww : { 'className' : '-aspect-ratio-16x9'  }}, [
+        __this.widget(new Embed({'className': '-aspect-ratio-16x9'}, [
 
         __this.node('iframe', <__wml.Attrs>{'src': __context.values.max,'allow': __context.values.allow}, [
 
         
      ])
-     ]),<__wml.Attrs>{ww : { 'className' : '-aspect-ratio-16x9'  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }})
+     ]),<__wml.Attrs>{'className': '-aspect-ratio-16x9'})
+     ]),<__wml.Attrs>{'span': 4})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

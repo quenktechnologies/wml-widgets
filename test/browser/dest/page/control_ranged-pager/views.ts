@@ -91,24 +91,24 @@ export class Main  implements __wml.View {
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Max: \u000a        \u000a        '),
-__this.widget(new TextInput({ww : { 'size' : Size.Small ,'name' : 'max' ,'value' : String(__context.values.max) ,'onChange' : __context.values.onAttrChange  }}, [
+__this.widget(new TextInput({'size': Size.Small,'name': 'max','value': String(__context.values.max),'onChange': __context.values.onAttrChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'size' : Size.Small ,'name' : 'max' ,'value' : String(__context.values.max) ,'onChange' : __context.values.onAttrChange  }}),
+     ]),<__wml.Attrs>{'size': Size.Small,'name': 'max','value': String(__context.values.max),'onChange': __context.values.onAttrChange}),
 __document.createTextNode('\u000a\u000a        Total:\u000a\u000a        '),
-__this.widget(new TextInput({ww : { 'size' : Size.Small ,'name' : 'total' ,'value' : String(__context.values.total) ,'onChange' : __context.values.onAttrChange  }}, [
+__this.widget(new TextInput({'size': Size.Small,'name': 'total','value': String(__context.values.total),'onChange': __context.values.onAttrChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'size' : Size.Small ,'name' : 'total' ,'value' : String(__context.values.total) ,'onChange' : __context.values.onAttrChange  }}),
+     ]),<__wml.Attrs>{'size': Size.Small,'name': 'total','value': String(__context.values.total),'onChange': __context.values.onAttrChange}),
 __document.createTextNode('\u000a\u000a        Current:\u000a\u000a        '),
-__this.widget(new TextInput({ww : { 'size' : Size.Small ,'name' : 'current' ,'value' : String(__context.values.current) ,'onChange' : __context.values.onAttrChange  }}, [
+__this.widget(new TextInput({'size': Size.Small,'name': 'current','value': String(__context.values.current),'onChange': __context.values.onAttrChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'size' : Size.Small ,'name' : 'current' ,'value' : String(__context.values.current) ,'onChange' : __context.values.onAttrChange  }}),
-__this.widget(new Button({ww : { 'text' : 'Go' ,'onClick' : __context.values.reset  }}, [
+     ]),<__wml.Attrs>{'size': Size.Small,'name': 'current','value': String(__context.values.current),'onChange': __context.values.onAttrChange}),
+__this.widget(new Button({'text': 'Go','onClick': __context.values.reset}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'Go' ,'onClick' : __context.values.reset  }})
+     ]),<__wml.Attrs>{'text': 'Go','onClick': __context.values.reset})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),

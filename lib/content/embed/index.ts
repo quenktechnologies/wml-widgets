@@ -1,6 +1,7 @@
 import { View, Component } from '@quenk/wml';
+
 import { concat } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getClassName, getId } from '../../';
+import { HTMLElementAttrs, getClassName, getId } from '../../';
 import { Main } from './wml/embed';
 
 ///classNames:begin
@@ -15,7 +16,7 @@ export interface EmbedAttrs extends HTMLElementAttrs {}
 /**
  * Embed
  */
-export class Embed extends Component<WidgetAttrs<EmbedAttrs>> {
+export class Embed extends Component<EmbedAttrs> {
 
     view: View = new Main(this);
 

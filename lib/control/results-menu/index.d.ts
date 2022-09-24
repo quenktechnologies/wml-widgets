@@ -1,7 +1,6 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 import { View, Component, Content } from '@quenk/wml';
 import { MenuAttrs } from '../../menu/menu';
-import { WidgetAttrs } from '../../';
 import { Event as ControlEvent } from '../';
 export declare const RESULTS_MENU = "ww-results-menu";
 /**
@@ -69,7 +68,7 @@ export declare class ItemSelectedEvent<V> extends ControlEvent<V> {
 /**
  * ResultsMenu used to display results in select styled controls.
  */
-export declare class ResultsMenu<V> extends Component<WidgetAttrs<ResultsMenuAttrs<V>>> {
+export declare class ResultsMenu<V> extends Component<ResultsMenuAttrs<V>> {
     view: View;
     values: {
         wml: {

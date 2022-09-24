@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 import { AbstractLayout } from '../../layout';
 export declare const MODAL = "ww-modal";
 export declare const MODAL_POSITION = "ww-modal__position";
@@ -15,7 +15,7 @@ export interface ModalAttrs extends HTMLElementAttrs {
 /**
  * Modal
  */
-export declare class Modal extends Component<WidgetAttrs<ModalAttrs>> {
+export declare class Modal extends Component<ModalAttrs> {
     view: View;
     values: {
         wml: {

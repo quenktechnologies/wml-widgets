@@ -49,7 +49,7 @@ class Main {
                             __document.createTextNode('Styles')
                         ]),
                         ...__forIn(__context.values.styles, (v, _$$i, _$$all) => ([
-                            __this.widget(new tag_1.Tag({ ww: { 'style': v, 'text': __context.values.capitalize(v), 'name': v, 'onDismiss': __context.values.onDismiss } }, []), { ww: { 'style': v, 'text': __context.values.capitalize(v), 'name': v, 'onDismiss': __context.values.onDismiss } })
+                            __this.widget(new tag_1.Tag({ 'style': v, 'text': __context.values.capitalize(v), 'name': v, 'onDismiss': __context.values.onDismiss }, []), { 'style': v, 'text': __context.values.capitalize(v), 'name': v, 'onDismiss': __context.values.onDismiss })
                         ]), () => ([]))
                     ])
                 ]), {})
@@ -119,11 +119,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

@@ -45,35 +45,35 @@ class Main {
                 ]),
                 __this.node('p', {}, [
                     __document.createTextNode('This is a '),
-                    __this.widget(new link_1.Link({ ww: { 'href': '#link' } }, [
+                    __this.widget(new link_1.Link({ 'href': '#link' }, [
                         __document.createTextNode('link')
-                    ]), { ww: { 'href': '#link' } }),
+                    ]), { 'href': '#link' }),
                     __document.createTextNode('.')
                 ]),
                 __this.node('p', {}, [
                     __document.createTextNode('This is a '),
-                    __this.widget(new link_1.Link({ ww: { 'href': '#disabled', 'disabled': true } }, [
+                    __this.widget(new link_1.Link({ 'href': '#disabled', 'disabled': true }, [
                         __document.createTextNode('disabled')
-                    ]), { ww: { 'href': '#disabled', 'disabled': true } }),
+                    ]), { 'href': '#disabled', 'disabled': true }),
                     __document.createTextNode(' link.')
                 ]),
                 __this.node('p', {}, [
                     __document.createTextNode('Links can also '),
-                    __this.widget(new link_1.Link({ ww: { 'text': 'specify' } }, []), { ww: { 'text': 'specify' } }),
+                    __this.widget(new link_1.Link({ 'text': 'specify' }, []), { 'text': 'specify' }),
                     __document.createTextNode(' contents a the text attribute')
                 ]),
                 __this.node('p', {}, [
                     __document.createTextNode('Links can also have '),
-                    __this.widget(new link_1.Link({ ww: { 'onClick': __context.values.onClick, 'text': 'handlers' } }, []), { ww: { 'onClick': __context.values.onClick, 'text': 'handlers' } })
+                    __this.widget(new link_1.Link({ 'onClick': __context.values.onClick, 'text': 'handlers' }, []), { 'onClick': __context.values.onClick, 'text': 'handlers' })
                 ]),
                 __this.node('p', {}, [
                     __document.createTextNode('Disabled link '),
-                    __this.widget(new link_1.Link({ ww: { 'onClick': __context.values.onClick, 'disabled': true, 'text': 'handlers' } }, []), { ww: { 'onClick': __context.values.onClick, 'disabled': true, 'text': 'handlers' } }),
+                    __this.widget(new link_1.Link({ 'onClick': __context.values.onClick, 'disabled': true, 'text': 'handlers' }, []), { 'onClick': __context.values.onClick, 'disabled': true, 'text': 'handlers' }),
                     __document.createTextNode('\u000a     do nothing. \u000a  ')
                 ]),
                 __this.node('p', {}, [
                     __document.createTextNode('You can remove the underline using the \u000a     '),
-                    __this.widget(new link_1.Link({ ww: { 'text': '-ww-no-decoration', 'className': '-ww-no-decoration' } }, []), { ww: { 'text': '-ww-no-decoration', 'className': '-ww-no-decoration' } }),
+                    __this.widget(new link_1.Link({ 'text': '-ww-no-decoration', 'className': '-ww-no-decoration' }, []), { 'text': '-ww-no-decoration', 'className': '-ww-no-decoration' }),
                     __document.createTextNode(' modifier.\u000a  ')
                 ])
             ]), {});
@@ -142,11 +142,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

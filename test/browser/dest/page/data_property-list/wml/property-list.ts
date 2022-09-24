@@ -262,10 +262,10 @@ export class Main  implements __wml.View {
 
         __this.widget(new Demo({}, [
 
-        __this.widget(new PropertyList({ww : { 'fields' : __context.fields ,'data' : __context.data  }}, [
+        __this.widget(new PropertyList({'fields': __context.fields,'data': __context.data}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'fields' : __context.fields ,'data' : __context.data  }})
+     ]),<__wml.Attrs>{'fields': __context.fields,'data': __context.data})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

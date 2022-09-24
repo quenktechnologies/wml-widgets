@@ -49,7 +49,7 @@ class Main {
                             __document.createTextNode('Styles')
                         ]),
                         ...__forIn(__context.values.styles, (v, _$$i, _$$all) => ([
-                            __this.widget(new alert_1.Alert({ ww: { 'style': v, 'closable': true, 'text': __context.values.capitalize(v) } }, []), { ww: { 'style': v, 'closable': true, 'text': __context.values.capitalize(v) } })
+                            __this.widget(new alert_1.Alert({ 'style': v, 'closable': true, 'text': __context.values.capitalize(v) }, []), { 'style': v, 'closable': true, 'text': __context.values.capitalize(v) })
                         ]), () => ([]))
                     ])
                 ]), {})
@@ -119,11 +119,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

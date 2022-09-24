@@ -77,18 +77,18 @@ export class Main  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{wml : { 'id' : __context.values.root.wml.id  },'class': __context.values.root.className}, [
 
-        __this.widget(new Label({ww : { 'for' : __context.values.control.id ,'text' : __context.values.label.text  }}, [
+        __this.widget(new Label({'for': __context.values.control.attrs.id,'text': __context.values.label.text}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'for' : __context.values.control.id ,'text' : __context.values.label.text  }}),
-__this.widget(new TextInput({ww : { 'id' : __context.values.control.id ,'name' : __context.values.control.name ,'focus' : __context.values.control.focus ,'placeholder' : __context.values.control.placeholder ,'onChange' : __context.values.control.onChange ,'block' : true  ,'type' : __context.values.control.type ,'min' : __context.values.control.min ,'max' : __context.values.control.max ,'match' : __context.values.control.match ,'length' : __context.values.control.length ,'value' : __context.values.control.value ,'rows' : __context.values.control.rows ,'disabled' : __context.values.control.disabled ,'readOnly' : __context.values.control.readOnly  }}, [
+     ]),<__wml.Attrs>{'for': __context.values.control.attrs.id,'text': __context.values.label.text}),
+__this.widget(new TextInput(__context.values.control.attrs, [
 
         
-     ]),<__wml.Attrs>{ww : { 'id' : __context.values.control.id ,'name' : __context.values.control.name ,'focus' : __context.values.control.focus ,'placeholder' : __context.values.control.placeholder ,'onChange' : __context.values.control.onChange ,'block' : true  ,'type' : __context.values.control.type ,'min' : __context.values.control.min ,'max' : __context.values.control.max ,'match' : __context.values.control.match ,'length' : __context.values.control.length ,'value' : __context.values.control.value ,'rows' : __context.values.control.rows ,'disabled' : __context.values.control.disabled ,'readOnly' : __context.values.control.readOnly  }}),
-__this.widget(new Help({wml : { 'id' : __context.values.messages.wml.id  },ww : { 'text' : __context.values.messages.text  }}, [
+     ]),<__wml.Attrs>__context.values.control.attrs),
+__this.widget(new Help({wml : { 'id' : __context.values.messages.wml.id  },'text': __context.values.messages.text}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages.wml.id  },ww : { 'text' : __context.values.messages.text  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages.wml.id  },'text': __context.values.messages.text})
      ]);
 
        }

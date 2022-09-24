@@ -53,7 +53,7 @@
   <Demo>
     <p>
       <InputGroup>
-        <AddOn button=true><Button ww:text="Find"/></Addon>
+        <AddOn button=true><Button text="Find"/></Addon>
         <TextInput/>
       </InputGroup>
     </p>
@@ -63,7 +63,7 @@
     <p>
       <InputGroup>
         <TextInput/>
-        <AddOn button=true><Button ww:text="Find"/></Addon>
+        <AddOn button=true><Button text="Find"/></Addon>
       </InputGroup>
     </p>
   </Demo>
@@ -73,7 +73,7 @@
       <InputGroup>
         <AddOn button=true>
           
-          <DropDown ww:buttonText="Click Me">
+          <DropDown buttonText="Click Me">
 
             <Menu>
 
@@ -104,7 +104,7 @@
       <InputGroup>
         <TextInput/>
         <AddOn button=true>
-          <DropDown ww:buttonText="Click Me">
+          <DropDown buttonText="Click Me">
 
             <Menu>
 
@@ -133,7 +133,7 @@
     <p>
       <InputGroup>
         <AddOn button=true>
-          <DropList ww:options={{@values.dropList.options}} />
+          <DropList options={{@values.dropList.options}} />
         </Addon>
         <TextInput/>
       </InputGroup>

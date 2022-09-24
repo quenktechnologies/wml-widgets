@@ -56,7 +56,7 @@ class Main {
                         ])
                     ]),
                     __this.widget(new meter_1.Meter({}, [
-                        __this.widget(new meter_1.MeterBar({ wml: { 'id': 'single' }, ww: { 'value': 75, 'color': 'yellow' } }, []), { wml: { 'id': 'single' }, ww: { 'value': 75, 'color': 'yellow' } })
+                        __this.widget(new meter_1.MeterBar({ wml: { 'id': 'single' }, 'value': 75, 'color': 'yellow' }, []), { wml: { 'id': 'single' }, 'value': 75, 'color': 'yellow' })
                     ]), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -66,7 +66,7 @@ class Main {
                         ]),
                         __this.widget(new meter_1.Meter({}, [
                             ...__forIn(__context.values.bars, (v, _$$i, _$$all) => ([
-                                __this.widget(new meter_1.MeterBar({ ww: { 'value': v.value, 'color': v.color } }, []), { ww: { 'value': v.value, 'color': v.color } })
+                                __this.widget(new meter_1.MeterBar({ 'value': v.value, 'color': v.color }, []), { 'value': v.value, 'color': v.color })
                             ]), () => ([]))
                         ]), {})
                     ])
@@ -137,11 +137,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

@@ -80,20 +80,20 @@ export class Navigation  implements __wml.View {
 
         __this.widget(new Item({}, [
 
-        __this.widget(new Link({wml : { 'group' : 'links'  },ww : { 'active' : (__context.page === 'home') ,'name' : 'home' ,'href' : '#' ,'onClick' : __context.navigate ,'text' : 'Home'  }}, [
+        __this.widget(new Link({wml : { 'group' : 'links'  },'active': (__context.page === 'home'),'name': 'home','href': '#','onClick': __context.navigate,'text': 'Home'}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'group' : 'links'  },ww : { 'active' : (__context.page === 'home') ,'name' : 'home' ,'href' : '#' ,'onClick' : __context.navigate ,'text' : 'Home'  }})
+     ]),<__wml.Attrs>{wml : { 'group' : 'links'  },'active': (__context.page === 'home'),'name': 'home','href': '#','onClick': __context.navigate,'text': 'Home'})
      ]),<__wml.Attrs>{}),
 ...__forOf (__context.pages, (items , section , _$$all) => 
        ([
 
         __this.widget(new Item({}, [
 
-        __this.widget(new MenuHeader({ww : { 'text' : section  }}, [
+        __this.widget(new MenuHeader({'text': section}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : section  }}),
+     ]),<__wml.Attrs>{'text': section}),
 __this.widget(new NavMenu({'vertical': true }, [
 
         ...__forOf (items, (_ , name , _$$all) => 
@@ -101,10 +101,10 @@ __this.widget(new NavMenu({'vertical': true }, [
 
         __this.widget(new Item({}, [
 
-        __this.widget(new Link({wml : { 'group' : 'links'  },ww : { 'name' : name ,'href' : ('#/' + name) ,'onClick' : __context.navigate ,'active' : (__context.page === name) ,'text' : name  }}, [
+        __this.widget(new Link({wml : { 'group' : 'links'  },'name': name,'href': ('#/' + name),'onClick': __context.navigate,'active': (__context.page === name),'text': name}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'group' : 'links'  },ww : { 'name' : name ,'href' : ('#/' + name) ,'onClick' : __context.navigate ,'active' : (__context.page === name) ,'text' : name  }})
+     ]),<__wml.Attrs>{wml : { 'group' : 'links'  },'name': name,'href': ('#/' + name),'onClick': __context.navigate,'active': (__context.page === name),'text': name})
      ]),<__wml.Attrs>{})
      ]), 
     ()=> ([]))

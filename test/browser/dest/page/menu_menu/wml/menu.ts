@@ -89,17 +89,17 @@ export class Main  implements __wml.View {
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'disabled' : true  ,'text' : 'Back'  }}, [
+        __this.widget(new Link({'disabled': true ,'text': 'Back'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'disabled' : true  ,'text' : 'Back'  }})
+     ]),<__wml.Attrs>{'disabled': true ,'text': 'Back'})
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.widget(new Link({ww : { 'disabled' : true  ,'text' : 'Refresh'  }}, [
+        __this.widget(new Link({'disabled': true ,'text': 'Refresh'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'disabled' : true  ,'text' : 'Refresh'  }})
+     ]),<__wml.Attrs>{'disabled': true ,'text': 'Refresh'})
      ]),<__wml.Attrs>{}),
 __this.widget(new Divider({}, [
 

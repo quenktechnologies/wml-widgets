@@ -77,18 +77,18 @@ export class Main <V  >  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{'id': __context.values.root.id,'class': __context.values.root.className}, [
 
-        __this.widget(new Label({ww : { 'for' : __context.values.root.id ,'text' : __context.values.label.text  }}, [
+        __this.widget(new Label({'for': __context.values.root.id,'text': __context.values.label.text}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'for' : __context.values.root.id ,'text' : __context.values.label.text  }}),
-__this.widget(new Search({wml : { 'id' : __context.values.search.wml.id  },ww : { 'name' : __context.values.search.name ,'className' : __context.values.search.className ,'block' : __context.values.search.block ,'disabled' : __context.values.search.disabled ,'placeholder' : __context.values.search.placeholder ,'readOnly' : __context.values.search.readOnly ,'itemTemplate' : __context.values.search.itemTemplate ,'noItemsTemplate' : __context.values.search.noItemsTemplate ,'stringifier' : __context.values.search.stringifier ,'onSearch' : __context.values.search.onSearch ,'onSelect' : __context.values.search.onSelect  }}, [
+     ]),<__wml.Attrs>{'for': __context.values.root.id,'text': __context.values.label.text}),
+__this.widget(new Search({wml : { 'id' : __context.values.search.wml.id  },'name': __context.values.search.name,'className': __context.values.search.className,'block': __context.values.search.block,'disabled': __context.values.search.disabled,'placeholder': __context.values.search.placeholder,'readOnly': __context.values.search.readOnly,'itemTemplate': __context.values.search.itemTemplate,'noItemsTemplate': __context.values.search.noItemsTemplate,'stringifier': __context.values.search.stringifier,'onSearch': __context.values.search.onSearch,'onSelect': __context.values.search.onSelect}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.search.wml.id  },ww : { 'name' : __context.values.search.name ,'className' : __context.values.search.className ,'block' : __context.values.search.block ,'disabled' : __context.values.search.disabled ,'placeholder' : __context.values.search.placeholder ,'readOnly' : __context.values.search.readOnly ,'itemTemplate' : __context.values.search.itemTemplate ,'noItemsTemplate' : __context.values.search.noItemsTemplate ,'stringifier' : __context.values.search.stringifier ,'onSearch' : __context.values.search.onSearch ,'onSelect' : __context.values.search.onSelect  }}),
-__this.widget(new Help({wml : { 'id' : __context.values.messages.wml.id  },ww : { 'text' : __context.values.messages.text  }}, [
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.search.wml.id  },'name': __context.values.search.name,'className': __context.values.search.className,'block': __context.values.search.block,'disabled': __context.values.search.disabled,'placeholder': __context.values.search.placeholder,'readOnly': __context.values.search.readOnly,'itemTemplate': __context.values.search.itemTemplate,'noItemsTemplate': __context.values.search.noItemsTemplate,'stringifier': __context.values.search.stringifier,'onSearch': __context.values.search.onSearch,'onSelect': __context.values.search.onSelect}),
+__this.widget(new Help({wml : { 'id' : __context.values.messages.wml.id  },'text': __context.values.messages.text}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages.wml.id  },ww : { 'text' : __context.values.messages.text  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.messages.wml.id  },'text': __context.values.messages.text})
      ]);
 
        }

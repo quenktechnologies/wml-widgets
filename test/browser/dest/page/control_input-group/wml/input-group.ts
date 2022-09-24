@@ -165,10 +165,10 @@ __this.widget(new Demo({}, [
 
         __this.widget(new AddOn({'button': true }, [
 
-        __this.widget(new Button({ww : { 'text' : 'Find'  }}, [
+        __this.widget(new Button({'text': 'Find'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'Find'  }})
+     ]),<__wml.Attrs>{'text': 'Find'})
      ]),<__wml.Attrs>{'button': true }),
 __this.widget(new TextInput({}, [
 
@@ -189,10 +189,10 @@ __this.widget(new Demo({}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new AddOn({'button': true }, [
 
-        __this.widget(new Button({ww : { 'text' : 'Find'  }}, [
+        __this.widget(new Button({'text': 'Find'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'Find'  }})
+     ]),<__wml.Attrs>{'text': 'Find'})
      ]),<__wml.Attrs>{'button': true })
      ]),<__wml.Attrs>{})
      ])
@@ -205,7 +205,7 @@ __this.widget(new Demo({}, [
 
         __this.widget(new AddOn({'button': true }, [
 
-        __this.widget(new DropDown({ww : { 'buttonText' : 'Click Me'  }}, [
+        __this.widget(new DropDown({'buttonText': 'Click Me'}, [
 
         __this.widget(new Menu({}, [
 
@@ -231,7 +231,7 @@ __this.widget(new Item({}, [
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Click Me'  }})
+     ]),<__wml.Attrs>{'buttonText': 'Click Me'})
      ]),<__wml.Attrs>{'button': true }),
 __this.widget(new TextInput({}, [
 
@@ -252,7 +252,7 @@ __this.widget(new Demo({}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new AddOn({'button': true }, [
 
-        __this.widget(new DropDown({ww : { 'buttonText' : 'Click Me'  }}, [
+        __this.widget(new DropDown({'buttonText': 'Click Me'}, [
 
         __this.widget(new Menu({}, [
 
@@ -278,7 +278,7 @@ __this.widget(new Item({}, [
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'Click Me'  }})
+     ]),<__wml.Attrs>{'buttonText': 'Click Me'})
      ]),<__wml.Attrs>{'button': true })
      ]),<__wml.Attrs>{})
      ])
@@ -291,10 +291,10 @@ __this.widget(new Demo({}, [
 
         __this.widget(new AddOn({'button': true }, [
 
-        __this.widget(new DropList({ww : { 'options' : __context.values.dropList.options  }}, [
+        __this.widget(new DropList({'options': __context.values.dropList.options}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'options' : __context.values.dropList.options  }})
+     ]),<__wml.Attrs>{'options': __context.values.dropList.options})
      ]),<__wml.Attrs>{'button': true }),
 __this.widget(new TextInput({}, [
 

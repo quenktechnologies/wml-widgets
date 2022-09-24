@@ -60,11 +60,11 @@ export class FileInput
 
         name: getName(this.attrs),
 
-        accept: (this.attrs.ww && this.attrs.ww.accept) ?
-            this.attrs.ww.accept : '',
+        accept: (this.attrs && this.attrs.accept) ?
+            this.attrs.accept : '',
 
-        multiple: (this.attrs.ww && this.attrs.ww.multiple) ?
-            this.attrs.ww.multiple : undefined,
+        multiple: (this.attrs && this.attrs.multiple) ?
+            this.attrs.multiple : undefined,
 
         change: (e: Event) => {
 
@@ -72,10 +72,10 @@ export class FileInput
 
             if ((input.files != null) &&
                 (input.files.length > 0) &&
-                this.attrs.ww &&
-                this.attrs.ww.onChange) {
+                this.attrs &&
+                this.attrs.onChange) {
 
-                this.attrs.ww.onChange
+                this.attrs.onChange
                     (new FileChangedEvent(input.name, list2Array(input.files)));
 
             }

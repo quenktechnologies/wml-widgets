@@ -91,10 +91,10 @@ __this.node('p', <__wml.Attrs>{}, [
 ...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Alert({ww : { 'style' : v ,'closable' : true  ,'text' : __context.values.capitalize (v)  }}, [
+        __this.widget(new Alert({'style': v,'closable': true ,'text': __context.values.capitalize (v)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'style' : v ,'closable' : true  ,'text' : __context.values.capitalize (v)  }})
+     ]),<__wml.Attrs>{'style': v,'closable': true ,'text': __context.values.capitalize (v)})
      ]), 
 ()=> ([]))
      ])

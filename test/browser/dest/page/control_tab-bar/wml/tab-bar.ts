@@ -80,37 +80,37 @@ export class Main  implements __wml.View {
 
         __this.widget(new TabBar({}, [
 
-        __this.widget(new Tab({ww : { 'active' : (__context.tab === 'First') ,'text' : 'First' ,'name' : 'First' ,'onClick' : __context.clicked  }}, [
+        __this.widget(new Tab({'active': (__context.tab === 'First'),'text': 'First','name': 'First','onClick': __context.clicked}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'active' : (__context.tab === 'First') ,'text' : 'First' ,'name' : 'First' ,'onClick' : __context.clicked  }}),
-__this.widget(new Tab({ww : { 'active' : (__context.tab === 'Second') ,'text' : 'Second' ,'name' : 'Second' ,'onClick' : __context.clicked  }}, [
+     ]),<__wml.Attrs>{'active': (__context.tab === 'First'),'text': 'First','name': 'First','onClick': __context.clicked}),
+__this.widget(new Tab({'active': (__context.tab === 'Second'),'text': 'Second','name': 'Second','onClick': __context.clicked}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'active' : (__context.tab === 'Second') ,'text' : 'Second' ,'name' : 'Second' ,'onClick' : __context.clicked  }}),
-__this.widget(new Tab({ww : { 'active' : (__context.tab === 'Third') ,'text' : 'Third' ,'name' : 'Third' ,'onClick' : __context.clicked  }}, [
+     ]),<__wml.Attrs>{'active': (__context.tab === 'Second'),'text': 'Second','name': 'Second','onClick': __context.clicked}),
+__this.widget(new Tab({'active': (__context.tab === 'Third'),'text': 'Third','name': 'Third','onClick': __context.clicked}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'active' : (__context.tab === 'Third') ,'text' : 'Third' ,'name' : 'Third' ,'onClick' : __context.clicked  }})
+     ]),<__wml.Attrs>{'active': (__context.tab === 'Third'),'text': 'Third','name': 'Third','onClick': __context.clicked})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new TabBar({ww : { 'justify' : true   }}, [
+        __this.widget(new TabBar({'justify': true }, [
 
-        __this.widget(new Tab({ww : { 'active' : (__context.tab === 'First') ,'text' : 'First' ,'name' : 'First' ,'onClick' : __context.clicked  }}, [
-
-        
-     ]),<__wml.Attrs>{ww : { 'active' : (__context.tab === 'First') ,'text' : 'First' ,'name' : 'First' ,'onClick' : __context.clicked  }}),
-__this.widget(new Tab({ww : { 'active' : (__context.tab === 'Second') ,'text' : 'Second' ,'name' : 'Second' ,'onClick' : __context.clicked  }}, [
+        __this.widget(new Tab({'active': (__context.tab === 'First'),'text': 'First','name': 'First','onClick': __context.clicked}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'active' : (__context.tab === 'Second') ,'text' : 'Second' ,'name' : 'Second' ,'onClick' : __context.clicked  }}),
-__this.widget(new Tab({ww : { 'active' : (__context.tab === 'Third') ,'text' : 'Third' ,'name' : 'Third' ,'onClick' : __context.clicked  }}, [
+     ]),<__wml.Attrs>{'active': (__context.tab === 'First'),'text': 'First','name': 'First','onClick': __context.clicked}),
+__this.widget(new Tab({'active': (__context.tab === 'Second'),'text': 'Second','name': 'Second','onClick': __context.clicked}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'active' : (__context.tab === 'Third') ,'text' : 'Third' ,'name' : 'Third' ,'onClick' : __context.clicked  }})
-     ]),<__wml.Attrs>{ww : { 'justify' : true   }})
+     ]),<__wml.Attrs>{'active': (__context.tab === 'Second'),'text': 'Second','name': 'Second','onClick': __context.clicked}),
+__this.widget(new Tab({'active': (__context.tab === 'Third'),'text': 'Third','name': 'Third','onClick': __context.clicked}, [
+
+        
+     ]),<__wml.Attrs>{'active': (__context.tab === 'Third'),'text': 'Third','name': 'Third','onClick': __context.clicked})
+     ]),<__wml.Attrs>{'justify': true })
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 

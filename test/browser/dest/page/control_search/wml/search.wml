@@ -12,10 +12,10 @@
     
       <Search 
         wml:id={{@values.id}}
-        ww:name={{@values.name}}
-        ww:stringifier={{@values.stringifier}}
-        ww:onSearch={{@values.onSearch}}
-        ww:onSelect={{@values.onSelect}} />
+        name={{@values.name}}
+        stringifier={{@values.stringifier}}
+        onSearch={{@values.onSearch}}
+        onSelect={{@values.onSelect}} />
 
     </p>
 
@@ -27,11 +27,11 @@
 
       <Search 
         wml:id={{@values.id2}}
-        ww:name={{@values.name2}}
-        ww:block=true
-        ww:stringifier={{@values.stringifier}}
-        ww:onSearch={{@values.onSearch}}
-        ww:onSelect={{@values.onSelect}} />
+        name={{@values.name2}}
+        block=true
+        stringifier={{@values.stringifier}}
+        onSearch={{@values.onSearch}}
+        onSelect={{@values.onSelect}} />
 
     </p>
 
@@ -44,10 +44,10 @@
     <p>
 
       <Search 
-        ww:disabled=true
-        ww:stringifier={{@values.stringifier}}
-        ww:onSearch={{@values.onSearch}}
-        ww:onSelect={{@values.onSelect}} />
+        disabled=true
+        stringifier={{@values.stringifier}}
+        onSearch={{@values.onSearch}}
+        onSelect={{@values.onSelect}} />
 
     </p>
 

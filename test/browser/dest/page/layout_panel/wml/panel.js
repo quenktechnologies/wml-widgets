@@ -44,25 +44,25 @@ class Main {
             return __this.widget(new grid_1.GridLayout({}, [
                 ...__forIn(style_1.styles, (style, _$$i, _$$all) => ([
                     __this.widget(new grid_1.Row({}, [
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new panel_1.Panel({ 'style': style }, [
                                 __this.widget(new panel_1.PanelBody({}, [
                                     __document.createTextNode('\u000a            PanelBody only.\u000a          ')
                                 ]), {})
-                            ]), { ww: { 'style': style } })
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
+                            ]), { 'style': style })
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new panel_1.Panel({ 'style': style }, [
                                 __this.widget(new panel_1.PanelHeader({}, [
                                     __document.createTextNode('\u000a            With PanelHeader\u000a          ')
                                 ]), {}),
                                 __this.widget(new panel_1.PanelBody({}, [
                                     __document.createTextNode('\u000a            Lorem impsum dilium net set.\u000a          ')
                                 ]), {})
-                            ]), { ww: { 'style': style } })
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new panel_1.Panel({ ww: { 'style': style } }, [
+                            ]), { 'style': style })
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new panel_1.Panel({ 'style': style }, [
                                 __this.widget(new panel_1.PanelHeader({}, [
                                     __document.createTextNode('With PanelFooter')
                                 ]), {}),
@@ -72,8 +72,8 @@ class Main {
                                 __this.widget(new panel_1.PanelFooter({}, [
                                     __document.createTextNode('Meh foot.')
                                 ]), {})
-                            ]), { ww: { 'style': style } })
-                        ]), { ww: { 'span': 4 } })
+                            ]), { 'style': style })
+                        ]), { 'span': 4 })
                     ]), {})
                 ]), () => ([]))
             ]), {});
@@ -142,11 +142,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

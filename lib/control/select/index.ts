@@ -1,6 +1,8 @@
 import * as views from './wml/select';
+
 import { View } from '@quenk/wml';
 import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
+
 import { getBlockClassName } from '../../content/orientation';
 import { concat, getById } from '../../util';
 import {
@@ -15,7 +17,7 @@ import {
     removeMessage,
     setMessage
 } from '../form';
-import { WidgetAttrs, getId, getClassName } from '../../';
+import { getId, getClassName } from '../../';
 import { Event as ControlEvent, getName } from '../';
 import {
     TermChangedEvent,
@@ -131,7 +133,7 @@ export class ItemUnsetEvent extends ControlEvent<undefined> {
  */
 export class RootSection<V> {
 
-    constructor(public attrs: WidgetAttrs<CommonSelectAttrs<V>>) { }
+    constructor(public attrs: CommonSelectAttrs<V>) { }
 
     public wml = { id: 'root' };
 
@@ -160,7 +162,7 @@ export class ControlSection {
  */
 export class MessagesSection<V> {
 
-    constructor(public attrs: WidgetAttrs<FormControlAttrs<V>>) { }
+    constructor(public attrs: FormControlAttrs<V>) { }
 
     public wml = { id: 'message' };
 
@@ -173,7 +175,7 @@ export class MessagesSection<V> {
  */
 export class LabelSection<V> {
 
-    constructor(public attrs: WidgetAttrs<FormControlAttrs<V>>) { }
+    constructor(public attrs: FormControlAttrs<V>) { }
 
     public id = getName(this.attrs);
 
@@ -186,7 +188,7 @@ export class LabelSection<V> {
  */
 export class InputSection {
 
-    constructor(public attrs: WidgetAttrs<object>) { }
+    constructor(public attrs: object) { }
 
     public wml = { id: 'input' };
 
@@ -198,7 +200,7 @@ export class InputSection {
 export class SearchSection<V> {
 
     constructor(
-        public attrs: WidgetAttrs<CommonSelectAttrs<V>>,
+        public attrs: CommonSelectAttrs<V>,
         public close: () => void,
         public onSelect: (e: ItemSelectedEvent<V>) => void) { }
 
@@ -206,33 +208,33 @@ export class SearchSection<V> {
 
     public name = getName(this.attrs);
 
-    public className = (this.attrs.ww && this.attrs.ww.inputClassName) ?
-        this.attrs.ww.inputClassName : '';
+    public className = (this.attrs && this.attrs.inputClassName) ?
+        this.attrs.inputClassName : '';
 
-    public placeholder = (this.attrs.ww && this.attrs.ww.placeholder) ?
-        this.attrs.ww.placeholder : '';
+    public placeholder = (this.attrs && this.attrs.placeholder) ?
+        this.attrs.placeholder : '';
 
-    public block = (this.attrs.ww && this.attrs.ww.block) ?
-        this.attrs.ww.block : false;
+    public block = (this.attrs && this.attrs.block) ?
+        this.attrs.block : false;
 
-    public value = (this.attrs.ww && this.attrs.ww.value) ?
-        this.attrs.ww.value : undefined;
+    public value = (this.attrs && this.attrs.value) ?
+        this.attrs.value : undefined;
 
-    public readOnly = (this.attrs.ww && this.attrs.ww.readOnly);
+    public readOnly = (this.attrs && this.attrs.readOnly);
 
-    public disabled = (this.attrs.ww && this.attrs.ww.disabled);
+    public disabled = (this.attrs && this.attrs.disabled);
 
-    public itemTemplate = (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-        this.attrs.ww.itemTemplate : undefined;
+    public itemTemplate = (this.attrs && this.attrs.itemTemplate) ?
+        this.attrs.itemTemplate : undefined;
 
-    public noItemsTemplate = (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-        this.attrs.ww.noItemsTemplate : undefined;
+    public noItemsTemplate = (this.attrs && this.attrs.noItemsTemplate) ?
+        this.attrs.noItemsTemplate : undefined;
 
-    public stringifier = (this.attrs.ww && this.attrs.ww.stringifier) ?
-        this.attrs.ww.stringifier : undefined;
+    public stringifier = (this.attrs && this.attrs.stringifier) ?
+        this.attrs.stringifier : undefined;
 
-    public onSearch = (this.attrs.ww && this.attrs.ww.onSearch) ?
-        this.attrs.ww.onSearch : () => { };
+    public onSearch = (this.attrs && this.attrs.onSearch) ?
+        this.attrs.onSearch : () => { };
 
 }
 
@@ -265,9 +267,9 @@ export class Select<V>
 
                 this.values.tag.value = just(e.value);
 
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(new ItemChangedEvent(
-                        '' + this.attrs.ww.name, e.value));
+                if (this.attrs && this.attrs.onChange)
+                    this.attrs.onChange(new ItemChangedEvent(
+                        '' + this.attrs.name, e.value));
 
                 this.view.invalidate();
 
@@ -277,19 +279,19 @@ export class Select<V>
 
             className: getValidityClassName(this.attrs),
 
-            value: <Maybe<V>>((this.attrs.ww &&
-                (this.attrs.ww.value != undefined)) ?
-                just(this.attrs.ww.value) : nothing()),
+            value: <Maybe<V>>((this.attrs &&
+                (this.attrs.value != undefined)) ?
+                just(this.attrs.value) : nothing()),
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : false,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : false,
 
             isSet: () => this.values.tag.value.isJust(),
 
             getText: () => {
 
-                if (this.attrs.ww && this.attrs.ww.stringifier)
-                    return this.attrs.ww.stringifier(
+                if (this.attrs && this.attrs.stringifier)
+                    return this.attrs.stringifier(
                         this.values.tag.value.get());
 
                 return '';
@@ -300,9 +302,9 @@ export class Select<V>
 
                 this.values.tag.value = nothing();
 
-                if (this.attrs.ww && this.attrs.ww.onUnset)
-                    this.attrs.ww.onUnset(
-                        new ItemUnsetEvent(this.attrs.ww.name + ''));
+                if (this.attrs && this.attrs.onUnset)
+                    this.attrs.onUnset(
+                        new ItemUnsetEvent(this.attrs.name + ''));
 
                 this.view.invalidate();
 

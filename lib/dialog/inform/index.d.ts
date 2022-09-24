@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const INFORM = "ww-inform";
 export declare const INFORM_OK = "ww-inform__ok";
 /**
@@ -22,7 +22,7 @@ export interface InformAttrs extends HTMLElementAttrs {
 /**
  * Inform displays a message to the user.
  */
-export declare class Inform extends Component<WidgetAttrs<InformAttrs>> {
+export declare class Inform extends Component<InformAttrs> {
     view: View;
     values: {
         id: string;

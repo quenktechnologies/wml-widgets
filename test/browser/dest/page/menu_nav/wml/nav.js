@@ -50,13 +50,13 @@ class Main {
                     ]),
                     __this.widget(new nav_1.NavMenu({}, [
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ ww: { 'text': 'Home' } }, []), { ww: { 'text': 'Home' } })
+                            __this.widget(new link_1.Link({ 'text': 'Home' }, []), { 'text': 'Home' })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ ww: { 'disabled': true, 'text': 'Users' } }, []), { ww: { 'disabled': true, 'text': 'Users' } })
+                            __this.widget(new link_1.Link({ 'disabled': true, 'text': 'Users' }, []), { 'disabled': true, 'text': 'Users' })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ ww: { 'text': 'Logout' } }, []), { ww: { 'text': 'Logout' } })
+                            __this.widget(new link_1.Link({ 'text': 'Logout' }, []), { 'text': 'Logout' })
                         ]), {})
                     ]), {})
                 ]), {}),
@@ -66,13 +66,13 @@ class Main {
                     ]),
                     __this.widget(new nav_1.NavMenu({ 'vertical': true }, [
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ ww: { 'text': 'Home' } }, []), { ww: { 'text': 'Home' } })
+                            __this.widget(new link_1.Link({ 'text': 'Home' }, []), { 'text': 'Home' })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ ww: { 'disabled': true, 'text': 'Users' } }, []), { ww: { 'disabled': true, 'text': 'Users' } })
+                            __this.widget(new link_1.Link({ 'disabled': true, 'text': 'Users' }, []), { 'disabled': true, 'text': 'Users' })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ ww: { 'text': 'Logout' } }, []), { ww: { 'text': 'Logout' } })
+                            __this.widget(new link_1.Link({ 'text': 'Logout' }, []), { 'text': 'Logout' })
                         ]), {})
                     ]), { 'vertical': true })
                 ]), {})
@@ -142,11 +142,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

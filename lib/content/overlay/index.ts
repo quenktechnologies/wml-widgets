@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { concat, getById } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getClassName, getId } from '../../';
+import { HTMLElementAttrs, getClassName, getId } from '../../';
 import { Main } from './wml/overlay';
 
 ///classNames:begin
@@ -22,7 +22,7 @@ export interface OverlayAttrs extends HTMLElementAttrs {
 /**
  * Overlay
  */
-export class Overlay extends Component<WidgetAttrs<OverlayAttrs>> {
+export class Overlay extends Component<OverlayAttrs> {
 
     view: View = new Main(this);
 
@@ -39,8 +39,8 @@ export class Overlay extends Component<WidgetAttrs<OverlayAttrs>> {
 
         onclick: () => {
 
-            if (this.attrs.ww && this.attrs.ww.onClick) 
-                this.attrs.ww.onClick();
+            if (this.attrs && this.attrs.onClick) 
+                this.attrs.onClick();
 
         }
 

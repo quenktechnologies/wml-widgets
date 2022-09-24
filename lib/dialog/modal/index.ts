@@ -1,7 +1,7 @@
 import * as views from './wml/modal';
 import { View, Component } from '@quenk/wml';
 import { concat, getById } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getClassName, getId } from '../../';
+import { HTMLElementAttrs, getClassName, getId } from '../../';
 import { AbstractLayout } from '../../layout';
 
 ///classNames:begin
@@ -21,7 +21,7 @@ export interface ModalAttrs extends HTMLElementAttrs { }
 /**
  * Modal
  */
-export class Modal extends Component<WidgetAttrs<ModalAttrs>> {
+export class Modal extends Component<ModalAttrs> {
 
     view: View = new views.Modal(this);
 

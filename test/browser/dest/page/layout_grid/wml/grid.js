@@ -37,92 +37,92 @@ class Main {
         this.widgets = [];
         this.tree = __document.createElement('div');
         this.template = (__this) => {
-            return __this.widget(new grid_1.GridLayout({ ww: { 'className': __context.values.root.className } }, [
+            return __this.widget(new grid_1.GridLayout({ 'className': __context.values.root.className }, [
                 __this.widget(new grid_1.Row({}, [
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 1 } }, [
+                    ]), { 'span': 1 }),
+                    __this.widget(new grid_1.Column({ 'span': 1 }, [
                         __document.createTextNode('Span 1')
-                    ]), { ww: { 'span': 1 } })
+                    ]), { 'span': 1 })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
-                    __this.widget(new grid_1.Column({ ww: { 'span': 8 } }, [
+                    __this.widget(new grid_1.Column({ 'span': 8 }, [
                         __document.createTextNode('Span 8')
-                    ]), { ww: { 'span': 8 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                    ]), { 'span': 8 }),
+                    __this.widget(new grid_1.Column({ 'span': 4 }, [
                         __document.createTextNode('Span 4')
-                    ]), { ww: { 'span': 4 } })
+                    ]), { 'span': 4 })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
-                    __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                    __this.widget(new grid_1.Column({ 'span': 4 }, [
                         __document.createTextNode('Span 4')
-                    ]), { ww: { 'span': 4 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                    ]), { 'span': 4 }),
+                    __this.widget(new grid_1.Column({ 'span': 4 }, [
                         __document.createTextNode('Span 4')
-                    ]), { ww: { 'span': 4 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                    ]), { 'span': 4 }),
+                    __this.widget(new grid_1.Column({ 'span': 4 }, [
                         __document.createTextNode('Span 4')
-                    ]), { ww: { 'span': 4 } })
+                    ]), { 'span': 4 })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
-                    __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
+                    __this.widget(new grid_1.Column({ 'span': 6 }, [
                         __document.createTextNode('Span 6')
-                    ]), { ww: { 'span': 6 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
+                    ]), { 'span': 6 }),
+                    __this.widget(new grid_1.Column({ 'span': 6 }, [
                         __document.createTextNode('Span 6')
-                    ]), { ww: { 'span': 6 } })
+                    ]), { 'span': 6 })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
-                    __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
+                    __this.widget(new grid_1.Column({ 'span': 6 }, [
                         __document.createTextNode('Span 6')
-                    ]), { ww: { 'span': 6 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
+                    ]), { 'span': 6 }),
+                    __this.widget(new grid_1.Column({ 'span': 6 }, [
                         __document.createTextNode('Span 6')
-                    ]), { ww: { 'span': 6 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
+                    ]), { 'span': 6 }),
+                    __this.widget(new grid_1.Column({ 'span': 6 }, [
                         __document.createTextNode('Span 6')
-                    ]), { ww: { 'span': 6 } }),
-                    __this.widget(new grid_1.Column({ ww: { 'span': 6 } }, [
+                    ]), { 'span': 6 }),
+                    __this.widget(new grid_1.Column({ 'span': 6 }, [
                         __document.createTextNode('Span 6')
-                    ]), { ww: { 'span': 6 } })
+                    ]), { 'span': 6 })
                 ]), {}),
                 __this.widget(new grid_1.Row({}, [
-                    __this.widget(new grid_1.Column({ ww: { 'span': 12 } }, [
+                    __this.widget(new grid_1.Column({ 'span': 12 }, [
                         __document.createTextNode('Span 12')
-                    ]), { ww: { 'span': 12 } })
+                    ]), { 'span': 12 })
                 ]), {})
-            ]), { ww: { 'className': __context.values.root.className } });
+            ]), { 'className': __context.values.root.className });
         };
     }
     registerView(v) {
@@ -188,11 +188,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

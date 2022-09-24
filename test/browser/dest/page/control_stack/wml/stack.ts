@@ -87,10 +87,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Stack({ww : { 'name' : 'stack' ,'value' : __context.values.values ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }}, [
+        __this.widget(new Stack({'name': 'stack','value': __context.values.values,'decorator': __context.values.decorator,'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : 'stack' ,'value' : __context.values.values ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{'name': 'stack','value': __context.values.values,'decorator': __context.values.decorator,'onChange': __context.onChange})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
@@ -98,10 +98,10 @@ __this.node('p', <__wml.Attrs>{}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Stack({ww : { 'name' : 'stack' ,'value' : __context.values.values ,'disabled' : true  ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }}, [
+        __this.widget(new Stack({'name': 'stack','value': __context.values.values,'disabled': true ,'decorator': __context.values.decorator,'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : 'stack' ,'value' : __context.values.values ,'disabled' : true  ,'decorator' : __context.values.decorator ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{'name': 'stack','value': __context.values.values,'disabled': true ,'decorator': __context.values.decorator,'onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{});
 

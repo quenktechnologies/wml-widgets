@@ -353,10 +353,10 @@ __this.widget(new TableCell({}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new TableRow({}, [
 
-        __this.widget(new TableCell({ww : { 'rowspan' : 2 ,'colspan' : 5  }}, [
+        __this.widget(new TableCell({'rowspan': 2,'colspan': 5}, [
 
         __document.createTextNode('This spans 2 rows 5 columns.')
-     ]),<__wml.Attrs>{ww : { 'rowspan' : 2 ,'colspan' : 5  }})
+     ]),<__wml.Attrs>{'rowspan': 2,'colspan': 5})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 
@@ -766,12 +766,12 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode(' Alternate')
      ]),
-__this.widget(new TableLayout({ww : { 'alternate' : true   }}, [
+__this.widget(new TableLayout({'alternate': true }, [
 
         __this.registerView(new HeaderView(__context)).render(),
 __this.registerView(new BodyView(__context)).render(),
 __this.registerView(new FooterView(__context)).render()
-     ]),<__wml.Attrs>{ww : { 'alternate' : true   }})
+     ]),<__wml.Attrs>{'alternate': true })
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
@@ -779,12 +779,12 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Bordered')
      ]),
-__this.widget(new TableLayout({ww : { 'bordered' : true   }}, [
+__this.widget(new TableLayout({'bordered': true }, [
 
         __this.registerView(new HeaderView(__context)).render(),
 __this.registerView(new BodyView(__context)).render(),
 __this.registerView(new FooterView(__context)).render()
-     ]),<__wml.Attrs>{ww : { 'bordered' : true   }})
+     ]),<__wml.Attrs>{'bordered': true })
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
@@ -792,12 +792,12 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Hoverable')
      ]),
-__this.widget(new TableLayout({ww : { 'hoverable' : true   }}, [
+__this.widget(new TableLayout({'hoverable': true }, [
 
         __this.registerView(new HeaderView(__context)).render(),
 __this.registerView(new BodyView(__context)).render(),
 __this.registerView(new FooterView(__context)).render()
-     ]),<__wml.Attrs>{ww : { 'hoverable' : true   }})
+     ]),<__wml.Attrs>{'hoverable': true })
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
@@ -805,12 +805,12 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Compact')
      ]),
-__this.widget(new TableLayout({ww : { 'compact' : true   }}, [
+__this.widget(new TableLayout({'compact': true }, [
 
         __this.registerView(new HeaderView(__context)).render(),
 __this.registerView(new BodyView(__context)).render(),
 __this.registerView(new FooterView(__context)).render()
-     ]),<__wml.Attrs>{ww : { 'compact' : true   }})
+     ]),<__wml.Attrs>{'compact': true })
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 

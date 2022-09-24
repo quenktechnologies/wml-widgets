@@ -4,10 +4,10 @@
 
 {% view ButtonView (DropDown) %}
     <Button 
-     ww:className={{@values.button.className}}
-     ww:anchor={{@values.button.anchor}}
-     ww:disabled={{@values.button.disabled}}
-     ww:onClick={{@values.button.onClick}}>
+     className={{@values.button.className}}
+     anchor={{@values.button.anchor}}
+     disabled={{@values.button.disabled}}
+     onClick={{@values.button.onClick}}>
 
       {{@values.button.text + " " | text }}
 

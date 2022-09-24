@@ -9,8 +9,8 @@
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
   <Label
-   ww:for={{@values.root.id}}
-   ww:text={{@values.label.text}} />
+   for={{@values.root.id}}
+   text={{@values.label.text}} />
 
   <div 
     onclick={{@values.content.onfocus}}
@@ -21,11 +21,11 @@
       {% for value,idx in @values.tags.value %}
 
         <Tag
-          ww:name={{String(idx)}}
-          ww:text={{@values.tags.getText(value)}}
-          ww:disabled={{@values.tags.disabled}}
-          ww:className={{@values.tags.className}}
-          ww:onDismiss={{@values.tags.onDismiss}} />
+          name={{String(idx)}}
+          text={{@values.tags.getText(value)}}
+          disabled={{@values.tags.disabled}}
+          className={{@values.tags.className}}
+          onDismiss={{@values.tags.onDismiss}} />
 
       {% endfor %}
 
@@ -37,24 +37,24 @@
 
     <Input 
       wml:id={{@values.input.wml.id}} 
-      ww:className={{@values.input.className}} 
-      ww:name={{@values.input.name}}
-      ww:disabled={{@values.input.disabled}}
-      ww:onSearch={{@values.input.onSearch}} />
+      className={{@values.input.className}} 
+      name={{@values.input.name}}
+      disabled={{@values.input.disabled}}
+      onSearch={{@values.input.onSearch}} />
 
     </div>
 
     <ResultsMenu 
       wml:id={{@values.menu.wml.id}} 
-      ww:block={{@values.menu.block}}
-      ww:hidden=true
-      ww:onSelect={{@values.menu.onSelect}}
-      ww:noItemsTemplate={{@values.menu.noItemsTemplate}}
-      ww:itemTemplate={{@values.menu.itemTemplate}}
-      ww:stringifier={{@values.menu.stringifier}} />
+      block={{@values.menu.block}}
+      hidden=true
+      onSelect={{@values.menu.onSelect}}
+      noItemsTemplate={{@values.menu.noItemsTemplate}}
+      itemTemplate={{@values.menu.itemTemplate}}
+      stringifier={{@values.menu.stringifier}} />
 
     <Help 
       wml:id={{@values.messages.wml.id}}
-      ww:text={{@values.messages.text}} />
+      text={{@values.messages.text}} />
 
 </div>

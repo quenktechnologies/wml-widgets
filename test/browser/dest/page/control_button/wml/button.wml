@@ -16,9 +16,9 @@
         {% for v in @values.styles %}
 
           <Button 
-            ww:name={{v}}
-            ww:style={{v}}
-            ww:text={{v|@values.capitalize}} />
+            name={{v}}
+            style={{v}}
+            text={{v|@values.capitalize}} />
 
         {% endfor %}
 
@@ -33,9 +33,9 @@
       {% for style in @values.styles %}
 
         <Button 
-         ww:style={{style}}
-         ww:outline=true
-         ww:text={{style|@values.capitalize}} />
+         style={{style}}
+         outline=true
+         text={{style|@values.capitalize}} />
 
       {% endfor %}
 
@@ -50,10 +50,10 @@
           {% for v in @values.styles %}
 
             <Button 
-             ww:name={{v}}
-             ww:active=true
-             ww:style={{v}}
-             ww:text={{v|@values.capitalize}} />
+             name={{v}}
+             active=true
+             style={{v}}
+             text={{v|@values.capitalize}} />
 
           {% endfor %}
 
@@ -70,10 +70,10 @@
           {% for v in @values.styles %}
 
             <Button 
-             ww:name={{v}}
-             ww:disabled=true
-             ww:style={{v}}
-             ww:text={{v|@values.capitalize}} />
+             name={{v}}
+             disabled=true
+             style={{v}}
+             text={{v|@values.capitalize}} />
 
           {% endfor %}
 
@@ -92,10 +92,10 @@
               {% for size in @values.sizes %}
 
                 <Button 
-                ww:name={{size}}
-                ww:style={{style}}
-                ww:size={{size}}
-                ww:text={{size|@values.capitalize}} />
+                name={{size}}
+                style={{style}}
+                size={{size}}
+                text={{size|@values.capitalize}} />
 
               {% endfor %}
 
@@ -112,9 +112,9 @@
           {% for style in @values.styles %}
 
               <Button 
-               ww:style={{style}}
-               ww:block=true
-               ww:text={{style|@values.capitalize}} />
+               style={{style}}
+               block=true
+               text={{style|@values.capitalize}} />
 
           {% endfor %}
 

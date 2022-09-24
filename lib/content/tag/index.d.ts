@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export { Style };
 export declare const TAG = "ww-tag";
 /**
@@ -23,7 +23,7 @@ export interface TagAttrs extends HTMLElementAttrs {
 /**
  * Tag
  */
-export declare class Tag extends Component<WidgetAttrs<TagAttrs>> {
+export declare class Tag extends Component<TagAttrs> {
     view: View;
     values: {
         wml: {

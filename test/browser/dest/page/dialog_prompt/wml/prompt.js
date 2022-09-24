@@ -119,11 +119,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);
@@ -160,9 +160,9 @@ class Open {
         this.widgets = [];
         this.tree = __document.createElement('div');
         this.template = (__this) => {
-            return __this.widget(new prompt_1.Prompt({ wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onSave': __context.values.onSave, 'onCancel': __context.values.onCancel } }, [
-                __this.widget(new text_field_1.TextField({ ww: { 'value': __context.values.value, 'onChange': __context.values.onChange } }, []), { ww: { 'value': __context.values.value, 'onChange': __context.values.onChange } })
-            ]), { wml: { 'id': 'open' }, ww: { 'title': __context.values.title, 'onSave': __context.values.onSave, 'onCancel': __context.values.onCancel } });
+            return __this.widget(new prompt_1.Prompt({ wml: { 'id': 'open' }, 'title': __context.values.title, 'onSave': __context.values.onSave, 'onCancel': __context.values.onCancel }, [
+                __this.widget(new text_field_1.TextField({ 'value': __context.values.value, 'onChange': __context.values.onChange }, []), { 'value': __context.values.value, 'onChange': __context.values.onChange })
+            ]), { wml: { 'id': 'open' }, 'title': __context.values.title, 'onSave': __context.values.onSave, 'onCancel': __context.values.onCancel });
         };
     }
     registerView(v) {
@@ -228,11 +228,11 @@ class Open {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

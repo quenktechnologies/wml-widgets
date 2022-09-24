@@ -91,17 +91,17 @@ __this.node('p', <__wml.Attrs>{}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Well({ww : { 'className' : '-small'  }}, [
+        __this.widget(new Well({'className': '-small'}, [
 
         __document.createTextNode('This is a small well.')
-     ]),<__wml.Attrs>{ww : { 'className' : '-small'  }})
+     ]),<__wml.Attrs>{'className': '-small'})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Well({ww : { 'className' : '-large'  }}, [
+        __this.widget(new Well({'className': '-large'}, [
 
         __document.createTextNode('This is a small well.')
-     ]),<__wml.Attrs>{ww : { 'className' : '-large'  }})
+     ]),<__wml.Attrs>{'className': '-large'})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

@@ -43,8 +43,13 @@ export interface TextFieldAttrs extends FormControlAttrs<string> {
     readOnly?: boolean;
     /**
      * focus indicates this input should steal focus when rendered.
+     *
      */
     focus?: boolean;
+    /**
+     * html attributes to pass directly to the underlying input.
+     */
+    html?: object;
     /**
      * onChange handler
      */
@@ -76,21 +81,23 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             wml: {
                 id: string;
             };
-            id: string;
-            name: string;
-            type: string;
-            min: number | undefined;
-            max: number | undefined;
-            focus: true | undefined;
-            placeholder: string;
-            match: string | undefined;
-            length: number | undefined;
-            value: string;
-            disabled: boolean | undefined;
-            readOnly: boolean | undefined;
-            rows: number;
-            oninput: (e: KeyboardEvent) => void;
-            onChange: (e: TextChangedEvent) => void;
+            attrs: object & {
+                id: string;
+                name: string;
+                type: string;
+                min: number | undefined;
+                max: number | undefined;
+                focus: true | undefined;
+                placeholder: string;
+                match: string | undefined;
+                length: number | undefined;
+                value: string;
+                disabled: boolean | undefined;
+                readOnly: boolean | undefined;
+                rows: number;
+                oninput: (e: KeyboardEvent) => void;
+                onChange: (e: TextChangedEvent) => void;
+            };
         };
     };
     setMessage(msg: Message): TextField;

@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const TABLE_HEADER = "ww-table-layout__header";
 export declare const TABLE_BODY = "ww-table-layout__body";
 export declare const TABLE_FOOTER = "ww-table-layout__footer";
@@ -87,7 +87,7 @@ export interface TableLayoutAttrs extends HTMLElementAttrs {
 /**
  * TableHeader (<thead>)
  */
-export declare class TableHeader extends Component<WidgetAttrs<TableHeaderAttrs>> {
+export declare class TableHeader extends Component<TableHeaderAttrs> {
     view: View;
     values: {
         id: string;
@@ -97,7 +97,7 @@ export declare class TableHeader extends Component<WidgetAttrs<TableHeaderAttrs>
 /**
  * TableBody
  */
-export declare class TableBody extends Component<WidgetAttrs<TableBodyAttrs>> {
+export declare class TableBody extends Component<TableBodyAttrs> {
     view: View;
     values: {
         id: string;
@@ -107,7 +107,7 @@ export declare class TableBody extends Component<WidgetAttrs<TableBodyAttrs>> {
 /**
  * TableFooter
  */
-export declare class TableFooter extends Component<WidgetAttrs<TableFooterAttrs>> {
+export declare class TableFooter extends Component<TableFooterAttrs> {
     view: View;
     values: {
         id: string;
@@ -117,7 +117,7 @@ export declare class TableFooter extends Component<WidgetAttrs<TableFooterAttrs>
 /**
  * TableRow
  */
-export declare class TableRow extends Component<WidgetAttrs<TableRowAttrs>> {
+export declare class TableRow extends Component<TableRowAttrs> {
     view: View;
     values: {
         id: string;
@@ -128,7 +128,7 @@ export declare class TableRow extends Component<WidgetAttrs<TableRowAttrs>> {
 /**
  * TableHeading
  */
-export declare class TableHeading extends Component<WidgetAttrs<TableHeadingAttrs>> {
+export declare class TableHeading extends Component<TableHeadingAttrs> {
     view: View;
     values: {
         id: string;
@@ -139,7 +139,7 @@ export declare class TableHeading extends Component<WidgetAttrs<TableHeadingAttr
 /**
  * TableCell
  */
-export declare class TableCell extends Component<WidgetAttrs<TableCellAttrs>> {
+export declare class TableCell extends Component<TableCellAttrs> {
     view: View;
     values: {
         id: string;
@@ -152,7 +152,7 @@ export declare class TableCell extends Component<WidgetAttrs<TableCellAttrs>> {
 /**
  * TableWindow allows a TableLayout to be scrolled on smaller screens.
  */
-export declare class TableWindow extends Component<WidgetAttrs<TableWindowAttrs>> {
+export declare class TableWindow extends Component<TableWindowAttrs> {
     view: View;
     values: {
         id: string;
@@ -162,7 +162,7 @@ export declare class TableWindow extends Component<WidgetAttrs<TableWindowAttrs>
 /**
  * TableLayout provides a <table> based layout.
  */
-export declare class TableLayout extends Component<WidgetAttrs<TableLayoutAttrs>> {
+export declare class TableLayout extends Component<TableLayoutAttrs> {
     view: View;
     values: {
         wml: {

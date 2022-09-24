@@ -1,5 +1,4 @@
 import { View } from '@quenk/wml';
-import { WidgetAttrs } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
 export declare const BUTTON_SELECT = "ww-button-select";
 export declare const BUTTON_SELECT_OPTION = "ww-button-select__option";
@@ -37,7 +36,7 @@ export interface ButtonSelectAttrs<TOption, TValue> extends ControlAttrs<TValue>
  * @private
  */
 export interface ButtonSelectWidget<TOption, TValue> {
-    attrs: WidgetAttrs<ButtonSelectAttrs<TOption, TValue>>;
+    attrs: ButtonSelectAttrs<TOption, TValue>;
     values: {
         id: string;
         className: string;

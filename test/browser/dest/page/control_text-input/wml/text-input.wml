@@ -9,9 +9,9 @@
     <p>
       This is a text input: 
       <TextInput 
-        ww:match="[a-zA-Z]"
-        ww:length=20
-        ww:onChange={{@onChange}}/>.
+        match="[a-zA-Z]"
+        length=20
+        onChange={{@onChange}}/>.
     </p>
     <p>As you type <b wml:id="txt">this</b> changes, but only for letters. (20)</p>
   </Demo>
@@ -22,31 +22,31 @@
 
       <p>
         Size {{document.createTextNode(v+" neutral: ")}}
-        <TextInput ww:onChange={{@onChange}} ww:size={{v}} />
+        <TextInput onChange={{@onChange}} size={{v}} />
       </p>
 
       <p>
         Size {{document.createTextNode(v+" error: ")}}
         <TextInput 
-          ww:onChange={{@onChange}} 
-          ww:size={{v}}
-          ww:className="-error" />
+          onChange={{@onChange}} 
+          size={{v}}
+          className="-error" />
       </p>
 
       <p>
         Size {{document.createTextNode(v+" warning: ")}}
         <TextInput 
-          ww:onChange={{@onChange}} 
-          ww:size={{v}}
-          ww:className="-warning" />
+          onChange={{@onChange}} 
+          size={{v}}
+          className="-warning" />
       </p>
 
       <p>
         Size {{document.createTextNode(v+" success: ")}}
         <TextInput 
-          ww:onChange={{@onChange}} 
-          ww:size={{v}}
-          ww:className="-success" />
+          onChange={{@onChange}} 
+          size={{v}}
+          className="-success" />
       </p>
 
     {% endfor %}
@@ -57,7 +57,7 @@
 
     <p>
       Block:
-      <TextInput ww:onChange={{@onChange}} ww:block=true />
+      <TextInput onChange={{@onChange}} block=true />
     </p>
 
   </Demo>
@@ -71,36 +71,36 @@
       <p>
         Size {{document.createTextNode(v+" neutral: ")}}
         <TextInput 
-          ww:onChange={{@onChange}} 
-          ww:rows=5
-          ww:size={{v}} />
+          onChange={{@onChange}} 
+          rows=5
+          size={{v}} />
       </p>
 
       <p>
         Size {{document.createTextNode(v+" error: ")}}
         <TextInput 
-          ww:onChange={{@onChange}} 
-          ww:size={{v}}
-          ww:rows=5
-          ww:className="-error" />
+          onChange={{@onChange}} 
+          size={{v}}
+          rows=5
+          className="-error" />
       </p>
 
       <p>
         Size {{document.createTextNode(v+" warning: ")}}
         <TextInput 
-          ww:onChange={{@onChange}} 
-          ww:size={{v}}
-          ww:rows=5
-          ww:className="-warning" />
+          onChange={{@onChange}} 
+          size={{v}}
+          rows=5
+          className="-warning" />
       </p>
 
       <p>
         Size {{document.createTextNode(v+" success: ")}}
         <TextInput 
-          ww:onChange={{@onChange}} 
-          ww:size={{v}}
-          ww:rows=5
-          ww:className="-success" />
+          onChange={{@onChange}} 
+          size={{v}}
+          rows=5
+          className="-success" />
       </p>
 
     {% endfor %}
@@ -111,7 +111,7 @@
 
     <p>
       Block:
-      <TextInput ww:onChange={{@onChange}} ww:block=true ww:rows=5 />
+      <TextInput onChange={{@onChange}} block=true rows=5 />
     </p>
 
   </Demo>
@@ -120,7 +120,7 @@
 
     <p>
       Autofocused:
-      <TextInput ww:onChange={{@onChange}} ww:focus=true />
+      <TextInput onChange={{@onChange}} focus=true />
     </p>
 
   </Demo>

@@ -45,7 +45,7 @@ class Main {
                         __document.createTextNode('Normal')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.normal.name }, ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onSelect': __context.values.normal.onSelect } }, []), { wml: { 'id': __context.values.normal.name }, ww: { 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onSelect': __context.values.normal.onSelect } })
+                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.normal.name }, 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onSelect': __context.values.normal.onSelect }, []), { wml: { 'id': __context.values.normal.name }, 'name': __context.values.normal.name, 'value': __context.values.normal.value, 'options': __context.values.normal.options, 'onSelect': __context.values.normal.onSelect })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -53,7 +53,7 @@ class Main {
                         __document.createTextNode('Success')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.success.id }, ww: { 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onSelect': __context.values.success.onSelect } }, []), { wml: { 'id': __context.values.success.id }, ww: { 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onSelect': __context.values.success.onSelect } })
+                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.success.id }, 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onSelect': __context.values.success.onSelect }, []), { wml: { 'id': __context.values.success.id }, 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onSelect': __context.values.success.onSelect })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -61,7 +61,7 @@ class Main {
                         __document.createTextNode('Warning')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.warning.id }, ww: { 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onSelect': __context.values.warning.onSelect } }, []), { wml: { 'id': __context.values.warning.id }, ww: { 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onSelect': __context.values.warning.onSelect } })
+                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.warning.id }, 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onSelect': __context.values.warning.onSelect }, []), { wml: { 'id': __context.values.warning.id }, 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onSelect': __context.values.warning.onSelect })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -69,7 +69,7 @@ class Main {
                         __document.createTextNode('Error')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onSelect': __context.values.error.onSelect } }, []), { wml: { 'id': __context.values.error.id }, ww: { 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onSelect': __context.values.error.onSelect } })
+                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.error.id }, 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onSelect': __context.values.error.onSelect }, []), { wml: { 'id': __context.values.error.id }, 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onSelect': __context.values.error.onSelect })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -77,7 +77,7 @@ class Main {
                         __this.node('b', {}, [
                             __document.createTextNode('Disabled')
                         ]),
-                        __this.widget(new drop_list_1.DropList({ ww: { 'name': __context.values.normal.name, 'disabled': true, 'onSelect': __context.values.normal.onSelect } }, []), { ww: { 'name': __context.values.normal.name, 'disabled': true, 'onSelect': __context.values.normal.onSelect } })
+                        __this.widget(new drop_list_1.DropList({ 'name': __context.values.normal.name, 'disabled': true, 'onSelect': __context.values.normal.onSelect }, []), { 'name': __context.values.normal.name, 'disabled': true, 'onSelect': __context.values.normal.onSelect })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -85,7 +85,7 @@ class Main {
                         __this.node('b', {}, [
                             __document.createTextNode('Block')
                         ]),
-                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.block.id }, ww: { 'className': '-block', 'name': __context.values.block.name, 'block': true, 'onSelect': __context.values.block.onSelect } }, []), { wml: { 'id': __context.values.block.id }, ww: { 'className': '-block', 'name': __context.values.block.name, 'block': true, 'onSelect': __context.values.block.onSelect } })
+                        __this.widget(new drop_list_1.DropList({ wml: { 'id': __context.values.block.id }, 'className': '-block', 'name': __context.values.block.name, 'block': true, 'onSelect': __context.values.block.onSelect }, []), { wml: { 'id': __context.values.block.id }, 'className': '-block', 'name': __context.values.block.name, 'block': true, 'onSelect': __context.values.block.onSelect })
                     ])
                 ]), {})
             ]), {});
@@ -154,11 +154,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

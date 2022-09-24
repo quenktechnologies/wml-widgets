@@ -43,7 +43,7 @@ class Main {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('\u000a      This is a text input: \u000a      '),
-                        __this.widget(new text_input_1.TextInput({ ww: { 'match': '[a-zA-Z]', 'length': 20, 'onChange': __context.onChange } }, []), { ww: { 'match': '[a-zA-Z]', 'length': 20, 'onChange': __context.onChange } }),
+                        __this.widget(new text_input_1.TextInput({ 'match': '[a-zA-Z]', 'length': 20, 'onChange': __context.onChange }, []), { 'match': '[a-zA-Z]', 'length': 20, 'onChange': __context.onChange }),
                         __document.createTextNode('.\u000a    ')
                     ]),
                     __this.node('p', {}, [
@@ -59,29 +59,29 @@ class Main {
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' neutral: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v } }, []), { ww: { 'onChange': __context.onChange, 'size': v } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v }, []), { 'onChange': __context.onChange, 'size': v })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' error: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-error' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-error' } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': '-error' }, []), { 'onChange': __context.onChange, 'size': v, 'className': '-error' })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' warning: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-warning' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-warning' } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': '-warning' }, []), { 'onChange': __context.onChange, 'size': v, 'className': '-warning' })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' success: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'className': '-success' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'className': '-success' } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': '-success' }, []), { 'onChange': __context.onChange, 'size': v, 'className': '-success' })
                         ])
                     ]), () => ([]))
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('\u000a      Block:\u000a      '),
-                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'block': true } }, []), { ww: { 'onChange': __context.onChange, 'block': true } })
+                        __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'block': true }, []), { 'onChange': __context.onChange, 'block': true })
                     ])
                 ]), {}),
                 __this.node('p', {}, [
@@ -92,35 +92,35 @@ class Main {
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' neutral: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } }, []), { ww: { 'onChange': __context.onChange, 'rows': 5, 'size': v } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'rows': 5, 'size': v }, []), { 'onChange': __context.onChange, 'rows': 5, 'size': v })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' error: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' warning: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
                             document.createTextNode((v + ' success: ')),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' } }, []), { ww: { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' } })
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' })
                         ])
                     ]), () => ([]))
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('\u000a      Block:\u000a      '),
-                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } }, []), { ww: { 'onChange': __context.onChange, 'block': true, 'rows': 5 } })
+                        __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'block': true, 'rows': 5 }, []), { 'onChange': __context.onChange, 'block': true, 'rows': 5 })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('\u000a      Autofocused:\u000a      '),
-                        __this.widget(new text_input_1.TextInput({ ww: { 'onChange': __context.onChange, 'focus': true } }, []), { ww: { 'onChange': __context.onChange, 'focus': true } })
+                        __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'focus': true }, []), { 'onChange': __context.onChange, 'focus': true })
                     ])
                 ]), {})
             ]), {});
@@ -189,11 +189,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

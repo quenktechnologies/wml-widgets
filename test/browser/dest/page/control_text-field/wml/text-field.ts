@@ -91,10 +91,10 @@ __this.node('p', <__wml.Attrs>{}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new TextField({wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'focus' : true  ,'onChange' : __context.onChange  }}, [
+        __this.widget(new TextField({wml : { 'id' : 'text'  },'name': 'text','message': 'This is the help message','focus': true ,'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'text'  },ww : { 'name' : 'text' ,'message' : 'This is the help message' ,'focus' : true  ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'text'  },'name': 'text','message': 'This is the help message','focus': true ,'onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -108,10 +108,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new TextField({wml : { 'id' : 'success'  },ww : { 'name' : 'success' ,'label' : 'This is a success label' ,'success' : 'This textfield has a success' ,'onChange' : __context.onChange  }}, [
+        __this.widget(new TextField({wml : { 'id' : 'success'  },'name': 'success','label': 'This is a success label','success': 'This textfield has a success','onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'success'  },ww : { 'name' : 'success' ,'label' : 'This is a success label' ,'success' : 'This textfield has a success' ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'success'  },'name': 'success','label': 'This is a success label','success': 'This textfield has a success','onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -125,10 +125,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new TextField({wml : { 'id' : 'warning'  },ww : { 'name' : 'warning' ,'label' : 'This is a warning label' ,'warning' : 'This textfield has a warning.' ,'onChange' : __context.onChange  }}, [
+        __this.widget(new TextField({wml : { 'id' : 'warning'  },'name': 'warning','label': 'This is a warning label','warning': 'This textfield has a warning.','onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'warning'  },ww : { 'name' : 'warning' ,'label' : 'This is a warning label' ,'warning' : 'This textfield has a warning.' ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'warning'  },'name': 'warning','label': 'This is a warning label','warning': 'This textfield has a warning.','onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -142,10 +142,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new TextField({wml : { 'id' : 'error'  },ww : { 'name' : 'error' ,'label' : 'This is an error label' ,'error' : 'This textfield has an error.' ,'onChange' : __context.onChange  }}, [
+        __this.widget(new TextField({wml : { 'id' : 'error'  },'name': 'error','label': 'This is an error label','error': 'This textfield has an error.','onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'error'  },ww : { 'name' : 'error' ,'label' : 'This is an error label' ,'error' : 'This textfield has an error.' ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'error'  },'name': 'error','label': 'This is an error label','error': 'This textfield has an error.','onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -156,10 +156,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new TextField({wml : { 'id' : 'area'  },ww : { 'name' : 'area' ,'rows' : 5 ,'label' : 'This is a textarea label' ,'onChange' : __context.onChange  }}, [
+        __this.widget(new TextField({wml : { 'id' : 'area'  },'name': 'area','rows': 5,'label': 'This is a textarea label','onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'area'  },ww : { 'name' : 'area' ,'rows' : 5 ,'label' : 'This is a textarea label' ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : 'area'  },'name': 'area','rows': 5,'label': 'This is a textarea label','onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

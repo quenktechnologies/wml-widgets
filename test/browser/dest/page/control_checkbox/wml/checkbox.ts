@@ -87,10 +87,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new Checkbox({ww : { 'name' : 'checkbox' ,'onChange' : __context.onChange  }}, [
+        __this.widget(new Checkbox({'name': 'checkbox','onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : 'checkbox' ,'onChange' : __context.onChange  }})
+     ]),<__wml.Attrs>{'name': 'checkbox','onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{});
 

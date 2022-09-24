@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const IMAGE = "ww-image";
 /**
  * ImageAttrs
@@ -21,7 +21,7 @@ export interface ImageAttrs extends HTMLElementAttrs {
 /**
  * Image
  */
-export declare class Image extends Component<WidgetAttrs<ImageAttrs>> {
+export declare class Image extends Component<ImageAttrs> {
     view: View;
     values: {
         wml: {

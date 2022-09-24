@@ -82,48 +82,48 @@ export class Main  implements __wml.View {
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
+        __this.widget(new Button({'text': 'one'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }}),
-__this.widget(new Button({ww : { 'text' : 'two'  }}, [
+     ]),<__wml.Attrs>{'text': 'one'}),
+__this.widget(new Button({'text': 'two'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'two'  }}),
-__this.widget(new Button({ww : { 'text' : 'three'  }}, [
+     ]),<__wml.Attrs>{'text': 'two'}),
+__this.widget(new Button({'text': 'three'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'three'  }})
+     ]),<__wml.Attrs>{'text': 'three'})
      ]),<__wml.Attrs>{}),
 __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({ww : { 'text' : 'four'  }}, [
+        __this.widget(new Button({'text': 'four'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'four'  }}),
-__this.widget(new Button({ww : { 'text' : 'five' ,'active' : true   }}, [
+     ]),<__wml.Attrs>{'text': 'four'}),
+__this.widget(new Button({'text': 'five','active': true }, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'five' ,'active' : true   }}),
-__this.widget(new Button({ww : { 'text' : 'six'  }}, [
+     ]),<__wml.Attrs>{'text': 'five','active': true }),
+__this.widget(new Button({'text': 'six'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'six'  }})
+     ]),<__wml.Attrs>{'text': 'six'})
      ]),<__wml.Attrs>{}),
 __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({ww : { 'text' : 'seven'  }}, [
+        __this.widget(new Button({'text': 'seven'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'seven'  }}),
-__this.widget(new Button({ww : { 'text' : 'eight' ,'active' : true   }}, [
+     ]),<__wml.Attrs>{'text': 'seven'}),
+__this.widget(new Button({'text': 'eight','active': true }, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'eight' ,'active' : true   }}),
-__this.widget(new Button({ww : { 'text' : '9'  }}, [
+     ]),<__wml.Attrs>{'text': 'eight','active': true }),
+__this.widget(new Button({'text': '9'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : '9'  }})
+     ]),<__wml.Attrs>{'text': '9'})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

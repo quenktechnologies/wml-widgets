@@ -42,12 +42,12 @@ class Main {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        __this.widget(new search_1.Search({ wml: { 'id': __context.values.id }, ww: { 'name': __context.values.name, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } }, []), { wml: { 'id': __context.values.id }, ww: { 'name': __context.values.name, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } })
+                        __this.widget(new search_1.Search({ wml: { 'id': __context.values.id }, 'name': __context.values.name, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect }, []), { wml: { 'id': __context.values.id }, 'name': __context.values.name, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        __this.widget(new search_1.Search({ wml: { 'id': __context.values.id2 }, ww: { 'name': __context.values.name2, 'block': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } }, []), { wml: { 'id': __context.values.id2 }, ww: { 'name': __context.values.name2, 'block': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } })
+                        __this.widget(new search_1.Search({ wml: { 'id': __context.values.id2 }, 'name': __context.values.name2, 'block': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect }, []), { wml: { 'id': __context.values.id2 }, 'name': __context.values.name2, 'block': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -55,7 +55,7 @@ class Main {
                         __document.createTextNode(' Disabled ')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new search_1.Search({ ww: { 'disabled': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } }, []), { ww: { 'disabled': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect } })
+                        __this.widget(new search_1.Search({ 'disabled': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect }, []), { 'disabled': true, 'stringifier': __context.values.stringifier, 'onSearch': __context.values.onSearch, 'onSelect': __context.values.onSelect })
                     ])
                 ]), {})
             ]), {});
@@ -124,11 +124,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

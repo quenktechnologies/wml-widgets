@@ -11,25 +11,25 @@
 
     <ButtonGroup>
 
-      <Button ww:text="one"/>
-      <Button ww:text="two"/>
-      <Button ww:text="three"/>
+      <Button text="one"/>
+      <Button text="two"/>
+      <Button text="three"/>
 
     </ButtonGroup>
 
     <ButtonGroup>
 
-      <Button ww:text="four"/>
-      <Button ww:text="five" ww:active=true />
-      <Button ww:text="six"/>
+      <Button text="four"/>
+      <Button text="five" active=true />
+      <Button text="six"/>
 
     </ButtonGroup>
 
     <ButtonGroup>
 
-      <Button ww:text="seven"/>
-      <Button ww:text="eight" ww:active=true />
-      <Button ww:text="9"/>
+      <Button text="seven"/>
+      <Button text="eight" active=true />
+      <Button text="9"/>
 
     </ButtonGroup>
 

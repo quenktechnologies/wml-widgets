@@ -1,7 +1,9 @@
 import * as views from './wml/text-input';
 
 import { View } from '@quenk/wml';
+
 import { tick } from '@quenk/noni/lib/control/timer';
+import { merge } from '@quenk/noni/lib/data/record';
 
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
@@ -86,6 +88,11 @@ export interface TextInputAttrs
     disabled?: boolean,
 
     /**
+     * html attributes to pass directly to the underlying input.
+     */
+    html?: object,
+
+    /**
      * onChange handler
      */
     onChange?: (e: TextChangedEvent) => void
@@ -105,8 +112,11 @@ export class TextInput
     AbstractControl<string, TextInputAttrs>
     implements Focusable {
 
-    view: View = (this.attrs.ww && this.attrs.ww.rows && this.attrs.ww.rows > 1) ?
+    view: View = (this.attrs && this.attrs.rows && this.attrs.rows > 1) ?
         new views.Textarea(this) : new views.Input(this);
+
+    length = (this.attrs && this.attrs.length) ?
+        this.attrs.length : Infinity;
 
     values = {
 
@@ -118,90 +128,89 @@ export class TextInput
 
             }
         },
-        id: getId(this.attrs),
 
-        className: concat(TEXT_INPUT,
+        attrs: merge((this.attrs && this.attrs.html) || {}, {
 
-            getClassName(this.attrs),
+            id: getId(this.attrs),
 
-            (this.attrs.ww && this.attrs.ww.size) ?
-                getSizeClassName(this.attrs.ww.size) : '',
+            className: concat(TEXT_INPUT,
 
-            (this.attrs.ww && this.attrs.ww.block) ?
-                BLOCK : ''
-        ),
+                getClassName(this.attrs),
 
-        name: getName(this.attrs),
+                (this.attrs && this.attrs.size) ?
+                    getSizeClassName(this.attrs.size) : '',
 
-        type: (this.attrs.ww && this.attrs.ww.type) ?
-            this.attrs.ww.type : 'text',
+                (this.attrs && this.attrs.block) ?
+                    BLOCK : ''
+            ),
 
-        min: (this.attrs.ww && this.attrs.ww.min) ?
-            String(this.attrs.ww.min) : null,
+            name: getName(this.attrs),
 
-        max: (this.attrs.ww && this.attrs.ww.max) ?
-            String(this.attrs.ww.max) : null,
+            type: (this.attrs && this.attrs.type) ?
+                this.attrs.type : 'text',
 
-        match: new RegExp((this.attrs.ww && this.attrs.ww.match) ?
-            this.attrs.ww.match : '.'),
+            min: (this.attrs && this.attrs.min) ?
+                String(this.attrs.min) : null,
 
-        length: (this.attrs.ww && this.attrs.ww.length) ?
-            this.attrs.ww.length : Infinity,
+            max: (this.attrs && this.attrs.max) ?
+                String(this.attrs.max) : null,
 
-        placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-            this.attrs.ww.placeholder : '',
+            match: new RegExp((this.attrs && this.attrs.match) ?
+                this.attrs.match : '.'),
 
-        value: (this.attrs.ww && this.attrs.ww.value) ?
-            this.attrs.ww.value : '',
 
-        rows: String((this.attrs.ww && this.attrs.ww.rows) ?
-            this.attrs.ww.rows : 1),
+            value: (this.attrs && this.attrs.value) ?
+                this.attrs.value : '',
 
-        disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
-            true : null,
+            rows: String((this.attrs && this.attrs.rows) ?
+                this.attrs.rows : 1),
 
-        readOnly: (this.attrs.ww && this.attrs.ww.readOnly === true) ?
-            true : null,
+            disabled: (this.attrs && this.attrs.disabled === true) ?
+                true : null,
 
-        onkeydown: (e: KeyboardEvent) => {
+            readOnly: (this.attrs && this.attrs.readOnly === true) ?
+                true : null,
 
-            if (e.key.length === 1) {
+            onkeydown: (e: KeyboardEvent) => {
 
-                let value = (<HTMLInputElement>e.target).value || '';
+                if (e.key.length === 1) {
 
-                if ((!this.values.match.test(e.key)) ||
-                    (value.length > this.values.length))
-                    e.preventDefault();
+                    let value = (<HTMLInputElement>e.target).value || '';
+
+                    if ((!this.values.attrs.match.test(e.key)) ||
+                        (value.length > this.length))
+                        e.preventDefault();
+
+                }
+
+            },
+
+            oninput: dispatchInput(this),
+
+            autofocus: (this.attrs && this.attrs.focus) ? true : undefined,
+
+            onfocus: () => {
+
+                if (this.attrs && this.attrs.onFocusGained)
+                    this.attrs.onFocusGained(
+                        new FocusGainedEvent(getName(this.attrs)))
+
+            },
+
+            onblur: () => {
+
+                if (this.attrs && this.attrs.onFocusLost)
+                    this.attrs.onFocusLost(
+                        new FocusLostEvent(getName(this.attrs)))
 
             }
 
-        },
-
-        oninput: dispatchInput(this),
-
-        autofocus: (this.attrs.ww && this.attrs.ww.focus) ? true : undefined,
-
-        onfocus: () => {
-
-            if (this.attrs.ww && this.attrs.ww.onFocusGained)
-                this.attrs.ww.onFocusGained(
-                    new FocusGainedEvent(getName(this.attrs)))
-
-        },
-
-        onblur: () => {
-
-            if (this.attrs.ww && this.attrs.ww.onFocusLost)
-                this.attrs.ww.onFocusLost(
-                    new FocusLostEvent(getName(this.attrs)))
-
-        }
-
+        })
     }
 
     rendered() {
 
-        if (this.values.autofocus === true) this.focus();
+        if (this.values.attrs.autofocus === true) this.focus();
 
     }
 
@@ -218,9 +227,9 @@ export class TextInput
  */
 const dispatchInput = (i: TextInput) => (e: KeyboardEvent) => {
 
-    if (i.attrs.ww && i.attrs.ww.onChange)
-        i.attrs.ww.onChange(new TextChangedEvent((i.attrs && i.attrs.ww.name) ?
-            i.attrs.ww.name : '',
+    if (i.attrs && i.attrs.onChange)
+        i.attrs.onChange(new TextChangedEvent((i.attrs && i.attrs.name) ?
+            i.attrs.name : '',
             (<HTMLInputElement>e.target).value));
 
 }

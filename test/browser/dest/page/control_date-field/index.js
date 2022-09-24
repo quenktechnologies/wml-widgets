@@ -15,7 +15,7 @@ class DateFieldPage {
                     label: 'ISO8601',
                     format: date_field_1.Format.ISO8601,
                     message: 'ISO8601 date',
-                    onChange: exports.onChange(this)
+                    onChange: (0, exports.onChange)(this)
                 },
                 common: {
                     id: 'common',
@@ -23,7 +23,7 @@ class DateFieldPage {
                     label: 'Comon',
                     format: date_field_1.Format.COMMON,
                     message: 'Common date',
-                    onChange: exports.onChange(this)
+                    onChange: (0, exports.onChange)(this)
                 },
                 us: {
                     id: 'us',
@@ -31,7 +31,7 @@ class DateFieldPage {
                     label: 'US',
                     format: date_field_1.Format.USA,
                     message: 'US date',
-                    onChange: exports.onChange(this)
+                    onChange: (0, exports.onChange)(this)
                 }
             },
             states: {
@@ -43,7 +43,7 @@ class DateFieldPage {
                     warning: undefined,
                     error: undefined,
                     block: false,
-                    onChange: exports.onChange(this)
+                    onChange: (0, exports.onChange)(this)
                 },
                 warning: {
                     id: 'warning',
@@ -53,7 +53,7 @@ class DateFieldPage {
                     warning: 'Warning date',
                     error: undefined,
                     block: false,
-                    onChange: exports.onChange(this)
+                    onChange: (0, exports.onChange)(this)
                 },
                 error: {
                     id: 'error',
@@ -63,7 +63,7 @@ class DateFieldPage {
                     warning: undefined,
                     error: 'Error date',
                     block: false,
-                    onChange: exports.onChange(this)
+                    onChange: (0, exports.onChange)(this)
                 },
                 block: {
                     id: 'block',
@@ -73,19 +73,20 @@ class DateFieldPage {
                     warning: undefined,
                     error: undefined,
                     block: true,
-                    onChange: exports.onChange(this)
+                    onChange: (0, exports.onChange)(this)
                 },
             }
         };
     }
 }
 exports.DateFieldPage = DateFieldPage;
-exports.onChange = (d) => ({ name, value }) => {
-    let mDate = util_1.getById(d.view, name);
+const onChange = (d) => ({ name, value }) => {
+    let mDate = (0, util_1.getById)(d.view, name);
     if (mDate.isJust()) {
         let d = mDate.get();
         d.setMessage(`The date is ${value}.`);
     }
 };
+exports.onChange = onChange;
 exports.default = new DateFieldPage();
 //# sourceMappingURL=index.js.map

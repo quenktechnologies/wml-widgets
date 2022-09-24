@@ -7,7 +7,7 @@ import {
     deactivate
 } from '../../content/state/active';
 import { ACTIVE } from '../../content/state/active';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 import { concat } from '../../util';
 
 ///classNames:begin
@@ -73,7 +73,7 @@ export class Divider extends wml.Component<HTMLElementAttrs> {
  *
  * Items should not have any siblings that are not other Items.
  */
-export class Item extends wml.Component<WidgetAttrs<ItemAttrs>> implements
+export class Item extends wml.Component<ItemAttrs> implements
     Activate {
 
     view: wml.View = new views.Main(this);
@@ -88,17 +88,17 @@ export class Item extends wml.Component<WidgetAttrs<ItemAttrs>> implements
 
             },
 
-            id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
 
             className: concat(ITEM,
-                (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : ''),
+                (this.attrs && this.attrs.active) ? ACTIVE : ''),
 
             content: {
 
                 render: () => {
 
-                    if (this.attrs.ww && this.attrs.ww.text)
-                        return [document.createTextNode(this.attrs.ww.text)]
+                    if (this.attrs && this.attrs.text)
+                        return [document.createTextNode(this.attrs.text)]
                     else
                         return this.children
 

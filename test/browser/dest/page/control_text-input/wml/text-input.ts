@@ -81,10 +81,10 @@ export class Main  implements __wml.View {
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a      This is a text input: \u000a      '),
-__this.widget(new TextInput({ww : { 'match' : '[a-zA-Z]' ,'length' : 20 ,'onChange' : __context.onChange  }}, [
+__this.widget(new TextInput({'match': '[a-zA-Z]','length': 20,'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'match' : '[a-zA-Z]' ,'length' : 20 ,'onChange' : __context.onChange  }}),
+     ]),<__wml.Attrs>{'match': '[a-zA-Z]','length': 20,'onChange': __context.onChange}),
 __document.createTextNode('.\u000a    ')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
@@ -106,37 +106,37 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' neutral: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' error: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-error'  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': '-error'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-error'  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': '-error'})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' warning: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-warning'  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': '-warning'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-warning'  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': '-warning'})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' success: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-success'  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': '-success'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'className' : '-success'  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': '-success'})
      ])
      ]), 
 ()=> ([]))
@@ -146,10 +146,10 @@ __this.widget(new Demo({}, [
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a      Block:\u000a      '),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : true   }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'block': true }, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'block' : true   }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'block': true })
      ])
      ]),<__wml.Attrs>{}),
 __this.node('p', <__wml.Attrs>{}, [
@@ -165,37 +165,37 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' neutral: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'rows' : 5 ,'size' : v  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'rows': 5,'size': v}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'rows' : 5 ,'size' : v  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'rows': 5,'size': v})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' error: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-error'  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': '-error'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-error'  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': '-error'})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' warning: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-warning'  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': '-warning'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-warning'  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': '-warning'})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
 document.createTextNode((v + ' success: ')),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-success'  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': '-success'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'size' : v ,'rows' : 5 ,'className' : '-success'  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': '-success'})
      ])
      ]), 
 ()=> ([]))
@@ -205,10 +205,10 @@ __this.widget(new Demo({}, [
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a      Block:\u000a      '),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'block': true ,'rows': 5}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'block' : true  ,'rows' : 5  }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'block': true ,'rows': 5})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -216,10 +216,10 @@ __this.widget(new Demo({}, [
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a      Autofocused:\u000a      '),
-__this.widget(new TextInput({ww : { 'onChange' : __context.onChange ,'focus' : true   }}, [
+__this.widget(new TextInput({'onChange': __context.onChange,'focus': true }, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onChange' : __context.onChange ,'focus' : true   }})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'focus': true })
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});

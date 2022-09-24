@@ -74,14 +74,14 @@ export class ButtonView  implements __wml.View {
 
        
 
-           return __this.widget(new Button({ww : { 'className' : __context.values.button.className ,'anchor' : __context.values.button.anchor ,'disabled' : __context.values.button.disabled ,'onClick' : __context.values.button.onClick  }}, [
+           return __this.widget(new Button({'className': __context.values.button.className,'anchor': __context.values.button.anchor,'disabled': __context.values.button.disabled,'onClick': __context.values.button.onClick}, [
 
         text ((__context.values.button.text + ' ')),
 __this.widget(new Caret({}, [
 
         
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.button.className ,'anchor' : __context.values.button.anchor ,'disabled' : __context.values.button.disabled ,'onClick' : __context.values.button.onClick  }});
+     ]),<__wml.Attrs>{'className': __context.values.button.className,'anchor': __context.values.button.anchor,'disabled': __context.values.button.disabled,'onClick': __context.values.button.onClick});
 
        }
 

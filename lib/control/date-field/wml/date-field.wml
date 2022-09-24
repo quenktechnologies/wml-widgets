@@ -7,8 +7,8 @@
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
    <Label
-    ww:for={{@values.root.id}}
-    ww:text={{@values.label.text}} />
+    for={{@values.root.id}}
+    text={{@values.label.text}} />
 
     <input
       wml:id={{@values.input.wml.id}}
@@ -24,6 +24,6 @@
 
   <Help 
     wml:id={{@values.messages.wml.id}}
-    ww:text={{@values.messages.text}} />
+    text={{@values.messages.text}} />
 
 </div>

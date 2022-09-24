@@ -76,10 +76,10 @@ export class Main  implements __wml.View {
 
            return __this.widget(new Demo({}, [
 
-        __this.widget(new Paginator({ww : { 'total' : __context.values.total ,'current' : __context.values.current ,'onChange' : __context.values.onChange  }}, [
+        __this.widget(new Paginator({'total': __context.values.total,'current': __context.values.current,'onChange': __context.values.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'total' : __context.values.total ,'current' : __context.values.current ,'onChange' : __context.values.onChange  }}),
+     ]),<__wml.Attrs>{'total': __context.values.total,'current': __context.values.current,'onChange': __context.values.onChange}),
 __this.node('p', <__wml.Attrs>{}, [
 
         text (__context.values.message)

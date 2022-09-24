@@ -47,24 +47,24 @@ class Main {
                 ]),
                 __this.widget(new grid_1.GridLayout({}, [
                     __this.widget(new grid_1.Row({}, [
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
                             __this.widget(new thumbnail_1.Thumbnail({}, [
                                 __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
                             ]), {})
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'onClick': __context.values.onClick } }, [
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ 'onClick': __context.values.onClick }, [
                                 __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
-                            ]), { ww: { 'onClick': __context.values.onClick } })
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'href': '#' } }, [
+                            ]), { 'onClick': __context.values.onClick })
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ 'href': '#' }, [
                                 __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
-                            ]), { ww: { 'href': '#' } })
-                        ]), { ww: { 'span': 4 } })
+                            ]), { 'href': '#' })
+                        ]), { 'span': 4 })
                     ]), {}),
                     __this.widget(new grid_1.Row({}, [
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
                             __this.widget(new thumbnail_1.Thumbnail({}, [
                                 __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
                                 __this.widget(new thumbnail_1.Caption({}, [
@@ -76,9 +76,9 @@ class Main {
                                     ])
                                 ]), {})
                             ]), {})
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'onClick': __context.values.onClick } }, [
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ 'onClick': __context.values.onClick }, [
                                 __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
                                 __this.widget(new thumbnail_1.Caption({}, [
                                     __this.node('h4', {}, [
@@ -88,10 +88,10 @@ class Main {
                                         __document.createTextNode('Describes the thumbnail in minor detail.')
                                     ])
                                 ]), {})
-                            ]), { ww: { 'onClick': __context.values.onClick } })
-                        ]), { ww: { 'span': 4 } }),
-                        __this.widget(new grid_1.Column({ ww: { 'span': 4 } }, [
-                            __this.widget(new thumbnail_1.Thumbnail({ ww: { 'href': '#' } }, [
+                            ]), { 'onClick': __context.values.onClick })
+                        ]), { 'span': 4 }),
+                        __this.widget(new grid_1.Column({ 'span': 4 }, [
+                            __this.widget(new thumbnail_1.Thumbnail({ 'href': '#' }, [
                                 __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
                                 __this.widget(new thumbnail_1.Caption({}, [
                                     __this.node('h4', {}, [
@@ -101,8 +101,8 @@ class Main {
                                         __document.createTextNode('Describes the thumbnail in minor detail.')
                                     ])
                                 ]), {})
-                            ]), { ww: { 'href': '#' } })
-                        ]), { ww: { 'span': 4 } })
+                            ]), { 'href': '#' })
+                        ]), { 'span': 4 })
                     ]), {})
                 ]), {})
             ]), {});
@@ -171,11 +171,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

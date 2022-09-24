@@ -74,7 +74,7 @@ export class Panel extends AbstractLayout<PanelAttrs> {
          */
         content: {
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             wml: {
 
@@ -83,10 +83,10 @@ export class Panel extends AbstractLayout<PanelAttrs> {
             },
 
           className: concat(PANEL, LAYOUT, 
-          (this.attrs.ww && this.attrs.ww.style) ?
-            `-${this.attrs.ww.style}` : style.DEFAULT,
-                this.attrs.ww && this.attrs.ww.className ?
-                    <string>this.attrs.ww.className : '')
+          (this.attrs && this.attrs.style) ?
+            `-${this.attrs.style}` : style.DEFAULT,
+                this.attrs && this.attrs.className ?
+                    <string>this.attrs.className : '')
 
         }
 
@@ -114,11 +114,11 @@ export class PanelHeader extends AbstractLayout<PanelHeaderAttrs> {
 
             },
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             className: concat(PANEL_HEADER, LAYOUT,
-                this.attrs.ww && this.attrs.ww.className ?
-                    this.attrs.ww.className : '')
+                this.attrs && this.attrs.className ?
+                    this.attrs.className : '')
 
         }
 
@@ -146,11 +146,11 @@ export class PanelBody extends AbstractLayout<PanelBodyAttrs> {
 
             },
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             className: concat(PANEL_BODY, LAYOUT,
-                this.attrs.ww && this.attrs.ww.className ?
-                    this.attrs.ww.className : '')
+                this.attrs && this.attrs.className ?
+                    this.attrs.className : '')
 
         }
 
@@ -178,11 +178,11 @@ export class PanelFooter extends AbstractLayout<PanelFooterAttrs> {
 
             },
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             className: concat(PANEL_FOOTER, LAYOUT,
-                this.attrs.ww && this.attrs.ww.className ?
-                    this.attrs.ww.className : '')
+                this.attrs && this.attrs.className ?
+                    this.attrs.className : '')
 
         }
 

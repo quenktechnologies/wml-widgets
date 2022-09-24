@@ -1,10 +1,10 @@
 import { View, Component } from '@quenk/wml';
-import { WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const LABEL = "ww-label";
 /**
  * LabelAttrs
  */
-export interface LabelAttrs {
+export interface LabelAttrs extends HTMLElementAttrs {
     /**
      * for value
      */
@@ -21,7 +21,7 @@ export interface LabelAttrs {
 /**
  * Label
  */
-export declare class Label extends Component<WidgetAttrs<LabelAttrs>> {
+export declare class Label extends Component<LabelAttrs> {
     view: View;
     values: {
         label: {

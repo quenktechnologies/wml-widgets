@@ -1,7 +1,7 @@
 import { View, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
 import { Size } from '../../content/size';
-import { HTMLElementAttrs, WidgetAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export { Style };
 export declare const DISPLAY_FIELD = "ww-display-field";
 export declare const DISPLAY_FIELD_CONTENT = "ww-display-field__content";
@@ -33,7 +33,7 @@ export interface DisplayFieldAttrs extends HTMLElementAttrs {
 /**
  * DisplayField is used to display a value in a text field like box.
  */
-export declare class DisplayField extends Component<WidgetAttrs<DisplayFieldAttrs>> {
+export declare class DisplayField extends Component<DisplayFieldAttrs> {
     view: View;
     values: {
         wml: {

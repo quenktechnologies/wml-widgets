@@ -1,6 +1,5 @@
 import { View } from '@quenk/wml';
 import { Control, ControlAttrs, AbstractControl } from '../control';
-import { WidgetAttrs } from '../';
 /**
  * ValidationState
  */
@@ -125,11 +124,11 @@ export declare const getValidationState: (view: View, id: string) => ValidationS
  * getValidityClassName provides the applicable style class by checking
  * the validity properties of FeedbackControAttrs.
  */
-export declare const getValidityClassName: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => string;
+export declare const getValidityClassName: <V>(attrs: FeedbackControlAttrs<V>) => string;
 /**
  * getMessage
  */
-export declare const getMessage: <V>(attrs: WidgetAttrs<FeedbackControlAttrs<V>>) => string;
+export declare const getMessage: <V>(attrs: FeedbackControlAttrs<V>) => string;
 /**
  * validationState2ClassName transforms a ValidationState into
  * the corresponding class name (if any).

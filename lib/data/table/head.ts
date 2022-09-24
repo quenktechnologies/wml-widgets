@@ -1,5 +1,6 @@
 import { View, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
+
 import { Column } from './column';
 
 /**

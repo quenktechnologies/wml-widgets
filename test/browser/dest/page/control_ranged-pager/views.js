@@ -55,12 +55,12 @@ class Main {
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Max: \u000a        \u000a        '),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'size': size_1.Size.Small, 'name': 'max', 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange } }, []), { ww: { 'size': size_1.Size.Small, 'name': 'max', 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange } }),
+                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': 'max', 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': 'max', 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange }),
                             __document.createTextNode('\u000a\u000a        Total:\u000a\u000a        '),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'size': size_1.Size.Small, 'name': 'total', 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange } }, []), { ww: { 'size': size_1.Size.Small, 'name': 'total', 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange } }),
+                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': 'total', 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': 'total', 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange }),
                             __document.createTextNode('\u000a\u000a        Current:\u000a\u000a        '),
-                            __this.widget(new text_input_1.TextInput({ ww: { 'size': size_1.Size.Small, 'name': 'current', 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange } }, []), { ww: { 'size': size_1.Size.Small, 'name': 'current', 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange } }),
-                            __this.widget(new button_1.Button({ ww: { 'text': 'Go', 'onClick': __context.values.reset } }, []), { ww: { 'text': 'Go', 'onClick': __context.values.reset } })
+                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': 'current', 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': 'current', 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange }),
+                            __this.widget(new button_1.Button({ 'text': 'Go', 'onClick': __context.values.reset }, []), { 'text': 'Go', 'onClick': __context.values.reset })
                         ])
                     ]), {})
                 ]), {}),
@@ -142,11 +142,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

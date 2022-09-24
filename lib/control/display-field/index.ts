@@ -5,7 +5,7 @@ import { DISABLED } from '../../content/state/disabled';
 import { DEFAULT, Style, getStyleClassName } from '../../content/style';
 import { Size, getSizeClassName } from '../../content/size';
 import { concat } from '../../util';
-import { getClassName, getId, HTMLElementAttrs, WidgetAttrs } from '../../';
+import { getClassName, getId, HTMLElementAttrs,  } from '../../';
 import { Main } from './wml/display-field';
 
 export { Style }
@@ -52,7 +52,7 @@ export interface DisplayFieldAttrs extends HTMLElementAttrs {
  */
 export class DisplayField
     extends
-    Component<WidgetAttrs<DisplayFieldAttrs>> {
+    Component<DisplayFieldAttrs> {
 
     view: View = new Main(this);
 
@@ -66,8 +66,8 @@ export class DisplayField
 
         id: getId(this.attrs),
 
-        disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-            this.attrs.ww.disabled : false,
+        disabled: (this.attrs && this.attrs.disabled) ?
+            this.attrs.disabled : false,
 
         className: concat(DISPLAY_FIELD,
 
@@ -75,27 +75,27 @@ export class DisplayField
 
             TOOLBAR_COMPAT,
 
-            (this.attrs.ww && this.attrs.ww.style) ?
-                getStyleClassName(this.attrs.ww.style) :
+            (this.attrs && this.attrs.style) ?
+                getStyleClassName(this.attrs.style) :
                 DEFAULT,
 
-            (this.attrs.ww && this.attrs.ww.size) ?
-                getSizeClassName(this.attrs.ww.size) : '',
+            (this.attrs && this.attrs.size) ?
+                getSizeClassName(this.attrs.size) : '',
 
-            (this.attrs.ww && this.attrs.ww.block) ?
+            (this.attrs && this.attrs.block) ?
                 BLOCK : '',
 
-            (this.attrs.ww && this.attrs.ww.disabled) ?
+            (this.attrs && this.attrs.disabled) ?
                 DISABLED : ''),
 
         onclick: (e: Event) => {
 
             e.stopPropagation(); //prevent a bug when used with ResultsMenu
 
-            if (this.attrs.ww &&
-                this.attrs.ww.onClick &&
+            if (this.attrs &&
+                this.attrs.onClick &&
                 (!this.values.disabled))
-                this.attrs.ww.onClick();
+                this.attrs.onClick();
 
         },
 

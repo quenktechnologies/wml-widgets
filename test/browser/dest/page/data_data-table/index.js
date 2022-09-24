@@ -19,7 +19,7 @@ class DataTablePage {
             users: data_1.users,
             columns,
             onCellClicked: (e) => {
-                let mDT = util_1.getById(this.view, this.values.id);
+                let mDT = (0, util_1.getById)(this.view, this.values.id);
                 if (mDT.isNothing())
                     return;
                 let dt = mDT.get();

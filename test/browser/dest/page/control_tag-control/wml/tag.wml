@@ -16,10 +16,10 @@
         {% for v in @values.styles %}
 
           <Tag 
-            ww:style={{v}}
-            ww:text={{v|@values.capitalize}}
-            ww:name={{v}}
-            ww:onDismiss={{@values.onDismiss}}/>
+            style={{v}}
+            text={{v|@values.capitalize}}
+            name={{v}}
+            onDismiss={{@values.onDismiss}}/>
 
         {% endfor %}
 

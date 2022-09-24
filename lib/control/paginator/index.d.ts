@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { TextChangedEvent } from '../text-input';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 import { Event as ControlEvent } from '../';
 export declare const PAGINATOR = "ww-paginator";
 export declare const PAGINATOR_FIRST = "ww-paginator__first";
@@ -59,7 +59,7 @@ export declare class PositionViewContext {
 /**
  * Paginator provides a control for navigating paged data, results, view etc.
  */
-export declare class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
+export declare class Paginator extends Component<PaginatorAttrs> {
     view: View;
     values: {
         id: string;

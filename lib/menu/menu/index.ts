@@ -4,7 +4,7 @@ import { View, Component, Content } from '@quenk/wml';
 import { text } from '@quenk/wml/lib/dom';
 import { concat } from '../../util';
 import { BLOCK } from '../../content/orientation';
-import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { Main } from './wml/menu';
 
 ///classNames:begin
@@ -47,7 +47,7 @@ export interface HeaderAttrs extends HTMLElementAttrs {
 /**
  * HeaderItem
  */
-export class HeaderItem extends Component<WidgetAttrs<HeaderAttrs>> {
+export class HeaderItem extends Component<HeaderAttrs> {
 
     view: View = new headerViews.Main(this);
 
@@ -57,8 +57,8 @@ export class HeaderItem extends Component<WidgetAttrs<HeaderAttrs>> {
 
             className: concat(MENU_HEADER_ITEM, getClassName(this.attrs)),
 
-            content: (this.attrs.ww && this.attrs.ww.text) ?
-                [text(this.attrs.ww.text)] : this.children
+            content: (this.attrs && this.attrs.text) ?
+                [text(this.attrs.text)] : this.children
 
         }
 
@@ -70,7 +70,7 @@ export class HeaderItem extends Component<WidgetAttrs<HeaderAttrs>> {
  * Menu provides a DOM container for rendering
  * a dropdown style menu.
  */
-export class Menu extends Component<WidgetAttrs<MenuAttrs>>
+export class Menu extends Component<MenuAttrs>
     implements hidden.Hidable {
 
     view: View = new Main(this);
@@ -88,8 +88,8 @@ export class Menu extends Component<WidgetAttrs<MenuAttrs>>
             id: getId(this.attrs),
 
             className: concat(MENU, getClassName(this.attrs),
-                (this.attrs.ww && this.attrs.ww.hidden) ? hidden.HIDDEN : '',
-                (this.attrs.ww && this.attrs.ww.block) ? BLOCK : '')
+                (this.attrs && this.attrs.hidden) ? hidden.HIDDEN : '',
+                (this.attrs && this.attrs.block) ? BLOCK : '')
 
         },
         menu: {

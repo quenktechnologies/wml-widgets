@@ -29,10 +29,10 @@ export class MainLayout extends AbstractLayout<MainAttrs> {
 
             },
 
-            id: (this.attrs && this.attrs.ww) ? this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs) ? this.attrs.id : '',
 
-            className: concat(MAIN_LAYOUT, LAYOUT, (this.attrs && this.attrs.ww) ?
-              <string>this.attrs.ww.className : '')
+            className: concat(MAIN_LAYOUT, LAYOUT, (this.attrs && this.attrs) ?
+              <string>this.attrs.className : '')
 
         }
 

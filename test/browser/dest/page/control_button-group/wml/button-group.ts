@@ -84,57 +84,57 @@ export class Main  implements __wml.View {
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
+        __this.widget(new Button({'text': 'one'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }}),
-__this.widget(new Button({ww : { 'text' : 'two' ,'active' : true   }}, [
+     ]),<__wml.Attrs>{'text': 'one'}),
+__this.widget(new Button({'text': 'two','active': true }, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'two' ,'active' : true   }}),
-__this.widget(new Button({ww : { 'text' : 'four'  }}, [
+     ]),<__wml.Attrs>{'text': 'two','active': true }),
+__this.widget(new Button({'text': 'four'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'four'  }})
+     ]),<__wml.Attrs>{'text': 'four'})
      ]),<__wml.Attrs>{})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
+        __this.widget(new Button({'text': 'one'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }}),
-__this.widget(new Button({ww : { 'text' : 'two'  }}, [
+     ]),<__wml.Attrs>{'text': 'one'}),
+__this.widget(new Button({'text': 'two'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'two'  }}),
-__this.widget(new Button({ww : { 'text' : 'four'  }}, [
+     ]),<__wml.Attrs>{'text': 'two'}),
+__this.widget(new Button({'text': 'four'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'four'  }})
+     ]),<__wml.Attrs>{'text': 'four'})
      ]),<__wml.Attrs>{})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
+        __this.widget(new Button({'text': 'one'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }})
+     ]),<__wml.Attrs>{'text': 'one'})
      ]),<__wml.Attrs>{})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({ww : { 'text' : 'one'  }}, [
+        __this.widget(new Button({'text': 'one'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'one'  }}),
-__this.widget(new DropDown({ww : { 'buttonText' : 'two'  }}, [
+     ]),<__wml.Attrs>{'text': 'one'}),
+__this.widget(new DropDown({'buttonText': 'two'}, [
 
         __this.widget(new Menu({}, [
 
@@ -160,11 +160,11 @@ __this.widget(new Item({}, [
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'buttonText' : 'two'  }}),
-__this.widget(new Button({ww : { 'text' : 'three'  }}, [
+     ]),<__wml.Attrs>{'buttonText': 'two'}),
+__this.widget(new Button({'text': 'three'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'three'  }})
+     ]),<__wml.Attrs>{'text': 'three'})
      ]),<__wml.Attrs>{})
      ])
      ]),<__wml.Attrs>{});

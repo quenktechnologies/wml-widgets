@@ -82,19 +82,19 @@ export class Main  implements __wml.View {
 
         __this.widget(new Row({}, [
 
-        __this.widget(new Column({ww : { 'span' : 4  }}, [
+        __this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Panel({ww : { 'style' : style  }}, [
+        __this.widget(new Panel({'style': style}, [
 
         __this.widget(new PanelBody({}, [
 
         __document.createTextNode('\u000a            PanelBody only.\u000a          ')
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'style' : style  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'style': style})
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Panel({ww : { 'style' : style  }}, [
+        __this.widget(new Panel({'style': style}, [
 
         __this.widget(new PanelHeader({}, [
 
@@ -104,11 +104,11 @@ __this.widget(new PanelBody({}, [
 
         __document.createTextNode('\u000a            Lorem impsum dilium net set.\u000a          ')
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'style' : style  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }}),
-__this.widget(new Column({ww : { 'span' : 4  }}, [
+     ]),<__wml.Attrs>{'style': style})
+     ]),<__wml.Attrs>{'span': 4}),
+__this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Panel({ww : { 'style' : style  }}, [
+        __this.widget(new Panel({'style': style}, [
 
         __this.widget(new PanelHeader({}, [
 
@@ -122,8 +122,8 @@ __this.widget(new PanelFooter({}, [
 
         __document.createTextNode('Meh foot.')
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{ww : { 'style' : style  }})
-     ]),<__wml.Attrs>{ww : { 'span' : 4  }})
+     ]),<__wml.Attrs>{'style': style})
+     ]),<__wml.Attrs>{'span': 4})
      ]),<__wml.Attrs>{})
      ]), 
 ()=> ([]))

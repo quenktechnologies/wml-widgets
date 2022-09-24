@@ -78,45 +78,45 @@ export class Main  implements __wml.View {
 
         __this.widget(new Demo({}, [
 
-        __this.widget(new StackSelect({wml : { 'id' : __context.values.asc.id  },ww : { 'name' : __context.values.asc.name ,'label' : __context.values.asc.label ,'stringifier' : __context.values.asc.stringifier ,'onSearch' : __context.values.asc.onSearch ,'onChange' : __context.values.asc.onChange  }}, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.asc.id  },'name': __context.values.asc.name,'label': __context.values.asc.label,'stringifier': __context.values.asc.stringifier,'onSearch': __context.values.asc.onSearch,'onChange': __context.values.asc.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.asc.id  },ww : { 'name' : __context.values.asc.name ,'label' : __context.values.asc.label ,'stringifier' : __context.values.asc.stringifier ,'onSearch' : __context.values.asc.onSearch ,'onChange' : __context.values.asc.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.asc.id  },'name': __context.values.asc.name,'label': __context.values.asc.label,'stringifier': __context.values.asc.stringifier,'onSearch': __context.values.asc.onSearch,'onChange': __context.values.asc.onChange})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new StackSelect({wml : { 'id' : __context.values.desc.id  },ww : { 'name' : __context.values.desc.name ,'label' : __context.values.desc.label ,'dir' : -1 ,'stringifier' : __context.values.desc.stringifier ,'onSearch' : __context.values.desc.onSearch ,'onChange' : __context.values.desc.onChange  }}, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.desc.id  },'name': __context.values.desc.name,'label': __context.values.desc.label,'dir': -1,'stringifier': __context.values.desc.stringifier,'onSearch': __context.values.desc.onSearch,'onChange': __context.values.desc.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.desc.id  },ww : { 'name' : __context.values.desc.name ,'label' : __context.values.desc.label ,'dir' : -1 ,'stringifier' : __context.values.desc.stringifier ,'onSearch' : __context.values.desc.onSearch ,'onChange' : __context.values.desc.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.desc.id  },'name': __context.values.desc.name,'label': __context.values.desc.label,'dir': -1,'stringifier': __context.values.desc.stringifier,'onSearch': __context.values.desc.onSearch,'onChange': __context.values.desc.onChange})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new StackSelect({wml : { 'id' : __context.values.success.id  },ww : { 'name' : __context.values.success.name ,'label' : __context.values.success.label ,'success' : __context.values.success.message ,'stringifier' : __context.values.success.stringifier ,'onSearch' : __context.values.success.onSearch ,'onChange' : __context.values.success.onChange  }}, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.success.id  },'name': __context.values.success.name,'label': __context.values.success.label,'success': __context.values.success.message,'stringifier': __context.values.success.stringifier,'onSearch': __context.values.success.onSearch,'onChange': __context.values.success.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success.id  },ww : { 'name' : __context.values.success.name ,'label' : __context.values.success.label ,'success' : __context.values.success.message ,'stringifier' : __context.values.success.stringifier ,'onSearch' : __context.values.success.onSearch ,'onChange' : __context.values.success.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success.id  },'name': __context.values.success.name,'label': __context.values.success.label,'success': __context.values.success.message,'stringifier': __context.values.success.stringifier,'onSearch': __context.values.success.onSearch,'onChange': __context.values.success.onChange})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new StackSelect({wml : { 'id' : __context.values.warning.id  },ww : { 'name' : __context.values.warning.name ,'label' : __context.values.warning.label ,'warning' : __context.values.warning.message ,'stringifier' : __context.values.warning.stringifier ,'onSearch' : __context.values.warning.onSearch ,'onChange' : __context.values.warning.onChange  }}, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.warning.id  },'name': __context.values.warning.name,'label': __context.values.warning.label,'warning': __context.values.warning.message,'stringifier': __context.values.warning.stringifier,'onSearch': __context.values.warning.onSearch,'onChange': __context.values.warning.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning.id  },ww : { 'name' : __context.values.warning.name ,'label' : __context.values.warning.label ,'warning' : __context.values.warning.message ,'stringifier' : __context.values.warning.stringifier ,'onSearch' : __context.values.warning.onSearch ,'onChange' : __context.values.warning.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning.id  },'name': __context.values.warning.name,'label': __context.values.warning.label,'warning': __context.values.warning.message,'stringifier': __context.values.warning.stringifier,'onSearch': __context.values.warning.onSearch,'onChange': __context.values.warning.onChange})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new StackSelect({wml : { 'id' : __context.values.error.id  },ww : { 'name' : __context.values.error.name ,'label' : __context.values.error.label ,'error' : __context.values.error.message ,'stringifier' : __context.values.error.stringifier ,'onSearch' : __context.values.error.onSearch ,'onChange' : __context.values.error.onChange  }}, [
+        __this.widget(new StackSelect({wml : { 'id' : __context.values.error.id  },'name': __context.values.error.name,'label': __context.values.error.label,'error': __context.values.error.message,'stringifier': __context.values.error.stringifier,'onSearch': __context.values.error.onSearch,'onChange': __context.values.error.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error.id  },ww : { 'name' : __context.values.error.name ,'label' : __context.values.error.label ,'error' : __context.values.error.message ,'stringifier' : __context.values.error.stringifier ,'onSearch' : __context.values.error.onSearch ,'onChange' : __context.values.error.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error.id  },'name': __context.values.error.name,'label': __context.values.error.label,'error': __context.values.error.message,'stringifier': __context.values.error.stringifier,'onSearch': __context.values.error.onSearch,'onChange': __context.values.error.onChange})
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
 
-        __this.widget(new StackSelect({ww : { 'name' : __context.values.asc.name ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.asc.stringifier ,'onSearch' : __context.values.asc.onSearch ,'onChange' : __context.values.asc.onChange  }}, [
+        __this.widget(new StackSelect({'name': __context.values.asc.name,'label': 'Disabled','disabled': true ,'stringifier': __context.values.asc.stringifier,'onSearch': __context.values.asc.onSearch,'onChange': __context.values.asc.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : __context.values.asc.name ,'label' : 'Disabled' ,'disabled' : true  ,'stringifier' : __context.values.asc.stringifier ,'onSearch' : __context.values.asc.onSearch ,'onChange' : __context.values.asc.onChange  }})
+     ]),<__wml.Attrs>{'name': __context.values.asc.name,'label': 'Disabled','disabled': true ,'stringifier': __context.values.asc.stringifier,'onSearch': __context.values.asc.onSearch,'onChange': __context.values.asc.onChange})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 

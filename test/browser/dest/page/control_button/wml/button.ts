@@ -91,10 +91,10 @@ __this.node('p', <__wml.Attrs>{}, [
 ...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize (v)  }}, [
+        __this.widget(new Button({'name': v,'style': v,'text': __context.values.capitalize (v)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : v ,'style' : v ,'text' : __context.values.capitalize (v)  }})
+     ]),<__wml.Attrs>{'name': v,'style': v,'text': __context.values.capitalize (v)})
      ]), 
 ()=> ([]))
      ])
@@ -108,10 +108,10 @@ __this.widget(new Demo({}, [
 ...__forIn (__context.values.styles, (style , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize (style)  }}, [
+        __this.widget(new Button({'style': style,'outline': true ,'text': __context.values.capitalize (style)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'style' : style ,'outline' : true  ,'text' : __context.values.capitalize (style)  }})
+     ]),<__wml.Attrs>{'style': style,'outline': true ,'text': __context.values.capitalize (style)})
      ]), 
 ()=> ([]))
      ]),<__wml.Attrs>{}),
@@ -126,10 +126,10 @@ __this.widget(new Demo({}, [
 ...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }}, [
+        __this.widget(new Button({'name': v,'active': true ,'style': v,'text': __context.values.capitalize (v)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : v ,'active' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }})
+     ]),<__wml.Attrs>{'name': v,'active': true ,'style': v,'text': __context.values.capitalize (v)})
      ]), 
 ()=> ([]))
      ])
@@ -145,10 +145,10 @@ __this.widget(new Demo({}, [
 ...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }}, [
+        __this.widget(new Button({'name': v,'disabled': true ,'style': v,'text': __context.values.capitalize (v)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : v ,'disabled' : true  ,'style' : v ,'text' : __context.values.capitalize (v)  }})
+     ]),<__wml.Attrs>{'name': v,'disabled': true ,'style': v,'text': __context.values.capitalize (v)})
      ]), 
 ()=> ([]))
      ])
@@ -167,10 +167,10 @@ __this.widget(new Demo({}, [
         ...__forIn (__context.values.sizes, (size , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize (size)  }}, [
+        __this.widget(new Button({'name': size,'style': style,'size': size,'text': __context.values.capitalize (size)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'name' : size ,'style' : style ,'size' : size ,'text' : __context.values.capitalize (size)  }})
+     ]),<__wml.Attrs>{'name': size,'style': style,'size': size,'text': __context.values.capitalize (size)})
      ]), 
 ()=> ([]))
      ])
@@ -186,10 +186,10 @@ __this.widget(new Demo({}, [
 ...__forIn (__context.values.styles, (style , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Button({ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize (style)  }}, [
+        __this.widget(new Button({'style': style,'block': true ,'text': __context.values.capitalize (style)}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'style' : style ,'block' : true  ,'text' : __context.values.capitalize (style)  }})
+     ]),<__wml.Attrs>{'style': style,'block': true ,'text': __context.values.capitalize (style)})
      ]), 
 ()=> ([]))
      ]),<__wml.Attrs>{})

@@ -9,37 +9,37 @@
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
   <Label
-   ww:for={{@values.root.id}}
-   ww:text={{@values.label.text}} />
+   for={{@values.root.id}}
+   text={{@values.label.text}} />
 
    {% if @values.tag.isSet() %}
    
      <Tag
-      ww:text={{@values.tag.getText()}}
-      ww:className={{@values.tag.className}}
-      ww:disabled={{@values.tag.disabled}}
-      ww:onDismiss={{@values.tag.dismiss}} />
+      text={{@values.tag.getText()}}
+      className={{@values.tag.className}}
+      disabled={{@values.tag.disabled}}
+      onDismiss={{@values.tag.dismiss}} />
 
     {% else %}
     
       <Search
         wml:id={{@values.search.wml.id}}
-        ww:name={{@values.search.name}}
-        ww:className={{@values.search.className}}
-        ww:block={{@values.search.block}}
-        ww:placeholder={{@values.search.placeholder}} 
-        ww:readOnly={{@values.search.readOnly}}
-        ww:disabled={{@values.search.disabled}}
-        ww:itemTemplate={{@values.search.itemTemplate}}
-        ww:noItemsTemplate={{@values.search.noItemsTemplate}}
-        ww:stringifier={{@values.search.stringifier}}
-        ww:onSearch={{@values.search.onSearch}}
-        ww:onSelect={{@values.search.onSelect}} />
+        name={{@values.search.name}}
+        className={{@values.search.className}}
+        block={{@values.search.block}}
+        placeholder={{@values.search.placeholder}} 
+        readOnly={{@values.search.readOnly}}
+        disabled={{@values.search.disabled}}
+        itemTemplate={{@values.search.itemTemplate}}
+        noItemsTemplate={{@values.search.noItemsTemplate}}
+        stringifier={{@values.search.stringifier}}
+        onSearch={{@values.search.onSearch}}
+        onSelect={{@values.search.onSelect}} />
 
     {% endif %}
 
     <Help 
       wml:id={{@values.messages.wml.id}}
-      ww:text={{@values.messages.text}} />
+      text={{@values.messages.text}} />
 
 </div>

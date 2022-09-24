@@ -83,10 +83,10 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DateField({wml : { 'id' : spec.id  },ww : { 'name' : spec.name ,'label' : spec.label ,'format' : spec.format ,'message' : spec.message ,'onChange' : spec.onChange  }}, [
+        __this.widget(new DateField({wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'format': spec.format,'message': spec.message,'onChange': spec.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : spec.id  },ww : { 'name' : spec.name ,'label' : spec.label ,'format' : spec.format ,'message' : spec.message ,'onChange' : spec.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'format': spec.format,'message': spec.message,'onChange': spec.onChange})
      ])
      ]),<__wml.Attrs>{})
      ]), 
@@ -98,10 +98,10 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DateField({wml : { 'id' : spec.id  },ww : { 'name' : spec.name ,'label' : spec.label ,'success' : spec.success ,'warning' : spec.warning ,'error' : spec.error ,'block' : spec.block ,'onChange' : spec.onChange  }}, [
+        __this.widget(new DateField({wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'success': spec.success,'warning': spec.warning,'error': spec.error,'block': spec.block,'onChange': spec.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : spec.id  },ww : { 'name' : spec.name ,'label' : spec.label ,'success' : spec.success ,'warning' : spec.warning ,'error' : spec.error ,'block' : spec.block ,'onChange' : spec.onChange  }})
+     ]),<__wml.Attrs>{wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'success': spec.success,'warning': spec.warning,'error': spec.error,'block': spec.block,'onChange': spec.onChange})
      ])
      ]),<__wml.Attrs>{})
      ]), 

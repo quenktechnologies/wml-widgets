@@ -1,6 +1,6 @@
 import * as wml from '@quenk/wml';
 import { Activate } from '../../content/state/active';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const ITEM = "ww-menu-item";
 export declare const DIVIDER = "ww-menu-divider";
 /**
@@ -47,7 +47,7 @@ export declare class Divider extends wml.Component<HTMLElementAttrs> {
  *
  * Items should not have any siblings that are not other Items.
  */
-export declare class Item extends wml.Component<WidgetAttrs<ItemAttrs>> implements Activate {
+export declare class Item extends wml.Component<ItemAttrs> implements Activate {
     view: wml.View;
     values: {
         root: {

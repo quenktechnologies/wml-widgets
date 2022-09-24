@@ -80,10 +80,10 @@ export class Main  implements __wml.View {
         ...__forOf (__context.values.tabs.data, (tab , name , _$$all) => 
        ([
 
-        __this.widget(new Tab({ww : { 'name' : name ,'active' : (__context.values.tabs.current === name) ,'onClick' : __context.values.tabs.onClick  }}, [
+        __this.widget(new Tab({'name': name,'active': (__context.values.tabs.current === name),'onClick': __context.values.tabs.onClick}, [
 
         ...(__context.values.tabs.content(tab))
-     ]),<__wml.Attrs>{ww : { 'name' : name ,'active' : (__context.values.tabs.current === name) ,'onClick' : __context.values.tabs.onClick  }})
+     ]),<__wml.Attrs>{'name': name,'active': (__context.values.tabs.current === name),'onClick': __context.values.tabs.onClick})
      ]), 
     ()=> ([]))
      ]),<__wml.Attrs>{}),

@@ -1,7 +1,7 @@
 import { View, Component } from '@quenk/wml';
 import { DEFAULT, Style, getStyleClassName } from '../../content/style';
 import { concat } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getId, getClassName } from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { Main } from './wml/callout';
 
 export { Style }
@@ -25,7 +25,7 @@ export interface CalloutAttrs extends HTMLElementAttrs {
 /**
  * Callout 
  */
-export class Callout extends Component<WidgetAttrs<CalloutAttrs>> {
+export class Callout extends Component<CalloutAttrs> {
 
     view: View = new Main(this);
 
@@ -36,8 +36,8 @@ export class Callout extends Component<WidgetAttrs<CalloutAttrs>> {
         className: concat(CALLOUT,
             getClassName(this.attrs),
 
-            (this.attrs.ww && this.attrs.ww.style) ?
-                getStyleClassName(this.attrs.ww.style) :
+            (this.attrs && this.attrs.style) ?
+                getStyleClassName(this.attrs.style) :
                 DEFAULT)
 
     }

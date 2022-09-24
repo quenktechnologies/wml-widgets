@@ -98,7 +98,7 @@ class Main {
                     __this.node('p', {}, [
                         __this.widget(new input_group_1.InputGroup({}, [
                             __this.widget(new input_group_1.AddOn({ 'button': true }, [
-                                __this.widget(new button_1.Button({ ww: { 'text': 'Find' } }, []), { ww: { 'text': 'Find' } })
+                                __this.widget(new button_1.Button({ 'text': 'Find' }, []), { 'text': 'Find' })
                             ]), { 'button': true }),
                             __this.widget(new text_input_1.TextInput({}, []), {})
                         ]), {})
@@ -109,7 +109,7 @@ class Main {
                         __this.widget(new input_group_1.InputGroup({}, [
                             __this.widget(new text_input_1.TextInput({}, []), {}),
                             __this.widget(new input_group_1.AddOn({ 'button': true }, [
-                                __this.widget(new button_1.Button({ ww: { 'text': 'Find' } }, []), { ww: { 'text': 'Find' } })
+                                __this.widget(new button_1.Button({ 'text': 'Find' }, []), { 'text': 'Find' })
                             ]), { 'button': true })
                         ]), {})
                     ])
@@ -118,7 +118,7 @@ class Main {
                     __this.node('p', {}, [
                         __this.widget(new input_group_1.InputGroup({}, [
                             __this.widget(new input_group_1.AddOn({ 'button': true }, [
-                                __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'Click Me' } }, [
+                                __this.widget(new drop_down_1.DropDown({ 'buttonText': 'Click Me' }, [
                                     __this.widget(new menu_1.Menu({}, [
                                         __this.widget(new item_1.Item({}, [
                                             __this.node('a', { 'href': '#' }, [
@@ -136,7 +136,7 @@ class Main {
                                             ])
                                         ]), {})
                                     ]), {})
-                                ]), { ww: { 'buttonText': 'Click Me' } })
+                                ]), { 'buttonText': 'Click Me' })
                             ]), { 'button': true }),
                             __this.widget(new text_input_1.TextInput({}, []), {})
                         ]), {})
@@ -147,7 +147,7 @@ class Main {
                         __this.widget(new input_group_1.InputGroup({}, [
                             __this.widget(new text_input_1.TextInput({}, []), {}),
                             __this.widget(new input_group_1.AddOn({ 'button': true }, [
-                                __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'Click Me' } }, [
+                                __this.widget(new drop_down_1.DropDown({ 'buttonText': 'Click Me' }, [
                                     __this.widget(new menu_1.Menu({}, [
                                         __this.widget(new item_1.Item({}, [
                                             __this.node('a', { 'href': '#' }, [
@@ -165,7 +165,7 @@ class Main {
                                             ])
                                         ]), {})
                                     ]), {})
-                                ]), { ww: { 'buttonText': 'Click Me' } })
+                                ]), { 'buttonText': 'Click Me' })
                             ]), { 'button': true })
                         ]), {})
                     ])
@@ -174,7 +174,7 @@ class Main {
                     __this.node('p', {}, [
                         __this.widget(new input_group_1.InputGroup({}, [
                             __this.widget(new input_group_1.AddOn({ 'button': true }, [
-                                __this.widget(new drop_list_1.DropList({ ww: { 'options': __context.values.dropList.options } }, []), { ww: { 'options': __context.values.dropList.options } })
+                                __this.widget(new drop_list_1.DropList({ 'options': __context.values.dropList.options }, []), { 'options': __context.values.dropList.options })
                             ]), { 'button': true }),
                             __this.widget(new text_input_1.TextInput({}, []), {})
                         ]), {})
@@ -246,11 +246,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

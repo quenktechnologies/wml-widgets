@@ -50,27 +50,27 @@ class Main {
             return __this.widget(new demo_1.Demo({}, [
                 __this.node('p', {}, [
                     __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'two', 'active': true } }, []), { ww: { 'text': 'two', 'active': true } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'four' } }, []), { ww: { 'text': 'four' } })
+                        __this.widget(new button_1.Button({ 'text': 'one' }, []), { 'text': 'one' }),
+                        __this.widget(new button_1.Button({ 'text': 'two', 'active': true }, []), { 'text': 'two', 'active': true }),
+                        __this.widget(new button_1.Button({ 'text': 'four' }, []), { 'text': 'four' })
                     ]), {})
                 ]),
                 __this.node('p', {}, [
                     __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'two' } }, []), { ww: { 'text': 'two' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'four' } }, []), { ww: { 'text': 'four' } })
+                        __this.widget(new button_1.Button({ 'text': 'one' }, []), { 'text': 'one' }),
+                        __this.widget(new button_1.Button({ 'text': 'two' }, []), { 'text': 'two' }),
+                        __this.widget(new button_1.Button({ 'text': 'four' }, []), { 'text': 'four' })
                     ]), {})
                 ]),
                 __this.node('p', {}, [
                     __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } })
+                        __this.widget(new button_1.Button({ 'text': 'one' }, []), { 'text': 'one' })
                     ]), {})
                 ]),
                 __this.node('p', {}, [
                     __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } }),
-                        __this.widget(new drop_down_1.DropDown({ ww: { 'buttonText': 'two' } }, [
+                        __this.widget(new button_1.Button({ 'text': 'one' }, []), { 'text': 'one' }),
+                        __this.widget(new drop_down_1.DropDown({ 'buttonText': 'two' }, [
                             __this.widget(new menu_1.Menu({}, [
                                 __this.widget(new item_1.Item({}, [
                                     __this.node('a', { 'href': '#' }, [
@@ -88,8 +88,8 @@ class Main {
                                     ])
                                 ]), {})
                             ]), {})
-                        ]), { ww: { 'buttonText': 'two' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'three' } }, []), { ww: { 'text': 'three' } })
+                        ]), { 'buttonText': 'two' }),
+                        __this.widget(new button_1.Button({ 'text': 'three' }, []), { 'text': 'three' })
                     ]), {})
                 ])
             ]), {});
@@ -158,11 +158,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

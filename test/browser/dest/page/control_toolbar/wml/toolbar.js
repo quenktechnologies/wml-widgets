@@ -46,19 +46,19 @@ class Main {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new toolbar_1.Toolbar({}, [
                     __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'one' } }, []), { ww: { 'text': 'one' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'two' } }, []), { ww: { 'text': 'two' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'three' } }, []), { ww: { 'text': 'three' } })
+                        __this.widget(new button_1.Button({ 'text': 'one' }, []), { 'text': 'one' }),
+                        __this.widget(new button_1.Button({ 'text': 'two' }, []), { 'text': 'two' }),
+                        __this.widget(new button_1.Button({ 'text': 'three' }, []), { 'text': 'three' })
                     ]), {}),
                     __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'four' } }, []), { ww: { 'text': 'four' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'five', 'active': true } }, []), { ww: { 'text': 'five', 'active': true } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'six' } }, []), { ww: { 'text': 'six' } })
+                        __this.widget(new button_1.Button({ 'text': 'four' }, []), { 'text': 'four' }),
+                        __this.widget(new button_1.Button({ 'text': 'five', 'active': true }, []), { 'text': 'five', 'active': true }),
+                        __this.widget(new button_1.Button({ 'text': 'six' }, []), { 'text': 'six' })
                     ]), {}),
                     __this.widget(new button_group_1.ButtonGroup({}, [
-                        __this.widget(new button_1.Button({ ww: { 'text': 'seven' } }, []), { ww: { 'text': 'seven' } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': 'eight', 'active': true } }, []), { ww: { 'text': 'eight', 'active': true } }),
-                        __this.widget(new button_1.Button({ ww: { 'text': '9' } }, []), { ww: { 'text': '9' } })
+                        __this.widget(new button_1.Button({ 'text': 'seven' }, []), { 'text': 'seven' }),
+                        __this.widget(new button_1.Button({ 'text': 'eight', 'active': true }, []), { 'text': 'eight', 'active': true }),
+                        __this.widget(new button_1.Button({ 'text': '9' }, []), { 'text': '9' })
                     ]), {})
                 ]), {})
             ]), {});
@@ -127,11 +127,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

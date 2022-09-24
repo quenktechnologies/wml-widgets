@@ -45,15 +45,15 @@ class Navigation {
         this.template = (__this) => {
             return __this.widget(new nav_1.NavMenu({ 'id': 'nav', 'vertical': true }, [
                 __this.widget(new item_1.Item({}, [
-                    __this.widget(new link_1.Link({ wml: { 'group': 'links' }, ww: { 'active': (__context.page === 'home'), 'name': 'home', 'href': '#', 'onClick': __context.navigate, 'text': 'Home' } }, []), { wml: { 'group': 'links' }, ww: { 'active': (__context.page === 'home'), 'name': 'home', 'href': '#', 'onClick': __context.navigate, 'text': 'Home' } })
+                    __this.widget(new link_1.Link({ wml: { 'group': 'links' }, 'active': (__context.page === 'home'), 'name': 'home', 'href': '#', 'onClick': __context.navigate, 'text': 'Home' }, []), { wml: { 'group': 'links' }, 'active': (__context.page === 'home'), 'name': 'home', 'href': '#', 'onClick': __context.navigate, 'text': 'Home' })
                 ]), {}),
                 ...__forOf(__context.pages, (items, section, _$$all) => ([
                     __this.widget(new item_1.Item({}, [
-                        __this.widget(new header_1.MenuHeader({ ww: { 'text': section } }, []), { ww: { 'text': section } }),
+                        __this.widget(new header_1.MenuHeader({ 'text': section }, []), { 'text': section }),
                         __this.widget(new nav_1.NavMenu({ 'vertical': true }, [
                             ...__forOf(items, (_, name, _$$all) => ([
                                 __this.widget(new item_1.Item({}, [
-                                    __this.widget(new link_1.Link({ wml: { 'group': 'links' }, ww: { 'name': name, 'href': ('#/' + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name } }, []), { wml: { 'group': 'links' }, ww: { 'name': name, 'href': ('#/' + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name } })
+                                    __this.widget(new link_1.Link({ wml: { 'group': 'links' }, 'name': name, 'href': ('#/' + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name }, []), { wml: { 'group': 'links' }, 'name': name, 'href': ('#/' + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name })
                                 ]), {})
                             ]), () => ([]))
                         ]), { 'vertical': true })
@@ -125,11 +125,11 @@ class Navigation {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

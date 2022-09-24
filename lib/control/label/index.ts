@@ -3,7 +3,7 @@ import * as document from '@quenk/wml/lib/dom';
 import { View, Component } from '@quenk/wml';
 
 import { concat } from '../../util';
-import { WidgetAttrs, getClassName } from '../../';
+import { getClassName, HTMLElementAttrs } from '../../';
 import { Main } from './wml/label';
 
 ///classNames:begin
@@ -13,7 +13,7 @@ export const LABEL = 'ww-label';
 /**
  * LabelAttrs
  */
-export interface LabelAttrs {
+export interface LabelAttrs extends HTMLElementAttrs{
 
     /**
      * for value
@@ -35,7 +35,7 @@ export interface LabelAttrs {
 /**
  * Label
  */
-export class Label extends Component<WidgetAttrs<LabelAttrs>> {
+export class Label extends Component<LabelAttrs> {
 
     view: View = new Main(this);
 
@@ -45,11 +45,11 @@ export class Label extends Component<WidgetAttrs<LabelAttrs>> {
 
             className: concat(LABEL, getClassName(this.attrs)),
 
-            for: (this.attrs.ww && this.attrs.ww.for) ?
-                this.attrs.ww.for : '',
+            for: (this.attrs && this.attrs.for) ?
+                this.attrs.for : '',
 
-            text: (this.attrs.ww && this.attrs.ww.text) ?
-                [document.createTextNode(this.attrs.ww.text)] : this.children
+            text: (this.attrs && this.attrs.text) ?
+                [document.createTextNode(this.attrs.text)] : this.children
 
         }
 

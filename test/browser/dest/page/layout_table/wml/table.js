@@ -123,11 +123,11 @@ class HeaderView {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);
@@ -217,9 +217,9 @@ class BodyView {
                     ]), {})
                 ]), {}),
                 __this.widget(new table_1.TableRow({}, [
-                    __this.widget(new table_1.TableCell({ ww: { 'rowspan': 2, 'colspan': 5 } }, [
+                    __this.widget(new table_1.TableCell({ 'rowspan': 2, 'colspan': 5 }, [
                         __document.createTextNode('This spans 2 rows 5 columns.')
-                    ]), { ww: { 'rowspan': 2, 'colspan': 5 } })
+                    ]), { 'rowspan': 2, 'colspan': 5 })
                 ]), {})
             ]), {});
         };
@@ -287,11 +287,11 @@ class BodyView {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);
@@ -412,11 +412,11 @@ class FooterView {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);
@@ -468,41 +468,41 @@ class Main {
                     __this.node('h3', {}, [
                         __document.createTextNode(' Alternate')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'alternate': true } }, [
+                    __this.widget(new table_1.TableLayout({ 'alternate': true }, [
                         __this.registerView(new HeaderView(__context)).render(),
                         __this.registerView(new BodyView(__context)).render(),
                         __this.registerView(new FooterView(__context)).render()
-                    ]), { ww: { 'alternate': true } })
+                    ]), { 'alternate': true })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
                         __document.createTextNode('Bordered')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'bordered': true } }, [
+                    __this.widget(new table_1.TableLayout({ 'bordered': true }, [
                         __this.registerView(new HeaderView(__context)).render(),
                         __this.registerView(new BodyView(__context)).render(),
                         __this.registerView(new FooterView(__context)).render()
-                    ]), { ww: { 'bordered': true } })
+                    ]), { 'bordered': true })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
                         __document.createTextNode('Hoverable')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'hoverable': true } }, [
+                    __this.widget(new table_1.TableLayout({ 'hoverable': true }, [
                         __this.registerView(new HeaderView(__context)).render(),
                         __this.registerView(new BodyView(__context)).render(),
                         __this.registerView(new FooterView(__context)).render()
-                    ]), { ww: { 'hoverable': true } })
+                    ]), { 'hoverable': true })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('h3', {}, [
                         __document.createTextNode('Compact')
                     ]),
-                    __this.widget(new table_1.TableLayout({ ww: { 'compact': true } }, [
+                    __this.widget(new table_1.TableLayout({ 'compact': true }, [
                         __this.registerView(new HeaderView(__context)).render(),
                         __this.registerView(new BodyView(__context)).render(),
                         __this.registerView(new FooterView(__context)).render()
-                    ]), { ww: { 'compact': true } })
+                    ]), { 'compact': true })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.widget(new table_1.TableWindow({}, [
@@ -579,11 +579,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

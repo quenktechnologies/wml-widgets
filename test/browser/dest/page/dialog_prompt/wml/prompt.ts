@@ -273,13 +273,13 @@ export class Open  implements __wml.View {
 
        
 
-           return __this.widget(new Prompt({wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title ,'onSave' : __context.values.onSave ,'onCancel' : __context.values.onCancel  }}, [
+           return __this.widget(new Prompt({wml : { 'id' : 'open'  },'title': __context.values.title,'onSave': __context.values.onSave,'onCancel': __context.values.onCancel}, [
 
-        __this.widget(new TextField({ww : { 'value' : __context.values.value ,'onChange' : __context.values.onChange  }}, [
+        __this.widget(new TextField({'value': __context.values.value,'onChange': __context.values.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'value' : __context.values.value ,'onChange' : __context.values.onChange  }})
-     ]),<__wml.Attrs>{wml : { 'id' : 'open'  },ww : { 'title' : __context.values.title ,'onSave' : __context.values.onSave ,'onCancel' : __context.values.onCancel  }});
+     ]),<__wml.Attrs>{'value': __context.values.value,'onChange': __context.values.onChange})
+     ]),<__wml.Attrs>{wml : { 'id' : 'open'  },'title': __context.values.title,'onSave': __context.values.onSave,'onCancel': __context.values.onCancel});
 
        }
 

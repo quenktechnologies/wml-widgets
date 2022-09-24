@@ -1,6 +1,5 @@
 import * as views from './wml/tab';
 import { Fun, Content, Component } from '@quenk/wml';
-import { WidgetAttrs } from '../../';
 import { TabClickedEvent } from '../../control/tab-bar';
 import { LayoutAttrs, Layout } from '../';
 export declare const TAB_LAYOUT = "ww-tab-layout";
@@ -57,7 +56,7 @@ export interface TabLayoutAttrs extends LayoutAttrs {
  * |                                                                          |
  * |__________________________________________________________________________|
  */
-export declare class TabLayout extends Component<WidgetAttrs<TabLayoutAttrs>> implements Layout {
+export declare class TabLayout extends Component<TabLayoutAttrs> implements Layout {
     view: views.Main;
     setContent(c: Content[]): TabLayout;
     removeContent(): TabLayout;

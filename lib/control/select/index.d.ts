@@ -3,7 +3,6 @@ import { View } from '@quenk/wml';
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 import { Message } from '../feedback';
 import { FormControlAttrs, AbstractFormControl } from '../form';
-import { WidgetAttrs } from '../../';
 import { Event as ControlEvent } from '../';
 import { TermChangedEvent, ItemSelectedEvent, Stringifier, NoItemsTemplate, ItemTemplate } from '../search';
 export { Stringifier, ItemTemplate, NoItemsTemplate, TermChangedEvent, ItemSelectedEvent };
@@ -79,8 +78,8 @@ export declare class ItemUnsetEvent extends ControlEvent<undefined> {
  * RootSection
  */
 export declare class RootSection<V> {
-    attrs: WidgetAttrs<CommonSelectAttrs<V>>;
-    constructor(attrs: WidgetAttrs<CommonSelectAttrs<V>>);
+    attrs: CommonSelectAttrs<V>;
+    constructor(attrs: CommonSelectAttrs<V>);
     wml: {
         id: string;
     };
@@ -100,8 +99,8 @@ export declare class ControlSection {
  * MessagesSection
  */
 export declare class MessagesSection<V> {
-    attrs: WidgetAttrs<FormControlAttrs<V>>;
-    constructor(attrs: WidgetAttrs<FormControlAttrs<V>>);
+    attrs: FormControlAttrs<V>;
+    constructor(attrs: FormControlAttrs<V>);
     wml: {
         id: string;
     };
@@ -111,8 +110,8 @@ export declare class MessagesSection<V> {
  * LabelSection
  */
 export declare class LabelSection<V> {
-    attrs: WidgetAttrs<FormControlAttrs<V>>;
-    constructor(attrs: WidgetAttrs<FormControlAttrs<V>>);
+    attrs: FormControlAttrs<V>;
+    constructor(attrs: FormControlAttrs<V>);
     id: string;
     text: string;
 }
@@ -120,8 +119,8 @@ export declare class LabelSection<V> {
  * InputSection
  */
 export declare class InputSection {
-    attrs: WidgetAttrs<object>;
-    constructor(attrs: WidgetAttrs<object>);
+    attrs: object;
+    constructor(attrs: object);
     wml: {
         id: string;
     };
@@ -130,10 +129,10 @@ export declare class InputSection {
  * SearchSection
  */
 export declare class SearchSection<V> {
-    attrs: WidgetAttrs<CommonSelectAttrs<V>>;
+    attrs: CommonSelectAttrs<V>;
     close: () => void;
     onSelect: (e: ItemSelectedEvent<V>) => void;
-    constructor(attrs: WidgetAttrs<CommonSelectAttrs<V>>, close: () => void, onSelect: (e: ItemSelectedEvent<V>) => void);
+    constructor(attrs: CommonSelectAttrs<V>, close: () => void, onSelect: (e: ItemSelectedEvent<V>) => void);
     wml: {
         id: string;
     };

@@ -49,14 +49,14 @@ class Main {
         this.template = (__this) => {
             return __this.widget(new drawer_1.DrawerLayout({ wml: { 'id': __context.values.id.layout }, 'drawer': 'nav', 'content': 'main', 'open': true }, [
                 __this.registerView(new navigation_1.Navigation(__context)).render(),
-                __this.widget(new action_bar_1.ActionBar({ ww: { 'id': 'appBar' } }, [
-                    __this.widget(new link_1.Link({ ww: { 'onClick': __context.toggleDrawer } }, [
+                __this.widget(new action_bar_1.ActionBar({ 'id': 'appBar' }, [
+                    __this.widget(new link_1.Link({ 'onClick': __context.toggleDrawer }, [
                         __this.widget(new menu_icon_1.MenuIcon({}, []), {})
-                    ]), { ww: { 'onClick': __context.toggleDrawer } })
-                ]), { ww: { 'id': 'appBar' } }),
-                __this.widget(new main_1.MainLayout({ ww: { 'id': 'main' } }, [
+                    ]), { 'onClick': __context.toggleDrawer })
+                ]), { 'id': 'appBar' }),
+                __this.widget(new main_1.MainLayout({ 'id': 'main' }, [
                     ...(__context.content)
-                ]), { ww: { 'id': 'main' } })
+                ]), { 'id': 'main' })
             ]), { wml: { 'id': __context.values.id.layout }, 'drawer': 'nav', 'content': 'main', 'open': true });
         };
     }
@@ -123,11 +123,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

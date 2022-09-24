@@ -91,10 +91,10 @@ __this.node('p', <__wml.Attrs>{}, [
 ...__forIn (__context.values.styles, (v , _$$i, _$$all)=> 
 ([
 
-        __this.widget(new Callout({ww : { 'style' : v  }}, [
+        __this.widget(new Callout({'style': v}, [
 
         __document.createTextNode('\u000a\u000a            This is a callout with style on display.\u000a\u000a          ')
-     ]),<__wml.Attrs>{ww : { 'style' : v  }})
+     ]),<__wml.Attrs>{'style': v})
      ]), 
 ()=> ([]))
      ])

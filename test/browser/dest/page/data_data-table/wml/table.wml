@@ -10,9 +10,9 @@
 
     <DataTable
      wml:id={{@values.id}}
-     ww:sortable=true
-     ww:onCellClicked={{@values.onCellClicked}}
-     ww:data={{@values.users}}
-     ww:columns={{@values.columns}} />
+     sortable=true
+     onCellClicked={{@values.onCellClicked}}
+     data={{@values.users}}
+     columns={{@values.columns}} />
 
 </Demo>

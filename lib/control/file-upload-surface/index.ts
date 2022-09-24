@@ -49,8 +49,8 @@ export class FileUploadSurface
             e.stopPropagation();
             e.preventDefault();
 
-            let name = (this.attrs.ww && this.attrs.ww.name) ?
-                this.attrs.ww.name : '';
+            let name = (this.attrs && this.attrs.name) ?
+                this.attrs.name : '';
 
             if (e.dataTransfer && e.dataTransfer.files.length > 0)
                 this.values.input.onChange(new FileChangedEvent(name,
@@ -64,18 +64,18 @@ export class FileUploadSurface
 
             name: getName(this.attrs),
 
-            accept: (this.attrs.ww && this.attrs.ww.accept) ?
-                this.attrs.ww.accept : '',
+            accept: (this.attrs && this.attrs.accept) ?
+                this.attrs.accept : '',
 
-            multiple: (this.attrs.ww && this.attrs.ww.multiple) ?
-                this.attrs.ww.multiple : undefined,
+            multiple: (this.attrs && this.attrs.multiple) ?
+                this.attrs.multiple : undefined,
 
             onChange: (e: FileChangedEvent) => {
 
                 this.values.text.value = e.value[0].name;
 
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(e);
+                if (this.attrs && this.attrs.onChange)
+                    this.attrs.onChange(e);
 
                 this.view.invalidate();
 
@@ -86,8 +86,8 @@ export class FileUploadSurface
 
             className: FILE_UPLOAD_SURFACE_TEXT,
 
-            value: (this.attrs.ww && this.attrs.ww.text) ?
-                this.attrs.ww.text : INSTRUCTION_TEXT
+            value: (this.attrs && this.attrs.text) ?
+                this.attrs.text : INSTRUCTION_TEXT
 
         }
 

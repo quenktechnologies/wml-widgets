@@ -1,6 +1,6 @@
 import * as hidden from '../../content/state/hidden';
 import { View, Component, Content } from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const MENU = "ww-menu";
 export declare const MENU_HEADER_ITEM = "ww-menu__header-item";
 export declare const NAV_MODE = "nav";
@@ -30,7 +30,7 @@ export interface HeaderAttrs extends HTMLElementAttrs {
 /**
  * HeaderItem
  */
-export declare class HeaderItem extends Component<WidgetAttrs<HeaderAttrs>> {
+export declare class HeaderItem extends Component<HeaderAttrs> {
     view: View;
     values: {
         root: {
@@ -43,7 +43,7 @@ export declare class HeaderItem extends Component<WidgetAttrs<HeaderAttrs>> {
  * Menu provides a DOM container for rendering
  * a dropdown style menu.
  */
-export declare class Menu extends Component<WidgetAttrs<MenuAttrs>> implements hidden.Hidable {
+export declare class Menu extends Component<MenuAttrs> implements hidden.Hidable {
     view: View;
     values: {
         root: {

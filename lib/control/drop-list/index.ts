@@ -1,5 +1,7 @@
 import * as views from './wml/drop-list';
+
 import { View } from '@quenk/wml';
+
 import { concat } from '../../util';
 import { Size, getSizeClassName } from '../../content/size';
 import { BLOCK } from '../../content/orientation';
@@ -108,15 +110,15 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
 
             getClassName(this.attrs),
 
-            (this.attrs.ww && this.attrs.ww.size) ?
-                getSizeClassName(this.attrs.ww.size) : '',
+            (this.attrs && this.attrs.size) ?
+                getSizeClassName(this.attrs.size) : '',
 
-            (this.attrs.ww && this.attrs.ww.block) ?
+            (this.attrs && this.attrs.block) ?
                 BLOCK : ''),
 
         name: getName(this.attrs),
 
-        value: (this.attrs.ww && this.attrs.ww.value),
+        value: (this.attrs && this.attrs.value),
 
         control: {
 
@@ -139,17 +141,17 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
 
         display: {
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled),
+            disabled: (this.attrs && this.attrs.disabled),
 
             placeholder: () => {
 
-                if (this.attrs.ww) {
+                if (this.attrs) {
 
-                    if (this.attrs.ww.options && this.values.value)
-                        return getCurrent(this.attrs.ww.options,
+                    if (this.attrs.options && this.values.value)
+                        return getCurrent(this.attrs.options,
                             this.values.value);
 
-                    return this.attrs.ww.placeholder || 'Select one';
+                    return this.attrs.placeholder || 'Select one';
 
                 }
 
@@ -170,21 +172,21 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
 
             },
 
-            name: (this.attrs.ww && this.attrs.ww.name) ?
-                this.attrs.ww.name : '',
+            name: (this.attrs && this.attrs.name) ?
+                this.attrs.name : '',
 
-            block: (this.attrs.ww && this.attrs.ww.block) ?
-                this.attrs.ww.block : false,
+            block: (this.attrs && this.attrs.block) ?
+                this.attrs.block : false,
 
             hidden: true,
 
-            results: (this.attrs.ww && this.attrs.ww.options) ?
-                this.attrs.ww.options : [],
+            results: (this.attrs && this.attrs.options) ?
+                this.attrs.options : [],
 
             onSelect: (e: ItemSelectedEvent<Option<V>>) => {
 
-                if (this.attrs.ww && this.attrs.ww.onSelect)
-                    this.attrs.ww.onSelect(
+                if (this.attrs && this.attrs.onSelect)
+                    this.attrs.onSelect(
                         new ItemSelectedEvent(e.name, e.value.value));
 
                 this.values.value = e.value.value;
@@ -192,14 +194,14 @@ export class DropList<V> extends AbstractControl<V, DropListAttrs<V>> {
                 this.view.invalidate();
 
             },
-            itemTemplate: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                this.attrs.ww.itemTemplate : undefined,
+            itemTemplate: (this.attrs && this.attrs.itemTemplate) ?
+                this.attrs.itemTemplate : undefined,
 
-            noItemsTemplate: (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                this.attrs.ww.noItemsTemplate : undefined,
+            noItemsTemplate: (this.attrs && this.attrs.noItemsTemplate) ?
+                this.attrs.noItemsTemplate : undefined,
 
-            stringifier: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : (v: Option<V>) => v.label
+            stringifier: (this.attrs && this.attrs.stringifier) ?
+                this.attrs.stringifier : (v: Option<V>) => v.label
 
         }
 

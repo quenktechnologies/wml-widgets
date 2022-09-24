@@ -1,5 +1,5 @@
 import { View, Component } from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 export declare const CONFIRM = "ww-confirm";
 export declare const CONFIRM_NO = "ww-confirm__no";
 export declare const CONFIRM_YES = "ww-prompt__yes";
@@ -42,7 +42,7 @@ export interface ConfirmAttrs extends HTMLElementAttrs {
 /**
  * Confirm displays a dialog for confirming an action.
  */
-export declare class Confirm extends Component<WidgetAttrs<ConfirmAttrs>> {
+export declare class Confirm extends Component<ConfirmAttrs> {
     view: View;
     values: {
         id: string;

@@ -63,7 +63,7 @@ class Main {
                     ]), {})
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new description_list_1.DescriptionList({ ww: { 'horizontal': true } }, [
+                    __this.widget(new description_list_1.DescriptionList({ 'horizontal': true }, [
                         __this.widget(new description_list_1.Title({}, [
                             __document.createTextNode('Phone')
                         ]), {}),
@@ -82,7 +82,7 @@ class Main {
                         __this.widget(new description_list_1.Data({}, [
                             __document.createTextNode('example.com')
                         ]), {})
-                    ]), { ww: { 'horizontal': true } })
+                    ]), { 'horizontal': true })
                 ]), {})
             ]), {});
         };
@@ -150,11 +150,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

@@ -75,10 +75,10 @@ export class FileUploadSurfaceView  implements __wml.View {
 
            return __this.node('div', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'ondragenter': __context.values.stop,'ondragover': __context.values.stop,'ondrop': __context.values.drop}, [
 
-        __this.widget(new FileInput({ww : { 'className' : __context.values.input.className ,'name' : __context.values.input.name ,'accept' : __context.values.input.accept ,'multiple' : __context.values.input.multiple ,'onChange' : __context.values.input.onChange  }}, [
+        __this.widget(new FileInput({'className': __context.values.input.className,'name': __context.values.input.name,'accept': __context.values.input.accept,'multiple': __context.values.input.multiple,'onChange': __context.values.input.onChange}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'className' : __context.values.input.className ,'name' : __context.values.input.name ,'accept' : __context.values.input.accept ,'multiple' : __context.values.input.multiple ,'onChange' : __context.values.input.onChange  }}),
+     ]),<__wml.Attrs>{'className': __context.values.input.className,'name': __context.values.input.name,'accept': __context.values.input.accept,'multiple': __context.values.input.multiple,'onChange': __context.values.input.onChange}),
 __this.node('div', <__wml.Attrs>{'class': __context.values.text.className}, [
 
         __this.node('h3', <__wml.Attrs>{}, [

@@ -81,13 +81,13 @@ export class Main  implements __wml.View {
         ...__forOf (__context.items, (yes , key , _$$all) => 
        ([
 
-        __this.widget(new ListLayoutItem({wml : { 'id' : key  },ww : { 'name' : key ,'active' : yes ,'onClick' : __context.click  }}, [
+        __this.widget(new ListLayoutItem({wml : { 'id' : key  },'name': key,'active': yes,'onClick': __context.click}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
         document.createTextNode(key)
      ])
-     ]),<__wml.Attrs>{wml : { 'id' : key  },ww : { 'name' : key ,'active' : yes ,'onClick' : __context.click  }})
+     ]),<__wml.Attrs>{wml : { 'id' : key  },'name': key,'active': yes,'onClick': __context.click})
      ]), 
     ()=> ([]))
      ]),<__wml.Attrs>{})

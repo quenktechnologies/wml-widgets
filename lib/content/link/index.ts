@@ -7,7 +7,7 @@ import { Maybe } from '@quenk/noni/lib/data/maybe';
 import { getById, concat } from '../../util';
 import { ACTIVE } from '../state/active';
 import { DISABLED } from '../state/disabled';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 
 ///classNames:begin
 /**
@@ -70,72 +70,72 @@ export class LinkClickedEvent {
 /**
  * Link generates an <a> element.
  */
-export class Link extends wml.Component<WidgetAttrs<LinkAttrs>> {
+export class Link extends wml.Component<LinkAttrs> {
 
-    view: wml.View = (this.attrs.ww && this.attrs.ww.disabled) ?
+    view: wml.View = (this.attrs && this.attrs.disabled) ?
         new views.DisabledLinkView(this) :
         new views.LinkView(this);
 
     /**
      * name assigned to this Link.
      */
-    name = (this.attrs.ww && this.attrs.ww.name) ?
-        this.attrs.ww.name : '';
+    name = (this.attrs && this.attrs.name) ?
+        this.attrs.name : '';
 
     /**
      * title assigned to this Link.
      */
-    title = (this.attrs.ww && this.attrs.ww.title) ?
-        this.attrs.ww.title : '';
+    title = (this.attrs && this.attrs.title) ?
+        this.attrs.title : '';
 
     /**
      * href assigned to this Link
      */
-    href = (this.attrs.ww && this.attrs.ww.href) ?
-        this.attrs.ww.href : '';
+    href = (this.attrs && this.attrs.href) ?
+        this.attrs.href : '';
 
     values = {
 
-        id: (this.attrs.ww && this.attrs.ww.id) ?
-            this.attrs.ww.id : '',
+        id: (this.attrs && this.attrs.id) ?
+            this.attrs.id : '',
 
-        disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-            this.attrs.ww.disabled : null,
+        disabled: (this.attrs && this.attrs.disabled) ?
+            this.attrs.disabled : null,
 
         className: concat(LINK,
-            (this.attrs.ww && this.attrs.ww.className) ?
-                this.attrs.ww.className : '',
-            (this.attrs.ww && this.attrs.ww.active) ?
+            (this.attrs && this.attrs.className) ?
+                this.attrs.className : '',
+            (this.attrs && this.attrs.active) ?
                 ACTIVE : '',
-            (this.attrs.ww && this.attrs.ww.disabled) ?
+            (this.attrs && this.attrs.disabled) ?
                 DISABLED : '',
-            (this.attrs.ww && this.attrs.ww.disabled) ?
+            (this.attrs && this.attrs.disabled) ?
                 `-ww-disabled` : ''
 
         ),
 
-        title: (this.attrs.ww && this.attrs.ww.title) ?
-            this.attrs.ww.title : null,
+        title: (this.attrs && this.attrs.title) ?
+            this.attrs.title : null,
 
-        name: (this.attrs.ww && this.attrs.ww.name) ?
-            this.attrs.ww.name : null,
+        name: (this.attrs && this.attrs.name) ?
+            this.attrs.name : null,
 
-        href: (this.attrs.ww && this.attrs.ww.href) ?
-            this.attrs.ww.href : '#',
+        href: (this.attrs && this.attrs.href) ?
+            this.attrs.href : '#',
 
-        active: (this.attrs.ww && this.attrs.ww.active) ?
-            this.attrs.ww.active : false,
+        active: (this.attrs && this.attrs.active) ?
+            this.attrs.active : false,
 
         //TODO: move to dom lib
-        content: (this.attrs.ww && this.attrs.ww.text) ?
-            [document.createTextNode(this.attrs.ww.text)] :
+        content: (this.attrs && this.attrs.text) ?
+            [document.createTextNode(this.attrs.text)] :
             this.children,
 
         clicked: (e: Event): void => {
 
-            if (this.attrs.ww && !this.attrs.ww.disabled) {
+            if (this.attrs && !this.attrs.disabled) {
 
-                let { name, href, onClick } = this.attrs.ww;
+                let { name, href, onClick } = this.attrs;
 
                 if (!href)
                     e.preventDefault();

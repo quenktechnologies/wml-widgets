@@ -83,54 +83,54 @@ export class Main  implements __wml.View {
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('This is a '),
-__this.widget(new Link({ww : { 'href' : '#link'  }}, [
+__this.widget(new Link({'href': '#link'}, [
 
         __document.createTextNode('link')
-     ]),<__wml.Attrs>{ww : { 'href' : '#link'  }}),
+     ]),<__wml.Attrs>{'href': '#link'}),
 __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('This is a '),
-__this.widget(new Link({ww : { 'href' : '#disabled' ,'disabled' : true   }}, [
+__this.widget(new Link({'href': '#disabled','disabled': true }, [
 
         __document.createTextNode('disabled')
-     ]),<__wml.Attrs>{ww : { 'href' : '#disabled' ,'disabled' : true   }}),
+     ]),<__wml.Attrs>{'href': '#disabled','disabled': true }),
 __document.createTextNode(' link.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Links can also '),
-__this.widget(new Link({ww : { 'text' : 'specify'  }}, [
+__this.widget(new Link({'text': 'specify'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : 'specify'  }}),
+     ]),<__wml.Attrs>{'text': 'specify'}),
 __document.createTextNode(' contents a the text attribute')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Links can also have '),
-__this.widget(new Link({ww : { 'onClick' : __context.values.onClick ,'text' : 'handlers'  }}, [
+__this.widget(new Link({'onClick': __context.values.onClick,'text': 'handlers'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick ,'text' : 'handlers'  }})
+     ]),<__wml.Attrs>{'onClick': __context.values.onClick,'text': 'handlers'})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Disabled link '),
-__this.widget(new Link({ww : { 'onClick' : __context.values.onClick ,'disabled' : true  ,'text' : 'handlers'  }}, [
+__this.widget(new Link({'onClick': __context.values.onClick,'disabled': true ,'text': 'handlers'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.onClick ,'disabled' : true  ,'text' : 'handlers'  }}),
+     ]),<__wml.Attrs>{'onClick': __context.values.onClick,'disabled': true ,'text': 'handlers'}),
 __document.createTextNode('\u000a     do nothing. \u000a  ')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('You can remove the underline using the \u000a     '),
-__this.widget(new Link({ww : { 'text' : '-ww-no-decoration' ,'className' : '-ww-no-decoration'  }}, [
+__this.widget(new Link({'text': '-ww-no-decoration','className': '-ww-no-decoration'}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : '-ww-no-decoration' ,'className' : '-ww-no-decoration'  }}),
+     ]),<__wml.Attrs>{'text': '-ww-no-decoration','className': '-ww-no-decoration'}),
 __document.createTextNode(' modifier.\u000a  ')
      ])
      ]),<__wml.Attrs>{});

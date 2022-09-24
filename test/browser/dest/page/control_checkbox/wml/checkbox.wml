@@ -10,8 +10,8 @@
 
   <p>
     <Checkbox
-      ww:name="checkbox"
-      ww:onChange={{@onChange}} />
+      name="checkbox"
+      onChange={{@onChange}} />
   </p>
 
 </Demo>

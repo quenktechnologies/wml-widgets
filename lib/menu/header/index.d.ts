@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 /**
  * MENU_HEADER
  */
@@ -16,7 +16,7 @@ export interface MenuHeaderAttrs extends HTMLElementAttrs {
 /**
  * MenuHeader can be used to display non-clickable heading text in a nav menu.
  */
-export declare class MenuHeader extends wml.Component<WidgetAttrs<MenuHeaderAttrs>> {
+export declare class MenuHeader extends wml.Component<MenuHeaderAttrs> {
     view: wml.View;
     values: {
         span: {

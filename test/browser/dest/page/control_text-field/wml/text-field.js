@@ -50,7 +50,7 @@ class Main {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'text' }, ww: { 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange } }, []), { wml: { 'id': 'text' }, ww: { 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange } })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'text' }, 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange }, []), { wml: { 'id': 'text' }, 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -60,7 +60,7 @@ class Main {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'success' }, ww: { 'name': 'success', 'label': 'This is a success label', 'success': 'This textfield has a success', 'onChange': __context.onChange } }, []), { wml: { 'id': 'success' }, ww: { 'name': 'success', 'label': 'This is a success label', 'success': 'This textfield has a success', 'onChange': __context.onChange } })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'success' }, 'name': 'success', 'label': 'This is a success label', 'success': 'This textfield has a success', 'onChange': __context.onChange }, []), { wml: { 'id': 'success' }, 'name': 'success', 'label': 'This is a success label', 'success': 'This textfield has a success', 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -70,7 +70,7 @@ class Main {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'warning' }, ww: { 'name': 'warning', 'label': 'This is a warning label', 'warning': 'This textfield has a warning.', 'onChange': __context.onChange } }, []), { wml: { 'id': 'warning' }, ww: { 'name': 'warning', 'label': 'This is a warning label', 'warning': 'This textfield has a warning.', 'onChange': __context.onChange } })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'warning' }, 'name': 'warning', 'label': 'This is a warning label', 'warning': 'This textfield has a warning.', 'onChange': __context.onChange }, []), { wml: { 'id': 'warning' }, 'name': 'warning', 'label': 'This is a warning label', 'warning': 'This textfield has a warning.', 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -80,7 +80,7 @@ class Main {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'error' }, ww: { 'name': 'error', 'label': 'This is an error label', 'error': 'This textfield has an error.', 'onChange': __context.onChange } }, []), { wml: { 'id': 'error' }, ww: { 'name': 'error', 'label': 'This is an error label', 'error': 'This textfield has an error.', 'onChange': __context.onChange } })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'error' }, 'name': 'error', 'label': 'This is an error label', 'error': 'This textfield has an error.', 'onChange': __context.onChange }, []), { wml: { 'id': 'error' }, 'name': 'error', 'label': 'This is an error label', 'error': 'This textfield has an error.', 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -88,7 +88,7 @@ class Main {
                         __document.createTextNode('The one uses rows to render a text area:')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'area' }, ww: { 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange } }, []), { wml: { 'id': 'area' }, ww: { 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange } })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'area' }, 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange }, []), { wml: { 'id': 'area' }, 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange })
                     ])
                 ]), {})
             ]), {});
@@ -157,11 +157,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

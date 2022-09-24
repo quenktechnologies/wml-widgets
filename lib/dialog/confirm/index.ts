@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { concat } from '../../util';
-import { WidgetAttrs, getId, getClassName, HTMLElementAttrs } from '../../';
+import { getId, getClassName, HTMLElementAttrs } from '../../';
 import { close } from '../prompt';
 import { Main } from './wml/confirm';
 
@@ -61,7 +61,7 @@ export interface ConfirmAttrs extends HTMLElementAttrs {
 /**
  * Confirm displays a dialog for confirming an action.
  */
-export class Confirm extends Component<WidgetAttrs<ConfirmAttrs>> {
+export class Confirm extends Component<ConfirmAttrs> {
 
     view: View = new Main(this);
 
@@ -79,25 +79,25 @@ export class Confirm extends Component<WidgetAttrs<ConfirmAttrs>> {
 
         header: {
 
-            title: (this.attrs.ww && this.attrs.ww.title) ?
-                this.attrs.ww.title : ''
+            title: (this.attrs && this.attrs.title) ?
+                this.attrs.title : ''
 
         },
         footer: {
 
             no: {
 
-                text: (this.attrs.ww && this.attrs.ww.noText) ?
-                    this.attrs.ww.noText : 'No',
+                text: (this.attrs && this.attrs.noText) ?
+                    this.attrs.noText : 'No',
 
-                className: concat(CONFIRM_NO, (this.attrs.ww &&
-                    this.attrs.ww.primary &&
-                    this.attrs.ww.primary === Primary.No) ? '-primary' : ''),
+                className: concat(CONFIRM_NO, (this.attrs &&
+                    this.attrs.primary &&
+                    this.attrs.primary === Primary.No) ? '-primary' : ''),
 
                 onClick: () => {
 
-                    if (this.attrs.ww && this.attrs.ww.onNo)
-                        this.attrs.ww.onNo();
+                    if (this.attrs && this.attrs.onNo)
+                        this.attrs.onNo();
 
                     this.close();
 
@@ -107,8 +107,8 @@ export class Confirm extends Component<WidgetAttrs<ConfirmAttrs>> {
 
             yes: {
 
-                text: (this.attrs.ww && this.attrs.ww.yesText) ?
-                    this.attrs.ww.yesText : 'Yes',
+                text: (this.attrs && this.attrs.yesText) ?
+                    this.attrs.yesText : 'Yes',
 
                 wml: {
 
@@ -116,14 +116,14 @@ export class Confirm extends Component<WidgetAttrs<ConfirmAttrs>> {
 
                 },
 
-                className: concat(CONFIRM_YES, (this.attrs.ww &&
-                    this.attrs.ww.primary &&
-                    this.attrs.ww.primary === Primary.No) ? '' : '-primary'),
+                className: concat(CONFIRM_YES, (this.attrs &&
+                    this.attrs.primary &&
+                    this.attrs.primary === Primary.No) ? '' : '-primary'),
 
                 onClick: () => {
 
-                    if (this.attrs.ww && this.attrs.ww.onYes)
-                        this.attrs.ww.onYes();
+                    if (this.attrs && this.attrs.onYes)
+                        this.attrs.onYes();
 
                     this.close();
 

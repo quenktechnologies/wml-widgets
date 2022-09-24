@@ -79,10 +79,10 @@ export class Main  implements __wml.View {
 ...((__context.values.closable) ?
 (()=>([
 
-        __this.widget(new Close({ww : { 'onClick' : () => __context.close()  }}, [
+        __this.widget(new Close({'onClick': () => __context.close()}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onClick' : () => __context.close()  }})
+     ]),<__wml.Attrs>{'onClick': () => __context.close()})
      ]))() :
 (()=>([
 

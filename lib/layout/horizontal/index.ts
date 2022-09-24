@@ -1,8 +1,9 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/horizontal';
+
 import { LEFT, RIGHT } from '../../content/orientation';
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs, getClassName } from '../../';
+import { HTMLElementAttrs, getClassName } from '../../';
 
 ///classNames:begin
 export const HORIZONTAL_LAYOUT = 'ww-horizontal-layout';
@@ -37,7 +38,7 @@ export interface HorizontalLayoutAttrs extends HTMLElementAttrs {
  * where all items are laid out in a single row.
  */
 export class HorizontalLayout extends
-    wml.Component<WidgetAttrs<HorizontalLayoutAttrs>> {
+    wml.Component<HorizontalLayoutAttrs> {
 
     view: wml.View = new views.Main(this);
 
@@ -45,7 +46,7 @@ export class HorizontalLayout extends
 
         root: {
 
-            id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
 
             className: concat(HORIZONTAL_LAYOUT,
                 getClassName(this.attrs),
@@ -57,7 +58,7 @@ export class HorizontalLayout extends
 
 }
 
-const getOrientation = (attrs: WidgetAttrs<HorizontalLayoutAttrs>) =>
-    (attrs.ww && attrs.ww.orientation) ?
-        attrs.ww.orientation === HorizontalLayoutOrientation.Right ?
+const getOrientation = (attrs: HorizontalLayoutAttrs) =>
+    (attrs && attrs.orientation) ?
+        attrs.orientation === HorizontalLayoutOrientation.Right ?
             RIGHT : LEFT : '';

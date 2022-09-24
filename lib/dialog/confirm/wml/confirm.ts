@@ -75,14 +75,14 @@ export class Main  implements __wml.View {
 
        
 
-           return __this.widget(new Modal({wml : { 'id' : __context.values.wml.id  },ww : { 'className' : __context.values.className  }}, [
+           return __this.widget(new Modal({wml : { 'id' : __context.values.wml.id  },'className': __context.values.className}, [
 
         __this.widget(new ModalHeader({}, [
 
-        __this.widget(new CloseButton({ww : { 'onClick' : __context.values.footer.no.onClick  }}, [
+        __this.widget(new CloseButton({'onClick': __context.values.footer.no.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'onClick' : __context.values.footer.no.onClick  }}),
+     ]),<__wml.Attrs>{'onClick': __context.values.footer.no.onClick}),
 text (__context.values.header.title)
      ]),<__wml.Attrs>{}),
 __this.widget(new ModalBody({}, [
@@ -91,16 +91,16 @@ __this.widget(new ModalBody({}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new ModalFooter({}, [
 
-        __this.widget(new Button({ww : { 'text' : __context.values.footer.no.text ,'className' : __context.values.footer.no.className ,'onClick' : __context.values.footer.no.onClick  }}, [
+        __this.widget(new Button({'text': __context.values.footer.no.text,'className': __context.values.footer.no.className,'onClick': __context.values.footer.no.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : __context.values.footer.no.text ,'className' : __context.values.footer.no.className ,'onClick' : __context.values.footer.no.onClick  }}),
-__this.widget(new Button({ww : { 'text' : __context.values.footer.yes.text ,'className' : __context.values.footer.yes.className ,'onClick' : __context.values.footer.yes.onClick  }}, [
+     ]),<__wml.Attrs>{'text': __context.values.footer.no.text,'className': __context.values.footer.no.className,'onClick': __context.values.footer.no.onClick}),
+__this.widget(new Button({'text': __context.values.footer.yes.text,'className': __context.values.footer.yes.className,'onClick': __context.values.footer.yes.onClick}, [
 
         
-     ]),<__wml.Attrs>{ww : { 'text' : __context.values.footer.yes.text ,'className' : __context.values.footer.yes.className ,'onClick' : __context.values.footer.yes.onClick  }})
+     ]),<__wml.Attrs>{'text': __context.values.footer.yes.text,'className': __context.values.footer.yes.className,'onClick': __context.values.footer.yes.onClick})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },ww : { 'className' : __context.values.className  }});
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.wml.id  },'className': __context.values.className});
 
        }
 

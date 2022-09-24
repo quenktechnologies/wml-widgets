@@ -42,11 +42,11 @@ class Main {
             return __this.widget(new demo_1.Demo({}, [
                 __this.widget(new list_1.ListLayout({}, [
                     ...__forOf(__context.items, (yes, key, _$$all) => ([
-                        __this.widget(new list_1.ListLayoutItem({ wml: { 'id': key }, ww: { 'name': key, 'active': yes, 'onClick': __context.click } }, [
+                        __this.widget(new list_1.ListLayoutItem({ wml: { 'id': key }, 'name': key, 'active': yes, 'onClick': __context.click }, [
                             __this.node('p', {}, [
                                 document.createTextNode(key)
                             ])
-                        ]), { wml: { 'id': key }, ww: { 'name': key, 'active': yes, 'onClick': __context.click } })
+                        ]), { wml: { 'id': key }, 'name': key, 'active': yes, 'onClick': __context.click })
                     ]), () => ([]))
                 ]), {})
             ]), {});
@@ -115,11 +115,11 @@ class Main {
         return w.render();
     }
     findById(id) {
-        let mW = maybe_1.fromNullable(this.ids[id]);
+        let mW = (0, maybe_1.fromNullable)(this.ids[id]);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findById(id), mW);
     }
     findByGroup(name) {
-        let mGroup = maybe_1.fromArray(this.groups.hasOwnProperty(name) ?
+        let mGroup = (0, maybe_1.fromArray)(this.groups.hasOwnProperty(name) ?
             this.groups[name] :
             []);
         return this.views.reduce((p, c) => p.isJust() ? p : c.findByGroup(name), mGroup);

@@ -1,11 +1,12 @@
 import * as views from './wml/table';
+
 import { View, Component, Content } from '@quenk/wml';
 import { Record } from '@quenk/noni/lib/data/record';
 import { make } from '@quenk/noni/lib/data/array';
 import { unsafeGet } from '@quenk/noni/lib/data/record/path';
+
 import { concat, getById } from '../../util';
 import {
-    WidgetAttrs,
     HTMLElementAttrs,
     getId,
     getClassName
@@ -25,7 +26,12 @@ import {
     HeadingClickedEvent,
     RowId, ColumnId
 } from './event';
-import { HeadFragment, HeadingFragment, HeadContext, HeadingContext } from './head';
+import {
+    HeadFragment,
+    HeadingFragment,
+    HeadContext,
+    HeadingContext
+} from './head';
 import { BodyFragment, CellFragment, BodyContext, CellContext } from './body';
 import { Range, RangeInstance } from './range';
 
@@ -172,7 +178,7 @@ export class NewHeadContext<C, R extends Record<C>> {
     constructor(public table: DataTable<C, R>) { }
 
     className = concat(DATA_TABLE_HEAD,
-        (this.table.attrs.ww && this.table.attrs.ww.headClassName || ''));
+        (this.table.attrs && this.table.attrs.headClassName || ''));
 
     columns = this.table.values.columns;
 
@@ -198,7 +204,7 @@ export class NewHeadingContext<C, R extends Record<C>> {
         public index: number) { }
 
     className = concat(DATA_TABLE_HEADING,
-        (this.table.attrs.ww && this.table.attrs.ww.headingClassName || ''),
+        (this.table.attrs && this.table.attrs.headingClassName || ''),
         <string>this.column.headingClassName,
         getSortClassName(this.table.values.sortKey, this.index));
 
@@ -210,8 +216,8 @@ export class NewHeadingContext<C, R extends Record<C>> {
         if (this.column.onHeadingClicked)
             this.column.onHeadingClicked(new HeadingClickedEvent(this.index));
 
-        if (this.table.attrs.ww && this.table.attrs.ww.onHeadingClicked)
-            this.table.attrs.ww.onHeadingClicked(
+        if (this.table.attrs && this.table.attrs.onHeadingClicked)
+            this.table.attrs.onHeadingClicked(
                 new HeadingClickedEvent(this.index));
 
     }
@@ -226,7 +232,7 @@ export class NewBodyContext<C, R extends Record<C>> {
     constructor(public table: DataTable<C, R>) { }
 
     className = concat(DATA_TABLE_BODY,
-        (this.table.attrs.ww && this.table.attrs.ww.bodyClassName || ''));
+        (this.table.attrs && this.table.attrs.bodyClassName || ''));
 
     columns = this.table.values.columns;
 
@@ -255,7 +261,7 @@ export class NewCellContext<C, R extends Record<C>> {
     id = cellId(this.column, this.row);
 
     className = concat(DATA_TABLE_CELL,
-        (this.table.attrs.ww && this.table.attrs.ww.cellClassName || ''),
+        (this.table.attrs && this.table.attrs.cellClassName || ''),
         <string>this.spec.cellClassName,
         getSortClassName(this.table.values.sortKey, this.column));
 
@@ -272,8 +278,8 @@ export class NewCellContext<C, R extends Record<C>> {
         if (this.spec.onCellClicked)
             this.spec.onCellClicked(new CellClickedEvent(this.column, this.row));
 
-        if (this.table.attrs.ww && this.table.attrs.ww.onCellClicked)
-            this.table.attrs.ww.onCellClicked(
+        if (this.table.attrs && this.table.attrs.onCellClicked)
+            this.table.attrs.onCellClicked(
                 new CellClickedEvent(this.column, this.row));
     }
 
@@ -285,7 +291,7 @@ export class NewCellContext<C, R extends Record<C>> {
  */
 export class DataTable<C, R extends Record<C>>
     extends
-    Component<WidgetAttrs<DataTableAttrs<C, R>>>
+    Component<DataTableAttrs<C, R>>
     implements Updatable<R>  {
 
     view: View = new views.Main(this);
@@ -302,13 +308,13 @@ export class DataTable<C, R extends Record<C>>
 
         className: concat(DATA_TABLE, getClassName(this.attrs)),
 
-        name: (this.attrs.ww && this.attrs.ww.name || ''),
+        name: (this.attrs && this.attrs.name || ''),
 
-        sortable: (this.attrs.ww && (this.attrs.ww.sortable != null)) ?
-            this.attrs.ww.sortable : true,
+        sortable: (this.attrs && (this.attrs.sortable != null)) ?
+            this.attrs.sortable : true,
 
-        sortKey: <SortKey>((this.attrs.ww && this.attrs.ww.sortKey) ?
-            this.attrs.ww.sortKey : [-1, 1]),
+        sortKey: <SortKey>((this.attrs && this.attrs.sortKey) ?
+            this.attrs.sortKey : [-1, 1]),
 
         sort: (col: ColumnId) => {
 
@@ -316,12 +322,12 @@ export class DataTable<C, R extends Record<C>>
                 this.sort(col);
 
         },
-        dataset: <Dataset<R>>((this.attrs.ww && this.attrs.ww.data) ?
-            [this.attrs.ww.data.slice(), this.attrs.ww.data.slice()] :
+        dataset: <Dataset<R>>((this.attrs && this.attrs.data) ?
+            [this.attrs.data.slice(), this.attrs.data.slice()] :
             [[], []]),
 
-        columns: (this.attrs.ww && this.attrs.ww.columns) ?
-            this.attrs.ww.columns : [],
+        columns: (this.attrs && this.attrs.columns) ?
+            this.attrs.columns : [],
 
         thead: (): Content => {
 
@@ -344,8 +350,8 @@ export class DataTable<C, R extends Record<C>>
      */
     fireChange(): void {
 
-        if (this.attrs.ww && this.attrs.ww.onChange)
-            this.attrs.ww.onChange(new DataChangedEvent(
+        if (this.attrs && this.attrs.onChange)
+            this.attrs.onChange(new DataChangedEvent(
                 this.values.name,
                 this.values.dataset[0].slice(),
                 <SortKey>this.values.sortKey.slice()));
@@ -447,32 +453,32 @@ export class DataTable<C, R extends Record<C>>
 
 const getHeadView = <C, R extends Record<C>>
     (table: DataTable<C, R>, ctx: HeadContext<C, R>) =>
-    (table.attrs.ww && table.attrs.ww.headFragment) ?
-        table.attrs.ww.headFragment(ctx) : new views.HeadView(ctx)
+    (table.attrs && table.attrs.headFragment) ?
+        table.attrs.headFragment(ctx) : new views.HeadView(ctx)
 
 const getHeadingView = <C, R extends Record<C>>
-    (table: DataTable<C, R>, ctx: HeadingContext<C, R>, c: Column<C, R>, ) =>
+    (table: DataTable<C, R>, ctx: HeadingContext<C, R>, c: Column<C, R>,) =>
     c.headingFragment ? c.headingFragment(ctx) :
-        (table.attrs.ww && table.attrs.ww.headingFragment) ?
-            table.attrs.ww.headingFragment(ctx) : new views.HeadingView(ctx);
+        (table.attrs && table.attrs.headingFragment) ?
+            table.attrs.headingFragment(ctx) : new views.HeadingView(ctx);
 
 const getBodyView = <C, R extends Record<C>>
     (table: DataTable<C, R>, ctx: BodyContext<C, R>) =>
-    (table.attrs.ww && table.attrs.ww.bodyFragment) ?
-        table.attrs.ww.bodyFragment(ctx) :
+    (table.attrs && table.attrs.bodyFragment) ?
+        table.attrs.bodyFragment(ctx) :
         new views.BodyView(ctx);
 
 const getCellView = <C, R extends Record<C>>
     (table: DataTable<C, R>, ctx: CellContext<C, R>, c: Column<C, R>) =>
     c.cellFragment ? c.cellFragment(ctx) :
-        (table.attrs.ww && table.attrs.ww.cellFragment) ?
-            table.attrs.ww.cellFragment(ctx) :
+        (table.attrs && table.attrs.cellFragment) ?
+            table.attrs.cellFragment(ctx) :
             new views.CellView(ctx);
 
 const getSortDelegate = <C, R extends Record<C>>
     (table: DataTable<C, R>): SortDelegate<R> =>
-    (table.attrs.ww && table.attrs.ww.sortDelegate) ?
-        table.attrs.ww.sortDelegate :
+    (table.attrs && table.attrs.sortDelegate) ?
+        table.attrs.sortDelegate :
         (r: SortRequest<R>) => sortById(table.values.columns, r.key,
             [table.values.dataset[0], r.data], r.column);
 
