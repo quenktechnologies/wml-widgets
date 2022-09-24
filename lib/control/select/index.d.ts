@@ -140,7 +140,7 @@ export declare class SearchSection<V> {
     className: string;
     placeholder: string;
     block: boolean;
-    value: V | undefined;
+    value: NonNullable<V> | undefined;
     readOnly: boolean | undefined;
     disabled: boolean | undefined;
     itemTemplate: ItemTemplate<V> | undefined;
