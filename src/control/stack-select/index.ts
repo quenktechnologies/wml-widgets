@@ -1,7 +1,14 @@
 import * as views from './wml/stack-select';
+
 import { View } from '@quenk/wml';
 import { BLOCK } from '../../content/orientation';
-import { FormControlAttrs, AbstractFormControl, getLabel, setMessage, removeMessage } from '../form';
+import { 
+  FormControlAttrs, 
+  AbstractFormControl,
+  getLabel, 
+  setMessage,
+  removeMessage 
+} from '../form';
 import {
     TermChangedEvent,
     ItemSelectedEvent
@@ -106,10 +113,10 @@ export class StackSelect<V>
             className: concat(STACK_SELECT,
                 getClassName(this.attrs),
                 getValidityClassName(this.attrs),
-                (this.attrs.ww && this.attrs.ww.block) ? BLOCK : ''),
+                (this.attrs && this.attrs.block) ? BLOCK : ''),
 
-            dir: (this.attrs.ww && this.attrs.ww.dir) ?
-                this.attrs.ww.dir : 1
+            dir: (this.attrs && this.attrs.dir) ?
+                this.attrs.dir : 1
 
         },
         control: {
@@ -136,22 +143,22 @@ export class StackSelect<V>
             wml: {
                 id: 'search'
             },
-            name: (this.attrs.ww && this.attrs.ww.name) ?
-                this.attrs.ww.name : '',
+            name: (this.attrs && this.attrs.name) ?
+                this.attrs.name : '',
 
             value: <any>undefined,
 
             block: true,
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : false,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : false,
 
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) || '',
+            placeholder: (this.attrs && this.attrs.placeholder) || '',
 
             onSearch: (evt: TermChangedEvent) => {
 
-                if (this.attrs.ww && this.attrs.ww.onSearch)
-                    this.attrs.ww.onSearch(evt);
+                if (this.attrs && this.attrs.onSearch)
+                    this.attrs.onSearch(evt);
 
             },
             onSelect: ({ value }: ItemSelectedEvent<V>) => this.push(value)
@@ -176,19 +183,19 @@ export class StackSelect<V>
 
             name: getName(this.attrs),
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : false,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : false,
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : [],
+            value: (this.attrs && this.attrs.value) ?
+                this.attrs.value : [],
 
-            decorator: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : (v: V) => String(v),
+            decorator: (this.attrs && this.attrs.stringifier) ?
+                this.attrs.stringifier : (v: V) => String(v),
 
             onChange: (e: StackChangedEvent<V>) => {
 
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(e);
+                if (this.attrs && this.attrs.onChange)
+                    this.attrs.onChange(e);
 
             }
 

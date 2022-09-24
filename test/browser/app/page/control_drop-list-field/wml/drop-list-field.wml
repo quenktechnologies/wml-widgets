@@ -14,10 +14,10 @@
     
       <DropListField 
        wml:id={{@values.normal.name}}
-       ww:name={{@values.normal.name}}
-       ww:value={{@values.normal.value}}
-       ww:options={{@values.normal.options}}
-       ww:onChange={{@values.normal.onChange}} />
+       name={{@values.normal.name}}
+       value={{@values.normal.value}}
+       options={{@values.normal.options}}
+       onChange={{@values.normal.onChange}} />
 
     </p>
 
@@ -31,10 +31,10 @@
 
       <DropListField 
       wml:id={{@values.success.id}}
-      ww:className="-success"
-      ww:name={{@values.success.name}}
-      ww:options={{@values.success.options}}
-      ww:onChange={{@values.success.onChange}} />
+      className="-success"
+      name={{@values.success.name}}
+      options={{@values.success.options}}
+      onChange={{@values.success.onChange}} />
 
     </p>
 
@@ -48,10 +48,10 @@
 
       <DropListField 
       wml:id={{@values.warning.id}}
-      ww:className="-warning"
-      ww:name={{@values.warning.name}}
-      ww:options={{@values.warning.options}}
-      ww:onChange={{@values.warning.onChange}} />
+      className="-warning"
+      name={{@values.warning.name}}
+      options={{@values.warning.options}}
+      onChange={{@values.warning.onChange}} />
 
     </p>
 
@@ -65,10 +65,10 @@
     
       <DropListField 
       wml:id={{@values.error.id}}
-      ww:className="-error"
-      ww:name={{@values.error.name}}
-      ww:options={{@values.error.options}}
-      ww:onChange={{@values.error.onChange}} />
+      className="-error"
+      name={{@values.error.name}}
+      options={{@values.error.options}}
+      onChange={{@values.error.onChange}} />
 
     </p>
 
@@ -81,11 +81,11 @@
     <p>
     
       <DropListField 
-       ww:name={{@values.normal.name}}
-       ww:value={{@values.normal.value}}
-       ww:options={{@values.normal.options}}
-       ww:disabled=true
-       ww:onChange={{@values.normal.onChange}} />
+       name={{@values.normal.name}}
+       value={{@values.normal.value}}
+       options={{@values.normal.options}}
+       disabled=true
+       onChange={{@values.normal.onChange}} />
 
     </p>
 

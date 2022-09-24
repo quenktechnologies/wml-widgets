@@ -14,8 +14,8 @@
 {% view Open (InformPage) %}
 <Inform 
   wml:id="open"
-  ww:title={{@values.title}}
-  ww:onClose={{@values.onClose}}>
+  title={{@values.title}}
+  onClose={{@values.onClose}}>
  
   {{@values.message | text}}
 

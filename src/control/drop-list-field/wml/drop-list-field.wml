@@ -8,24 +8,24 @@
 <div wml:id={{@values.root.wml.id}} id={{@values.root.id}} class={{@values.root.className}}>
 
   <Label
-   ww:for={{@values.root.id}}
-   ww:text={{@values.label.text}} />
+   for={{@values.root.id}}
+   text={{@values.label.text}} />
 
   <DropList 
-   ww:className={{@values.control.className}}
-   ww:name={{@values.control.name}}
-   ww:placeholder={{@values.control.placeholder}}
-   ww:disabled={{@values.control.disabled}}
-   ww:block={{@values.control.block}}
-   ww:value={{@values.control.value}}
-   ww:options={{@values.control.options}}
-   ww:onSelect={{@values.control.onSelect}}
-   ww:noItemsTemplate={{@values.control.noItemsTemplate}}
-   ww:itemTemplate={{@values.control.itemTemplate}}
-   ww:stringifier={{@values.control.stringifier}} />
+   className={{@values.control.className}}
+   name={{@values.control.name}}
+   placeholder={{@values.control.placeholder}}
+   disabled={{@values.control.disabled}}
+   block={{@values.control.block}}
+   value={{@values.control.value}}
+   options={{@values.control.options}}
+   onSelect={{@values.control.onSelect}}
+   noItemsTemplate={{@values.control.noItemsTemplate}}
+   itemTemplate={{@values.control.itemTemplate}}
+   stringifier={{@values.control.stringifier}} />
  
   <Help 
     wml:id={{@values.messages.wml.id}}
-    ww:text={{@values.messages.text}} />
+    text={{@values.messages.text}} />
 
 </div>

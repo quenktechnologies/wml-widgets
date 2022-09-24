@@ -33,33 +33,14 @@ export interface HTMLElementAttrs extends Attrs {
 }
 
 /**
- * WidgetAttrs describes the attribute namespace
- * for this library.
- */
-export interface WidgetAttrs<A> extends Attrs {
-
-    /**
-     * ww is the namespace for widgets from this library.
-     */
-    ww?: A;
-
-}
-
-/**
  * getId from a widget's passed attributes.
  */
-export const getId = (attrs: WidgetAttrs<HTMLElementAttrs>) =>
-    (attrs.ww && attrs.ww.id) ? attrs.ww.id : '';
+export const getId = (attrs: HTMLElementAttrs) =>
+    attrs.id ? attrs.id : '';
 
 /**
  * getClassName from a widget's passed attributes.
+ *
+ * Returns an empty string if the element has not className attribute.
  */
-export const getClassName =
-    (attrs: WidgetAttrs<HTMLElementAttrs> | HTMLElementAttrs) => {
-        let asHtmlAttrs = <HTMLElementAttrs>attrs;
-        let asWidgetAttrs = (<WidgetAttrs<HTMLElementAttrs>>attrs).ww;
-
-        return asHtmlAttrs.className ||
-            (asWidgetAttrs && asWidgetAttrs.className) || '';
-
-    }
+export const getClassName = (attrs: HTMLElementAttrs) => attrs.className || '';

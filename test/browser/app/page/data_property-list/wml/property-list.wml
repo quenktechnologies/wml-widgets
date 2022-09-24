@@ -11,7 +11,7 @@
 
   <Demo>
 
-    <PropertyList ww:fields={{@fields}} ww:data={{@data}} />
+    <PropertyList fields={{@fields}} data={{@data}} />
 
   </Demo>
 

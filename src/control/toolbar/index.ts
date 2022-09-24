@@ -3,7 +3,7 @@ import * as views from './wml/toolbar';
 import { View, Component } from '@quenk/wml';
 
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 
 ///classNames:begin
 export const TOOLBAR = 'ww-toolbar';
@@ -19,7 +19,7 @@ export interface ToolbarAttrs extends HTMLElementAttrs { }
  * Toolbar provides a widget for grouping related controls into a
  * single row.
  */
-export class Toolbar extends Component<WidgetAttrs<ToolbarAttrs>> {
+export class Toolbar extends Component<ToolbarAttrs> {
 
     view: View = new views.Main(this);
 

@@ -7,7 +7,7 @@
 
   <Row>
 
-    <Column ww:span={{@values.size}}>
+    <Column span={{@values.size}}>
 
       {{...@children}}
 

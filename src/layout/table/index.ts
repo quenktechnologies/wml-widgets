@@ -1,8 +1,9 @@
 import * as views from './wml/table';
+
 import { View, Component } from '@quenk/wml';
+
 import { concat } from '../../util';
 import {
-    WidgetAttrs,
     HTMLElementAttrs,
     getId,
     getClassName
@@ -112,7 +113,7 @@ export interface TableLayoutAttrs extends HTMLElementAttrs {
 /**
  * TableHeader (<thead>)
  */
-export class TableHeader extends Component<WidgetAttrs<TableHeaderAttrs>>{
+export class TableHeader extends Component<TableHeaderAttrs>{
 
     view: View = new views.TableHeader(this);
 
@@ -129,7 +130,7 @@ export class TableHeader extends Component<WidgetAttrs<TableHeaderAttrs>>{
 /**
  * TableBody
  */
-export class TableBody extends Component<WidgetAttrs<TableBodyAttrs>> {
+export class TableBody extends Component<TableBodyAttrs> {
 
     view: View = new views.TableBody(this);
 
@@ -146,7 +147,7 @@ export class TableBody extends Component<WidgetAttrs<TableBodyAttrs>> {
 /**
  * TableFooter
  */
-export class TableFooter extends Component<WidgetAttrs<TableFooterAttrs>> {
+export class TableFooter extends Component<TableFooterAttrs> {
 
     view: View = new views.TableFooter(this);
 
@@ -163,7 +164,7 @@ export class TableFooter extends Component<WidgetAttrs<TableFooterAttrs>> {
 /**
  * TableRow
  */
-export class TableRow extends Component<WidgetAttrs<TableRowAttrs>> {
+export class TableRow extends Component<TableRowAttrs> {
 
     view: View = new views.TableRow(this);
 
@@ -173,8 +174,8 @@ export class TableRow extends Component<WidgetAttrs<TableRowAttrs>> {
 
         className: concat(TABLE_ROW, getClassName(this.attrs)),
 
-        onclick: (this.attrs.ww && this.attrs.ww.onclick) ?
-            this.attrs.ww.onclick : undefined
+        onclick: (this.attrs && this.attrs.onclick) ?
+            this.attrs.onclick : undefined
 
     }
 
@@ -183,7 +184,7 @@ export class TableRow extends Component<WidgetAttrs<TableRowAttrs>> {
 /**
  * TableHeading
  */
-export class TableHeading extends Component<WidgetAttrs<TableHeadingAttrs>> {
+export class TableHeading extends Component<TableHeadingAttrs> {
 
     view: View = new views.TableHeading(this);
 
@@ -193,8 +194,8 @@ export class TableHeading extends Component<WidgetAttrs<TableHeadingAttrs>> {
 
         className: concat(TABLE_HEADING, getClassName(this.attrs)),
 
-        onclick: (this.attrs.ww && this.attrs.ww.onclick) ?
-            this.attrs.ww.onclick : undefined
+        onclick: (this.attrs && this.attrs.onclick) ?
+            this.attrs.onclick : undefined
 
     }
 
@@ -203,7 +204,7 @@ export class TableHeading extends Component<WidgetAttrs<TableHeadingAttrs>> {
 /**
  * TableCell
  */
-export class TableCell extends Component<WidgetAttrs<TableCellAttrs>> {
+export class TableCell extends Component<TableCellAttrs> {
 
     view: View = new views.TableCell(this);
 
@@ -213,14 +214,14 @@ export class TableCell extends Component<WidgetAttrs<TableCellAttrs>> {
 
         className: concat(TABLE_CELL, getClassName(this.attrs)),
 
-        colspan: (this.attrs.ww && this.attrs.ww.colspan) ?
-            this.attrs.ww.colspan : 1,
+        colspan: (this.attrs && this.attrs.colspan) ?
+            this.attrs.colspan : 1,
 
-        rowspan: (this.attrs.ww && this.attrs.ww.rowspan) ?
-            this.attrs.ww.rowspan : 1,
+        rowspan: (this.attrs && this.attrs.rowspan) ?
+            this.attrs.rowspan : 1,
 
-        onclick: (this.attrs.ww && this.attrs.ww.onclick) ?
-            this.attrs.ww.onclick : undefined
+        onclick: (this.attrs && this.attrs.onclick) ?
+            this.attrs.onclick : undefined
 
     }
 
@@ -229,7 +230,7 @@ export class TableCell extends Component<WidgetAttrs<TableCellAttrs>> {
 /**
  * TableWindow allows a TableLayout to be scrolled on smaller screens.
  */
-export class TableWindow extends Component<WidgetAttrs<TableWindowAttrs>> {
+export class TableWindow extends Component<TableWindowAttrs> {
 
     view: View = new views.TableWindow(this);
 
@@ -246,7 +247,7 @@ export class TableWindow extends Component<WidgetAttrs<TableWindowAttrs>> {
 /**
  * TableLayout provides a <table> based layout.
  */
-export class TableLayout extends Component<WidgetAttrs<TableLayoutAttrs>> {
+export class TableLayout extends Component<TableLayoutAttrs> {
 
     view: View = new views.TableLayout(this);
 
@@ -260,10 +261,10 @@ export class TableLayout extends Component<WidgetAttrs<TableLayoutAttrs>> {
         id: getId(this.attrs),
 
         className: concat(TABLE_LAYOUT, getClassName(this.attrs),
-            (this.attrs.ww && this.attrs.ww.alternate) ? ALTERNATE : '',
-            (this.attrs.ww && this.attrs.ww.bordered) ? BORDERED : '',
-            (this.attrs.ww && this.attrs.ww.compact) ? COMPACT : '',
-            (this.attrs.ww && this.attrs.ww.hoverable) ? HOVERABLE : ''),
+            (this.attrs && this.attrs.alternate) ? ALTERNATE : '',
+            (this.attrs && this.attrs.bordered) ? BORDERED : '',
+            (this.attrs && this.attrs.compact) ? COMPACT : '',
+            (this.attrs && this.attrs.hoverable) ? HOVERABLE : ''),
 
     }
 

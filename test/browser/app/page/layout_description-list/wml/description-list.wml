@@ -28,7 +28,7 @@ from "../../../../../../lib/layout/description-list" %}
 
   <Demo>
 
-    <DescriptionList ww:horizontal=true>
+    <DescriptionList horizontal=true>
 
       <Title>Phone</Title>
       <Data>6385532</Data>

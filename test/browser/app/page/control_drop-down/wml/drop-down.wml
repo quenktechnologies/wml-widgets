@@ -10,7 +10,7 @@
   <p>
 
     <DropDown 
-      ww:buttonText="Click Me">
+      buttonText="Click Me">
 
       <Menu>
 
@@ -33,24 +33,24 @@
     </DropDown>
 
     <DropDown 
-      ww:buttonText="Me Too"
-      ww:autoClose=false>
+      buttonText="Me Too"
+      autoClose=false>
 
       <h1>Any flow content can go here!</h1>
 
     </DropDown>
 
     <DropDown 
-      ww:buttonText="Can\'t touch this!"
-      ww:disabled=true>
+      buttonText="Can\'t touch this!"
+      disabled=true>
 
       <p>You will never see this!</p>
 
     </DropDown>
 
     <DropDown 
-      ww:buttonText="I am an anchor"
-      ww:anchor=true>
+      buttonText="I am an anchor"
+      anchor=true>
 
       <b>Content</b>
 

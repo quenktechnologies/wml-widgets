@@ -52,15 +52,15 @@ export class Checkbox extends AbstractControl<boolean, CheckboxAttrs> {
 
           name: getName(this.attrs),
 
-          value: (this.attrs.ww && this.attrs.ww.value) ?
-          this.attrs.ww.value : null,
+          value: (this.attrs && this.attrs.value) ?
+          this.attrs.value : null,
 
             onChange: () => {
 
                 this.values.input.value = (!this.values.input.value) || null;
 
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(
+                if (this.attrs && this.attrs.onChange)
+                    this.attrs.onChange(
                         new CheckChangedEvent(
                             this.values.input.name,
                             this.values.input.value || false));

@@ -1,4 +1,4 @@
-import { WidgetAttrs } from '../';
+import {  } from '../';
 
 ///classNames:begin
 /**
@@ -57,5 +57,5 @@ export const BOTTOM = '-bottom';
  * getBlockClassName provides the __BLOCK__ class name if the attribute
  * value is set to true.
  */
-export const getBlockClassName = (attrs: WidgetAttrs<{ block?: boolean }>) =>
-    (attrs.ww && (attrs.ww.block === true)) ? BLOCK : '';
+export const getBlockClassName = (attrs: { block?: boolean }) =>
+   attrs.block === true ? BLOCK : '';

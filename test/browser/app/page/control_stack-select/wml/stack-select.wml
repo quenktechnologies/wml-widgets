@@ -10,11 +10,11 @@
 
     <StackSelect 
      wml:id={{@values.asc.id}}
-     ww:name={{@values.asc.name}}
-     ww:label={{@values.asc.label}}
-     ww:stringifier={{@values.asc.stringifier}}
-     ww:onSearch={{@values.asc.onSearch}}
-     ww:onChange={{@values.asc.onChange}} />
+     name={{@values.asc.name}}
+     label={{@values.asc.label}}
+     stringifier={{@values.asc.stringifier}}
+     onSearch={{@values.asc.onSearch}}
+     onChange={{@values.asc.onChange}} />
 
   </Demo>
 
@@ -22,12 +22,12 @@
 
     <StackSelect 
      wml:id={{@values.desc.id}}
-     ww:name={{@values.desc.name}}
-     ww:label={{@values.desc.label}}
-     ww:dir={{-1}}
-     ww:stringifier={{@values.desc.stringifier}}
-     ww:onSearch={{@values.desc.onSearch}}
-     ww:onChange={{@values.desc.onChange}} />
+     name={{@values.desc.name}}
+     label={{@values.desc.label}}
+     dir={{-1}}
+     stringifier={{@values.desc.stringifier}}
+     onSearch={{@values.desc.onSearch}}
+     onChange={{@values.desc.onChange}} />
 
   </Demo>
 
@@ -35,12 +35,12 @@
 
     <StackSelect 
      wml:id={{@values.success.id}}
-     ww:name={{@values.success.name}}
-     ww:label={{@values.success.label}}
-     ww:success={{@values.success.message}}
-     ww:stringifier={{@values.success.stringifier}}
-     ww:onSearch={{@values.success.onSearch}}
-     ww:onChange={{@values.success.onChange}} />
+     name={{@values.success.name}}
+     label={{@values.success.label}}
+     success={{@values.success.message}}
+     stringifier={{@values.success.stringifier}}
+     onSearch={{@values.success.onSearch}}
+     onChange={{@values.success.onChange}} />
 
   </Demo>
 
@@ -48,12 +48,12 @@
 
     <StackSelect 
      wml:id={{@values.warning.id}}
-     ww:name={{@values.warning.name}}
-     ww:label={{@values.warning.label}}
-     ww:warning={{@values.warning.message}}
-     ww:stringifier={{@values.warning.stringifier}}
-     ww:onSearch={{@values.warning.onSearch}}
-     ww:onChange={{@values.warning.onChange}} />
+     name={{@values.warning.name}}
+     label={{@values.warning.label}}
+     warning={{@values.warning.message}}
+     stringifier={{@values.warning.stringifier}}
+     onSearch={{@values.warning.onSearch}}
+     onChange={{@values.warning.onChange}} />
 
   </Demo>
 
@@ -61,24 +61,24 @@
 
     <StackSelect 
      wml:id={{@values.error.id}}
-     ww:name={{@values.error.name}}
-     ww:label={{@values.error.label}}
-     ww:error={{@values.error.message}}
-     ww:stringifier={{@values.error.stringifier}}
-     ww:onSearch={{@values.error.onSearch}}
-     ww:onChange={{@values.error.onChange}} />
+     name={{@values.error.name}}
+     label={{@values.error.label}}
+     error={{@values.error.message}}
+     stringifier={{@values.error.stringifier}}
+     onSearch={{@values.error.onSearch}}
+     onChange={{@values.error.onChange}} />
 
   </Demo>
 
   <Demo>
 
     <StackSelect 
-     ww:name={{@values.asc.name}}
-     ww:label="Disabled"
-     ww:disabled=true
-     ww:stringifier={{@values.asc.stringifier}}
-     ww:onSearch={{@values.asc.onSearch}}
-     ww:onChange={{@values.asc.onChange}} />
+     name={{@values.asc.name}}
+     label="Disabled"
+     disabled=true
+     stringifier={{@values.asc.stringifier}}
+     onSearch={{@values.asc.onSearch}}
+     onChange={{@values.asc.onChange}} />
 
   </Demo>
 

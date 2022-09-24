@@ -60,18 +60,18 @@ export class ListLayoutItem extends AbstractLayout<ListLayoutItemAttrs>
 
             },
 
-            id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
 
             className: concat(LIST_LAYOUT_ITEM,
-                (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : ''),
+                (this.attrs && this.attrs.active) ? ACTIVE : ''),
 
-            name: (this.attrs.ww && this.attrs.ww.name) ? this.attrs.ww.name : '',
+            name: (this.attrs && this.attrs.name) ? this.attrs.name : '',
 
             onclick: () => {
 
-                if (this.attrs.ww && this.attrs.ww.onClick)
-                    this.attrs.ww.onClick(this.attrs.ww &&
-                        this.attrs.ww.name || '');
+                if (this.attrs && this.attrs.onClick)
+                    this.attrs.onClick(this.attrs &&
+                        this.attrs.name || '');
 
             }
 
@@ -130,11 +130,11 @@ export class ListLayout extends AbstractLayout<ListLayoutAttrs> {
                 id: 'list'
 
             },
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             className: concat(LIST_LAYOUT, LAYOUT,
-                (this.attrs.ww && this.attrs.ww.className) ?
-                    this.attrs.ww.className : '')
+                (this.attrs && this.attrs.className) ?
+                    this.attrs.className : '')
 
         }
 

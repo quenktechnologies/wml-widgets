@@ -1,6 +1,8 @@
 import * as views from './wml/button';
+
 import { text } from '@quenk/wml/lib/dom';
 import { View } from '@quenk/wml';
+
 import { TOOLBAR_COMPAT } from '../toolbar';
 import { ACTIVE } from '../../content/state/active';
 import { BLOCK } from '../../content/orientation';
@@ -78,7 +80,7 @@ export class ButtonClickedEvent<V> extends ControlEvent<V> { }
  */
 export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
-    view: View = (this.attrs.ww && this.attrs.ww.anchor) ?
+    view: View = (this.attrs && this.attrs.anchor) ?
         new views.AnchorView(this) : new views.ButtonView(this);
 
     values = {
@@ -99,46 +101,46 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
                 TOOLBAR_COMPAT,
 
-                (this.attrs.ww && this.attrs.ww.style) ?
-                    getStyleClassName(this.attrs.ww.style) :
+                (this.attrs && this.attrs.style) ?
+                    getStyleClassName(this.attrs.style) :
                     DEFAULT,
 
-                (this.attrs.ww && this.attrs.ww.size) ?
-                    getSizeClassName(this.attrs.ww.size) : '',
+                (this.attrs && this.attrs.size) ?
+                    getSizeClassName(this.attrs.size) : '',
 
-                (this.attrs.ww && this.attrs.ww.outline) ?
+                (this.attrs && this.attrs.outline) ?
                     OUTLINE : '',
 
-                (this.attrs.ww && this.attrs.ww.block) ?
+                (this.attrs && this.attrs.block) ?
                     BLOCK : '',
 
-                (this.attrs.ww && this.attrs.ww.active) ?
+                (this.attrs && this.attrs.active) ?
                     ACTIVE : ''),
 
-            type: (this.attrs.ww && this.attrs.ww.type) ?
-                this.attrs.ww.type : 'button',
+            type: (this.attrs && this.attrs.type) ?
+                this.attrs.type : 'button',
 
-            name: (this.attrs.ww && this.attrs.ww.name) ? this.attrs.ww.name : '',
+            name: (this.attrs && this.attrs.name) ? this.attrs.name : '',
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : null,
+            disabled: (this.attrs && this.attrs.disabled) ? true : null,
 
-            anchor: (this.attrs.ww && this.attrs.ww.anchor) ?
-                this.attrs.ww.anchor : false,
+            anchor: (this.attrs && this.attrs.anchor) ?
+                this.attrs.anchor : false,
 
             onclick: (e: Event) => {
 
                 e.preventDefault();
 
-                this.attrs.ww &&
-                    this.attrs.ww.onClick &&
-                    this.attrs.ww.onClick(new ButtonClickedEvent(
-                        (this.attrs.ww && this.attrs.ww.name) ?
-                            this.attrs.ww.name : '', <V>this.attrs.ww.value))
+                this.attrs &&
+                    this.attrs.onClick &&
+                    this.attrs.onClick(new ButtonClickedEvent(
+                        (this.attrs && this.attrs.name) ?
+                            this.attrs.name : '', <V>this.attrs.value))
 
             },
 
-            content: () => (this.attrs.ww && this.attrs.ww.text) ?
-                [text(this.attrs.ww.text)] : this.children
+            content: () => (this.attrs && this.attrs.text) ?
+                [text(this.attrs.text)] : this.children
 
         }
 

@@ -2,7 +2,7 @@ import * as views from './wml/button-group';
 import { View, Content, Component } from '@quenk/wml';
 import { concat } from '../../util';
 import { TOOLBAR_COMPAT } from '../toolbar';
-import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 
 ///classNames:begin
 export const BUTTON_GROUP = 'ww-button-group';
@@ -25,7 +25,7 @@ export interface ButtonGroupAttrs extends HTMLElementAttrs {
 /**
  * ButtonGroup groups multiple buttons into one element.
  */
-export class ButtonGroup extends Component<WidgetAttrs<ButtonGroupAttrs>> {
+export class ButtonGroup extends Component<ButtonGroupAttrs> {
 
     view: View = new views.Main(this);
 

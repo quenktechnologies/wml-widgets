@@ -7,21 +7,21 @@
 
   <h1>Links</h1>
 
-  <p>This is a <Link ww:href="#link">link</Link>.</p>
+  <p>This is a <Link href="#link">link</Link>.</p>
 
-  <p>This is a <Link ww:href="#disabled" ww:disabled=true>disabled</Link> link.</p>
+  <p>This is a <Link href="#disabled" disabled=true>disabled</Link> link.</p>
 
-  <p>Links can also <Link ww:text="specify" /> contents a the text attribute</p>
+  <p>Links can also <Link text="specify" /> contents a the text attribute</p>
 
-  <p>Links can also have <Link ww:onClick={{@values.onClick}} ww:text="handlers"/></p>
+  <p>Links can also have <Link onClick={{@values.onClick}} text="handlers"/></p>
 
-  <p>Disabled link <Link ww:onClick={{@values.onClick}} ww:disabled=true ww:text="handlers"/>
+  <p>Disabled link <Link onClick={{@values.onClick}} disabled=true text="handlers"/>
      do nothing. 
   </p>
 
   <p>You can remove the underline using the 
-     <Link ww:text="-ww-no-decoration"
-           ww:className="-ww-no-decoration" /> modifier.
+     <Link text="-ww-no-decoration"
+           className="-ww-no-decoration" /> modifier.
   </p>
 
 </Demo>

@@ -7,7 +7,7 @@ import { View, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
 import { BUTTON_GROUP_COMPAT } from '../button-group';
 import { concat, getById } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs, getId, getClassName } from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 
 ///classNames:begin
 export const DROP_DOWN = 'ww-drop-down-menu';
@@ -79,7 +79,7 @@ export interface DropDownMenuAttrs extends HTMLElementAttrs {
  *    |                         |
  *    +-------------------------+
  */
-export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
+export class DropDown extends Component<DropDownMenuAttrs>
     implements hidden.Hidable {
 
     view: View = new views.Main(this);
@@ -101,21 +101,21 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
         },
         button: {
 
-            text: (this.attrs.ww && this.attrs.ww.buttonText) ?
-                this.attrs.ww.buttonText : '',
+            text: (this.attrs && this.attrs.buttonText) ?
+                this.attrs.buttonText : '',
 
-            anchor: (this.attrs.ww && this.attrs.ww.anchor) ?
-                this.attrs.ww.anchor : false,
+            anchor: (this.attrs && this.attrs.anchor) ?
+                this.attrs.anchor : false,
 
             className: concat(DROP_DOWN_TOGGLE, style.DEFAULT,
-                (this.attrs.ww && this.attrs.ww.buttonClassName) ?
-                    this.attrs.ww.buttonClassName : ''),
+                (this.attrs && this.attrs.buttonClassName) ?
+                    this.attrs.buttonClassName : ''),
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : undefined,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : undefined,
 
-            template: () => (this.attrs.ww && this.attrs.ww.buttonTemplate) ?
-                this.attrs.ww.buttonTemplate(this) : new views.ButtonView(this),
+            template: () => (this.attrs && this.attrs.buttonTemplate) ?
+                this.attrs.buttonTemplate(this) : new views.ButtonView(this),
 
             onClick: () => {
 
@@ -161,7 +161,7 @@ export class DropDown extends Component<WidgetAttrs<DropDownMenuAttrs>>
 
             className: concat(DROP_DOWN_CONTENT, hidden.HIDDEN),
 
-            autoClose: (this.attrs.ww && this.attrs.ww.autoClose === false) ?
+            autoClose: (this.attrs && this.attrs.autoClose === false) ?
                 false : true,
 
             render: () => this.children,

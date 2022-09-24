@@ -1,7 +1,9 @@
 import * as views from './wml/date-field';
 import * as moment from 'moment';
+
 import { View } from '@quenk/wml';
 import { Maybe, nothing, just } from '@quenk/noni/lib/data/maybe';
+
 import { concat, debounce } from '../../util';
 import {
     getValidityClassName,
@@ -16,7 +18,7 @@ import {
     setMessage,
     removeMessage
 } from '../form';
-import { WidgetAttrs, getId, getClassName } from '../../';
+import { getId, getClassName } from '../../';
 import { Event as ControlEvent, getName } from '../';
 import { getBlockClassName } from '../../content/orientation';
 
@@ -253,9 +255,9 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
         label: {
 
-            id: (this.attrs.ww && this.attrs.ww.name) || '',
+            id: (this.attrs && this.attrs.name) || '',
 
-            text: (this.attrs.ww && this.attrs.ww.label) || ''
+            text: (this.attrs && this.attrs.label) || ''
 
         },
 
@@ -284,7 +286,7 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
             display: getDisplay(this.attrs),
 
-            moment: <Maybe<moment.Moment>>((this.attrs.ww && this.attrs.ww.value) ?
+            moment: <Maybe<moment.Moment>>((this.attrs && this.attrs.value) ?
                 just(parseDate(getValue(this.attrs), getFormat(this.attrs))) :
                 nothing()),
 
@@ -292,7 +294,7 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
                 this.values.input.moment.get().isValid()) ?
                 this.values.input.moment.get().format(this.values.input.display) : '',
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
+            disabled: (this.attrs && this.attrs.disabled === true) ?
                 true : null,
 
             onfocus: (e: KeyboardEvent) => {
@@ -347,21 +349,21 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
      */
     fireChange(): void {
 
-        if (this.attrs.ww && this.attrs.ww.onChange) {
+        if (this.attrs && this.attrs.onChange) {
 
-            let name = this.attrs.ww.name || '';
+            let name = this.attrs.name || '';
 
             if (this.values.input.moment.isJust()) {
 
                 let m = this.values.input.moment.get();
 
                 if (m.isValid())
-                    this.attrs.ww.onChange(new DateChangedEvent(
+                    this.attrs.onChange(new DateChangedEvent(
                         name, m.format(VALUE_FORMAT)));
 
             } else {
 
-                this.attrs.ww.onChange(new DateChangedEvent(name, undefined));
+                this.attrs.onChange(new DateChangedEvent(name, undefined));
 
             }
 
@@ -407,14 +409,14 @@ const parseDate = (d: string, formats: string[]) => {
 
 }
 
-const getValue = (attrs: WidgetAttrs<DateFieldAttrs>): string =>
-    (attrs.ww && attrs.ww.value) ? attrs.ww.value : '';
+const getValue = (attrs: DateFieldAttrs): string =>
+    (attrs && attrs.value) ? attrs.value : '';
 
-const getFormat = (attrs: WidgetAttrs<DateFieldAttrs>): string[] => {
+const getFormat = (attrs: DateFieldAttrs): string[] => {
 
-    if (attrs.ww && attrs.ww.format) {
+    if (attrs && attrs.format) {
 
-        switch (attrs.ww.format) {
+        switch (attrs.format) {
 
             case 2:
                 return commonFormats;
@@ -433,14 +435,14 @@ const getFormat = (attrs: WidgetAttrs<DateFieldAttrs>): string[] => {
 
 }
 
-const getPlaceholder = (attrs: WidgetAttrs<DateFieldAttrs>): string => {
+const getPlaceholder = (attrs: DateFieldAttrs): string => {
 
-    if (attrs.ww && attrs.ww.placeholder)
-        return attrs.ww.placeholder;
+    if (attrs && attrs.placeholder)
+        return attrs.placeholder;
 
-    if (attrs.ww && attrs.ww.format) {
+    if (attrs && attrs.format) {
 
-        switch (attrs.ww.format) {
+        switch (attrs.format) {
 
             case 2:
                 return 'DD-MM-YYYY';
@@ -459,5 +461,5 @@ const getPlaceholder = (attrs: WidgetAttrs<DateFieldAttrs>): string => {
 
 }
 
-const getDisplay = (attrs: WidgetAttrs<DateFieldAttrs>): string =>
-    (attrs.ww && attrs.ww.display) ? attrs.ww.display : DEFAULT_INPUT_DISPLAY;
+const getDisplay = (attrs: DateFieldAttrs): string =>
+    (attrs && attrs.display) ? attrs.display : DEFAULT_INPUT_DISPLAY;

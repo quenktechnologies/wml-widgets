@@ -1,7 +1,8 @@
 import { Maybe, nothing, just } from '@quenk/noni/lib/data/maybe';
 import { View, Component, Content } from '@quenk/wml';
+
 import { Menu, MenuAttrs } from '../../menu/menu';
-import { WidgetAttrs, getClassName } from '../../';
+import { getClassName } from '../../';
 import { getById, concat } from '../../util';
 import { Event as ControlEvent } from '../';
 import { Main, ItemTemplateView, NoItemsTemplateView } from './wml/results-menu';
@@ -93,7 +94,7 @@ export class ItemSelectedEvent<V> extends ControlEvent<V> { }
  */
 export class ResultsMenu<V>
     extends
-    Component<WidgetAttrs<ResultsMenuAttrs<V>>> {
+    Component<ResultsMenuAttrs<V>> {
 
     view: View = new Main(this);
 
@@ -107,44 +108,44 @@ export class ResultsMenu<V>
 
         tree: <Maybe<Node>>nothing(),
 
-        results: (this.attrs.ww && this.attrs.ww.results) ?
-            this.attrs.ww.results : <V[]>[],
+        results: (this.attrs && this.attrs.results) ?
+            this.attrs.results : <V[]>[],
 
-        name: (this.attrs.ww && this.attrs.ww.name) ?
-            this.attrs.ww.name : '',
+        name: (this.attrs && this.attrs.name) ?
+            this.attrs.name : '',
 
         className: concat(RESULTS_MENU, getClassName(this.attrs)),
 
-        block: (this.attrs.ww && this.attrs.ww.block) ?
-            this.attrs.ww.block : false,
+        block: (this.attrs && this.attrs.block) ?
+            this.attrs.block : false,
 
-        hidden: (this.attrs.ww && this.attrs.ww.hidden) ?
-            this.attrs.ww.hidden : false,
+        hidden: (this.attrs && this.attrs.hidden) ?
+            this.attrs.hidden : false,
 
         item: {
 
-            stringifier: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : (v: V) => Object.toString.call(v),
+            stringifier: (this.attrs && this.attrs.stringifier) ?
+                this.attrs.stringifier : (v: V) => Object.toString.call(v),
 
             click: (index: number) => {
 
-                if (this.attrs.ww && this.attrs.ww.onSelect)
-                    this.attrs.ww.onSelect(new ItemSelectedEvent(
-                        this.attrs.ww && this.attrs.ww.name || '',
+                if (this.attrs && this.attrs.onSelect)
+                    this.attrs.onSelect(new ItemSelectedEvent(
+                        this.attrs && this.attrs.name || '',
                         this.values.results[index]));
 
             },
 
             template: (result: V, index: number): View =>
-                (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                    this.attrs.ww.itemTemplate(result, index, this) :
+                (this.attrs && this.attrs.itemTemplate) ?
+                    this.attrs.itemTemplate(result, index, this) :
                     new ItemTemplateView({
                         option: this.values.item.stringifier(result)
                     }),
 
             noItemsTemplate: (): View =>
-                (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                    this.attrs.ww.noItemsTemplate : new NoItemsTemplateView({}),
+                (this.attrs && this.attrs.noItemsTemplate) ?
+                    this.attrs.noItemsTemplate : new NoItemsTemplateView({}),
 
         }
 
@@ -157,8 +158,8 @@ export class ResultsMenu<V>
 
         this.values.hidden = false;
 
-        if (this.attrs.ww && this.attrs.ww.onOpen)
-            this.attrs.ww.onOpen();
+        if (this.attrs && this.attrs.onOpen)
+            this.attrs.onOpen();
 
         return this;
 
@@ -171,8 +172,8 @@ export class ResultsMenu<V>
 
         this.values.hidden = true;
 
-        if (this.attrs.ww && this.attrs.ww.onClose)
-            this.attrs.ww.onClose();
+        if (this.attrs && this.attrs.onClose)
+            this.attrs.onClose();
 
         return this;
 
@@ -186,13 +187,13 @@ export class ResultsMenu<V>
         this.values.hidden = !this.values.hidden;
 
         if (this.values.hidden === true &&
-            this.attrs.ww &&
-            this.attrs.ww.onClose)
-            this.attrs.ww.onClose();
+            this.attrs &&
+            this.attrs.onClose)
+            this.attrs.onClose();
         else if (this.values.hidden === false &&
-            this.attrs.ww &&
-            this.attrs.ww.onOpen)
-            this.attrs.ww.onOpen();
+            this.attrs &&
+            this.attrs.onOpen)
+            this.attrs.onOpen();
 
         return this;
 

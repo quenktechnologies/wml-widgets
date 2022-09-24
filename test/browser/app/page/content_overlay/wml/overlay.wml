@@ -7,6 +7,6 @@
 
   <h1>Overlay</h2>
 
-  <Overlay wml:id="overlay" ww:onClick={{@values.onClick}} />
+  <Overlay wml:id="overlay" onClick={{@values.onClick}} />
 
 </Demo>

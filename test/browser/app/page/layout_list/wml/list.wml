@@ -12,9 +12,9 @@
 
       <ListLayoutItem 
         wml:id={{key}} 
-        ww:name={{key}}
-        ww:active={{yes}} 
-        ww:onClick={{@click}}>
+        name={{key}}
+        active={{yes}} 
+        onClick={{@click}}>
 
         <p>{{document.createTextNode(key)}}</p>
 

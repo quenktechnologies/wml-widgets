@@ -1,4 +1,5 @@
 import * as views from './wml/search';
+
 import { View } from '@quenk/wml';
 import { tick } from '@quenk/noni/lib/control/timer';
 
@@ -178,31 +179,31 @@ export class Input
 
         className: concat(SEARCH_INPUT, getClassName(this.attrs)),
 
-        placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-            this.attrs.ww.placeholder : '',
+        placeholder: (this.attrs && this.attrs.placeholder) ?
+            this.attrs.placeholder : '',
 
-        readOnly: (this.attrs.ww && this.attrs.ww.readOnly) || undefined,
+        readOnly: (this.attrs && this.attrs.readOnly) || undefined,
 
-        disabled: (this.attrs.ww && this.attrs.ww.disabled) || undefined,
+        disabled: (this.attrs && this.attrs.disabled) || undefined,
 
         autocomplete: 'do not enable please',
 
-        autofocus: (this.attrs.ww && this.attrs.ww.autofocus) ?
+        autofocus: (this.attrs && this.attrs.autofocus) ?
             true : undefined,
 
-        size: String((this.attrs.ww && this.attrs.ww.size) ?
-            this.attrs.ww.size : 20),
+        size: String((this.attrs && this.attrs.size) ?
+            this.attrs.size : 20),
 
-        value: (this.attrs.ww && this.attrs.ww.value) ?
-            this.attrs.ww.value : '',
+        value: (this.attrs && this.attrs.value) ?
+            this.attrs.value : '',
 
         onfocus: (e: KeyboardEvent) => {
 
             let target = <HTMLInputElement>e.target;
 
-            if (this.attrs.ww && this.attrs.ww.onFocus)
-                this.attrs.ww.onFocus(new FocusGainedEvent(
-                    this.attrs.ww && this.attrs.ww.name || ''));
+            if (this.attrs && this.attrs.onFocus)
+                this.attrs.onFocus(new FocusGainedEvent(
+                    this.attrs && this.attrs.name || ''));
 
             target.value = target.value;
 
@@ -211,9 +212,9 @@ export class Input
 
             if (e.keyCode === ESCAPE) {
 
-                if (this.attrs.ww && this.attrs.ww.onEscape)
-                    this.attrs.ww.onEscape(
-                        new EscapeEvent(this.attrs.ww.name || ''));
+                if (this.attrs && this.attrs.onEscape)
+                    this.attrs.onEscape(
+                        new EscapeEvent(this.attrs.name || ''));
 
             } else {
 
@@ -231,9 +232,9 @@ export class Input
         },
         onblur: () => {
 
-            if (this.attrs.ww && this.attrs.ww.onBlur)
-                this.attrs.ww.onBlur(new FocusLostEvent(
-                    this.attrs.ww && this.attrs.ww.name || ''));
+            if (this.attrs && this.attrs.onBlur)
+                this.attrs.onBlur(new FocusLostEvent(
+                    this.attrs && this.attrs.name || ''));
 
         }
 
@@ -241,12 +242,12 @@ export class Input
 
     fireSearch(e: KeyboardEvent) {
 
-        if (this.attrs.ww && this.attrs.ww.onSearch) {
+        if (this.attrs && this.attrs.onSearch) {
 
-            let name = '' + this.attrs.ww.name;
+            let name = '' + this.attrs.name;
             let value = (<HTMLInputElement>e.target).value;
 
-            this.attrs.ww.onSearch(new TermChangedEvent(name, value));
+            this.attrs.onSearch(new TermChangedEvent(name, value));
 
         }
 
@@ -329,32 +330,32 @@ export class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
 
             name: getName(this.attrs),
 
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-                this.attrs.ww.placeholder : '',
+            placeholder: (this.attrs && this.attrs.placeholder) ?
+                this.attrs.placeholder : '',
 
-            autofocus: (this.attrs.ww && this.attrs.ww.autofocus) ?
+            autofocus: (this.attrs && this.attrs.autofocus) ?
                 true : undefined,
 
-            readOnly: (this.attrs.ww && this.attrs.ww.readOnly) || undefined,
+            readOnly: (this.attrs && this.attrs.readOnly) || undefined,
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) || undefined,
+            disabled: (this.attrs && this.attrs.disabled) || undefined,
 
-            value: (this.attrs.ww && this.attrs.ww.term) ?
-                this.attrs.ww.term :
-                (this.attrs.ww &&
-                    this.attrs.ww.stringifier &&
-                    this.attrs.ww.value) ?
-                    this.attrs.ww.stringifier(this.attrs.ww.value) : '',
+            value: (this.attrs && this.attrs.term) ?
+                this.attrs.term :
+                (this.attrs &&
+                    this.attrs.stringifier &&
+                    this.attrs.value) ?
+                    this.attrs.stringifier(this.attrs.value) : '',
 
-            onFocus: this.attrs.ww && this.attrs.ww.onFocus || undefined,
+            onFocus: this.attrs && this.attrs.onFocus || undefined,
 
-            onSearch: (this.attrs.ww && this.attrs.ww.onSearch) ?
-                this.attrs.ww.onSearch : undefined,
+            onSearch: (this.attrs && this.attrs.onSearch) ?
+                this.attrs.onSearch : undefined,
 
             onEscape: () => this.close(),
 
-            onBlur: (this.attrs.ww && this.attrs.ww.onBlur) ?
-                this.attrs.ww.onBlur : undefined
+            onBlur: (this.attrs && this.attrs.onBlur) ?
+                this.attrs.onBlur : undefined
 
         },
         menu: {
@@ -365,28 +366,28 @@ export class Search<V> extends AbstractControl<V, SearchAttrs<V>> {
 
             },
 
-            name: (this.attrs.ww && this.attrs.ww.name) ?
-                this.attrs.ww.name : '',
+            name: (this.attrs && this.attrs.name) ?
+                this.attrs.name : '',
 
-            block: (this.attrs.ww && this.attrs.ww.block) ?
-                this.attrs.ww.block : false,
+            block: (this.attrs && this.attrs.block) ?
+                this.attrs.block : false,
 
             onSelect: (e: ItemSelectedEvent<V>) => {
 
                 this.close();
 
-                if (this.attrs.ww && this.attrs.ww.onSelect)
-                    this.attrs.ww.onSelect(e);
+                if (this.attrs && this.attrs.onSelect)
+                    this.attrs.onSelect(e);
 
             },
-            itemTemplate: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                this.attrs.ww.itemTemplate : undefined,
+            itemTemplate: (this.attrs && this.attrs.itemTemplate) ?
+                this.attrs.itemTemplate : undefined,
 
-            noItemsTemplate: (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                this.attrs.ww.noItemsTemplate : undefined,
+            noItemsTemplate: (this.attrs && this.attrs.noItemsTemplate) ?
+                this.attrs.noItemsTemplate : undefined,
 
-            stringifier: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : undefined
+            stringifier: (this.attrs && this.attrs.stringifier) ?
+                this.attrs.stringifier : undefined
 
         }
 

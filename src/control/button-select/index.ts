@@ -2,7 +2,7 @@
 import { View } from '@quenk/wml';
 
 import { concat } from '../../util';
-import { getId, getClassName, WidgetAttrs } from '../../';
+import { getId, getClassName, } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
 import { ButtonSelectView } from './wml/button-select';
 
@@ -57,7 +57,7 @@ export interface ButtonSelectAttrs<TOption, TValue>
  */
 export interface ButtonSelectWidget<TOption, TValue> {
 
-    attrs: WidgetAttrs<ButtonSelectAttrs<TOption, TValue>>,
+    attrs: ButtonSelectAttrs<TOption, TValue>,
 
     values: {
 
@@ -104,8 +104,8 @@ export class ButtonSection<TOption, TValue> {
 
     selected = <number[]>[];
 
-    options = (this.ref.attrs.ww && this.ref.attrs.ww.options) ?
-        this.ref.attrs.ww.options : [];
+    options = (this.ref.attrs && this.ref.attrs.options) ?
+        this.ref.attrs.options : [];
 
     isActive = (n: number) => this.ref.values.button.current === n;
 
@@ -146,9 +146,9 @@ export class ButtonSelect<V>
 
             this.values.button.current = idx;
 
-            if ((this.attrs.ww && this.attrs.ww.onChange))
-                this.attrs.ww.onChange(
-                    new ButtonChangedEvent(<string>this.attrs.ww.name,
+            if ((this.attrs && this.attrs.onChange))
+                this.attrs.onChange(
+                    new ButtonChangedEvent(<string>this.attrs.name,
                         this.values.button.options[idx].value));
 
             this.view.invalidate();
@@ -177,9 +177,9 @@ export class MultiButtonSelect<V>
             else
                 selected.push(n);
 
-            if (this.attrs.ww && this.attrs.ww.onChange)
-                this.attrs.ww.onChange(new ButtonChangedEvent(
-                    <string>this.attrs.ww.name,
+            if (this.attrs && this.attrs.onChange)
+                this.attrs.onChange(new ButtonChangedEvent(
+                    <string>this.attrs.name,
                     selected.map(n => this.values.button.options[n].value)));
 
             this.view.invalidate();
@@ -189,15 +189,15 @@ export class MultiButtonSelect<V>
 }
 
 const getCurrent = <TOption, TValue>
-    (attrs: WidgetAttrs<ButtonSelectAttrs<TOption, TValue>>) => {
+    (attrs: ButtonSelectAttrs<TOption, TValue>) => {
 
-    if ((attrs.ww != null) &&
-        (attrs.ww.value != null) &&
-        (attrs.ww.options != null)) {
+    if ((attrs != null) &&
+        (attrs.value != null) &&
+        (attrs.options != null)) {
 
-        return attrs.ww.options.reduce((p, c, k) =>
+        return attrs.options.reduce((p, c, k) =>
             (<TValue><unknown>c.value) ===
-                (<{ value: TValue }>attrs.ww).value ? k : p, -1);
+                (<{ value: TValue }>attrs).value ? k : p, -1);
 
     }
 
@@ -208,11 +208,11 @@ const getCurrent = <TOption, TValue>
 const getSelected = <V>(that: MultiButtonSelect<V>): number[] => {
 
     if (that.attrs &&
-        that.attrs.ww &&
-        that.attrs.ww.value &&
-        that.attrs.ww.options) {
+        that.attrs &&
+        that.attrs.value &&
+        that.attrs.options) {
 
-        let { value, options } = that.attrs.ww;
+        let { value, options } = that.attrs;
 
         return value.map(v => options.reduce((p, c, i) =>
             (p > -1) ? p : (c.value === v) ? i : p, -1));

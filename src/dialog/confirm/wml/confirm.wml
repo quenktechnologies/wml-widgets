@@ -4,11 +4,11 @@
 {% import (Confirm) from "../" %}
 
 {% view Main (Confirm) %}
-<Modal wml:id={{@values.wml.id}} ww:className={{@values.className}}>
+<Modal wml:id={{@values.wml.id}} className={{@values.className}}>
 
   <ModalHeader>
   
-    <CloseButton ww:onClick={{@values.footer.no.onClick}} />
+    <CloseButton onClick={{@values.footer.no.onClick}} />
 
     {{@values.header.title|text}} 
     
@@ -23,14 +23,14 @@
   <ModalFooter>
 
     <Button
-      ww:text={{@values.footer.no.text}} 
-      ww:className={{@values.footer.no.className}}
-      ww:onClick={{@values.footer.no.onClick}} />
+      text={{@values.footer.no.text}} 
+      className={{@values.footer.no.className}}
+      onClick={{@values.footer.no.onClick}} />
 
     <Button
-      ww:text={{@values.footer.yes.text}}
-      ww:className={{@values.footer.yes.className}}
-      ww:onClick={{@values.footer.yes.onClick}} />
+      text={{@values.footer.yes.text}}
+      className={{@values.footer.yes.className}}
+      onClick={{@values.footer.yes.onClick}} />
 
   </ModalFooter>
 

@@ -10,7 +10,7 @@
 
   <Drawer
     wml:id={{@values.drawer.wml.id}}
-    ww:hidden={{@values.drawer.hidden}}>
+    hidden={{@values.drawer.hidden}}>
 
     {{ ...@values.drawer.content }}
 

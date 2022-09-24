@@ -5,10 +5,10 @@
 <li class={{@className}}>
 
   <span>Page <TextInput 
-                ww:type="number"
-                ww:match="[0-9]"
-                ww:value={{String(@current)}}
-                ww:onChange={{@onChange}} /> of {{@total | text }} </span>
+                type="number"
+                match="[0-9]"
+                value={{String(@current)}}
+                onChange={{@onChange}} /> of {{@total | text }} </span>
   
 </li>
 

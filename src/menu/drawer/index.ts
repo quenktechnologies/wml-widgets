@@ -52,9 +52,9 @@ export class Drawer extends AbstractLayout<DrawerAttrs> implements Hidable {
 
         root: {
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
-            className: concat(DRAWER, (this.attrs.ww && this.attrs.ww.hidden) ?
+            className: concat(DRAWER, (this.attrs && this.attrs.hidden) ?
                 HIDDEN : ''),
 
             wml: {
@@ -74,8 +74,8 @@ export class Drawer extends AbstractLayout<DrawerAttrs> implements Hidable {
 
             className: DRAWER_CONTENT,
 
-            value: (this.attrs.ww && this.attrs.ww.content) ?
-                this.attrs.ww.content : this.children
+            value: (this.attrs && this.attrs.content) ?
+                this.attrs.content : this.children
 
         }
 

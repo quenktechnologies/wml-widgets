@@ -16,8 +16,8 @@
         {% for v in @values.styles %}
 
           <Tag 
-            ww:style={{v}}
-            ww:text={{v|@values.capitalize}} />
+            style={{v}}
+            text={{v|@values.capitalize}} />
 
         {% endfor %}
 

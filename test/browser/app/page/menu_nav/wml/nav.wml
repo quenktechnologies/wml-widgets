@@ -17,22 +17,22 @@
       <Item>
         
         <Link
-         ww:text="Home"/>
+         text="Home"/>
 
       </Item>
 
       <Item>
         
         <Link
-         ww:disabled=true
-         ww:text="Users"/>
+         disabled=true
+         text="Users"/>
             
       </Item>
 
       <Item>
 
         <Link
-        ww:text="Logout"/>
+        text="Logout"/>
           
       </Item>
 
@@ -49,22 +49,22 @@
       <Item>
         
         <Link
-         ww:text="Home"/>
+         text="Home"/>
 
       </Item>
 
       <Item>
         
         <Link
-         ww:disabled=true
-         ww:text="Users"/>
+         disabled=true
+         text="Users"/>
             
       </Item>
 
       <Item>
 
         <Link
-        ww:text="Logout"/>
+        text="Logout"/>
           
       </Item>
 

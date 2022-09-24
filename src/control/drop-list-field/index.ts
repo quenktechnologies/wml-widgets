@@ -1,5 +1,6 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 import { View } from '@quenk/wml';
+
 import { concat, getById } from '../../util';
 import {
     Message,
@@ -125,27 +126,27 @@ export class DropListField<V>
 
             block: true,
 
-            placeholder: (this.attrs.ww && this.attrs.ww.placeholder),
+            placeholder: (this.attrs && this.attrs.placeholder),
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled),
+            disabled: (this.attrs && this.attrs.disabled),
 
-            value: (this.attrs.ww && this.attrs.ww.value),
+            value: (this.attrs && this.attrs.value),
 
-            options: (this.attrs.ww && this.attrs.ww.options) ?
-                this.attrs.ww.options : [],
+            options: (this.attrs && this.attrs.options) ?
+                this.attrs.options : [],
 
-            stringifier: this.attrs.ww && this.attrs.ww.stringifier,
+            stringifier: this.attrs && this.attrs.stringifier,
 
-            itemTemplate: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                this.attrs.ww.itemTemplate : undefined,
+            itemTemplate: (this.attrs && this.attrs.itemTemplate) ?
+                this.attrs.itemTemplate : undefined,
 
-            noItemsTemplate: (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                this.attrs.ww.noItemsTemplate : undefined,
+            noItemsTemplate: (this.attrs && this.attrs.noItemsTemplate) ?
+                this.attrs.noItemsTemplate : undefined,
 
             onSelect: (e: ItemSelectedEvent<V>) => {
 
-                if (this.attrs.ww && this.attrs.ww.onChange)
-                    this.attrs.ww.onChange(
+                if (this.attrs && this.attrs.onChange)
+                    this.attrs.onChange(
                         new ItemChangedEvent(e.name, e.value));
 
             },

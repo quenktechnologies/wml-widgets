@@ -19,30 +19,30 @@
         Max: 
         
         <TextInput 
-          ww:size={{Size.Small}}
-          ww:name="max"
-          ww:value={{String(@values.max)}}
-          ww:onChange={{@values.onAttrChange}}/>
+          size={{Size.Small}}
+          name="max"
+          value={{String(@values.max)}}
+          onChange={{@values.onAttrChange}}/>
 
         Total:
 
         <TextInput 
-          ww:size={{Size.Small}}
-          ww:name="total"
-          ww:value={{String(@values.total)}}
-          ww:onChange={{@values.onAttrChange}}/>
+          size={{Size.Small}}
+          name="total"
+          value={{String(@values.total)}}
+          onChange={{@values.onAttrChange}}/>
 
         Current:
 
         <TextInput 
-          ww:size={{Size.Small}}
-          ww:name="current"
-          ww:value={{String(@values.current)}}
-          ww:onChange={{@values.onAttrChange}}/>
+          size={{Size.Small}}
+          name="current"
+          value={{String(@values.current)}}
+          onChange={{@values.onAttrChange}}/>
 
         <Button
-          ww:text="Go"
-          ww:onClick={{@values.reset}} />
+          text="Go"
+          onClick={{@values.reset}} />
       
       </p>
 

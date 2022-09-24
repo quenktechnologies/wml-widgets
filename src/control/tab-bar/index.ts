@@ -1,11 +1,12 @@
 import * as views from './wml/tab-bar';
+
 import {text} from '@quenk/wml/lib/dom';
 import { View, Component } from '@quenk/wml';
+
 import { ACTIVE } from '../../content/state/active';
 import {JUSTIFIED} from '../../content/orientation';
 import { concat, getById } from '../../util';
 import {
-    WidgetAttrs,
     HTMLElementAttrs,
     getId,
     getClassName
@@ -98,7 +99,7 @@ export class Tab extends AbstractControl<void, TabAttrs> {
             id: getId(this.attrs),
 
             className: concat(TAB, getClassName(this.attrs),
-                (this.attrs.ww && this.attrs.ww.active) ? ACTIVE : ''),
+                (this.attrs && this.attrs.active) ? ACTIVE : ''),
 
         },
         a: {
@@ -109,8 +110,8 @@ export class Tab extends AbstractControl<void, TabAttrs> {
 
             },
 
-            content: (this.attrs.ww && this.attrs.ww.text) ?
-                [text(this.attrs.ww.text)] : this.children,
+            content: (this.attrs && this.attrs.text) ?
+                [text(this.attrs.text)] : this.children,
 
             clicked: (e: Event): void => {
 
@@ -130,9 +131,9 @@ export class Tab extends AbstractControl<void, TabAttrs> {
 
                 root.classList.add(ACTIVE);
 
-                if (this.attrs.ww && this.attrs.ww.onClick)
-                this.attrs.ww.onClick(
-                  new TabClickedEvent(`${this.attrs.ww.name}`));
+                if (this.attrs && this.attrs.onClick)
+                this.attrs.onClick(
+                  new TabClickedEvent(`${this.attrs.name}`));
 
             }
 
@@ -160,7 +161,7 @@ export class Tab extends AbstractControl<void, TabAttrs> {
  * Use it to create a tabbed navigation or view for main layout,
  * sub views or forms etc.
  */
-export class TabBar extends Component<WidgetAttrs<TabBarAttrs>> {
+export class TabBar extends Component<TabBarAttrs> {
 
     view: View = new views.TabBar(this);
 
@@ -172,7 +173,7 @@ export class TabBar extends Component<WidgetAttrs<TabBarAttrs>> {
 
           className: concat(TAB_BAR,
                             getClassName(this.attrs),
-                            (this.attrs.ww && this.attrs.ww.justify)?  JUSTIFIED:'')
+                            (this.attrs && this.attrs.justify)?  JUSTIFIED:'')
 
         }
 

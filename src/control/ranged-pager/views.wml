@@ -18,16 +18,16 @@
       {% if idx == 0 %}
 
         <Link
-          ww:className="-ww-no-decoration"
-          ww:disabled=true
-          ww:text="…" />
+          className="-ww-no-decoration"
+          disabled=true
+          text="…" />
 
       {% else %}
 
         <Link
-          ww:className="-ww-no-decoration"
-          ww:text={{String(idx)}}
-          ww:onClick={{->@values.page.onClick(idx)}} />
+          className="-ww-no-decoration"
+          text={{String(idx)}}
+          onClick={{->@values.page.onClick(idx)}} />
 
       {% endif %}
 

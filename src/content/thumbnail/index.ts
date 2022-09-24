@@ -1,7 +1,7 @@
 import * as views from './wml/thumbnail';
 import { View, Component } from '@quenk/wml';
 import { concat } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getId, getClassName } from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 
 ///classNames:begin
 export const THUMBNAIL = 'ww-thumbnail';
@@ -28,9 +28,9 @@ export interface ThumbnailAttrs extends HTMLElementAttrs {
 /**
  * Thumbnail
  */
-export class Thumbnail extends Component<WidgetAttrs<ThumbnailAttrs>> {
+export class Thumbnail extends Component<ThumbnailAttrs> {
 
-    view: View = (this.attrs.ww && this.attrs.ww.href) ?
+    view: View = (this.attrs && this.attrs.href) ?
         new views.Anchor(this) : new views.Thumbnail(this);
 
     values = {
@@ -39,15 +39,15 @@ export class Thumbnail extends Component<WidgetAttrs<ThumbnailAttrs>> {
 
         className: concat(THUMBNAIL, getClassName(this.attrs)),
 
-        href: (this.attrs.ww && this.attrs.ww.href) ?
-            this.attrs.ww.href : '',
+        href: (this.attrs && this.attrs.href) ?
+            this.attrs.href : '',
 
         onclick: (e: Event) => {
 
-            if (this.attrs.ww && this.attrs.ww.onClick) {
+            if (this.attrs && this.attrs.onClick) {
 
                 e.preventDefault();
-                this.attrs.ww.onClick();
+                this.attrs.onClick();
 
             }
 
@@ -65,7 +65,7 @@ export interface CaptionAttrs extends HTMLElementAttrs { }
 /**
  * Caption
  */
-export class Caption extends Component<WidgetAttrs<CaptionAttrs>> {
+export class Caption extends Component<CaptionAttrs> {
 
     view: View = new views.Caption(this);
 

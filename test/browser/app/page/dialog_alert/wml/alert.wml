@@ -16,9 +16,9 @@
         {% for v in @values.styles %}
 
           <Alert 
-            ww:style={{v}}
-            ww:closable=true
-            ww:text={{v|@values.capitalize}} />
+            style={{v}}
+            closable=true
+            text={{v|@values.capitalize}} />
 
         {% endfor %}
 

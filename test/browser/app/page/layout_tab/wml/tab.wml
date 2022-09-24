@@ -24,7 +24,7 @@
  
 <Demo>
 
-   <TabLayout ww:tabs={{@tabs}} ww:active="first">
+   <TabLayout tabs={{@tabs}} active="first">
 
      <p>Click a tab to change content.</p>
    

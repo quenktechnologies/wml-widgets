@@ -10,7 +10,7 @@
 
 {% view PropertyListView [D,R:Record[D]](PropertyList[D,R]) %}
 
-<DescriptionList ww:className={{@values.root.className}}>
+<DescriptionList className={{@values.root.className}}>
 
   {% for field in @values.fields %}
 

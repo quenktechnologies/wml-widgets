@@ -21,16 +21,16 @@
 {% view ButtonSelectView [V](ButtonSelectIface[V]) %}
 
 <ButtonGroup 
-  ww:id={{@values.id}}
-  ww:className={{@values.className}}>
+  id={{@values.id}}
+  className={{@values.className}}>
 
   {% for opt:Option[V],idx in @values.button.options %}
 
     <Button
-      ww:className={{@values.button.getClassNames(idx)}}
-      ww:active={{@values.button.isActive(idx)}}
-      ww:onClick={{->@values.button.onClick(idx)}}
-      ww:text={{opt.text}} />
+      className={{@values.button.getClassNames(idx)}}
+      active={{@values.button.isActive(idx)}}
+      onClick={{->@values.button.onClick(idx)}}
+      text={{opt.text}} />
 
   {% endfor %}
 

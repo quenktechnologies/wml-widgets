@@ -10,12 +10,12 @@
 
     <Select 
      wml:id={{@values.normal.id}}
-     ww:name={{@values.normal.name}}
-     ww:label={{@values.normal.label}}
-     ww:value={{@values.normal.value}}
-     ww:stringifier={{@values.normal.stringifier}}
-     ww:onSearch={{@values.normal.onSearch}}
-     ww:onChange={{@values.normal.onChange}} />
+     name={{@values.normal.name}}
+     label={{@values.normal.label}}
+     value={{@values.normal.value}}
+     stringifier={{@values.normal.stringifier}}
+     onSearch={{@values.normal.onSearch}}
+     onChange={{@values.normal.onChange}} />
 
   </Demo>
 
@@ -23,12 +23,12 @@
 
     <Select 
      wml:id={{@values.success.id}}
-     ww:name={{@values.success.name}}
-     ww:label={{@values.success.label}}
-     ww:success={{@values.success.message}}
-     ww:stringifier={{@values.success.stringifier}}
-     ww:onSearch={{@values.success.onSearch}}
-     ww:onChange={{@values.success.onChange}} />
+     name={{@values.success.name}}
+     label={{@values.success.label}}
+     success={{@values.success.message}}
+     stringifier={{@values.success.stringifier}}
+     onSearch={{@values.success.onSearch}}
+     onChange={{@values.success.onChange}} />
 
   </Demo>
 
@@ -36,12 +36,12 @@
 
     <Select 
      wml:id={{@values.warning.id}}
-     ww:name={{@values.warning.name}}
-     ww:label={{@values.warning.label}}
-     ww:warning={{@values.warning.message}}
-     ww:stringifier={{@values.warning.stringifier}}
-     ww:onSearch={{@values.warning.onSearch}}
-     ww:onChange={{@values.warning.onChange}} />
+     name={{@values.warning.name}}
+     label={{@values.warning.label}}
+     warning={{@values.warning.message}}
+     stringifier={{@values.warning.stringifier}}
+     onSearch={{@values.warning.onSearch}}
+     onChange={{@values.warning.onChange}} />
 
   </Demo>
 
@@ -49,12 +49,12 @@
 
     <Select 
      wml:id={{@values.error.id}}
-     ww:name={{@values.error.name}}
-     ww:label={{@values.error.label}}
-     ww:error={{@values.error.message}}
-     ww:stringifier={{@values.error.stringifier}}
-     ww:onSearch={{@values.error.onSearch}}
-     ww:onChange={{@values.error.onChange}} />
+     name={{@values.error.name}}
+     label={{@values.error.label}}
+     error={{@values.error.message}}
+     stringifier={{@values.error.stringifier}}
+     onSearch={{@values.error.onSearch}}
+     onChange={{@values.error.onChange}} />
 
   </Demo>
 
@@ -62,37 +62,37 @@
 
     <Select 
      wml:id={{@values.block.id}}
-     ww:name={{@values.block.name}}
-     ww:label={{@values.block.label}}
-     ww:block={{true}}
-     ww:stringifier={{@values.block.stringifier}}
-     ww:onSearch={{@values.block.onSearch}}
-     ww:onChange={{@values.block.onChange}} />
+     name={{@values.block.name}}
+     label={{@values.block.label}}
+     block={{true}}
+     stringifier={{@values.block.stringifier}}
+     onSearch={{@values.block.onSearch}}
+     onChange={{@values.block.onChange}} />
 
   </Demo>
 
   <Demo>
 
     <Select 
-     ww:name={{@values.normal.name}}
-     ww:label="Disabled"
-     ww:disabled=true
-     ww:stringifier={{@values.normal.stringifier}}
-     ww:onSearch={{@values.normal.onSearch}}
-     ww:onChange={{@values.normal.onChange}} />
+     name={{@values.normal.name}}
+     label="Disabled"
+     disabled=true
+     stringifier={{@values.normal.stringifier}}
+     onSearch={{@values.normal.onSearch}}
+     onChange={{@values.normal.onChange}} />
 
   </Demo>
 
   <Demo>
 
     <Select 
-     ww:name={{@values.normal.name}}
-     ww:label="Disabled with value"
-     ww:value={{@values.normal.value}}
-     ww:disabled=true
-     ww:stringifier={{@values.normal.stringifier}}
-     ww:onSearch={{@values.normal.onSearch}}
-     ww:onChange={{@values.normal.onChange}} />
+     name={{@values.normal.name}}
+     label="Disabled with value"
+     value={{@values.normal.value}}
+     disabled=true
+     stringifier={{@values.normal.stringifier}}
+     onSearch={{@values.normal.onSearch}}
+     onChange={{@values.normal.onChange}} />
 
   </Demo>
 

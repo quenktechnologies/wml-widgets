@@ -67,8 +67,8 @@
 {% view Main [C,R:Record[C]](DataTable[C,R]) %}
 <TableLayout
     wml:id={{@values.wml.id}}
-    ww:id={{@values.id}}
-    ww:className={{@values.className}}>
+    id={{@values.id}}
+    className={{@values.className}}>
 
     {{ @values.thead() }}
     

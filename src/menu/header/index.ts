@@ -1,8 +1,9 @@
 import * as wml from '@quenk/wml';
 import * as document from '@quenk/wml/lib/dom';
 import * as views from './wml/header';
+
 import { concat } from '../../util';
-import { WidgetAttrs, HTMLElementAttrs } from '../../';
+import { HTMLElementAttrs } from '../../';
 
 ///classNames:begin
 /**
@@ -26,7 +27,7 @@ export interface MenuHeaderAttrs extends HTMLElementAttrs {
 /**
  * MenuHeader can be used to display non-clickable heading text in a nav menu.
  */
-export class MenuHeader extends wml.Component<WidgetAttrs<MenuHeaderAttrs>> {
+export class MenuHeader extends wml.Component<MenuHeaderAttrs> {
 
     view: wml.View = new views.Main(this);
 
@@ -34,15 +35,15 @@ export class MenuHeader extends wml.Component<WidgetAttrs<MenuHeaderAttrs>> {
 
         span: {
 
-            id: (this.attrs.ww && this.attrs.ww.id) ? this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
 
             className: concat(MENU_HEADER,
-                (this.attrs.ww && this.attrs.ww.className) ?
-                    this.attrs.ww.className : '')
+                (this.attrs && this.attrs.className) ?
+                    this.attrs.className : '')
 
         },
-        text: (this.attrs.ww && this.attrs.ww.text) ?
-            [document.createTextNode(this.attrs.ww.text)] : this.children
+        text: (this.attrs && this.attrs.text) ?
+            [document.createTextNode(this.attrs.text)] : this.children
 
     }
 

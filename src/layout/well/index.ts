@@ -28,7 +28,7 @@ export class Well extends AbstractLayout<WellAttrs> {
          */
         content: {
 
-            id: this.attrs.ww && this.attrs.ww.id,
+            id: this.attrs && this.attrs.id,
 
             wml: {
 
@@ -37,8 +37,8 @@ export class Well extends AbstractLayout<WellAttrs> {
             },
 
           className: concat(WELL, LAYOUT, 
-                this.attrs.ww && this.attrs.ww.className ?
-                    <string>this.attrs.ww.className : '')
+                this.attrs && this.attrs.className ?
+                    <string>this.attrs.className : '')
 
         }
 

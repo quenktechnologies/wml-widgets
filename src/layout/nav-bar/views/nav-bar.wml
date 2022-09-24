@@ -7,8 +7,8 @@
 {% view NavBarView (NavBar) %}
 
   <ActionBar 
-    ww:id={{@values.id}}
-    ww:className={{@values.className}}>
+    id={{@values.id}}
+    className={{@values.className}}>
 
       {% if @values.links.length > 0 %}
 
@@ -19,11 +19,11 @@
             <Item>
 
               <Link
-                ww:className={{conf.className}}
-                ww:name={{conf.name}}
-                ww:text={{conf.title}}
-                ww:href={{conf.href}}
-                ww:onClick={{->if conf.onClick then conf.onClick(conf.name) else undefined}} />
+                className={{conf.className}}
+                name={{conf.name}}
+                text={{conf.title}}
+                href={{conf.href}}
+                onClick={{->if conf.onClick then conf.onClick(conf.name) else undefined}} />
 
               </Item>
 

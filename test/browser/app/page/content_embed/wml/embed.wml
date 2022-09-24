@@ -12,9 +12,9 @@
 
     <Row>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Embed ww:className="-aspect-ratio-16x9">
+        <Embed className="-aspect-ratio-16x9">
 
           <iframe src={{@values.jojo}} allow={{@values.allow}}/>
 
@@ -22,9 +22,9 @@
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Embed ww:className="-aspect-ratio-4x3">
+        <Embed className="-aspect-ratio-4x3">
 
           <iframe src={{@values.win}} allow={{@values.allow}}/>
 
@@ -32,9 +32,9 @@
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Embed ww:className="-aspect-ratio-16x9">
+        <Embed className="-aspect-ratio-16x9">
 
           <iframe src={{@values.max}} allow={{@values.allow}}/>
 

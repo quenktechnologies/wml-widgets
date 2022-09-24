@@ -11,57 +11,57 @@
   {% if @values.root.dir == -1 %}
 
     <Label
-      ww:for={{@values.root.id}}
-      ww:text={{@values.label.text}} />
+      for={{@values.root.id}}
+      text={{@values.label.text}} />
 
     <Search
       wml:id={{@values.search.wml.id}}
-      ww:name={{@values.search.name}}
-      ww:value={{@values.search.value}}
-      ww:block={{@values.search.block}}
-      ww:disabled={{@values.search.disabled}}
-      ww:stringifier={{@values.stack.decorator}}
-      ww:placeholder={{@values.search.placeholder}}
-      ww:onSearch={{@values.search.onSearch}}
-      ww:onSelect={{@values.search.onSelect}} />
+      name={{@values.search.name}}
+      value={{@values.search.value}}
+      block={{@values.search.block}}
+      disabled={{@values.search.disabled}}
+      stringifier={{@values.stack.decorator}}
+      placeholder={{@values.search.placeholder}}
+      onSearch={{@values.search.onSearch}}
+      onSelect={{@values.search.onSelect}} />
 
     <Stack
       wml:id={{@values.stack.wml.id}}
-      ww:name={{@values.stack.name}}
-      ww:value={{@values.stack.value}}
-      ww:disabled={{@values.stack.disabled}}
-      ww:decorator={{@values.stack.decorator}}
-      ww:onChange={{@values.stack.onChange}} />
+      name={{@values.stack.name}}
+      value={{@values.stack.value}}
+      disabled={{@values.stack.disabled}}
+      decorator={{@values.stack.decorator}}
+      onChange={{@values.stack.onChange}} />
 
     <Help 
       wml:id={{@values.messages.wml.id}}
-      ww:text={{@values.messages.text}} />
+      text={{@values.messages.text}} />
 
   {% else %}
 
     <Label
-      ww:for={{@values.root.id}}
-      ww:text={{@values.label.text}} />
+      for={{@values.root.id}}
+      text={{@values.label.text}} />
 
     <Stack
       wml:id={{@values.stack.wml.id}}
-      ww:name={{@values.stack.name}}
-      ww:value={{@values.stack.value}}
-      ww:decorator={{@values.stack.decorator}}
-      ww:onChange={{@values.stack.onChange}} />
+      name={{@values.stack.name}}
+      value={{@values.stack.value}}
+      decorator={{@values.stack.decorator}}
+      onChange={{@values.stack.onChange}} />
 
     <Search
       wml:id={{@values.search.wml.id}}
-      ww:name={{@values.search.name}}
-      ww:value={{@values.search.value}}
-      ww:block={{@values.search.block}}
-      ww:stringifier={{@values.stack.decorator}}
-      ww:onSearch={{@values.search.onSearch}}
-      ww:onSelect={{@values.search.onSelect}} />
+      name={{@values.search.name}}
+      value={{@values.search.value}}
+      block={{@values.search.block}}
+      stringifier={{@values.stack.decorator}}
+      onSearch={{@values.search.onSearch}}
+      onSelect={{@values.search.onSelect}} />
 
     <Help 
       wml:id={{@values.messages.wml.id}}
-      ww:text={{@values.messages.text}} />
+      text={{@values.messages.text}} />
 
   {% endif %}
 

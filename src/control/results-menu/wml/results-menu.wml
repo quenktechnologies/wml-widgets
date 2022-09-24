@@ -12,16 +12,16 @@
 {% view Main[V] (ResultsMenu[V]) %}
   <Menu 
     wml:id={{@values.wml.id}}
-    ww:className={{@values.className}}
-    ww:block={{@values.block}}
-    ww:hidden={{@values.hidden}}>
+    className={{@values.className}}
+    block={{@values.block}}
+    hidden={{@values.hidden}}>
 
       {% for result,index:Number in @values.results %}
 
-        <Item ww:name={{''+index}}>
+        <Item name={{''+index}}>
 
             <Link 
-              ww:onClick={{->@values.item.click(index)}}>
+              onClick={{->@values.item.click(index)}}>
 
               {{ <(@values.item.template(result, index))> }}
 

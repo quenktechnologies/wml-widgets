@@ -2,7 +2,7 @@ import { text } from '@quenk/wml/lib/dom';
 import { View, Component } from '@quenk/wml';
 import { DEFAULT, Style, getStyleClassName } from '../../content/style';
 import { concat } from '../../util';
-import { HTMLElementAttrs, WidgetAttrs, getClassName, getId  } from '../../';
+import { HTMLElementAttrs, getClassName, getId  } from '../../';
 import { Main } from './wml/tag';
 
 export { Style }
@@ -36,7 +36,7 @@ export interface TagAttrs extends HTMLElementAttrs {
 /**
  * Tag
  */
-export class Tag extends Component<WidgetAttrs<TagAttrs>> {
+export class Tag extends Component<TagAttrs> {
 
     view: View = new Main(this);
 
@@ -54,19 +54,19 @@ export class Tag extends Component<WidgetAttrs<TagAttrs>> {
 
             getClassName(this.attrs),
 
-            (this.attrs.ww && this.attrs.ww.style) ?
-                getStyleClassName(this.attrs.ww.style) :
+            (this.attrs && this.attrs.style) ?
+                getStyleClassName(this.attrs.style) :
                 DEFAULT),
 
         onclick: (_: Event) => {
 
-            if (this.attrs.ww && this.attrs.ww.onClick)
-                this.attrs.ww.onClick()
+            if (this.attrs && this.attrs.onClick)
+                this.attrs.onClick()
 
         },
 
-        content: (this.attrs.ww && this.attrs.ww.text) ?
-            [text(this.attrs.ww.text)] : this.children
+        content: (this.attrs && this.attrs.text) ?
+            [text(this.attrs.text)] : this.children
 
     }
 

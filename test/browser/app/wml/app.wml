@@ -16,9 +16,9 @@
 
   {{ <Navigation(@)> }}
 
-  <ActionBar ww:id="appBar">
+  <ActionBar id="appBar">
 
-    <Link ww:onClick={{@toggleDrawer}}>
+    <Link onClick={{@toggleDrawer}}>
 
       <MenuIcon/>
 
@@ -26,7 +26,7 @@
 
   </ActionBar>
 
-  <MainLayout ww:id="main">
+  <MainLayout id="main">
 
     {{...@content}}
 

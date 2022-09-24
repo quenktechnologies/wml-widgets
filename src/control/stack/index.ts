@@ -1,6 +1,8 @@
 import * as views from './wml/stack';
+
 import { Fun } from '@quenk/wml';
 import { text } from '@quenk/wml/lib/dom';
+
 import { concat } from '../../util';
 import {  getId, getClassName } from '../../';
 import { ControlAttrs, Event, AbstractControl } from '../';
@@ -66,19 +68,19 @@ export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
 
             className: concat(STACK, getClassName(this.attrs)),
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : false,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : false,
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : [],
+            value: (this.attrs && this.attrs.value) ?
+                this.attrs.value : [],
 
             fire: () => {
 
                 if (!this.values.root.disabled) {
 
-                    if (this.attrs.ww && this.attrs.ww.onChange)
-                        this.attrs.ww.onChange(new StackChangedEvent<V>(
-                            <string>this.attrs.ww.name,
+                    if (this.attrs && this.attrs.onChange)
+                        this.attrs.onChange(new StackChangedEvent<V>(
+                            <string>this.attrs.name,
                             this.values.root.value.slice()));
 
                     this.view.invalidate();
@@ -93,8 +95,8 @@ export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
             className: STACK_ELEMENT,
 
             template: (v: V, idx: number): any =>
-                (this.attrs.ww && this.attrs.ww.elementTemplate) ?
-                    this.attrs.ww.elementTemplate(this)(v)(idx)(this.view) :
+                (this.attrs && this.attrs.elementTemplate) ?
+                    this.attrs.elementTemplate(this)(v)(idx)(this.view) :
                     views.content(this, v, idx)(this.view),
 
             content: {
@@ -110,8 +112,8 @@ export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
 
             },
             decorator: (v: V) =>
-                text((this.attrs.ww && this.attrs.ww.decorator) ?
-                    this.attrs.ww.decorator(v) : v + '')
+                text((this.attrs && this.attrs.decorator) ?
+                    this.attrs.decorator(v) : v + '')
 
         },
         close: {

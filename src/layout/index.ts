@@ -1,7 +1,7 @@
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 import { Component, View, Content } from '@quenk/wml';
 import { warnMissing } from '../util';
-import { HTMLElementAttrs, WidgetAttrs } from '../';
+import { HTMLElementAttrs,  } from '../';
 
 ///classNames:begin
 export const LAYOUT = '-layout';
@@ -35,7 +35,7 @@ export interface Layout {
  * AbstractLayout provides an implementation of Layout.
  */
 export abstract class AbstractLayout<A extends LayoutAttrs>
-    extends Component<WidgetAttrs<A>> implements Layout {
+    extends Component<A> implements Layout {
 
     /**
      * view for the AbstractLayout.

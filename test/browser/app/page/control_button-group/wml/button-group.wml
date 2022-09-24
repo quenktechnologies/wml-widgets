@@ -14,9 +14,9 @@
 
     <ButtonGroup>
 
-      <Button ww:text="one"/>
-      <Button ww:text="two" ww:active=true />
-      <Button ww:text="four"/>
+      <Button text="one"/>
+      <Button text="two" active=true />
+      <Button text="four"/>
 
     </ButtonGroup>
 
@@ -26,9 +26,9 @@
 
     <ButtonGroup>
 
-      <Button ww:text="one"/>
-      <Button ww:text="two" />
-      <Button ww:text="four"/>
+      <Button text="one"/>
+      <Button text="two" />
+      <Button text="four"/>
 
     </ButtonGroup>
 
@@ -38,7 +38,7 @@
 
     <ButtonGroup>
 
-      <Button ww:text="one"/>
+      <Button text="one"/>
 
     </ButtonGroup>
 
@@ -48,10 +48,10 @@
 
     <ButtonGroup>
 
-      <Button ww:text="one"/>
+      <Button text="one"/>
 
       <DropDown 
-        ww:buttonText="two">
+        buttonText="two">
 
         <Menu>
 
@@ -71,7 +71,7 @@
 
       </DropDown>
 
-      <Button ww:text="three"/>
+      <Button text="three"/>
 
     </ButtonGroup>
 

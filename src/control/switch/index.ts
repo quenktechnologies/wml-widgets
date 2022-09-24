@@ -51,8 +51,8 @@ export class Switch extends AbstractControl<boolean, SwitchAttrs> {
 
             name: getName(this.attrs),
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : false,
+            value: (this.attrs && this.attrs.value) ?
+                this.attrs.value : false,
 
             checked: () => this.values.input.value ? true : undefined,
 
@@ -62,8 +62,8 @@ export class Switch extends AbstractControl<boolean, SwitchAttrs> {
 
                 this.values.input.value = (!this.values.input.value)
 
-                if ((this.attrs.ww && this.attrs.ww.onChange))
-                    this.attrs.ww.onChange(new SwitchChangedEvent(
+                if ((this.attrs && this.attrs.onChange))
+                    this.attrs.onChange(new SwitchChangedEvent(
                         this.values.input.name,
                         this.values.input.value));
 

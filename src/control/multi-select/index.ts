@@ -1,7 +1,15 @@
 import * as views from './wml/multi-select';
+
 import { View, Maybe } from '@quenk/wml';
+
 import { getBlockClassName } from '../../content/orientation';
-import { FormControlAttrs, AbstractFormControl, getLabel, setMessage, removeMessage } from '../form';
+import {
+    FormControlAttrs,
+    AbstractFormControl,
+    getLabel,
+    setMessage,
+    removeMessage
+} from '../form';
 import {
     Stringifier,
     TermChangedEvent,
@@ -109,8 +117,8 @@ export class MultiSelect<V>
 
             },
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : false,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : false,
 
             id: getId(this.attrs),
 
@@ -118,7 +126,7 @@ export class MultiSelect<V>
                 getClassName(this.attrs),
                 getValidityClassName(this.attrs),
                 getBlockClassName(this.attrs),
-                (this.attrs.ww && this.attrs.ww.disabled) ?
+                (this.attrs && this.attrs.disabled) ?
                     DISABLED : '')
 
         },
@@ -147,18 +155,18 @@ export class MultiSelect<V>
                 id: 'search'
             },
 
-            block: this.attrs.ww && this.attrs.ww.block || undefined,
+            block: this.attrs && this.attrs.block || undefined,
 
-            itemTemplate: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                this.attrs.ww.itemTemplate : undefined,
+            itemTemplate: (this.attrs && this.attrs.itemTemplate) ?
+                this.attrs.itemTemplate : undefined,
 
-            noItemsTemplate: (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                this.attrs.ww.noItemsTemplate : undefined,
+            noItemsTemplate: (this.attrs && this.attrs.noItemsTemplate) ?
+                this.attrs.noItemsTemplate : undefined,
 
             onSearch: (evt: TermChangedEvent) => {
 
-                if (this.attrs.ww && this.attrs.ww.onSearch)
-                    this.attrs.ww.onSearch(evt);
+                if (this.attrs && this.attrs.onSearch)
+                    this.attrs.onSearch(evt);
 
             },
             onSelect: ({ value }: ItemSelectedEvent<V>) => {
@@ -192,16 +200,16 @@ export class MultiSelect<V>
             className: concat(MULTI_SELECT_TAG,
                 getValidityClassName(this.attrs)),
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : [],
+            value: (this.attrs && this.attrs.value) ?
+                this.attrs.value : [],
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : false,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : false,
 
             has: () => this.values.tags.value.length > 0,
 
-            getText: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : (v: V) => String(v),
+            getText: (this.attrs && this.attrs.stringifier) ?
+                this.attrs.stringifier : (v: V) => String(v),
 
             onDismiss: (e: DismissEvent) => {
 
@@ -228,14 +236,14 @@ export class MultiSelect<V>
 
             name: getName(this.attrs),
 
-            inputWidth: (this.attrs.ww && this.attrs.ww.inputWidth) ?
-                this.attrs.ww.inputWidth : DEFAULT_INPUT_WIDTH,
+            inputWidth: (this.attrs && this.attrs.inputWidth) ?
+                this.attrs.inputWidth : DEFAULT_INPUT_WIDTH,
 
-            fontIncrement: (this.attrs.ww && this.attrs.ww.fontIncrement) ?
-                this.attrs.ww.fontIncrement : DEFAULT_FONT_INCREMENT,
+            fontIncrement: (this.attrs && this.attrs.fontIncrement) ?
+                this.attrs.fontIncrement : DEFAULT_FONT_INCREMENT,
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled) ?
-                this.attrs.ww.disabled : undefined,
+            disabled: (this.attrs && this.attrs.disabled) ?
+                this.attrs.disabled : undefined,
 
             onSearch: (e: TermChangedEvent) => {
 
@@ -243,8 +251,8 @@ export class MultiSelect<V>
 
                     this.grow(e.value.length + 1);
 
-                    if (this.attrs.ww && this.attrs.ww.onSearch)
-                        this.attrs.ww.onSearch(e);
+                    if (this.attrs && this.attrs.onSearch)
+                        this.attrs.onSearch(e);
 
                 }
 
@@ -270,14 +278,14 @@ export class MultiSelect<V>
                 this.redraw();
 
             },
-            itemTemplate: (this.attrs.ww && this.attrs.ww.itemTemplate) ?
-                this.attrs.ww.itemTemplate : undefined,
+            itemTemplate: (this.attrs && this.attrs.itemTemplate) ?
+                this.attrs.itemTemplate : undefined,
 
-            noItemsTemplate: (this.attrs.ww && this.attrs.ww.noItemsTemplate) ?
-                this.attrs.ww.noItemsTemplate : undefined,
+            noItemsTemplate: (this.attrs && this.attrs.noItemsTemplate) ?
+                this.attrs.noItemsTemplate : undefined,
 
-            stringifier: (this.attrs.ww && this.attrs.ww.stringifier) ?
-                this.attrs.ww.stringifier : undefined
+            stringifier: (this.attrs && this.attrs.stringifier) ?
+                this.attrs.stringifier : undefined
 
         }
 
@@ -288,8 +296,8 @@ export class MultiSelect<V>
      */
     fireChange(): void {
 
-        if (this.attrs.ww && this.attrs.ww.onChange)
-            this.attrs.ww.onChange(new ItemsChangedEvent(
+        if (this.attrs && this.attrs.onChange)
+            this.attrs.onChange(new ItemsChangedEvent(
                 getName(this.attrs), this.values.tags.value.slice()));
 
     }

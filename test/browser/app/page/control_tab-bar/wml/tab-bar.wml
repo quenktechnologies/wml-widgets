@@ -11,22 +11,22 @@
     <TabBar>
 
       <Tab 
-        ww:active={{@tab == 'First'}}
-        ww:text="First"
-        ww:name="First"
-        ww:onClick={{@clicked}}/>
+        active={{@tab == 'First'}}
+        text="First"
+        name="First"
+        onClick={{@clicked}}/>
 
       <Tab 
-        ww:active={{@tab == 'Second'}}
-        ww:text="Second"
-        ww:name="Second"
-        ww:onClick={{@clicked}}/>
+        active={{@tab == 'Second'}}
+        text="Second"
+        name="Second"
+        onClick={{@clicked}}/>
 
       <Tab 
-        ww:active={{@tab == 'Third'}}
-        ww:text="Third"
-        ww:name="Third"
-        ww:onClick={{@clicked}}/>
+        active={{@tab == 'Third'}}
+        text="Third"
+        name="Third"
+        onClick={{@clicked}}/>
 
     </TabBar>
 
@@ -34,25 +34,25 @@
 
   <Demo>
 
-    <TabBar ww:justify=true>
+    <TabBar justify=true>
 
       <Tab 
-        ww:active={{@tab == 'First'}}
-        ww:text="First"
-        ww:name="First"
-        ww:onClick={{@clicked}}/>
+        active={{@tab == 'First'}}
+        text="First"
+        name="First"
+        onClick={{@clicked}}/>
 
       <Tab 
-        ww:active={{@tab == 'Second'}}
-        ww:text="Second"
-        ww:name="Second"
-        ww:onClick={{@clicked}}/>
+        active={{@tab == 'Second'}}
+        text="Second"
+        name="Second"
+        onClick={{@clicked}}/>
 
       <Tab 
-        ww:active={{@tab == 'Third'}}
-        ww:text="Third"
-        ww:name="Third"
-        ww:onClick={{@clicked}}/>
+        active={{@tab == 'Third'}}
+        text="Third"
+        name="Third"
+        onClick={{@clicked}}/>
 
     </TabBar>
 

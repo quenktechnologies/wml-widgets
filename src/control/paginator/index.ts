@@ -4,7 +4,7 @@ import { debounce } from '@quenk/noni/lib/control/timer';
 import { DISABLED } from '../../content/state/disabled';
 import { TextChangedEvent } from '../text-input';
 import { concat } from '../../util';
-import { WidgetAttrs, getId, getClassName, HTMLElementAttrs } from '../../';
+import { getId, getClassName, HTMLElementAttrs } from '../../';
 import { Event as ControlEvent } from '../';
 import { PaginatorView, PositionView } from './wml/paginator';
 
@@ -78,7 +78,7 @@ export class PositionViewContext {
 /**
  * Paginator provides a control for navigating paged data, results, view etc.
  */
-export class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
+export class Paginator extends Component<PaginatorAttrs> {
 
     view: View = new PaginatorView(this);
 
@@ -90,13 +90,13 @@ export class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
 
         current: {
 
-            value: (this.attrs.ww && this.attrs.ww.current) ?
-                this.attrs.ww.current : 1,
+            value: (this.attrs && this.attrs.current) ?
+                this.attrs.current : 1,
 
         },
 
-        total: (this.attrs.ww && this.attrs.ww.total) ?
-            this.attrs.ww.total : 1,
+        total: (this.attrs && this.attrs.total) ?
+            this.attrs.total : 1,
 
         first: {
 
@@ -157,8 +157,8 @@ export class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
 
                     }, 5000));
 
-                return ((this.attrs.ww && this.attrs.ww.positionView) ?
-                    this.attrs.ww.positionView(ctx) :
+                return ((this.attrs && this.attrs.positionView) ?
+                    this.attrs.positionView(ctx) :
                     new PositionView(ctx)).render();
 
             }
@@ -214,9 +214,9 @@ export class Paginator extends Component<WidgetAttrs<PaginatorAttrs>> {
      */
     fire() {
 
-        if (this.attrs.ww && this.attrs.ww.onChange)
-            this.attrs.ww.onChange(
-                new PageChangedEvent(this.attrs.ww.name || '',
+        if (this.attrs && this.attrs.onChange)
+            this.attrs.onChange(
+                new PageChangedEvent(this.attrs.name || '',
                     this.values.current.value));
 
         this.view.invalidate();

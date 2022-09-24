@@ -15,9 +15,9 @@ from "../../../../../../lib/layout/panel" %}
 
     <Row>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Panel ww:style={{style}}>
+        <Panel style={{style}}>
 
           <PanelBody>
             PanelBody only.
@@ -27,9 +27,9 @@ from "../../../../../../lib/layout/panel" %}
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Panel ww:style={{style}}>
+        <Panel style={{style}}>
 
           <PanelHeader>
             With PanelHeader
@@ -43,9 +43,9 @@ from "../../../../../../lib/layout/panel" %}
 
       </Column>
 
-      <Column ww:span=4>
+      <Column span=4>
 
-        <Panel ww:style={{style}}>
+        <Panel style={{style}}>
 
           <PanelHeader>With PanelFooter</PanelHeader>
 

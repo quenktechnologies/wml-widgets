@@ -112,11 +112,11 @@ export class TextInput
     AbstractControl<string, TextInputAttrs>
     implements Focusable {
 
-    view: View = (this.attrs.ww && this.attrs.ww.rows && this.attrs.ww.rows > 1) ?
+    view: View = (this.attrs && this.attrs.rows && this.attrs.rows > 1) ?
         new views.Textarea(this) : new views.Input(this);
 
-    length = (this.attrs.ww && this.attrs.ww.length) ?
-        this.attrs.ww.length : Infinity;
+    length = (this.attrs && this.attrs.length) ?
+        this.attrs.length : Infinity;
 
     values = {
 
@@ -129,7 +129,7 @@ export class TextInput
             }
         },
 
-        attrs: merge((this.attrs.ww && this.attrs.ww.html) || {}, {
+        attrs: merge((this.attrs && this.attrs.html) || {}, {
 
             id: getId(this.attrs),
 
@@ -137,38 +137,38 @@ export class TextInput
 
                 getClassName(this.attrs),
 
-                (this.attrs.ww && this.attrs.ww.size) ?
-                    getSizeClassName(this.attrs.ww.size) : '',
+                (this.attrs && this.attrs.size) ?
+                    getSizeClassName(this.attrs.size) : '',
 
-                (this.attrs.ww && this.attrs.ww.block) ?
+                (this.attrs && this.attrs.block) ?
                     BLOCK : ''
             ),
 
             name: getName(this.attrs),
 
-            type: (this.attrs.ww && this.attrs.ww.type) ?
-                this.attrs.ww.type : 'text',
+            type: (this.attrs && this.attrs.type) ?
+                this.attrs.type : 'text',
 
-            min: (this.attrs.ww && this.attrs.ww.min) ?
-                String(this.attrs.ww.min) : null,
+            min: (this.attrs && this.attrs.min) ?
+                String(this.attrs.min) : null,
 
-            max: (this.attrs.ww && this.attrs.ww.max) ?
-                String(this.attrs.ww.max) : null,
+            max: (this.attrs && this.attrs.max) ?
+                String(this.attrs.max) : null,
 
-            match: new RegExp((this.attrs.ww && this.attrs.ww.match) ?
-                this.attrs.ww.match : '.'),
+            match: new RegExp((this.attrs && this.attrs.match) ?
+                this.attrs.match : '.'),
 
 
-            value: (this.attrs.ww && this.attrs.ww.value) ?
-                this.attrs.ww.value : '',
+            value: (this.attrs && this.attrs.value) ?
+                this.attrs.value : '',
 
-            rows: String((this.attrs.ww && this.attrs.ww.rows) ?
-                this.attrs.ww.rows : 1),
+            rows: String((this.attrs && this.attrs.rows) ?
+                this.attrs.rows : 1),
 
-            disabled: (this.attrs.ww && this.attrs.ww.disabled === true) ?
+            disabled: (this.attrs && this.attrs.disabled === true) ?
                 true : null,
 
-            readOnly: (this.attrs.ww && this.attrs.ww.readOnly === true) ?
+            readOnly: (this.attrs && this.attrs.readOnly === true) ?
                 true : null,
 
             onkeydown: (e: KeyboardEvent) => {
@@ -187,20 +187,20 @@ export class TextInput
 
             oninput: dispatchInput(this),
 
-            autofocus: (this.attrs.ww && this.attrs.ww.focus) ? true : undefined,
+            autofocus: (this.attrs && this.attrs.focus) ? true : undefined,
 
             onfocus: () => {
 
-                if (this.attrs.ww && this.attrs.ww.onFocusGained)
-                    this.attrs.ww.onFocusGained(
+                if (this.attrs && this.attrs.onFocusGained)
+                    this.attrs.onFocusGained(
                         new FocusGainedEvent(getName(this.attrs)))
 
             },
 
             onblur: () => {
 
-                if (this.attrs.ww && this.attrs.ww.onFocusLost)
-                    this.attrs.ww.onFocusLost(
+                if (this.attrs && this.attrs.onFocusLost)
+                    this.attrs.onFocusLost(
                         new FocusLostEvent(getName(this.attrs)))
 
             }
@@ -227,9 +227,9 @@ export class TextInput
  */
 const dispatchInput = (i: TextInput) => (e: KeyboardEvent) => {
 
-    if (i.attrs.ww && i.attrs.ww.onChange)
-        i.attrs.ww.onChange(new TextChangedEvent((i.attrs && i.attrs.ww.name) ?
-            i.attrs.ww.name : '',
+    if (i.attrs && i.attrs.onChange)
+        i.attrs.onChange(new TextChangedEvent((i.attrs && i.attrs.name) ?
+            i.attrs.name : '',
             (<HTMLInputElement>e.target).value));
 
 }

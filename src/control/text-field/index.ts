@@ -139,54 +139,51 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             },
 
-          attrs: { 
+          attrs:               merge(this.attrs.html || {}, {
 
-            ww:  merge((this.attrs.ww && this.attrs.ww.html) || {}, {
                 id: getId(this.attrs),
 
                 name: getName(this.attrs),
 
-                type: (this.attrs.ww && this.attrs.ww.type) ?
-                    this.attrs.ww.type : 'text',
+                type: (this.attrs && this.attrs.type) ?
+                    this.attrs.type : 'text',
 
-                min: (this.attrs.ww && this.attrs.ww.min) ?
-                    this.attrs.ww.min : undefined,
+                min: (this.attrs && this.attrs.min) ?
+                    this.attrs.min : undefined,
 
-                max: (this.attrs.ww && this.attrs.ww.max) ?
-                    this.attrs.ww.max : undefined,
+                max: (this.attrs && this.attrs.max) ?
+                    this.attrs.max : undefined,
 
-                focus: (this.attrs.ww && this.attrs.ww.focus) ?
-                    this.attrs.ww.focus : undefined,
+                focus: (this.attrs && this.attrs.focus) ?
+                    this.attrs.focus : undefined,
 
-                placeholder: (this.attrs.ww && this.attrs.ww.placeholder) ?
-                    this.attrs.ww.placeholder : '',
+                placeholder: (this.attrs && this.attrs.placeholder) ?
+                    this.attrs.placeholder : '',
 
-                match: (this.attrs.ww && this.attrs.ww.match) ?
-                    this.attrs.ww.match : undefined,
+                match: (this.attrs && this.attrs.match) ?
+                    this.attrs.match : undefined,
 
-                length: (this.attrs.ww && this.attrs.ww.length) ?
-                    this.attrs.ww.length : undefined,
+                length: (this.attrs && this.attrs.length) ?
+                    this.attrs.length : undefined,
 
-                value: (this.attrs.ww && this.attrs.ww.value) ?
-                    this.attrs.ww.value : '',
+                value: (this.attrs && this.attrs.value) ?
+                    this.attrs.value : '',
 
-                disabled: (this.attrs.ww && this.attrs.ww.disabled) ? true : undefined,
+                disabled: (this.attrs && this.attrs.disabled) ? true : undefined,
 
-                readOnly: (this.attrs.ww && this.attrs.ww.readOnly) ?
+                readOnly: (this.attrs && this.attrs.readOnly) ?
                     true : undefined,
 
-                rows: (this.attrs.ww && this.attrs.ww.rows) ?
-                    this.attrs.ww.rows : 1,
+                rows: (this.attrs && this.attrs.rows) ?
+                    this.attrs.rows : 1,
 
-                oninput: (this.attrs.ww && this.attrs.ww.onChange) ?
+                oninput: (this.attrs && this.attrs.onChange) ?
                     oninput(this) : () => { },
 
-                onChange: (this.attrs.ww && this.attrs.ww.onChange) ?
-                    this.attrs.ww.onChange : () => { }
+                onChange: (this.attrs && this.attrs.onChange) ?
+                    this.attrs.onChange : () => { }
 
             })
-
-          }
 
         }
 
@@ -213,10 +210,10 @@ const getHelp = (t: TextField): Maybe<Help> =>
 
 const oninput = (f: TextField) => (e: KeyboardEvent) => {
 
-    if (f.attrs.ww && f.attrs.ww && f.attrs.ww.onChange)
-        f.attrs.ww.onChange(
-            new TextChangedEvent((f.attrs.ww && f.attrs.ww.name) ?
-                f.attrs.ww.name : '',
+    if (f.attrs && f.attrs && f.attrs.onChange)
+        f.attrs.onChange(
+            new TextChangedEvent((f.attrs && f.attrs.name) ?
+                f.attrs.name : '',
                 (<HTMLInputElement>e.target).value));
 
 }

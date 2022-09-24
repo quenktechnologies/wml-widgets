@@ -8,6 +8,7 @@ import {
     number as numberSort,
     natural as naturalSort
 } from '@quenk/noni/lib/data/array/sort';
+
 import { ColumnId } from '../event';
 import { Column } from './';
 

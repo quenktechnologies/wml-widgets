@@ -1,6 +1,6 @@
 import { View, Component } from '@quenk/wml';
 import { concat } from '../../util';
-import { getClassName, getId, HTMLElementAttrs, WidgetAttrs } from '../../';
+import { getClassName, getId, HTMLElementAttrs,  } from '../../';
 import { Main } from './wml/close-button';
 
 ///classNames:begin
@@ -22,7 +22,7 @@ export interface CloseButtonAttrs extends HTMLElementAttrs {
 /**
  * CloseButton used to display the "x" on dialogs etc.
  */
-export class CloseButton extends Component<WidgetAttrs<CloseButtonAttrs>> {
+export class CloseButton extends Component<CloseButtonAttrs> {
 
     view: View = new Main(this);
 
@@ -40,8 +40,8 @@ export class CloseButton extends Component<WidgetAttrs<CloseButtonAttrs>> {
 
         onclick: () => {
 
-            if (this.attrs.ww && this.attrs.ww.onClick)
-                this.attrs.ww.onClick();
+            if (this.attrs && this.attrs.onClick)
+                this.attrs.onClick();
 
         }
 

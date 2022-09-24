@@ -5,9 +5,9 @@
 {% view Main (Tag) %}
 
 <t.Tag
-  ww:id={{@values.id}}
-  ww:className={{@values.className}}
-  ww:style={{@values.style}}>
+  id={{@values.id}}
+  className={{@values.className}}
+  style={{@values.style}}>
 
   {% if @values.text.value != ""  %}
 
@@ -24,8 +24,8 @@
  {% if @values.disabled != true %}
 
     <Close 
-      ww:className={{@values.dismiss.className}} 
-      ww:onClick={{@values.dismiss.onClick}} />
+      className={{@values.dismiss.className}} 
+      onClick={{@values.dismiss.onClick}} />
 
  {% endif %}
 

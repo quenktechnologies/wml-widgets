@@ -12,11 +12,11 @@
 
     <Link
       wml:group="links"
-      ww:active={{@page == 'home'}}
-      ww:name="home"
-      ww:href="#"
-      ww:onClick={{@navigate}}
-      ww:text="Home" />
+      active={{@page == 'home'}}
+      name="home"
+      href="#"
+      onClick={{@navigate}}
+      text="Home" />
 
   </Item>
 
@@ -24,7 +24,7 @@
 
       <Item>
 
-        <MenuHeader ww:text={{section}} />
+        <MenuHeader text={{section}} />
 
         <NavMenu vertical=true>
 
@@ -34,11 +34,11 @@
 
               <Link
                 wml:group="links"
-                ww:name={{name}}
-                ww:href={{"#/"+name}}
-                ww:onClick={{@navigate}}
-                ww:active={{@page == name}}
-                ww:text={{name}} />
+                name={{name}}
+                href={{"#/"+name}}
+                onClick={{@navigate}}
+                active={{@page == name}}
+                text={{name}} />
 
             </Item>
      

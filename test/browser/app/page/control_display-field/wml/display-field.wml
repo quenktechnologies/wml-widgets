@@ -13,7 +13,7 @@
 
   <Demo>
 
-    <DisplayField ww:disabled=true>Disabled</DisplayField>
+    <DisplayField disabled=true>Disabled</DisplayField>
 
   </Demo>
 

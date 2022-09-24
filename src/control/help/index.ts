@@ -4,7 +4,7 @@ import { View, Component } from '@quenk/wml';
 
 import { concat } from '../../util';
 import { Message, setMessage, removeMessage } from '../feedback';
-import { WidgetAttrs, getClassName } from '../../';
+import { getClassName, HTMLElementAttrs } from '../../';
 import { Main } from './wml/help';
 
 ///classNames:begin
@@ -14,7 +14,7 @@ export const HELP = 'ww-help';
 /**
  * HelpAttrs
  */
-export interface HelpAttrs {
+export interface HelpAttrs extends HTMLElementAttrs {
 
     /**
      * id for the help.
@@ -36,7 +36,7 @@ export interface HelpAttrs {
 /**
  * Help
  */
-export class Help extends Component<WidgetAttrs<HelpAttrs>> {
+export class Help extends Component<HelpAttrs> {
 
     view: View = new Main(this);
 
@@ -49,13 +49,13 @@ export class Help extends Component<WidgetAttrs<HelpAttrs>> {
                 id: 'help'
 
             },
-            id: (this.attrs.ww && this.attrs.ww.id) ?
-                this.attrs.ww.id : '',
+            id: (this.attrs && this.attrs.id) ?
+                this.attrs.id : '',
 
             className: concat(HELP, getClassName(this.attrs)),
 
-            text: (this.attrs.ww && this.attrs.ww.text) ?
-                [document.createTextNode(this.attrs.ww.text)] : this.children
+            text: (this.attrs && this.attrs.text) ?
+                [document.createTextNode(this.attrs.text)] : this.children
 
         }
 

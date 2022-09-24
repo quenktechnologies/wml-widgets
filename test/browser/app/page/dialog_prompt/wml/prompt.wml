@@ -16,12 +16,12 @@
 {% view Open (PromptPage) %}
 <Prompt 
   wml:id="open"
-  ww:title={{@values.title}}
-  ww:onSave={{@values.onSave}}
-  ww:onCancel={{@values.onCancel}}>
+  title={{@values.title}}
+  onSave={{@values.onSave}}
+  onCancel={{@values.onCancel}}>
  
   <TextField 
-    ww:value={{@values.value}} 
-    ww:onChange={{@values.onChange}} />
+    value={{@values.value}} 
+    onChange={{@values.onChange}} />
 
 </Prompt>

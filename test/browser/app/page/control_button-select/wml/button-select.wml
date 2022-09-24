@@ -14,10 +14,10 @@
     <p>
         <ButtonSelect 
           wml:id="select"
-          ww:name="select"
-          ww:options={{@values.options}}
-          ww:value={{@values.value}}
-          ww:onChange={{@onChange}} />
+          name="select"
+          options={{@values.options}}
+          value={{@values.value}}
+          onChange={{@onChange}} />
     </p>
 
   </Demo>
@@ -29,10 +29,10 @@
       <p>
         <MultiButtonSelect 
           wml:id="multi"
-          ww:name="multi"
-          ww:options={{@values.options}}
-          ww:value={{@values.values}}
-          ww:onChange={{@onChangeMulti}} />
+          name="multi"
+          options={{@values.options}}
+          value={{@values.values}}
+          onChange={{@onChangeMulti}} />
       </p>
 
   </Demo>

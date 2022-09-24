@@ -19,7 +19,7 @@
       
     </p>
 
-    <Meter><MeterBar wml:id="single" ww:value=75 ww:color="yellow"/></Meter>
+    <Meter><MeterBar wml:id="single" value=75 color="yellow"/></Meter>
 
   </Demo>
 
@@ -33,7 +33,7 @@
           
           {% for v in @values.bars %}
 
-            <MeterBar ww:value={{v.value}} ww:color={{v.color}}/>
+            <MeterBar value={{v.value}} color={{v.color}}/>
 
           {% endfor %}
 
