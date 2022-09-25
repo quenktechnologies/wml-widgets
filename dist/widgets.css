@@ -1628,11 +1628,15 @@ textarea.ww-text-input {
 .ww-text-input.-extra-large {
   width: 40em;
 }
-.ww-text-input.-block {
+.ww-text-input.-block,
+.-block > .ww-text-input {
   display: block;
   width: 100%;
 }
-.ww-text-input.-block + .ww-text-input.-block {
+.ww-text-input.-block + .ww-text-input.-block,
+.ww-text-input.-block + .-block > .ww-text-input,
+.-block > .ww-text-input + .ww-text-input.-block,
+.-block > .ww-text-input + .-block > .ww-text-input {
   margin-top: 0.5em;
 }
 /* 
