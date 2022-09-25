@@ -83,7 +83,7 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
         };
         attrs: object & {
             id: string;
-            className: string;
+            class: string;
             name: string;
             type: string;
             min: string | null;

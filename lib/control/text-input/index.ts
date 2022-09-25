@@ -133,7 +133,7 @@ export class TextInput
 
             id: getId(this.attrs),
 
-            className: concat(TEXT_INPUT,
+            class: concat(TEXT_INPUT,
 
                 getClassName(this.attrs),
 
