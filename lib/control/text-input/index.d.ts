@@ -89,6 +89,7 @@ export declare class TextInput extends AbstractControl<string, TextInputAttrs> i
             min: string | null;
             max: string | null;
             match: RegExp;
+            placeholder: string;
             value: string;
             rows: string;
             disabled: boolean | null;

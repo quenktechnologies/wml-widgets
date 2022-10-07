@@ -158,6 +158,8 @@ export class TextInput
             match: new RegExp((this.attrs && this.attrs.match) ?
                 this.attrs.match : '.'),
 
+                placeholder: (this.attrs && this.attrs.placeholder) ?
+                    this.attrs.placeholder : '',
 
             value: (this.attrs && this.attrs.value) ?
                 this.attrs.value : '',
