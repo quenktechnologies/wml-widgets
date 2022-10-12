@@ -144,13 +144,13 @@ export class NavMenu extends wml.Component<NavMenuAttrs> {
         className: util.concat(NAV_MENU, this.attrs.className,
             this.attrs.vertical ? VERTICAL : ''),
 
-        items: expand(this.attrs.items || [])
+        items: expand(this.attrs.items)
 
     }
 
 }
 
-const expand = (spec: LinkMap | MenuItemSpec[]): MenuItemInfo[] => {
+const expand = (spec: LinkMap | MenuItemSpec[] = []): MenuItemInfo[] => {
 
     let list: MenuItemSpec[] = Array.isArray(spec) ? spec : [spec];
 
@@ -162,17 +162,23 @@ const expand = (spec: LinkMap | MenuItemSpec[]): MenuItemInfo[] => {
 
         } else if (isObject(item)) {
 
-            return <MenuItemInfo[]>[...expanded,
-            mapTo(<LinkMap>item, (val, text) => {
+            return <MenuItemInfo[]>[
+                ...expanded,
+              ...mapTo(<LinkMap>item, (val, text) => {
 
-                if (isFunction(val))
-                    return { type: 'link', name: text, text, onClick: val }
-                else if (isObject(val))
-                    return merge({ type: 'link', name: text, text }, val)
-                else
-                    return { type: 'link', name: text, text, href: String(val) }
+                    if (isFunction(val))
+                        return { type: 'link', name: text, text, onClick: val }
+                    else if (isObject(val))
+                        return merge({ type: 'link', name: text, text }, val)
+                    else
+                        return { 
+                          type: 'link', 
+                          name: text, 
+                          text, 
+                          href: String(val) 
+                        }
 
-            })];
+                })];
 
         } else if (Array.isArray(item)) {
 
