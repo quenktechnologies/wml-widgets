@@ -1,8 +1,8 @@
-{% import (Label) from "../../label" %}
-{% import (Help) from "../../help" %}
-{% import (DateField) from "../" %}
+{% import (Label) from "../label" %}
+{% import (Help) from "../help" %}
+{% import (DateField) from "./" %}
 
-{% view Main (DateField) %}
+{% view DateFieldView (DateField) %}
 
 <div id={{@values.root.id}} class={{@values.root.className}}>
 
@@ -12,15 +12,15 @@
 
     <input
       wml:id={{@values.input.wml.id}}
+      class={{@values.input.className}}
+      disabled={{@values.input.disabled}}
+      placeholder={{@values.input.placeholder}}
       name={{@values.input.wml.id}}
+      value={{@values.input.value}}
       onfocus={{@values.input.onfocus}}
       oninput={{@values.input.oninput}} 
       onkeyup={{@values.input.onkeyup}}
-      onblur={{@values.input.onblur}}
-      value={{@values.input.value()}}
-      disabled={{@values.input.disabled}}
-      class={{@values.input.className}}
-      placeholder={{@values.input.placeholder}} />
+      onblur={{@values.input.onblur}} />
 
   <Help 
     wml:id={{@values.messages.wml.id}}

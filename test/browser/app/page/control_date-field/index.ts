@@ -1,9 +1,9 @@
 import * as wml from '@quenk/wml';
 import * as views from './wml/date-field'
+
 import {
     DateChangedEvent,
-    DateField,
-    Format
+    DateField
 } from '../../../../../lib/control/date-field';
 import { getById } from '../../../../../lib/util';
 
@@ -13,37 +13,13 @@ export class DateFieldPage {
 
     values = {
 
-        formats: {
+        data: {
 
-            iso: {
-
-                id: 'iso',
-                name: 'iso',
-                label: 'ISO8601',
-                format: Format.ISO8601,
-                message: 'ISO8601 date',
-                onChange: onChange(this)
-
-            },
-            common: {
-
-                id: 'common',
-                name: 'common',
-                label: 'Comon',
-                format: Format.COMMON,
-                message: 'Common date',
-                onChange: onChange(this)
-
-            },
-            us: {
-
-                id: 'us',
-                name: 'us',
-                label: 'US',
-                format: Format.USA,
-                message: 'US date',
-                onChange: onChange(this)
-            }
+            id: 'iso',
+            name: 'iso',
+            label: 'ISO8601',
+            message: 'ISO8601 date',
+            onChange: onChange(this)
 
         },
 
@@ -84,19 +60,49 @@ export class DateFieldPage {
                 block: false,
                 onChange: onChange(this)
 
-            },
-            block: {
+            }
 
-                id: 'block',
-                name: 'block',
-                label: 'Block',
-                success: undefined,
-                warning: undefined,
-                error: undefined,
-                block: true,
-                onChange: onChange(this)
+        },
+
+        block: {
+
+            id: 'block',
+            name: 'block',
+            label: 'Block',
+            success: undefined,
+            warning: undefined,
+            error: undefined,
+            onChange: onChange(this)
+
+        },
+
+        tests: {
+
+            id: 'test',
+            label: 'Tests',
+            data: [
+                '2022-10-22',
+                '2022-10-2',
+                '2022-1-02',
+                '2022-1-1',
+                '22-01-1',
+                '22-02-1',
+                '22-1-20',
+                '22-7-7',
+                '20220707',
+                '2022077',
+                '220707',
+                '2277'
+            ].map(value => ({ label: value, value })),
+            value: '',
+            onSelect: (e: { value: string }) => {
+
+                this.values.tests.value = e.value;
+
+                this.view.invalidate();
 
             },
+            onChange: onChange(this)
         }
 
     }
@@ -112,7 +118,7 @@ export const onChange =
 
             let d = mDate.get();
 
-            d.setMessage(`The date is ${value}.`);
+            d.setMessage(`The date is "${value}".`);
 
         }
 

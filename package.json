@@ -15,8 +15,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "dependencies": {
-    "@quenk/noni": "^1.43.3",
-    "moment": "^2.29.1"
+    "@quenk/noni": "^1.44.0"
   },
   "devDependencies": {
     "@quenk/wml": "^2.12.0",
