@@ -5,6 +5,7 @@ import { View } from '@quenk/wml';
 import { Maybe } from '@quenk/noni/lib/data/maybe';
 import { merge } from '@quenk/noni/lib/data/record';
 
+import { BLOCK } from '../../content/orientation';
 import { concat, getById } from '../../util';
 import {
     Message,
@@ -107,6 +108,8 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
             className: concat(TEXT_FIELD,
 
                 getClassName(this.attrs),
+
+              BLOCK,
 
                 getValidityClassName(this.attrs)
 

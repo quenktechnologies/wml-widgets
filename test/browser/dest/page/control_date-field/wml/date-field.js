@@ -4,9 +4,11 @@ exports.Main = void 0;
 const __document = require("@quenk/wml/lib/dom");
 //@ts-ignore: 6192
 const maybe_1 = require("@quenk/noni/lib/data/maybe");
-const demo_1 = require("../../../widgets/demo");
-;
 const date_field_1 = require("../../../../../../lib/control/date-field");
+;
+const drop_list_1 = require("../../../../../../lib/control/drop-list");
+;
+const demo_1 = require("../../../widgets/demo");
 ;
 //@ts-ignore:6192
 const __if = (__expr, __conseq, __alt) => (__expr) ? __conseq() : __alt ? __alt() : [];
@@ -40,20 +42,31 @@ class Main {
         this.tree = __document.createElement('div');
         this.template = (__this) => {
             return __this.widget(new demo_1.Demo({}, [
-                ...__forOf(__context.values.formats, (spec, _$$k, _$$all) => ([
-                    __this.widget(new demo_1.Demo({}, [
-                        __this.node('p', {}, [
-                            __this.widget(new date_field_1.DateField({ wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'format': spec.format, 'message': spec.message, 'onChange': spec.onChange }, []), { wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'format': spec.format, 'message': spec.message, 'onChange': spec.onChange })
-                        ])
-                    ]), {})
-                ]), () => ([])),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
+                        __this.widget(new date_field_1.DateField({ wml: { 'id': __context.values.data.id }, 'name': __context.values.data.name, 'label': __context.values.data.label, 'message': __context.values.data.message, 'onChange': __context.values.data.onChange }, []), { wml: { 'id': __context.values.data.id }, 'name': __context.values.data.name, 'label': __context.values.data.label, 'message': __context.values.data.message, 'onChange': __context.values.data.onChange })
+                    ])
+                ]), {}),
                 ...__forOf(__context.values.states, (spec, _$$k, _$$all) => ([
                     __this.widget(new demo_1.Demo({}, [
                         __this.node('p', {}, [
-                            __this.widget(new date_field_1.DateField({ wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'block': spec.block, 'onChange': spec.onChange }, []), { wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'block': spec.block, 'onChange': spec.onChange })
+                            __this.widget(new date_field_1.DateField({ wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'onChange': spec.onChange }, []), { wml: { 'id': spec.id }, 'name': spec.name, 'label': spec.label, 'success': spec.success, 'warning': spec.warning, 'error': spec.error, 'onChange': spec.onChange })
                         ])
                     ]), {})
-                ]), () => ([]))
+                ]), () => ([])),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
+                        __this.widget(new date_field_1.DateField({ wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'className': '-block', 'label': __context.values.block.label, 'success': __context.values.block.success, 'warning': __context.values.block.warning, 'error': __context.values.block.error, 'onChange': __context.values.block.onChange }, []), { wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'className': '-block', 'label': __context.values.block.label, 'success': __context.values.block.success, 'warning': __context.values.block.warning, 'error': __context.values.block.error, 'onChange': __context.values.block.onChange })
+                    ])
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('p', {}, [
+                        __this.widget(new date_field_1.DateField({ wml: { 'id': __context.values.tests.id }, 'label': __context.values.tests.label, 'name': __context.values.tests.id, 'value': __context.values.tests.value, 'onChange': __context.values.tests.onChange }, []), { wml: { 'id': __context.values.tests.id }, 'label': __context.values.tests.label, 'name': __context.values.tests.id, 'value': __context.values.tests.value, 'onChange': __context.values.tests.onChange })
+                    ]),
+                    __this.node('p', {}, [
+                        __this.widget(new drop_list_1.DropList({ 'name': __context.values.tests.id, 'options': __context.values.tests.data, 'onSelect': __context.values.tests.onSelect }, []), { 'name': __context.values.tests.id, 'options': __context.values.tests.data, 'onSelect': __context.values.tests.onSelect })
+                    ])
+                ]), {})
             ]), {});
         };
     }

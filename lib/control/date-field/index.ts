@@ -1,8 +1,6 @@
-import * as views from './wml/date-field';
-import * as moment from 'moment';
-
 import { View } from '@quenk/wml';
-import { Maybe, nothing, just } from '@quenk/noni/lib/data/maybe';
+
+import { parseDate } from '@quenk/noni/lib/data/datetime';
 
 import { concat, debounce } from '../../util';
 import {
@@ -20,186 +18,31 @@ import {
 } from '../form';
 import { getId, getClassName } from '../../';
 import { Event as ControlEvent, getName } from '../';
-import { getBlockClassName } from '../../content/orientation';
+import { DateFieldView } from './views';
+
+const DELAY = 400;
 
 ///classNames:begin
 export const DATE_FIELD = 'ww-date-field';
 export const DATE_FIELD_INPUT = 'ww-date-field__input';
 ///classNames:end
 
-export const DEFAULT_INPUT_FORMAT = moment.ISO_8601;
-export const DEFAULT_INPUT_PLACEHOLDER = 'YYYY-MM-DD';
-export const DEFAULT_INPUT_DISPLAY = 'YYYY-MM-DD';
-export const VALUE_FORMAT = 'YYYY-MM-DD';
-export const DELAY = 200;
-export const TODAY = 'today';
-export const NOW = 'now';
-export const YESTERDAY = 'yesterday';
-
-export const iso8601Formats = [
-
-    'YYYY-MM-DD',
-    'YYYY-MM-D',
-    'YYYY-M-DD',
-    'YYYY-M-D',
-    'YY-MM-DD',
-    'YY-MM-D',
-    'YY-M-DD',
-    'YY-M-D',
-
-    'YYYY/MM/DD',
-    'YYYY/MM/D',
-    'YYYY/M/DD',
-    'YYYY/M/D',
-    'YY/MM/DD',
-    'YY/MM/D',
-    'YY/M/DD',
-    'YY/M/D',
-
-    'YYYY MM DD',
-    'YYYY MM D',
-    'YYYY M DD',
-    'YYYY M D',
-    'YY MM DD',
-    'YY MM D',
-    'YY M DD',
-    'YY M D',
-
-    'YYYYMMDD',
-    'YYYYMMD',
-    'YYYYMDD',
-    'YYYYMD',
-    'YYMMDD',
-    'YYMMD',
-    'YYMDD',
-    'YYMD',
-
-];
-
-export const commonFormats = [
-
-    'DD-MM-YYYY',
-    'D-MM-YYYY',
-    'DD-M-YYYY',
-    'D-M-YYYY',
-    'DD-MM-YY',
-    'D-MM-YY',
-    'DD-M-YY',
-    'D-M-YY',
-
-    'DD/MM/YYYY',
-    'D/MM/YYYY',
-    'DD/M/YYYY',
-    'D/M/YYYY',
-    'DD/MM/YY',
-    'D/MM/YY',
-    'DD/M/YY',
-    'D/M/YY',
-
-    'DD MM YYYY',
-    'D MM YYYY',
-    'DD M YYYY',
-    'D M YYYY',
-    'DD MM YY',
-    'D MM YY',
-    'DD M YY',
-    'D M YY',
-
-    'DDMMYYYY',
-    'DMMYYYY',
-    'DDMYYYY',
-    'DMYYYY',
-    'DDMMYY',
-    'DMMYY',
-    'DDMYY',
-    'DMYY',
-
-];
-
-export const usFormats = [
-
-    'MM-DD-YYYY',
-    'MM-D-YYYY',
-    'M-DD-YYYY',
-    'M-D-YYYY',
-    'MM-DD-YY',
-    'MM-D-YY',
-    'M-DD-YY',
-    'M-D-YY',
-
-    'MM/DD/YYYY',
-    'MM/D/YYYY',
-    'M/DD/YYYY',
-    'M/D/YYYY',
-    'MM/DD/YY',
-    'MM/D/YY',
-    'M/DD/YY',
-    'M/D/YY',
-
-    'MM DD YYYY',
-    'MM D YYYY',
-    'M DD YYYY',
-    'M D YYYY',
-    'MM DD YY',
-    'MM D YY',
-    'M DD YY',
-    'M D YY',
-
-    'MMDDYYYY',
-    'MMDYYYY',
-    'MDDYYYY',
-    'MDYYYY',
-    'MMDDYY',
-    'MMDYY',
-    'MDDYY',
-    'MDYY',
-
-];
-
 /**
- * Format is used to determine what format input should be parsed as.
- */
-export enum Format {
-
-    ISO8601 = 1,
-
-    COMMON = 2,
-
-    USA = 3
-
-}
-
-/**
- * ISO8601Date type.
+ * ISO8601Date string.
+ *
+ * The only accepted format is YYYY-MM-DD.
  */
 export type ISO8601Date = string;
+
+/**
+ * EmptyString indicating the date value was cleared.
+ */
+export type EmptyString = '';
 
 /**
  * DateFieldAttrs
  */
 export interface DateFieldAttrs extends FormControlAttrs<ISO8601Date> {
-
-    /**
-     * placeholder
-     */
-    placeholder?: string,
-
-    /**
-     * block 
-     */
-    block?: boolean,
-
-    /**
-     * format specifies what formats will be allowed for date input.
-     */
-    format?: Format,
-
-    /**
-     * display format used to display the value of the field when set.
-     *
-     * Must be one of moment's supported formats.
-     */
-    display?: string,
 
     /**
      * onChange handler.
@@ -211,25 +54,23 @@ export interface DateFieldAttrs extends FormControlAttrs<ISO8601Date> {
 /**
  * DateChangedEvent is generated when a valid date has been entered.
  *
- * The value is a truncated ISO8601 string consisting of the date part alone.
+ * The value is a truncated ISO8601 string consisting of the date part alone or
+ * an empty string if the value has been removed.
  */
-export class DateChangedEvent extends ControlEvent<ISO8601Date | undefined> { }
+export class DateChangedEvent extends ControlEvent<ISO8601Date | EmptyString> { }
 
 /**
- * DateField provides a text field for entering dates.
+ * DateField provides a text field for entering dates in ISO8601 format .
  *
- * It will only fire change events when the date input matches one 
- * of the 3 format sets (ISO8601,Common,US).
- *
- * If the user removes focus and the entry is not valid, it will be ignored
- * and no change event will be fired. Once a valid date has been entered,
- * the value displayed can be formated using the format specified in the 
- * "display" attribute. This does not affect the actual value provided
- * to onChange handlers.
+ * It will only fire change events when the value of the input is deemed to be 
+ * valid or has been cleared. If the user removes focus and the entry is not 
+ * valid, it will be ignored.
  */
-export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> {
+export class DateField
+    extends
+    AbstractFormControl<ISO8601Date, DateFieldAttrs> {
 
-    view: View = new views.Main(this);
+    view: View = new DateFieldView(this);
 
     values = {
 
@@ -242,13 +83,14 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
             className: concat(
                 DATE_FIELD,
                 getClassName(this.attrs),
-                getBlockClassName(this.attrs),
                 getValidityClassName(this.attrs)),
 
         },
+
         control: {
 
             wml: { id: 'input' },
+
             id: getId(this.attrs)
 
         },
@@ -263,11 +105,8 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
         messages: {
 
-            wml: {
+            wml: { id: 'messages' },
 
-                id: 'messages'
-
-            },
             text: getMessage(this.attrs)
 
         },
@@ -280,19 +119,9 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
             name: getName(this.attrs),
 
-            format: getFormat(this.attrs),
+            placeholder: 'YYYY-DD-MM',
 
-            placeholder: getPlaceholder(this.attrs),
-
-            display: getDisplay(this.attrs),
-
-            moment: <Maybe<moment.Moment>>((this.attrs && this.attrs.value) ?
-                just(parseDate(getValue(this.attrs), getFormat(this.attrs))) :
-                nothing()),
-
-            value: () => (this.values.input.moment.isJust() &&
-                this.values.input.moment.get().isValid()) ?
-                this.values.input.moment.get().format(this.values.input.display) : '',
+            value: parseDate(this.attrs.value || ''),
 
             disabled: (this.attrs && this.attrs.disabled === true) ?
                 true : null,
@@ -305,7 +134,6 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
             oninput: (e: KeyboardEvent) => {
 
-                (<HTMLInputElement>e.target).oninput = null;
                 this.values.input.onkeyup(e);
 
             },
@@ -316,16 +144,18 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
                 if (value === '') {
 
-                    this.values.input.moment = nothing();
+                    this.values.input.value = '';
+
                     this.fireChange();
 
                 } else {
 
-                    let m = parseDate(value, this.values.input.format);
+                    let val = parseDate(value);
 
-                    if (m.isValid()) {
+                    if (val !== '') {
 
-                        this.values.input.moment = just(m);
+                        this.values.input.value = val;
+
                         this.fireChange();
 
                     }
@@ -334,11 +164,11 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
 
             }, DELAY),
 
-            onblur: () => {
+            onblur: debounce(() => {
 
                 this.view.invalidate();
 
-            }
+            }, DELAY * 2)
 
         }
 
@@ -349,25 +179,9 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
      */
     fireChange(): void {
 
-        if (this.attrs && this.attrs.onChange) {
-
-            let name = this.attrs.name || '';
-
-            if (this.values.input.moment.isJust()) {
-
-                let m = this.values.input.moment.get();
-
-                if (m.isValid())
-                    this.attrs.onChange(new DateChangedEvent(
-                        name, m.format(VALUE_FORMAT)));
-
-            } else {
-
-                this.attrs.onChange(new DateChangedEvent(name, undefined));
-
-            }
-
-        }
+        if (this.attrs.onChange != null)
+            this.attrs.onChange(new DateChangedEvent(
+                this.attrs.name || '', this.values.input.value));
 
     }
 
@@ -388,78 +202,3 @@ export class DateField extends AbstractFormControl<ISO8601Date, DateFieldAttrs> 
     }
 
 }
-
-const parseDate = (d: string, formats: string[]) => {
-
-    let str = d.toLowerCase();
-
-    if ((str === TODAY) || (str === NOW)) {
-
-        return moment.utc();
-
-    } else if (str === YESTERDAY) {
-
-        return moment.utc().subtract(1, 'd');
-
-    } else {
-
-        return moment.utc(d, [...formats, moment.ISO_8601], true);
-
-    }
-
-}
-
-const getValue = (attrs: DateFieldAttrs): string =>
-    (attrs && attrs.value) ? attrs.value : '';
-
-const getFormat = (attrs: DateFieldAttrs): string[] => {
-
-    if (attrs && attrs.format) {
-
-        switch (attrs.format) {
-
-            case 2:
-                return commonFormats;
-
-            case 3:
-                return usFormats;
-
-            default:
-                break;
-
-        }
-
-    }
-
-    return iso8601Formats;
-
-}
-
-const getPlaceholder = (attrs: DateFieldAttrs): string => {
-
-    if (attrs && attrs.placeholder)
-        return attrs.placeholder;
-
-    if (attrs && attrs.format) {
-
-        switch (attrs.format) {
-
-            case 2:
-                return 'DD-MM-YYYY';
-
-            case 3:
-                return 'MM-DD-YYYY';
-
-            default:
-                return 'YYYY-MM-DD';
-
-        }
-
-    }
-
-    return 'YYYY-MM-DD';
-
-}
-
-const getDisplay = (attrs: DateFieldAttrs): string =>
-    (attrs && attrs.display) ? attrs.display : DEFAULT_INPUT_DISPLAY;

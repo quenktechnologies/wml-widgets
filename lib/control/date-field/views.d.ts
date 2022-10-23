@@ -1,7 +1,7 @@
 import * as __wml from '@quenk/wml';
 import { Maybe as __Maybe } from '@quenk/noni/lib/data/maybe';
-import { DateField } from '../';
-export declare class Main implements __wml.View {
+import { DateField } from './';
+export declare class DateFieldView implements __wml.View {
     constructor(__context: DateField);
     ids: {
         [key: string]: __wml.WMLElement;

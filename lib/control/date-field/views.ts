@@ -7,9 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {Label} from '../../label'; ;
-import {Help} from '../../help'; ;
-import {DateField} from '../'; 
+import {Label} from '../label'; ;
+import {Help} from '../help'; ;
+import {DateField} from './'; 
 
 
 //@ts-ignore:6192
@@ -66,7 +66,7 @@ const text = __document.text;
 const unsafe = __document.unsafe
 // @ts-ignore 6192
 const isSet = (value:any) => value != null
-export class Main  implements __wml.View {
+export class DateFieldView  implements __wml.View {
 
    constructor(__context: DateField) {
 
@@ -80,7 +80,7 @@ export class Main  implements __wml.View {
 
         
      ]),<__wml.Attrs>{'for': __context.values.root.id,'text': __context.values.label.text}),
-__this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.input.wml.id  },'name': __context.values.input.wml.id,'onfocus': __context.values.input.onfocus,'oninput': __context.values.input.oninput,'onkeyup': __context.values.input.onkeyup,'onblur': __context.values.input.onblur,'value': __context.values.input.value(),'disabled': __context.values.input.disabled,'class': __context.values.input.className,'placeholder': __context.values.input.placeholder}, [
+__this.node('input', <__wml.Attrs>{wml : { 'id' : __context.values.input.wml.id  },'class': __context.values.input.className,'disabled': __context.values.input.disabled,'placeholder': __context.values.input.placeholder,'name': __context.values.input.wml.id,'value': __context.values.input.value,'onfocus': __context.values.input.onfocus,'oninput': __context.values.input.oninput,'onkeyup': __context.values.input.onkeyup,'onblur': __context.values.input.onblur}, [
 
         
      ]),

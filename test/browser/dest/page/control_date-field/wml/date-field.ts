@@ -7,8 +7,9 @@ fromNullable as __fromNullable,
 fromArray as __fromArray
 }
 from '@quenk/noni/lib/data/maybe';
-import {Demo} from '../../../widgets/demo'; ;
 import {DateField} from '../../../../../../lib/control/date-field'; ;
+import {DropList} from '../../../../../../lib/control/drop-list'; ;
+import {Demo} from '../../../widgets/demo'; ;
 import {DateFieldPage} from '../'; 
 
 
@@ -76,21 +77,16 @@ export class Main  implements __wml.View {
 
            return __this.widget(new Demo({}, [
 
-        ...__forOf (__context.values.formats, (spec , _$$k, _$$all) => 
-       ([
-
         __this.widget(new Demo({}, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DateField({wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'format': spec.format,'message': spec.message,'onChange': spec.onChange}, [
+        __this.widget(new DateField({wml : { 'id' : __context.values.data.id  },'name': __context.values.data.name,'label': __context.values.data.label,'message': __context.values.data.message,'onChange': __context.values.data.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'format': spec.format,'message': spec.message,'onChange': spec.onChange})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.data.id  },'name': __context.values.data.name,'label': __context.values.data.label,'message': __context.values.data.message,'onChange': __context.values.data.onChange})
      ])
-     ]),<__wml.Attrs>{})
-     ]), 
-    ()=> ([])),
+     ]),<__wml.Attrs>{}),
 ...__forOf (__context.values.states, (spec , _$$k, _$$all) => 
        ([
 
@@ -98,14 +94,41 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DateField({wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'success': spec.success,'warning': spec.warning,'error': spec.error,'block': spec.block,'onChange': spec.onChange}, [
+        __this.widget(new DateField({wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'success': spec.success,'warning': spec.warning,'error': spec.error,'onChange': spec.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'success': spec.success,'warning': spec.warning,'error': spec.error,'block': spec.block,'onChange': spec.onChange})
+     ]),<__wml.Attrs>{wml : { 'id' : spec.id  },'name': spec.name,'label': spec.label,'success': spec.success,'warning': spec.warning,'error': spec.error,'onChange': spec.onChange})
      ])
      ]),<__wml.Attrs>{})
      ]), 
-    ()=> ([]))
+    ()=> ([])),
+__this.widget(new Demo({}, [
+
+        __this.node('p', <__wml.Attrs>{}, [
+
+        __this.widget(new DateField({wml : { 'id' : __context.values.block.id  },'name': __context.values.block.name,'className': '-block','label': __context.values.block.label,'success': __context.values.block.success,'warning': __context.values.block.warning,'error': __context.values.block.error,'onChange': __context.values.block.onChange}, [
+
+        
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.block.id  },'name': __context.values.block.name,'className': '-block','label': __context.values.block.label,'success': __context.values.block.success,'warning': __context.values.block.warning,'error': __context.values.block.error,'onChange': __context.values.block.onChange})
+     ])
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.node('p', <__wml.Attrs>{}, [
+
+        __this.widget(new DateField({wml : { 'id' : __context.values.tests.id  },'label': __context.values.tests.label,'name': __context.values.tests.id,'value': __context.values.tests.value,'onChange': __context.values.tests.onChange}, [
+
+        
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.tests.id  },'label': __context.values.tests.label,'name': __context.values.tests.id,'value': __context.values.tests.value,'onChange': __context.values.tests.onChange})
+     ]),
+__this.node('p', <__wml.Attrs>{}, [
+
+        __this.widget(new DropList({'name': __context.values.tests.id,'options': __context.values.tests.data,'onSelect': __context.values.tests.onSelect}, [
+
+        
+     ]),<__wml.Attrs>{'name': __context.values.tests.id,'options': __context.values.tests.data,'onSelect': __context.values.tests.onSelect})
+     ])
+     ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 
        }
