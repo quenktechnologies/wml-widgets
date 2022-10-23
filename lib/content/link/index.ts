@@ -37,6 +37,11 @@ export interface LinkAttrs extends HTMLElementAttrs {
     href?: string,
 
     /**
+     * target for the link.
+     */
+    target?: string,
+
+    /**
      * disabled disables the link
      */
     disabled?: boolean,
@@ -122,6 +127,8 @@ export class Link extends wml.Component<LinkAttrs> {
 
         href: (this.attrs && this.attrs.href) ?
             this.attrs.href : '#',
+
+      target: this.attrs.target,
 
         active: (this.attrs && this.attrs.active) ?
             this.attrs.active : false,

@@ -256,7 +256,7 @@ export class LinkView  implements __wml.View {
 
        
 
-           return __this.node('a', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'href': __context.values.href,'title': __context.values.title,'onclick': __context.values.clicked}, [
+           return __this.node('a', <__wml.Attrs>{'id': __context.values.id,'class': __context.values.className,'href': __context.values.href,'title': __context.values.title,'target': __context.values.target,'onclick': __context.values.clicked}, [
 
         ...(__context.values.content)
      ]);

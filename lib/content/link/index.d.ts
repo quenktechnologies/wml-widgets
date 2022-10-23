@@ -21,6 +21,10 @@ export interface LinkAttrs extends HTMLElementAttrs {
      */
     href?: string;
     /**
+     * target for the link.
+     */
+    target?: string;
+    /**
      * disabled disables the link
      */
     disabled?: boolean;
@@ -69,6 +73,7 @@ export declare class Link extends wml.Component<LinkAttrs> {
         title: string | null;
         name: string | null;
         href: string;
+        target: string | undefined;
         active: boolean;
         content: wml.Content[];
         clicked: (e: Event) => void;

@@ -17,6 +17,7 @@
   class={{@values.className}}
   href={{@values.href}}
   title={{@values.title}}
+  target={{@values.target}}
   onclick={{@values.clicked}}>
 
     {{...@values.content}}
