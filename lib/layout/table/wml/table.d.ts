@@ -18,7 +18,7 @@ export declare class TableHeader implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -39,7 +39,7 @@ export declare class TableBody implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -60,7 +60,7 @@ export declare class TableFooter implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -81,7 +81,7 @@ export declare class TableRow implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -102,7 +102,7 @@ export declare class TableHeading implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -123,7 +123,7 @@ export declare class TableCell implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -144,7 +144,7 @@ export declare class TableWindow implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -165,7 +165,7 @@ export declare class TableLayout implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }

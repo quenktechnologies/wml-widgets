@@ -18,7 +18,7 @@ export declare class DescriptionList implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -39,7 +39,7 @@ export declare class Title implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }
@@ -60,7 +60,7 @@ export declare class Data implements __wml.View {
     node(tag: string, attrs: __wml.Attrs, children: __wml.Content[]): __wml.Content;
     widget(w: __wml.Widget, attrs: __wml.Attrs): __wml.Content;
     findById<E extends __wml.WMLElement>(id: string): __Maybe<E>;
-    findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]>;
+    findGroupById<E extends __wml.WMLElement>(name: string): E[];
     invalidate(): void;
     render(): __wml.Content;
 }

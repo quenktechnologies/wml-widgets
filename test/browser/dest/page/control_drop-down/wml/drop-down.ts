@@ -260,15 +260,9 @@ __this.widget(new DropDown({'buttonText': 'I am an anchor','anchor': true }, [
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 

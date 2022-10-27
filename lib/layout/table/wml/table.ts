@@ -202,15 +202,9 @@ export class TableHeader  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
@@ -386,15 +380,9 @@ export class TableBody  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
@@ -570,15 +558,9 @@ export class TableFooter  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
@@ -754,15 +736,9 @@ export class TableRow  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
@@ -938,15 +914,9 @@ export class TableHeading  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
@@ -1122,15 +1092,9 @@ export class TableCell  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
@@ -1306,15 +1270,9 @@ export class TableWindow  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 
@@ -1490,15 +1448,9 @@ export class TableLayout  implements __wml.View {
 
    }
 
-   findByGroup<E extends __wml.WMLElement>(name: string): __Maybe<E[]> {
-
-      let mGroup:__Maybe<E[]> =
-           __fromArray(this.groups.hasOwnProperty(name) ?
-           <any>this.groups[name] : 
-           []);
-
-      return this.views.reduce((p,c) =>
-       p.isJust() ? p : c.findByGroup(name), mGroup);
+   findGroupById<E extends __wml.WMLElement>(name: string): E[] {
+           return this.groups.hasOwnProperty(name) ?
+           <E[]>this.groups[name] : [];
 
    }
 

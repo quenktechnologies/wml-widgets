@@ -1,3 +1,4 @@
+import * as views from './wml/drop-down';
 import * as hidden from '../../content/state/hidden';
 import { View, Component } from '@quenk/wml';
 import { Style } from '../../content/style';
@@ -74,7 +75,7 @@ export declare class DropDown extends Component<DropDownMenuAttrs> implements hi
             anchor: boolean;
             className: string;
             disabled: true | undefined;
-            template: () => View;
+            template: () => View | views.ButtonView;
             onClick: () => void;
         };
         content: {
