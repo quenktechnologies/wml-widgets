@@ -1,5 +1,51 @@
 @import "./variables";
 
+/**
+ * Embeds the provided rules in a media query for screens at or below the tiny
+ * breakpoint.
+ */
+.screen-tiny(@rules) {
+
+  @media screen and (max-width: @screen-tiny) {
+
+    @rules();
+
+  }
+
+}
+
+/**
+ * Embeds the provided rules in a media query for screens at or above the small
+ * breakpoint.
+ */
+.screen-not-tiny(@rules) {
+
+  @media screen and (min-width: @screen-small) {
+
+    @rules();
+
+  }
+
+}
+
+/**
+ * Embeds the provided rules in a media query for screens at or below the small
+ * breakpoint.
+ */
+.screen-small(@rules) {
+
+  @media screen and (max-width: @screen-small) {
+
+    @rules();
+
+  }
+
+}
+
+/**
+ * Embeds the provided rules in a media query for screens at or above the medium
+ * breakpoint.
+ */
 .screen-not-small(@rules) {
 
   @media screen and (min-width: @screen-medium) {

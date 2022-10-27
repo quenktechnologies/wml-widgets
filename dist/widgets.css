@@ -367,6 +367,22 @@ a.ww-tag:focus {
 .ww-tag.-error[href] :focus {
   background-color: #c9302c;
 }
+/**
+ * Embeds the provided rules in a media query for screens at or below the tiny
+ * breakpoint.
+ */
+/**
+ * Embeds the provided rules in a media query for screens at or above the small
+ * breakpoint.
+ */
+/**
+ * Embeds the provided rules in a media query for screens at or below the small
+ * breakpoint.
+ */
+/**
+ * Embeds the provided rules in a media query for screens at or above the medium
+ * breakpoint.
+ */
 .ww-thumbnail {
   display: block;
   padding: 4px;
@@ -538,7 +554,7 @@ a.ww-thumbnail {
 .ww-ranged-pager > ul > li.ww-ranged-pager__page {
   display: none;
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 768px) {
   .ww-ranged-pager > ul > li.ww-ranged-pager__page {
     display: inline;
   }
@@ -2075,7 +2091,7 @@ textarea.ww-search > input {
   width: 1%;
   float: none;
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 768px) {
   .ww-tab-bar.-justified > li {
     display: block;
     width: auto;
@@ -2085,7 +2101,7 @@ textarea.ww-search > input {
   margin-bottom: 0;
   text-align: center;
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 768px) {
   .ww-tab-bar.-justified > li > a {
     margin-bottom: 5px;
   }
@@ -2173,7 +2189,7 @@ textarea.ww-search > input {
   width: 280px;
   margin: 10px auto;
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 768px) {
   .ww-modal > .ww-modal__position {
     width: 600px;
     margin: 30px auto;
@@ -2424,7 +2440,7 @@ textarea.ww-search > input {
 .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column > .ww-grid-layout__row {
   margin-top: 0px;
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 768px) {
   .ww-grid-layout .ww-grid-layout__row .ww-grid-layout__column {
     float: left;
   }
@@ -2749,7 +2765,7 @@ textarea.ww-search > input {
 .ww-description-list.-horizontal > dd:after {
   clear: both;
 }
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 768px) {
   .ww-description-list.-horizontal > dt {
     float: left;
     width: 160px;
