@@ -129,7 +129,7 @@ export class TextInput
             }
         },
 
-        attrs: merge((this.attrs && this.attrs.html) || {}, {
+        attrs: merge(this.attrs.html || {}, {
 
             id: getId(this.attrs),
 

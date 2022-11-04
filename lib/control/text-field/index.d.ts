@@ -81,7 +81,7 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             wml: {
                 id: string;
             };
-            attrs: TextFieldAttrs & {
+            attrs: {
                 id: string;
                 name: string;
                 type: string;
@@ -97,6 +97,7 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
                 rows: number;
                 oninput: (e: KeyboardEvent) => void;
                 onChange: (e: TextChangedEvent) => void;
+                html: object | undefined;
             };
         };
     };
