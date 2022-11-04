@@ -3,7 +3,6 @@ import * as views from './wml/text-field';
 import { View } from '@quenk/wml';
 
 import { Maybe } from '@quenk/noni/lib/data/maybe';
-import { merge } from '@quenk/noni/lib/data/record';
 
 import { BLOCK } from '../../content/orientation';
 import { concat, getById } from '../../util';
@@ -109,7 +108,7 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
                 getClassName(this.attrs),
 
-              BLOCK,
+                BLOCK,
 
                 getValidityClassName(this.attrs)
 
@@ -136,13 +135,9 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
         },
         control: {
 
-            wml: {
+            wml: { id: 'root' },
 
-                id: 'root'
-
-            },
-
-          attrs:               merge(this.attrs, {
+            attrs: {
 
                 id: getId(this.attrs),
 
@@ -184,9 +179,11 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
                     oninput(this) : () => { },
 
                 onChange: (this.attrs && this.attrs.onChange) ?
-                    this.attrs.onChange : () => { }
+                    this.attrs.onChange : () => { },
 
-            })
+              html: this.attrs.html 
+
+            }
 
         }
 
