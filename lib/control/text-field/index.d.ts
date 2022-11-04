@@ -81,7 +81,7 @@ export declare class TextField extends AbstractFormControl<string, TextFieldAttr
             wml: {
                 id: string;
             };
-            attrs: object & {
+            attrs: TextFieldAttrs & {
                 id: string;
                 name: string;
                 type: string;
