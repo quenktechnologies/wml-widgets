@@ -142,7 +142,7 @@ export class TextField extends AbstractFormControl<string, TextFieldAttrs> {
 
             },
 
-          attrs:               merge(this.attrs.html || {}, {
+          attrs:               merge(this.attrs, {
 
                 id: getId(this.attrs),
 
