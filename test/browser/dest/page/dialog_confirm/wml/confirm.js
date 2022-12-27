@@ -72,39 +72,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }
@@ -153,9 +122,9 @@ class Open {
         this.widgets = [];
         this.tree = __document.createElement('div');
         this.template = (__this) => {
-            return __this.widget(new confirm_1.Confirm({ wml: { 'id': 'open' }, 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes }, [
+            return __this.widget(new confirm_1.Confirm({ wml: { 'id': "open" }, 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes }, [
                 text(__context.values.message)
-            ]), { wml: { 'id': 'open' }, 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes });
+            ]), { wml: { 'id': "open" }, 'title': __context.values.title, 'onNo': __context.values.onNo, 'onYes': __context.values.onYes });
         };
     }
     registerView(v) {
@@ -179,39 +148,8 @@ class Open {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

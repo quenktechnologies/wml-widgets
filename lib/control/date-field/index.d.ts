@@ -9,11 +9,11 @@ export declare const DATE_FIELD_INPUT = "ww-date-field__input";
  *
  * The only accepted format is YYYY-MM-DD.
  */
-export declare type ISO8601Date = string;
+export type ISO8601Date = string;
 /**
  * EmptyString indicating the date value was cleared.
  */
-export declare type EmptyString = '';
+export type EmptyString = '';
 /**
  * DateFieldAttrs
  */

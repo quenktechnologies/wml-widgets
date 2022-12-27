@@ -5,19 +5,19 @@ export declare const NAV_BAR = "ww-nav-bar";
 /**
  * Name is used to distinguish the links.
  */
-export declare type Name = string;
+export type Name = string;
 /**
  * Path refers to the value of the href property of a link.
  */
-export declare type Path = string;
+export type Path = string;
 /**
  * LinkHandler is a function that is executed when a link is clicked.
  */
-export declare type LinkHandler = (name: Name) => void;
+export type LinkHandler = (name: Name) => void;
 /**
  * LinkSpec specifies the configuration for the link.
  */
-export declare type LinkSpec = Path | Partial<LinkConf> | LinkHandler;
+export type LinkSpec = Path | Partial<LinkConf> | LinkHandler;
 /**
  * LinkConf is used in the view to generate the links.
  */

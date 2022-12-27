@@ -81,16 +81,16 @@ export class Main  implements __wml.View {
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a      This is a text input: \u000a      '),
-__this.widget(new TextInput({'match': '[a-zA-Z]','length': 20,'onChange': __context.onChange}, [
+__this.widget(new TextInput({'match': "[a-zA-Z]",'length': 20,'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{'match': '[a-zA-Z]','length': 20,'onChange': __context.onChange}),
+     ]),<__wml.Attrs>{'match': "[a-zA-Z]",'length': 20,'onChange': __context.onChange}),
 __document.createTextNode('.\u000a    ')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('As you type '),
-__this.node('b', <__wml.Attrs>{wml : { 'id' : 'txt'  }}, [
+__this.node('b', <__wml.Attrs>{wml : { 'id' : "txt"  }}, [
 
         __document.createTextNode('this')
      ]),
@@ -105,7 +105,7 @@ __this.widget(new Demo({}, [
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' neutral: ')),
+document.createTextNode((v + " neutral: ")),
 __this.widget(new TextInput({'onChange': __context.onChange,'size': v}, [
 
         
@@ -114,29 +114,29 @@ __this.widget(new TextInput({'onChange': __context.onChange,'size': v}, [
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' error: ')),
-__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': '-error'}, [
+document.createTextNode((v + " error: ")),
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': "-error"}, [
 
         
-     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': '-error'})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': "-error"})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' warning: ')),
-__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': '-warning'}, [
+document.createTextNode((v + " warning: ")),
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': "-warning"}, [
 
         
-     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': '-warning'})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': "-warning"})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' success: ')),
-__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': '-success'}, [
+document.createTextNode((v + " success: ")),
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'className': "-success"}, [
 
         
-     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': '-success'})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'className': "-success"})
      ])
      ]), 
 ()=> ([]))
@@ -164,7 +164,7 @@ __this.widget(new Demo({}, [
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' neutral: ')),
+document.createTextNode((v + " neutral: ")),
 __this.widget(new TextInput({'onChange': __context.onChange,'rows': 5,'size': v}, [
 
         
@@ -173,29 +173,29 @@ __this.widget(new TextInput({'onChange': __context.onChange,'rows': 5,'size': v}
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' error: ')),
-__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': '-error'}, [
+document.createTextNode((v + " error: ")),
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': "-error"}, [
 
         
-     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': '-error'})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': "-error"})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' warning: ')),
-__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': '-warning'}, [
+document.createTextNode((v + " warning: ")),
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': "-warning"}, [
 
         
-     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': '-warning'})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': "-warning"})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('\u000a        Size '),
-document.createTextNode((v + ' success: ')),
-__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': '-success'}, [
+document.createTextNode((v + " success: ")),
+__this.widget(new TextInput({'onChange': __context.onChange,'size': v,'rows': 5,'className': "-success"}, [
 
         
-     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': '-success'})
+     ]),<__wml.Attrs>{'onChange': __context.onChange,'size': v,'rows': 5,'className': "-success"})
      ])
      ]), 
 ()=> ([]))
@@ -277,51 +277,10 @@ __this.widget(new TextInput({'onChange': __context.onChange,'focus': true }, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

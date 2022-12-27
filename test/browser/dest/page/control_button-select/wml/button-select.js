@@ -43,25 +43,25 @@ class Main {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('You selected: '),
-                        __this.node('b', { wml: { 'id': 'select-content' } }, [
+                        __this.node('b', { wml: { 'id': "select-content" } }, [
                             __document.createTextNode('(None)')
                         ]),
                         __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': 'select' }, 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange }, []), { wml: { 'id': 'select' }, 'name': 'select', 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange })
+                        __this.widget(new button_select_1.ButtonSelect({ wml: { 'id': "select" }, 'name': "select", 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange }, []), { wml: { 'id': "select" }, 'name': "select", 'options': __context.values.options, 'value': __context.values.value, 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('You can also use MultiButtonSelect instead: '),
-                        __this.node('b', { wml: { 'id': 'multi-content' } }, [
+                        __this.node('b', { wml: { 'id': "multi-content" } }, [
                             __document.createTextNode('(None)')
                         ]),
                         __document.createTextNode('.')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new button_select_1.MultiButtonSelect({ wml: { 'id': 'multi' }, 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti }, []), { wml: { 'id': 'multi' }, 'name': 'multi', 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti })
+                        __this.widget(new button_select_1.MultiButtonSelect({ wml: { 'id': "multi" }, 'name': "multi", 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti }, []), { wml: { 'id': "multi" }, 'name': "multi", 'options': __context.values.options, 'value': __context.values.values, 'onChange': __context.onChangeMulti })
                     ])
                 ]), {})
             ]), {});
@@ -88,39 +88,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

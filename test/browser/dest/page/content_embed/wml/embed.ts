@@ -87,33 +87,33 @@ __this.widget(new GridLayout({}, [
 
         __this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Embed({'className': '-aspect-ratio-16x9'}, [
+        __this.widget(new Embed({'className': "-aspect-ratio-16x9"}, [
 
         __this.node('iframe', <__wml.Attrs>{'src': __context.values.jojo,'allow': __context.values.allow}, [
 
         
      ])
-     ]),<__wml.Attrs>{'className': '-aspect-ratio-16x9'})
+     ]),<__wml.Attrs>{'className': "-aspect-ratio-16x9"})
      ]),<__wml.Attrs>{'span': 4}),
 __this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Embed({'className': '-aspect-ratio-4x3'}, [
+        __this.widget(new Embed({'className': "-aspect-ratio-4x3"}, [
 
         __this.node('iframe', <__wml.Attrs>{'src': __context.values.win,'allow': __context.values.allow}, [
 
         
      ])
-     ]),<__wml.Attrs>{'className': '-aspect-ratio-4x3'})
+     ]),<__wml.Attrs>{'className': "-aspect-ratio-4x3"})
      ]),<__wml.Attrs>{'span': 4}),
 __this.widget(new Column({'span': 4}, [
 
-        __this.widget(new Embed({'className': '-aspect-ratio-16x9'}, [
+        __this.widget(new Embed({'className': "-aspect-ratio-16x9"}, [
 
         __this.node('iframe', <__wml.Attrs>{'src': __context.values.max,'allow': __context.values.allow}, [
 
         
      ])
-     ]),<__wml.Attrs>{'className': '-aspect-ratio-16x9'})
+     ]),<__wml.Attrs>{'className': "-aspect-ratio-16x9"})
      ]),<__wml.Attrs>{'span': 4})
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
@@ -172,51 +172,10 @@ __this.widget(new Column({'span': 4}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

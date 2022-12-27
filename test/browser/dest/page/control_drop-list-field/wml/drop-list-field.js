@@ -53,7 +53,7 @@ class Main {
                         __document.createTextNode('Success')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.success.id }, 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange }, []), { wml: { 'id': __context.values.success.id }, 'className': '-success', 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange })
+                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.success.id }, 'className': "-success", 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange }, []), { wml: { 'id': __context.values.success.id }, 'className': "-success", 'name': __context.values.success.name, 'options': __context.values.success.options, 'onChange': __context.values.success.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -61,7 +61,7 @@ class Main {
                         __document.createTextNode('Warning')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.warning.id }, 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange }, []), { wml: { 'id': __context.values.warning.id }, 'className': '-warning', 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange })
+                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.warning.id }, 'className': "-warning", 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange }, []), { wml: { 'id': __context.values.warning.id }, 'className': "-warning", 'name': __context.values.warning.name, 'options': __context.values.warning.options, 'onChange': __context.values.warning.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -69,7 +69,7 @@ class Main {
                         __document.createTextNode('Error')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.error.id }, 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange }, []), { wml: { 'id': __context.values.error.id }, 'className': '-error', 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange })
+                        __this.widget(new drop_list_field_1.DropListField({ wml: { 'id': __context.values.error.id }, 'className': "-error", 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange }, []), { wml: { 'id': __context.values.error.id }, 'className': "-error", 'name': __context.values.error.name, 'options': __context.values.error.options, 'onChange': __context.values.error.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -104,39 +104,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

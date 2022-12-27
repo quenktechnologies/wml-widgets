@@ -5,7 +5,7 @@ export declare const RANGED_PAGER_PAGE = "ww-ranged-pager__page";
 /**
  * MaxPages indicates the maximum number of page options to show.
  */
-export declare type MaxPageOptions = number;
+export type MaxPageOptions = number;
 /**
  * RangedPagerAttrs
  */

@@ -19,7 +19,7 @@ export declare const DESC = "-desc";
 /**
  * TableName indicates the name of a table.
  */
-export declare type TableName = string;
+export type TableName = string;
 /**
  * DataTableAttrs
  */

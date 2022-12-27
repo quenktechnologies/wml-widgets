@@ -43,9 +43,9 @@ class Navigation {
         this.widgets = [];
         this.tree = __document.createElement('div');
         this.template = (__this) => {
-            return __this.widget(new nav_1.NavMenu({ 'id': 'nav', 'vertical': true }, [
+            return __this.widget(new nav_1.NavMenu({ 'id': "nav", 'vertical': true }, [
                 __this.widget(new item_1.Item({}, [
-                    __this.widget(new link_1.Link({ wml: { 'group': 'links' }, 'active': (__context.page === 'home'), 'name': 'home', 'href': '#', 'onClick': __context.navigate, 'text': 'Home' }, []), { wml: { 'group': 'links' }, 'active': (__context.page === 'home'), 'name': 'home', 'href': '#', 'onClick': __context.navigate, 'text': 'Home' })
+                    __this.widget(new link_1.Link({ wml: { 'group': "links" }, 'active': (__context.page === "home"), 'name': "home", 'href': "#", 'onClick': __context.navigate, 'text': "Home" }, []), { wml: { 'group': "links" }, 'active': (__context.page === "home"), 'name': "home", 'href': "#", 'onClick': __context.navigate, 'text': "Home" })
                 ]), {}),
                 ...__forOf(__context.pages, (items, section, _$$all) => ([
                     __this.widget(new item_1.Item({}, [
@@ -53,13 +53,13 @@ class Navigation {
                         __this.widget(new nav_1.NavMenu({ 'vertical': true }, [
                             ...__forOf(items, (_, name, _$$all) => ([
                                 __this.widget(new item_1.Item({}, [
-                                    __this.widget(new link_1.Link({ wml: { 'group': 'links' }, 'name': name, 'href': ('#/' + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name }, []), { wml: { 'group': 'links' }, 'name': name, 'href': ('#/' + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name })
+                                    __this.widget(new link_1.Link({ wml: { 'group': "links" }, 'name': name, 'href': ("#/" + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name }, []), { wml: { 'group': "links" }, 'name': name, 'href': ("#/" + name), 'onClick': __context.navigate, 'active': (__context.page === name), 'text': name })
                                 ]), {})
                             ]), () => ([]))
                         ]), { 'vertical': true })
                     ]), {})
                 ]), () => ([]))
-            ]), { 'id': 'nav', 'vertical': true });
+            ]), { 'id': "nav", 'vertical': true });
         };
     }
     registerView(v) {
@@ -83,39 +83,8 @@ class Navigation {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

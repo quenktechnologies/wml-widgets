@@ -4,11 +4,11 @@ import { Column } from './column';
 /**
  * BodyFragment type.
  */
-export declare type BodyFragment<C, R extends Record<C>> = (c: BodyContext<C, R>) => View;
+export type BodyFragment<C, R extends Record<C>> = (c: BodyContext<C, R>) => View;
 /**
  * CellFragment type.
  */
-export declare type CellFragment<C, R extends Record<C>> = (c: CellContext<C, R>) => View;
+export type CellFragment<C, R extends Record<C>> = (c: CellContext<C, R>) => View;
 /**
  * BodyContext
  */

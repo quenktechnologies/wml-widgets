@@ -56,10 +56,10 @@ class Main {
                     __this.widget(new multi_select_1.MultiSelect({ wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange }, []), { wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'label': __context.values.block.label, 'block': true, 'stringifier': __context.values.block.stringifier, 'onSearch': __context.values.block.onSearch, 'onChange': __context.values.block.onChange })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new multi_select_1.MultiSelect({ 'name': __context.values.normal.name, 'label': 'Disabled', 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange }, []), { 'name': __context.values.normal.name, 'label': 'Disabled', 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange })
+                    __this.widget(new multi_select_1.MultiSelect({ 'name': __context.values.normal.name, 'label': "Disabled", 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange }, []), { 'name': __context.values.normal.name, 'label': "Disabled", 'disabled': true, 'onSearch': __context.values.normal.onSearch, 'onChange': __context.values.normal.onChange })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new multi_select_1.MultiSelect({ 'name': __context.values.init.name, 'label': 'Initialized', 'value': __context.values.init.value, 'stringifier': __context.values.init.stringifier, 'onSearch': __context.values.init.onSearch, 'onChange': __context.values.init.onChange }, []), { 'name': __context.values.init.name, 'label': 'Initialized', 'value': __context.values.init.value, 'stringifier': __context.values.init.stringifier, 'onSearch': __context.values.init.onSearch, 'onChange': __context.values.init.onChange })
+                    __this.widget(new multi_select_1.MultiSelect({ 'name': __context.values.init.name, 'label': "Initialized", 'value': __context.values.init.value, 'stringifier': __context.values.init.stringifier, 'onSearch': __context.values.init.onSearch, 'onChange': __context.values.init.onChange }, []), { 'name': __context.values.init.name, 'label': "Initialized", 'value': __context.values.init.value, 'stringifier': __context.values.init.stringifier, 'onSearch': __context.values.init.onSearch, 'onChange': __context.values.init.onChange })
                 ]), {})
             ]), {});
         };
@@ -85,39 +85,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

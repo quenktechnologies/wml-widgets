@@ -12,29 +12,29 @@ export declare const NAV_MENU = "ww-nav-menu";
  * This type requires less boilerplate than the MenuItemInfo type and is expanded
  * internally before use.
  */
-export declare type MenuItemSpec = LinkMap | HeaderText | MenuItemSpec[];
+export type MenuItemSpec = LinkMap | HeaderText | MenuItemSpec[];
 /**
  * LinkText is the text users see when viewing a link.
  */
-export declare type LinkText = string;
+export type LinkText = string;
 /**
  * LinkTarget is the value used for a link's href.
  */
-export declare type LinkTarget = string;
+export type LinkTarget = string;
 /**
  * LinkHandler is a function executed whenever a link is clicked.
  */
-export declare type LinkHandler = (name: LinkName) => void;
+export type LinkHandler = (name: LinkName) => void;
 /**
  * LinkName is used to distinguish links.
  *
  * Can be the same value as the link's text attribute.
  */
-export declare type LinkName = string;
+export type LinkName = string;
 /**
  * HeaderText is text used to display a header in the menu.
  */
-export declare type HeaderText = string;
+export type HeaderText = string;
 /**
  * LinkMap provides a mapping of link text values to one of the href target,
  * onClick handler or attributes of a link.
@@ -49,7 +49,7 @@ export interface LinkMap extends Record<LinkTarget | LinkHandler | LinkAttrs> {
  *
  * This is the expanded form of MenuItemSpec.
  */
-export declare type MenuItemInfo = LinkInfo | HeaderInfo | MenuInfo;
+export type MenuItemInfo = LinkInfo | HeaderInfo | MenuInfo;
 /**
  * HeaderInfo specifies the properties to form a header menu item.
  */

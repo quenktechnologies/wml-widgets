@@ -55,12 +55,12 @@ class Main {
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Max: \u000a        \u000a        '),
-                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': 'max', 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': 'max', 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange }),
+                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': "max", 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': "max", 'value': String(__context.values.max), 'onChange': __context.values.onAttrChange }),
                             __document.createTextNode('\u000a\u000a        Total:\u000a\u000a        '),
-                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': 'total', 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': 'total', 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange }),
+                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': "total", 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': "total", 'value': String(__context.values.total), 'onChange': __context.values.onAttrChange }),
                             __document.createTextNode('\u000a\u000a        Current:\u000a\u000a        '),
-                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': 'current', 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': 'current', 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange }),
-                            __this.widget(new button_1.Button({ 'text': 'Go', 'onClick': __context.values.reset }, []), { 'text': 'Go', 'onClick': __context.values.reset })
+                            __this.widget(new text_input_1.TextInput({ 'size': size_1.Size.Small, 'name': "current", 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange }, []), { 'size': size_1.Size.Small, 'name': "current", 'value': String(__context.values.current), 'onChange': __context.values.onAttrChange }),
+                            __this.widget(new button_1.Button({ 'text': "Go", 'onClick': __context.values.reset }, []), { 'text': "Go", 'onClick': __context.values.reset })
                         ])
                     ]), {})
                 ]), {}),
@@ -100,39 +100,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

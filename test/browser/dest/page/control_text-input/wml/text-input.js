@@ -43,12 +43,12 @@ class Main {
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
                         __document.createTextNode('\u000a      This is a text input: \u000a      '),
-                        __this.widget(new text_input_1.TextInput({ 'match': '[a-zA-Z]', 'length': 20, 'onChange': __context.onChange }, []), { 'match': '[a-zA-Z]', 'length': 20, 'onChange': __context.onChange }),
+                        __this.widget(new text_input_1.TextInput({ 'match': "[a-zA-Z]", 'length': 20, 'onChange': __context.onChange }, []), { 'match': "[a-zA-Z]", 'length': 20, 'onChange': __context.onChange }),
                         __document.createTextNode('.\u000a    ')
                     ]),
                     __this.node('p', {}, [
                         __document.createTextNode('As you type '),
-                        __this.node('b', { wml: { 'id': 'txt' } }, [
+                        __this.node('b', { wml: { 'id': "txt" } }, [
                             __document.createTextNode('this')
                         ]),
                         __document.createTextNode(' changes, but only for letters. (20)')
@@ -58,23 +58,23 @@ class Main {
                     ...__forIn(__context.sizes, (v, _$$i, _$$all) => ([
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' neutral: ')),
+                            document.createTextNode((v + " neutral: ")),
                             __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v }, []), { 'onChange': __context.onChange, 'size': v })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' error: ')),
-                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': '-error' }, []), { 'onChange': __context.onChange, 'size': v, 'className': '-error' })
+                            document.createTextNode((v + " error: ")),
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': "-error" }, []), { 'onChange': __context.onChange, 'size': v, 'className': "-error" })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' warning: ')),
-                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': '-warning' }, []), { 'onChange': __context.onChange, 'size': v, 'className': '-warning' })
+                            document.createTextNode((v + " warning: ")),
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': "-warning" }, []), { 'onChange': __context.onChange, 'size': v, 'className': "-warning" })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' success: ')),
-                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': '-success' }, []), { 'onChange': __context.onChange, 'size': v, 'className': '-success' })
+                            document.createTextNode((v + " success: ")),
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'className': "-success" }, []), { 'onChange': __context.onChange, 'size': v, 'className': "-success" })
                         ])
                     ]), () => ([]))
                 ]), {}),
@@ -91,23 +91,23 @@ class Main {
                     ...__forIn(__context.sizes, (v, _$$i, _$$all) => ([
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' neutral: ')),
+                            document.createTextNode((v + " neutral: ")),
                             __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'rows': 5, 'size': v }, []), { 'onChange': __context.onChange, 'rows': 5, 'size': v })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' error: ')),
-                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-error' })
+                            document.createTextNode((v + " error: ")),
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-error" }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-error" })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' warning: ')),
-                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-warning' })
+                            document.createTextNode((v + " warning: ")),
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-warning" }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-warning" })
                         ]),
                         __this.node('p', {}, [
                             __document.createTextNode('\u000a        Size '),
-                            document.createTextNode((v + ' success: ')),
-                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': '-success' })
+                            document.createTextNode((v + " success: ")),
+                            __this.widget(new text_input_1.TextInput({ 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-success" }, []), { 'onChange': __context.onChange, 'size': v, 'rows': 5, 'className': "-success" })
                         ])
                     ]), () => ([]))
                 ]), {}),
@@ -147,39 +147,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

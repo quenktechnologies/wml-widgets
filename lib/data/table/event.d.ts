@@ -3,11 +3,11 @@ import { TableName } from ".";
 /**
  * ColumnId type
  */
-export declare type ColumnId = number;
+export type ColumnId = number;
 /**
  * RowId type.
  */
-export declare type RowId = number;
+export type RowId = number;
 /**
  * HeadingClickedEvent is triggered when the user clicks on
  * one of the column headings.

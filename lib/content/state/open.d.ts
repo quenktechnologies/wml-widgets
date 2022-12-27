@@ -6,11 +6,11 @@ export declare const OPEN = "-open";
 /**
  * Open
  */
-export declare type Open<W extends Openable> = () => W;
+export type Open<W extends Openable> = () => W;
 /**
  * Close
  */
-export declare type Close<W extends Openable> = () => W;
+export type Close<W extends Openable> = () => W;
 /**
  * Openable is an interface for widgets that open or close to show
  * or reveal content, typically inline.

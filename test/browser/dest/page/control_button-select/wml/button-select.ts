@@ -81,7 +81,7 @@ export class Main  implements __wml.View {
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('You selected: '),
-__this.node('b', <__wml.Attrs>{wml : { 'id' : 'select-content'  }}, [
+__this.node('b', <__wml.Attrs>{wml : { 'id' : "select-content"  }}, [
 
         __document.createTextNode('(None)')
      ]),
@@ -89,10 +89,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new ButtonSelect({wml : { 'id' : 'select'  },'name': 'select','options': __context.values.options,'value': __context.values.value,'onChange': __context.onChange}, [
+        __this.widget(new ButtonSelect({wml : { 'id' : "select"  },'name': "select",'options': __context.values.options,'value': __context.values.value,'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'select'  },'name': 'select','options': __context.values.options,'value': __context.values.value,'onChange': __context.onChange})
+     ]),<__wml.Attrs>{wml : { 'id' : "select"  },'name': "select",'options': __context.values.options,'value': __context.values.value,'onChange': __context.onChange})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -100,7 +100,7 @@ __this.widget(new Demo({}, [
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('You can also use MultiButtonSelect instead: '),
-__this.node('b', <__wml.Attrs>{wml : { 'id' : 'multi-content'  }}, [
+__this.node('b', <__wml.Attrs>{wml : { 'id' : "multi-content"  }}, [
 
         __document.createTextNode('(None)')
      ]),
@@ -108,10 +108,10 @@ __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new MultiButtonSelect({wml : { 'id' : 'multi'  },'name': 'multi','options': __context.values.options,'value': __context.values.values,'onChange': __context.onChangeMulti}, [
+        __this.widget(new MultiButtonSelect({wml : { 'id' : "multi"  },'name': "multi",'options': __context.values.options,'value': __context.values.values,'onChange': __context.onChangeMulti}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : 'multi'  },'name': 'multi','options': __context.values.options,'value': __context.values.values,'onChange': __context.onChangeMulti})
+     ]),<__wml.Attrs>{wml : { 'id' : "multi"  },'name': "multi",'options': __context.values.options,'value': __context.values.values,'onChange': __context.onChangeMulti})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
@@ -169,51 +169,10 @@ __this.node('p', <__wml.Attrs>{}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

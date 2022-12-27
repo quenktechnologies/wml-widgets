@@ -78,10 +78,10 @@ export class PositionView  implements __wml.View {
         __this.node('span', <__wml.Attrs>{}, [
 
         __document.createTextNode('Page '),
-__this.widget(new TextInput({'type': 'number','match': '[0-9]','value': String(__context.current),'onChange': __context.onChange}, [
+__this.widget(new TextInput({'type': "number",'match': "[0-9]",'value': String(__context.current),'onChange': __context.onChange}, [
 
         
-     ]),<__wml.Attrs>{'type': 'number','match': '[0-9]','value': String(__context.current),'onChange': __context.onChange}),
+     ]),<__wml.Attrs>{'type': "number",'match': "[0-9]",'value': String(__context.current),'onChange': __context.onChange}),
 __document.createTextNode(' of '),
 text (__context.total)
      ])
@@ -140,51 +140,10 @@ text (__context.total)
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 
@@ -274,7 +233,7 @@ export class PaginatorView  implements __wml.View {
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.first.onclick}, [
+        __this.node('a', <__wml.Attrs>{'href': "#",'onclick': __context.values.first.onclick}, [
 
         
      ])
@@ -292,7 +251,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.previous.className}, [
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.previous.onclick}, [
+        __this.node('a', <__wml.Attrs>{'href': "#",'onclick': __context.values.previous.onclick}, [
 
         
      ])
@@ -311,7 +270,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.next.className}, [
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.next.onclick}, [
+        __this.node('a', <__wml.Attrs>{'href': "#",'onclick': __context.values.next.onclick}, [
 
         
      ])
@@ -329,7 +288,7 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last.className}, [
      ]))() :
 (()=>([
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.values.last.onclick}, [
+        __this.node('a', <__wml.Attrs>{'href': "#",'onclick': __context.values.last.onclick}, [
 
         
      ])
@@ -390,51 +349,10 @@ __this.node('li', <__wml.Attrs>{'class': __context.values.last.className}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

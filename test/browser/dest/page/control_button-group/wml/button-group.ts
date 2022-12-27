@@ -84,87 +84,87 @@ export class Main  implements __wml.View {
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({'text': 'one'}, [
+        __this.widget(new Button({'text': "one"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'one'}),
-__this.widget(new Button({'text': 'two','active': true }, [
+     ]),<__wml.Attrs>{'text': "one"}),
+__this.widget(new Button({'text': "two",'active': true }, [
 
         
-     ]),<__wml.Attrs>{'text': 'two','active': true }),
-__this.widget(new Button({'text': 'four'}, [
+     ]),<__wml.Attrs>{'text': "two",'active': true }),
+__this.widget(new Button({'text': "four"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'four'})
+     ]),<__wml.Attrs>{'text': "four"})
      ]),<__wml.Attrs>{})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({'text': 'one'}, [
+        __this.widget(new Button({'text': "one"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'one'}),
-__this.widget(new Button({'text': 'two'}, [
+     ]),<__wml.Attrs>{'text': "one"}),
+__this.widget(new Button({'text': "two"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'two'}),
-__this.widget(new Button({'text': 'four'}, [
+     ]),<__wml.Attrs>{'text': "two"}),
+__this.widget(new Button({'text': "four"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'four'})
+     ]),<__wml.Attrs>{'text': "four"})
      ]),<__wml.Attrs>{})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({'text': 'one'}, [
+        __this.widget(new Button({'text': "one"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'one'})
+     ]),<__wml.Attrs>{'text': "one"})
      ]),<__wml.Attrs>{})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __this.widget(new ButtonGroup({}, [
 
-        __this.widget(new Button({'text': 'one'}, [
+        __this.widget(new Button({'text': "one"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'one'}),
-__this.widget(new DropDown({'buttonText': 'two'}, [
+     ]),<__wml.Attrs>{'text': "one"}),
+__this.widget(new DropDown({'buttonText': "two"}, [
 
         __this.widget(new Menu({}, [
 
         __this.widget(new Item({}, [
 
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
+        __this.node('a', <__wml.Attrs>{'href': "#"}, [
 
         __document.createTextNode('Link')
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
+        __this.node('a', <__wml.Attrs>{'href': "#"}, [
 
         __document.createTextNode('Link')
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.node('a', <__wml.Attrs>{'href': '#'}, [
+        __this.node('a', <__wml.Attrs>{'href': "#"}, [
 
         __document.createTextNode('Link')
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{'buttonText': 'two'}),
-__this.widget(new Button({'text': 'three'}, [
+     ]),<__wml.Attrs>{'buttonText': "two"}),
+__this.widget(new Button({'text': "three"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'three'})
+     ]),<__wml.Attrs>{'text': "three"})
      ]),<__wml.Attrs>{})
      ])
      ]),<__wml.Attrs>{});
@@ -222,51 +222,10 @@ __this.widget(new Button({'text': 'three'}, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

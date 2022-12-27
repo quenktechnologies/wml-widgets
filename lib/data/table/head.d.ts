@@ -4,11 +4,11 @@ import { Column } from './column';
 /**
  * HeadFragment type.
  */
-export declare type HeadFragment<C, R extends Record<C>> = (c: HeadContext<C, R>) => View;
+export type HeadFragment<C, R extends Record<C>> = (c: HeadContext<C, R>) => View;
 /**
  * HeadingFragment type.
  */
-export declare type HeadingFragment<C, R extends Record<C>> = (c: HeadingContext<C, R>) => View;
+export type HeadingFragment<C, R extends Record<C>> = (c: HeadingContext<C, R>) => View;
 /**
  * HeadContext
  */

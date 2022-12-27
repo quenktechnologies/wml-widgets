@@ -6,15 +6,15 @@ export declare const RESULTS_MENU = "ww-results-menu";
 /**
  * ItemTemplate used to render each item in the results.
  */
-export declare type ItemTemplate<V> = (option: V, index: number, menu: ResultsMenu<V>) => View;
+export type ItemTemplate<V> = (option: V, index: number, menu: ResultsMenu<V>) => View;
 /**
  * NoItemsTemplate is used when there are no results.
  */
-export declare type NoItemsTemplate = View;
+export type NoItemsTemplate = View;
 /**
  * Stringifier turns a value into a string.
  */
-export declare type Stringifier<V> = (v: V) => string;
+export type Stringifier<V> = (v: V) => string;
 /**
  * ResultsMenuAttrs
  */

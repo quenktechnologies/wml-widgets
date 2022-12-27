@@ -98,10 +98,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropList({wml : { 'id' : __context.values.success.id  },'className': '-success','name': __context.values.success.name,'options': __context.values.success.options,'onSelect': __context.values.success.onSelect}, [
+        __this.widget(new DropList({wml : { 'id' : __context.values.success.id  },'className': "-success",'name': __context.values.success.name,'options': __context.values.success.options,'onSelect': __context.values.success.onSelect}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success.id  },'className': '-success','name': __context.values.success.name,'options': __context.values.success.options,'onSelect': __context.values.success.onSelect})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.success.id  },'className': "-success",'name': __context.values.success.name,'options': __context.values.success.options,'onSelect': __context.values.success.onSelect})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -112,10 +112,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropList({wml : { 'id' : __context.values.warning.id  },'className': '-warning','name': __context.values.warning.name,'options': __context.values.warning.options,'onSelect': __context.values.warning.onSelect}, [
+        __this.widget(new DropList({wml : { 'id' : __context.values.warning.id  },'className': "-warning",'name': __context.values.warning.name,'options': __context.values.warning.options,'onSelect': __context.values.warning.onSelect}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning.id  },'className': '-warning','name': __context.values.warning.name,'options': __context.values.warning.options,'onSelect': __context.values.warning.onSelect})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.warning.id  },'className': "-warning",'name': __context.values.warning.name,'options': __context.values.warning.options,'onSelect': __context.values.warning.onSelect})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -126,10 +126,10 @@ __this.widget(new Demo({}, [
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropList({wml : { 'id' : __context.values.error.id  },'className': '-error','name': __context.values.error.name,'options': __context.values.error.options,'onSelect': __context.values.error.onSelect}, [
+        __this.widget(new DropList({wml : { 'id' : __context.values.error.id  },'className': "-error",'name': __context.values.error.name,'options': __context.values.error.options,'onSelect': __context.values.error.onSelect}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error.id  },'className': '-error','name': __context.values.error.name,'options': __context.values.error.options,'onSelect': __context.values.error.onSelect})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.error.id  },'className': "-error",'name': __context.values.error.name,'options': __context.values.error.options,'onSelect': __context.values.error.onSelect})
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Demo({}, [
@@ -154,10 +154,10 @@ __this.widget(new Demo({}, [
 
         __document.createTextNode('Block')
      ]),
-__this.widget(new DropList({wml : { 'id' : __context.values.block.id  },'className': '-block','name': __context.values.block.name,'block': true ,'onSelect': __context.values.block.onSelect}, [
+__this.widget(new DropList({wml : { 'id' : __context.values.block.id  },'className': "-block",'name': __context.values.block.name,'block': true ,'onSelect': __context.values.block.onSelect}, [
 
         
-     ]),<__wml.Attrs>{wml : { 'id' : __context.values.block.id  },'className': '-block','name': __context.values.block.name,'block': true ,'onSelect': __context.values.block.onSelect})
+     ]),<__wml.Attrs>{wml : { 'id' : __context.values.block.id  },'className': "-block",'name': __context.values.block.name,'block': true ,'onSelect': __context.values.block.onSelect})
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
@@ -215,51 +215,10 @@ __this.widget(new DropList({wml : { 'id' : __context.values.block.id  },'classNa
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

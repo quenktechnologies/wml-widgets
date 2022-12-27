@@ -45,41 +45,41 @@ class Main {
         this.template = (__this) => {
             return __this.widget(new demo_1.Demo({}, [
                 __this.node('p', {}, [
-                    __this.widget(new drop_down_1.DropDown({ 'buttonText': 'Click Me' }, [
+                    __this.widget(new drop_down_1.DropDown({ 'buttonText': "Click Me" }, [
                         __this.widget(new menu_1.Menu({}, [
                             __this.widget(new item_1.Item({}, [
-                                __this.node('a', { 'href': '#', 'onclick': __context.onClick('You clicked one') }, [
+                                __this.node('a', { 'href': "#", 'onclick': __context.onClick("You clicked one") }, [
                                     __document.createTextNode('One')
                                 ])
                             ]), {}),
                             __this.widget(new item_1.Item({}, [
-                                __this.node('a', { 'href': '#', 'onclick': __context.onClick('You clicked two') }, [
+                                __this.node('a', { 'href': "#", 'onclick': __context.onClick("You clicked two") }, [
                                     __document.createTextNode('Two')
                                 ])
                             ]), {}),
                             __this.widget(new item_1.Divider({}, []), {}),
                             __this.widget(new item_1.Item({}, [
-                                __this.node('a', { 'href': '#', 'onclick': __context.onClick('You clicked three') }, [
+                                __this.node('a', { 'href': "#", 'onclick': __context.onClick("You clicked three") }, [
                                     __document.createTextNode('Three')
                                 ])
                             ]), {})
                         ]), {})
-                    ]), { 'buttonText': 'Click Me' }),
-                    __this.widget(new drop_down_1.DropDown({ 'buttonText': 'Me Too', 'autoClose': false }, [
+                    ]), { 'buttonText': "Click Me" }),
+                    __this.widget(new drop_down_1.DropDown({ 'buttonText': "Me Too", 'autoClose': false }, [
                         __this.node('h1', {}, [
                             __document.createTextNode('Any flow content can go here!')
                         ])
-                    ]), { 'buttonText': 'Me Too', 'autoClose': false }),
-                    __this.widget(new drop_down_1.DropDown({ 'buttonText': 'Can\'t touch this!', 'disabled': true }, [
+                    ]), { 'buttonText': "Me Too", 'autoClose': false }),
+                    __this.widget(new drop_down_1.DropDown({ 'buttonText': "Can\'t touch this!", 'disabled': true }, [
                         __this.node('p', {}, [
                             __document.createTextNode('You will never see this!')
                         ])
-                    ]), { 'buttonText': 'Can\'t touch this!', 'disabled': true }),
-                    __this.widget(new drop_down_1.DropDown({ 'buttonText': 'I am an anchor', 'anchor': true }, [
+                    ]), { 'buttonText': "Can\'t touch this!", 'disabled': true }),
+                    __this.widget(new drop_down_1.DropDown({ 'buttonText': "I am an anchor", 'anchor': true }, [
                         __this.node('b', {}, [
                             __document.createTextNode('Content')
                         ])
-                    ]), { 'buttonText': 'I am an anchor', 'anchor': true })
+                    ]), { 'buttonText': "I am an anchor", 'anchor': true })
                 ])
             ]), {});
         };
@@ -105,39 +105,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

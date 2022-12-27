@@ -47,17 +47,17 @@ class Main {
         this.widgets = [];
         this.tree = __document.createElement('div');
         this.template = (__this) => {
-            return __this.widget(new drawer_1.DrawerLayout({ wml: { 'id': __context.values.id.layout }, 'drawer': 'nav', 'content': 'main', 'open': true }, [
+            return __this.widget(new drawer_1.DrawerLayout({ wml: { 'id': __context.values.id.layout }, 'drawer': "nav", 'content': "main", 'open': true }, [
                 __this.registerView(new navigation_1.Navigation(__context)).render(),
-                __this.widget(new action_bar_1.ActionBar({ 'id': 'appBar' }, [
+                __this.widget(new action_bar_1.ActionBar({ 'id': "appBar" }, [
                     __this.widget(new link_1.Link({ 'onClick': __context.toggleDrawer }, [
                         __this.widget(new menu_icon_1.MenuIcon({}, []), {})
                     ]), { 'onClick': __context.toggleDrawer })
-                ]), { 'id': 'appBar' }),
-                __this.widget(new main_1.MainLayout({ 'id': 'main' }, [
+                ]), { 'id': "appBar" }),
+                __this.widget(new main_1.MainLayout({ 'id': "main" }, [
                     ...(__context.content)
-                ]), { 'id': 'main' })
-            ]), { wml: { 'id': __context.values.id.layout }, 'drawer': 'nav', 'content': 'main', 'open': true });
+                ]), { 'id': "main" })
+            ]), { wml: { 'id': __context.values.id.layout }, 'drawer': "nav", 'content': "main", 'open': true });
         };
     }
     registerView(v) {
@@ -81,39 +81,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

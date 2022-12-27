@@ -12,7 +12,7 @@ export declare const TAB_BAR = "ww-tab-bar";
 /**
  * TabClickedEventHandler
  */
-export declare type TabClickedEventHandler = (e: TabClickedEvent) => void;
+export type TabClickedEventHandler = (e: TabClickedEvent) => void;
 /**
  * TabAttrs
  */

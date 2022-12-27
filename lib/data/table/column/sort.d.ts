@@ -8,30 +8,30 @@ import { Column } from './';
  * This is a path that should be used instead of the name field when
  * retrieving a column's sort target.
  */
-export declare type SortAlias = string;
+export type SortAlias = string;
 /**
  * SortKey stores the column id and direction data has been sorted by.
  */
-export declare type SortKey = [number, -1 | 1];
+export type SortKey = [number, -1 | 1];
 /**
  * SortStrategy is a function that can be used to sort data or a
  * string refernece to one.
  */
-export declare type SortStrategy<C> = string | Sorter<C>;
+export type SortStrategy<C> = string | Sorter<C>;
 /**
  * Dataset type.
  *
  * The left value is the data that is sorted and displayed while
  * the right is the original data untouched.
  */
-export declare type Dataset<R> = [R[], R[]];
+export type Dataset<R> = [R[], R[]];
 /**
  * SortDelegate type.
  *
  * This is a function that given a SortRequest will
  * provide a sorted copy of the data and a new sort key.
  */
-export declare type SortDelegate<R> = (r: SortRequest<R>) => [R[], SortKey];
+export type SortDelegate<R> = (r: SortRequest<R>) => [R[], SortKey];
 /**
  * SortRequest contains the info needed to preform a sort.
  */

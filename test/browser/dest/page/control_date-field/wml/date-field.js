@@ -56,7 +56,7 @@ class Main {
                 ]), () => ([])),
                 __this.widget(new demo_1.Demo({}, [
                     __this.node('p', {}, [
-                        __this.widget(new date_field_1.DateField({ wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'className': '-block', 'label': __context.values.block.label, 'success': __context.values.block.success, 'warning': __context.values.block.warning, 'error': __context.values.block.error, 'onChange': __context.values.block.onChange }, []), { wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'className': '-block', 'label': __context.values.block.label, 'success': __context.values.block.success, 'warning': __context.values.block.warning, 'error': __context.values.block.error, 'onChange': __context.values.block.onChange })
+                        __this.widget(new date_field_1.DateField({ wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'className': "-block", 'label': __context.values.block.label, 'success': __context.values.block.success, 'warning': __context.values.block.warning, 'error': __context.values.block.error, 'onChange': __context.values.block.onChange }, []), { wml: { 'id': __context.values.block.id }, 'name': __context.values.block.name, 'className': "-block", 'label': __context.values.block.label, 'success': __context.values.block.success, 'warning': __context.values.block.warning, 'error': __context.values.block.error, 'onChange': __context.values.block.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -91,39 +91,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

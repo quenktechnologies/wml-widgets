@@ -8,7 +8,7 @@ export declare const DROP_DOWN_CONTENT = "ww-drop-down__content";
 /**
  * ButtonTemplate provides the template for rendering the button part.
  */
-export declare type ButtonTemplate = (b: DropDown) => View;
+export type ButtonTemplate = (b: DropDown) => View;
 /**
  * DropDownMenuAttrs
  */

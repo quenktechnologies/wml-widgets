@@ -50,13 +50,13 @@ class Main {
                     ]),
                     __this.widget(new nav_1.NavMenu({}, [
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ 'text': 'Home' }, []), { 'text': 'Home' })
+                            __this.widget(new link_1.Link({ 'text': "Home" }, []), { 'text': "Home" })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ 'disabled': true, 'text': 'Users' }, []), { 'disabled': true, 'text': 'Users' })
+                            __this.widget(new link_1.Link({ 'disabled': true, 'text': "Users" }, []), { 'disabled': true, 'text': "Users" })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ 'text': 'Logout' }, []), { 'text': 'Logout' })
+                            __this.widget(new link_1.Link({ 'text': "Logout" }, []), { 'text': "Logout" })
                         ]), {})
                     ]), {})
                 ]), {}),
@@ -66,13 +66,13 @@ class Main {
                     ]),
                     __this.widget(new nav_1.NavMenu({ 'vertical': true }, [
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ 'text': 'Home' }, []), { 'text': 'Home' })
+                            __this.widget(new link_1.Link({ 'text': "Home" }, []), { 'text': "Home" })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ 'disabled': true, 'text': 'Users' }, []), { 'disabled': true, 'text': 'Users' })
+                            __this.widget(new link_1.Link({ 'disabled': true, 'text': "Users" }, []), { 'disabled': true, 'text': "Users" })
                         ]), {}),
                         __this.widget(new item_1.Item({}, [
-                            __this.widget(new link_1.Link({ 'text': 'Logout' }, []), { 'text': 'Logout' })
+                            __this.widget(new link_1.Link({ 'text': "Logout" }, []), { 'text': "Logout" })
                         ]), {})
                     ]), { 'vertical': true })
                 ]), {})
@@ -100,39 +100,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

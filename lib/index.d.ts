@@ -2,11 +2,11 @@ import { Attrs } from '@quenk/wml';
 /**
  * HTMLId is a string value of the id property on an HTML element.
  */
-export declare type HTMLId = string;
+export type HTMLId = string;
 /**
  * WMLId is a string value of the wml:id property on a WML element.
  */
-export declare type WMLId = string;
+export type WMLId = string;
 /**
  * HTMLElementAttrs suggests a widget supports some of the basic
  * HTML element attributes.

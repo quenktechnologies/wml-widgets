@@ -12,7 +12,7 @@ export declare enum ValidationState {
 /**
  * Message type.
  */
-export declare type Message = string;
+export type Message = string;
 /**
  * FeedbackControlAttrs
  */

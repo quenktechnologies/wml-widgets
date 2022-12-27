@@ -76,6 +76,8 @@ export class Main  implements __wml.View {
 
            return __this.widget(new Demo({}, [
 
+        __this.widget(new Demo({}, [
+
         __this.node('h1', <__wml.Attrs>{}, [
 
         __document.createTextNode('Links')
@@ -83,56 +85,72 @@ export class Main  implements __wml.View {
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('This is a '),
-__this.widget(new Link({'href': '#link'}, [
+__this.widget(new Link({'href': "#link"}, [
 
         __document.createTextNode('link')
-     ]),<__wml.Attrs>{'href': '#link'}),
+     ]),<__wml.Attrs>{'href': "#link"}),
 __document.createTextNode('.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('This is a '),
-__this.widget(new Link({'href': '#disabled','disabled': true }, [
+__this.widget(new Link({'href': "#disabled",'disabled': true }, [
 
         __document.createTextNode('disabled')
-     ]),<__wml.Attrs>{'href': '#disabled','disabled': true }),
+     ]),<__wml.Attrs>{'href': "#disabled",'disabled': true }),
 __document.createTextNode(' link.')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Links can also '),
-__this.widget(new Link({'text': 'specify'}, [
+__this.widget(new Link({'text': "specify"}, [
 
         
-     ]),<__wml.Attrs>{'text': 'specify'}),
+     ]),<__wml.Attrs>{'text': "specify"}),
 __document.createTextNode(' contents a the text attribute')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Links can also have '),
-__this.widget(new Link({'onClick': __context.values.onClick,'text': 'handlers'}, [
+__this.widget(new Link({'onClick': __context.values.onClick,'text': "handlers"}, [
 
         
-     ]),<__wml.Attrs>{'onClick': __context.values.onClick,'text': 'handlers'})
+     ]),<__wml.Attrs>{'onClick': __context.values.onClick,'text': "handlers"})
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('Disabled link '),
-__this.widget(new Link({'onClick': __context.values.onClick,'disabled': true ,'text': 'handlers'}, [
+__this.widget(new Link({'onClick': __context.values.onClick,'disabled': true ,'text': "handlers"}, [
 
         
-     ]),<__wml.Attrs>{'onClick': __context.values.onClick,'disabled': true ,'text': 'handlers'}),
-__document.createTextNode('\u000a     do nothing. \u000a  ')
+     ]),<__wml.Attrs>{'onClick': __context.values.onClick,'disabled': true ,'text': "handlers"}),
+__document.createTextNode('\u000a       do nothing. \u000a    ')
      ]),
 __this.node('p', <__wml.Attrs>{}, [
 
-        __document.createTextNode('You can remove the underline using the \u000a     '),
-__this.widget(new Link({'text': '-ww-no-decoration','className': '-ww-no-decoration'}, [
+        __document.createTextNode('You can remove the underline using the \u000a       '),
+__this.widget(new Link({'text': "-ww-no-decoration",'className': "-ww-no-decoration"}, [
 
         
-     ]),<__wml.Attrs>{'text': '-ww-no-decoration','className': '-ww-no-decoration'}),
-__document.createTextNode(' modifier.\u000a  ')
+     ]),<__wml.Attrs>{'text': "-ww-no-decoration",'className': "-ww-no-decoration"}),
+__document.createTextNode(' modifier.\u000a    ')
      ])
+     ]),<__wml.Attrs>{}),
+__this.widget(new Demo({}, [
+
+        __this.node('h2', <__wml.Attrs>{}, [
+
+        __document.createTextNode('Links can be styled like buttons.')
+     ]),
+__this.node('p', <__wml.Attrs>{}, [
+
+        __document.createTextNode('\u000a      This is a button link \u000a      '),
+__this.widget(new Link({'className': ("ww-button " + __context.values.getState()),'text': "link",'onClick': __context.values.onLinkClick}, [
+
+        
+     ]),<__wml.Attrs>{'className': ("ww-button " + __context.values.getState()),'text': "link",'onClick': __context.values.onLinkClick})
+     ])
+     ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{});
 
        }
@@ -188,51 +206,10 @@ __document.createTextNode(' modifier.\u000a  ')
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

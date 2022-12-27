@@ -56,7 +56,7 @@ class Main {
                     __this.widget(new stack_select_1.StackSelect({ wml: { 'id': __context.values.error.id }, 'name': __context.values.error.name, 'label': __context.values.error.label, 'error': __context.values.error.message, 'stringifier': __context.values.error.stringifier, 'onSearch': __context.values.error.onSearch, 'onChange': __context.values.error.onChange }, []), { wml: { 'id': __context.values.error.id }, 'name': __context.values.error.name, 'label': __context.values.error.label, 'error': __context.values.error.message, 'stringifier': __context.values.error.stringifier, 'onSearch': __context.values.error.onSearch, 'onChange': __context.values.error.onChange })
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
-                    __this.widget(new stack_select_1.StackSelect({ 'name': __context.values.asc.name, 'label': 'Disabled', 'disabled': true, 'stringifier': __context.values.asc.stringifier, 'onSearch': __context.values.asc.onSearch, 'onChange': __context.values.asc.onChange }, []), { 'name': __context.values.asc.name, 'label': 'Disabled', 'disabled': true, 'stringifier': __context.values.asc.stringifier, 'onSearch': __context.values.asc.onSearch, 'onChange': __context.values.asc.onChange })
+                    __this.widget(new stack_select_1.StackSelect({ 'name': __context.values.asc.name, 'label': "Disabled", 'disabled': true, 'stringifier': __context.values.asc.stringifier, 'onSearch': __context.values.asc.onSearch, 'onChange': __context.values.asc.onChange }, []), { 'name': __context.values.asc.name, 'label': "Disabled", 'disabled': true, 'stringifier': __context.values.asc.stringifier, 'onSearch': __context.values.asc.onSearch, 'onChange': __context.values.asc.onChange })
                 ]), {})
             ]), {});
         };
@@ -82,39 +82,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

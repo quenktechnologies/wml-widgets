@@ -80,20 +80,20 @@ export class Main  implements __wml.View {
 
         __this.node('p', <__wml.Attrs>{}, [
 
-        __this.widget(new DropDown({'buttonText': 'Click Me'}, [
+        __this.widget(new DropDown({'buttonText': "Click Me"}, [
 
         __this.widget(new Menu({}, [
 
         __this.widget(new Item({}, [
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.onClick('You clicked one')}, [
+        __this.node('a', <__wml.Attrs>{'href': "#",'onclick': __context.onClick("You clicked one")}, [
 
         __document.createTextNode('One')
      ])
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.onClick('You clicked two')}, [
+        __this.node('a', <__wml.Attrs>{'href': "#",'onclick': __context.onClick("You clicked two")}, [
 
         __document.createTextNode('Two')
      ])
@@ -104,34 +104,34 @@ __this.widget(new Divider({}, [
      ]),<__wml.Attrs>{}),
 __this.widget(new Item({}, [
 
-        __this.node('a', <__wml.Attrs>{'href': '#','onclick': __context.onClick('You clicked three')}, [
+        __this.node('a', <__wml.Attrs>{'href': "#",'onclick': __context.onClick("You clicked three")}, [
 
         __document.createTextNode('Three')
      ])
      ]),<__wml.Attrs>{})
      ]),<__wml.Attrs>{})
-     ]),<__wml.Attrs>{'buttonText': 'Click Me'}),
-__this.widget(new DropDown({'buttonText': 'Me Too','autoClose': false }, [
+     ]),<__wml.Attrs>{'buttonText': "Click Me"}),
+__this.widget(new DropDown({'buttonText': "Me Too",'autoClose': false }, [
 
         __this.node('h1', <__wml.Attrs>{}, [
 
         __document.createTextNode('Any flow content can go here!')
      ])
-     ]),<__wml.Attrs>{'buttonText': 'Me Too','autoClose': false }),
-__this.widget(new DropDown({'buttonText': 'Can\'t touch this!','disabled': true }, [
+     ]),<__wml.Attrs>{'buttonText': "Me Too",'autoClose': false }),
+__this.widget(new DropDown({'buttonText': "Can\'t touch this!",'disabled': true }, [
 
         __this.node('p', <__wml.Attrs>{}, [
 
         __document.createTextNode('You will never see this!')
      ])
-     ]),<__wml.Attrs>{'buttonText': 'Can\'t touch this!','disabled': true }),
-__this.widget(new DropDown({'buttonText': 'I am an anchor','anchor': true }, [
+     ]),<__wml.Attrs>{'buttonText': "Can\'t touch this!",'disabled': true }),
+__this.widget(new DropDown({'buttonText': "I am an anchor",'anchor': true }, [
 
         __this.node('b', <__wml.Attrs>{}, [
 
         __document.createTextNode('Content')
      ])
-     ]),<__wml.Attrs>{'buttonText': 'I am an anchor','anchor': true })
+     ]),<__wml.Attrs>{'buttonText': "I am an anchor",'anchor': true })
      ])
      ]),<__wml.Attrs>{});
 
@@ -188,51 +188,10 @@ __this.widget(new DropDown({'buttonText': 'I am an anchor','anchor': true }, [
 
    node(tag:string, attrs:__wml.Attrs, children: __wml.Content[]): __wml.Content {
 
-       let e = __document.createElement(tag);
+       let asDOMAttrs = <__document.WMLDOMAttrs><object>attrs
 
-       Object.keys(attrs).forEach(key => {
-
-           let value = (<any>attrs)[key];
-
-           if (typeof value === 'function') {
-
-           (<any>e)[key] = value;
-
-           } else if (typeof value === 'string') {
-
-               //prevent setting things like disabled=''
-               if (value !== '')
-               e.setAttribute(key, value);
-
-           } else if (typeof value === 'boolean') {
-
-             e.setAttribute(key, '');
-
-           } else if(!__document.isBrowser && 
-                     value instanceof __document.WMLDOMText) {
-
-             e.setAttribute(key, <any>value);
-
-           }
-
-       });
-
-       children.forEach(c => {
-
-               switch (typeof c) {
-
-                   case 'string':
-                   case 'number':
-                   case 'boolean':
-                     let tn = __document.createTextNode(''+c);
-                     e.appendChild(<Node>tn)
-                   case 'object':
-                       e.appendChild(<Node>c);
-                   break;
-                   default:
-                                throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-
-               }})
+       let e = __document.createElement(tag, asDOMAttrs, children,
+                attrs.wml && attrs.wml.ns || '');
 
        this.register(e, attrs);
 

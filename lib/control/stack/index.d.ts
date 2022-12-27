@@ -8,7 +8,7 @@ export declare const STACK_CLOSE_BUTTON = "ww-stack__button";
 /**
  * ElementTemplate provides a template for rendering a stack element's UI.
  */
-export declare type ElementTemplate<V> = (s: Stack<V>) => (value: V) => (idx: number) => Fun;
+export type ElementTemplate<V> = (s: Stack<V>) => (value: V) => (idx: number) => Fun;
 /**
  * StackAttrs
  */

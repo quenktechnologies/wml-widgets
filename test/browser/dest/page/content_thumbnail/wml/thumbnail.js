@@ -49,24 +49,24 @@ class Main {
                     __this.widget(new grid_1.Row({}, [
                         __this.widget(new grid_1.Column({ 'span': 4 }, [
                             __this.widget(new thumbnail_1.Thumbnail({}, [
-                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
+                                __this.node('img', { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, [])
                             ]), {})
                         ]), { 'span': 4 }),
                         __this.widget(new grid_1.Column({ 'span': 4 }, [
                             __this.widget(new thumbnail_1.Thumbnail({ 'onClick': __context.values.onClick }, [
-                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
+                                __this.node('img', { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, [])
                             ]), { 'onClick': __context.values.onClick })
                         ]), { 'span': 4 }),
                         __this.widget(new grid_1.Column({ 'span': 4 }, [
-                            __this.widget(new thumbnail_1.Thumbnail({ 'href': '#' }, [
-                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, [])
-                            ]), { 'href': '#' })
+                            __this.widget(new thumbnail_1.Thumbnail({ 'href': "#" }, [
+                                __this.node('img', { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, [])
+                            ]), { 'href': "#" })
                         ]), { 'span': 4 })
                     ]), {}),
                     __this.widget(new grid_1.Row({}, [
                         __this.widget(new grid_1.Column({ 'span': 4 }, [
                             __this.widget(new thumbnail_1.Thumbnail({}, [
-                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
+                                __this.node('img', { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, []),
                                 __this.widget(new thumbnail_1.Caption({}, [
                                     __this.node('h4', {}, [
                                         __document.createTextNode('Caption')
@@ -79,7 +79,7 @@ class Main {
                         ]), { 'span': 4 }),
                         __this.widget(new grid_1.Column({ 'span': 4 }, [
                             __this.widget(new thumbnail_1.Thumbnail({ 'onClick': __context.values.onClick }, [
-                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
+                                __this.node('img', { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, []),
                                 __this.widget(new thumbnail_1.Caption({}, [
                                     __this.node('h4', {}, [
                                         __document.createTextNode('Caption')
@@ -91,8 +91,8 @@ class Main {
                             ]), { 'onClick': __context.values.onClick })
                         ]), { 'span': 4 }),
                         __this.widget(new grid_1.Column({ 'span': 4 }, [
-                            __this.widget(new thumbnail_1.Thumbnail({ 'href': '#' }, [
-                                __this.node('img', { 'alt': 'placeholder', 'src': 'https://via.placeholder.com/171x180', 'style': 'width:100%;height:100%;display:block' }, []),
+                            __this.widget(new thumbnail_1.Thumbnail({ 'href': "#" }, [
+                                __this.node('img', { 'alt': "placeholder", 'src': "https://via.placeholder.com/171x180", 'style': "width:100%;height:100%;display:block" }, []),
                                 __this.widget(new thumbnail_1.Caption({}, [
                                     __this.node('h4', {}, [
                                         __document.createTextNode('Caption')
@@ -101,7 +101,7 @@ class Main {
                                         __document.createTextNode('Describes the thumbnail in minor detail.')
                                     ])
                                 ]), {})
-                            ]), { 'href': '#' })
+                            ]), { 'href': "#" })
                         ]), { 'span': 4 })
                     ]), {})
                 ]), {})
@@ -129,39 +129,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

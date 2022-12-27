@@ -9,13 +9,11 @@
 
   {{...@values.content}}
 
+  {{ ...@children }}
+
   {% if @values.closable %}
 
     <Close onClick={{->@close()}} />
-
-  {% else %}
-
-    {{ '' | text }}
 
   {% endif %}
   

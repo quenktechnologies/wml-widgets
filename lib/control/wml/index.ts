@@ -70,7 +70,7 @@ export const label =
 
    return [
 
-        __this.node('label', <__wml.Attrs>{'for': id,'class': 'control-label'}, [
+        __this.node('label', <__wml.Attrs>{'for': id,'class': "control-label"}, [
 
         text(t)
      ])
@@ -83,7 +83,7 @@ export const message =
 
    return [
 
-        __this.node('span', <__wml.Attrs>{'class': 'help-block'}, [
+        __this.node('span', <__wml.Attrs>{'class': "help-block"}, [
 
         
      ])

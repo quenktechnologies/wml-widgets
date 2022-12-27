@@ -6,7 +6,7 @@ import { SortAlias, SortStrategy } from './sort';
 /**
  * Path the column gets its value from.
  */
-export declare type Path = string;
+export type Path = string;
 /**
  * Column provides the information a DataTable needs to render the cells
  * of a column in each row.

@@ -40,42 +40,53 @@ class Main {
         this.tree = __document.createElement('div');
         this.template = (__this) => {
             return __this.widget(new demo_1.Demo({}, [
-                __this.node('h1', {}, [
-                    __document.createTextNode('Links')
-                ]),
-                __this.node('p', {}, [
-                    __document.createTextNode('This is a '),
-                    __this.widget(new link_1.Link({ 'href': '#link' }, [
-                        __document.createTextNode('link')
-                    ]), { 'href': '#link' }),
-                    __document.createTextNode('.')
-                ]),
-                __this.node('p', {}, [
-                    __document.createTextNode('This is a '),
-                    __this.widget(new link_1.Link({ 'href': '#disabled', 'disabled': true }, [
-                        __document.createTextNode('disabled')
-                    ]), { 'href': '#disabled', 'disabled': true }),
-                    __document.createTextNode(' link.')
-                ]),
-                __this.node('p', {}, [
-                    __document.createTextNode('Links can also '),
-                    __this.widget(new link_1.Link({ 'text': 'specify' }, []), { 'text': 'specify' }),
-                    __document.createTextNode(' contents a the text attribute')
-                ]),
-                __this.node('p', {}, [
-                    __document.createTextNode('Links can also have '),
-                    __this.widget(new link_1.Link({ 'onClick': __context.values.onClick, 'text': 'handlers' }, []), { 'onClick': __context.values.onClick, 'text': 'handlers' })
-                ]),
-                __this.node('p', {}, [
-                    __document.createTextNode('Disabled link '),
-                    __this.widget(new link_1.Link({ 'onClick': __context.values.onClick, 'disabled': true, 'text': 'handlers' }, []), { 'onClick': __context.values.onClick, 'disabled': true, 'text': 'handlers' }),
-                    __document.createTextNode('\u000a     do nothing. \u000a  ')
-                ]),
-                __this.node('p', {}, [
-                    __document.createTextNode('You can remove the underline using the \u000a     '),
-                    __this.widget(new link_1.Link({ 'text': '-ww-no-decoration', 'className': '-ww-no-decoration' }, []), { 'text': '-ww-no-decoration', 'className': '-ww-no-decoration' }),
-                    __document.createTextNode(' modifier.\u000a  ')
-                ])
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h1', {}, [
+                        __document.createTextNode('Links')
+                    ]),
+                    __this.node('p', {}, [
+                        __document.createTextNode('This is a '),
+                        __this.widget(new link_1.Link({ 'href': "#link" }, [
+                            __document.createTextNode('link')
+                        ]), { 'href': "#link" }),
+                        __document.createTextNode('.')
+                    ]),
+                    __this.node('p', {}, [
+                        __document.createTextNode('This is a '),
+                        __this.widget(new link_1.Link({ 'href': "#disabled", 'disabled': true }, [
+                            __document.createTextNode('disabled')
+                        ]), { 'href': "#disabled", 'disabled': true }),
+                        __document.createTextNode(' link.')
+                    ]),
+                    __this.node('p', {}, [
+                        __document.createTextNode('Links can also '),
+                        __this.widget(new link_1.Link({ 'text': "specify" }, []), { 'text': "specify" }),
+                        __document.createTextNode(' contents a the text attribute')
+                    ]),
+                    __this.node('p', {}, [
+                        __document.createTextNode('Links can also have '),
+                        __this.widget(new link_1.Link({ 'onClick': __context.values.onClick, 'text': "handlers" }, []), { 'onClick': __context.values.onClick, 'text': "handlers" })
+                    ]),
+                    __this.node('p', {}, [
+                        __document.createTextNode('Disabled link '),
+                        __this.widget(new link_1.Link({ 'onClick': __context.values.onClick, 'disabled': true, 'text': "handlers" }, []), { 'onClick': __context.values.onClick, 'disabled': true, 'text': "handlers" }),
+                        __document.createTextNode('\u000a       do nothing. \u000a    ')
+                    ]),
+                    __this.node('p', {}, [
+                        __document.createTextNode('You can remove the underline using the \u000a       '),
+                        __this.widget(new link_1.Link({ 'text': "-ww-no-decoration", 'className': "-ww-no-decoration" }, []), { 'text': "-ww-no-decoration", 'className': "-ww-no-decoration" }),
+                        __document.createTextNode(' modifier.\u000a    ')
+                    ])
+                ]), {}),
+                __this.widget(new demo_1.Demo({}, [
+                    __this.node('h2', {}, [
+                        __document.createTextNode('Links can be styled like buttons.')
+                    ]),
+                    __this.node('p', {}, [
+                        __document.createTextNode('\u000a      This is a button link \u000a      '),
+                        __this.widget(new link_1.Link({ 'className': ("ww-button " + __context.values.getState()), 'text': "link", 'onClick': __context.values.onLinkClick }, []), { 'className': ("ww-button " + __context.values.getState()), 'text': "link", 'onClick': __context.values.onLinkClick })
+                    ])
+                ]), {})
             ]), {});
         };
     }
@@ -100,39 +111,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }

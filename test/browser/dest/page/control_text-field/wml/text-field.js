@@ -45,12 +45,12 @@ class Main {
                         __document.createTextNode('The value of the input is:')
                     ]),
                     __this.node('p', {}, [
-                        __this.node('b', { wml: { 'id': 'content' } }, [
+                        __this.node('b', { wml: { 'id': "content" } }, [
                             __document.createTextNode('Nothing')
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'text' }, 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange }, []), { wml: { 'id': 'text' }, 'name': 'text', 'message': 'This is the help message', 'focus': true, 'onChange': __context.onChange })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': "text" }, 'name': "text", 'message': "This is the help message", 'focus': true, 'onChange': __context.onChange }, []), { wml: { 'id': "text" }, 'name': "text", 'message': "This is the help message", 'focus': true, 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -60,7 +60,7 @@ class Main {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'success' }, 'name': 'success', 'label': 'This is a success label', 'success': 'This textfield has a success', 'onChange': __context.onChange }, []), { wml: { 'id': 'success' }, 'name': 'success', 'label': 'This is a success label', 'success': 'This textfield has a success', 'onChange': __context.onChange })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': "success" }, 'name': "success", 'label': "This is a success label", 'success': "This textfield has a success", 'onChange': __context.onChange }, []), { wml: { 'id': "success" }, 'name': "success", 'label': "This is a success label", 'success': "This textfield has a success", 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -70,7 +70,7 @@ class Main {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'warning' }, 'name': 'warning', 'label': 'This is a warning label', 'warning': 'This textfield has a warning.', 'onChange': __context.onChange }, []), { wml: { 'id': 'warning' }, 'name': 'warning', 'label': 'This is a warning label', 'warning': 'This textfield has a warning.', 'onChange': __context.onChange })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': "warning" }, 'name': "warning", 'label': "This is a warning label", 'warning': "This textfield has a warning.", 'onChange': __context.onChange }, []), { wml: { 'id': "warning" }, 'name': "warning", 'label': "This is a warning label", 'warning': "This textfield has a warning.", 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -80,7 +80,7 @@ class Main {
                         ])
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'error' }, 'name': 'error', 'label': 'This is an error label', 'error': 'This textfield has an error.', 'onChange': __context.onChange }, []), { wml: { 'id': 'error' }, 'name': 'error', 'label': 'This is an error label', 'error': 'This textfield has an error.', 'onChange': __context.onChange })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': "error" }, 'name': "error", 'label': "This is an error label", 'error': "This textfield has an error.", 'onChange': __context.onChange }, []), { wml: { 'id': "error" }, 'name': "error", 'label': "This is an error label", 'error': "This textfield has an error.", 'onChange': __context.onChange })
                     ])
                 ]), {}),
                 __this.widget(new demo_1.Demo({}, [
@@ -88,7 +88,7 @@ class Main {
                         __document.createTextNode('The one uses rows to render a text area:')
                     ]),
                     __this.node('p', {}, [
-                        __this.widget(new text_field_1.TextField({ wml: { 'id': 'area' }, 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange }, []), { wml: { 'id': 'area' }, 'name': 'area', 'rows': 5, 'label': 'This is a textarea label', 'onChange': __context.onChange })
+                        __this.widget(new text_field_1.TextField({ wml: { 'id': "area" }, 'name': "area", 'rows': 5, 'label': "This is a textarea label", 'onChange': __context.onChange }, []), { wml: { 'id': "area" }, 'name': "area", 'rows': 5, 'label': "This is a textarea label", 'onChange': __context.onChange })
                     ])
                 ]), {})
             ]), {});
@@ -115,39 +115,8 @@ class Main {
         return e;
     }
     node(tag, attrs, children) {
-        let e = __document.createElement(tag);
-        Object.keys(attrs).forEach(key => {
-            let value = attrs[key];
-            if (typeof value === 'function') {
-                e[key] = value;
-            }
-            else if (typeof value === 'string') {
-                //prevent setting things like disabled=''
-                if (value !== '')
-                    e.setAttribute(key, value);
-            }
-            else if (typeof value === 'boolean') {
-                e.setAttribute(key, '');
-            }
-            else if (!__document.isBrowser &&
-                value instanceof __document.WMLDOMText) {
-                e.setAttribute(key, value);
-            }
-        });
-        children.forEach(c => {
-            switch (typeof c) {
-                case 'string':
-                case 'number':
-                case 'boolean':
-                    let tn = __document.createTextNode('' + c);
-                    e.appendChild(tn);
-                case 'object':
-                    e.appendChild(c);
-                    break;
-                default:
-                    throw new TypeError(`Can not adopt child ${c} of type ${typeof c}`);
-            }
-        });
+        let asDOMAttrs = attrs;
+        let e = __document.createElement(tag, asDOMAttrs, children, attrs.wml && attrs.wml.ns || '');
         this.register(e, attrs);
         return e;
     }
