@@ -26,4 +26,10 @@
 
    </Demo>
 
+   <Demo>
+
+    <Alert>An alert with children!</Alert>
+
+   </Demo>
+
 </Demo>
