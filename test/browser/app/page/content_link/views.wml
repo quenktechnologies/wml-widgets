@@ -5,23 +5,41 @@
 {% view Main (LinkPage from ".") %}
 <Demo>
 
-  <h1>Links</h1>
+  <Demo>
 
-  <p>This is a <Link href="#link">link</Link>.</p>
+    <h1>Links</h1>
 
-  <p>This is a <Link href="#disabled" disabled=true>disabled</Link> link.</p>
+    <p>This is a <Link href="#link">link</Link>.</p>
 
-  <p>Links can also <Link text="specify" /> contents a the text attribute</p>
+    <p>This is a <Link href="#disabled" disabled=true>disabled</Link> link.</p>
 
-  <p>Links can also have <Link onClick={{@values.onClick}} text="handlers"/></p>
+    <p>Links can also <Link text="specify" /> contents a the text attribute</p>
 
-  <p>Disabled link <Link onClick={{@values.onClick}} disabled=true text="handlers"/>
-     do nothing. 
-  </p>
+    <p>Links can also have <Link onClick={{@values.onClick}} text="handlers"/></p>
 
-  <p>You can remove the underline using the 
-     <Link text="-ww-no-decoration"
-           className="-ww-no-decoration" /> modifier.
-  </p>
+    <p>Disabled link <Link onClick={{@values.onClick}} disabled=true text="handlers"/>
+       do nothing. 
+    </p>
+
+    <p>You can remove the underline using the 
+       <Link text="-ww-no-decoration"
+             className="-ww-no-decoration"/> modifier.
+    </p>
+
+  </Demo>
+
+  <Demo>
+
+    <h2>Links can be styled like buttons.</h2>
+
+    <p>
+      This is a button link 
+      <Link 
+        className={{"ww-button "+@values.getState()}}
+        text="link"
+        onClick={{@values.onLinkClick}}/>
+    </p>
+  
+  </Demo>
 
 </Demo>
