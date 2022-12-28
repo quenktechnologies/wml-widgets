@@ -1516,29 +1516,6 @@ textarea.ww-search > input {
   color: #fff;
   background-color: transparent;
 }
-.ww-button.ww-link,
-.ww-link.ww-button.ww-link {
-  color: #337ab7;
-  font-weight: normal;
-  border-radius: 0;
-  background-color: transparent;
-  box-shadow: none;
-}
-.ww-button.ww-link:hover,
-.ww-button.ww-link:focus,
-.ww-link.ww-button.ww-link:hover,
-.ww-link.ww-button.ww-link:focus {
-  color: #337ab7;
-  text-decoration: underline;
-  background-color: transparent;
-}
-.ww-button.ww-link[disabled]:hover,
-.ww-button.ww-link[disabled]:focus,
-.ww-link.ww-button.ww-link[disabled]:hover,
-.ww-link.ww-button.ww-link[disabled]:focus {
-  color: #777;
-  text-decoration: none;
-}
 .ww-button.-active,
 .ww-link.ww-button.-active {
   outline: 0;
