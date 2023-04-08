@@ -1,15 +1,14 @@
-import * as views from './wml/button-group';
-
 import { mapTo, merge, Record } from '@quenk/noni/lib/data/record';
 import { isFunction } from '@quenk/noni/lib/data/type';
 
-import { View, Component } from '@quenk/wml';
+import {  Component } from '@quenk/wml';
 
 import { concat } from '../../util';
 import { TOOLBAR_COMPAT } from '../toolbar';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { MenuButtonAttrs } from '../menu-button';
 import { ButtonAttrs, ButtonClickedEventHandler } from '../button';
+import { ButtonGroupView } from './views';
 
 ///classNames:begin
 export const BUTTON_GROUP = 'ww-button-group';
@@ -18,14 +17,14 @@ export const BUTTON_GROUP_COMPAT = 'ww-button-group-compat';
 ///classNames:end
 
 /**
- * ButtonSpec specifies a button or dropdown button to include in a button group.
+ * ButtonTypes specifies a button or dropdown button to include in a button group.
  */
-export type ButtonSpec = ButtonConf | DropDownConf;
+export type ButtonTypes = ButtonType | MenuButtonType;
 
 /**
- * ButtonConf defines a button for the button group.
+ * ButtonType defines a button for the button group.
  */
-export interface ButtonConf extends ButtonAttrs<void> {
+export interface ButtonType extends ButtonAttrs<void> {
 
     /**
      * type must be "button" to be considered valid.
@@ -34,14 +33,14 @@ export interface ButtonConf extends ButtonAttrs<void> {
 }
 
 /**
- * DropDownConf defines a dropdown for the button group.
+ * MenuButtonType defines a dropdown for the button group.
  */
-export interface DropDownConf extends MenuButtonAttrs {
+export interface MenuButtonType extends MenuButtonAttrs {
 
     /**
-     * type must be "dropdown" to be considered valid.
+     * type must be "menu" to be considered valid.
      */
-    type: 'dropdown',
+    type: 'menu',
 
 }
 
@@ -53,7 +52,7 @@ export interface DropDownConf extends MenuButtonAttrs {
  * dropdown attribute definition or simply the onClick handler.
  */
 export type ButtonSpecRecord
-    = Record<ButtonSpec | ButtonClickedEventHandler<void>>
+    = Record<ButtonTypes | ButtonClickedEventHandler<void>>
     ;
 
 /**
@@ -64,7 +63,7 @@ export interface ButtonGroupAttrs extends HTMLElementAttrs {
     /**
      * buttons specifies buttons to auto-generate for the button group.
      */
-    buttons?: ButtonSpecRecord | ButtonSpec[]
+    buttons?: ButtonSpecRecord | ButtonTypes[]
 
 }
 
@@ -73,7 +72,7 @@ export interface ButtonGroupAttrs extends HTMLElementAttrs {
  */
 export class ButtonGroup extends Component<ButtonGroupAttrs> {
 
-    view: View = new views.Main(this);
+    view = new ButtonGroupView(this);
 
     values = {
 
@@ -88,13 +87,13 @@ export class ButtonGroup extends Component<ButtonGroupAttrs> {
 
 }
 
-const normalize = (specs: ButtonSpecRecord | ButtonSpec[]): ButtonSpec[] => {
+const normalize = (specs: ButtonSpecRecord | ButtonTypes[]): ButtonTypes[] => {
     if (Array.isArray(specs))
         return specs;
     else
         return mapTo(specs, (conf, name) => {
             if (isFunction(conf))
-                return {type:'button', name, onClick: conf }
+                return { type: 'button', name, onClick: conf }
             else
                 return merge({ name }, conf)
         });

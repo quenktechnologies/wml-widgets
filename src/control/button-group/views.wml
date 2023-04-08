@@ -1,13 +1,12 @@
-{% import (Button) from "../../button" %}
-{% import (MenuButton) from "../../menu-button" %}
-{% import (ButtonGroup) from "../" %}
+{% import (Button) from "../button" %}
+{% import (MenuButton) from "../menu-button" %}
 
-{% view Main (ButtonGroup) %}
+{% view ButtonGroupView (ButtonGroup from ".") %}
 <div id={{@values.id}} class={{@values.className}}>
   {% for spec in @values.buttons %}
     {% if spec."type" == "button" %}
       <Button wml:attrs={{spec}} />
-    {% else if spec."type" == "dropdown" %}
+    {% else if spec."type" == "menu" %}
       <MenuButton wml:attrs={{spec}}/>
     {% endif %}
   {% endfor %}
