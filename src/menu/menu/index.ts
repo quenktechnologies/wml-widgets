@@ -1,19 +1,170 @@
 import * as hidden from '../../content/state/hidden';
-import * as headerViews from './wml/header';
-import { View, Component, Content } from '@quenk/wml';
-import { text } from '@quenk/wml/lib/dom';
+
+import { Component, Content } from '@quenk/wml';
+
 import { concat } from '../../util';
-import { BLOCK } from '../../content/orientation';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
-import { Main } from './wml/menu';
+import { ACTIVE } from '../../content/state/active';
+import { Link, LinkAttrs } from '../../content/link';
+import { Name } from '../../control';
+import {
+    MenuHeaderView,
+    MenuItemView,
+    MenuDividerView,
+    MenuView
+} from './views';
 
 ///classNames:begin
 export const MENU = 'ww-menu';
-export const MENU_HEADER_ITEM = 'ww-menu__header-item';
+export const MENU_HEADER = 'ww-menu-header';
+export const MENU_ITEM = 'ww-menu-item';
+export const MENU_DIVIDER = 'ww-menu-divider';
 ///classNames:end
 
-export const NAV_MODE = 'nav';
-export const CONTENT_MODE = 'content';
+/**
+ * MenuItemSpecType specifies the type of menu item to auto generate.
+ */
+export type MenuItemSpecType = string;
+
+/**
+ * LinkType specifies the configuration for a Link element.
+ */
+export interface LinkType extends LinkAttrs {
+
+    /**
+     * type must be "link" to be considered valid.
+     */
+    type: MenuItemSpecType,
+
+}
+
+/**
+ * MenuHeaderAttrs
+ */
+export interface MenuHeaderAttrs extends HTMLElementAttrs {
+
+    /**
+     * text for the header
+     */
+    text?: string
+
+}
+
+/**
+ * MenuHeaderType specifies the configuration for a HeaderItem element.
+ */
+export interface MenuHeaderType extends MenuHeaderAttrs {
+
+    /**
+     * type must be "header" to be considered valid.
+     */
+    type: MenuItemSpecType
+
+}
+
+/**
+ * MenuHeader displays a styled header among menu items.
+ */
+export class MenuHeader extends Component<MenuHeaderAttrs> {
+
+    view = new MenuHeaderView(this);
+
+    className = concat(MENU_HEADER, getClassName(this.attrs));
+
+}
+
+export { MenuHeader as Header }
+
+/**
+ * MenuItemAttrs
+ */
+export interface MenuItemAttrs extends HTMLElementAttrs {
+
+    /**
+     * name of the Item
+     */
+    name?: Name,
+
+    /**
+     * active state of the Item
+     */
+    active?: boolean,
+
+    /**
+     * text can be specified to display textual content in the link.
+     */
+    text?: string,
+
+    /**
+     * onClick is applied when the Item is clicked.
+     */
+    onClick?: (e: MenuItemClickedEvent) => void,
+
+}
+
+/**
+ * MenuItemClickedEvent is fired when the user clicks on an the item part of a
+ * menu item.
+ */
+export class MenuItemClickedEvent {
+
+    constructor(public name: Name) { }
+
+}
+
+/**
+ * MenuItem wraps content in an html <li> element to form a menu.
+ *
+ * MenuItems should therefore not have any siblings that are not themselves 
+ * MenuItems.
+ */
+export class MenuItem extends Component<MenuItemAttrs> {
+
+    view = new MenuItemView(this);
+
+    id = getId(this.attrs);
+
+    className = concat(MENU_ITEM,
+        (this.attrs.active === true) ? ACTIVE : '', getClassName(this.attrs));
+
+}
+
+export { MenuItem as Item }
+
+/**
+ * MenuDividerType specifies the configuration for a divider element.
+ */
+export interface MenuDividerType extends HTMLElementAttrs {
+
+    /**
+     * type must be "divider" to be considered valid.
+     */
+    type: MenuItemSpecType
+
+}
+
+/**
+ * MenuDivider is used to add a horizontal line in place of an item to siginify
+ * a new section.
+ */
+export class MenuDivider extends Component<HTMLElementAttrs> {
+
+    view = new MenuDividerView(this);
+
+    className = MENU_DIVIDER;
+
+}
+
+export { MenuDivider as Divider }
+
+/**
+ * MenuItemSpec specifies menu content that can be auto generated.
+ */
+export type MenuItemSpec
+    = MenuHeaderType
+    | LinkType
+    | MenuDividerType
+    ;
 
 /**
  * MenuAttrs
@@ -26,43 +177,14 @@ export interface MenuAttrs extends HTMLElementAttrs {
     hidden?: boolean,
 
     /**
-     * block display
+     * @deprecated
      */
-    block?: boolean
-
-}
-
-/**
- * HeaderAttrs
- */
-export interface HeaderAttrs extends HTMLElementAttrs {
+    block?: boolean,
 
     /**
-     * text
+     * items can be specified to have the Menu automatically generate content.
      */
-    text: string
-
-}
-
-/**
- * HeaderItem
- */
-export class HeaderItem extends Component<HeaderAttrs> {
-
-    view: View = new headerViews.Main(this);
-
-    values = {
-
-        root: {
-
-            className: concat(MENU_HEADER_ITEM, getClassName(this.attrs)),
-
-            content: (this.attrs && this.attrs.text) ?
-                [text(this.attrs.text)] : this.children
-
-        }
-
-    }
+    items?: MenuItemSpec[]
 
 }
 
@@ -73,69 +195,49 @@ export class HeaderItem extends Component<HeaderAttrs> {
 export class Menu extends Component<MenuAttrs>
     implements hidden.Hidable {
 
-    view: View = new Main(this);
+    view = new MenuView(this);
 
-    values = {
+    wmlId = 'root';
 
-        root: {
+    id = getId(this.attrs);
 
-            wml: {
+    className = concat(MENU, getClassName(this.attrs),
+        (this.attrs.hidden === true) ? hidden.HIDDEN : '');
 
-                id: 'root'
-
-            },
-
-            id: getId(this.attrs),
-
-            className: concat(MENU, getClassName(this.attrs),
-                (this.attrs && this.attrs.hidden) ? hidden.HIDDEN : '',
-                (this.attrs && this.attrs.block) ? BLOCK : '')
-
-        },
-        menu: {
-
-            id: 'menu'
-
-        },
-        content: () => this.children
-
-    };
+    items = <Content[]>(this.attrs.items || []).map(item => {
+        if (item.type === 'header')
+            return new MenuItem({}, [new MenuHeader(item, []).render()]).render()
+        else if (item.type === 'link')
+            return new MenuItem({}, [new Link(item, []).render()]).render();
+        else if (item.type === 'divider')
+            return new MenuDivider(item, []).render();
+    }).filter(content => content != null)
 
     isHidden(): boolean {
 
-        return hidden.isHidden(this.view, this.values.root.wml.id);
+        return hidden.isHidden(this.view, this.wmlId);
 
     }
 
     hide(): Menu {
 
-        hidden.hide(this.view, this.values.root.wml.id);
+        hidden.hide(this.view, this.wmlId);
         return this;
 
     }
 
     show(): Menu {
 
-        hidden.show(this.view, this.values.root.wml.id);
+        hidden.show(this.view, this.wmlId);
         return this;
 
     }
 
     toggle(): Menu {
 
-        hidden.toggle(this.view, this.values.root.wml.id);
-        return this;
-
-    }
-
-    setContent(content: Content[]): Menu {
-
-        this.values.content = () => content;
-        this.view.invalidate();
-        this.show();
+        hidden.toggle(this.view, this.wmlId);
         return this;
 
     }
 
 }
-

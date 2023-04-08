@@ -4,14 +4,14 @@ import * as util from '../../util';
 import { mapTo, merge, Record } from '@quenk/noni/lib/data/record';
 import { isFunction, isObject, isString } from '@quenk/noni/lib/data/type';
 
+export { Link } from '../../content/link';
 import { VERTICAL } from '../../content/orientation';
-import { HTMLElementAttrs } from '../../';
 import { LinkAttrs } from '../../content/link';
-import { MenuHeaderAttrs } from '../header';
+import { HTMLElementAttrs } from '../../';
+import { MenuHeaderAttrs } from '../menu';
 import { NavMenuView } from './view';
 
 export { Item } from '../item';
-export { Link } from '../../content/link';
 
 ///classNames:begin
 export const NAV_MENU = 'ww-nav-menu';

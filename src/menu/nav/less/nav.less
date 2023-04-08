@@ -6,13 +6,19 @@
   padding: @nav-padding-vertical @nav-padding-horizontal;
   margin: @nav-margin-vertical @nav-margin-horizontal;
 
-  & > .__ITEM__ {
+  & > .__MENU_ITEM__ {
 
     float: left;
 
+    & > .__MENU_HEADER__ {
+
+      text-transform: capitalize;
+
+    }
+
   }
 
-  &.__VERTICAL__ > .__ITEM__ {
+  &.__VERTICAL__ > .__MENU_ITEM__ {
 
     float: none;
 
@@ -23,7 +29,7 @@
 /*
   Nav styles for child Item widgets.
  */
-.__NAV_MENU__ > .__ITEM__ {
+.__NAV_MENU__ > .__MENU_ITEM__ {
 
   margin-top: @nav-item-margin-vertical;
   margin-bottom: @nav-item-margin-vertical;
@@ -40,7 +46,7 @@
     display: block;
     color: inherit;
     text-decoration: inherit;
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-weight: @nav-item-link-font-weight;
     letter-spacing: @nav-item-link-letter-spacing;
 

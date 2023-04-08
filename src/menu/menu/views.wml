@@ -1,0 +1,24 @@
+{% view MenuHeaderView (MenuHeader from ".") %}
+<h4 class={{@className}}>{{ @attrs.text | text }}{{ ...@children }}</h4>
+
+{% view MenuItemView (MenuItem from ".") %}
+<li 
+  id={{@id}} 
+  class={{@className}}>
+  {% if @attrs.text %}
+    {{ @attrs.text | text }}
+  {% endif %}
+  {{ ...@children }}
+</li>
+
+{% view MenuDividerView (MenuDivider from ".") %}
+<li class={{@className}} />
+
+{% view MenuView (Menu from ".") %}
+<ul 
+  wml:id={{@wmlId}}
+  id={{@id}}
+  class={{@className}}>
+  {{ ...@items }}
+  {{ ...@children }}
+</ul>

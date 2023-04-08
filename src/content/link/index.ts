@@ -8,13 +8,27 @@ import { getById, concat } from '../../util';
 import { ACTIVE } from '../state/active';
 import { DISABLED } from '../state/disabled';
 import { HTMLElementAttrs } from '../../';
+import { Name } from '../../control';
 
 ///classNames:begin
-/**
- * LINK
- */
 export const LINK = 'ww-link';
 ///classNames:end
+
+/**
+ * LinkTitle shown on hover events.
+ */
+export type LinkTitle = string;
+
+/**
+ * Path used for href values usually corresponding to a location on page or on
+ * a remote server.
+ */
+export type Path = string;
+
+/**
+ * LinkClickedEventHandler is a function that is executed when a link is clicked.
+ */
+export type LinkClickedEventHandler = (e: LinkClickedEvent) => void
 
 /**
  * LinkAttrs
@@ -24,17 +38,17 @@ export interface LinkAttrs extends HTMLElementAttrs {
     /**
      * name of this Link.
      */
-    name?: string,
+    name?: Name,
 
     /**
      * title of the Link.
      */
-    title?: string,
+    title?: LinkTitle,
 
     /**
      * href for the link element.
      */
-    href?: string,
+    href?: Path,
 
     /**
      * target for the link.
@@ -59,7 +73,7 @@ export interface LinkAttrs extends HTMLElementAttrs {
     /**
      * onClick handler
      */
-    onClick?: (e: LinkClickedEvent) => void
+    onClick?: LinkClickedEventHandler
 
 }
 
@@ -68,7 +82,7 @@ export interface LinkAttrs extends HTMLElementAttrs {
  */
 export class LinkClickedEvent {
 
-    constructor(public name: string, public href: string) { }
+    constructor(public name: Name, public href: Path) { }
 
 }
 
@@ -128,7 +142,7 @@ export class Link extends wml.Component<LinkAttrs> {
         href: (this.attrs && this.attrs.href) ?
             this.attrs.href : '#',
 
-      target: this.attrs.target,
+        target: this.attrs.target,
 
         active: (this.attrs && this.attrs.active) ?
             this.attrs.active : false,

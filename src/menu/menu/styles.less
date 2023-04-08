@@ -1,11 +1,30 @@
 @import "./variables";
 
+.__MENU_HEADER__ {
+
+  padding: @menu-item-padding;
+  color: @menu-header-text-color;
+  font-weight: @menu-header-font-weight;
+  letter-spacing: @menu-header-letter-spacing;
+  margin: 0;
+
+}
+
+.__MENU_DIVIDER__ {
+
+    height: 1px;
+    overflow: hidden;
+    background-color: @menu-divider-background;
+
+}
+
 .__MENU__ {
 
   min-width: @menu-width;
   display: block; 
   z-index: @menu-z-index;
-  padding: @menu-vertical-padding @menu-horizontal-padding;
+  padding: @menu-padding;
+  margin: @menu-margin;
   list-style: none;
   font-size: @menu-font-size;
   text-align: @menu-text-align;
@@ -15,10 +34,17 @@
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
   background-clip: padding-box;
 
-  & > li > a  {
+  & > li {
+
+    margin: @menu-item-margin;
+
+  }
+
+  & > li > a,
+  & > li > .__LINK__ {
 
     display: block;
-    padding: @menu-link-vertical-padding @menu-link-hoziontal-padding;
+    padding: @menu-item-padding;
     clear: both;
     font-weight: normal;
     line-height: @menu-line-height;
@@ -33,14 +59,15 @@
     text-decoration: none;
     color: @menu-link-hover-color;
     background-color: @menu-link-hover-background;
+    border-radius: @menu-border-radius;
 
   }
 
   & > li > h1,h2,h3,h4,h5,h6 {
 
     display: block;
-    padding: @menu-heading-vertical-padding @menu-heading-horizontal-padding;
-    margin:0;
+    padding: @menu-item-padding;
+    margin: 0;
     font-size: @menu-heading-font-size;
     line-height: @menu-line-height;
     color: @menu-heading-color;

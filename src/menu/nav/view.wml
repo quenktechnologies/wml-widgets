@@ -1,5 +1,5 @@
 {% import (Item) from "../item" %}
-{% import (MenuHeader) from "../header" %}
+{% import (MenuHeader) from "../menu" %}
 {% import (Link) from "../../content/link" %}
 {% import (NavMenu) from "." %}
 
