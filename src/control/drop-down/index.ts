@@ -1,49 +1,41 @@
-import * as views from './wml/drop-down';
 import * as hidden from '../../content/state/hidden';
 import * as style from '../../content/style';
 
-import { View, Component } from '@quenk/wml';
+import { Component } from '@quenk/wml';
 
-import { Style } from '../../content/style';
 import { BUTTON_GROUP_COMPAT } from '../button-group';
 import { concat, getById } from '../../util';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
+import { MenuItemSpec } from '../../menu/menu';
+import { DropDownView } from './views';
 
 ///classNames:begin
 export const DROP_DOWN = 'ww-drop-down-menu';
 export const DROP_DOWN_TOGGLE = 'ww-drop-down-menu__toggle';
-export const DROP_DOWN_CONTENT = 'ww-drop-down__content';
+export const DROP_DOWN_CONTENT = 'ww-drop-down-menu';
 ///classNames:end
 
 /**
- * ButtonTemplate provides the template for rendering the button part.
+ * DropDownAttrs
  */
-export type ButtonTemplate = (b: DropDown) => View;
-
-/**
- * DropDownMenuAttrs
- */
-export interface DropDownMenuAttrs extends HTMLElementAttrs {
+export interface DropDownAttrs extends HTMLElementAttrs {
 
     /**
-     * buttonClassName
+     * buttonClassName is appended to the button class list.
+     *
+     * Defaults to "-default".
      */
     buttonClassName?: string,
 
     /**
-     * buttonText for the button.
+     * text for the button.
      */
-    buttonText?: string,
+    text?: string,
 
     /**
-     * buttonStyle for the button.
+     * items if specified will be rendered instead of the child content.
      */
-    buttonStyle?: Style,
-
-    /**
-     * buttonTemplate for rendering the button.
-     */
-    buttonTemplate?: ButtonTemplate
+    items?: MenuItemSpec[],
 
     /**
      * autoClose when true, will automatically hide the content.
@@ -79,139 +71,104 @@ export interface DropDownMenuAttrs extends HTMLElementAttrs {
  *    |                         |
  *    +-------------------------+
  */
-export class DropDown extends Component<DropDownMenuAttrs>
+export class DropDown extends Component<DropDownAttrs>
     implements hidden.Hidable {
 
-    view: View = new views.Main(this);
+    view = new DropDownView(this);
 
-    values = {
+    wmlId = 'root';
 
-        root: {
+    id = getId(this.attrs);
 
-            wml: {
+    className = concat(DROP_DOWN, BUTTON_GROUP_COMPAT, getClassName(this.attrs));
 
-                id: 'root'
+    button = {
 
-            },
+        text: this.attrs.text,
 
-            id: getId(this.attrs),
+        anchor: this.attrs.anchor,
 
-            className: concat(DROP_DOWN, BUTTON_GROUP_COMPAT, getClassName(this.attrs))
+        className: concat(DROP_DOWN_TOGGLE, this.attrs.buttonClassName || style.DEFAULT),
 
-        },
-        button: {
+        disabled: this.attrs.disabled,
 
-            text: (this.attrs && this.attrs.buttonText) ?
-                this.attrs.buttonText : '',
+        onClick: () => {
 
-            anchor: (this.attrs && this.attrs.anchor) ?
-                this.attrs.anchor : false,
-
-            className: concat(DROP_DOWN_TOGGLE, style.DEFAULT,
-                (this.attrs && this.attrs.buttonClassName) ?
-                    this.attrs.buttonClassName : ''),
-
-            disabled: (this.attrs && this.attrs.disabled) ?
-                this.attrs.disabled : undefined,
-
-            template: () => (this.attrs && this.attrs.buttonTemplate) ?
-                this.attrs.buttonTemplate(this) : new views.ButtonView(this),
-
-            onClick: () => {
-
-                let mayRoot =
-                    getById<HTMLElement>(this.view, this.values.root.wml.id);
-
-                if (mayRoot.isJust()) {
-
-                    let e: HTMLElement = mayRoot.get();
-
-                    if (this.values.content.autoClose) {
-
-                        let hide = this.values.content.hide;
-
-                        //intercept clicks on button and content sections
-                        for (let i = 0; i < e.children.length; i++) {
-
-                            //prevent doubling up handlers.
-                            e.children[i]
-                                .removeEventListener('click', hide);
-
-                            e.children[i].addEventListener('click', hide);
-
-                        }
-
-                    }
-
-                    this.toggle();
-
-                    window.addEventListener('click', this);
-
-                }
-
-            }
-
-        },
-        content: {
-
-            wml: {
-
-                id: 'content'
-            },
-
-            className: concat(DROP_DOWN_CONTENT, hidden.HIDDEN),
-
-            autoClose: (this.attrs && this.attrs.autoClose === false) ?
-                false : true,
-
-            render: () => this.children,
-
-            hide: () => this.hide()
+            this.toggle();
 
         }
 
     };
 
+    menu = {
+
+        wmlId: 'content',
+
+        className: DROP_DOWN_CONTENT,
+
+        hidden: true,
+
+        showing: false,
+
+        autoClose: (this.attrs.autoClose === false) ? false : true,
+
+        items: this.attrs.items,
+
+    };
+
+    /**
+     * handleEvent listens for clicks on elements outside the dropdown's
+     * tree. 
+     *
+     * If autoClose is not set to false, the menu will be hidden.
+     */
+    handleEvent(): void {
+
+        getById<HTMLElement>(this.view, this.wmlId)
+            .map((root: HTMLElement) => {
+                if (!document.body.contains(root))
+                    document.removeEventListener('click', this);
+                else if (this.menu.showing)
+                    this.menu.showing = false;
+                else 
+                    this.hide();
+            });
+
+    }
+
     isHidden(): boolean {
 
-        return hidden.isHidden(this.view, this.values.content.wml.id);
+        return this.menu.hidden;
 
     }
 
     hide(): DropDown {
 
-        hidden.hide(this.view, this.values.content.wml.id);
+        if (this.menu.autoClose)
+            document.removeEventListener('click', this);
+
+        this.menu.hidden = true;
+        this.view.invalidate();
         return this;
 
     }
 
     show(): DropDown {
 
-        hidden.show(this.view, this.values.content.wml.id);
+        this.menu.hidden = false;
+        this.menu.showing = true;
+        this.view.invalidate();
+
+        if (this.menu.autoClose)
+            document.addEventListener('click', this);
+
         return this;
 
     }
 
     toggle(): DropDown {
 
-        hidden.toggle(this.view, this.values.content.wml.id);
-        return this;
+        return this.menu.hidden ? this.show() : this.hide();
 
     }
-
-    handleEvent(e: Event): void {
-
-        getById<HTMLElement>(this.view, this.values.root.wml.id)
-            .map((root: HTMLElement) => {
-
-                if (!document.body.contains(root))
-                    document.removeEventListener('click', this);
-
-                if ((!root.contains(<Node>e.target)))
-                    this.hide();
-
-            });
-
-    }
-
 }

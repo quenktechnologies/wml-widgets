@@ -73,7 +73,7 @@
       <InputGroup>
         <AddOn button=true>
           
-          <DropDown buttonText="Click Me">
+          <DropDown text="Click Me">
 
             <Menu>
 
@@ -104,7 +104,7 @@
       <InputGroup>
         <TextInput/>
         <AddOn button=true>
-          <DropDown buttonText="Click Me">
+          <DropDown text="Click Me">
 
             <Menu>
 

@@ -1,45 +1,36 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (Menu) from "../../../../../../lib/menu/menu" %}
-{% import (Item, Divider) from "../../../../../../lib/menu/item" %}
+{% import (Item, Divider, Header) from "../../../../../../lib/menu/menu" %}
 {% import (Link) from "../../../../../../lib/content/link" %}
-{% import (MenuPage) from "../" %}
 
-{% view Main (MenuPage) %}
- 
+{% view Main (MenuPage from "..") %}
 <Demo>
-
-      <Menu>
-
-        <Item>
-
-          <h6>Menu</h6>
-
-        </Item>
-
-        <Item>
-        
-          <Link
-            disabled=true 
-            text="Back"/>
-
-        </Item>
-
-        <Item>
-        
-          <Link
-            disabled=true
-            text="Refresh"/>
-            
-        </Item>
-
-        <Divider />
-
-        <Item>
-        
-          <a href="#/menu">Quit</a>
-          
-        </Item>
-
-      </Menu>
-
+  <Demo>
+    <h2>Auto</h2>
+    <Menu items={{@items}} />
+  </Demo>
+  <Demo>
+    <h2>Manual</h2>
+    <Menu>
+      <Item>
+        <Header>Your Options</Header>
+      </Item>
+      <Item>
+        <Link
+          disabled=true 
+          text="Back"/>
+      </Item>
+      <Item>
+        <Link
+          onClick={{->alert("Refresh?")}}
+          text="Refresh"/>
+      </Item>
+      <Divider />
+      <Item>
+        <Link 
+          onClick={{->alert("clicked")}}
+          text="Quit"/>
+      </Item>
+    </Menu>
  </Demo>
+</Demo>

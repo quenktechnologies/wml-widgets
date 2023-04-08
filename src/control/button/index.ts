@@ -19,6 +19,11 @@ export const BUTTON = 'ww-button';
 ///classNames:end
 
 /**
+ * ButtonClickedEventHandler is a callback for button clicks.
+ */
+export type ButtonClickedEventHandler<V> =  (e: ButtonClickedEvent<V>) => void
+
+/**
  * ButtonAttrs
  */
 export interface ButtonAttrs<V> extends ControlAttrs<V> {
@@ -51,12 +56,17 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
     /**
      * onClick assigns a handler for click events.
      */
-    onClick?: (e: ButtonClickedEvent<V>) => void,
+    onClick?: ButtonClickedEventHandler<V>,
 
     /**
      * anchor if true will render an anchor instead of a button.
      */
     anchor?: boolean,
+
+  /**
+   * caret if true will render a caret indicating the button can reveal a menu.
+   */
+  caret?: boolean, 
 
     /**
      * text can be specified as an alternative to explicit children.
@@ -126,6 +136,8 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
             anchor: (this.attrs && this.attrs.anchor) ?
                 this.attrs.anchor : false,
+
+          caret: this.attrs.caret,
 
             onclick: (e: Event) => {
 

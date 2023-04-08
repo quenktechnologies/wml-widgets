@@ -51,7 +51,7 @@
       <Button text="one"/>
 
       <DropDown 
-        buttonText="two">
+        text="two">
 
         <Menu>
 

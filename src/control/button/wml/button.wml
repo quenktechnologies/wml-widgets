@@ -1,3 +1,4 @@
+{% import (Caret) from "../../../content/caret" %}
 {% import (Button) from "../" %}
 
 {% view ButtonView [V](Button[V]) %}
@@ -11,6 +12,9 @@
   class={{@values.button.className}}
   onclick={{@values.button.onclick}}>
   {{...@values.button.content()}}
+  {% if @values.button.caret %}
+    <Caret/>
+  {% endif %}
 </button>
 
 {% view AnchorView [V](Button[V]) %}
@@ -25,4 +29,7 @@
   class={{@values.button.className}}
   onclick={{@values.button.onclick}}>
   {{...@values.button.content()}}
+  {% if @values.button.caret %}
+    <Caret/>
+  {% endif %}
 </a>

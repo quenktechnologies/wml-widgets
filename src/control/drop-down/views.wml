@@ -1,0 +1,22 @@
+{% import (Menu) from "../../menu/menu" %}
+{% import (Button) from "../button" %}
+
+{% view DropDownView (DropDown from ".") %}
+<div 
+  wml:id={{@wmlId}}
+  class={{@className}}>
+  <Button 
+    className={{@button.className}}
+    anchor={{@button.anchor}}
+    disabled={{@button.disabled}}
+    text={{@button.text}}
+    caret=true
+    onClick={{@button.onClick}}/>
+  <Menu 
+    wml:id={{@menu.wmlId}}
+    className={{@menu.className}}
+    hidden={{@menu.hidden}}
+    items={{@menu.items}}>
+    {{...@children}}
+  </Menu>
+</div>
