@@ -18,6 +18,11 @@ import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
 import { HTMLElementAttrs } from '../';
 
 /**
+ * Name of a control element used to associate its value to a key.
+ */
+export type Name = string;
+
+/**
  * ControlAttrs
  */
 export interface ControlAttrs<V> extends HTMLElementAttrs {
@@ -27,7 +32,7 @@ export interface ControlAttrs<V> extends HTMLElementAttrs {
      *
      * Used by controls to tag events with names.
      */
-    name?: string,
+    name?: Name,
 
     /**
      * value of the control.

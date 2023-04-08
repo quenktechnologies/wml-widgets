@@ -1,4 +1,5 @@
 import { Maybe, nothing, just } from '@quenk/noni/lib/data/maybe';
+
 import { View, Component, Content } from '@quenk/wml';
 
 import { Menu, MenuAttrs } from '../../menu/menu';
@@ -90,7 +91,7 @@ export interface ResultsMenuAttrs<V> extends MenuAttrs {
 export class ItemSelectedEvent<V> extends ControlEvent<V> { }
 
 /**
- * ResultsMenu used to display results in select styled controls.
+ * ResultsMenu is used to display menu items in dropdown style control widgets.
  */
 export class ResultsMenu<V>
     extends

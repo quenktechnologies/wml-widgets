@@ -6,7 +6,7 @@ import { Component } from '@quenk/wml';
 import { BUTTON_GROUP_COMPAT } from '../button-group';
 import { concat, getById } from '../../util';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
-import { MenuItemSpec } from '../../menu/menu';
+import {  MenuItemSpec } from '../../menu/menu';
 import { MenuButtonView } from './views';
 
 ///classNames:begin

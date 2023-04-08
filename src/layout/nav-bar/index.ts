@@ -110,7 +110,11 @@ export class NavBar extends Component<NavBarAttrs> {
 
 }
 
-const normalize = (specs: LinkSpecMap | LinkConf[]): LinkConf[] => {
+/**
+ * normalize a LinkSpecMap into a list of LinkConf so they can be type safely
+ * iterated.
+ */
+export const normalize = (specs: LinkSpecMap | LinkConf[]): LinkConf[] => {
     if (Array.isArray(specs))
         return specs;
     else

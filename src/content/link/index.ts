@@ -158,11 +158,10 @@ export class Link extends wml.Component<LinkAttrs> {
 
                 let { name, href, onClick } = this.attrs;
 
-                if (!href)
+                if (onClick) {
                     e.preventDefault();
-
-                if (onClick)
                     onClick(new LinkClickedEvent(<string>name, <string>href));
+                }
 
             }
 
