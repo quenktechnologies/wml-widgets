@@ -7,18 +7,18 @@ import { BUTTON_GROUP_COMPAT } from '../button-group';
 import { concat, getById } from '../../util';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { MenuItemSpec } from '../../menu/menu';
-import { DropDownView } from './views';
+import { MenuButtonView } from './views';
 
 ///classNames:begin
-export const DROP_DOWN = 'ww-drop-down-menu';
-export const DROP_DOWN_TOGGLE = 'ww-drop-down-menu__toggle';
-export const DROP_DOWN_CONTENT = 'ww-drop-down-menu';
+export const MENU_BUTTON = 'ww-menu-button';
+export const MENU_BUTTON_TOGGLE = 'ww-menu-button-toggle';
+export const MENU_BUTTON_CONTENT = 'ww-menu-button-menu';
 ///classNames:end
 
 /**
- * DropDownAttrs
+ * MenuButtonAttrs
  */
-export interface DropDownAttrs extends HTMLElementAttrs {
+export interface MenuButtonAttrs extends HTMLElementAttrs {
 
     /**
      * buttonClassName is appended to the button class list.
@@ -56,7 +56,7 @@ export interface DropDownAttrs extends HTMLElementAttrs {
 }
 
 /**
- * DropDown provides a component for displaying a pop up menu.
+ * MenuButton provides a component for displaying a pop up menu.
  *
  *    +--------+
  *    |  Menu  |
@@ -71,16 +71,16 @@ export interface DropDownAttrs extends HTMLElementAttrs {
  *    |                         |
  *    +-------------------------+
  */
-export class DropDown extends Component<DropDownAttrs>
+export class MenuButton extends Component<MenuButtonAttrs>
     implements hidden.Hidable {
 
-    view = new DropDownView(this);
+    view = new MenuButtonView(this);
 
     wmlId = 'root';
 
     id = getId(this.attrs);
 
-    className = concat(DROP_DOWN, BUTTON_GROUP_COMPAT, getClassName(this.attrs));
+    className = concat(MENU_BUTTON, BUTTON_GROUP_COMPAT, getClassName(this.attrs));
 
     button = {
 
@@ -88,7 +88,7 @@ export class DropDown extends Component<DropDownAttrs>
 
         anchor: this.attrs.anchor,
 
-        className: concat(DROP_DOWN_TOGGLE, this.attrs.buttonClassName || style.DEFAULT),
+        className: concat(MENU_BUTTON_TOGGLE, this.attrs.buttonClassName || style.DEFAULT),
 
         disabled: this.attrs.disabled,
 
@@ -104,7 +104,7 @@ export class DropDown extends Component<DropDownAttrs>
 
         wmlId: 'content',
 
-        className: DROP_DOWN_CONTENT,
+        className: MENU_BUTTON_CONTENT,
 
         hidden: true,
 
@@ -130,7 +130,7 @@ export class DropDown extends Component<DropDownAttrs>
                     document.removeEventListener('click', this);
                 else if (this.menu.showing)
                     this.menu.showing = false;
-                else 
+                else
                     this.hide();
             });
 
@@ -142,7 +142,7 @@ export class DropDown extends Component<DropDownAttrs>
 
     }
 
-    hide(): DropDown {
+    hide(): MenuButton {
 
         if (this.menu.autoClose)
             document.removeEventListener('click', this);
@@ -153,7 +153,7 @@ export class DropDown extends Component<DropDownAttrs>
 
     }
 
-    show(): DropDown {
+    show(): MenuButton {
 
         this.menu.hidden = false;
         this.menu.showing = true;
@@ -166,7 +166,7 @@ export class DropDown extends Component<DropDownAttrs>
 
     }
 
-    toggle(): DropDown {
+    toggle(): MenuButton {
 
         return this.menu.hidden ? this.show() : this.hide();
 

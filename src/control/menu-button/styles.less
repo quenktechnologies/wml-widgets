@@ -1,13 +1,13 @@
 @import "./variables";
 
-.__DROP_DOWN__ {
+.__MENU_BUTTON__ {
 
   position: relative;
   display: inline-block; 
 
   & + & {
 
-    margin-left: @drop-down-sibling-margin-left;
+    margin-left: @menu-button-sibling-margin-left;
 
   }
 
@@ -18,21 +18,21 @@
   }
 
   // On active and open, don't show outline
-  & .__DROP_DOWN_TOGGLE__:active {
+  & .__MENU_BUTTON_TOGGLE__:active {
 
     outline: 0;
 
   }
 
   // Give the line between buttons some depth
-  & > .__BUTTON__ + .__DROP_DOWN_TOGGLE__ {
+  & > .__BUTTON__ + .__MENU_BUTTON_TOGGLE__ {
 
     padding-left: 8px;
     padding-right: 8px;
 
   }
 
-  & > .__BUTTON__ + .__DROP_DOWN_TOGGLE__ {
+  & > .__BUTTON__ + .__MENU_BUTTON_TOGGLE__ {
 
     padding-left: 12px;
     padding-right: 12px;
@@ -46,10 +46,10 @@
 
   }
 
-  & > .__DROP_DOWN_CONTENT__ {
+  & > .__MENU_BUTTON_CONTENT__ {
 
     min-width: 10em;
-    margin-top: @drop-down-content-margin-top;
+    margin-top: @menu-button-content-margin-top;
     display: block; 
     position: absolute;
     top: 100%;

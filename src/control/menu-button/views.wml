@@ -1,7 +1,7 @@
 {% import (Menu) from "../../menu/menu" %}
 {% import (Button) from "../button" %}
 
-{% view DropDownView (DropDown from ".") %}
+{% view MenuButtonView (MenuButton from ".") %}
 <div 
   wml:id={{@wmlId}}
   class={{@className}}>

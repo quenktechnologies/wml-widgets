@@ -1,7 +1,7 @@
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (Button) from "../../../../../../lib/control/button" %}
 {% import (ButtonGroup) from "../../../../../../lib/control/button-group" %}
-{% import (DropDown) from "../../../../../../lib/control/drop-down" %}
+{% import (MenuButton) from "../../../../../../lib/control/menu-button" %}
 {% import (Menu) from "../../../../../../lib/menu/menu" %}
 {% import (Item) from "../../../../../../lib/menu/item" %}
 
@@ -50,7 +50,7 @@
 
       <Button text="one"/>
 
-      <DropDown 
+      <MenuButton 
         text="two">
 
         <Menu>
@@ -69,7 +69,7 @@
 
         </Menu>
 
-      </DropDown>
+      </MenuButton>
 
       <Button text="three"/>
 

@@ -1,0 +1,54 @@
+{% import (Demo) from "../../widgets/demo" %}
+{% import (MenuButton) from "../../../../../lib/control/menu-button" %}
+{% import (Link) from "../../../../../lib/content/link" %}
+{% import (Item,Divider) from "../../../../../lib/menu/item" %}
+{% import (MenuButtonPage) from "." %}
+
+{% view Main (MenuButtonPage) %}
+<Demo>
+  <p>
+    <MenuButton text="Click Me">
+      <Item>
+        <Link 
+          href="#" 
+          text="One"
+          onClick={{@onClick('You clicked one')}}/>
+      </Item>
+      <Item>
+        <Link
+          href="#" 
+          text="Two"
+          onClick={{@onClick('You clicked two')}}/>
+      </Item>
+      <Divider/>
+      <Item>
+        <Link
+          href="#"
+          text="Three"
+          onClick={{@onClick('You clicked three')}}/>
+      </Item>
+    </MenuButton>
+
+    <MenuButton 
+      text="Me Too"
+      autoClose=false>
+      <h1>Any flow content can go here!</h1>
+    </MenuButton>
+
+    <MenuButton 
+      text="Can\'t touch this!"
+      disabled=true>
+      <p>You will never see this!</p>
+    </MenuButton>
+
+    <MenuButton 
+      text="I am an anchor"
+      anchor=true>
+      <b>Content</b>
+    </MenuButton>
+
+    <MenuButton
+      text="Auto"
+      items={{@items}}/>
+  </p>
+</Demo>

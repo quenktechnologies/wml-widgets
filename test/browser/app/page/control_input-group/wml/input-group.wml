@@ -2,27 +2,22 @@
 {% import (InputGroup,AddOn) from "../../../../../../lib/control/input-group" %}
 {% import (Checkbox) from "../../../../../../lib/control/checkbox" %}
 {% import (Button) from "../../../../../../lib/control/button" %}
-{% import (DropDown) from "../../../../../../lib/control/drop-down" %}
+{% import (MenuButton) from "../../../../../../lib/control/menu-button" %}
 {% import (DropList) from "../../../../../../lib/control/drop-list" %}
-{% import (Menu) from "../../../../../../lib/menu/menu" %}
 {% import (Item) from "../../../../../../lib/menu/item" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (InputGroupPage) from "../" %}
 
 {% view Main (InputGroupPage) %}
 <Demo>
-
   <Demo>
-    
     <p>
       <InputGroup>
         <AddOn>http</Addon>
         <TextInput/>
       </InputGroup>
     </p>
-
   </Demo>
-
   <Demo>
     <p>
       <InputGroup>
@@ -31,7 +26,6 @@
       </InputGroup>
     </p>
   </Demo>
-
   <Demo>
     <p>
       <InputGroup>
@@ -40,7 +34,6 @@
       </InputGroup>
     </p>
   </Demo>
-
   <Demo>
     <p>
       <InputGroup>
@@ -49,7 +42,6 @@
       </InputGroup>
     </p>
   </Demo>
-
   <Demo>
     <p>
       <InputGroup>
@@ -58,7 +50,6 @@
       </InputGroup>
     </p>
   </Demo>
-
   <Demo>
     <p>
       <InputGroup>
@@ -67,65 +58,43 @@
       </InputGroup>
     </p>
   </Demo>
-
   <Demo>
     <p>
       <InputGroup>
         <AddOn button=true>
-          
-          <DropDown text="Click Me">
-
-            <Menu>
-
+          <MenuButton text="Click Me">
               <Item>
                 <a href="#">One</a>
               </Item>
-
               <Item>
                 <a href="#">Two</a>
               </Item>
-
               <Item>
                 <a href="#">Three</a>
               </Item>
-
-            </Menu>
-
-          </DropDown>
-
+          </MenuButton>
         </Addon>
         <TextInput/>
       </InputGroup>
     </p>
   </Demo>
-
   <Demo>
     <p>
       <InputGroup>
         <TextInput/>
         <AddOn button=true>
-          <DropDown text="Click Me">
-
-            <Menu>
-
+          <MenuButton text="Click Me">
               <Item>
                 <a href="#">One</a>
               </Item>
-
               <Item>
                 <a href="#">Two</a>
               </Item>
-
               <Item>
                 <a href="#">Three</a>
               </Item>
-
-            </Menu>
-
-          </DropDown>
-
+          </MenuButton>
         </Addon>
-
       </InputGroup>
     </p>
   </Demo>
