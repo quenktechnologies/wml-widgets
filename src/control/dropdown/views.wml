@@ -1,0 +1,36 @@
+{% import (Label) from "../label" %}
+{% import (Help) from "../help" %}
+{% import (TextFacade) from "../text-facade" %}
+{% import (Caret) from "../../content/caret" %}
+{% import (ResultsMenu) from "../results-menu" %}
+
+{% view DropDownView[V] (DropDown[V] from ".") %}
+<div wml:id={{@values.root.wml.id}} 
+     id={{@values.root.id}} 
+     class={{@values.root.className}}>
+
+  <Label
+   for={{@values.root.id}}
+   text={{@values.label.text}} />
+
+  <TextFacade 
+    className={{@values.facade.className}} 
+    onClick={{@values.facade.onClick}}>
+    {{@values.control.placeholder()| text}} <Caret/>
+  </TextFacde>
+
+  <ResultsMenu 
+   wml:id={{@values.control.wml.id}}
+   name={{@values.control.name}}
+   hidden={{@values.control.hidden}}
+   results={{@values.control.options}}
+   onSelect={{@values.control.onSelect}}
+   noItemsTemplate={{@values.control.noItemsTemplate}}
+   itemTemplate={{@values.control.itemTemplate}}
+   stringifier={{@values.control.stringifier}} />
+ 
+  <Help 
+    wml:id={{@values.messages.wml.id}}
+    text={{@values.messages.text}} />
+
+</div>

@@ -1,16 +1,15 @@
-import * as wml from '@quenk/wml';
-import * as views from './wml/drop-list-field';
 import {
-    DropListField,
+    DropDown,
     ItemChangedEvent,
-} from '../../../../../lib/control/drop-list-field';
+} from '../../../../../lib/control/dropdown';
 import { results } from '../../fixtures/data/results';
+import { DropDownPageView } from './dropdown';
 
 const options = results;
 
-export class DropListFieldPage {
+export class DropDownPage {
 
-    view: wml.View = new views.Main(this);
+    view = new DropDownPageView(this);
 
     values = {
 
@@ -61,14 +60,14 @@ export class DropListFieldPage {
 }
 
 const doChange =
-    (page: DropListFieldPage) => ({ name, value }: ItemChangedEvent<string>) =>
+    (page: DropDownPage) => ({ name, value }: ItemChangedEvent<string>) =>
         page
             .view
-            .findById<DropListField<string>>(name)
+            .findById<DropDown<string>>(name)
             .map(() => {
 
                 alert(`Selected: ${name}=${value}`);
 
             });
 
-export default new DropListFieldPage();
+export default new DropDownPage();

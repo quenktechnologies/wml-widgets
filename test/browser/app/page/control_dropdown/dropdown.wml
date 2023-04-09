@@ -1,0 +1,61 @@
+{% import (Demo) from "../../widgets/demo" %}
+{% import (DropDown) from "../../../../../lib/control/dropdown" %}
+
+{% view DropDownPageView (DropDownPage from ".") %}
+<Demo>
+  <Demo>
+    <p>
+      <DropDown 
+       wml:id={{@values.normal.name}}
+       label="Normal"
+       name={{@values.normal.name}}
+       value={{@values.normal.value}}
+       options={{@values.normal.options}}
+       onChange={{@values.normal.onChange}} />
+    </p>
+  </Demo>
+  <Demo>
+    <p>
+      <DropDown 
+       wml:id={{@values.success.id}}
+       className="-success"
+       label="Success"
+       name={{@values.success.name}}
+       options={{@values.success.options}}
+       onChange={{@values.success.onChange}} />
+    </p>
+  </Demo>
+  <Demo>
+    <p>
+      <DropDown 
+       wml:id={{@values.warning.id}}
+       className="-warning"
+       label="Warning"
+       name={{@values.warning.name}}
+       options={{@values.warning.options}}
+       onChange={{@values.warning.onChange}} />
+    </p>
+  </Demo>
+  <Demo>
+    <p>
+      <DropDown 
+       wml:id={{@values.error.id}}
+       className="-error"
+       label="Error"
+       name={{@values.error.name}}
+       options={{@values.error.options}}
+       onChange={{@values.error.onChange}} />
+    </p>
+  </Demo>
+  <Demo>
+    <p>
+      <DropDown 
+       label="Disabled"
+       name={{@values.normal.name}}
+       value={{@values.normal.value}}
+       options={{@values.normal.options}}
+       disabled=true
+       onChange={{@values.normal.onChange}} />
+    </p>
+  </Demo>
+</Demo>

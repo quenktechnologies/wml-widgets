@@ -16,7 +16,7 @@ export const RESULTS_MENU = 'ww-results-menu';
  * ItemTemplate used to render each item in the results.
  */
 export type ItemTemplate<V>
-    = (option: V, index: number, menu:ResultsMenu<V>) => View
+    = (option: V, index: number, menu: ResultsMenu<V>) => View
     ;
 
 /**
@@ -117,11 +117,10 @@ export class ResultsMenu<V>
 
         className: concat(RESULTS_MENU, getClassName(this.attrs)),
 
-        block: (this.attrs && this.attrs.block) ?
-            this.attrs.block : false,
-
         hidden: (this.attrs && this.attrs.hidden) ?
             this.attrs.hidden : false,
+
+        showing: false,
 
         item: {
 
@@ -154,10 +153,15 @@ export class ResultsMenu<V>
 
     open(): ResultsMenu<V> {
 
+        window.removeEventListener('click', this);
+
         getById<Menu>(this.view, this.values.wml.id)
             .map((m: Menu) => m.show());
 
+        this.values.showing = true;
         this.values.hidden = false;
+
+        window.addEventListener('click', this);
 
         if (this.attrs && this.attrs.onOpen)
             this.attrs.onOpen();
@@ -171,6 +175,8 @@ export class ResultsMenu<V>
         getById<Menu>(this.view, this.values.wml.id)
             .map((m: Menu) => m.hide());
 
+        window.removeEventListener('click', this);
+
         this.values.hidden = true;
 
         if (this.attrs && this.attrs.onClose)
@@ -182,19 +188,15 @@ export class ResultsMenu<V>
 
     toggle(): ResultsMenu<V> {
 
-        getById<Menu>(this.view, this.values.wml.id)
-            .map((m: Menu) => m.toggle());
-
-        this.values.hidden = !this.values.hidden;
-
-        if (this.values.hidden === true &&
-            this.attrs &&
-            this.attrs.onClose)
-            this.attrs.onClose();
-        else if (this.values.hidden === false &&
-            this.attrs &&
-            this.attrs.onOpen)
-            this.attrs.onOpen();
+        if (this.values.hidden) {
+            this.open();
+            if (this.attrs.onOpen)
+                this.attrs.onOpen();
+        }else {
+          this.close();
+            if (this.attrs.onClose)
+                this.attrs.onClose();
+        }
 
         return this;
 
@@ -208,8 +210,9 @@ export class ResultsMenu<V>
 
             if (!document.body.contains(root))
                 document.removeEventListener('click', this);
-
-            if ((!root.contains(<Node>e.target)))
+            else if (this.values.showing)
+                this.values.showing = false;
+            else if ((!root.contains(<Node>e.target)))
                 this.close();
 
         }

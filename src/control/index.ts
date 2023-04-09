@@ -17,6 +17,10 @@ import { Maybe, just, nothing } from '@quenk/noni/lib/data/maybe';
 
 import { HTMLElementAttrs } from '../';
 
+///classNames:begin
+export const CONTROL_WRAPPER = 'ww-control-wrapper';
+///classNames:end
+
 /**
  * Name of a control element used to associate its value to a key.
  */
