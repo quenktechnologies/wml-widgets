@@ -9,9 +9,11 @@
      id={{@values.root.id}} 
      class={{@values.root.className}}>
 
-  <Label
-   for={{@values.root.id}}
-   text={{@values.label.text}} />
+  {% if !@values.control.inline %}
+    <Label
+      for={{@values.root.id}}
+      text={{@values.label.text}} />
+  {% endif %}
 
   <TextFacade 
     className={{@values.facade.className}} 
@@ -29,8 +31,10 @@
    itemTemplate={{@values.control.itemTemplate}}
    stringifier={{@values.control.stringifier}} />
  
+  {% if !@values.control.inline %}
   <Help 
     wml:id={{@values.messages.wml.id}}
     text={{@values.messages.text}} />
+  {% endif %}
 
 </div>

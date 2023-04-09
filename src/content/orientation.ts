@@ -51,6 +51,8 @@ export const HORIZONTAL = '-horizontal';
 export const MIDDLE = '-middle';
 
 export const BOTTOM = '-bottom';
+
+export const INLINE = 'ww--inline';
 ///classNames:end
 
 /**

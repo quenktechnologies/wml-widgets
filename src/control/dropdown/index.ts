@@ -20,6 +20,7 @@ import { getId, getClassName } from '../../';
 import { CONTROL_WRAPPER, getName } from '../';
 import { closeMenu, toggleMenu } from '../search';
 import { DropDownView } from './views';
+import { INLINE } from '../../content/orientation';
 
 export { ItemTemplate, NoItemsTemplate, ItemChangedEvent }
 
@@ -59,6 +60,12 @@ export interface DropDownAttrs<V> extends FormControlAttrs<V> {
      * disabled
      */
     disabled?: boolean,
+
+  /**
+   * inline if true will render the dropdown as an inline-block element without
+   * a label or help block.
+   */
+  inline?: boolean,
 
     /**
      * options available for selection.
@@ -111,6 +118,7 @@ export class DropDown<V>
 
             className: concat(DROPDOWN,
                 CONTROL_WRAPPER,
+                this.attrs.inline ? INLINE : '',
                 getClassName(this.attrs),
                 getValidityClassName(this.attrs))
 
@@ -151,6 +159,8 @@ export class DropDown<V>
             name: getName(this.attrs),
 
             className: getValidityClassName(this.attrs),
+
+          inline: this.attrs.inline,
 
             placeholder: () => {
 

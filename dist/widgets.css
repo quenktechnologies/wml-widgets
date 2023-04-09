@@ -1200,6 +1200,9 @@ textInputDim styles the dimendefines the sizing of a button.
 .ww-dropdown {
   position: relative;
 }
+.ww-dropdown.ww--inline {
+  display: inline-block;
+}
 .ww-dropdown > .ww-dropdown-facade {
   display: flex;
   justify-content: space-between;

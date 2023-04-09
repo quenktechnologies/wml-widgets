@@ -58,4 +58,14 @@
        onChange={{@values.normal.onChange}} />
     </p>
   </Demo>
+  <Demo>
+    <p>This one is inline: 
+      <DropDown 
+       label="Disabled"
+       name={{@values.normal.name}}
+       value={{@values.normal.value}}
+       options={{@values.normal.options}}
+       inline=true
+       onChange={{@values.normal.onChange}} /></p>
+  </Demo>
 </Demo>
