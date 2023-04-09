@@ -29,7 +29,7 @@ export interface ButtonType extends ButtonAttrs<void> {
     /**
      * type must be "button" to be considered valid.
      */
-    type: 'button'
+    type: string
 }
 
 /**
@@ -40,7 +40,7 @@ export interface MenuButtonType extends MenuButtonAttrs {
     /**
      * type must be "menu" to be considered valid.
      */
-    type: 'menu',
+    type: string
 
 }
 
