@@ -1,7 +1,6 @@
 {% import (App) from "../app" %}
 {% import (NavMenu) from "../../../../lib/menu/nav" %}
-{% import (Item) from "../../../../lib/menu/item" %}
-{% import (MenuHeader) from "../../../../lib/menu/header" %}
+{% import (MenuHeader,Item) from "../../../../lib/menu/menu" %}
 {% import (Link) from "../../../../lib/content/link" %}
 
 {% view Navigation (App) %}
