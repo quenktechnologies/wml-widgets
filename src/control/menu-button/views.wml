@@ -16,6 +16,7 @@
     wml:id={{@menu.wmlId}}
     className={{@menu.className}}
     hidden={{@menu.hidden}}
+    autoClose={{@menu.autoClose}}
     items={{@menu.items}}>
     {{...@children}}
   </Menu>

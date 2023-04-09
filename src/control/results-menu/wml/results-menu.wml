@@ -13,6 +13,7 @@
   <Menu 
     wml:id={{@values.wml.id}}
     className={{@values.className}}
+    autoClose=true
     hidden={{@values.hidden}}>
 
       {% for result,index:Number in @values.results %}

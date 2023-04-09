@@ -1,5 +1,5 @@
 {% import (DateField) from "../../../../../../lib/control/date-field" %}
-{% import (DropList) from "../../../../../../lib/control/drop-list" %}
+{% import (MenuButton) from "../../../../../../lib/control/menu-button" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (DateFieldPage) from "../" %}
 
@@ -57,10 +57,7 @@
     </p>
 
     <p>
-      <DropList 
-       name={{@values.tests.id}}
-       options={{@values.tests.data}}
-       onSelect={{@values.tests.onSelect}} />
+      <MenuButton items={{@values.tests.data}}/>
 
     </p>
   </Demo>

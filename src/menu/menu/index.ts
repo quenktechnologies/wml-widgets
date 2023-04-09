@@ -2,7 +2,7 @@ import * as hidden from '../../content/state/hidden';
 
 import { Component, Content } from '@quenk/wml';
 
-import { concat } from '../../util';
+import { concat, getById } from '../../util';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { ACTIVE } from '../../content/state/active';
 import { Link, LinkAttrs } from '../../content/link';
@@ -182,6 +182,13 @@ export interface MenuAttrs extends HTMLElementAttrs {
     block?: boolean,
 
     /**
+     * autoClose when true, will automatically hide the content.
+     *
+     * Defaults to false.
+     */
+    autoClose?: boolean,
+
+    /**
      * items can be specified to have the Menu automatically generate content.
      */
     items?: MenuItemSpec[]
@@ -204,6 +211,10 @@ export class Menu extends Component<MenuAttrs>
     className = concat(MENU, getClassName(this.attrs),
         (this.attrs.hidden === true) ? hidden.HIDDEN : '');
 
+    autoClose = this.attrs.autoClose;
+
+    showing = false;
+
     items = <Content[]>(this.attrs.items || []).map(item => {
         if (item.type === 'header')
             return new MenuItem({}, [new MenuHeader(item, []).render()]).render()
@@ -213,6 +224,25 @@ export class Menu extends Component<MenuAttrs>
             return new MenuDivider(item, []).render();
     }).filter(content => content != null)
 
+    /**
+     * handleEvent listens for clicks on elements outside the menu's tree. 
+     *
+     * When autoClose is not set to false, the menu hides itself from the DOM.
+     */
+    handleEvent(): void {
+
+        getById<HTMLElement>(this.view, this.wmlId)
+            .map((root: HTMLElement) => {
+                if (!document.body.contains(root))
+                    document.removeEventListener('click', this);
+                else if (this.showing)
+                    this.showing = false;
+                else
+                    this.hide();
+            });
+
+    }
+
     isHidden(): boolean {
 
         return hidden.isHidden(this.view, this.wmlId);
@@ -221,6 +251,9 @@ export class Menu extends Component<MenuAttrs>
 
     hide(): Menu {
 
+        if (this.autoClose)
+            document.removeEventListener('click', this);
+
         hidden.hide(this.view, this.wmlId);
         return this;
 
@@ -228,14 +261,20 @@ export class Menu extends Component<MenuAttrs>
 
     show(): Menu {
 
+      this.showing = true;
+
         hidden.show(this.view, this.wmlId);
+
+        if (this.autoClose)
+            document.addEventListener('click', this);
+
         return this;
 
     }
 
     toggle(): Menu {
 
-        hidden.toggle(this.view, this.wmlId);
+        return this.isHidden() ? this.show() : this.hide();
         return this;
 
     }

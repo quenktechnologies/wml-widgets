@@ -6,7 +6,7 @@ import { Component } from '@quenk/wml';
 import { BUTTON_GROUP_COMPAT } from '../button-group';
 import { concat, getById } from '../../util';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
-import {  MenuItemSpec } from '../../menu/menu';
+import { Menu, MenuItemSpec } from '../../menu/menu';
 import { MenuButtonView } from './views';
 
 ///classNames:begin
@@ -100,6 +100,8 @@ export class MenuButton extends Component<MenuButtonAttrs>
 
     };
 
+    _menu = (): Menu => <Menu>getById(this.view, this.menu.wmlId).get();
+
     menu = {
 
         wmlId: 'content',
@@ -116,59 +118,30 @@ export class MenuButton extends Component<MenuButtonAttrs>
 
     };
 
-    /**
-     * handleEvent listens for clicks on elements outside the dropdown's
-     * tree. 
-     *
-     * If autoClose is not set to false, the menu will be hidden.
-     */
-    handleEvent(): void {
-
-        getById<HTMLElement>(this.view, this.wmlId)
-            .map((root: HTMLElement) => {
-                if (!document.body.contains(root))
-                    document.removeEventListener('click', this);
-                else if (this.menu.showing)
-                    this.menu.showing = false;
-                else
-                    this.hide();
-            });
-
-    }
-
     isHidden(): boolean {
 
-        return this.menu.hidden;
+        return this._menu().isHidden();
 
     }
 
     hide(): MenuButton {
 
-        if (this.menu.autoClose)
-            document.removeEventListener('click', this);
-
-        this.menu.hidden = true;
-        this.view.invalidate();
+        this._menu().hide();
         return this;
 
     }
 
     show(): MenuButton {
 
-        this.menu.hidden = false;
-        this.menu.showing = true;
-        this.view.invalidate();
-
-        if (this.menu.autoClose)
-            document.addEventListener('click', this);
-
+        this._menu().show();
         return this;
 
     }
 
     toggle(): MenuButton {
 
-        return this.menu.hidden ? this.show() : this.hide();
+        this._menu().toggle();
+        return this;
 
     }
 }

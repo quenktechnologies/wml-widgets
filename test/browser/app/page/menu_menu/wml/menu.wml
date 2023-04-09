@@ -6,7 +6,7 @@
 {% view Main (MenuPage from "..") %}
 <Demo>
   <Demo>
-    <h2>Auto</h2>
+    <h2>Auto Generated</h2>
     <Menu items={{@items}} />
   </Demo>
   <Demo>
@@ -32,5 +32,9 @@
           text="Quit"/>
       </Item>
     </Menu>
+    <Demo>
+      <h2>No Auto Close</h2>
+      <Menu items={{@items}} autoClose=false />
+    </Demo>
  </Demo>
 </Demo>

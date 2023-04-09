@@ -3,7 +3,6 @@
 {% import (Checkbox) from "../../../../../../lib/control/checkbox" %}
 {% import (Button) from "../../../../../../lib/control/button" %}
 {% import (MenuButton) from "../../../../../../lib/control/menu-button" %}
-{% import (DropList) from "../../../../../../lib/control/drop-list" %}
 {% import (Item) from "../../../../../../lib/menu/item" %}
 {% import (Demo) from "../../../widgets/demo" %}
 {% import (InputGroupPage) from "../" %}
@@ -95,16 +94,6 @@
               </Item>
           </MenuButton>
         </Addon>
-      </InputGroup>
-    </p>
-  </Demo>
-  <Demo>
-    <p>
-      <InputGroup>
-        <AddOn button=true>
-          <DropList options={{@values.dropList.options}} />
-        </Addon>
-        <TextInput/>
       </InputGroup>
     </p>
   </Demo>

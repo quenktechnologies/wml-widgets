@@ -153,15 +153,8 @@ export class ResultsMenu<V>
 
     open(): ResultsMenu<V> {
 
-        window.removeEventListener('click', this);
-
         getById<Menu>(this.view, this.values.wml.id)
             .map((m: Menu) => m.show());
-
-        this.values.showing = true;
-        this.values.hidden = false;
-
-        window.addEventListener('click', this);
 
         if (this.attrs && this.attrs.onOpen)
             this.attrs.onOpen();
@@ -175,10 +168,6 @@ export class ResultsMenu<V>
         getById<Menu>(this.view, this.values.wml.id)
             .map((m: Menu) => m.hide());
 
-        window.removeEventListener('click', this);
-
-        this.values.hidden = true;
-
         if (this.attrs && this.attrs.onClose)
             this.attrs.onClose();
 
@@ -188,34 +177,22 @@ export class ResultsMenu<V>
 
     toggle(): ResultsMenu<V> {
 
-        if (this.values.hidden) {
-            this.open();
-            if (this.attrs.onOpen)
-                this.attrs.onOpen();
-        }else {
-          this.close();
-            if (this.attrs.onClose)
-                this.attrs.onClose();
-        }
+        getById<Menu>(this.view, this.values.wml.id)
+            .map((m: Menu) => {
+
+                m.toggle();
+
+                if (m.isHidden()) {
+                    if (this.attrs.onOpen)
+                        this.attrs.onOpen();
+                } else {
+                    if (this.attrs.onClose)
+                        this.attrs.onClose();
+                }
+
+            });
 
         return this;
-
-    }
-
-    handleEvent(e: Event): void {
-
-        if (this.values.tree.isJust()) {
-
-            let root = this.values.tree.get();
-
-            if (!document.body.contains(root))
-                document.removeEventListener('click', this);
-            else if (this.values.showing)
-                this.values.showing = false;
-            else if ((!root.contains(<Node>e.target)))
-                this.close();
-
-        }
 
     }
 
@@ -237,10 +214,6 @@ export class ResultsMenu<V>
     render(): Content {
 
         this.values.tree = just(<Node>this.view.render());
-
-        window.removeEventListener('click', this);
-
-        window.addEventListener('click', this);
 
         return this.values.tree.get();
 

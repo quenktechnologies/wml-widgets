@@ -93,15 +93,15 @@ export class DateFieldPage {
                 '2022077',
                 '220707',
                 '2277'
-            ].map(value => ({ label: value, value })),
+            ].map(value => ({
+                type: 'link',
+                text: value,
+                onClick: () => {
+                    this.values.tests.value = value;
+                    this.view.invalidate();
+                }
+            })),
             value: '',
-            onSelect: (e: { value: string }) => {
-
-                this.values.tests.value = e.value;
-
-                this.view.invalidate();
-
-            },
             onChange: onChange(this)
         }
 

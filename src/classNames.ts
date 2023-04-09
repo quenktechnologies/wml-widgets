@@ -40,6 +40,10 @@ export const TEXT_FIELD = 'ww-text-field';
 export const BUTTON = 'ww-button';
 ///classNames:end
 ///classNames:begin
+export const TEXT_FACADE = 'ww-text-facade';
+export const TEXT_FACADE_CONTENT = 'ww-text-facade-content';
+///classNames:end
+///classNames:begin
 export const PAGER = 'ww-pager';
 export const PAGER_PREVIOUS = 'ww-pager__first';
 export const PAGER_NEXT = 'ww-pager__next';
@@ -53,7 +57,7 @@ export const FILE_UPLOAD_SURFACE_TEXT = 'ww-file-upload-surface__text';
 export const TYPEAHEAD = 'ww-typeahead';
 ///classNames:end
 ///classNames:begin
-export const DROP_LIST_FIELD = 'ww-drop-list-field';
+export const CONTROL_WRAPPER = 'ww-control-wrapper';
 ///classNames:end
 ///classNames:begin
 export const CHECKBOX = 'ww-checkbox';
@@ -65,9 +69,6 @@ export const LABEL = 'ww-label';
 export const TEXT_INPUT = 'ww-text-input';
 ///classNames:end
 ///classNames:begin
-export const DROP_LIST = 'ww-drop-list';
-///classNames:end
-///classNames:begin
 export const HELP = 'ww-help';
 ///classNames:end
 ///classNames:begin
@@ -77,13 +78,13 @@ export const RESULTS_MENU = 'ww-results-menu';
 export const CLOSE_BUTTON = 'ww-close-button';
 ///classNames:end
 ///classNames:begin
-export const DISPLAY_FIELD = 'ww-display-field';
-export const DISPLAY_FIELD_CONTENT = 'ww-display-field__content';
-///classNames:end
-///classNames:begin
 export const INPUT_GROUP = 'ww-input-group';
 export const INPUT_GROUP_ADDON = 'ww-input-group__addon';
 export const INPUT_GROUP_BUTTON_ADDON = 'ww-input-group__button-addon';
+///classNames:end
+///classNames:begin
+export const DROPDOWN = 'ww-dropdown';
+export const DROPDOWN_FACADE = 'ww-dropdown-facade';
 ///classNames:end
 ///classNames:begin
 export const SELECT = 'ww-select';
