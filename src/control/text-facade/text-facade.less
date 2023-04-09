@@ -1,0 +1,41 @@
+@import "../less/control";
+
+.__TEXT_FACADE__ {
+
+  .control();
+
+  display: block;
+  width: 100%;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  .__CONTROL_WRAPPER__.__SUCCESS__ &,
+  &.__SUCCESS__ {
+
+    .textFacadeVariant(@text-field-success-color);
+
+  }
+
+  .__CONTROL_WRAPPER__.__WARNING__ &,
+  &.__WARNING__ {
+
+    .textFacadeVariant(@text-field-warning-color);
+
+  }
+
+  .__CONTROL_WRAPPER__.__ERROR__ &,
+  &.__ERROR__ {
+
+     .textFacadeVariant(@text-field-error-color);
+
+  }
+}
+
+.textFacadeVariant(@color) {
+  border-color: @color;
+  color: @color;
+}

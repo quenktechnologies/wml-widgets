@@ -1,0 +1,17 @@
+{% import (TextFacade) from "../../../../../lib/control/text-facade" %}
+{% import (Demo) from "../../widgets/demo" %}
+
+{% view TextFacadePageView (TextFacadePage from ".") %}
+<Demo>
+  <Demo>
+    <TextFacade> It was a choice.</TextFacade>
+  </Demo>
+  <Demo>
+    <TextFacade disabled=true>Disabled</TextFacade>
+  </Demo>
+  <Demo>
+    <TextFacade className="-block">
+     <b>This is just a Facade!</b>
+    </TextFacade>
+  </Demo>
+</Demo>
