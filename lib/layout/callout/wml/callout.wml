@@ -1,4 +1,0 @@
-{% import (Callout) from "../" %}
-
-{% view Main (Callout) %}
-<div class={{@values.className}}>{{...@children}}</div>

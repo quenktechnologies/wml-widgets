@@ -1,4 +1,0 @@
-{% import (HeaderItem) from "../" %}
-
-{% view Main (HeaderItem) %}
-<li class={{@values.root.className}}>{{...@values.root.content}}</li>

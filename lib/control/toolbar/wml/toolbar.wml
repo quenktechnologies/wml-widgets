@@ -1,8 +1,0 @@
-{% import (Toolbar) from ".." %}
-
-{% view Main (Toolbar) %}
-<div 
- id={{@values.root.id}}
- class={{@values.root.className}}>
- {{...@children}}
-</div>

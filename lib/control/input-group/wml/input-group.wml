@@ -1,7 +1,0 @@
-{% import (InputGroup,AddOn) from "../" %}
-
-{% view InputGroupView(InputGroup) %}
-  <div id={{@values.id}} class={{@values.className}}>{{...@children}}</div>
-
-{% view AddOnView(AddOn) %}
-  <div id={{@values.id}} class={{@values.className}}>{{...@children}}</div>

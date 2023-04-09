@@ -1,6 +1,0 @@
-{% import (Embed) from "../" %}
-
-{% view Main (Embed) %}
-<div id={{@values.id}} class={{@values.className}}>
-  {{...@children}}
-</div>

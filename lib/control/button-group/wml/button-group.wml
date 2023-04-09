@@ -1,6 +1,0 @@
-{% import (ButtonGroup) from "../" %}
-
-{% view Main (ButtonGroup) %}
-<div id={{@values.root.id}} class={{@values.root.className}}>
-  {{...@children}}
-</div>
