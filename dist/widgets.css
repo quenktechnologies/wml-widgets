@@ -123,7 +123,7 @@
 .ww-button-group,
 .ww-button-group.-vertical {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   /**
      * Make all top level elements float to the left of the group.
      */
