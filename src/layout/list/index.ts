@@ -9,6 +9,7 @@ import {
     isActive
 } from '../../content/state/active';
 import { LAYOUT, LayoutAttrs, AbstractLayout } from '../';
+import { getClassName } from '../..';
 
 ///classNames:begin
 export const LIST_LAYOUT = 'ww-list-layout';
@@ -62,7 +63,9 @@ export class ListLayoutItem extends AbstractLayout<ListLayoutItemAttrs>
 
             id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
 
-            className: concat(LIST_LAYOUT_ITEM,
+            className: concat(
+                LIST_LAYOUT_ITEM,
+                getClassName(this.attrs),
                 (this.attrs && this.attrs.active) ? ACTIVE : ''),
 
             name: (this.attrs && this.attrs.name) ? this.attrs.name : '',
@@ -141,5 +144,4 @@ export class ListLayout extends AbstractLayout<ListLayoutAttrs> {
     }
 
 }
-
 
