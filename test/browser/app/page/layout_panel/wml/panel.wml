@@ -5,6 +5,8 @@
   PanelBody,
   PanelFooter)
 from "../../../../../../lib/layout/panel" %}
+{% import (ListLayout, ListLayoutItem) 
+ from "../../../../../../lib/layout/list" %}
 {% import (styles) from "../../../../../../lib/content/style" %}
 {% import (PanelPage) from "../" %}
 
@@ -60,5 +62,22 @@ from "../../../../../../lib/layout/panel" %}
     </Row>
 
   {% endfor %}
+
+    <Row>
+    
+      <Column>
+
+        <Panel>
+          <PanelHeader>Table</PanelHeader>
+          <ListLayout>
+            <ListLayoutItem><h5>Item 1</h5></ListLayoutItem>
+            <ListLayoutItem><h5>Item 2</h5></ListLayoutItem>
+            <ListLayoutItem><h5>Item 3</h5></ListLayoutItem>
+          </ListLayout>
+        </Panel>
+
+      </Column>
+
+    </Row>
 
  </GridLayout>
