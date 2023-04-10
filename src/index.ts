@@ -43,4 +43,5 @@ export const getId = (attrs: HTMLElementAttrs) =>
  *
  * Returns an empty string if the element has not className attribute.
  */
-export const getClassName = (attrs: HTMLElementAttrs) => attrs.className || '';
+export const getClassName = (attrs: HTMLElementAttrs, ...names: string[]) =>
+  [attrs.className, ...names].filter(name => name).join(' ');
