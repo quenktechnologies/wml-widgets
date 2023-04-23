@@ -1,7 +1,7 @@
 @import "./variables";
 
 /*
-  Button styling.
+Button styling.
 */
 .__BUTTON__ {
 
@@ -14,6 +14,22 @@
   border: @button-border;
   white-space: nowrap;
   text-decoration: none;
+
+  & > .__BUTTON_IMAGE__,
+  & > svg {
+
+    width: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+
+    & + .__BUTTON_TEXT__ {
+
+      margin-left: 5px;
+      vertical-align: middle;
+
+    }
+
+  }
 
   .buttonDimension(
   @button-padding-vertical;
@@ -107,7 +123,7 @@
 
   &.__EXTRA_SMALL__ {
 
-   .buttonDimension(
+    .buttonDimension(
     @button-extra-small-padding-vertical; 
     @button-extra-small-padding-horizontal;
     @button-extra-small-font-size;
@@ -301,10 +317,10 @@ buttonLinkBackground styles the background and shadows.
 buttonLink styles the button to appear like a link.
 */
 .buttonLink( 
-            @link-color;
-            @link-disabled-color;
-            @link-hover-color;
-            @link-hover-decoration) {
+@link-color;
+@link-disabled-color;
+@link-hover-color;
+@link-hover-decoration) {
 
   color: @link-color;
   font-weight: normal;

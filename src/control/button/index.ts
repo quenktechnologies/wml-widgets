@@ -1,7 +1,9 @@
 import * as views from './wml/button';
 
-import { text } from '@quenk/wml/lib/dom';
-import { View } from '@quenk/wml';
+import { isObject, isString } from '@quenk/noni/lib/data/type';
+
+import { createElement, text } from '@quenk/wml/lib/dom';
+import { Content, View } from '@quenk/wml';
 
 import { TOOLBAR_COMPAT } from '../toolbar';
 import { ACTIVE } from '../../content/state/active';
@@ -16,12 +18,19 @@ export { Style }
 
 ///classNames:begin
 export const BUTTON = 'ww-button';
+export const BUTTON_IMAGE = 'ww-button-image';
+export const BUTTON_TEXT = 'ww-button-text';
 ///classNames:end
+
+/**
+ * ImageUrl is a string pointing to an image resource.
+ */
+export type ImageUrl = string;
 
 /**
  * ButtonClickedEventHandler is a callback for button clicks.
  */
-export type ButtonClickedEventHandler<V> =  (e: ButtonClickedEvent<V>) => void
+export type ButtonClickedEventHandler<V> = (e: ButtonClickedEvent<V>) => void
 
 /**
  * ButtonAttrs
@@ -54,6 +63,13 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
     block?: boolean,
 
     /**
+     * icon to generate for the button.
+     *
+     * If a url, an img element is created.
+     */
+    icon?: ImageUrl | View,
+
+    /**
      * onClick assigns a handler for click events.
      */
     onClick?: ButtonClickedEventHandler<V>,
@@ -63,10 +79,10 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
      */
     anchor?: boolean,
 
-  /**
-   * caret if true will render a caret indicating the button can reveal a menu.
-   */
-  caret?: boolean, 
+    /**
+     * caret if true will render a caret indicating the button can reveal a menu.
+     */
+    caret?: boolean,
 
     /**
      * text can be specified as an alternative to explicit children.
@@ -137,7 +153,7 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
             anchor: (this.attrs && this.attrs.anchor) ?
                 this.attrs.anchor : false,
 
-          caret: this.attrs.caret,
+            caret: this.attrs.caret,
 
             onclick: (e: Event) => {
 
@@ -151,9 +167,28 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
             },
 
-            content: () => (this.attrs && this.attrs.text) ?
-                [text(this.attrs.text)] : this.children
+            content: () => {
 
+                let content: Content[] = [];
+
+                if (isString(this.attrs.icon))
+                    content.push(createElement('img', {
+                        alt: 'icon',
+                        class: BUTTON_IMAGE,
+                        src: this.attrs.icon
+                    }));
+
+                if (isObject(this.attrs.icon))
+                    content = [this.attrs.icon.render()];
+
+                if (this.attrs.text)
+                    content.push(createElement('span', {
+                        class: BUTTON_TEXT
+                    }, [text(this.attrs.text)]));
+
+                return [...content, ...this.children];
+
+            }
         }
 
     };
