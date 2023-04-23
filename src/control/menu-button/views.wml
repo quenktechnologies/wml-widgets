@@ -6,12 +6,8 @@
   wml:id={{@wmlId}}
   class={{@className}}>
   <Button 
-    className={{@button.className}}
-    anchor={{@button.anchor}}
-    disabled={{@button.disabled}}
-    text={{@button.text}}
-    caret=true
-    onClick={{@button.onClick}}/>
+    wml:attrs={{@button}}
+    caret=true />
   <Menu 
     wml:id={{@menu.wmlId}}
     className={{@menu.className}}

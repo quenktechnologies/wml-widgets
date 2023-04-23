@@ -7,7 +7,9 @@ import { BUTTON_GROUP_COMPAT } from '../button-group';
 import { concat, getById } from '../../util';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { Menu, MenuItemSpec } from '../../menu/menu';
+import { ButtonAttrs } from '../button';
 import { MenuButtonView } from './views';
+import { merge } from '@quenk/noni/lib/data/record';
 
 ///classNames:begin
 export const MENU_BUTTON = 'ww-menu-button';
@@ -26,6 +28,11 @@ export interface MenuButtonAttrs extends HTMLElementAttrs {
      * Defaults to "-default".
      */
     buttonClassName?: string,
+
+   /**
+    * button can be specified to override the button attributes.
+    */
+    button?: ButtonAttrs<void>,
 
     /**
      * text for the button.
@@ -82,7 +89,7 @@ export class MenuButton extends Component<MenuButtonAttrs>
 
     className = concat(MENU_BUTTON, BUTTON_GROUP_COMPAT, getClassName(this.attrs));
 
-    button = {
+    button = merge({
 
         text: this.attrs.text,
 
@@ -98,7 +105,7 @@ export class MenuButton extends Component<MenuButtonAttrs>
 
         }
 
-    };
+    }, this.attrs.button || {});
 
     _menu = (): Menu => <Menu>getById(this.view, this.menu.wmlId).get();
 
