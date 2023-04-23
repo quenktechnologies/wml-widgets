@@ -29,10 +29,15 @@ export interface MenuButtonAttrs extends HTMLElementAttrs {
      */
     buttonClassName?: string,
 
-   /**
-    * button can be specified to override the button attributes.
-    */
+    /**
+     * button can be specified to override the button attributes.
+     */
     button?: ButtonAttrs<void>,
+
+    /**
+     * nocaret if true will cause the caret to not be rendered.
+     */
+    nocaret?: boolean,
 
     /**
      * text for the button.

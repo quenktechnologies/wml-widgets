@@ -80,11 +80,6 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
     anchor?: boolean,
 
     /**
-     * caret if true will render a caret indicating the button can reveal a menu.
-     */
-    caret?: boolean,
-
-    /**
      * text can be specified as an alternative to explicit children.
      */
     text?: string
@@ -152,8 +147,6 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
             anchor: (this.attrs && this.attrs.anchor) ?
                 this.attrs.anchor : false,
-
-            caret: this.attrs.caret,
 
             onclick: (e: Event) => {
 

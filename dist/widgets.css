@@ -1435,6 +1435,9 @@ textarea.ww-search > input {
   z-index: 1000;
   text-align: left;
 }
+.ww-menu-button.-right > .ww-menu-button-menu {
+  right: 0;
+}
 .ww-tab {
   float: left;
   margin-bottom: -1px;
