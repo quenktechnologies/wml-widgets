@@ -19,7 +19,7 @@
   wml:id={{@values.button.wml.id}}
   id={{@values.button.id}}
   type={{@values.button.type}}
-  href="#"
+  href={{@values.button.href }}
   name={{@values.button.name}}
   disabled={{@values.button.disabled}}
   class={{@values.button.className}}

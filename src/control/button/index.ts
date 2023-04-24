@@ -76,8 +76,14 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
 
     /**
      * anchor if true will render an anchor instead of a button.
+     * @deprecated
      */
     anchor?: boolean,
+
+    /**
+     * href if specified, renders the button as a link.
+     */
+    href?: string,
 
     /**
      * text can be specified as an alternative to explicit children.
@@ -101,7 +107,7 @@ export class ButtonClickedEvent<V> extends ControlEvent<V> { }
  */
 export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
 
-    view: View = (this.attrs && this.attrs.anchor) ?
+    view: View = this.attrs.href ?
         new views.AnchorView(this) : new views.ButtonView(this);
 
     values = {
@@ -148,15 +154,20 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
             anchor: (this.attrs && this.attrs.anchor) ?
                 this.attrs.anchor : false,
 
+            href: this.attrs.href || '#',
+
             onclick: (e: Event) => {
+
+                if (isString(this.attrs.href))
+                    return;
+
+                if (!this.attrs.onClick) return;
 
                 e.preventDefault();
 
-                this.attrs &&
-                    this.attrs.onClick &&
-                    this.attrs.onClick(new ButtonClickedEvent(
-                        (this.attrs && this.attrs.name) ?
-                            this.attrs.name : '', <V>this.attrs.value))
+                this.attrs.onClick(new ButtonClickedEvent(
+                    this.attrs.name ?
+                        this.attrs.name : '', <V>this.attrs.value))
 
             },
 

@@ -152,6 +152,14 @@
         text="Icon" />
     </Demo>
 
+    <Demo>
+      <Demo>
+        <Button
+          href="#/buton"
+          text="Link" />
+      </Demo>
+    </Demo>
+
 </Demo>
 
 {% view Icon (Object) %}
