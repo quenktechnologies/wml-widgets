@@ -14,132 +14,115 @@ export const CONFIRM_YES = 'ww-prompt__yes';
  * Primary indicates whether the yes or no button should be highlighted.
  */
 export enum Primary {
-
     No = 'no',
 
     Yes = 'yes'
-
 }
 
 /**
  * ConfirmAttrs
  */
 export interface ConfirmAttrs extends HTMLElementAttrs {
-
     /**
      * title of the confirm.
      */
-    title?: string,
+    title?: string;
 
     /**
      * primary
      */
-    primary?: Primary,
+    primary?: Primary;
 
     /**
-     * noText 
+     * noText
      */
-    noText?: string,
+    noText?: string;
 
     /**
-     * yesText 
+     * yesText
      */
-    yesText?: string,
+    yesText?: string;
 
     /**
      * onYes handler.
      */
-    onYes: () => void,
+    onYes: () => void;
 
     /**
      * onNo handler.
      */
-    onNo: () => void
-
+    onNo: () => void;
 }
 
 /**
  * Confirm displays a dialog for confirming an action.
  */
 export class Confirm extends Component<ConfirmAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         id: getId(this.attrs),
 
         className: concat(CONFIRM, getClassName(this.attrs)),
 
         wml: {
-
             id: 'modal'
-
         },
 
         header: {
-
-            title: (this.attrs && this.attrs.title) ?
-                this.attrs.title : ''
-
+            title: this.attrs && this.attrs.title ? this.attrs.title : ''
         },
         footer: {
-
             no: {
+                text:
+                    this.attrs && this.attrs.noText ? this.attrs.noText : 'No',
 
-                text: (this.attrs && this.attrs.noText) ?
-                    this.attrs.noText : 'No',
-
-                className: concat(CONFIRM_NO, (this.attrs &&
-                    this.attrs.primary &&
-                    this.attrs.primary === Primary.No) ? '-primary' : ''),
+                className: concat(
+                    CONFIRM_NO,
+                    this.attrs &&
+                        this.attrs.primary &&
+                        this.attrs.primary === Primary.No
+                        ? '-primary'
+                        : ''
+                ),
 
                 onClick: () => {
-
-                    if (this.attrs && this.attrs.onNo)
-                        this.attrs.onNo();
+                    if (this.attrs && this.attrs.onNo) this.attrs.onNo();
 
                     this.close();
-
                 }
-
             },
 
             yes: {
-
-                text: (this.attrs && this.attrs.yesText) ?
-                    this.attrs.yesText : 'Yes',
+                text:
+                    this.attrs && this.attrs.yesText
+                        ? this.attrs.yesText
+                        : 'Yes',
 
                 wml: {
-
                     id: 'yes'
-
                 },
 
-                className: concat(CONFIRM_YES, (this.attrs &&
-                    this.attrs.primary &&
-                    this.attrs.primary === Primary.No) ? '' : '-primary'),
+                className: concat(
+                    CONFIRM_YES,
+                    this.attrs &&
+                        this.attrs.primary &&
+                        this.attrs.primary === Primary.No
+                        ? ''
+                        : '-primary'
+                ),
 
                 onClick: () => {
-
-                    if (this.attrs && this.attrs.onYes)
-                        this.attrs.onYes();
+                    if (this.attrs && this.attrs.onYes) this.attrs.onYes();
 
                     this.close();
-
                 }
-
             }
-
         }
-
-    }
+    };
 
     close(): Confirm {
-
         close(this.view, this.values.wml.id);
         return this;
-
     }
-
 }

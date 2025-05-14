@@ -17,21 +17,15 @@ export interface EmbedAttrs extends HTMLElementAttrs {}
  * Embed
  */
 export class Embed extends Component<EmbedAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         wml: {
-
             id: 'embed'
-
         },
 
         id: getId(this.attrs),
 
-        className: concat(EMBED, getClassName(this.attrs)),
-
-    }
-
+        className: concat(EMBED, getClassName(this.attrs))
+    };
 }

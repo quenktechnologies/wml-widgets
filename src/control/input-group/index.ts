@@ -13,7 +13,7 @@ export const INPUT_GROUP_BUTTON_ADDON = 'ww-input-group__button-addon';
 /**
  * InputGroupAttrs
  */
-export interface InputGroupAttrs extends HTMLElementAttrs { }
+export interface InputGroupAttrs extends HTMLElementAttrs {}
 
 /**
  * InputGroup allows an input to be wrapped together with other controls to
@@ -28,46 +28,37 @@ export interface InputGroupAttrs extends HTMLElementAttrs { }
  *  +--------------------------------+
  */
 export class InputGroup extends Component<InputGroupAttrs> {
-
     view: View = new InputGroupView(this);
 
     values = {
-
         id: getId(this.attrs),
 
-        className: concat(INPUT_GROUP, getClassName(this.attrs)),
-
-    }
-
+        className: concat(INPUT_GROUP, getClassName(this.attrs))
+    };
 }
 
 /**
  * AddOnAttrs
  */
 export interface AddOnAttrs extends HTMLElementAttrs {
-
     /**
      * button if true, will use the css classes for button addons.
      */
-    button?: boolean
-
+    button?: boolean;
 }
 
 /**
  * AddOn is used to attach the extra text or control to the input.
  */
 export class AddOn extends Component<AddOnAttrs> {
-
     view: View = new AddOnView(this);
 
     values = {
-
         id: getId(this.attrs),
 
-        className: concat(this.attrs.button ?
-            INPUT_GROUP_BUTTON_ADDON :
-            INPUT_GROUP_ADDON, getClassName(this.attrs)),
-
-    }
-
+        className: concat(
+            this.attrs.button ? INPUT_GROUP_BUTTON_ADDON : INPUT_GROUP_ADDON,
+            getClassName(this.attrs)
+        )
+    };
 }

@@ -12,49 +12,43 @@ export const IMAGE = 'ww-image';
  * ImageAttrs
  */
 export interface ImageAttrs extends HTMLElementAttrs {
-
     /**
      * src
      */
-    src?: string
+    src?: string;
 
     /**
      * alt
      */
-    alt?: string,
+    alt?: string;
 
     /**
-     * block 
+     * block
      */
-    block?: boolean
-
+    block?: boolean;
 }
 
 /**
  * Image
  */
 export class Image extends Component<ImageAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         wml: {
-
             id: 'image'
-
         },
 
         id: getId(this.attrs),
 
-        className: concat(IMAGE, getClassName(this.attrs),
-            (this.attrs && this.attrs.block) ?
-                BLOCK : ''),
+        className: concat(
+            IMAGE,
+            getClassName(this.attrs),
+            this.attrs && this.attrs.block ? BLOCK : ''
+        ),
 
-        src: (this.attrs && this.attrs.src) ? this.attrs.src : '',
+        src: this.attrs && this.attrs.src ? this.attrs.src : '',
 
-        alt: (this.attrs && this.attrs.alt) ? this.attrs.alt : '',
-
-    }
-
+        alt: this.attrs && this.attrs.alt ? this.attrs.alt : ''
+    };
 }

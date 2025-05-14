@@ -1,269 +1,236 @@
-@import "../../less/variables";
-@import "../../text-input/less/variables";
+@import '../../less/variables';
+@import '../../text-input/less/variables';
 
 /**
  * Styles for <InputGroup> and related widgets.
  */
 .__INPUT_GROUP__ {
-
-  // For dropdowns
-  position: relative;   
-  display: table;
-
-  // prevent input groups from inheriting border 
-  // styles from table cells when placed within a 
-  // table
-  border-collapse: separate; 
-
-  // Undo padding and float of grid classes
-  &[class*="col-"] {
-    float: none;
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  & > .__TEXT_INPUT__ {
-    // Ensure that the input is always above the *appended* addon button for
-    // proper border colors.
+    // For dropdowns
     position: relative;
-    z-index: 2;
+    display: table;
 
-    // IE9 fubars the placeholder attribute in text inputs and the arrows on
-    // select elements in input groups. To fix it, we float the input. Details:
-    // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
-    float: left;
-    width: 100%;
-    margin-bottom: 0;
+    // prevent input groups from inheriting border
+    // styles from table cells when placed within a
+    // table
+    border-collapse: separate;
 
-    &:focus {
-      z-index: 3;
+    // Undo padding and float of grid classes
+    &[class*='col-'] {
+        float: none;
+        padding-right: 0;
+        padding-left: 0;
     }
 
-    &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+    & > .__TEXT_INPUT__ {
+        // Ensure that the input is always above the *appended* addon button for
+        // proper border colors.
+        position: relative;
+        z-index: 2;
+
+        // IE9 fubars the placeholder attribute in text inputs and the arrows on
+        // select elements in input groups. To fix it, we float the input. Details:
+        // https://github.com/twbs/bootstrap/issues/11561#issuecomment-28936855
+        float: left;
+        width: 100%;
+        margin-bottom: 0;
+
+        &:focus {
+            z-index: 3;
+        }
+
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
     }
 
-    &:last-child {
-  
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+    & > .__INPUT_GROUP_ADDON__ {
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle; // Match the inputs
+        padding: @control-padding-vertical @control-padding-horizontal;
+        font-size: @control-font-size;
+        font-weight: 400;
+        line-height: @control-line-height;
+        color: @control-color;
+        text-align: center;
+        background-color: #eaeaea;
+        border: 1px solid @control-border-color;
+        border-radius: @control-border-radius;
+        display: table-cell;
 
-    }
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
 
-  }
+        &:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
 
-  & > .__INPUT_GROUP_ADDON__ {
+        &:first-child {
+            border-right: 0;
+        }
 
-    width: 1%;
-    white-space: nowrap;
-    vertical-align: middle; // Match the inputs
-    padding: @control-padding-vertical @control-padding-horizontal;
-    font-size: @control-font-size;
-    font-weight: 400;
-    line-height: @control-line-height;
-    color: @control-color;
-    text-align: center;
-    background-color: #eaeaea;
-    border: 1px solid @control-border-color;
-    border-radius: @control-border-radius;
-    display: table-cell;
+        &:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            border-left: 0;
+        }
 
-    &:not(:first-child):not(:last-child) {
-      border-radius: 0;
-    }
-
-    &:first-child {
-
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-
-    }
-
-    &:first-child {
-
-      border-right: 0;
-
-    }
-
-    &:last-child {
- 
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      border-left: 0;
-
-    }
-
-    &.__EXTRA_SMALL__ {
-
-      .textInputDim(
+        &.__EXTRA_SMALL__ {
+            .textInputDim(
       @text-input-extra-small-width;
       @text-input-extra-small-padding-vertical; 
       @text-input-extra-small-padding-horizontal;
       @text-input-extra-small-font-size;
       @text-input-extra-small-line-height;
       @text-input-extra-small-border-radius);
+        }
 
-    }
-
-    &.__SMALL__ {
-
-      .textInputDim(
+        &.__SMALL__ {
+            .textInputDim(
       @text-input-small-width;
       @text-input-small-padding-vertical; 
       @text-input-small-padding-horizontal;
       @text-input-small-font-size;
       @text-input-small-line-height;
       @text-input-small-border-radius);
+        }
 
-    }
-
-    &.__MEDIUM__ {
-
-      .textInputDim(
+        &.__MEDIUM__ {
+            .textInputDim(
       @text-input-medium-width;
       @text-input-medium-padding-vertical; 
       @text-input-medium-padding-horizontal;
       @text-input-medium-font-size;
       @text-input-medium-line-height;
       @text-input-medium-border-radius);
+        }
 
-    }
-
-    &.__LARGE__ {
-
-      .textInputDim(
+        &.__LARGE__ {
+            .textInputDim(
       @text-input-large-width;
       @text-input-large-padding-vertical; 
       @text-input-large-padding-horizontal;
       @text-input-large-font-size;
       @text-input-large-line-height;
       @text-input-large-border-radius);
+        }
 
-    }
-
-    &.__EXTRA_LARGE__ {
-
-      .textInputDim(
+        &.__EXTRA_LARGE__ {
+            .textInputDim(
       @text-input-extra-large-width;
       @text-input-extra-large-padding-vertical; 
       @text-input-extra-large-padding-horizontal;
       @text-input-extra-large-font-size;
       @text-input-extra-large-line-height;
       @text-input-extra-large-border-radius);
+        }
 
+        // Nuke default margins from checkboxes and radios to vertically center
+        // within.
+        input[type='radio'],
+        input[type='checkbox'] {
+            margin-top: 0;
+        }
     }
 
-    // Nuke default margins from checkboxes and radios to vertically center 
-    // within.
-    input[type="radio"],
-    input[type="checkbox"] {
-      margin-top: 0;
+    & > .__INPUT_GROUP_BUTTON_ADDON__ {
+        position: relative;
+        // Jankily prevent input button groups from wrapping with `white-space` and
+        // `font-size` in combination with `inline-block` on buttons.
+        font-size: 0;
+        white-space: nowrap;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle; // Match the inputs
+        display: table-cell;
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+
+        &:first-child > .__BUTTON__,
+        &:first-child > .__BUTTON_GROUP__ > .__BUTTON__,
+        &:first-child > .__MENU_BUTTON__ > .__BUTTON__,
+        &:first-child > .__DROP_LIST__,
+        &:last-child > .__BUTTON__:not(:last-child):not(.__MENU_BUTTON__),
+        &:last-child > .__BUTTON__:not(:last-child):not(.__DROP_LIST__),
+        &:last-child > .__BUTTON_GROUP__:not(:last-child) > .__BUTTON__ {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        &:last-child > .__BUTTON__,
+        &:last-child > .__BUTTON_GROUP__ > .__BUTTON__,
+        &:last-child > .__DROP_DOWN__,
+        &:last-child > .__DROP_LIST__,
+        &:first-child > .__BUTTON__:not(:first-child),
+        &:first-child > .__BUTTON_GROUP__:not(:first-child) > .__BUTTON__ {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        &:first-child > .__DROP_DOWN__,
+        &:last-child > .__DROP_LIST__ {
+            margin-right: -2px;
+        }
+
+        &:last-child > .__DROP_DOWN__,
+        &:last-child > .__DROP_LIST__ {
+            margin-left: -2px;
+        }
+
+        &:last-child {
+            border-left: 0;
+        }
+
+        // Negative margin for spacing, position for bringing hovered/focused/actived
+        // element above the siblings.
+        & > .__BUTTON__ {
+            position: relative;
+
+            & + .__BUTTON__ {
+                margin-left: -1px;
+            }
+
+            // Bring the "active" button to the front
+            &:hover,
+            &:focus,
+            &:active {
+                z-index: 2;
+            }
+        }
+
+        // Negative margin to only have a 1px border between the two
+        &:first-child {
+            > .__BUTTON__,
+            > .__BUTTON_GROUP__ {
+                margin-right: -1px;
+            }
+        }
+
+        &:last-child {
+            > .__BUTTON__,
+            > .__BUTTON_GROUP__ {
+                z-index: 2;
+                margin-left: -1px;
+            }
+        }
     }
 
-  }
+    & .__TEXT_INPUT__ {
+        height: auto;
+        display: table-cell;
 
-  & > .__INPUT_GROUP_BUTTON_ADDON__ {
-
-    position: relative;
-    // Jankily prevent input button groups from wrapping with `white-space` and
-    // `font-size` in combination with `inline-block` on buttons.
-    font-size: 0;
-    white-space: nowrap;
-    width: 1%;
-    white-space: nowrap;
-    vertical-align: middle; // Match the inputs
-    display: table-cell;
-
-    &:not(:first-child):not(:last-child) {
-      border-radius: 0;
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
     }
-
-    &:first-child > .__BUTTON__, 
-    &:first-child > .__BUTTON_GROUP__ > .__BUTTON__,
-    &:first-child > .__MENU_BUTTON__ > .__BUTTON__,
-    &:first-child > .__DROP_LIST__,
-    &:last-child  > .__BUTTON__:not(:last-child):not(.__MENU_BUTTON__),
-    &:last-child  > .__BUTTON__:not(:last-child):not(.__DROP_LIST__),
-    &:last-child  > .__BUTTON_GROUP__:not(:last-child) > .__BUTTON__ {
-
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-
-    }
-
-    &:last-child  > .__BUTTON__, 
-    &:last-child  > .__BUTTON_GROUP__ > .__BUTTON__,
-    &:last-child  > .__DROP_DOWN__,
-    &:last-child  > .__DROP_LIST__,
-    &:first-child > .__BUTTON__:not(:first-child),
-    &:first-child > .__BUTTON_GROUP__:not(:first-child) > .__BUTTON__ {
-
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-
-    }
-
-    &:first-child  > .__DROP_DOWN__, &:last-child  > .__DROP_LIST__ {
-
-      margin-right: -2px;
-
-    }
-
-    &:last-child  > .__DROP_DOWN__, &:last-child  > .__DROP_LIST__ {
-
-      margin-left: -2px;
-
-    }
-
-
-    &:last-child {
-
-      border-left: 0;
-
-    }
-
-    // Negative margin for spacing, position for bringing hovered/focused/actived
-    // element above the siblings.
-    & > .__BUTTON__ {
-
-      position: relative;
-
-      & + .__BUTTON__ {
-        margin-left: -1px;
-      }
-
-      // Bring the "active" button to the front
-      &:hover, &:focus, &:active {
-        z-index: 2;
-      }
-    }
-
-    // Negative margin to only have a 1px border between the two
-    &:first-child {
-      > .__BUTTON__, > .__BUTTON_GROUP__ {
-        margin-right: -1px;
-      }
-    }
-
-    &:last-child {
-      > .__BUTTON__, > .__BUTTON_GROUP__ {
-        z-index: 2;
-        margin-left: -1px;
-      }
-    }
-
-  }
-
-  & .__TEXT_INPUT__ {
-
-    height: auto;
-    display: table-cell;
-
-    &:not(:first-child):not(:last-child) {
-      border-radius: 0;
-    }
-
-  }
-
 }

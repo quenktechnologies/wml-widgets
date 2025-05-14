@@ -73,7 +73,7 @@ export const HOVERABLE = '-hoverable';
 export const ACTION_BAR = 'ww-action-bar';
 
 /**
- * ACTION_BAR_CONTENT class name. 
+ * ACTION_BAR_CONTENT class name.
  */
 export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 
@@ -159,7 +159,7 @@ export const PAGER_NEXT = 'ww-pager__next';
 export const TAB = 'ww-tab';
 
 /**
- * TAB_BAR 
+ * TAB_BAR
  */
 export const TAB_BAR = 'ww-tab-bar';
 ///classNames:end
@@ -312,7 +312,7 @@ export const HIDDEN = '-ww-hidden';
 export const VERTICAL = '-vertical';
 
 /**
- * PUSHABLE indicates an element supports being pushed 
+ * PUSHABLE indicates an element supports being pushed
  * and can have styles added to it around the concept.
  */
 export const PUSHABLE = '-pushable';
@@ -372,7 +372,8 @@ export const EXTRA_LARGE = '-extra-large';
 ///classNames:begin
 export const MEDIA_DESCRIPTION = 'ww-media-description';
 export const MEDIA_DESCRIPTION_MEDIA = 'ww-media-description__media';
-export const MEDIA_DESCRIPTION_DESCRIPTION = 'ww-media-description__description';
+export const MEDIA_DESCRIPTION_DESCRIPTION =
+    'ww-media-description__description';
 ///classNames:end
 ///classNames:begin
 export const IMAGE = 'ww-image';

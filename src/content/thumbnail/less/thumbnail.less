@@ -1,36 +1,25 @@
-
 .__THUMBNAIL__ {
+    display: block;
+    padding: @thumbnail-padding;
+    margin-bottom: @thumbnail-margin-bottom;
+    line-height: @thumbnail-line-height;
+    background-color: @thumbnail-background-color;
+    border: 1px solid @thumbnail-border-color;
+    border-radius: @thumbnail-border-radius;
+    transition: border 0.2s ease-in-out;
 
-  display: block;
-  padding: @thumbnail-padding;
-  margin-bottom: @thumbnail-margin-bottom;
-  line-height: @thumbnail-line-height;
-  background-color: @thumbnail-background-color;
-  border: 1px solid @thumbnail-border-color;
-  border-radius: @thumbnail-border-radius;
-  transition: border .2s ease-in-out;
-  
-  & > img {
+    & > img {
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-    margin-left: auto;
-    margin-right: auto;
-
-  }
-
-  &.__THUMBNAIL_CAPTION__ {
-
-    padding: @thumbnail-caption-padding;
-    color: @thumbnail-caption-color;
-
-  }
-
+    &.__THUMBNAIL_CAPTION__ {
+        padding: @thumbnail-caption-padding;
+        color: @thumbnail-caption-color;
+    }
 }
 
-
 a.__THUMBNAIL__ {
-
-  text-decoration: none;
-  color: inherit;
-
-
+    text-decoration: none;
+    color: inherit;
 }

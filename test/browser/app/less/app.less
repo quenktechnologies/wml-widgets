@@ -1,66 +1,51 @@
-@import "../../../../widgets";
-@import "./variables";
+@import '../../../../widgets';
+@import './variables';
 
 * {
-
-  box-sizing: border-box;
-
+    box-sizing: border-box;
 }
 
-*:before, *:after {
-
-  box-sizing: border-box;
-
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
-html,body { 
-
-  margin: none;
-  height: 100%;
-
+html,
+body {
+    margin: none;
+    height: 100%;
 }
 
 body {
-
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333;
-  background-color: #f6f7f9;
-  margin: 0;
-
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #f6f7f9;
+    margin: 0;
 }
 
 .grid-layout-example {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
 
-  margin-left: .5em;
-  margin-right: .5em;
+    & > .__GRID_LAYOUT_ROW__ {
+        background-color: rgba(86, 61, 124, 0.15);
+        border: 1px solid rgba(86, 61, 124, 0.2);
+        margin-bottom: 0.5em;
 
-  & > .__GRID_LAYOUT_ROW__ {
-
-    background-color: rgba(86,61,124,.15);
-    border: 1px solid rgba(86,61,124,.2);
-    margin-bottom: .5em;
-
-    & > .__GRID_LAYOUT_COLUMN__ {
-
-      &:not(:first-child) {
-
-        border-left: 1px solid rgba(86,61,124,.2)
-
-      }
+        & > .__GRID_LAYOUT_COLUMN__ {
+            &:not(:first-child) {
+                border-left: 1px solid rgba(86, 61, 124, 0.2);
+            }
+        }
     }
-  }
 }
 
 .ww-drawer-layout__content {
-
-  & > .ww-grid-layout:nth-child(1) {
-
-    height: 100%;
-    overflow: auto;
-    padding-top: 60px;
-
-  }
-
+    & > .ww-grid-layout:nth-child(1) {
+        height: 100%;
+        overflow: auto;
+        padding-top: 60px;
+    }
 }

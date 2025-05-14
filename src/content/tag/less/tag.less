@@ -1,119 +1,90 @@
-@import "./variables";
+@import './variables';
 
 .__TAG__ {
+    display: inline-block;
+    padding: @tag-padding-vertical @tag-padding-horizontal;
+    font-size: @tag-font-size;
+    font-weight: @tag-font-weight;
+    line-height: @tag-line-height;
+    color: @tag-color;
+    text-align: @tag-text-align;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: @tag-border-radius;
 
-  display: inline-block;
-  padding: @tag-padding-vertical @tag-padding-horizontal;
-  font-size: @tag-font-size;
-  font-weight: @tag-font-weight;
-  line-height: @tag-line-height;
-  color: @tag-color;
-  text-align: @tag-text-align;
-  white-space: nowrap;
-  vertical-align: baseline;
-  border-radius: @tag-border-radius;
-
-  &::after {
-
-    content: "";
-    clear: both;
-    display: table;
-
-  }
-
-  & + & {
-
-    margin-left: @tag-sibling-margin-left;
-
-  }
-
-  a& {
-
-    &:hover, &:focus {
-
-      color: @tag-link-hover-color;
-      text-decoration: none;
-      cursor: pointer;
-
+    &::after {
+        content: '';
+        clear: both;
+        display: table;
     }
 
-  }
+    & + & {
+        margin-left: @tag-sibling-margin-left;
+    }
 
-  &:empty {
+    a& {
+        &:hover,
+        &:focus {
+            color: @tag-link-hover-color;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
 
-    display: none;
+    &:empty {
+        display: none;
+    }
 
-  }
-
-  &.__DEFAULT__ {
-
-    .tagVariant(
+    &.__DEFAULT__ {
+        .tagVariant(
     @tag-default-color;
     @tag-default-background-color;
     @tag-default-border-color);
+    }
 
-  }
-
-  &.__PRIMARY__ {
-
-    .tagVariant(
+    &.__PRIMARY__ {
+        .tagVariant(
     @tag-primary-color;
     @tag-primary-background-color;
     @tag-primary-border-color);
+    }
 
-  }
-
-  &.__SUCCESS__ {
-
-    .tagVariant(
+    &.__SUCCESS__ {
+        .tagVariant(
     @tag-success-color;
     @tag-success-background-color;
     @tag-success-border-color);
+    }
 
-  }
-
-  &.__INFO__ {
-
-    .tagVariant(@tag-info-color;
+    &.__INFO__ {
+        .tagVariant(@tag-info-color;
     @tag-info-background-color;
     @tag-info-border-color);
+    }
 
-  }
-
-  &.__WARNING__ {
-
-    .tagVariant(@tag-warning-color;
+    &.__WARNING__ {
+        .tagVariant(@tag-warning-color;
     @tag-warning-background-color;
     @tag-warning-border-color);
+    }
 
-  }
-
-  &.__ERROR__ {
-
-    .tagVariant(@tag-error-color;
+    &.__ERROR__ {
+        .tagVariant(@tag-error-color;
     @tag-error-background-color;
     @tag-error-border-color);
-
-  }
-
+    }
 }
 
 .tagVariant(@color; @background; @border) {
+    color: @color;
+    background-color: @background;
+    border: 1px solid @border;
 
-  color: @color;
-  background-color: @background;
-  border: 1px solid @border;
+    &:hover {
+        background-color: darken(@background, 10%);
+    }
 
-  &:hover {
-       
-    background-color: darken(@background, 10%);
-
-  }
-  
-  &[href] :focus {
-
-    background-color: darken(@background, 10%);
-                              
-  }
-                              
+    &[href] :focus {
+        background-color: darken(@background, 10%);
+    }
 }

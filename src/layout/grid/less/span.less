@@ -5,14 +5,9 @@
  * @param {int} @total - The total number of columns.
  */
 .span(@step, @total) when(@step =< @total) {
+    &.-span@{step} {
+        width: percentage((@step / @total));
+    }
 
-  &.-span@{step} {
-
-    width: percentage((@step / @total));
-
-  }
-
-  .span(@step+1; @total);
-
+    .span(@step+1; @total);
 }
-

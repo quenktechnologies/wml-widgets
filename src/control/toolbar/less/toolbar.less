@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 /**
   Toolbar styling.
@@ -10,32 +10,24 @@
   have the __TOOLBAR_COMPAT__ class in their classlist.
 */
 .__TOOLBAR__ {
+    margin-left: @toolbar-margin-left;
 
-  margin-left: @toolbar-margin-left;
+    &::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
 
-  &::after {
+    & > .__BUTTON_GROUP__,
+    & > __TOOLBAR_COMPAT__ {
+        float: @toolbar-compat-float;
+        margin-top: @toolbar-compat-margin-top;
+    }
 
-    content: "";
-    clear: both;
-    display: table;
-
-  }
-
-  & > .__BUTTON_GROUP__ ,
-  & > __TOOLBAR_COMPAT__ {
-
-    float: @toolbar-compat-float;
-    margin-top: @toolbar-compat-margin-top;
-
-  }
-
-  & > .__BUTTON_GROUP__    + __BUTTON_GROUP__,
-  & > .__BUTTON_GROUP__    + .__TOOLBAR_COMPAT__,
-  & > .__TOOLBAR_COMPAT__  + .__BUTTON_GROUP__,
-  & > .__TOOLBAR_COMPAT__  + .__TOOLBAR_COMPAT__ {
-
-    margin-left: @toolbar-compat-margin-left;
-
-  }
-
+    & > .__BUTTON_GROUP__ + __BUTTON_GROUP__,
+    & > .__BUTTON_GROUP__ + .__TOOLBAR_COMPAT__,
+    & > .__TOOLBAR_COMPAT__ + .__BUTTON_GROUP__,
+    & > .__TOOLBAR_COMPAT__ + .__TOOLBAR_COMPAT__ {
+        margin-left: @toolbar-compat-margin-left;
+    }
 }

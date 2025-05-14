@@ -3,7 +3,6 @@ import * as wml from '@quenk/wml';
 import { Main } from './wml/menu';
 
 export class MenuPage {
-
     view: wml.View = new Main(this);
 
     items = [
@@ -13,7 +12,6 @@ export class MenuPage {
         { type: 'divider' },
         { type: 'link', text: 'Quit', onClick: () => alert('clicked') }
     ];
-
 }
 
 export default new MenuPage();

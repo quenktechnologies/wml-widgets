@@ -1,69 +1,58 @@
-@import "./variables";
+@import './variables';
 
 .control() {
+    height: @control-height;
+    padding: @control-padding-vertical @control-padding-horizontal;
+    font-size: @control-font-size;
+    line-height: @control-line-height;
+    color: @control-color;
+    background-color: @control-background;
+    background-image: none;
+    border: 1px solid @control-border-color;
+    border-radius: @control-border-radius;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    transition:
+        border-color ease-in-out 0.15s,
+        box-shadow ease-in-out 0.15s;
 
-  height: @control-height;
-  padding: @control-padding-vertical @control-padding-horizontal;
-  font-size: @control-font-size;
-  line-height: @control-line-height;
-  color: @control-color;
-  background-color: @control-background;
-  background-image: none; 
-  border: 1px solid @control-border-color;
-  border-radius: @control-border-radius;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    &::-ms-expand {
+        border: 0;
+        background-color: transparent;
+    }
 
-  &::-ms-expand {
+    &[disabled],
+    fieldset[disabled] & {
+        cursor: not-allowed;
+    }
 
-    border: 0;
-    background-color: transparent;
+    // Reset height for `textarea`s
+    textarea& {
+        height: auto;
+    }
 
-  }
+    &:focus {
+        .controlFocus(@control-focus-border-color);
+    }
 
-  &[disabled], fieldset[disabled] & {
+    &.__ERROR__ {
+        border-color: @control-error-border-color;
+    }
 
-    cursor: not-allowed;
+    &.__WARNING__ {
+        border-color: @control-warning-border-color;
+    }
 
-  }
-
-  // Reset height for `textarea`s
-  textarea& {
-    height: auto;
-  }
-
-  &:focus {
-
-    .controlFocus(@control-focus-border-color);
-
-  }
-
-  &.__ERROR__ {
-
-    border-color: @control-error-border-color;
-
-  }
-
-  &.__WARNING__ {
-
-    border-color: @control-warning-border-color;
-
-  }
-
-  &.__SUCCESS__{
-
-    border-color: @control-success-border-color;
-
-  }
-
+    &.__SUCCESS__ {
+        border-color: @control-success-border-color;
+    }
 }
 
 .controlFocus(@color) {
-
-    @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+    @color-rgba: rgba(red(@color), green(@color), blue(@color), 0.6);
 
     border-color: @color;
     outline: 0;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @color-rgba;
-
+    box-shadow:
+        inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px @color-rgba;
 }

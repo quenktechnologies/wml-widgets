@@ -15,67 +15,65 @@ export type Path = string;
  * of a column in each row.
  */
 export interface Column<C, R extends Record<C>> {
-
     /**
      * name of the property to use for this column.
      *
      * Can be a name or path expression.
      */
-    name: Path,
+    name: Path;
 
     /**
      * heading displayed for the column.
      */
-    heading: string,
+    heading: string;
 
     /**
      * headingClassName will be appended to the column's class list.
      */
-    headingClassName?: string,
+    headingClassName?: string;
 
     /**
      * headingFragment can be specified to customise the rending
      * of the heading content.
      */
-    headingFragment?: HeadingFragment<C, R>,
+    headingFragment?: HeadingFragment<C, R>;
 
     /**
      * onHeadingClicked event handler.
      */
-    onHeadingClicked?: (e: HeadingClickedEvent) => void,
+    onHeadingClicked?: (e: HeadingClickedEvent) => void;
 
     /**
      * cellClassName will be appended to each cell's class list.
      */
-    cellClassName?: string,
+    cellClassName?: string;
 
     /**
      * cellFragment can be specified to customise the rendering
      * of the cell content.
      */
-    cellFragment?: CellFragment<C, R>,
+    cellFragment?: CellFragment<C, R>;
 
     /**
      * onCellClicked event handler.
      */
-    onCellClicked?: (e: CellClickedEvent) => void,
+    onCellClicked?: (e: CellClickedEvent) => void;
 
     /**
      * format can be specified to transform the stringified value of each cell
      * before display.
      */
-    format?: (c: C) => string,
+    format?: (c: C) => string;
 
     /**
      * alias specifies the path that should be used when sorting by this column.
      */
-    alias?: SortAlias,
+    alias?: SortAlias;
 
     /**
      * sort indicates how to sort by the column.
      *
      * If this is specified, sorting by the column will be enabled.
      */
-    sort?: SortStrategy<C>
-
+    sort?: SortStrategy<C>;
 }

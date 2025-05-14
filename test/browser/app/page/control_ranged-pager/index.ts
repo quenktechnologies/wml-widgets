@@ -21,11 +21,9 @@ const scenes = [
 ];
 
 export class RangedPagerPage {
-
     view: wml.View = new views.Main(this);
 
     values = {
-
         scenes: scenes,
 
         message: scenes[0],
@@ -37,33 +35,24 @@ export class RangedPagerPage {
         current: 1,
 
         onAttrChange: (e: TextChangedEvent) => {
-
             (<Type>this.values)[e.name] = Number(e.value);
 
             if (e.name === 'total')
                 this.values.scenes = make(Number(e.value), i => `Page ${i}`);
-
         },
 
         onChange: (e: PageSelectedEvent) => {
-
             this.values.current = e.value;
 
             this.values.message = this.values.scenes[this.values.current - 1];
 
             this.view.invalidate();
-
         },
 
         reset: () => {
-
             this.view.invalidate();
-
         }
-
-
-    }
-
+    };
 }
 
 export default new RangedPagerPage();

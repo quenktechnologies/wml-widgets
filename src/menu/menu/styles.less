@@ -1,115 +1,102 @@
-@import "./variables";
+@import './variables';
 
 .__MENU_HEADER__ {
-
-  padding: @menu-item-padding;
-  color: @menu-header-text-color;
-  font-weight: @menu-header-font-weight;
-  letter-spacing: @menu-header-letter-spacing;
-  margin: 0;
-
+    padding: @menu-item-padding;
+    color: @menu-header-text-color;
+    font-weight: @menu-header-font-weight;
+    letter-spacing: @menu-header-letter-spacing;
+    margin: 0;
 }
 
 .__MENU_DIVIDER__ {
-
     height: 1px;
     overflow: hidden;
     background-color: @menu-divider-background;
-
 }
 
 .__MENU__ {
-
-  min-width: @menu-min-width;
-  max-height: @menu-max-height;
-  display: block; 
-  z-index: @menu-z-index;
-  padding: @menu-padding;
-  margin: @menu-margin;
-  list-style: none;
-  font-size: @menu-font-size;
-  text-align: @menu-text-align;
-  background-color: @menu-background-color;
-  border: 1px solid @menu-border-color;
-  border-radius: @menu-border-radius;
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
-  background-clip: padding-box;
-
-  & > li {
-
-    margin: @menu-item-margin;
-
-  }
-
-  & > li > a,
-  & > li > .__LINK__ {
-
+    min-width: @menu-min-width;
+    max-height: @menu-max-height;
     display: block;
-    padding: @menu-item-padding;
-    clear: both;
-    font-weight: normal;
-    line-height: @menu-line-height;
-    color: @menu-link-color;
-    white-space: nowrap; 
-    text-decoration: none;
-
-  }
-
-  & > li > a:hover, & > li > a:focus {
-
-    text-decoration: none;
-    color: @menu-link-hover-color;
-    background-color: @menu-link-hover-background;
+    z-index: @menu-z-index;
+    padding: @menu-padding;
+    margin: @menu-margin;
+    list-style: none;
+    font-size: @menu-font-size;
+    text-align: @menu-text-align;
+    background-color: @menu-background-color;
+    border: 1px solid @menu-border-color;
     border-radius: @menu-border-radius;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
 
-  }
+    & > li {
+        margin: @menu-item-margin;
+    }
 
-  & > li > h1,h2,h3,h4,h5,h6 {
+    & > li > a,
+    & > li > .__LINK__ {
+        display: block;
+        padding: @menu-item-padding;
+        clear: both;
+        font-weight: normal;
+        line-height: @menu-line-height;
+        color: @menu-link-color;
+        white-space: nowrap;
+        text-decoration: none;
+    }
 
-    display: block;
-    padding: @menu-item-padding;
-    margin: 0;
-    font-size: @menu-heading-font-size;
-    line-height: @menu-line-height;
-    color: @menu-heading-color;
-    white-space: nowrap; 
+    & > li > a:hover,
+    & > li > a:focus {
+        text-decoration: none;
+        color: @menu-link-hover-color;
+        background-color: @menu-link-hover-background;
+        border-radius: @menu-border-radius;
+    }
 
-  }
+    & > li > h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        display: block;
+        padding: @menu-item-padding;
+        margin: 0;
+        font-size: @menu-heading-font-size;
+        line-height: @menu-line-height;
+        color: @menu-heading-color;
+        white-space: nowrap;
+    }
 
-  &.__HIDDEN__ {
+    &.__HIDDEN__ {
+        display: none !important;
+    }
 
-    display: none !important;
+    & > .__ACTIVE__ > a,
+    & > .__ACTIVE__ > a:hover,
+    & > .__ACTIVE__ > a:focus {
+        color: @menu-link-active-color;
+        text-decoration: none;
+        outline: 0;
+        background-color: @menu-link-active-background;
+    }
 
-  }
+    & > .__DISABLED__ > a,
+    & > .__DISABLED__ > a:hover,
+    & > .__DISABLED__ > a:focus {
+        color: @menu-link-disabled-color;
+    }
 
-  & > .__ACTIVE__ > a, & > .__ACTIVE__ > a:hover, & > .__ACTIVE__ > a:focus {
+    & > .__DISABLED__ > a:hover,
+    & > .__DISABLED__ > a:focus {
+        text-decoration: none;
+        background-color: transparent;
+        background-image: none;
+        cursor: not-allowed;
+    }
 
-    color: @menu-link-active-color;
-    text-decoration: none;
-    outline: 0;
-    background-color: @menu-link-active-background;
-
-  }
-
-  & > .__DISABLED__> a, & > .__DISABLED__ > a:hover, & > .__DISABLED__ > a:focus { 
-
-    color: @menu-link-disabled-color;
-
-  }
-
-  & > .__DISABLED__ > a:hover, & > .__DISABLED__ > a:focus {
-
-    text-decoration: none;
-    background-color: transparent;
-    background-image: none;
-    cursor: not-allowed;
-
-  }
-
-  & > __RIGHT__ {
-
-    left: auto; 
-
-  }
-
+    & > __RIGHT__ {
+        left: auto;
+    }
 }

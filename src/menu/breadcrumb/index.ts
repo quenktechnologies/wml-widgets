@@ -15,27 +15,22 @@ export { Link } from '../../content/link';
 /**
  * Breadcrumb
  */
-export interface BreadcrumbAttrs extends HTMLElementAttrs { }
+export interface BreadcrumbAttrs extends HTMLElementAttrs {}
 
 /**
  * BreadcrumbMenu
  */
-export class BreadcrumbMenu extends Component<BreadcrumbAttrs>{
-
+export class BreadcrumbMenu extends Component<BreadcrumbAttrs> {
     view: View = new views.Main(this);
 
     values = {
-
         root: {
+            id: this.attrs && this.attrs.id ? this.attrs.id : '',
 
-            id: (this.attrs && this.attrs.id) ? this.attrs.id : '',
-
-            className: concat(BREADCRUMB_MENU,
-                (this.attrs && this.attrs.className) ?
-                    this.attrs.className : '')
-
+            className: concat(
+                BREADCRUMB_MENU,
+                this.attrs && this.attrs.className ? this.attrs.className : ''
+            )
         }
-
     };
-
 }

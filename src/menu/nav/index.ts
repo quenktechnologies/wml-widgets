@@ -18,31 +18,24 @@ export const NAV_MENU = 'ww-nav-menu';
  *
  * This is the expanded form of MenuItemSpec.
  */
-export type MenuItemInfo
-    = LinkType
-    | MenuHeaderType
-    | MenuInfo
-    ;
+export type MenuItemInfo = LinkType | MenuHeaderType | MenuInfo;
 
 /**
  * MenuInfo specifies the properties to form a sub-menu menu item.
  */
 export interface MenuInfo extends NavMenuAttrs {
-
-    type: MenuItemSpecType
-
+    type: MenuItemSpecType;
 }
 
 /**
  * NavMenuAttrs
  */
 export interface NavMenuAttrs extends HTMLElementAttrs {
-
     /**
      * vertical indicates whether to display the nav
      * vertically or horizontally (default).
      */
-    vertical?: boolean,
+    vertical?: boolean;
 
     /**
      * items is a list of specifiers that will be turned into their respective
@@ -51,8 +44,7 @@ export interface NavMenuAttrs extends HTMLElementAttrs {
      * Either a record of links can be specified for a simple nav menu or a
      * list of MenuItemSpecs for more complex layouts.
      */
-    items?: MenuItemInfo[]
-
+    items?: MenuItemInfo[];
 }
 
 /**
@@ -62,18 +54,17 @@ export interface NavMenuAttrs extends HTMLElementAttrs {
  * via attributes for dynamic creation.
  */
 export class NavMenu extends wml.Component<NavMenuAttrs> {
-
     view: wml.View = new NavMenuView(this);
 
     values = {
-
         id: this.attrs.id,
 
-        className: util.concat(NAV_MENU, this.attrs.className,
-            this.attrs.vertical ? VERTICAL : ''),
+        className: util.concat(
+            NAV_MENU,
+            this.attrs.className,
+            this.attrs.vertical ? VERTICAL : ''
+        ),
 
         items: this.attrs.items || []
-
-    }
-
+    };
 }

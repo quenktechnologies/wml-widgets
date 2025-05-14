@@ -21,50 +21,48 @@ export const MENU_BUTTON_CONTENT = 'ww-menu-button-menu';
  * MenuButtonAttrs
  */
 export interface MenuButtonAttrs extends HTMLElementAttrs {
-
     /**
      * buttonClassName is appended to the button class list.
      *
      * Defaults to "-default".
      */
-    buttonClassName?: string,
+    buttonClassName?: string;
 
     /**
      * button can be specified to override the button attributes.
      */
-    button?: ButtonAttrs<void>,
+    button?: ButtonAttrs<void>;
 
     /**
      * nocaret if true will cause the caret to not be rendered.
      */
-    nocaret?: boolean,
+    nocaret?: boolean;
 
     /**
      * text for the button.
      */
-    text?: string,
+    text?: string;
 
     /**
      * items if specified will be rendered instead of the child content.
      */
-    items?: MenuItemSpec[],
+    items?: MenuItemSpec[];
 
     /**
      * autoClose when true, will automatically hide the content.
      * Defaults to true.
      */
-    autoClose?: boolean,
+    autoClose?: boolean;
 
     /**
      * anchor if true will use an anchor instead of a button.
      */
-    anchor?: boolean,
+    anchor?: boolean;
 
     /**
      * disabled
      */
-    disabled?: boolean
-
+    disabled?: boolean;
 }
 
 /**
@@ -83,39 +81,45 @@ export interface MenuButtonAttrs extends HTMLElementAttrs {
  *    |                         |
  *    +-------------------------+
  */
-export class MenuButton extends Component<MenuButtonAttrs>
-    implements hidden.Hidable {
-
+export class MenuButton
+    extends Component<MenuButtonAttrs>
+    implements hidden.Hidable
+{
     view = new MenuButtonView(this);
 
     wmlId = 'root';
 
     id = getId(this.attrs);
 
-    className = concat(MENU_BUTTON, BUTTON_GROUP_COMPAT, getClassName(this.attrs));
+    className = concat(
+        MENU_BUTTON,
+        BUTTON_GROUP_COMPAT,
+        getClassName(this.attrs)
+    );
 
-    button = merge({
+    button = merge(
+        {
+            text: this.attrs.text,
 
-        text: this.attrs.text,
+            anchor: this.attrs.anchor,
 
-        anchor: this.attrs.anchor,
+            className: concat(
+                MENU_BUTTON_TOGGLE,
+                this.attrs.buttonClassName || style.DEFAULT
+            ),
 
-        className: concat(MENU_BUTTON_TOGGLE, this.attrs.buttonClassName || style.DEFAULT),
+            disabled: this.attrs.disabled,
 
-        disabled: this.attrs.disabled,
-
-        onClick: () => {
-
-            this.toggle();
-
-        }
-
-    }, this.attrs.button || {});
+            onClick: () => {
+                this.toggle();
+            }
+        },
+        this.attrs.button || {}
+    );
 
     _menu = (): Menu => <Menu>getById(this.view, this.menu.wmlId).get();
 
     menu = {
-
         wmlId: 'content',
 
         className: MENU_BUTTON_CONTENT,
@@ -124,36 +128,27 @@ export class MenuButton extends Component<MenuButtonAttrs>
 
         showing: false,
 
-        autoClose: (this.attrs.autoClose === false) ? false : true,
+        autoClose: this.attrs.autoClose === false ? false : true,
 
-        items: this.attrs.items,
-
+        items: this.attrs.items
     };
 
     isHidden(): boolean {
-
         return this._menu().isHidden();
-
     }
 
     hide(): MenuButton {
-
         this._menu().hide();
         return this;
-
     }
 
     show(): MenuButton {
-
         this._menu().show();
         return this;
-
     }
 
     toggle(): MenuButton {
-
         this._menu().toggle();
         return this;
-
     }
 }

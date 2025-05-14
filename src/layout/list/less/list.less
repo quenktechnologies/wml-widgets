@@ -1,60 +1,51 @@
-@import "./variables";
+@import './variables';
 
 .__LIST_LAYOUT__ {
-
-  margin-bottom: 20px;
-  list-style-type:none;
-  padding:0;
-  margin:0;
-
+    margin-bottom: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .__LIST_LAYOUT_ITEM__ {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: @list-layout-background-color;
+    border: 1px solid @list-layout-border-color;
 
-  position: relative;
-  display: block;
-  padding: 10px 15px;
-  margin-bottom: -1px; 
-  background-color: @list-layout-background-color;
-  border: 1px solid @list-layout-border-color;
+    &:first-child {
+        border-top-right-radius: @list-layout-border-radius;
+        border-top-left-radius: @list-layout-border-radius;
+    }
 
-  &:first-child {
- 
-    border-top-right-radius: @list-layout-border-radius;
-    border-top-left-radius: @list-layout-border-radius;
+    &:last-child {
+        margin-bottom: 0;
+        border-bottom-right-radius: @list-layout-border-radius;
+        border-bottom-left-radius: @list-layout-border-radius;
+    }
 
-  }
+    &:hover,
+    &:focus {
+        color: @list-layout-item-hover-color;
+        background-color: @list-layout-item-hover-background-color;
+    }
 
-  &:last-child {
+    &.__DISABLED__,
+    &.__DISABLED__:hover,
+    &.__DISABLED__:focus {
+        color: @list-layout-disabled-color;
+        background-color: @list-layout-disabled-background-color;
+        cursor: not-allowed;
+    }
 
-    margin-bottom: 0;
-    border-bottom-right-radius: @list-layout-border-radius;
-    border-bottom-left-radius: @list-layout-border-radius;
-
-  }
-
-  &:hover, &:focus {
-
-    color: @list-layout-item-hover-color;
-    background-color: @list-layout-item-hover-background-color;
-
-  }
-
-  &.__DISABLED__, &.__DISABLED__:hover,  &.__DISABLED__:focus {
-
-    color: @list-layout-disabled-color;
-    background-color: @list-layout-disabled-background-color;
-    cursor: not-allowed;
-
-  }
-
-  &.__ACTIVE__, &.__ACTIVE__:hover, &.__ACTIVE__:focus {
-
-    z-index: 2; // Place active items above their siblings for proper border styling
-    color: @list-layout-active-color;
-    background-color: @list-layout-active-background-color;
-    border-color: @list-layout-active-border-color;
-
-  }
-
+    &.__ACTIVE__,
+    &.__ACTIVE__:hover,
+    &.__ACTIVE__:focus {
+        z-index: 2; // Place active items above their siblings for proper border styling
+        color: @list-layout-active-color;
+        background-color: @list-layout-active-background-color;
+        border-color: @list-layout-active-border-color;
+    }
 }

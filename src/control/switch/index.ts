@@ -1,7 +1,13 @@
 import { View } from '@quenk/wml';
 import { concat } from '../../util';
 import { getId, getClassName } from '../../';
-import { ControlAttrs, AbstractControl, Event, getName, getDisabled } from '../';
+import {
+    ControlAttrs,
+    AbstractControl,
+    Event,
+    getName,
+    getDisabled
+} from '../';
 import { Main } from './wml/switch';
 
 ///classNames:begin
@@ -13,64 +19,52 @@ export const SWITCH_SLIDER = 'ww-switch__slider';
  * SwitchAttrs
  */
 export interface SwitchAttrs extends ControlAttrs<boolean> {
-
     /**
      * onChange handler
      */
-    onChange?: (e: SwitchChangedEvent) => void
-
+    onChange?: (e: SwitchChangedEvent) => void;
 }
 
 /**
  * SwitchChangedEvent signals the user has changed the switch.
  */
-export class SwitchChangedEvent extends Event<boolean> { }
+export class SwitchChangedEvent extends Event<boolean> {}
 
 /**
  * Switch allows the user to select between one or two values.
  */
 export class Switch extends AbstractControl<boolean, SwitchAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         root: {
-
             id: getId(this.attrs),
 
             className: concat(SWITCH, getClassName(this.attrs))
-
         },
         slider: {
-
             className: SWITCH_SLIDER
-
         },
         input: {
-
             name: getName(this.attrs),
 
-            value: (this.attrs && this.attrs.value) ?
-                this.attrs.value : false,
+            value: this.attrs && this.attrs.value ? this.attrs.value : false,
 
-            checked: () => this.values.input.value ? true : undefined,
+            checked: () => (this.values.input.value ? true : undefined),
 
             disabled: getDisabled(this.attrs),
 
             onChange: () => {
+                this.values.input.value = !this.values.input.value;
 
-                this.values.input.value = (!this.values.input.value)
-
-                if ((this.attrs && this.attrs.onChange))
-                    this.attrs.onChange(new SwitchChangedEvent(
-                        this.values.input.name,
-                        this.values.input.value));
-
+                if (this.attrs && this.attrs.onChange)
+                    this.attrs.onChange(
+                        new SwitchChangedEvent(
+                            this.values.input.name,
+                            this.values.input.value
+                        )
+                    );
             }
         }
-
     };
-
 }
-

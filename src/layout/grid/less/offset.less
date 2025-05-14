@@ -6,14 +6,10 @@
  * @param {int} @step - The offset step.
  * @parm  {int} @total - Total number of columns
  */
-.offset(@step; @total) when(@step =< @total){
+.offset(@step; @total) when(@step =< @total) {
+    &.-offset@{step} {
+        margin-left: percentage((@step / @total));
+    }
 
-  &.-offset@{step} {
-
-    margin-left: percentage((@step / @total));
-
-  }
-
-  .offset(@step+1; @total);
-
+    .offset(@step+1; @total);
 }

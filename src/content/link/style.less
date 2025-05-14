@@ -1,29 +1,23 @@
-@import "./variables";
+@import './variables';
 
 .__LINK__ {
+    color: @ww-link-color;
+    text-decoration: underline;
 
-  color: @ww-link-color;
-  text-decoration: underline;
+    &:hover {
+        color: @ww-link-hover-color;
+    }
 
-  &:hover {
+    &.-ww-no-decoration {
+        text-decoration: none;
+    }
 
-    color: @ww-link-hover-color;
+    &.-ww-disabled,
+    &.-disabled {
+        cursor: not-allowed;
+        color: @ww-link-disabled-color;
+    }
 
-  }
-
-  &.-ww-no-decoration {
-
-    text-decoration: none;
-
-  }
-
-  &.-ww-disabled, &.-disabled {
-
-    cursor: not-allowed;
-    color: @ww-link-disabled-color;
-
-  }
-
-  &.__BUTTON__:extend(.__BUTTON__ all) {}
-
+    &.__BUTTON__:extend(.__BUTTON__ all) {
+    }
 }

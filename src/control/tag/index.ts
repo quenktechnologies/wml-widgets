@@ -15,37 +15,35 @@ export const TAG_CONTROL_DISMISS = 'ww-tag-control__dismiss';
  * TagAttrs
  */
 export interface TagAttrs extends ControlAttrs<void> {
-
     /**
      * style of the tag.
      */
-    style?: Style,
+    style?: Style;
 
     /**
      * disabled
      */
-    disabled?: boolean,
+    disabled?: boolean;
 
     /**
      * text to display for the tag.
      */
-    text?: string
+    text?: string;
 
     /**
      * onDismiss is applied when the user clicks the close
      * button on tag.
      */
-    onDismiss?: (e: DismissEvent) => void
-
+    onDismiss?: (e: DismissEvent) => void;
 }
 
 /**
  * DismissEvent is generated when the close button us clicked.
  */
 export class DismissEvent extends Event<void> {
-
-    constructor(public name: string) { super(name, undefined); }
-
+    constructor(public name: string) {
+        super(name, undefined);
+    }
 }
 
 /**
@@ -56,43 +54,33 @@ export class DismissEvent extends Event<void> {
  * or as part of a more complicated control.
  */
 export class Tag extends AbstractControl<void, TagAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         id: getId(this.attrs),
 
         className: concat(TAG_CONTROL, getClassName(this.attrs)),
 
-        style: (this.attrs && this.attrs.style) ?
-            this.attrs.style : Style.Default,
+        style:
+            this.attrs && this.attrs.style ? this.attrs.style : Style.Default,
 
-        disabled: (this.attrs && this.attrs.disabled) ?
-            this.attrs.disabled : false,
+        disabled:
+            this.attrs && this.attrs.disabled ? this.attrs.disabled : false,
 
         text: {
-
             className: TAG_CONTROL_TEXT,
 
-            value: (this.attrs && this.attrs.text) ?
-                this.attrs.text : undefined,
-
+            value: this.attrs && this.attrs.text ? this.attrs.text : undefined
         },
         dismiss: {
-
             className: TAG_CONTROL_DISMISS,
 
             onClick: () => {
-
                 if (this.attrs && this.attrs.onDismiss)
-                    this.attrs.onDismiss(new DismissEvent(
-                        this.attrs && this.attrs.name || ''));
-
+                    this.attrs.onDismiss(
+                        new DismissEvent((this.attrs && this.attrs.name) || '')
+                    );
             }
-
         }
-
-    }
-
+    };
 }

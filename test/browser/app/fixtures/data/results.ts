@@ -1,9 +1,6 @@
-
 export interface Result {
-
-    label: string,
-    value: string
-
+    label: string;
+    value: string;
 }
 
 export const results = [
@@ -15,6 +12,6 @@ export const results = [
     { label: 'Asusuga', value: 'Asusuga' },
     { label: 'Qualcomm', value: 'Qualcomm' },
     { label: 'Qualitative', value: 'Qualitatve' },
-    { label: 'Kirpalani\'s', value: 'Kirpalani\'s' },
+    { label: "Kirpalani's", value: "Kirpalani's" },
     { label: 'Asunder', value: 'Asunder' }
 ];

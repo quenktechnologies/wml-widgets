@@ -1,24 +1,23 @@
 import * as wml from '@quenk/wml';
-import * as views from './wml/text-field'
+import * as views from './wml/text-field';
 import { ValidationState } from '../../../../../lib/control/feedback';
-import { TextChangedEvent, TextField } from '../../../../../lib/control/text-field';
+import {
+    TextChangedEvent,
+    TextField
+} from '../../../../../lib/control/text-field';
 
 export class TextFieldPage {
-
     id = 'text';
 
     view: wml.View = new views.Main(this);
 
     onChange = ({ name, value }: TextChangedEvent) => {
-
         let maybeField = this.view.findById<TextField>(name);
 
         if (maybeField.isJust()) {
-
             let t = maybeField.get();
 
             switch (value) {
-
                 case 'neutral':
                     t.setValidationState(ValidationState.Neutral);
                     break;
@@ -37,15 +36,11 @@ export class TextFieldPage {
 
                 default:
                     break;
-
             }
 
-          t.setMessage(`Message: ${value}`);
-
+            t.setMessage(`Message: ${value}`);
         }
-
-    }
-
+    };
 }
 
 export default new TextFieldPage();

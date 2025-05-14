@@ -1,251 +1,226 @@
-@import "./variables";
+@import './variables';
 
 .__PANEL__ {
+    margin-bottom: @panel-margin-bottom;
+    background-color: @panel-background-color;
+    border: 1px solid transparent;
+    border-radius: @panel-border-radius;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 
-  margin-bottom: @panel-margin-bottom;
-  background-color: @panel-background-color;
-  border: 1px solid transparent;
-  border-radius: @panel-border-radius;
-  box-shadow: 0 1px 1px rgba(0,0,0,.05);
-
-  &.__DEFAULT__ { 
-
-    .panel-variant(@panel-default-border; 
+    &.__DEFAULT__ {
+        .panel-variant(@panel-default-border; 
     @panel-default-color; 
     @panel-default-heading-background-color;
     @panel-default-border);
+    }
 
-  }
-
-  &.__PRIMARY__ { 
-
-    .panel-variant(@panel-primary-border;
+    &.__PRIMARY__ {
+        .panel-variant(@panel-primary-border;
     @panel-primary-color;
     @panel-primary-heading-background-color;
     @panel-primary-border);
+    }
 
-  }
-
-  &.__SUCCESS__ { 
-
-    .panel-variant(@panel-success-border;
+    &.__SUCCESS__ {
+        .panel-variant(@panel-success-border;
     @panel-success-color;
     @panel-success-heading-background-color;
     @panel-success-border);
+    }
 
-
-  }
-
-  &.__INFO__ { 
-
-    .panel-variant(@panel-info-border;
+    &.__INFO__ {
+        .panel-variant(@panel-info-border;
     @panel-info-color;
     @panel-info-heading-background-color;
     @panel-info-border);
+    }
 
-  }
-
-  &.__WARNING__ { 
-
-    .panel-variant(@panel-warning-border;
+    &.__WARNING__ {
+        .panel-variant(@panel-warning-border;
     @panel-warning-color;
     @panel-warning-heading-background-color; 
     @panel-warning-border);
+    }
 
-  }
-
-  &.__ERROR__ { 
-
-    .panel-variant(@panel-danger-border;
+    &.__ERROR__ {
+        .panel-variant(@panel-danger-border;
     @panel-danger-color;
     @panel-danger-heading-background-color;
     @panel-danger-border);
-
-  }
-
-  & > .__PANEL_HEADER__ {
-
-    padding: @panel-header-padding-vertical @panel-header-padding-horizontal;
-    border-bottom: 1px solid transparent;
-    border-top-right-radius: @panel-border-radius -1;
-    border-top-left-radius: @panel-border-radius - 1;
-
-  }
-
-  & > .__PANEL_BODY__ { 
-
-    padding: @panel-body-padding;
-
-  }
-
-  & > .__PANEL_BODY__:before, &:after { 
-
-    content: " "; // 1
-    display: table; // 2
-
-  }
-
-  & > .__PANEL_BODY__:after {
-
-    clear: both;
-
-  }
-
-  & > .__PANEL_FOOTER__ { 
-
-    padding: @panel-footer-padding-vertical @panel-footer-padding-horizontal;
-    background-color: @panel-footer-background;
-    border-top: 1px solid @panel-inner-border;
-    border-bottom-right-radius: @panel-border-radius - 1;
-    border-bottom-left-radius: @panel-border-radius - 1;
-
-  }
-
-  > .__LIST_LAYOUT__ {
-    margin-bottom: 0;
-
-    .__LIST_LAYOUT_ITEM__ {
-      border-width: 1px 0;
-      border-radius: 0;
     }
 
+    & > .__PANEL_HEADER__ {
+        padding: @panel-header-padding-vertical @panel-header-padding-horizontal;
+        border-bottom: 1px solid transparent;
+        border-top-right-radius: @panel-border-radius -1;
+        border-top-left-radius: @panel-border-radius - 1;
+    }
+
+    & > .__PANEL_BODY__ {
+        padding: @panel-body-padding;
+    }
+
+    & > .__PANEL_BODY__:before,
+    &:after {
+        content: ' '; // 1
+        display: table; // 2
+    }
+
+    & > .__PANEL_BODY__:after {
+        clear: both;
+    }
+
+    & > .__PANEL_FOOTER__ {
+        padding: @panel-footer-padding-vertical @panel-footer-padding-horizontal;
+        background-color: @panel-footer-background;
+        border-top: 1px solid @panel-inner-border;
+        border-bottom-right-radius: @panel-border-radius - 1;
+        border-bottom-left-radius: @panel-border-radius - 1;
+    }
+
+    > .__LIST_LAYOUT__ {
+        margin-bottom: 0;
+
+        .__LIST_LAYOUT_ITEM__ {
+            border-width: 1px 0;
+            border-radius: 0;
+        }
+
+        // Add border top radius for first one
+        &:first-child {
+            .__LIST_LAYOUT_ITEM__:first-child {
+                border-top: 0;
+                border-top-left-radius: ((@panel-border-radius - 1));
+                border-top-right-radius: ((@panel-border-radius - 1));
+            }
+        }
+
+        // Add border bottom radius for last one
+        &:last-child {
+            .__LIST_LAYOUT_ITEM__:last-child {
+                border-bottom: 0;
+                border-bottom-left-radius: ((@panel-border-radius - 1));
+                border-bottom-right-radius: ((@panel-border-radius - 1));
+            }
+        }
+    }
+
+    // Collapse space between when there's no additional content.
+    .__PANEL_HEADER__ + .__LIST_LAYOUT__ {
+        .__LIST_LAYOUT_ITEM__:first-child {
+            border-top-width: 0;
+        }
+    }
+    .__LIST_LAYOUT__ + .__PANEL_FOOTER__ {
+        border-top-width: 0;
+    }
+
+    & > .__TABLE_LAYOUT__,
+    & > .__TABLE_WINDOW__ > .__TABLE_LAYOUT__ {
+        margin-bottom: 0;
+        caption {
+            padding-right: @panel-body-padding;
+            padding-left: @panel-body-padding;
+        }
+    }
     // Add border top radius for first one
-    &:first-child {
-      .__LIST_LAYOUT_ITEM__:first-child {
-        border-top: 0;
+    > .__TABLE_LAYOUT__:first-child,
+    > .__TABLE_WINDOW__:first-child > .__TABLE_LAYOUT__:first-child {
         border-top-left-radius: ((@panel-border-radius - 1));
         border-top-right-radius: ((@panel-border-radius - 1));
 
-      }
+        > thead:first-child,
+        > tbody:first-child {
+            > tr:first-child {
+                border-top-left-radius: (@panel-border-radius - 1);
+                border-top-right-radius: (@panel-border-radius - 1);
+
+                td:first-child,
+                th:first-child {
+                    border-top-left-radius: (@panel-border-radius - 1);
+                }
+                td:last-child,
+                th:last-child {
+                    border-top-right-radius: (@panel-border-radius - 1);
+                }
+            }
+        }
     }
 
     // Add border bottom radius for last one
-    &:last-child {
-      .__LIST_LAYOUT_ITEM__:last-child {
-        border-bottom: 0;
-        border-bottom-left-radius: ((@panel-border-radius - 1));
-        border-bottom-right-radius: ((@panel-border-radius - 1));
-      }
-    }
-  }
-
-  // Collapse space between when there's no additional content.
-  .__PANEL_HEADER__  + .__LIST_LAYOUT__ {
-    .__LIST_LAYOUT_ITEM__:first-child {
-      border-top-width: 0;
-    }
-  }
-  .__LIST_LAYOUT__ + .__PANEL_FOOTER__ {
-    border-top-width: 0;
-  }
-
-  & > .__TABLE_LAYOUT__,
-  & > .__TABLE_WINDOW__ > .__TABLE_LAYOUT__ {
-    margin-bottom: 0;
-    caption {
-      padding-right: @panel-body-padding;
-      padding-left: @panel-body-padding;
-    }
-  }
-  // Add border top radius for first one
-  > .__TABLE_LAYOUT__:first-child,
-  > .__TABLE_WINDOW__:first-child > .__TABLE_LAYOUT__:first-child {
-    border-top-left-radius: ((@panel-border-radius - 1));
-    border-top-right-radius: ((@panel-border-radius - 1));
-
-    > thead:first-child,
-    > tbody:first-child {
-      > tr:first-child {
-        border-top-left-radius: (@panel-border-radius - 1);
-        border-top-right-radius: (@panel-border-radius - 1);
-
-        td:first-child,
-        th:first-child {
-          border-top-left-radius: (@panel-border-radius - 1);
-        }
-        td:last-child,
-        th:last-child {
-          border-top-right-radius: (@panel-border-radius - 1);
-        }
-      }
-    }
-  }
-
-  // Add border bottom radius for last one
-  & > .__TABLE_LAYOUT__:last-child,
-  & > .__TABLE_WINDOW__:last-child > .__TABLE_LAYOUT__:last-child {
+    & > .__TABLE_LAYOUT__:last-child,
+    & > .__TABLE_WINDOW__:last-child > .__TABLE_LAYOUT__:last-child {
         border-bottom-left-radius: ((@panel-border-radius - 1));
         border-bottom-right-radius: ((@panel-border-radius - 1));
 
-    > tbody:last-child,
-    > tfoot:last-child {
-      > tr:last-child {
-        border-bottom-right-radius: (@panel-border-radius - 1);
-        border-bottom-left-radius: (@panel-border-radius - 1);
+        > tbody:last-child,
+        > tfoot:last-child {
+            > tr:last-child {
+                border-bottom-right-radius: (@panel-border-radius - 1);
+                border-bottom-left-radius: (@panel-border-radius - 1);
 
-        td:first-child,
-        th:first-child {
-          border-bottom-left-radius: (@panel-border-radius - 1);
+                td:first-child,
+                th:first-child {
+                    border-bottom-left-radius: (@panel-border-radius - 1);
+                }
+                td:last-child,
+                th:last-child {
+                    border-bottom-right-radius: (@panel-border-radius - 1);
+                }
+            }
         }
-        td:last-child,
-        th:last-child {
-          border-bottom-right-radius: (@panel-border-radius - 1);
-        }
-      }
     }
-  }
 
-  > __PANEL_BODY__ + .__TABLE_LAYOUT__,
-  > __PANEL_BODY__ + .__TABLE_WINDOW__,
-  > .__TABLE_LAYOUT__ + __PANEL_BODY__,
-  > .__TABLE_WINDOW__ + __PANEL_BODY__ {
-    border-top: 1px solid @table-border-color;
-  }
-  > .__TABLE_LAYOUT__ > tbody:first-child > tr:first-child th,
-  > .__TABLE_LAYOUT__ > tbody:first-child > tr:first-child td {
-    border-top: 0;
-  }
-  > .__TABLE_LAYOUT__.__BORDERED__,
-  > .__TABLE_WINDOW__ > .__TABLE_LAYOUT__.__BORDERED__{
-    border: 0;
-    > thead,
-    > tbody,
-    > tfoot {
-      > tr {
-        > th:first-child,
-        > td:first-child {
-          border-left: 0;
-        }
-        > th:last-child,
-        > td:last-child {
-          border-right: 0;
-        }
-      }
+    > __PANEL_BODY__ + .__TABLE_LAYOUT__,
+    > __PANEL_BODY__ + .__TABLE_WINDOW__,
+    > .__TABLE_LAYOUT__ + __PANEL_BODY__,
+    > .__TABLE_WINDOW__ + __PANEL_BODY__ {
+        border-top: 1px solid @table-border-color;
     }
-    > thead,
-    > tbody {
-      > tr:first-child {
-        > td,
-        > th {
-          border-bottom: 0;
-        }
-      }
+    > .__TABLE_LAYOUT__ > tbody:first-child > tr:first-child th,
+    > .__TABLE_LAYOUT__ > tbody:first-child > tr:first-child td {
+        border-top: 0;
     }
-    > tbody,
-    > tfoot {
-      > tr:last-child {
-        > td,
-        > th {
-          border-bottom: 0;
+    > .__TABLE_LAYOUT__.__BORDERED__,
+    > .__TABLE_WINDOW__ > .__TABLE_LAYOUT__.__BORDERED__ {
+        border: 0;
+        > thead,
+        > tbody,
+        > tfoot {
+            > tr {
+                > th:first-child,
+                > td:first-child {
+                    border-left: 0;
+                }
+                > th:last-child,
+                > td:last-child {
+                    border-right: 0;
+                }
+            }
         }
-      }
+        > thead,
+        > tbody {
+            > tr:first-child {
+                > td,
+                > th {
+                    border-bottom: 0;
+                }
+            }
+        }
+        > tbody,
+        > tfoot {
+            > tr:last-child {
+                > td,
+                > th {
+                    border-bottom: 0;
+                }
+            }
+        }
     }
-  }
-  > .__TABLE_WINDOW__ {
-    margin-bottom: 0;
-    border: 0;
-  }
-
+    > .__TABLE_WINDOW__ {
+        margin-bottom: 0;
+        border: 0;
+    }
 }
 
 .panel-variant(
@@ -253,15 +228,11 @@
 @heading-color;
 @heading-background-color;
 @heading-border) {
+    border-color: @border;
 
-  border-color: @border;
-
-  & > .__PANEL_HEADER__ {
-
-    color: @heading-color;
-    background-color: @heading-background-color;
-    border-color: @heading-border;
-
-  }
-
+    & > .__PANEL_HEADER__ {
+        color: @heading-color;
+        background-color: @heading-background-color;
+        border-color: @heading-border;
+    }
 }

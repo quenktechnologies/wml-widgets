@@ -1,13 +1,13 @@
-@import "../../../content/util/less/clearfix";
-@import "../../../content/screen/less/screen";
-@import "./variables";
+@import '../../../content/util/less/clearfix';
+@import '../../../content/screen/less/screen';
+@import './variables';
 
 .__MODAL__ {
-  position: relative;
-  width: @modal-width;
-  margin: @modal-margin-vertical auto;
+    position: relative;
+    width: @modal-width;
+    margin: @modal-margin-vertical auto;
 
-  .screen-not-small({
+    .screen-not-small({
 
         width: @modal-screen-not-small-width;
         margin: @modal-screen-not-small-margin-vertical auto;              
@@ -16,7 +16,7 @@
 
     position: relative;
     background-color: @modal-content-background-color;
-    border: 1px solid @modal-content-border-color; 
+    border: 1px solid @modal-content-border-color;
     border-radius: @modal-content-border-radius;
     box-shadow: @modal-content-box-shadow;
     background-clip: padding-box;
@@ -26,39 +26,36 @@
     transition: transform 0.3s ease;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 
-  z-index: @modal-z-index;
-  -webkit-overflow-scrolling: touch;
+    z-index: @modal-z-index;
+    -webkit-overflow-scrolling: touch;
 
-  &  > .__MODAL_HEADER__ {
+    & > .__MODAL_HEADER__ {
+        padding: @modal-header-padding;
+        border-bottom: 1px solid @modal-header-border-color;
+        display: flex;
+        align-content: space-between;
+        &:extend(.clearfix all);
 
-    padding: @modal-header-padding;
-    border-bottom: 1px solid @modal-header-border-color;
-    display: flex;
-    align-content: space-between;
-    &:extend(.clearfix all);
-
-    & > h1,h2,h3,h4,h5,h6 {
-      margin:0;
-
+        & > h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+        }
     }
-  
-  }
 
-  & > .__MODAL_BODY__ {
+    & > .__MODAL_BODY__ {
+        position: relative;
+        padding: @modal-body-padding;
+    }
 
-    position: relative;
-    padding: @modal-body-padding;
-
-  }
-
-  &  > .__MODAL_FOOTER__ {
-
-    padding: @modal-footer-padding;
-    text-align: right; 
-    border-top: 1px solid @modal-footer-border-color;
-    display: flex;
-    &:extend(.clearfix all); 
-
-  }
-
+    & > .__MODAL_FOOTER__ {
+        padding: @modal-footer-padding;
+        text-align: right;
+        border-top: 1px solid @modal-footer-border-color;
+        display: flex;
+        &:extend(.clearfix all);
+    }
 }

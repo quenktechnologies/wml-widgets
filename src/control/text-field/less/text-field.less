@@ -1,42 +1,29 @@
-@import "./variables";
+@import './variables';
 
 .__TEXT_FIELD__ {
+    margin-bottom: @text-field-margin-bottom;
 
-  margin-bottom: @text-field-margin-bottom;
+    &.__ERROR__ {
+        .textFieldVariant(@text-field-error-color);
+    }
 
+    &.__WARNING__ {
+        .textFieldVariant(@text-field-warning-color);
+    }
 
-  &.__ERROR__ {
-
-     .textFieldVariant(@text-field-error-color);
-
-  }
-
-  &.__WARNING__ {
-
-    .textFieldVariant(@text-field-warning-color);
-
-  }
-
-  &.__SUCCESS__ {
-
-    .textFieldVariant(@text-field-success-color);
-
-  }
-
+    &.__SUCCESS__ {
+        .textFieldVariant(@text-field-success-color);
+    }
 }
 
 /**
  * Changes the border and text color of text fields to the color specified.
  */
 .textFieldVariant(@color) {
-
     color: @color;
 
     & input {
-
-      border-color: @color;
-      color: @color;
-
+        border-color: @color;
+        color: @color;
     }
-
 }

@@ -15,64 +15,51 @@ export const HELP = 'ww-help';
  * HelpAttrs
  */
 export interface HelpAttrs extends HTMLElementAttrs {
-
     /**
      * id for the help.
      */
-    id?: string,
+    id?: string;
 
     /**
      * className for the help.
      */
-    className?: string,
+    className?: string;
 
     /**
      * text for the help.
      */
-    text?: string
-
+    text?: string;
 }
 
 /**
  * Help
  */
 export class Help extends Component<HelpAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         help: {
-
             wml: {
-
                 id: 'help'
-
             },
-            id: (this.attrs && this.attrs.id) ?
-                this.attrs.id : '',
+            id: this.attrs && this.attrs.id ? this.attrs.id : '',
 
             className: concat(HELP, getClassName(this.attrs)),
 
-            text: (this.attrs && this.attrs.text) ?
-                [document.createTextNode(this.attrs.text)] : this.children
-
+            text:
+                this.attrs && this.attrs.text
+                    ? [document.createTextNode(this.attrs.text)]
+                    : this.children
         }
-
-    }
+    };
 
     setMessage(msg: Message): Help {
-
         setMessage(this.view, this.values.help.wml.id, msg);
         return this;
-
     }
 
     removeMessage(): Help {
-
         removeMessage(this.view, this.values.help.wml.id);
         return this;
-
     }
-
 }

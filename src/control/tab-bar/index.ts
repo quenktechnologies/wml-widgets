@@ -1,16 +1,12 @@
 import * as views from './wml/tab-bar';
 
-import {text} from '@quenk/wml/lib/dom';
+import { text } from '@quenk/wml/lib/dom';
 import { View, Component } from '@quenk/wml';
 
 import { ACTIVE } from '../../content/state/active';
-import {JUSTIFIED} from '../../content/orientation';
+import { JUSTIFIED } from '../../content/orientation';
 import { concat, getById } from '../../util';
-import {
-    HTMLElementAttrs,
-    getId,
-    getClassName
-} from '../../';
+import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { ControlAttrs, AbstractControl, Event as ControlEvent } from '../';
 
 ///classNames:begin
@@ -20,7 +16,7 @@ import { ControlAttrs, AbstractControl, Event as ControlEvent } from '../';
 export const TAB = 'ww-tab';
 
 /**
- * TAB_BAR 
+ * TAB_BAR
  */
 export const TAB_BAR = 'ww-tab-bar';
 ///classNames:end
@@ -34,34 +30,30 @@ export type TabClickedEventHandler = (e: TabClickedEvent) => void;
  * TabAttrs
  */
 export interface TabAttrs extends ControlAttrs<void> {
-
     /**
      * active indicates whether the tab should be active or not.
      */
-    active?: boolean,
+    active?: boolean;
 
     /**
      * text can be specified to be displayed on the tab.
      */
-    text?: string,
+    text?: string;
 
     /**
      * onClick is applied when the tab is clicked.
      */
-    onClick?: TabClickedEventHandler
-
+    onClick?: TabClickedEventHandler;
 }
 
 /**
  * TabBarAttrs
  */
 export interface TabBarAttrs extends HTMLElementAttrs {
-
-  /**
-   * justify the tab alignment.
-   */
-  justify?: boolean
-
+    /**
+     * justify the tab alignment.
+     */
+    justify?: boolean;
 }
 
 /**
@@ -70,9 +62,9 @@ export interface TabBarAttrs extends HTMLElementAttrs {
  * It contains information about the tab that was clicked.
  */
 export class TabClickedEvent extends ControlEvent<string> {
-
-    constructor(public name: string) { super(name, name); }
-
+    constructor(public name: string) {
+        super(name, name);
+    }
 }
 
 /**
@@ -83,42 +75,39 @@ export class TabClickedEvent extends ControlEvent<string> {
  * tab should always be a Tab.
  */
 export class Tab extends AbstractControl<void, TabAttrs> {
-
     view: View = new views.Tab(this);
 
     values = {
-
         root: {
-
             wml: {
-
                 id: 'root'
-
             },
 
             id: getId(this.attrs),
 
-            className: concat(TAB, getClassName(this.attrs),
-                (this.attrs && this.attrs.active) ? ACTIVE : ''),
-
+            className: concat(
+                TAB,
+                getClassName(this.attrs),
+                this.attrs && this.attrs.active ? ACTIVE : ''
+            )
         },
         a: {
-
             wml: {
-
                 id: 'link'
-
             },
 
-            content: (this.attrs && this.attrs.text) ?
-                [text(this.attrs.text)] : this.children,
+            content:
+                this.attrs && this.attrs.text
+                    ? [text(this.attrs.text)]
+                    : this.children,
 
             clicked: (e: Event): void => {
-
                 e.preventDefault();
 
-                let maybeRoot = getById<HTMLElement>(this.view,
-                    this.values.root.wml.id);
+                let maybeRoot = getById<HTMLElement>(
+                    this.view,
+                    this.values.root.wml.id
+                );
 
                 if (maybeRoot.isNothing()) return;
 
@@ -132,27 +121,23 @@ export class Tab extends AbstractControl<void, TabAttrs> {
                 root.classList.add(ACTIVE);
 
                 if (this.attrs && this.attrs.onClick)
-                this.attrs.onClick(
-                  new TabClickedEvent(`${this.attrs.name}`));
-
+                    this.attrs.onClick(
+                        new TabClickedEvent(`${this.attrs.name}`)
+                    );
             }
-
         }
-
     };
 
     /**
      * click this Tab
      */
     click(): Tab {
-
-        getById<HTMLElement>(this.view, this.values.root.wml.id)
-            .map(e => e.click());
+        getById<HTMLElement>(this.view, this.values.root.wml.id).map(e =>
+            e.click()
+        );
 
         return this;
-
     }
-
 }
 
 /**
@@ -162,21 +147,17 @@ export class Tab extends AbstractControl<void, TabAttrs> {
  * sub views or forms etc.
  */
 export class TabBar extends Component<TabBarAttrs> {
-
     view: View = new views.TabBar(this);
 
     values = {
-
         root: {
-
             id: getId(this.attrs),
 
-          className: concat(TAB_BAR,
-                            getClassName(this.attrs),
-                            (this.attrs && this.attrs.justify)?  JUSTIFIED:'')
-
+            className: concat(
+                TAB_BAR,
+                getClassName(this.attrs),
+                this.attrs && this.attrs.justify ? JUSTIFIED : ''
+            )
         }
-
-    }
-
+    };
 }

@@ -16,11 +16,9 @@ const scenes = [
 ];
 
 export class PagerPage {
-
     view: wml.View = new views.Main(this);
 
     values = {
-
         message: scenes[0],
 
         total: scenes.length,
@@ -28,17 +26,13 @@ export class PagerPage {
         current: 1,
 
         onChange: (e: PageSelectedEvent) => {
-
-            this.values.current = e.value ;
+            this.values.current = e.value;
 
             this.values.message = scenes[this.values.current - 1];
 
             this.view.invalidate();
-
         }
-
-    }
-
+    };
 }
 
 export default new PagerPage();

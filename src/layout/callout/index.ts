@@ -4,7 +4,7 @@ import { concat } from '../../util';
 import { HTMLElementAttrs, getId, getClassName } from '../../';
 import { Main } from './wml/callout';
 
-export { Style }
+export { Style };
 
 ///classNames:begin
 export const CALLOUT = 'ww-callout';
@@ -14,32 +14,28 @@ export const CALLOUT = 'ww-callout';
  * CalloutAttrs
  */
 export interface CalloutAttrs extends HTMLElementAttrs {
-
     /**
      * style
      */
-    style: Style
-
+    style: Style;
 }
 
 /**
- * Callout 
+ * Callout
  */
 export class Callout extends Component<CalloutAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         id: getId(this.attrs),
 
-        className: concat(CALLOUT,
+        className: concat(
+            CALLOUT,
             getClassName(this.attrs),
 
-            (this.attrs && this.attrs.style) ?
-                getStyleClassName(this.attrs.style) :
-                DEFAULT)
-
-    }
-
+            this.attrs && this.attrs.style
+                ? getStyleClassName(this.attrs.style)
+                : DEFAULT
+        )
+    };
 }

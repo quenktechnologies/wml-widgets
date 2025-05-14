@@ -1,66 +1,47 @@
-@import "./variables";
+@import './variables';
 
 .__SELECT__ {
+    margin-bottom: @select-margin-bottom;
+    display: inline-block;
 
-  margin-bottom: @select-margin-bottom; 
-  display: inline-block;
+    &.__ERROR__ {
+        color: @select-error-color;
 
-  &.__ERROR__ {
-
-    color: @select-error-color;
-
-    & input {
-
-      border-color: @select-error-border-color;
-      color: @select-error-color;
-
+        & input {
+            border-color: @select-error-border-color;
+            color: @select-error-color;
+        }
     }
 
-  }
+    &.__WARNING__ {
+        color: @select-warning-color;
 
-  &.__WARNING__ {
-
-    color: @select-warning-color;
-
-    & input {
-
-      border-color: @select-warning-border-color;
-      color: @select-warning-color;
-
+        & input {
+            border-color: @select-warning-border-color;
+            color: @select-warning-color;
+        }
     }
 
-  }
+    &.__SUCCESS__ {
+        color: @select-success-color;
 
-  &.__SUCCESS__ {
-
-    color: @select-success-color;
-
-    & input {
-
-      border-color: @select-success-border-color;
-      color: @select-success-color;
-
+        & input {
+            border-color: @select-success-border-color;
+            color: @select-success-color;
+        }
     }
 
-  }
-
-  & > .__LABEL__, & > .__HELP__ {
-
-    display: block;
-
-  }
-
-  &.__BLOCK__ {
-
-    display: block;
-    width: 100%;
-
-    & + & {
-
-      margin-top: @select-sibling-margin-top;
-
+    & > .__LABEL__,
+    & > .__HELP__ {
+        display: block;
     }
 
- }
+    &.__BLOCK__ {
+        display: block;
+        width: 100%;
 
+        & + & {
+            margin-top: @select-sibling-margin-top;
+        }
+    }
 }

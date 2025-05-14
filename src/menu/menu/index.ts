@@ -30,76 +30,66 @@ export type MenuItemSpecType = string;
  * LinkType specifies the configuration for a Link element.
  */
 export interface LinkType extends LinkAttrs {
-
     /**
      * type must be "link" to be considered valid.
      */
-    type: MenuItemSpecType,
-
+    type: MenuItemSpecType;
 }
 
 /**
  * MenuHeaderAttrs
  */
 export interface MenuHeaderAttrs extends HTMLElementAttrs {
-
     /**
      * text for the header
      */
-    text?: string
-
+    text?: string;
 }
 
 /**
  * MenuHeaderType specifies the configuration for a HeaderItem element.
  */
 export interface MenuHeaderType extends MenuHeaderAttrs {
-
     /**
      * type must be "header" to be considered valid.
      */
-    type: MenuItemSpecType
-
+    type: MenuItemSpecType;
 }
 
 /**
  * MenuHeader displays a styled header among menu items.
  */
 export class MenuHeader extends Component<MenuHeaderAttrs> {
-
     view = new MenuHeaderView(this);
 
     className = concat(MENU_HEADER, getClassName(this.attrs));
-
 }
 
-export { MenuHeader as Header }
+export { MenuHeader as Header };
 
 /**
  * MenuItemAttrs
  */
 export interface MenuItemAttrs extends HTMLElementAttrs {
-
     /**
      * name of the Item
      */
-    name?: Name,
+    name?: Name;
 
     /**
      * active state of the Item
      */
-    active?: boolean,
+    active?: boolean;
 
     /**
      * text can be specified to display textual content in the link.
      */
-    text?: string,
+    text?: string;
 
     /**
      * onClick is applied when the Item is clicked.
      */
-    onClick?: (e: MenuItemClickedEvent) => void,
-
+    onClick?: (e: MenuItemClickedEvent) => void;
 }
 
 /**
@@ -107,40 +97,37 @@ export interface MenuItemAttrs extends HTMLElementAttrs {
  * menu item.
  */
 export class MenuItemClickedEvent {
-
-    constructor(public name: Name) { }
-
+    constructor(public name: Name) {}
 }
 
 /**
  * MenuItem wraps content in an html <li> element to form a menu.
  *
- * MenuItems should therefore not have any siblings that are not themselves 
+ * MenuItems should therefore not have any siblings that are not themselves
  * MenuItems.
  */
 export class MenuItem extends Component<MenuItemAttrs> {
-
     view = new MenuItemView(this);
 
     id = getId(this.attrs);
 
-    className = concat(MENU_ITEM,
-        (this.attrs.active === true) ? ACTIVE : '', getClassName(this.attrs));
-
+    className = concat(
+        MENU_ITEM,
+        this.attrs.active === true ? ACTIVE : '',
+        getClassName(this.attrs)
+    );
 }
 
-export { MenuItem as Item }
+export { MenuItem as Item };
 
 /**
  * MenuDividerType specifies the configuration for a divider element.
  */
 export interface MenuDividerType extends HTMLElementAttrs {
-
     /**
      * type must be "divider" to be considered valid.
      */
-    type: MenuItemSpecType
-
+    type: MenuItemSpecType;
 }
 
 /**
@@ -148,135 +135,116 @@ export interface MenuDividerType extends HTMLElementAttrs {
  * a new section.
  */
 export class MenuDivider extends Component<HTMLElementAttrs> {
-
     view = new MenuDividerView(this);
 
     className = MENU_DIVIDER;
-
 }
 
-export { MenuDivider as Divider }
+export { MenuDivider as Divider };
 
 /**
  * MenuItemSpec specifies menu content that can be auto generated.
  */
-export type MenuItemSpec
-    = MenuHeaderType
-    | LinkType
-    | MenuDividerType
-    ;
+export type MenuItemSpec = MenuHeaderType | LinkType | MenuDividerType;
 
 /**
  * MenuAttrs
  */
 export interface MenuAttrs extends HTMLElementAttrs {
-
     /**
      * hidden indicates the menu should be hidden.
      */
-    hidden?: boolean,
+    hidden?: boolean;
 
     /**
      * @deprecated
      */
-    block?: boolean,
+    block?: boolean;
 
     /**
      * autoClose when true, will automatically hide the content.
      *
      * Defaults to false.
      */
-    autoClose?: boolean,
+    autoClose?: boolean;
 
     /**
      * items can be specified to have the Menu automatically generate content.
      */
-    items?: MenuItemSpec[]
-
+    items?: MenuItemSpec[];
 }
 
 /**
  * Menu provides a DOM container for rendering
  * a dropdown style menu.
  */
-export class Menu extends Component<MenuAttrs>
-    implements hidden.Hidable {
-
+export class Menu extends Component<MenuAttrs> implements hidden.Hidable {
     view = new MenuView(this);
 
     wmlId = 'root';
 
     id = getId(this.attrs);
 
-    className = concat(MENU, getClassName(this.attrs),
-        (this.attrs.hidden === true) ? hidden.HIDDEN : '');
+    className = concat(
+        MENU,
+        getClassName(this.attrs),
+        this.attrs.hidden === true ? hidden.HIDDEN : ''
+    );
 
     autoClose = this.attrs.autoClose;
 
     showing = false;
 
-    items = <Content[]>(this.attrs.items || []).map(item => {
-        if (item.type === 'header')
-            return new MenuItem({}, [new MenuHeader(item, []).render()]).render()
-        else if (item.type === 'link')
-            return new MenuItem({}, [new Link(item, []).render()]).render();
-        else if (item.type === 'divider')
-            return new MenuDivider(item, []).render();
-    }).filter(content => content != null)
+    items = <Content[]>(this.attrs.items || [])
+        .map(item => {
+            if (item.type === 'header')
+                return new MenuItem({}, [
+                    new MenuHeader(item, []).render()
+                ]).render();
+            else if (item.type === 'link')
+                return new MenuItem({}, [new Link(item, []).render()]).render();
+            else if (item.type === 'divider')
+                return new MenuDivider(item, []).render();
+        })
+        .filter(content => content != null);
 
     /**
-     * handleEvent listens for clicks on elements outside the menu's tree. 
+     * handleEvent listens for clicks on elements outside the menu's tree.
      *
      * When autoClose is not set to false, the menu hides itself from the DOM.
      */
     handleEvent(): void {
-
-        getById<HTMLElement>(this.view, this.wmlId)
-            .map((root: HTMLElement) => {
-                if (!document.body.contains(root))
-                    document.removeEventListener('click', this);
-                else if (this.showing)
-                    this.showing = false;
-                else
-                    this.hide();
-            });
-
+        getById<HTMLElement>(this.view, this.wmlId).map((root: HTMLElement) => {
+            if (!document.body.contains(root))
+                document.removeEventListener('click', this);
+            else if (this.showing) this.showing = false;
+            else this.hide();
+        });
     }
 
     isHidden(): boolean {
-
         return hidden.isHidden(this.view, this.wmlId);
-
     }
 
     hide(): Menu {
-
-        if (this.autoClose)
-            document.removeEventListener('click', this);
+        if (this.autoClose) document.removeEventListener('click', this);
 
         hidden.hide(this.view, this.wmlId);
         return this;
-
     }
 
     show(): Menu {
-
-      this.showing = true;
+        this.showing = true;
 
         hidden.show(this.view, this.wmlId);
 
-        if (this.autoClose)
-            document.addEventListener('click', this);
+        if (this.autoClose) document.addEventListener('click', this);
 
         return this;
-
     }
 
     toggle(): Menu {
-
         return this.isHidden() ? this.show() : this.hide();
         return this;
-
     }
-
 }

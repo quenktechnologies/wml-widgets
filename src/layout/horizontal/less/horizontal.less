@@ -1,25 +1,18 @@
-@import "./variables";
+@import './variables';
 
 .__HORIZONTAL_LAYOUT__ {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    align-content: flex-start;
+    justify-content: @horizontal-layout-justify-content;
 
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: baseline;
-  align-content: flex-start;
-  justify-content: @horizontal-layout-justify-content;
+    &.__LEFT__ {
+        justify-content: flex-start;
+    }
 
-  &.__LEFT__ {
-
-    justify-content: flex-start;
-
-  }
-
-  &.__RIGHT__ {
-
-    justify-content: flex-end;
-
-  }
-
+    &.__RIGHT__ {
+        justify-content: flex-end;
+    }
 }
-

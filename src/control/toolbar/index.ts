@@ -13,26 +13,20 @@ export const TOOLBAR_COMPAT = '-toolbar-compat';
 /**
  * ToolbarAttrs
  */
-export interface ToolbarAttrs extends HTMLElementAttrs { }
+export interface ToolbarAttrs extends HTMLElementAttrs {}
 
 /**
  * Toolbar provides a widget for grouping related controls into a
  * single row.
  */
 export class Toolbar extends Component<ToolbarAttrs> {
-
     view: View = new views.Main(this);
 
     values = {
-
         root: {
-
             id: getId(this.attrs),
 
             className: concat(TOOLBAR, getClassName(this.attrs))
-
         }
-
-    }
-
+    };
 }

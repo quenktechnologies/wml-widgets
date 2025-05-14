@@ -1,99 +1,75 @@
-@import "./variables";
+@import './variables';
 
 .__ALERT__ {
+    padding: @alert-padding;
+    margin-bottom: @alert-margin-bottom;
+    border: 1px solid transparent;
+    border-radius: @alert-border-radius;
 
-  padding: @alert-padding;
-  margin-bottom: @alert-margin-bottom;
-  border: 1px solid transparent;
-  border-radius: @alert-border-radius;
+    & > p,
+    & > ul {
+        margin-bottom: 0;
+    }
 
-  & > p, & > ul {
+    & > p + p {
+        margin-top: 5px;
+    }
 
-    margin-bottom: 0;
+    & .__CLOSE__ {
+        position: relative;
+        top: -2px;
+        color: inherit;
+    }
 
-  }
-
-  & > p + p {
-
-    margin-top: 5px;
-
-  }
-  
-  & .__CLOSE__ {
-  
-    position: relative;
-    top: -2px;
-    color: inherit;
-  
-  }
-
-  &.__DEFAULT__ {
-
-    .alertVariant(
+    &.__DEFAULT__ {
+        .alertVariant(
     @alert-default-background-color;
     @alert-default-border-color;
     @alert-default-color);
+    }
 
-  }
-
-  &.__PRIMARY__ {
-
-    .alertVariant(
+    &.__PRIMARY__ {
+        .alertVariant(
     @alert-primary-background-color;
     @alert-primary-border-color;
     @alert-primary-color);
+    }
 
-  }
-
-  &.__SUCCESS__ {
-
-  .alertVariant(
+    &.__SUCCESS__ {
+        .alertVariant(
     @alert-success-background-color;
     @alert-success-border-color;
     @alert-success-color);
+    }
 
-  }
-
-  &.__INFO__ {
-
-  .alertVariant(
+    &.__INFO__ {
+        .alertVariant(
     @alert-info-background-color;
     @alert-info-border-color;
     @alert-info-color);
+    }
 
-  }
-
-  &.__WARNING__ {
-
-  .alertVariant(
+    &.__WARNING__ {
+        .alertVariant(
     @alert-warning-background-color;
     @alert-warning-border-color;
     @alert-warning-color);
+    }
 
-
-  }
-
-  &.__ERROR__ {
-
-  .alertVariant(
+    &.__ERROR__ {
+        .alertVariant(
     @alert-error-background-color;
     @alert-error-border-color;
     @alert-error-color);
-
-  }
-
+    }
 }
 
 .alertVariant(@background; @border; @text-color) {
+    background-color: @background;
+    border-color: @border;
+    color: @text-color;
 
-  background-color: @background;
-  border-color: @border;
-  color: @text-color;
-
-  & hr {
-
-    border-color: darken(@border; 10%);
-
-  }
-
+    & hr {
+        border-color: darken(@border; 10%);
+    }
 }

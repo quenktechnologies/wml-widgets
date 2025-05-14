@@ -16,11 +16,9 @@ const scenes = [
 ];
 
 export class PaginatorPage {
-
     view: wml.View = new views.Main(this);
 
     values = {
-
         message: scenes[0],
 
         current: 1,
@@ -28,17 +26,13 @@ export class PaginatorPage {
         total: scenes.length,
 
         onChange: (e: PageChangedEvent) => {
-
             this.values.message = scenes[e.value - 1];
 
             this.values.current = e.value;
 
             this.view.invalidate();
-
         }
-
-    }
-
+    };
 }
 
 export default new PaginatorPage();

@@ -1,190 +1,151 @@
-@import "./variables";
+@import './variables';
 
 /*
 Button styling.
 */
 .__BUTTON__ {
-
-  display: inline-block;
-  font-weight: @button-font-weight;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  border: @button-border;
-  white-space: nowrap;
-  text-decoration: none;
-
-  & > .__BUTTON_IMAGE__,
-  & > svg {
-
-    width: 1rem;
     display: inline-block;
+    font-weight: @button-font-weight;
+    text-align: center;
     vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+    border: @button-border;
+    white-space: nowrap;
+    text-decoration: none;
 
-    & + .__BUTTON_TEXT__ {
+    & > .__BUTTON_IMAGE__,
+    & > svg {
+        width: 1rem;
+        display: inline-block;
+        vertical-align: middle;
 
-      margin-left: 5px;
-      vertical-align: middle;
-
+        & + .__BUTTON_TEXT__ {
+            margin-left: 5px;
+            vertical-align: middle;
+        }
     }
 
-  }
-
-  .buttonDimension(
+    .buttonDimension(
   @button-padding-vertical;
   @button-padding-horizontal;
   @button-font-size;
   @button-line-height;
   @button-border-radius);
 
-  user-select: none;
+    user-select: none;
 
-  &:hover, &:focus {
+    &:hover,
+    &:focus {
+        color: @button-color;
+        text-decoration: none;
+    }
 
-    color: @button-color;
-    text-decoration: none;
+    &:active {
+        .buttonActiveFeel();
+    }
 
-  }
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: 0.65;
+        box-shadow: none;
+    }
 
-  &:active {
-
-    .buttonActiveFeel();
-
-  }
-
-  &[disabled] {
-
-    cursor: not-allowed;
-    opacity: .65;
-    box-shadow: none;
-
-  }
-
-  &.__DEFAULT__ {
-
-    .buttonStyle(
+    &.__DEFAULT__ {
+        .buttonStyle(
     @button-color;
     @button-default-background;
     @button-default-border-color);
+    }
 
-  }
-
-  &.__PRIMARY__ {
-
-    .buttonStyle(
+    &.__PRIMARY__ {
+        .buttonStyle(
     @button-primary-color;
     @button-primary-background;
     @button-primary-border-color);
+    }
 
-  }
-
-  &.__SUCCESS__ {
-
-    .buttonStyle(
+    &.__SUCCESS__ {
+        .buttonStyle(
     @button-success-color;
     @button-success-background;
     @button-success-border-color);
+    }
 
-  }
-
-  &.__INFO__ {
-
-    .buttonStyle(
+    &.__INFO__ {
+        .buttonStyle(
     @button-info-color,
     @button-info-background,
     @button-info-border-color);
+    }
 
-  }
-
-  &.__WARNING__ {
-
-    .buttonStyle(
+    &.__WARNING__ {
+        .buttonStyle(
     @button-warning-color,
     @button-warning-background,
     @button-warning-border-color);
+    }
 
-  }
-
-  &.__ERROR__ {
-
-    .buttonStyle(
+    &.__ERROR__ {
+        .buttonStyle(
     @button-error-color, 
     @button-error-background,
     @button-error-border-color);
+    }
 
-  }
+    &.__ACTIVE__ {
+        .buttonActiveFeel();
+    }
 
-  &.__ACTIVE__ {
-
-    .buttonActiveFeel();
-
-  }
-
-  &.__EXTRA_SMALL__ {
-
-    .buttonDimension(
+    &.__EXTRA_SMALL__ {
+        .buttonDimension(
     @button-extra-small-padding-vertical; 
     @button-extra-small-padding-horizontal;
     @button-extra-small-font-size;
     @button-extra-small-line-height;
     @button-extra-small-border-radius);
+    }
 
-  }
-
-  &.__SMALL__ {
-
-    .buttonDimension(
+    &.__SMALL__ {
+        .buttonDimension(
     @button-small-padding-vertical; 
     @button-small-padding-horizontal;
     @button-small-font-size;
     @button-small-line-height;
     @button-small-border-radius);
+    }
 
-  }
-
-  &.__LARGE__ {
-
-    .buttonDimension(
+    &.__LARGE__ {
+        .buttonDimension(
     @button-large-padding-vertical; 
     @button-large-padding-horizontal;
     @button-large-font-size;
     @button-large-line-height;
     @button-large-border-radius);
+    }
 
-  }
-
-  &.__EXTRA_LARGE__ {
-
-    .buttonDimension(
+    &.__EXTRA_LARGE__ {
+        .buttonDimension(
     @button-extra-large-padding-vertical; 
     @button-extra-large-padding-horizontal;
     @button-extra-large-font-size;
     @button-extra-large-line-height;
     @button-extra-large-border-radius);
-
-  }
-
-  &.__BLOCK__ {
-
-    display: block;
-    width: 100%;
-
-    // Vertically space out multiple block buttons
-    & + & {
-
-      margin-top: @button-sibling-spacing;
-
     }
 
-  }
+    &.__BLOCK__ {
+        display: block;
+        width: 100%;
 
-  & + & {
+        // Vertically space out multiple block buttons
+        & + & {
+            margin-top: @button-sibling-spacing;
+        }
+    }
 
-    margin-left: @button-sibling-spacing;
-
-  }
-
+    & + & {
+        margin-left: @button-sibling-spacing;
+    }
 }
 
 /* 
@@ -197,12 +158,10 @@ buttonDimension defines the sizing of a button.
 @br       - Border radius.
 */
 .buttonDimension(@pv; @ph; @font; @lh; @br) {
-
-  padding: @pv @ph;
-  font-size: @font;
-  line-height: @lh;
-  border-radius: @br;
-
+    padding: @pv @ph;
+    font-size: @font;
+    line-height: @lh;
+    border-radius: @br;
 }
 
 /*
@@ -214,11 +173,9 @@ buttonColor provides the color styling of a button.
 
 */
 .buttonColor(@color; @background; @border) {
-
-  color: @color;
-  background-color: @background;
-  border-color: @border;
-
+    color: @color;
+    background-color: @background;
+    border-color: @border;
 }
 
 /*
@@ -227,26 +184,20 @@ buttonOutline provides an alternative outline based styling for a button.
 @color - The color for the outline.
 */
 .buttonOutline(@color) {
-
-  color: @color;
-  background-color: transparent;
-  border-color: @color;
-
-  &:hover {
-
-    color: darken(@color, 50%);
-    background-color: @color;
-    border-color: @color;
-
-  }
-
-  &:disabled {
-
     color: @color;
     background-color: transparent;
+    border-color: @color;
 
-  }
+    &:hover {
+        color: darken(@color, 50%);
+        background-color: @color;
+        border-color: @color;
+    }
 
+    &:disabled {
+        color: @color;
+        background-color: transparent;
+    }
 }
 
 /*
@@ -257,60 +208,46 @@ buttonStyle defines styles for a variant of a button.
 @border      - The base border color.
 */
 .buttonStyle(@color; @background; @border) {
+    .buttonColor(@color; @background; @border);
 
-  .buttonColor(@color; @background; @border);
+    &:focus {
+        .buttonColor(@color, darken(@background, 10%), darken(@border,25%));
+    }
 
-  &:focus { 
+    &:hover {
+        .buttonColor(@color, darken(@background, 10%), darken(@border, 12%));
+    }
 
-    .buttonColor(@color, darken(@background, 10%), darken(@border,25%)); 
+    &:active,
+    &.__ACTIVE__ {
+        .buttonColor(@color, darken(@background, 10%), darken(@border, 12%));
+    }
 
-  }
+    &[disabled]:hover,
+    &[disabled]:focus {
+        .buttonColor(@color, @background, @border);
+    }
 
-  &:hover {
-
-    .buttonColor(@color, darken(@background, 10%), darken(@border, 12%));
-
-  }
-
-  &:active, &.__ACTIVE__ {
-
-    .buttonColor(@color, darken(@background, 10%), darken(@border, 12%));
-
-  }
-
-  &[disabled]:hover, &[disabled]:focus {
-
-    .buttonColor(@color, @background, @border);
-
-  }
-
-  &.__OUTLINE__ {
-
-    .buttonOutline(@color);
-
-  }
-
+    &.__OUTLINE__ {
+        .buttonOutline(@color);
+    }
 }
 
 /*
 buttonActiveFeel styles the feeling of a button while active.
-*/ 
+*/
 .buttonActiveFeel() {
-
-  outline: 0;
-  background-image: none;
-  box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
-
+    outline: 0;
+    background-image: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
 
 /*
 buttonLinkBackground styles the background and shadows.
 */
 .buttonLinkBackground() {
-
-  background-color: transparent;
-  box-shadow: none;
-
+    background-color: transparent;
+    box-shadow: none;
 }
 
 /*
@@ -321,26 +258,22 @@ buttonLink styles the button to appear like a link.
 @link-disabled-color;
 @link-hover-color;
 @link-hover-decoration) {
-
-  color: @link-color;
-  font-weight: normal;
-  border-radius: 0;
-  background-color: transparent;
-  box-shadow: none;
-
-  &:hover, &:focus {
-
-    color: @link-hover-color;
-    text-decoration: @link-hover-decoration;
+    color: @link-color;
+    font-weight: normal;
+    border-radius: 0;
     background-color: transparent;
+    box-shadow: none;
 
-  }
+    &:hover,
+    &:focus {
+        color: @link-hover-color;
+        text-decoration: @link-hover-decoration;
+        background-color: transparent;
+    }
 
-  &[disabled]:hover, &[disabled]:focus {
-
-    color: @link-disabled-color;
-    text-decoration: none;
-
-  }
-
+    &[disabled]:hover,
+    &[disabled]:focus {
+        color: @link-disabled-color;
+        text-decoration: none;
+    }
 }

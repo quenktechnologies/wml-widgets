@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 /**
  * MenuIcon styling.
@@ -6,33 +6,26 @@
  * We style some spans to look like the dashes in the 'menu'.
  */
 .__MENU_ICON__ {
-
-  display: inline-block;
-  background-color: @menu-icon-background-color;
-  border: @menu-icon-border;
-
-  /**
-   * Style the individual dashes, we expect 3.
-   */
-  & > .__MENU_ICON_DASH__ {
-
-    width: @menu-icon-dash-width;
-    height: @menu-icon-dash-height;
-    display: block;
-    background-color: @menu-icon-dash-background-color;
+    display: inline-block;
+    background-color: @menu-icon-background-color;
+    border: @menu-icon-border;
 
     /**
+   * Style the individual dashes, we expect 3.
+   */
+    & > .__MENU_ICON_DASH__ {
+        width: @menu-icon-dash-width;
+        height: @menu-icon-dash-height;
+        display: block;
+        background-color: @menu-icon-dash-background-color;
+
+        /**
      * The second dash receives the margins to space out the 
      * icon properly.
      */
-    &:nth-child(2) {
-
-      margin-top: @menu-icon-dash-margin-top;
-      margin-bottom: @menu-icon-dash-margin-bottom;
-
+        &:nth-child(2) {
+            margin-top: @menu-icon-dash-margin-top;
+            margin-bottom: @menu-icon-dash-margin-bottom;
+        }
     }
-
-  }
-
 }
-

@@ -11,63 +11,48 @@ export const OVERLAY = 'ww-overlay';
  * OverlayAttrs
  */
 export interface OverlayAttrs extends HTMLElementAttrs {
-
     /**
      * onClick handler.
      */
-    onClick?: () => void
-
+    onClick?: () => void;
 }
 
 /**
  * Overlay
  */
 export class Overlay extends Component<OverlayAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         wml: {
-
             id: 'root'
-
         },
         id: getId(this.attrs),
 
         className: concat(OVERLAY, getClassName(this.attrs)),
 
-        onclick: ({target}: Event) => {
-          let div = getById<HTMLElement>(this.view, this.values.wml.id).get();
+        onclick: ({ target }: Event) => {
+            let div = getById<HTMLElement>(this.view, this.values.wml.id).get();
 
-          if(target !== div) {
-            // Let children handle their clicks.
-            return;
-          }
+            if (target !== div) {
+                // Let children handle their clicks.
+                return;
+            }
 
-            if (this.attrs && this.attrs.onClick) 
-                this.attrs.onClick();
-
+            if (this.attrs && this.attrs.onClick) this.attrs.onClick();
         }
-
-    }
+    };
 
     /**
      * close the overlay.
      */
     close(): void {
-
         let mO = getById<HTMLElement>(this.view, this.values.wml.id);
 
         if (mO.isJust()) {
-
             let n = mO.get();
 
-            if (n.parentNode)
-                n.parentNode.removeChild(n);
-
+            if (n.parentNode) n.parentNode.removeChild(n);
         }
-
     }
-
 }

@@ -24,64 +24,56 @@ export type Path = string;
 /**
  * LinkHandler is a function that is executed when a link is clicked.
  */
-export type LinkHandler = (name: Name) => void
+export type LinkHandler = (name: Name) => void;
 
 /**
  * LinkSpec specifies the configuration for the link.
  */
-export type LinkSpec
-    = Path
-    | Partial<LinkConf>
-    | LinkHandler
-    ;
+export type LinkSpec = Path | Partial<LinkConf> | LinkHandler;
 
 /**
  * LinkConf is used in the view to generate the links.
  */
 export interface LinkConf {
-
     /**
      * name used to distinguish the link from others.
      */
-    name: Name,
+    name: Name;
 
     /**
      * title displayed to the user.
      */
-    title: string,
+    title: string;
 
     /**
      * className to apply to the link.
      */
-    className?: string
+    className?: string;
 
     /**
      * href for the link.
      */
-    href?: Path,
+    href?: Path;
 
     /**
      * onClick handler.
      */
-    onClick?: LinkHandler
-
+    onClick?: LinkHandler;
 }
 
 /**
  * LinkSpecMap is a map containing LinkSpecs
  */
-export interface LinkSpecMap extends Record<LinkSpec> { }
+export interface LinkSpecMap extends Record<LinkSpec> {}
 
 /**
  * NavBarAttrs
  */
 export interface NavBarAttrs extends HTMLElementAttrs {
-
     /**
      * links to display in the NavBar.
      */
-    links?: LinkSpecMap | LinkConf[]
-
+    links?: LinkSpecMap | LinkConf[];
 }
 
 /**
@@ -89,15 +81,11 @@ export interface NavBarAttrs extends HTMLElementAttrs {
  * displaying navigational links.
  */
 export class NavBar extends Component<NavBarAttrs> {
-
     view: View = new NavBarView(this);
 
     values = {
-
         wml: {
-
             id: 'root'
-
         },
 
         id: getId(this.attrs),
@@ -105,9 +93,7 @@ export class NavBar extends Component<NavBarAttrs> {
         className: concat(NAV_BAR, getClassName(this.attrs)),
 
         links: this.attrs.links ? normalize(this.attrs.links) : []
-
-    }
-
+    };
 }
 
 /**
@@ -115,15 +101,12 @@ export class NavBar extends Component<NavBarAttrs> {
  * iterated.
  */
 export const normalize = (specs: LinkSpecMap | LinkConf[]): LinkConf[] => {
-    if (Array.isArray(specs))
-        return specs;
+    if (Array.isArray(specs)) return specs;
     else
         return mapTo(specs, (conf, title) => {
-            if (isString(conf))
-                return { name: title, title, href: conf };
+            if (isString(conf)) return { name: title, title, href: conf };
             else if (isFunction(conf))
-                return { name: title, title, onClick: conf }
-            else
-                return merge({ title, name: title }, conf)
+                return { name: title, title, onClick: conf };
+            else return merge({ title, name: title }, conf);
         });
-}
+};

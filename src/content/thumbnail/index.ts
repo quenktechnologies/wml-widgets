@@ -12,69 +12,56 @@ export const THUMBNAIL_CAPTION = 'ww-thumbnail__caption';
  * ThumbnailAttrs
  */
 export interface ThumbnailAttrs extends HTMLElementAttrs {
-
     /**
      * href
      */
-    href?: string,
+    href?: string;
 
     /**
      * onClick handler.
      */
-    onClick?: () => void
-
+    onClick?: () => void;
 }
 
 /**
  * Thumbnail
  */
 export class Thumbnail extends Component<ThumbnailAttrs> {
-
-    view: View = (this.attrs && this.attrs.href) ?
-        new views.Anchor(this) : new views.Thumbnail(this);
+    view: View =
+        this.attrs && this.attrs.href
+            ? new views.Anchor(this)
+            : new views.Thumbnail(this);
 
     values = {
-
         id: getId(this.attrs),
 
         className: concat(THUMBNAIL, getClassName(this.attrs)),
 
-        href: (this.attrs && this.attrs.href) ?
-            this.attrs.href : '',
+        href: this.attrs && this.attrs.href ? this.attrs.href : '',
 
         onclick: (e: Event) => {
-
             if (this.attrs && this.attrs.onClick) {
-
                 e.preventDefault();
                 this.attrs.onClick();
-
             }
-
         }
-
-    }
-
+    };
 }
 
 /**
  * CaptionAttrs
  */
-export interface CaptionAttrs extends HTMLElementAttrs { }
+export interface CaptionAttrs extends HTMLElementAttrs {}
 
 /**
  * Caption
  */
 export class Caption extends Component<CaptionAttrs> {
-
     view: View = new views.Caption(this);
 
     values = {
-
         id: getId(this.attrs),
 
         className: concat(THUMBNAIL_CAPTION, getClassName(this.attrs))
-
-    }
-
+    };
 }

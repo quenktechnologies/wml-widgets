@@ -1,4 +1,4 @@
-import {  } from '../';
+import {} from '../';
 
 ///classNames:begin
 /**
@@ -7,7 +7,7 @@ import {  } from '../';
 export const VERTICAL = '-vertical';
 
 /**
- * PUSHABLE indicates an element supports being pushed 
+ * PUSHABLE indicates an element supports being pushed
  * and can have styles added to it around the concept.
  */
 export const PUSHABLE = '-pushable';
@@ -60,4 +60,4 @@ export const INLINE = 'ww--inline';
  * value is set to true.
  */
 export const getBlockClassName = (attrs: { block?: boolean }) =>
-   attrs.block === true ? BLOCK : '';
+    attrs.block === true ? BLOCK : '';

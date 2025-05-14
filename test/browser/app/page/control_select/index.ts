@@ -9,13 +9,10 @@ import {
 import { Result, results } from '../../fixtures/data/results';
 
 export class SelectPage {
-
     view: wml.View = new views.Main(this);
 
     values = {
-
         normal: {
-
             id: 'normal',
             name: 'normal',
             label: 'Normal',
@@ -24,10 +21,8 @@ export class SelectPage {
             onSearch: doSearch(this),
             onChange: doChange(this),
             onUnset: doUnset(this)
-
         },
         block: {
-
             id: 'block',
             name: 'block',
             label: 'Block',
@@ -35,10 +30,8 @@ export class SelectPage {
             onSearch: doSearch(this),
             onChange: doChange(this),
             onUnset: doUnset(this)
-
         },
         success: {
-
             id: 'success',
             name: 'success',
             label: 'Success',
@@ -47,10 +40,8 @@ export class SelectPage {
             onSearch: doSearch(this),
             onChange: doChange(this),
             onUnset: doUnset(this)
-
         },
         warning: {
-
             id: 'warning',
             name: 'warning',
             label: 'Warning',
@@ -59,11 +50,9 @@ export class SelectPage {
             onSearch: doSearch(this),
             onChange: doChange(this),
             onUnset: doUnset(this)
-
         },
 
         error: {
-
             id: 'error',
             name: 'error',
             label: 'Error',
@@ -72,47 +61,33 @@ export class SelectPage {
             onSearch: doSearch(this),
             onChange: doChange(this),
             onUnset: doUnset(this)
-
-        },
-
-    }
-
+        }
+    };
 }
 
-const doSearch = (page: SelectPage) => ({ name, value }: TermChangedEvent) =>
-    page
-        .view
-        .findById<Select<Result>>(name)
-        .map((s: Select<Result>) => {
-
+const doSearch =
+    (page: SelectPage) =>
+    ({ name, value }: TermChangedEvent) =>
+        page.view.findById<Select<Result>>(name).map((s: Select<Result>) => {
             let hit = results.filter(c =>
-                c.value.toLowerCase().startsWith(value) ? true : false);
+                c.value.toLowerCase().startsWith(value) ? true : false
+            );
 
             s.update(hit);
-
         });
 
 const doChange =
-    (page: SelectPage) => ({ name, value }: ItemChangedEvent<Result>) =>
-        page
-            .view
-            .findById<Select<Result>>(name)
-            .map(t => {
-
-                t.setMessage(`Selected: ${value.value}`);
-
-            });
+    (page: SelectPage) =>
+    ({ name, value }: ItemChangedEvent<Result>) =>
+        page.view.findById<Select<Result>>(name).map(t => {
+            t.setMessage(`Selected: ${value.value}`);
+        });
 
 const doUnset =
-    (page: SelectPage) => ({ name }: ItemUnsetEvent) =>
-        page
-            .view
-            .findById<Select<Result>>(name)
-            .map(t => {
-
-                t.setMessage('');
-
-            });
-
+    (page: SelectPage) =>
+    ({ name }: ItemUnsetEvent) =>
+        page.view.findById<Select<Result>>(name).map(t => {
+            t.setMessage('');
+        });
 
 export default new SelectPage();

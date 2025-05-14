@@ -5,92 +5,88 @@ import { Column } from './column';
 /**
  * BodyFragment type.
  */
-export type BodyFragment<C, R extends Record<C>>
-    = (c: BodyContext<C, R>) => View
-    ;
+export type BodyFragment<C, R extends Record<C>> = (
+    c: BodyContext<C, R>
+) => View;
 
 /**
  * CellFragment type.
  */
-export type CellFragment<C, R extends Record<C>>
-    = (c: CellContext<C, R>) => View
-    ;
+export type CellFragment<C, R extends Record<C>> = (
+    c: CellContext<C, R>
+) => View;
 
 /**
  * BodyContext
  */
 export interface BodyContext<C, R extends Record<C>> {
-
     /**
      * className for the <tbody>
      */
-    className: string,
+    className: string;
 
     /**
      * columns used to generate the body cells.
      */
-    columns: Column<C, R>[],
+    columns: Column<C, R>[];
 
     /**
      * data provides the current data used by the table.
      */
-    data: R[],
+    data: R[];
 
     /**
      * cell generates a cell from a column spec.
      */
-    cell: (c: Column<C, R>, idx: number, row: number) => Content
-
+    cell: (c: Column<C, R>, idx: number, row: number) => Content;
 }
 
 /**
  * CellContext
  */
 export interface CellContext<C, R extends Record<C>> {
-
     /**
      * id (wml) of the cell that can be used to retrieve the cell later.
      */
-    id: string,
+    id: string;
 
     /**
      * className provider.
      */
-    className: string,
+    className: string;
 
     /**
      * column indicates the index of the column used to render the cell.
      */
-    column: number,
+    column: number;
 
     /**
      * row indicates the row of data the cell value belongs to.
      */
-    row: number,
+    row: number;
 
     /**
      * value for the cell.
      */
-    value: C,
+    value: C;
 
     /**
      * datum is the entire record of data the cell value comes from.
      */
-    datum: R,
+    datum: R;
 
     /**
      * format turns a cell value into a string.
      */
-    format: (c: C) => string,
+    format: (c: C) => string;
 
     /**
      * bodyContext parent.
      */
-    bodyContext: BodyContext<C, R>,
+    bodyContext: BodyContext<C, R>;
 
     /**
      * onclick handler
      */
-    onclick: (e: Event) => void
-
+    onclick: (e: Event) => void;
 }

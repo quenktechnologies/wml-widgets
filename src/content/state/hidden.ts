@@ -13,11 +13,10 @@ export const HIDDEN = '-ww-hidden';
 /**
  * Hidable is widget that has a Hidden mode.
  *
- * This is usually implemented by styling around the occurance of the 
+ * This is usually implemented by styling around the occurance of the
  * HIDDEN class name.
  */
 export interface Hidable {
-
     /**
      * isHidden indicates the DOM for the widget is hidden.
      */
@@ -37,7 +36,6 @@ export interface Hidable {
      * toggle between show and hide states
      */
     toggle(): Hidable;
-
 }
 
 /**
@@ -47,21 +45,15 @@ export interface Hidable {
  * it has the hidden class attached.
  */
 export const isHidden = (view: View, id: string): boolean => {
-
     let m: Maybe<HTMLElement> = view.findById(id);
 
     if (m.isNothing()) {
-
         warnMissing(view, id);
         return true;
-
     } else {
-
         return m.get().classList.contains(HIDDEN);
-
     }
-
-}
+};
 
 /**
  * hide helper.
@@ -69,44 +61,32 @@ export const isHidden = (view: View, id: string): boolean => {
  * Attempts to add HIDDEN to the target elements class name.
  */
 export const hide = (view: View, id: string) => {
-
     let m: Maybe<HTMLElement> = view.findById(id);
 
     if (m.isNothing()) {
-
         return warnMissing(view, id);
-
     } else {
-
         let e = m.get();
 
         e.classList.remove(HIDDEN);
         e.classList.add(HIDDEN);
-
     }
-
-}
+};
 
 /**
  * show helper.
- * 
+ *
  * Attempts to remove the HIDDEN class name from the target element.
  */
 export const show = (view: View, id: string) => {
-
     let m: Maybe<HTMLElement> = view.findById(id);
 
     if (m.isNothing()) {
-
         return warnMissing(view, id);
-
     } else {
-
         m.get().classList.remove(HIDDEN);
-
     }
-
-}
+};
 
 /**
  * toggle helper.
@@ -115,17 +95,11 @@ export const show = (view: View, id: string) => {
  * classList.
  */
 export const toggle = (view: View, id: string) => {
-
     let m: Maybe<HTMLElement> = view.findById(id);
 
     if (m.isNothing()) {
-
         return warnMissing(view, id);
-
     } else {
-
         m.get().classList.toggle(HIDDEN);
-
     }
-
-}
+};

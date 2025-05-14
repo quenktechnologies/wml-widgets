@@ -13,84 +13,64 @@ export const INFORM_OK = 'ww-inform__ok';
  * InformAttrs
  */
 export interface InformAttrs extends HTMLElementAttrs {
-
     /**
      * title of the confirm.
      */
-    title?: string,
+    title?: string;
 
     /**
-     * buttonText 
+     * buttonText
      */
-    buttonText?: string,
+    buttonText?: string;
 
     /**
      * onClose handler.
      */
-    onClose: () => void,
-
+    onClose: () => void;
 }
 
 /**
  * Inform displays a message to the user.
  */
 export class Inform extends Component<InformAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         id: getId(this.attrs),
 
         className: concat(INFORM, getClassName(this.attrs)),
 
         wml: {
-
             id: 'modal'
-
         },
 
         header: {
-
-            title: (this.attrs && this.attrs.title) ?
-                this.attrs.title : ''
-
+            title: this.attrs && this.attrs.title ? this.attrs.title : ''
         },
         footer: {
-
             ok: {
-
-                text: (this.attrs && this.attrs.buttonText) ?
-                    this.attrs.buttonText : 'Ok',
+                text:
+                    this.attrs && this.attrs.buttonText
+                        ? this.attrs.buttonText
+                        : 'Ok',
 
                 wml: {
-
                     id: 'ok'
-
                 },
 
                 className: concat(INFORM_OK, '-primary'),
 
                 onClick: () => {
-
-                    if (this.attrs && this.attrs.onClose)
-                        this.attrs.onClose();
+                    if (this.attrs && this.attrs.onClose) this.attrs.onClose();
 
                     this.close();
-
                 }
-
             }
-
         }
-
-    }
+    };
 
     close(): Inform {
-
         close(this.view, this.values.wml.id);
         return this;
-
     }
-
 }

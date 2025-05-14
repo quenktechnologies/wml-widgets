@@ -1,5 +1,5 @@
 import * as wml from '@quenk/wml';
-import * as views from './wml/date-field'
+import * as views from './wml/date-field';
 
 import {
     DateChangedEvent,
@@ -8,25 +8,19 @@ import {
 import { getById } from '../../../../../lib/util';
 
 export class DateFieldPage {
-
     view: wml.View = new views.Main(this);
 
     values = {
-
         data: {
-
             id: 'iso',
             name: 'iso',
             label: 'ISO8601',
             message: 'ISO8601 date',
             onChange: onChange(this)
-
         },
 
         states: {
-
             success: {
-
                 id: 'success',
                 name: 'success',
                 label: 'Success',
@@ -35,10 +29,8 @@ export class DateFieldPage {
                 error: undefined,
                 block: false,
                 onChange: onChange(this)
-
             },
             warning: {
-
                 id: 'warning',
                 name: 'warning',
                 label: 'Warning',
@@ -47,10 +39,8 @@ export class DateFieldPage {
                 error: undefined,
                 block: false,
                 onChange: onChange(this)
-
             },
             error: {
-
                 id: 'error',
                 name: 'error',
                 label: 'Error',
@@ -59,13 +49,10 @@ export class DateFieldPage {
                 error: 'Error date',
                 block: false,
                 onChange: onChange(this)
-
             }
-
         },
 
         block: {
-
             id: 'block',
             name: 'block',
             label: 'Block',
@@ -73,11 +60,9 @@ export class DateFieldPage {
             warning: undefined,
             error: undefined,
             onChange: onChange(this)
-
         },
 
         tests: {
-
             id: 'test',
             label: 'Tests',
             data: [
@@ -104,24 +89,19 @@ export class DateFieldPage {
             value: '',
             onChange: onChange(this)
         }
-
-    }
-
+    };
 }
 
 export const onChange =
-    (d: DateFieldPage) => ({ name, value }: DateChangedEvent) => {
-
+    (d: DateFieldPage) =>
+    ({ name, value }: DateChangedEvent) => {
         let mDate = getById<DateField>(d.view, name);
 
         if (mDate.isJust()) {
-
             let d = mDate.get();
 
             d.setMessage(`The date is "${value}".`);
-
         }
-
-    }
+    };
 
 export default new DateFieldPage();

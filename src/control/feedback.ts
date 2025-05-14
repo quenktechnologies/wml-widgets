@@ -5,18 +5,16 @@ import { View } from '@quenk/wml';
 
 import { getById } from '../util';
 import { Control, ControlAttrs, AbstractControl } from '../control';
-import { } from '../';
+import {} from '../';
 
 /**
  * ValidationState
  */
 export enum ValidationState {
-
     Neutral = 'neutral',
     Error = 'error',
     Success = 'success',
     Warning = 'warning'
-
 }
 
 /**
@@ -25,30 +23,28 @@ export enum ValidationState {
 export type Message = string;
 
 /**
- * FeedbackControlAttrs 
+ * FeedbackControlAttrs
  */
 export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
-
     /**
      * message to display to the user.
      */
-    message?: Message,
+    message?: Message;
 
     /**
      * error message to display to the user.
      */
-    error?: Message,
+    error?: Message;
 
     /**
      * success message to display to the user.
      */
-    success?: Message,
+    success?: Message;
 
     /**
      * warning message to display to the user.
      */
-    warning?: Message
-
+    warning?: Message;
 }
 
 /**
@@ -64,7 +60,6 @@ export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
  */
 export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
     extends Control<V, A> {
-
     /**
      * setMessage on the control.
      */
@@ -73,7 +68,7 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
     /**
      * removeMessage from the control.
      */
-    removeMessage(): FeedbackControl<V, A>
+    removeMessage(): FeedbackControl<V, A>;
 
     /**
      * setValidationState of the control.
@@ -86,11 +81,10 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
     removeValidationState(): FeedbackControl<V, A>;
 
     /**
-     * getValidationState returns a value representing the 
+     * getValidationState returns a value representing the
      * validation state of the control
      */
     getValidationState(): ValidationState;
-
 }
 
 /**
@@ -98,10 +92,13 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
  *
  * Provides a default implementaion of the interface methods.
  */
-export abstract class
-    AbstractFeedbackControl<V, A extends FeedbackControlAttrs<V>>
-    extends AbstractControl<V, A> implements FeedbackControl<V, A> {
-
+export abstract class AbstractFeedbackControl<
+        V,
+        A extends FeedbackControlAttrs<V>
+    >
+    extends AbstractControl<V, A>
+    implements FeedbackControl<V, A>
+{
     /**
      * view of the Control.
      */
@@ -111,120 +108,89 @@ export abstract class
      * values provided to the view template.
      */
     abstract values: {
-
         control: {
-
             wml: {
-
-                id: string
-
-            }
-
-        },
+                id: string;
+            };
+        };
         messages: {
-
             wml: {
-
-                id: string
-
-            }
-
-        }
-
+                id: string;
+            };
+        };
     };
 
     setMessage(msg: Message): AbstractFeedbackControl<V, A> {
-
         setMessage(this.view, this.values.messages.wml.id, msg);
         return this;
-
     }
 
     removeMessage(): AbstractFeedbackControl<V, A> {
-
         removeMessage(this.view, this.values.messages.wml.id);
         return this;
-
     }
 
     setValidationState(state: ValidationState): AbstractFeedbackControl<V, A> {
-
         setValidationState(this.view, this.values.control.wml.id, state);
         return this;
-
     }
 
     removeValidationState(): AbstractFeedbackControl<V, A> {
-
         removeValidationState(this.view, this.values.control.wml.id);
         return this;
-
     }
 
     getValidationState(): ValidationState {
-
         return getValidationState(this.view, this.values.control.wml.id);
-
     }
-
 }
 
 /**
  * setMessage helper.
  */
 export const setMessage = (view: View, id: string, msg: string) =>
-    getById<HTMLElement>(view, id)
-        .map(messages => {
+    getById<HTMLElement>(view, id).map(messages => {
+        let node = document.createTextNode(msg);
 
-            let node = document.createTextNode(msg);
+        while (messages.lastChild) messages.removeChild(messages.lastChild);
 
-            while (messages.lastChild)
-                messages.removeChild(messages.lastChild);
-
-            messages.appendChild(node);
-
-        });
+        messages.appendChild(node);
+    });
 
 /**
  * removeMessage
  */
 export const removeMessage = (view: View, id: string) =>
-    getById<HTMLElement>(view, id)
-        .map(messages => {
+    getById<HTMLElement>(view, id).map(messages => {
+        while (messages.lastChild) messages.removeChild(messages.lastChild);
+    });
 
-            while (messages.lastChild)
-                messages.removeChild(messages.lastChild);
-
-        });
-
-/** 
+/**
  * setValidationState helper.
  */
-export const setValidationState =
-    (view: View, id: string, state: ValidationState): void => {
+export const setValidationState = (
+    view: View,
+    id: string,
+    state: ValidationState
+): void => {
+    removeValidationState(view, id);
 
-        removeValidationState(view, id);
-
-        if (state !== ValidationState.Neutral)
-            getById<HTMLElement>(view, id)
-                .map(e => e.classList.add(validationState2ClassName(state)))
-
-    }
+    if (state !== ValidationState.Neutral)
+        getById<HTMLElement>(view, id).map(e =>
+            e.classList.add(validationState2ClassName(state))
+        );
+};
 
 /**
  * removeValidationState helper.
  */
 export const removeValidationState = (view: View, id: string): void => {
-    getById<HTMLElement>(view, id)
-        .map((h: HTMLElement) => {
-
-            h.classList.remove(style.SUCCESS);
-            h.classList.remove(style.ERROR);
-            h.classList.remove(style.WARNING);
-
-        });
-
-}
+    getById<HTMLElement>(view, id).map((h: HTMLElement) => {
+        h.classList.remove(style.SUCCESS);
+        h.classList.remove(style.ERROR);
+        h.classList.remove(style.WARNING);
+    });
+};
 
 /**
  * getValidationState calculates the ValidationState of an HTMLElement
@@ -233,16 +199,13 @@ export const removeValidationState = (view: View, id: string): void => {
 export const getValidationState = (view: View, id: string): ValidationState =>
     getById<HTMLElement>(view, id)
         .map(h => {
-
             if (h.classList.contains(style.SUCCESS))
                 return ValidationState.Success;
             else if (h.classList.contains(style.WARNING))
                 return ValidationState.Warning;
             else if (h.classList.contains(style.ERROR))
-                return ValidationState.Error
-            else
-                return ValidationState.Neutral
-
+                return ValidationState.Error;
+            else return ValidationState.Neutral;
         })
         .get();
 
@@ -250,65 +213,44 @@ export const getValidationState = (view: View, id: string): ValidationState =>
  * getValidityClassName provides the applicable style class by checking
  * the validity properties of FeedbackControAttrs.
  */
-export const getValidityClassName =
-    <V>(attrs: FeedbackControlAttrs<V>): string => {
+export const getValidityClassName = <V>(
+    attrs: FeedbackControlAttrs<V>
+): string => {
+    if (attrs) {
+        if (attrs.error && attrs.error != '') return style.ERROR;
 
-        if (attrs) {
+        if (attrs.warning && attrs.warning != '') return style.WARNING;
 
-            if (attrs.error && (attrs.error != ''))
-                return style.ERROR;
-
-            if (attrs.warning && (attrs.warning != ''))
-                return style.WARNING;
-
-            if (attrs.success && (attrs.success != ''))
-                return style.SUCCESS;
-
-        }
-
-        return '';
-
+        if (attrs.success && attrs.success != '') return style.SUCCESS;
     }
+
+    return '';
+};
 
 /**
  * getMessage
  */
-export const getMessage =
-    <V>(attrs: FeedbackControlAttrs<V>) => {
+export const getMessage = <V>(attrs: FeedbackControlAttrs<V>) => {
+    if (attrs) {
+        if (attrs.error && attrs.error != '') return attrs.error;
 
-        if (attrs) {
+        if (attrs.warning && attrs.warning != '') return attrs.warning;
 
-            if (attrs.error && (attrs.error != ''))
-                return attrs.error;
+        if (attrs.success && attrs.success != '') return attrs.success;
 
-            if (attrs.warning && (attrs.warning != ''))
-                return attrs.warning;
-
-            if (attrs.success && (attrs.success != ''))
-                return attrs.success;
-
-            if (attrs.message && (attrs.message != ''))
-                return attrs.message;
-
-        }
-
-        return '';
-
+        if (attrs.message && attrs.message != '') return attrs.message;
     }
 
+    return '';
+};
+
 /**
- * validationState2ClassName transforms a ValidationState into 
+ * validationState2ClassName transforms a ValidationState into
  * the corresponding class name (if any).
  */
 export const validationState2ClassName = (state: ValidationState): string => {
-
-    if (state === ValidationState.Success)
-        return style.SUCCESS;
-    else if (state === ValidationState.Warning)
-        return style.WARNING;
-    else if (state === ValidationState.Error)
-        return style.ERROR;
-    else
-        return ''
-
-}
+    if (state === ValidationState.Success) return style.SUCCESS;
+    else if (state === ValidationState.Warning) return style.WARNING;
+    else if (state === ValidationState.Error) return style.ERROR;
+    else return '';
+};

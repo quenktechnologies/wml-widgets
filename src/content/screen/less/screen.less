@@ -1,17 +1,13 @@
-@import "./variables";
+@import './variables';
 
 /**
  * Embeds the provided rules in a media query for screens at or below the tiny
  * breakpoint.
  */
 .screen-tiny(@rules) {
-
-  @media screen and (max-width: @screen-tiny) {
-
-    @rules();
-
-  }
-
+    @media screen and (max-width: @screen-tiny) {
+        @rules();
+    }
 }
 
 /**
@@ -19,13 +15,9 @@
  * breakpoint.
  */
 .screen-not-tiny(@rules) {
-
-  @media screen and (min-width: @screen-small) {
-
-    @rules();
-
-  }
-
+    @media screen and (min-width: @screen-small) {
+        @rules();
+    }
 }
 
 /**
@@ -33,13 +25,9 @@
  * breakpoint.
  */
 .screen-small(@rules) {
-
-  @media screen and (max-width: @screen-small) {
-
-    @rules();
-
-  }
-
+    @media screen and (max-width: @screen-small) {
+        @rules();
+    }
 }
 
 /**
@@ -47,11 +35,7 @@
  * breakpoint.
  */
 .screen-not-small(@rules) {
-
-  @media screen and (min-width: @screen-medium) {
-
-    @rules();
-
-  }
-
+    @media screen and (min-width: @screen-medium) {
+        @rules();
+    }
 }

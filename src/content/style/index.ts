@@ -39,7 +39,6 @@ export const OUTLINE = '-outline';
  * Style enum.
  */
 export enum Style {
-
     Default = 'default',
 
     Primary = 'primary',
@@ -50,8 +49,7 @@ export enum Style {
 
     Warning = 'warning',
 
-    Error = 'error',
-
+    Error = 'error'
 }
 
 export const styles: Style[] = [
@@ -60,15 +58,13 @@ export const styles: Style[] = [
     Style.Info,
     Style.Warning,
     Style.Error
-]
+];
 
 /**
  * getStyleClassName
  */
 export const getStyleClassName = (s: Style): string => {
-
     switch (s) {
-
         case Style.Default:
             return DEFAULT;
 
@@ -86,9 +82,7 @@ export const getStyleClassName = (s: Style): string => {
 
         case Style.Error:
             return ERROR;
-
     }
 
-  return DEFAULT;
-
-}
+    return DEFAULT;
+};

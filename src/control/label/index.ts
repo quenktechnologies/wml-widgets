@@ -13,46 +13,39 @@ export const LABEL = 'ww-label';
 /**
  * LabelAttrs
  */
-export interface LabelAttrs extends HTMLElementAttrs{
-
+export interface LabelAttrs extends HTMLElementAttrs {
     /**
      * for value
      */
-    for?: string
+    for?: string;
 
     /**
      * className for the label.
      */
-    className?: string,
+    className?: string;
 
     /**
      * text for the label.
      */
-    text?: string
-
+    text?: string;
 }
 
 /**
  * Label
  */
 export class Label extends Component<LabelAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         label: {
-
             className: concat(LABEL, getClassName(this.attrs)),
 
-            for: (this.attrs && this.attrs.for) ?
-                this.attrs.for : '',
+            for: this.attrs && this.attrs.for ? this.attrs.for : '',
 
-            text: (this.attrs && this.attrs.text) ?
-                [document.createTextNode(this.attrs.text)] : this.children
-
+            text:
+                this.attrs && this.attrs.text
+                    ? [document.createTextNode(this.attrs.text)]
+                    : this.children
         }
-
-    }
-
+    };
 }

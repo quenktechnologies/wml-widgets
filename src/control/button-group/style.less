@@ -1,4 +1,4 @@
-@import "./variables";
+@import './variables';
 
 /**
  * Styles for ww-button-group.
@@ -12,106 +12,88 @@
  *                               ww-button.
  * 3. ww-button-group-compat  - any element that contains buttons. 
  */
-.__BUTTON_GROUP__ { 
+.__BUTTON_GROUP__ {
+    &,
+    &.__VERTICAL__ {
+        position: relative;
+        display: inline-flex;
 
-  &, &.__VERTICAL__ {
-
-    position: relative;
-    display: inline-flex;
-
-    /**
+        /**
      * Make all top level elements float to the left of the group.
      */
-    & > .__BUTTON__,
-    & > .ww-button-group__button,
-    & > .ww-button-group-compat {
-      
-      position: relative;
-      float: left;
+        & > .__BUTTON__,
+        & > .ww-button-group__button,
+        & > .ww-button-group-compat {
+            position: relative;
+            float: left;
+        }
 
+        /**
+     * Make all buttons and button like things share the same radius.
+     */
+        & > .__BUTTON__,
+        & > .ww-button-group__button,
+        & > .ww-button-group-compat .__BUTTON__,
+        & > .ww-button-group-compat .ww-button-group__button {
+            float: left;
+        }
     }
 
     /**
-     * Make all buttons and button like things share the same radius.
-     */
-    & > .__BUTTON__ ,
-    & > .ww-button-group__button,
-    & > .ww-button-group-compat .__BUTTON__,
-    & > .ww-button-group-compat .ww-button-group__button {
-      
-      float: left;
-
-    }
-
-  }
-
-  /**
    * Attempts to hide extra borders when these elements are next to each other.
    */
-  & .__BUTTON__              + .__BUTTON__,
-  & .__BUTTON__              + .ww-button-group__button,
-  & .__BUTTON__              + .ww-button-group-compat,
-  & .ww-button-group__button + .__BUTTON__,
-  & .ww-button-group__button + .ww-button-group__button,
-  & .ww-button-group__button + .ww-button-group-compat,
-  & .ww-button-group-compat  + .__BUTTON__,
-  & .ww-button-group-compat  + .ww-button-group__button,
-  & .ww-button-group-compat  + .ww-button-group-compat {
+    & .__BUTTON__ + .__BUTTON__,
+    & .__BUTTON__ + .ww-button-group__button,
+    & .__BUTTON__ + .ww-button-group-compat,
+    & .ww-button-group__button + .__BUTTON__,
+    & .ww-button-group__button + .ww-button-group__button,
+    & .ww-button-group__button + .ww-button-group-compat,
+    & .ww-button-group-compat + .__BUTTON__,
+    & .ww-button-group-compat + .ww-button-group__button,
+    & .ww-button-group-compat + .ww-button-group-compat {
+        margin-left: -1px;
+    }
 
-    margin-left: -1px;
-
-  }
-
-  /**
+    /**
    * Attempts to remove border radius from buttons not on the ends.
    */
-  & > .__BUTTON__:not(:first-child):not(:last-child),
-  & > .ww-button-group__button:not(:first-child):not(:last-child) {
-
-    border-radius: 0;
-
-  }
-
-  & > .ww-button-group-compat:not(:first-child):not(:last-child) {
-
-    & .__BUTTON__, & .ww-button-group__button {
-
-      border-radius: 0;
-
+    & > .__BUTTON__:not(:first-child):not(:last-child),
+    & > .ww-button-group__button:not(:first-child):not(:last-child) {
+        border-radius: 0;
     }
 
-  }
+    & > .ww-button-group-compat:not(:first-child):not(:last-child) {
+        & .__BUTTON__,
+        & .ww-button-group__button {
+            border-radius: 0;
+        }
+    }
 
-  /**
+    /**
    * Remove the right radius of the first elements.
    */
-  & > .__BUTTON__:first-child,
-  & > .ww-button-group__button:first-child,
-  & > .ww-button-group-compat:first-child .__BUTTON__,
-  & > .ww-button-group-compat:first-child .ww-button-group__button {
+    & > .__BUTTON__:first-child,
+    & > .ww-button-group__button:first-child,
+    & > .ww-button-group-compat:first-child .__BUTTON__,
+    & > .ww-button-group-compat:first-child .ww-button-group__button {
+        margin-left: 0;
 
-    margin-left: 0;
-
-    &:not(:last-child) {
-
-      border-bottom-right-radius: 0;
-      border-top-right-radius: 0;
-
+        &:not(:last-child) {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+        }
     }
 
-  }
-
-  /**
+    /**
    * Remove the left radius for first elements.
    */
-  & > .__BUTTON__:last-child:not(:first-child),
-  & > .ww-button-group__button:last-child:not(:first-child),
-  & > .ww-button-group-compat:last-child:not(:first-child) .__BUTTON__,
-  & > .ww-button-group-compat:last-child:not(:first-child) .ww-button-group__button {
-
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-
-  }
-
+    & > .__BUTTON__:last-child:not(:first-child),
+    & > .ww-button-group__button:last-child:not(:first-child),
+    & > .ww-button-group-compat:last-child:not(:first-child) .__BUTTON__,
+    &
+        > .ww-button-group-compat:last-child:not(:first-child)
+        .ww-button-group__button {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
 }

@@ -28,7 +28,7 @@ export {
     TermChangedEvent,
     TextChangedEvent,
     ItemSelectedEvent
-}
+};
 
 ///classNames:begin
 export const TYPEAHEAD = 'ww-typeahead';
@@ -38,26 +38,20 @@ export const TYPEAHEAD = 'ww-typeahead';
  * TypeaheadAttrs
  */
 export interface TypeaheadAttrs<V> extends CommonSelectAttrs<V> {
-
     /**
      * onChange handler.
      */
     onChange?: (e: TextChangedEvent) => void;
-
 }
 
 /**
  * Typeahead provides an text input field that can suggests values
  * as the user types.
  */
-export class Typeahead<V>
-    extends
-    AbstractFormControl<V, TypeaheadAttrs<V>> {
-
+export class Typeahead<V> extends AbstractFormControl<V, TypeaheadAttrs<V>> {
     view: views.Main<V> = new views.Main(this);
 
     values = {
-
         root: new RootSection(this.attrs),
 
         control: new ControlSection(),
@@ -66,68 +60,59 @@ export class Typeahead<V>
 
         label: new LabelSection(this.attrs),
 
-        search: new SearchSection(this.attrs, () => this.close(),
+        search: new SearchSection(
+            this.attrs,
+            () => this.close(),
             (e: ItemSelectedEvent<V>) => {
-
                 this.close();
 
-                let mSearch =
-                    getById <Search<V>>(this.view, this.values.search.wml.id);
+                let mSearch = getById<Search<V>>(
+                    this.view,
+                    this.values.search.wml.id
+                );
 
                 if (mSearch.isJust()) {
-
                     let s = mSearch.get();
 
-                    let str = (this.values.search.stringifier) ?
-                        this.values.search.stringifier(e.value) : e.value + '';
+                    let str = this.values.search.stringifier
+                        ? this.values.search.stringifier(e.value)
+                        : e.value + '';
 
                     s.set(str);
 
                     if (this.attrs && this.attrs.onChange)
-                        this.attrs.onChange(new TextChangedEvent(
-                            '' + this.attrs.name, str));
-
+                        this.attrs.onChange(
+                            new TextChangedEvent('' + this.attrs.name, str)
+                        );
                 }
-
-            })
-
+            }
+        )
     };
 
     open(): Typeahead<V> {
-
         open(this.view, this.values.search.wml.id);
         return this;
-
     }
 
     close(): Typeahead<V> {
-
         close(this.view, this.values.search.wml.id);
         return this;
-
     }
 
     setMessage(msg: Message): Typeahead<V> {
-
         this.values.messages.text = msg;
         setMessage(this.view, this.values.messages.wml.id, msg);
         return this;
-
     }
 
     removeMessage(): Typeahead<V> {
-
         this.values.messages.text = '';
         removeMessage(this.view, this.values.messages.wml.id);
         return this;
-
     }
 
     update(results: V[]): Typeahead<V> {
-
         update(this.view, this.values.search.wml.id, results);
         return this;
-
     }
-
 }

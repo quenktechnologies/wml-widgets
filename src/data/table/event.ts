@@ -1,5 +1,5 @@
-import { SortKey } from "./column/sort";
-import { TableName } from ".";
+import { SortKey } from './column/sort';
+import { TableName } from '.';
 
 /**
  * ColumnId type
@@ -12,24 +12,21 @@ export type ColumnId = number;
 export type RowId = number;
 
 /**
- * HeadingClickedEvent is triggered when the user clicks on 
+ * HeadingClickedEvent is triggered when the user clicks on
  * one of the column headings.
  */
 export class HeadingClickedEvent {
-
-    constructor(public column: ColumnId) { }
-
+    constructor(public column: ColumnId) {}
 }
 
 /**
  * CellClickedEvent triggered when a cell is clicked on.
  */
 export class CellClickedEvent {
-
     constructor(
         public column: ColumnId,
-        public row: RowId) { }
-
+        public row: RowId
+    ) {}
 }
 
 /**
@@ -37,10 +34,9 @@ export class CellClickedEvent {
  * changes.
  */
 export class DataChangedEvent<R> {
-
     constructor(
         public name: TableName,
         public data: R[],
-        public key: SortKey) { }
-
+        public key: SortKey
+    ) {}
 }

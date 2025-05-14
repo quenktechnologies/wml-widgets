@@ -12,17 +12,15 @@ export const ACTIVE = '-active';
  * Activate indicates a widget can be an active state.
  */
 export interface Activate {
-
     /**
      * activate the widget.
      */
-    activate(): Activate
+    activate(): Activate;
 
     /**
      * deactivate the widget.
      */
-    deactivate(): Activate
-
+    deactivate(): Activate;
 }
 
 /**
@@ -31,11 +29,10 @@ export interface Activate {
  * Adds the ACTIVE class.
  */
 export const activate = (view: View, id: string) =>
-    getById<HTMLElement>(view, id)
-        .map((e: HTMLElement) => {
-            e.classList.remove(ACTIVE);
-            e.classList.add(ACTIVE);
-        });
+    getById<HTMLElement>(view, id).map((e: HTMLElement) => {
+        e.classList.remove(ACTIVE);
+        e.classList.add(ACTIVE);
+    });
 
 /**
  * deactivate helper.
@@ -43,16 +40,17 @@ export const activate = (view: View, id: string) =>
  * Removes the ACTIVE class.
  */
 export const deactivate = (view: View, id: string) =>
-    getById<HTMLElement>(view, id)
-        .map((e: HTMLElement) => e.classList.remove(ACTIVE));
+    getById<HTMLElement>(view, id).map((e: HTMLElement) =>
+        e.classList.remove(ACTIVE)
+    );
 
 /**
  * isActive helpder
- * 
+ *
  * Queries whether the ACTIVE class is present.
  */
-export const isActive = (view:View, id:string) : boolean =>
-  getById<HTMLElement>(view, id)
-    .map((e:HTMLElement) => e.classList.contains(ACTIVE))
-    .orJust(()=> false)
-.get();
+export const isActive = (view: View, id: string): boolean =>
+    getById<HTMLElement>(view, id)
+        .map((e: HTMLElement) => e.classList.contains(ACTIVE))
+        .orJust(() => false)
+        .get();

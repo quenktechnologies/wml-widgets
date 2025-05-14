@@ -1,77 +1,56 @@
-@import "./variables";
+@import './variables';
 
 .__NAV_MENU__ {
+    list-style-type: none;
+    padding: @nav-padding-vertical @nav-padding-horizontal;
+    margin: @nav-margin-vertical @nav-margin-horizontal;
 
-  list-style-type: none;
-  padding: @nav-padding-vertical @nav-padding-horizontal;
-  margin: @nav-margin-vertical @nav-margin-horizontal;
+    & > .__MENU_ITEM__ {
+        float: left;
 
-  & > .__MENU_ITEM__ {
-
-    float: left;
-
-    & > .__MENU_HEADER__ {
-
-      text-transform: capitalize;
-
+        & > .__MENU_HEADER__ {
+            text-transform: capitalize;
+        }
     }
 
-  }
-
-  &.__VERTICAL__ > .__MENU_ITEM__ {
-
-    float: none;
-
-  }
-
+    &.__VERTICAL__ > .__MENU_ITEM__ {
+        float: none;
+    }
 }
 
 /*
   Nav styles for child Item widgets.
  */
 .__NAV_MENU__ > .__MENU_ITEM__ {
+    margin-top: @nav-item-margin-vertical;
+    margin-bottom: @nav-item-margin-vertical;
 
-  margin-top: @nav-item-margin-vertical;
-  margin-bottom: @nav-item-margin-vertical;
-
-  & > .__NAV_MENU__ {
-
-    margin-left: @nav-item-nav-margin-left;
-
-  }
-
-  & > a {
-
-    padding: @nav-item-padding-vertical @nav-item-padding-horizontal;
-    display: block;
-    color: inherit;
-    text-decoration: inherit;
-    text-transform: capitalize;
-    font-weight: @nav-item-link-font-weight;
-    letter-spacing: @nav-item-link-letter-spacing;
-
-    &:hover {
-
-      background-color: @nav-item-hover-background-color;
-
+    & > .__NAV_MENU__ {
+        margin-left: @nav-item-nav-margin-left;
     }
 
-    &.__ACTIVE__ {
+    & > a {
+        padding: @nav-item-padding-vertical @nav-item-padding-horizontal;
+        display: block;
+        color: inherit;
+        text-decoration: inherit;
+        text-transform: capitalize;
+        font-weight: @nav-item-link-font-weight;
+        letter-spacing: @nav-item-link-letter-spacing;
 
-      background-color: @nav-item-active-background-color;
+        &:hover {
+            background-color: @nav-item-hover-background-color;
+        }
 
+        &.__ACTIVE__ {
+            background-color: @nav-item-active-background-color;
+        }
+
+        &.__NO_HOVER__ {
+            &:hover,
+            &.__ACTIVE__ {
+                background-color: @nav-item-background-color;
+            }
+        }
     }
-
-    &.__NO_HOVER__ {
-    
-      &:hover, &.__ACTIVE__ {
-
-        background-color: @nav-item-background-color;
-
-      }
-
-    }
-
-  }
-
 }

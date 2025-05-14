@@ -1,96 +1,79 @@
-@import "../../../content/screen/less/screen";
-@import "./variables";
+@import '../../../content/screen/less/screen';
+@import './variables';
 
 .__TAB__ {
+    float: left;
+    margin-bottom: -1px;
+    position: @tab-bar-tab-position;
+    display: @tab-bar-tab-display;
 
-  float: left;
-  margin-bottom: -1px;
-  position: @tab-bar-tab-position;
-  display: @tab-bar-tab-display;
-  
-  &  > a {
+    & > a {
+        //   position: relative;
+        display: block;
+        padding: @tab-bar-tab-anchor-horizontal-padding
+            @tab-bar-tab-anchor-vertical-padding;
+        margin-right: 2px;
+        line-height: @tab-bar-tab-line-height;
+        border: 1px solid transparent;
+        border-radius: @tab-bar-tab-border-radius @tab-bar-tab-border-radius 0 0;
+    }
 
- //   position: relative;
-    display: block;
-    padding: @tab-bar-tab-anchor-horizontal-padding @tab-bar-tab-anchor-vertical-padding;
-    margin-right: 2px;
-    line-height: @tab-bar-tab-line-height;
-    border: 1px solid transparent;
-    border-radius: @tab-bar-tab-border-radius @tab-bar-tab-border-radius 0 0;
+    & > a:hover {
+        border-color: @tab-bar-tab-link-hover-border-color
+            @tab-bar-tab-link-hover-border-color @tab-bar-border-color;
+    }
 
-  }
-
-  & > a:hover {
-
-    border-color: @tab-bar-tab-link-hover-border-color
-                  @tab-bar-tab-link-hover-border-color
-                  @tab-bar-border-color;
-      
-  }
-
-  &.__ACTIVE__ > a, &.__ACTIVE__ > a:hover, &.__ACTIVE__:focus {
-
-    color: @tab-bar-tab-active-link-hover-color;
-    background-color: @tab-bar-tab-active-link-hover-background;
-    border: 1px solid @tab-bar-tab-active-link-hover-border-color;
-    border-bottom-color: transparent;
-    cursor: default;
-          
-  }
-
+    &.__ACTIVE__ > a,
+    &.__ACTIVE__ > a:hover,
+    &.__ACTIVE__:focus {
+        color: @tab-bar-tab-active-link-hover-color;
+        background-color: @tab-bar-tab-active-link-hover-background;
+        border: 1px solid @tab-bar-tab-active-link-hover-border-color;
+        border-bottom-color: transparent;
+        cursor: default;
+    }
 }
 
 .__TAB_BAR__ {
+    margin-bottom: @tab-bar-margin-bottom;
+    padding-left: @tab-bar-padding-left;
+    border-bottom: 1px solid @tab-bar-border-color;
 
-  margin-bottom: @tab-bar-margin-bottom;
-  padding-left: @tab-bar-padding-left;
-  border-bottom: 1px solid @tab-bar-border-color;
+    &:before,
+    &:after {
+        content: ' ';
+        display: table;
+    }
 
-  &:before, &:after {
+    &:after {
+        clear: both;
+    }
 
-    content: " ";                   
-    display: table; 
-                   
-  }
-  
-  &:after {
+    &.__JUSTIFIED__ {
+        width: 100%;
+    }
 
-    clear: both;
-                              
-  }
+    &.__JUSTIFIED__ > li {
+        display: table-cell;
+        width: 1%;
+        float: none;
 
-  &.__JUSTIFIED__ {
-
-    width: 100%;
-
-  }
-
-  &.__JUSTIFIED__ > li {
-
-    display: table-cell;
-    width:1%;
-    float:none;
-
-    .screen-not-small({
+        .screen-not-small({
 
       display: block;
       width: auto;
 
     });
+    }
 
-  }
+    &.__JUSTIFIED__ > li > a {
+        margin-bottom: 0;
+        text-align: center;
 
-  &.__JUSTIFIED__ > li > a {
-
-    margin-bottom: 0;
-    text-align: center;
-
-    .screen-not-small({
+        .screen-not-small({
 
       margin-bottom: 5px;
 
     });
-
-  }
-
+    }
 }

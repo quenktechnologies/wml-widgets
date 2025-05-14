@@ -1,52 +1,37 @@
-@import "./variables";
+@import './variables';
 
 .__STACK_SELECT__ {
-
-  display: block;
-
-  &.__ERROR__ {
-
-    color: @stack-select-error-color;
-
-    & input {
-
-      border-color: @stack-select-error-border-color;
-      color: @stack-select-error-color;
-
-    }
-
-  }
-
-  &.__WARNING__ {
-
-    color: @stack-select-warning-color;
-
-    & input {
-
-      border-color: @stack-select-warning-border-color;
-      color: @stack-select-warning-color;
-
-    }
-
-  }
-
-  &.__SUCCESS__ {
-
-    color: @stack-select-success-color;
-
-    & input {
-
-      border-color: @stack-select-success-border-color;
-      color: @stack-select-success-color;
-
-    }
-
-  }
-
-  & > .__LABEL__, & > .__HELP__ {
-
     display: block;
 
-  }
+    &.__ERROR__ {
+        color: @stack-select-error-color;
 
+        & input {
+            border-color: @stack-select-error-border-color;
+            color: @stack-select-error-color;
+        }
+    }
+
+    &.__WARNING__ {
+        color: @stack-select-warning-color;
+
+        & input {
+            border-color: @stack-select-warning-border-color;
+            color: @stack-select-warning-color;
+        }
+    }
+
+    &.__SUCCESS__ {
+        color: @stack-select-success-color;
+
+        & input {
+            border-color: @stack-select-success-border-color;
+            color: @stack-select-success-color;
+        }
+    }
+
+    & > .__LABEL__,
+    & > .__HELP__ {
+        display: block;
+    }
 }

@@ -15,7 +15,7 @@ import { Main } from './wml/action-bar';
 export const ACTION_BAR = 'ww-action-bar';
 
 /**
- * ACTION_BAR_CONTENT class name. 
+ * ACTION_BAR_CONTENT class name.
  */
 export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 
@@ -24,48 +24,36 @@ export const ACTION_BAR_CONTENT = 'ww-action-bar__content';
 /**
  * ActionBarAttrs
  */
-export interface ActionBarAttrs extends LayoutAttrs { }
+export interface ActionBarAttrs extends LayoutAttrs {}
 
 /**
  * ActionBar provides a bar across the screen that can be
  * used as a toolbar, navigation menu or something simillar.
  */
 export class ActionBar extends AbstractLayout<ActionBarAttrs> {
-
     view: View = new Main(this);
 
     values = {
-
         root: {
-
             wml: {
-
-                id: 'root',
-
+                id: 'root'
             },
 
-            id: (this.attrs && this.attrs.id) ?
-                this.attrs.id : '',
+            id: this.attrs && this.attrs.id ? this.attrs.id : '',
 
             className: concat(
                 ACTION_BAR,
                 LAYOUT,
                 orientation.POSITIONED,
-                getClassName(this.attrs))
-
+                getClassName(this.attrs)
+            )
         },
         content: {
-
             wml: {
-
                 id: 'content'
-
             },
 
             class: ACTION_BAR_CONTENT
-
         }
-
-    }
-
+    };
 }

@@ -3,7 +3,7 @@ import { Component } from '@quenk/wml';
 import { TOOLBAR_COMPAT } from '../toolbar';
 import { DISABLED } from '../../content/state/disabled';
 import { concat } from '../../util';
-import { getClassName, getId, HTMLElementAttrs, } from '../../';
+import { getClassName, getId, HTMLElementAttrs } from '../../';
 import { TextFacadeView } from './views';
 
 ///classNames:begin
@@ -18,29 +18,26 @@ export interface TextFacadeAttrs extends HTMLElementAttrs {
     /**
      * disabled
      */
-    disabled?: boolean,
+    disabled?: boolean;
 
     /**
      * onClick handler.
      */
-    onClick?: () => void
-
-};
+    onClick?: () => void;
+}
 
 /**
  * TextFacade is used to display a value in a text input like box.
  */
-export class TextFacade
-    extends
-    Component<TextFacadeAttrs> {
-
+export class TextFacade extends Component<TextFacadeAttrs> {
     view = new TextFacadeView(this);
 
     id = getId(this.attrs);
 
     disabled = this.attrs.disabled;
 
-    className = concat(TEXT_FACADE,
+    className = concat(
+        TEXT_FACADE,
 
         getClassName(this.attrs),
 
@@ -50,22 +47,14 @@ export class TextFacade
     );
 
     onclick = (e: Event) => {
-
         if (this.attrs.onClick) {
-
             e.preventDefault();
 
-            if (!this.disabled)
-                this.attrs.onClick();
-
+            if (!this.disabled) this.attrs.onClick();
         }
-
-    }
-
-    content = {
-
-        className: TEXT_FACADE_CONTENT
-
     };
 
+    content = {
+        className: TEXT_FACADE_CONTENT
+    };
 }

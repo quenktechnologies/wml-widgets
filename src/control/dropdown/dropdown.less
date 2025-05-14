@@ -1,26 +1,17 @@
-
 .__DROPDOWN__ {
+    position: relative;
 
-  position: relative;
+    &.__INLINE__ {
+        display: inline-block;
+    }
 
-  &.__INLINE__ {
+    & > .__DROPDOWN_FACADE__ {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-    display: inline-block;
-
-  }
-
-  & > .__DROPDOWN_FACADE__ {
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-  }
-
-  & > .__MENU__ {
-
-    margin-top: .5em;
-
-  }
-
+    & > .__MENU__ {
+        margin-top: 0.5em;
+    }
 }

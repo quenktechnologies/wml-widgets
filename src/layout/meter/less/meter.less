@@ -1,27 +1,23 @@
-@import "./variables";
+@import './variables';
 
 .__METER__ {
+    overflow: hidden;
+    height: @meter-height;
+    margin-bottom: @meter-margin-bottom;
+    background-color: @meter-background-color;
+    border-radius: @meter-border-radius;
+    box-shadow: @meter-box-shadow;
 
-  overflow: hidden;
-  height: @meter-height;
-  margin-bottom: @meter-margin-bottom;
-  background-color: @meter-background-color;
-  border-radius: @meter-border-radius;
-  box-shadow: @meter-box-shadow;
-
-  & > .__METER_BAR__ {
-
-    float: left;
-    width: 0%;
-    height: 100%;
-    font-size: @meter-bar-font-size;
-    line-height: @meter-bar-line-height;
-    color: @meter-bar-color;
-    text-align: @meter-bar-text-align;
-    background-color: @meter-bar-background-color;
-    box-shadow: @meter-bar-box-shadow;
-    transition: @meter-bar-transition;
-
-  }
-
+    & > .__METER_BAR__ {
+        float: left;
+        width: 0%;
+        height: 100%;
+        font-size: @meter-bar-font-size;
+        line-height: @meter-bar-line-height;
+        color: @meter-bar-color;
+        text-align: @meter-bar-text-align;
+        background-color: @meter-bar-background-color;
+        box-shadow: @meter-bar-box-shadow;
+        transition: @meter-bar-transition;
+    }
 }
