@@ -1,22 +1,30 @@
+{% import (Overlay) from "../../../content/overlay" %}
 {% import * as m from "../" %}
 
 {% view Modal (m.Modal) %}
-<div
-  wml:id={{@values.wml.id}}
-  id={{@values.id}}
-  class={{@values.className}}>
+  <div
+    wml:id={{@values.wml.id}}
+    id={{@values.id}}
+    class={{@values.className}}>
 
-  <div class={{@values.position.className}}>
-  
-    <div class={{@values.content.className}}>
-  
-      {{...@children}}
-    
-    </div>
+    {{...@children}}
 
   </div>
 
-</div>
+{% view ModalWithOverlay (m.Modal) %}
+<Overlay
+  wml:id="overlay"
+  className={{@values.overlay.className}}
+  onClick={{@values.overlay.onClick}}>
+  <div
+    wml:id={{@values.wml.id}}
+    id={{@values.id}}
+    class={{@values.className}}>
+
+    {{...@children}}
+
+  </div>
+</Overlay>
 
 {% view ModalHeader (m.ModalHeader) %}
 <div

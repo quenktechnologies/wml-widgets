@@ -1,13 +1,17 @@
 import * as views from './wml/modal';
+
 import { View, Component } from '@quenk/wml';
+
 import { concat, getById } from '../../util';
 import { HTMLElementAttrs, getClassName, getId } from '../../';
 import { AbstractLayout } from '../../layout';
+import { Overlay} from '../../content/overlay';
+
+export {Overlay}
 
 ///classNames:begin
 export const MODAL = 'ww-modal';
-export const MODAL_POSITION = 'ww-modal__position';
-export const MODAL_CONTENT = 'ww-modal__content';
+export const MODAL_OVERLAY = 'ww-modal-overlay';
 export const MODAL_HEADER = 'ww-modal__header';
 export const MODAL_BODY = 'ww-modal__body';
 export const MODAL_FOOTER = 'ww-modal__footer';
@@ -16,14 +20,27 @@ export const MODAL_FOOTER = 'ww-modal__footer';
 /**
  * ModalAttrs
  */
-export interface ModalAttrs extends HTMLElementAttrs { }
+export interface ModalAttrs extends HTMLElementAttrs { 
+
+  /**
+   * noOverlay if true will not render an overlay for the modal.
+   */
+  noOverlay?: boolean 
+
+  /**
+   * noAutoClose if true will not close the modal when clicks occur outside 
+   * of it.
+   */
+  noAutoClose?:boolean 
+
+}
 
 /**
  * Modal
  */
 export class Modal extends Component<ModalAttrs> {
 
-    view: View = new views.Modal(this);
+  view: View = this.attrs.noOverlay ? new views.Modal(this) : new views.ModalWithOverlay(this);
 
     values = {
 
@@ -32,21 +49,24 @@ export class Modal extends Component<ModalAttrs> {
             id: 'root'
 
         },
+
         id: getId(this.attrs),
 
         className: concat(MODAL, getClassName(this.attrs)),
 
-        content: {
+        overlay: {
 
-            className: MODAL_CONTENT
+          className: MODAL_OVERLAY,
+          onClick: ()=> {
 
-        },
+            if(this.attrs.noAutoClose) return;
 
-        position: {
+            this.close();
 
-            className: MODAL_POSITION
 
-        }
+            }
+
+          }
 
     }
 
@@ -54,6 +74,11 @@ export class Modal extends Component<ModalAttrs> {
      * close the modal.
      */
     close(): void {
+
+      let mOverlay = getById<Overlay>(this.view, 'overlay');
+      if(mOverlay.isJust()) {
+      mOverlay.get().close();
+      }
 
         let mO = getById<HTMLElement>(this.view, this.values.wml.id);
 

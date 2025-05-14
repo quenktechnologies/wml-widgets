@@ -37,7 +37,13 @@ export class Overlay extends Component<OverlayAttrs> {
 
         className: concat(OVERLAY, getClassName(this.attrs)),
 
-        onclick: () => {
+        onclick: ({target}: Event) => {
+          let div = getById<HTMLElement>(this.view, this.values.wml.id).get();
+
+          if(target !== div) {
+            // Let children handle their clicks.
+            return;
+          }
 
             if (this.attrs && this.attrs.onClick) 
                 this.attrs.onClick();

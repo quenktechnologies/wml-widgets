@@ -14,20 +14,20 @@ from "../../../../../../lib/dialog/modal" %}
 </Demo>
 
 {% view Open (ModalPage) %}
-<Modal wml:id="open">
+  <Modal wml:id="open">
 
-  <ModalHeader>Open</ModalHeader>
+    <ModalHeader>Open</ModalHeader>
 
-  <ModalBody>
+    <ModalBody>
   
-    <p>Click this <button onclick={{@values.close}}>button</button> to close.</p>
+      <p>Click this <button onclick={{@values.close}}>button</button> to close.</p>
 
-  </ModalBody>
+    </ModalBody>
 
-  <ModalFooter>
+    <ModalFooter>
 
-    <button onclick={{@values.close}}>cancel</button>
+      <button onclick={{@values.close}}>cancel</button>
 
-  </ModalFooter>
+    </ModalFooter>
 
-</Modal>
+  </Modal>

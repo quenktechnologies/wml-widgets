@@ -8,9 +8,9 @@
 
   <ModalHeader>
   
-    <CloseButton onClick={{@values.footer.close.onClick}} />
-
     {{@values.header.title|text}} 
+
+    <CloseButton onClick={{@values.footer.close.onClick}} />
     
   </ModalHeader>
 

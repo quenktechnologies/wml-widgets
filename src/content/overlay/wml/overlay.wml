@@ -5,4 +5,6 @@
   wml:id={{@values.wml.id}}
   id={{@values.id}}
   class={{@values.className}}
-  onclick={{@values.onclick}}/>
+  onclick={{@values.onclick}}>
+  {{...@children}}
+</div>

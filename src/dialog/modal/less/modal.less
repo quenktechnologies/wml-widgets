@@ -3,34 +3,16 @@
 @import "./variables";
 
 .__MODAL__ {
+  position: relative;
+  width: @modal-width;
+  margin: @modal-margin-vertical auto;
 
-  overflow-x: hidden;
-  overflow-y: auto;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: @modal-z-index;
-  -webkit-overflow-scrolling: touch;
-  outline: 0;
-
-  & > .__MODAL_POSITION__ {
-
-    position: relative;
-    width: @modal-width;
-    margin: @modal-margin-vertical auto;
-
-    .screen-not-small({
+  .screen-not-small({
 
         width: @modal-screen-not-small-width;
         margin: @modal-screen-not-small-margin-vertical auto;              
 
-    });
-
-  }
-
-  &  .__MODAL_CONTENT__ {
+   });
 
     position: relative;
     background-color: @modal-content-background-color;
@@ -40,28 +22,41 @@
     background-clip: padding-box;
     outline: 0;
 
-  }
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 
-  & .__MODAL_CONTENT__ > .__MODAL_HEADER__ {
+  z-index: @modal-z-index;
+  -webkit-overflow-scrolling: touch;
+
+  &  > .__MODAL_HEADER__ {
 
     padding: @modal-header-padding;
     border-bottom: 1px solid @modal-header-border-color;
+    display: flex;
+    align-content: space-between;
     &:extend(.clearfix all);
+
+    & > h1,h2,h3,h4,h5,h6 {
+      margin:0;
+
+    }
   
   }
 
-  & .__MODAL_CONTENT__ > .__MODAL_BODY__ {
+  & > .__MODAL_BODY__ {
 
     position: relative;
     padding: @modal-body-padding;
 
   }
 
-  & .__MODAL_CONTENT__ > .__MODAL_FOOTER__ {
+  &  > .__MODAL_FOOTER__ {
 
     padding: @modal-footer-padding;
     text-align: right; 
     border-top: 1px solid @modal-footer-border-color;
+    display: flex;
     &:extend(.clearfix all); 
 
   }
