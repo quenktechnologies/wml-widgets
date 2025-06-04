@@ -18,6 +18,11 @@ export { FileChangedEvent };
  */
 export interface FileButtonAttrs extends FileControlAttrs {
     /**
+     * buttonClassName to apply to the button.
+     */
+    buttonClassName?: string;
+
+    /**
      * text displayed as instructions to the user.
      */
     text?: string;
@@ -75,8 +80,9 @@ export class FileButton extends AbstractControl<File, FileButtonAttrs> {
     button = {
         className: () =>
             concat(
-                'ww-file-button__button -block',
-                this.error ? concat(ERROR, OUTLINE) : ''
+                'ww-file-button__button',
+                this.error ? concat(ERROR, OUTLINE) : '',
+                this.attrs.buttonClassName
             ),
 
         disabled: this.attrs.disabled,

@@ -91,6 +91,11 @@ export class MultiFileUploader extends AbstractControl<
         return this.errors[idx] ?? '';
     }
 
+  /**
+   * removeFile from the iternal list.
+   *
+   * This will invalidate the view.
+   */
     removeFile(idx: number) {
         this.value = this.value.filter((_, n) => n !== idx);
         this.dispatchChange();
