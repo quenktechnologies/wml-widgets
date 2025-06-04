@@ -1,0 +1,25 @@
+{% import (FilePreview) from "../../preview" %}
+{% import (FileUploader) from "../../uploader" %}
+{% import (Message) from "../../../message" %}
+
+{% view MultiFileUploaderView (MultiFileUploader from "..") %}
+<div 
+  id={{@values.id}} 
+  class={{@values.className}}>
+  <FileUploader
+    wml:id="uploader"
+    multiple=true
+    onChange={{@values.uploader.onChange}}
+    onChangeDone={{@values.uploader.onDone}}>
+  {{...@children}}
+  </FileUploader>
+  {% for _,idx in @value %}
+    <FilePreview 
+      file={{@getFileAt(idx)}}
+      error={{@getFileErrorAt(idx)}}
+      onDelete={{->@removeFile(idx)}}/>
+    {% if @getFileErrorAt(idx) %}
+      <Message error={{@getFileErrorAt(idx)}}/>
+    {% endif %}
+  {% endfor %}
+</div>

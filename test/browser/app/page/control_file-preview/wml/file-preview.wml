@@ -1,0 +1,31 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (FilePreview) from "../../../../../../lib/control/file/preview" %}
+
+{% view Main (FilePreviewPage from "..") %}
+<Demo>
+  <Demo>
+    <div style="max-width:250px; margin:1rem">
+      <FilePreview file={{@file}} onDelete={{@onDelete}} />
+    </div>
+  </Demo>
+  <Demo>
+    <div style="max-width:250px; margin:1rem">
+      <FilePreview className="-success" file={{@file}} onDelete={{@onDelete}} />
+    </div>
+  </Demo>
+  <Demo>
+    <div style="max-width:250px; margin:1rem">
+      <FilePreview className="-error" file={{@file}} onDelete={{@onDelete}} />
+    </div>
+  </Demo>
+  <Demo>
+    <div style="max-width:250px; margin:1rem">
+      <FilePreview className="-warning" file={{@file}} onDelete={{@onDelete}} />
+    </div>
+  </Demo>
+  <Demo>
+    <div style="max-width:250px; margin:1rem">
+      <FilePreview busy=true file={{@file}} onDelete={{@onDelete}} />
+    </div>
+  </Demo>
+</Demo>

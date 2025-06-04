@@ -1,0 +1,6 @@
+{% import (Spinner) from "../../spinner" %}
+
+{% view BusyOverlayView (BusyOverlay from "..") %}
+<div id={{@values.id}} class={{@values.className}}>
+  <Spinner/>
+</div>

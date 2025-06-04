@@ -12,8 +12,10 @@ import {
     DEFAULT,
     OUTLINE,
     Style,
-    getStyleClassName
+    getStyleClassName,
+    ERROR
 } from '../../content/style';
+import { BUSY } from '../../content/busy-overlay';
 import { Size, getSizeClassName } from '../../content/size';
 import { concat, getById } from '../../util';
 import { getClassName, getId } from '../../';
@@ -60,6 +62,19 @@ export interface ButtonAttrs<V> extends ControlAttrs<V> {
      * active indicates whether the button is active or not.
      */
     active?: boolean;
+
+    /**
+     * error if specified will add the error class to the button.
+     *
+     * The alternative to this is to specify in the className valule.
+     * The string value is used for compatability with other widgets.
+     */
+    error?: boolean | string;
+
+    /**
+     * busy if true will render the button disabled with the busy state
+     */
+    busy?: boolean;
 
     /**
      * block scope this button.
@@ -113,89 +128,91 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
         ? new views.AnchorView(this)
         : new views.ButtonView(this);
 
-    values = {
-        button: {
-            wml: {
-                id: 'button'
-            },
+    id = getId(this.attrs);
 
-            id: getId(this.attrs),
+    get className() {
+        return concat(
+            BUTTON,
 
-            className: concat(
-                BUTTON,
+            getClassName(this.attrs),
 
-                getClassName(this.attrs),
+            this.attrs.error ? ERROR : '',
 
-                TOOLBAR_COMPAT,
+            this.isBusy ? BUSY : '',
 
-                this.attrs && this.attrs.style
-                    ? getStyleClassName(this.attrs.style)
-                    : DEFAULT,
+            TOOLBAR_COMPAT,
 
-                this.attrs && this.attrs.size
-                    ? getSizeClassName(this.attrs.size)
-                    : '',
+            this.attrs && this.attrs.style
+                ? getStyleClassName(this.attrs.style)
+                : DEFAULT,
 
-                this.attrs && this.attrs.outline ? OUTLINE : '',
+            this.attrs && this.attrs.size
+                ? getSizeClassName(this.attrs.size)
+                : '',
 
-                this.attrs && this.attrs.block ? BLOCK : '',
+            this.attrs && this.attrs.outline ? OUTLINE : '',
 
-                this.attrs && this.attrs.active ? ACTIVE : ''
-            ),
+            this.attrs && this.attrs.block ? BLOCK : '',
 
-            type: this.attrs && this.attrs.type ? this.attrs.type : 'button',
+            this.attrs && this.attrs.active ? ACTIVE : ''
+        );
+    }
 
-            name: this.attrs && this.attrs.name ? this.attrs.name : '',
+    isBusy = this.attrs.busy;
 
-            disabled: this.attrs && this.attrs.disabled ? true : null,
+    button = {
+        type: this.attrs && this.attrs.type ? this.attrs.type : 'button',
 
-            anchor: this.attrs && this.attrs.anchor ? this.attrs.anchor : false,
+        name: this.attrs && this.attrs.name ? this.attrs.name : '',
 
-            href: this.attrs.href || '#',
+        disabled: () =>
+            this.isBusy || (this.attrs && this.attrs.disabled) ? true : null,
 
-            onclick: (e: Event) => {
-                if (isString(this.attrs.href)) return;
+        anchor: this.attrs && this.attrs.anchor ? this.attrs.anchor : false,
 
-                if (!this.attrs.onClick) return;
+        href: this.attrs.href || '#',
 
-                e.preventDefault();
+        onclick: (e: Event) => {
+            if (isString(this.attrs.href)) return;
 
-                this.attrs.onClick(
-                    new ButtonClickedEvent(
-                        this.attrs.name ? this.attrs.name : '',
-                        <V>this.attrs.value
+            if (!this.attrs.onClick) return;
+
+            e.preventDefault();
+
+            this.attrs.onClick(
+                new ButtonClickedEvent(
+                    this.attrs.name ? this.attrs.name : '',
+                    <V>this.attrs.value
+                )
+            );
+        },
+
+        content: () => {
+            let content: Content[] = [];
+
+            if (isString(this.attrs.icon))
+                content.push(
+                    createElement('img', {
+                        alt: 'icon',
+                        class: BUTTON_IMAGE,
+                        src: this.attrs.icon
+                    })
+                );
+
+            if (isObject(this.attrs.icon)) content = [this.attrs.icon.render()];
+
+            if (this.attrs.text)
+                content.push(
+                    createElement(
+                        'span',
+                        {
+                            class: BUTTON_TEXT
+                        },
+                        [text(this.attrs.text)]
                     )
                 );
-            },
 
-            content: () => {
-                let content: Content[] = [];
-
-                if (isString(this.attrs.icon))
-                    content.push(
-                        createElement('img', {
-                            alt: 'icon',
-                            class: BUTTON_IMAGE,
-                            src: this.attrs.icon
-                        })
-                    );
-
-                if (isObject(this.attrs.icon))
-                    content = [this.attrs.icon.render()];
-
-                if (this.attrs.text)
-                    content.push(
-                        createElement(
-                            'span',
-                            {
-                                class: BUTTON_TEXT
-                            },
-                            [text(this.attrs.text)]
-                        )
-                    );
-
-                return [...content, ...this.children];
-            }
+            return [...content, ...this.children];
         }
     };
 
@@ -203,7 +220,7 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
      * disable this button.
      */
     disable(): void {
-        getById<HTMLButtonElement>(this.view, this.values.button.wml.id).map(
+        getById<HTMLButtonElement>(this.view, 'button').map(
             (b: HTMLButtonElement) => b.setAttribute('disabled', 'disabled')
         );
     }
@@ -212,7 +229,7 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
      * enable this button.
      */
     enable(): void {
-        getById<HTMLButtonElement>(this.view, this.values.button.wml.id).map(
+        getById<HTMLButtonElement>(this.view, 'button').map(
             (b: HTMLButtonElement) => b.removeAttribute('disabled')
         );
     }
@@ -221,9 +238,18 @@ export class Button<V> extends AbstractControl<V, ButtonAttrs<V>> {
      * toggle the disabled state of this button.
      */
     toggle() {
-        getById<HTMLButtonElement>(this.view, this.values.button.wml.id).map(
+        getById<HTMLButtonElement>(this.view, 'button').map(
             (b: HTMLButtonElement) =>
                 b.hasAttribute('disabled') ? this.enable() : this.disable()
         );
+    }
+
+    /**
+     * busy displays a spinner in the button indicating some background
+     * task is taking place.
+     */
+    busy(state = true) {
+        this.isBusy = state;
+        this.view.invalidate();
     }
 }

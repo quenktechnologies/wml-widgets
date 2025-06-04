@@ -168,9 +168,6 @@ export const RANGED_PAGER = 'ww-ranged-pager';
 export const RANGED_PAGER_PAGE = 'ww-ranged-pager__page';
 ///classNames:end
 ///classNames:begin
-export const FILE_INPUT = 'ww-file-input';
-///classNames:end
-///classNames:begin
 export const SEARCH = 'ww-search';
 export const SEARCH_INPUT = 'ww-search__input';
 ///classNames:end
@@ -191,11 +188,6 @@ export const SELECT = 'ww-select';
 ///classNames:end
 ///classNames:begin
 export const CLOSE_BUTTON = 'ww-close-button';
-///classNames:end
-///classNames:begin
-export const FILE_UPLOAD_SURFACE = 'ww-file-upload-surface';
-export const FILE_UPLOAD_SURFACE_INPUT = 'ww-file-upload-surface__input';
-export const FILE_UPLOAD_SURFACE_TEXT = 'ww-file-upload-surface__text';
 ///classNames:end
 ///classNames:begin
 export const LABEL = 'ww-label';
@@ -272,6 +264,9 @@ export const DATA_TABLE_BODY = 'ww-data-table__body';
 export const DATA_TABLE_CELL = 'ww-data-table__cell';
 export const ASC = '-asc';
 export const DESC = '-desc';
+///classNames:end
+///classNames:begin
+export const BUSY = 'ww-busy';
 ///classNames:end
 ///classNames:begin
 export const MENU_ICON = 'ww-menu-icon';

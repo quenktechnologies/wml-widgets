@@ -1,0 +1,78 @@
+@import './variables';
+
+.ww-file-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: @file-preview-padding;
+    background-color: @file-preview-background-color;
+    border-radius: @file-preview-border-radius;
+    animation: @file-preview-animation;
+    border: @file-preview-border;
+
+    &.__ERROR__ {
+        .filePreviewVariant(@text-field-error-color);
+    }
+
+    &.__WARNING__ {
+        .filePreviewVariant(@text-field-warning-color);
+    }
+
+    &.__SUCCESS__ {
+        .filePreviewVariant(@text-field-success-color);
+    }
+
+    &.ww-busy {
+        position: relative;
+    }
+}
+
+.ww-file-preview__delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: @file-preview-delete-button-color;
+    padding: @file-preview-delete-button-padding;
+
+    &:hover {
+        color: @file-preview-delete-button-hover-color;
+    }
+}
+
+.ww-file-preview-metadata {
+    max-width: 75%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    & > .ww-file-preview_metadata__filename {
+        font-size: @file-preview-filename-font-size;
+        font-weight: @file-preview-filename-font-weight;
+        margin: @file-preview-filename-margin;
+    }
+
+    & > .ww-file-preview_metadata__size {
+        font-size: @file-preview-filename-font-size;
+        color: @file-preview-filesize-color;
+        margin: @file-preview-filesize-margin;
+    }
+}
+
+.filePreviewVariant(@color) {
+    color: @color;
+    border-color: @color;
+
+    & > .ww-file-preview-metadata > * {
+        color: @color;
+    }
+
+    & > .ww-file-preview__delete-button {
+        color: @color;
+    }
+}
+
+.ww-file-preview_metadata__filename {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

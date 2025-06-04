@@ -1,0 +1,3 @@
+
+{% view MessageView (Message from "..") %}
+<p id={{@id}} class={{@className}}>{{@text|text}}</p>

@@ -1,28 +1,34 @@
+{% import (BusyOverlay) from "../../../content/busy-overlay" %}
 {% import (Button) from "../" %}
 
 {% view ButtonView [V](Button[V]) %}
   
 <button
-  wml:id={{@values.button.wml.id}}
-  id={{@values.button.id}}
-  type={{@values.button.type}}
-  name={{@values.button.name}}
-  disabled={{@values.button.disabled}}
-  class={{@values.button.className}}
-  onclick={{@values.button.onclick}}>
-  {{...@values.button.content()}}
+  wml:id="button"
+  id={{@id}}
+  class={{@className}}
+  type={{@button.type}}
+  name={{@button.name}}
+  disabled={{@button.disabled()}}
+  onclick={{@button.onclick}}>
+  {% if @isBusy %}
+    <BusyOverlay/>
+  {% endif %}
+  {{...@button.content()}}
 </button>
 
 {% view AnchorView [V](Button[V]) %}
-  
 <a
-  wml:id={{@values.button.wml.id}}
-  id={{@values.button.id}}
-  type={{@values.button.type}}
-  href={{@values.button.href }}
-  name={{@values.button.name}}
-  disabled={{@values.button.disabled}}
-  class={{@values.button.className}}
-  onclick={{@values.button.onclick}}>
-  {{...@values.button.content()}}
+  wml:id="button"
+  id={{@id}}
+  class={{@className}}
+  type={{@button.type}}
+  href={{@button.href }}
+  name={{@button.name}}
+  disabled={{@button.disabled()}}
+  onclick={{@button.onclick}}>
+  {% if @isBusy %}
+    <BusyOverlay/>
+  {% endif %}
+  {{...@button.content()}}
 </a>

@@ -1,0 +1,21 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (FileButton) from "../../../../../../lib/control/file/button" %}
+
+{% view Main (FileButtonPage from "..") %}
+<Demo>
+  <Demo>
+    <div style="max-width:250px;">
+      <FileButton onChange={{@onChange}} text="Attach"/>
+    </div>
+  </Demo>
+  <Demo>
+    <div style="max-width:250px;">
+      <FileButton error={{@error}} value={{@value}} onChange={{@onErrorChange}} text="Attach"/>
+    </div>
+  </Demo>
+   <Demo>
+    <div style="max-width:250px;">
+      <FileButton wml:id="busy" onChange={{@onBusyChange}} text="Attach"/>
+    </div>
+  </Demo>
+</Demo>

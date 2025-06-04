@@ -1,0 +1,12 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (Switch) from "../../../../../../lib/control/switch" %}
+{% import (FileDropZone) from "../../../../../../lib/control/file/drop-zone" %}
+
+{% view Main (FileDropZonePage from "..") %}
+<Demo>
+  <div style="max-width:600px; min-height:600px; background:pink; position:relative;">
+    <FileDropZone onChange={{@onChange}} multiple={{@multiple}}/>
+  </div>
+
+  Multiple? <Switch value={{@multiple}} onChange={{@onSwitch}} />
+</Demo>

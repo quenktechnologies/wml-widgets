@@ -1,0 +1,30 @@
+{% import (FilePreview) from "../../preview" %}
+{% import (Button) from "../../../button" %}
+{% import (Message) from "../../../message" %}
+
+{% view FileButtonView (FileButton from "..") %}
+<div id={{@id}} class={{@className}}>
+  {% if @value %}
+    <FilePreview 
+      wml:id="preview"
+      file={{@value}}
+      busy={{@isBusy}}
+      error={{@error}}
+      onDelete={{@preview.onDelete}} />
+  {% else %}
+    <input 
+      wml:id="input" 
+      type="file" 
+      class="ww-file-button-input"
+      accept={{@input.accept}}
+      hidden
+      onchange={{@input.onchange}}/>
+    <Button
+      className={{@button.className()}}
+      disabled={{@button.disabled}}
+      text={{@button.text}} 
+      busy={{@isBusy}}
+      onClick={{@button.onClick}} />
+  {% endif %}
+  <Message error={{@error}}/>
+</div>

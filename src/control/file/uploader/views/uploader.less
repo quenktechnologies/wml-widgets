@@ -1,0 +1,20 @@
+@import './variables';
+
+.ww-file-uploader {
+    & > .ww-file-uploader-content {
+        margin: @file-uploader-margin-vertical @file-uploader-margin-horizontal;
+
+        border: @file-uploader-border-size @file-uploader-border-style
+            @file-uploader-border-color;
+
+        border-radius: @file-uploader-border-radius;
+
+        position: relative;
+        background: @file-uploader-background-color;
+        padding: @file-uploader-padding;
+    }
+
+    &.-error > .ww-file-uploader-content {
+        border-color: @text-field-error-color;
+    }
+}

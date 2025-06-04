@@ -160,6 +160,14 @@
       </Demo>
     </Demo>
 
+    <Demo>
+      <Demo>
+        <Button
+          busy=true
+          text="Busy" />
+      </Demo>
+    </Demo>
+
 </Demo>
 
 {% view Icon (Object) %}

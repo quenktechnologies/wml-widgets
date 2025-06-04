@@ -1,0 +1,19 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (FileUploader) from "../../../../../../lib/control/file/uploader" %}
+{% import (FileUploaderPage) from "../" %}
+
+{% view Main (FileUploaderPage) %}
+<Demo>
+  <Demo>
+    <FileUploader onChange={{@onChange}}>
+      Click or drag file to get busy.
+    </FileUploader>
+  </Demo>
+  <br/>
+  <br/>
+  <Demo>
+  <FileUploader value={{@value}} error={{@error}} onChange={{@onErrorChange}}>
+      Upload some ting.
+    </FileUploader>
+  </Demo>
+</Demo>

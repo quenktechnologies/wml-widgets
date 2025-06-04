@@ -1,0 +1,34 @@
+{% import (FilePreview) from "../../preview" %}
+{% import (FileDropZone) from "../../drop-zone" %}
+{% import (Message) from "../../../message" %}
+
+{% view FileUploaderView (FileUploader from "..") %}
+<div 
+  id={{@id}} 
+  class={{@className}}>
+  <div class="ww-file-uploader-content">
+    {% if @value %}
+      <FilePreview 
+        wml:id="preview" 
+        file={{@value as File}} 
+        error={{@error}}
+        busy={{@isBusy}}
+        onDelete={{@preview.onDelete}} />
+    {% else %}
+      <FileDropZone 
+        wml:id="zone"
+        accept={{@zone.accept}} 
+        multiple={{@attrs.multiple}}
+        name={{@zone.name}}
+        onChange={{@zone.onChange}}
+        onChangeDone={{@attrs.onChangeDone}}>
+        {% if @zone.text %}
+          <h3>{{@zone.text | text}}</h3>
+        {% else %}
+          {{...@children}}
+        {% endif %}
+      </FileDropZone>
+    {% endif %}
+  </div>
+  <Message error={{@error}}/>
+</div>

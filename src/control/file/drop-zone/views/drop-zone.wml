@@ -1,0 +1,15 @@
+
+{% view FileDropZoneView (FileDropZone from "..") %}
+<div id={{@values.id}} class={{@values.className}}>
+  <input 
+    wml:id="input"
+    type="file"
+    name={{@values.name}}
+    accept={{@values.accept}} 
+    multiple={{@values.multiple}}
+    ondragenter={{@values.stop}}
+    ondragover={{@values.stop}}
+    ondrop={{@values.drop}}
+    onchange={{@values.onchange}}/>
+  {{...@children}}
+</div>

@@ -20,7 +20,7 @@
   "devDependencies": {
     "@quenk/wml": "^2.13.4",
     "@types/mocha": "^9.1.1",
-    "@types/node": "^22.15.18",
+    "@types/node": "^22.15.21",
     "browserify": "^17.0.0",
     "docopt": "^0.6.2",
     "less": "^4.1.3",

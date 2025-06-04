@@ -1,0 +1,19 @@
+{% import (Demo) from "../../../widgets/demo" %}
+{% import (MultiFileUploader) from "../../../../../../lib/control/file/multi-uploader" %}
+{% import (MultiFileUploaderPage) from "../" %}
+
+{% view Main (MultiFileUploaderPage) %}
+<Demo>
+  <Demo>
+    <MultiFileUploader onChange={{@onChange}}>
+      Click or drag file to get busy.
+    </MultiFileUploader>
+  </Demo>
+  <br/>
+  <br/>
+  <Demo>
+    <MultiFileUploader value={{@value}} errors={{@errors}} onChange={{@onErrorChange}}>
+     This one will show errors.
+    </MultiFileUploader>
+  </Demo>
+</Demo>
