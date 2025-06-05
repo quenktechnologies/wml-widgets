@@ -168,16 +168,16 @@ export interface DataTableAttrs<C, R extends Record<C>>
  * NewHeadContext
  */
 export class NewHeadContext<C, R extends Record<C>> {
-    constructor(public table: DataTable<C, R>) {}
+    constructor(
+        public table: DataTable<C, R>,
+        public className = concat(
+            DATA_TABLE_HEAD,
+            (table.attrs && table.attrs.headClassName) || ''
+        ),
+        public columns = table.values.columns,
 
-    className = concat(
-        DATA_TABLE_HEAD,
-        (this.table.attrs && this.table.attrs.headClassName) || ''
-    );
-
-    columns = this.table.values.columns;
-
-    data = this.table.values.dataset[0];
+        public data = table.values.dataset[0]
+    ) {}
 
     heading = (c: Column<C, R>, i: number): Content =>
         getHeadingView(
@@ -195,15 +195,14 @@ export class NewHeadingContext<C, R extends Record<C>> {
         public table: DataTable<C, R>,
         public headContext: HeadContext<C, R>,
         public column: Column<C, R>,
-        public index: number
+        public index: number,
+        public className = concat(
+            DATA_TABLE_HEADING,
+            (table.attrs && table.attrs.headingClassName) || '',
+            <string>column.headingClassName,
+            getSortClassName(table.values.sortKey, index)
+        )
     ) {}
-
-    className = concat(
-        DATA_TABLE_HEADING,
-        (this.table.attrs && this.table.attrs.headingClassName) || '',
-        <string>this.column.headingClassName,
-        getSortClassName(this.table.values.sortKey, this.index)
-    );
 
     onclick = (_: Event) => {
         if (this.column.sort) this.table.values.sort(this.index);
@@ -222,16 +221,15 @@ export class NewHeadingContext<C, R extends Record<C>> {
  * NewBodyContext
  */
 export class NewBodyContext<C, R extends Record<C>> {
-    constructor(public table: DataTable<C, R>) {}
-
-    className = concat(
-        DATA_TABLE_BODY,
-        (this.table.attrs && this.table.attrs.bodyClassName) || ''
-    );
-
-    columns = this.table.values.columns;
-
-    data = this.table.values.dataset[0];
+    constructor(
+        public table: DataTable<C, R>,
+        public className = concat(
+            DATA_TABLE_BODY,
+            (table.attrs && table.attrs.bodyClassName) || ''
+        ),
+        public columns = table.values.columns,
+        public data = table.values.dataset[0]
+    ) {}
 
     cell = (c: Column<C, R>, id: number, row: number): Content =>
         getCellView(
@@ -250,25 +248,20 @@ export class NewCellContext<C, R extends Record<C>> {
         public bodyContext: BodyContext<C, R>,
         public spec: Column<C, R>,
         public column: number,
-        public row: number
+        public row: number,
+        public id = cellId(column, row),
+        public className = concat(
+            DATA_TABLE_CELL,
+            (table.attrs && table.attrs.cellClassName) || '',
+            <string>spec.cellClassName,
+            getSortClassName(table.values.sortKey, column)
+        ),
+        public value = unsafeGet(spec.name, table.values.dataset[0][row]),
+        public datum = table.values.dataset[0][row],
+        public format = spec.format
+            ? spec.format
+            : (c: C) => String(c == null ? '' : c)
     ) {}
-
-    id = cellId(this.column, this.row);
-
-    className = concat(
-        DATA_TABLE_CELL,
-        (this.table.attrs && this.table.attrs.cellClassName) || '',
-        <string>this.spec.cellClassName,
-        getSortClassName(this.table.values.sortKey, this.column)
-    );
-
-    value = unsafeGet(this.spec.name, this.table.values.dataset[0][this.row]);
-
-    datum = this.table.values.dataset[0][this.row];
-
-    format = this.spec.format
-        ? this.spec.format
-        : (c: C) => String(c == null ? '' : c);
 
     onclick = () => {
         if (this.spec.onCellClicked)

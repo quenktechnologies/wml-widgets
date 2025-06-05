@@ -120,18 +120,18 @@ export class ItemUnsetEvent extends ControlEvent<undefined> {
  * RootSection
  */
 export class RootSection<V> {
-    constructor(public attrs: CommonSelectAttrs<V>) {}
+    constructor(
+        public attrs: CommonSelectAttrs<V>,
+        public id = getId(attrs),
+        public className = concat(
+            SELECT,
+            getClassName(attrs),
+            getValidityClassName(attrs),
+            getBlockClassName(attrs)
+        )
+    ) {}
 
     public wml = { id: 'root' };
-
-    public id = getId(this.attrs);
-
-    public className = concat(
-        SELECT,
-        getClassName(this.attrs),
-        getValidityClassName(this.attrs),
-        getBlockClassName(this.attrs)
-    );
 }
 
 /**
@@ -147,22 +147,23 @@ export class ControlSection {
  * MessagesSection
  */
 export class MessagesSection<V> {
-    constructor(public attrs: FormControlAttrs<V>) {}
+    constructor(
+        public attrs: FormControlAttrs<V>,
+        public text = getMessage(attrs)
+    ) {}
 
     public wml = { id: 'message' };
-
-    public text = getMessage(this.attrs);
 }
 
 /**
  * LabelSection
  */
 export class LabelSection<V> {
-    constructor(public attrs: FormControlAttrs<V>) {}
-
-    public id = getName(this.attrs);
-
-    public text = getLabel(this.attrs);
+    constructor(
+        public attrs: FormControlAttrs<V>,
+        public id = getName(attrs),
+        public text = getLabel(attrs)
+    ) {}
 }
 
 /**
@@ -181,47 +182,32 @@ export class SearchSection<V> {
     constructor(
         public attrs: CommonSelectAttrs<V>,
         public close: () => void,
-        public onSelect: (e: ItemSelectedEvent<V>) => void
+        public onSelect: (e: ItemSelectedEvent<V>) => void,
+        public name = getName(attrs),
+        public className = attrs && attrs.inputClassName
+            ? attrs.inputClassName
+            : '',
+
+        public placeholder = attrs && attrs.placeholder
+            ? attrs.placeholder
+            : '',
+        public block = attrs && attrs.block ? attrs.block : false,
+        public value = attrs && attrs.value ? attrs.value : undefined,
+        public readOnly = attrs && attrs.readOnly,
+        public disabled = attrs && attrs.disabled,
+        public itemTemplate = attrs && attrs.itemTemplate
+            ? attrs.itemTemplate
+            : undefined,
+        public noItemsTemplate = attrs && attrs.noItemsTemplate
+            ? attrs.noItemsTemplate
+            : undefined,
+        public stringifier = attrs && attrs.stringifier
+            ? attrs.stringifier
+            : undefined,
+        public onSearch = attrs && attrs.onSearch ? attrs.onSearch : () => {}
     ) {}
 
     public wml = { id: 'search' };
-
-    public name = getName(this.attrs);
-
-    public className =
-        this.attrs && this.attrs.inputClassName
-            ? this.attrs.inputClassName
-            : '';
-
-    public placeholder =
-        this.attrs && this.attrs.placeholder ? this.attrs.placeholder : '';
-
-    public block = this.attrs && this.attrs.block ? this.attrs.block : false;
-
-    public value =
-        this.attrs && this.attrs.value ? this.attrs.value : undefined;
-
-    public readOnly = this.attrs && this.attrs.readOnly;
-
-    public disabled = this.attrs && this.attrs.disabled;
-
-    public itemTemplate =
-        this.attrs && this.attrs.itemTemplate
-            ? this.attrs.itemTemplate
-            : undefined;
-
-    public noItemsTemplate =
-        this.attrs && this.attrs.noItemsTemplate
-            ? this.attrs.noItemsTemplate
-            : undefined;
-
-    public stringifier =
-        this.attrs && this.attrs.stringifier
-            ? this.attrs.stringifier
-            : undefined;
-
-    public onSearch =
-        this.attrs && this.attrs.onSearch ? this.attrs.onSearch : () => {};
 }
 
 /**

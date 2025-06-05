@@ -72,12 +72,10 @@ export class ButtonChangedEvent<V> extends Event<V> {}
 export class ButtonSelectValues<TOption, TValue> {
     constructor(
         public ref: ButtonSelectWidget<TOption, TValue>,
-        public button: ButtonSection<TOption, TValue>
+        public button: ButtonSection<TOption, TValue>,
+        public id = getId(ref.attrs),
+        public className = concat(BUTTON_SELECT, getClassName(ref.attrs))
     ) {}
-
-    id = getId(this.ref.attrs);
-
-    className = concat(BUTTON_SELECT, getClassName(this.ref.attrs));
 }
 
 /**
@@ -86,16 +84,12 @@ export class ButtonSelectValues<TOption, TValue> {
 export class ButtonSection<TOption, TValue> {
     constructor(
         public ref: ButtonSelectWidget<TOption, TValue>,
-        public onClick: (idx: number) => void
+        public onClick: (idx: number) => void,
+        public current = getCurrent(ref.attrs),
+        public options = ref.attrs && ref.attrs.options ? ref.attrs.options : []
     ) {}
 
-    current = getCurrent(this.ref.attrs);
-
     selected = <number[]>[];
-
-    options =
-        this.ref.attrs && this.ref.attrs.options ? this.ref.attrs.options : [];
-
     isActive = (n: number) => this.ref.values.button.current === n;
 
     getClassNames = (n: number) =>
@@ -111,12 +105,11 @@ export class ButtonSection<TOption, TValue> {
 export class MultiButtonSection<V> extends ButtonSection<V, V[]> {
     constructor(
         public ref: MultiButtonSelect<V>,
-        public onClick: (idx: number) => void
+        public onClick: (idx: number) => void,
+        public selected = getSelected(ref)
     ) {
         super(ref, onClick);
     }
-
-    selected = getSelected(this.ref);
 
     isActive = (n: number) => this.ref.values.button.selected.indexOf(n) > -1;
 }
