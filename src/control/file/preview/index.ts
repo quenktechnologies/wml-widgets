@@ -59,6 +59,10 @@ export class FilePreview extends Component<FilePreviewAttrs> {
         return parseFloat((size / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
 
+    get fileType() {
+        return this.attrs.file?.type ?? '';
+    }
+
     onDelete = () => {
         if (this.attrs.onDelete) this.attrs.onDelete(this.attrs.file);
     };

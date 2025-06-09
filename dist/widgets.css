@@ -2020,14 +2020,32 @@ textarea.ww-search > input {
 }
 .ww-file-uploader > .ww-file-uploader-content {
   margin: 0px 0px;
-  border: 1.2px dashed #c0c0c0;
+  border: 0.2rem dashed #c0c0c0;
   border-radius: 8px;
+  text-align: center;
   position: relative;
-  background: transparent;
-  padding: 1rem;
+  background: #fff;
+  padding: 5rem;
 }
 .ww-file-uploader.-error > .ww-file-uploader-content {
   border-color: #d9534f;
+}
+.ww-file-uploader-content-icon {
+  width: 6rem;
+  height: 6rem;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  animation: ww-float 3s ease-in-out infinite;
+}
+@keyframes ww-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 .ww-file-drop-zone > input {
   position: absolute;
@@ -2097,7 +2115,8 @@ textarea.ww-search > input {
   color: #566566;
 }
 .ww-file-preview-metadata {
-  max-width: 75%;
+  max-width: 95%;
+  flex-grow: 2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2116,6 +2135,10 @@ textarea.ww-search > input {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.ww-file-preview-icon {
+  width: 2rem;
+  height: 2rem;
 }
 .ww-file-button {
   position: relative;

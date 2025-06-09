@@ -16,4 +16,8 @@
       Upload some ting.
     </FileUploader>
   </Demo>
+  <Demo>
+  <FileUploader onChange={{@onChange}}/>
+  </Demo>
+
 </Demo>

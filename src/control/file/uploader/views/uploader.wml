@@ -1,20 +1,21 @@
 {% import (FilePreview) from "../../preview" %}
 {% import (FileDropZone) from "../../drop-zone" %}
 {% import (Message) from "../../../message" %}
+{% import (Button) from "../../../button" %}
 
 {% view FileUploaderView (FileUploader from "..") %}
 <div 
   id={{@id}} 
   class={{@className}}>
-  <div class="ww-file-uploader-content">
     {% if @value %}
       <FilePreview 
         wml:id="preview" 
         file={{@value as File}} 
         error={{@error}}
         busy={{@isBusy}}
-        onDelete={{@preview.onDelete}} />
+        onDelete={{@preview.onDelete}}/>
     {% else %}
+    <div class="ww-file-uploader-content">
       <FileDropZone 
         wml:id="zone"
         accept={{@zone.accept}} 
@@ -22,13 +23,41 @@
         name={{@zone.name}}
         onChange={{@zone.onChange}}
         onChangeDone={{@attrs.onChangeDone}}>
-        {% if @zone.text %}
-          <h3>{{@zone.text | text}}</h3>
-        {% else %}
+
+        {% if @children.length %}
           {{...@children}}
+        {% else %}
+          {{<FileUploadIcon(@)>}}
+          <h2 class="ww-file-uploader-content-title">Drag & drop files here</h2>
+          <p>or click to browse</p>
+          <Button
+            className="-primary ww-file-uploader-button"
+            text="Upload"/>
         {% endif %}
+
       </FileDropZone>
+    </div>
     {% endif %}
-  </div>
   <Message error={{@error}}/>
+</div>
+
+{% view FileUploadIcon (Object) %}
+<div class="ww-file-uploader-content-icon">
+  <svg 
+     xmlns="http://www.w3.org/2000/svg" 
+     fill="none" 
+     viewBox="0 0 24 24"
+     stroke="currentColor" 
+     class="text-blue-500">
+    <path 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      stroke-width="1.5" 
+      d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+    <path 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      stroke-width="1.5" 
+      d="M12 16V10m0 0l3 3m-3-3l-3 3" />
+  </svg>
 </div>

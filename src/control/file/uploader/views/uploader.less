@@ -8,13 +8,32 @@
             @file-uploader-border-color;
 
         border-radius: @file-uploader-border-radius;
-
+        text-align: center;
         position: relative;
-        background: @file-uploader-background-color;
+        background: @file-uploader-content-background;
         padding: @file-uploader-padding;
     }
 
     &.-error > .ww-file-uploader-content {
         border-color: @text-field-error-color;
+    }
+}
+
+.ww-file-uploader-content-icon {
+    width: @file-uploader-content-default-icon-width;
+    height: @file-uploader-content-default-icon-height;
+    margin-bottom: @file-uploader-content-default-margin-bottom;
+    margin-left: auto;
+    margin-right: auto;
+    animation: ww-float 3s ease-in-out infinite;
+}
+
+@keyframes ww-float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
     }
 }

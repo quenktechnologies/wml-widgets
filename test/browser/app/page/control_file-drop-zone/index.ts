@@ -9,7 +9,11 @@ export class FileDropZonePage {
     multiple = false;
 
     onChange = (e: FileChangedEvent) => {
-        alert(`You selected the file "${(<File>e.value).name}!"`);
+        alert(
+            e.value
+                ? `You selected the file "${(<File>e.value).name}!"`
+                : 'You removed the file!'
+        );
     };
 
     onSwitch = () => {
