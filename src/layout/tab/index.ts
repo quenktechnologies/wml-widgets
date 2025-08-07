@@ -1,5 +1,6 @@
 import * as views from './wml/tab';
-import { Fun, Content, Component } from '@quenk/wml';
+
+import { View, Content, Component } from '@quenk/wml';
 import { text } from '@quenk/wml/lib/dom';
 import { fromNullable } from '@quenk/noni/lib/data/maybe';
 import { concat } from '../../util';
@@ -23,12 +24,12 @@ export interface TabSpec {
     /**
      * tabFun can be specified to render custom content in the tab.
      */
-    tabFun?: (t: TabLayout) => Fun;
+    tabFun?: (t: TabLayout) => View;
 
     /**
      * contentFun is rendered when the tab is active.
      */
-    contentFun: (t: TabLayout) => Fun;
+    contentFun: (t: TabLayout) => View;
 }
 
 /**
@@ -98,7 +99,7 @@ export class TabLayout extends Component<TabLayoutAttrs> implements Layout {
                     );
 
                     if (maybeActive.isJust())
-                        return maybeActive.get().contentFun(this)(this.view);
+                        return [maybeActive.get().contentFun(this).render()];
                 }
 
                 return this.children;
@@ -111,7 +112,7 @@ export class TabLayout extends Component<TabLayoutAttrs> implements Layout {
             data: this.attrs && this.attrs.tabs ? this.attrs.tabs : {},
 
             content: (t: TabSpec): Content[] => {
-                if (t.tabFun) return t.tabFun(this)(this.view);
+                if (t.tabFun) return [t.tabFun(this).render()];
 
                 if (t.text) return [text(t.text)];
 
@@ -126,8 +127,9 @@ export class TabLayout extends Component<TabLayoutAttrs> implements Layout {
                     this.values.tabs.data[e.name]
                 ).get();
 
-                this.values.root.content = () =>
-                    tab.contentFun(this)(this.view);
+                this.values.root.content = () => [
+                    tab.contentFun(this).render()
+                ];
 
                 this.view.invalidate();
             }

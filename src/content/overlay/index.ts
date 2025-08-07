@@ -32,7 +32,7 @@ export class Overlay extends Component<OverlayAttrs> {
         className: concat(OVERLAY, getClassName(this.attrs)),
 
         onclick: () => {
-             if (this.attrs && this.attrs.onClick) this.attrs.onClick();
+            if (this.attrs && this.attrs.onClick) this.attrs.onClick();
         }
     };
 

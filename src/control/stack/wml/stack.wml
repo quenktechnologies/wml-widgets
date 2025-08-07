@@ -1,12 +1,13 @@
 {% import (Stack) from "../" %}
 
-{% fun content [V](s:Stack[V], v:V, _:Number) %}
+{% view DefaultTemplate[V] where 
+  stack: Stack[V], 
+  value:V, 
+  index:Number %}
 
-  <div class={{s.values.element.content.className}}>
-    {{s.values.element.decorator(v)}}
+  <div class={{@stack.values.element.content.className}}>
+    {{@stack.values.element.decorator(@value)}}
   </div>
-
-{% endfun %}
 
 {% view Main [V](Stack[V]) %}
 

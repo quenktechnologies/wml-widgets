@@ -2,26 +2,16 @@
 {% import (TabLayout) from "../../../../../../lib/layout/tab" %}
 {% import (TabLayoutPage) from "../" %}
 
-{% fun firstTab (_:TabLayout) %}
-
+{% view FirstTab %}
   <p>Click a tab to change content.</p>
 
-{% endfun %}
-
-{% fun secondTab (_:TabLayout) %}
-
+{% view SecondTab %}
   <p>Second tab.</p>
 
-{% endfun %}
-
-{% fun thirdTab (_:TabLayout) %}
-
+{% view ThirdTab %}
   <p>Third tab.</p>
 
-{% endfun %}
-
 {% view Main (TabLayoutPage) %}
- 
 <Demo>
 
    <TabLayout tabs={{@tabs}} active="first">

@@ -1,6 +1,6 @@
 import * as views from './wml/stack';
 
-import { Fun } from '@quenk/wml';
+import { View } from '@quenk/wml';
 import { text } from '@quenk/wml/lib/dom';
 
 import { concat } from '../../util';
@@ -17,9 +17,7 @@ export const STACK_CLOSE_BUTTON = 'ww-stack__button';
 /**
  * ElementTemplate provides a template for rendering a stack element's UI.
  */
-export type ElementTemplate<V> = (
-    s: Stack<V>
-) => (value: V) => (idx: number) => Fun;
+export type ElementTemplate<V> = (s: Stack<V>, value: V, idx: number) => View;
 
 /**
  * StackAttrs
@@ -88,8 +86,12 @@ export class Stack<V> extends AbstractControl<V[], StackAttrs<V>> {
 
             template: (v: V, idx: number): any =>
                 this.attrs && this.attrs.elementTemplate
-                    ? this.attrs.elementTemplate(this)(v)(idx)(this.view)
-                    : views.content(this, v, idx)(this.view),
+                    ? this.attrs.elementTemplate(this, v, idx)
+                    : new views.DefaultTemplate({
+                          stack: this,
+                          value: v,
+                          index: idx
+                      }),
 
             content: {
                 className: STACK_ELEMENT_CONTENT

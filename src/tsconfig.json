@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "baseUrl": "src",
-        "lib": ["es5", "ES2015", "DOM"],
+        "lib": ["es5", "ES2015", "DOM", "dom.iterable"],
         "module": "commonjs",
         "target": "es2022",
         "rootDir": ".",
