@@ -2956,13 +2956,11 @@ button.ww-close {
  * breakpoint.
  */
 .ww-overlay {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2972,6 +2970,20 @@ button.ww-close {
 }
 .ww-overlay.ww-transparent {
   background-color: transparent;
+}
+.ww-overlay.ww-full-screen {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+.ww-overlay.ww-low {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.ww-overlay.ww-high {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.ww-overlay.ww-strong {
+  background-color: rgba(0, 0, 0, 0.9);
 }
 .ww-media-description {
   margin-top: 15px;

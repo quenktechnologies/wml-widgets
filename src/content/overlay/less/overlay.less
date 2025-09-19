@@ -1,21 +1,37 @@
 @import './variables';
 
 .__OVERLAY__ {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 100vw;
-    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: @overlay-z-index;
-    background-color: rgba(0, 0, 0, @overlay-opacity);
+    z-index: @ww-overlay-z-index;
+    background-color: @ww-overlay-background-color;
     pointer-events: all;
 
     &.ww-transparent {
         background-color: transparent;
+    }
+
+    &.ww-full-screen {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    &.ww-low {
+      background-color: @ww-overlay-background-color-low;
+    }
+
+    &.ww-high {
+      background-color: @ww-overlay-background-color-high;
+    }
+
+    &.ww-strong {
+      background-color: @ww-overlay-background-color-strong;
     }
 }

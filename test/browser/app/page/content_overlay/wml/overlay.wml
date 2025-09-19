@@ -7,6 +7,6 @@
 
   <h1>Overlay</h2>
 
-  <Overlay wml:id="overlay" onClick={{@values.onClick}} />
+  <Overlay wml:id="overlay" className="ww-fullscreen" onClick={{@values.onClick}} />
 
 </Demo>
