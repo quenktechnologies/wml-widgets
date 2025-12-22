@@ -113,7 +113,7 @@
 .ww-panel > .ww-panel__header {
   padding: 10px 15px;
   border-bottom: 1px solid transparent;
-  border-top-right-radius: 4px -1;
+  border-top-right-radius: 3px;
   border-top-left-radius: 3px;
 }
 .ww-panel > .ww-panel__body {
