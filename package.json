@@ -18,7 +18,7 @@
     "@quenk/noni": "^1.44.0"
   },
   "devDependencies": {
-    "@quenk/wml": "^2.13.11",
+    "@quenk/wml": "^2.15.0",
     "@types/mocha": "^9.1.1",
     "@types/node": "^22.15.21",
     "browserify": "^17.0.0",
