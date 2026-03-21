@@ -146,6 +146,7 @@ export const TYPEAHEAD = 'ww-typeahead';
 ///classNames:begin
 export const TEXT_FACADE = 'ww-text-facade';
 export const TEXT_FACADE_CONTENT = 'ww-text-facade-content';
+export const TEXT_FACADE_WRAPPER = 'ww-text-facade-wrapper';
 ///classNames:end
 ///classNames:begin
 export const PAGER = 'ww-pager';

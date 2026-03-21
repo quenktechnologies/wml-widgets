@@ -68,8 +68,10 @@ export type TableName = string;
 /**
  * DataTableAttrs
  */
-export interface DataTableAttrs<C, R extends Record<C>>
-    extends HTMLElementAttrs {
+export interface DataTableAttrs<
+    C,
+    R extends Record<C>
+> extends HTMLElementAttrs {
     /**
      * name of the table.
      */

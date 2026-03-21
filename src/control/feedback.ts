@@ -58,8 +58,10 @@ export interface FeedbackControlAttrs<V> extends ControlAttrs<V> {
  * Warning
  * Success.
  */
-export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
-    extends Control<V, A> {
+export interface FeedbackControl<
+    V,
+    A extends FeedbackControlAttrs<V>
+> extends Control<V, A> {
     /**
      * setMessage on the control.
      */
@@ -93,9 +95,9 @@ export interface FeedbackControl<V, A extends FeedbackControlAttrs<V>>
  * Provides a default implementaion of the interface methods.
  */
 export abstract class AbstractFeedbackControl<
-        V,
-        A extends FeedbackControlAttrs<V>
-    >
+    V,
+    A extends FeedbackControlAttrs<V>
+>
     extends AbstractControl<V, A>
     implements FeedbackControl<V, A>
 {

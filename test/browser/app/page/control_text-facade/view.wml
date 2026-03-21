@@ -14,4 +14,7 @@
      <b>This is just a Facade!</b>
     </TextFacade>
   </Demo>
+  <Demo>
+    <TextFacade label="With a label">Labelled facade</TextFacade>
+  </Demo>
 </Demo>

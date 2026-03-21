@@ -1,7 +1,14 @@
 
+{% import (Label) from "../label" %}
+
 {% view TextFacadeView (TextFacade from ".") %}
-<div id={{@id}} 
-     class={{@className}} 
-     onclick={{@onclick}}>
-   {{...@children}}
+<div class={{@wrapper.className}}>
+    {% if @label %}
+      <Label for={{@id}} text={{@label}} />
+    {% endif %}
+    <div id={{@id}} 
+         class={{@className}} 
+         onclick={{@onclick}}>
+        {{...@children}}
+    </div>
 </div>

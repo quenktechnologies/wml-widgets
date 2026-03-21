@@ -9,17 +9,17 @@ export class TabLayoutPage {
         first: {
             text: 'First',
 
-            contentFun: ()=> new views.FirstTab()
+            contentFun: () => new views.FirstTab()
         },
         second: {
             text: 'Second',
 
-            contentFun: ()=> new views.SecondTab()
+            contentFun: () => new views.SecondTab()
         },
         third: {
             text: 'Third',
 
-            contentFun: ()=> new views.ThirdTab()
+            contentFun: () => new views.ThirdTab()
         }
     };
 }

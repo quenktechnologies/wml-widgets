@@ -9,6 +9,7 @@ import { TextFacadeView } from './views';
 ///classNames:begin
 export const TEXT_FACADE = 'ww-text-facade';
 export const TEXT_FACADE_CONTENT = 'ww-text-facade-content';
+export const TEXT_FACADE_WRAPPER = 'ww-text-facade-wrapper';
 ///classNames:end
 
 /**
@@ -19,6 +20,11 @@ export interface TextFacadeAttrs extends HTMLElementAttrs {
      * disabled
      */
     disabled?: boolean;
+
+    /**
+     * label to display above the control.
+     */
+    label?: string;
 
     /**
      * onClick handler.
@@ -56,5 +62,11 @@ export class TextFacade extends Component<TextFacadeAttrs> {
 
     content = {
         className: TEXT_FACADE_CONTENT
+    };
+
+    label = this.attrs.label;
+
+    wrapper = {
+        className: TEXT_FACADE_WRAPPER
     };
 }

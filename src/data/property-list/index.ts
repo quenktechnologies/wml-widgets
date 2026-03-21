@@ -66,8 +66,10 @@ export interface Field<D, R extends Record<D>> {
 /**
  * PropertyListAttrs
  */
-export interface PropertyListAttrs<D, R extends Record<D>>
-    extends HTMLElementAttrs {
+export interface PropertyListAttrs<
+    D,
+    R extends Record<D>
+> extends HTMLElementAttrs {
     /**
      * fields used to generate the data.
      */

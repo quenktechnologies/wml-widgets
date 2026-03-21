@@ -33,8 +33,10 @@ export interface Option<T> {
 /**
  * ButtonSelectAttrs
  */
-export interface ButtonSelectAttrs<TOption, TValue>
-    extends ControlAttrs<TValue> {
+export interface ButtonSelectAttrs<
+    TOption,
+    TValue
+> extends ControlAttrs<TValue> {
     /**
      * options to display
      */
