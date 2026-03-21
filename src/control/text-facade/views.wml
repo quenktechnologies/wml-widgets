@@ -1,5 +1,6 @@
 
 {% import (Label) from "../label" %}
+{% import (Help) from "../help" %}
 
 {% view TextFacadeView (TextFacade from ".") %}
 <div class={{@wrapper.className}}>
@@ -11,4 +12,7 @@
          onclick={{@onclick}}>
         {{...@children}}
     </div>
+    <Help
+      wml:id={{@messages.wml.id}}
+      text={{@messages.text}} />
 </div>

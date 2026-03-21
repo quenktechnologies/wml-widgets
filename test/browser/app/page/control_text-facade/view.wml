@@ -17,4 +17,25 @@
   <Demo>
     <TextFacade label="With a label">Labelled facade</TextFacade>
   </Demo>
+  <Demo>
+    <TextFacade
+      label="Error state"
+      error="This field has an error.">Error facade</TextFacade>
+  </Demo>
+  <Demo>
+    <TextFacade
+      label="Warning state"
+      warning="This field has a warning.">Warning facade</TextFacade>
+  </Demo>
+  <Demo>
+    <TextFacade
+      label="Success state"
+      success="This field is valid.">Success facade</TextFacade>
+  </Demo>
+  <Demo>
+    <TextFacade
+      wml:id={{@values.programmatic.id}}
+      label="Programmatic (click to cycle messages)"
+      onClick={{@values.programmatic.onClick}}>Click me</TextFacade>
+  </Demo>
 </Demo>
