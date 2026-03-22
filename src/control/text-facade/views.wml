@@ -10,7 +10,11 @@
     <div id={{@id}} 
          class={{@className}} 
          onclick={{@onclick}}>
+      {% if @attrs.value %}
+        {{@attrs.value | text}}
+      {% else %}
         {{...@children}}
+      {% endif %}
     </div>
     <Help
       wml:id={{@messages.wml.id}}

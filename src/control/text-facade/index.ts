@@ -31,6 +31,11 @@ export interface TextFacadeAttrs extends HTMLElementAttrs {
     label?: string;
 
     /**
+     * value to display.
+     */
+     value? : string;
+
+    /**
      * message to display to the user.
      */
     message?: Message;
