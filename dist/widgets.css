@@ -2816,12 +2816,12 @@ buttonLink styles the button to appear like a link.
   color: inherit;
 }
 .ww-alert.-default {
-  background-color: #fff;
-  border-color: #ccc;
-  color: inherit;
+  background-color: #e2e3e5;
+  border-color: #c4c8cb;
+  color: #fff;
 }
 .ww-alert.-default hr {
-  border-color: #b3b3b3;
+  border-color: #a9afb3;
 }
 .ww-alert.-primary {
   background-color: #337ab7;
